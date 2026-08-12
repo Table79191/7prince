@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7왕자</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section id="homePage" class="page active home-page">
+  <img id="homeLogo" class="home-logo" src="" alt="7왕자">
+  <div class="home-actions">
+    <button id="openComicMenu" type="button">만화 보기</button>
+    <button id="openDownloadMenu" type="button">다운로드</button>
+  </div>
+</section>
+<section id="menuPage" class="page menu-page">
+  <div id="chocolateGrid" class="chocolate-grid"></div>
+  <button class="home-button" type="button" data-home>홈</button>
+</section>
+<section id="viewerPage" class="page viewer-page">
+  <div id="viewerArtwork" class="viewer-artwork">
+    <img id="viewerImage" draggable="false" alt="">
+    <div id="viewerTileAssembly" class="viewer-tile-assembly"></div>
+    <canvas id="liquidHologram" class="liquid-hologram"></canvas>
+    <canvas id="glitchOverlay" class="glitch-overlay"></canvas>
+    <button id="nextZone" class="nav-zone nav-next" type="button" aria-label="다음 이미지"></button>
+    <button id="prevZone" class="nav-zone nav-prev" type="button" aria-label="이전 이미지"></button>
+  </div>
+  <button class="home-button viewer-home" type="button" data-home>홈</button>
+</section>
+<section id="downloadPage" class="page download-page">
+  <div class="download-toolbar">
+    <div id="downloadTitle" class="download-title"></div>
+    <button id="downloadAll" type="button">모두 다운로드</button>
+  </div>
+  <div id="downloadGrid" class="download-grid"></div>
+  <button class="home-button" type="button" data-home>홈</button>
+</section>
+<script id="embeddedImages" type="application/json">{"218":[{"index":1,"name":"218화.1번.jpg","mime":"image/jpeg","path":"218/001.jpg"},{"index":2,"name":"218화.2번.jpg","mime":"image/jpeg","path":"218/002.jpg"}],"219":[{"index":1,"name":"219화.1번.webp","mime":"image/webp","path":"219/001.webp"}],"220":[]}</script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</main>
+</body>
+</html>

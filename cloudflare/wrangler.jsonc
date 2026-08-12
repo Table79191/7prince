@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "seven-prince-assets",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-12",
+  "workers_dev": true,
+  "r2_buckets": [{ "binding": "ASSETS", "bucket_name": "seven-prince-assets" }],
+  "vars": { "ALLOWED_ORIGINS": "https://table79191.github.io,http://localhost:8000,http://127.0.0.1:8000" }
+}

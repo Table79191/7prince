@@ -64,6 +64,7 @@ jobs:
   deploy:
     name: Deploy GitHub Pages
     needs: test
+    if: ${{ vars.ENABLE_GITHUB_PAGES == 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -74,8 +75,6 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3

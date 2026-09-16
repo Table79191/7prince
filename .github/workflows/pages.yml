@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages
+name: Test and Deploy GitHub Pages
 
 on:
   push:
@@ -15,7 +15,55 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  test:
+    name: Browser smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/7prince-http.log 2>&1 &
+          echo $! > /tmp/7prince-http.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/index.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/7prince-http.log
+          exit 1
+
+      - name: Run browser smoke test
+        env:
+          BASE_URL: http://127.0.0.1:4173
+          SMOKE_SCREENSHOT: smoke-home.png
+        run: node .github/smoke-test.mjs
+
+      - name: Upload browser screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-smoke-screenshot
+          path: smoke-home.png
+          if-no-files-found: ignore
+          retention-days: 7
+
   deploy:
+    name: Deploy GitHub Pages
+    needs: test
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

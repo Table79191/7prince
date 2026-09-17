@@ -1898,3 +1898,50 @@ new_items_sample:
 - [childes] 66e9e1739e3998d44a92d0a89cee1f8a573dce0bd1841da36fcee7de86392dc3 | The seed shouldn't have come out then. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:40:47+09:00 / 2026-09-17T19:40:47+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35266019548
+run_attempt: 1
+event_head_sha: 07b668ddecf8bb3cef75669e4b9dc0110a711c91
+worker_base_sha: 07b668ddecf8bb3cef75669e4b9dc0110a711c91
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 43955
+after_total: 44955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 6c0b2f532f6e6860e76bad102f6325a468384fe3f634ebf1b40cf6ab4a6af69e | You want zero or a x? | UD_English-CHILDES
+- [childes] 6c0b5db18dc3691a467d4db540996ef79b4f966cc00c15df309cc9a77e4c94b5 | It 's a watch? | UD_English-CHILDES
+- [childes] 6c0d795f68a818e53b43c746531396cdc5a672f5e47b05218ac307a1f033d540 | Two minutes about what? | UD_English-CHILDES
+- [childes] 6c0d82450cdb4a32d27c4c0089b031fd37f817abee4ce91fe5d5675ae9cb22d2 | Oh that's a lovely snake isn't it? | UD_English-CHILDES
+- [childes] 6c11881272e2983f2d1466b2ecd449f4a573bde19c812644faed5b3c7e6a6f91 | It won 't stay there. | UD_English-CHILDES
+- [childes] 6c1197eb794aa703f3bd757894416de90bcab11d65f69b7d6f9dac9f082edb37 | Oh you know what we're celebrating. | UD_English-CHILDES
+- [childes] 6c13b63d83b858b19eb66a76e2ddb581262dab3b17440cf623e43750a8144539 | No daddy wasn't there. | UD_English-CHILDES
+- [childes] 6c14c4d6fe05cbd74778d320adea36356251baf17193f6de2446a2bbe5db7b48 | But for some reason you've always called him man haven't you? | UD_English-CHILDES
+- [childes] 6c151e07fd2433e3a5e34f066447d2c99d4c9446d1a5cd4973ba052b48e39ef3 | Get some water in that. | UD_English-CHILDES
+- [childes] 6c16cf0d77745ce3d8b4f61d47eb814b68d12a7b064964cf7945c4525cef5e3a | No if you take those off the wheels will come off. | UD_English-CHILDES
+- [childes] 6c17735921d2ce4ee561442d82cee18c13058bde1e6eadcfc8a792f9c07e59ad | You you busy you. | UD_English-CHILDES
+- [childes] 6c180a4cb8b35d8b01a16694915ab1d3dc65c3f7a63c1e431d2225d12f1dc44e | When she really started. | UD_English-CHILDES
+- [childes] 6c180b90889499ab2b7288afdfeaed970ea1f4e8620d7b9b6b4f5e9b18492658 | And then you don't let anybody look behind your back? | UD_English-CHILDES
+- [childes] 6c184736379804978fb4568ddcfe819a91d0a3d8763ec05ee7ba1e0b3fcb1043 | Yes but you can only put one car in there now. | UD_English-CHILDES
+- [childes] 6c18c099568c1615ae8c23a1aafebf82e669878f9d7eb186f3f5bb6cbe2b0a81 | And what do babies do in the cradle what do they do? | UD_English-CHILDES
+- [childes] 6c1a1b847da51c1741601d05abd969d9d3c4df682f75fabee679a4f828af92f2 | A chicken a chicken. | UD_English-CHILDES
+- [childes] 6c1ae531c95e1fe721069dd07602e25734cf3db1bd1d466ef25111c2245fadfd | Because I just put them on. | UD_English-CHILDES
+- [childes] 6c1b0d8bb4da018e6869aea57b6cfa244d0dc452eb9caba1fa007773420dbcbc | It must be over here. | UD_English-CHILDES
+- [childes] 6c1ca2d6bceb6579f2518707df41638d2e02ef444787a7e0aaf9b988edb30dc9 | Wo a giraffe. | UD_English-CHILDES
+- [childes] 6c1e95dcf93d6217be78d7cca26046109b144dac5a930b2fc6864de626b2d755 | We're gonna go out and play. | UD_English-CHILDES
+- [childes] 6c1eaa4bca486683f619064812aeb4c7450cc75ea8b898b8ef79108023f19df4 | Ah pe penny is in. | UD_English-CHILDES
+- [childes] 6c22a2b6b789fca874d372c8312d439f0cf8c9c36fc910bb790a4e73bd713dd9 | No it looks pretty good. | UD_English-CHILDES
+- [childes] 6c27077d82c013ab7d20a7c10ed9855971f17cb37827a7bede34878746e00c58 | First you make a head huh? | UD_English-CHILDES
+- [childes] 6c27b20742788f91558447f00ec120b7716630580296687e85742e57658950ab | Does it fit there? | UD_English-CHILDES
+- [childes] 6c280b5b2723676c1e6039cbe346c622546ba6d1c00334ceceeed6611b1ef88d | To the door. | UD_English-CHILDES
+- [childes] 6c2a62abaab1c5835932175b320617b21a0b46e72ab9f7d31155b9c143d07f37 | Say please. | UD_English-CHILDES
+- [childes] 6c2a8c91d6ae427210e01b5a5dbeabd8d89a09c378b6eddee116d122af8d91d9 | Roman what is this right here what is all of this? | UD_English-CHILDES
+- [childes] 6c2bf240647e4bfcd64b2bc6103e348febe0a18c1e5d5d3d0c82f0b54b0d3929 | Out came the dustbin men and drive for the dustbin. | UD_English-CHILDES
+- [childes] 6c2d2d3e638d68471b26833cc10a9a29e9a7f85693edf66bbcec0a46ad38ca86 | You took them out there. | UD_English-CHILDES
+- [childes] 6c2e6805003473910fe85f92e47581d586161012996a91b5591e50b8ae63bc34 | Careful Adam you don 't want it to break it. | UD_English-CHILDES
+- ... 970 more new items
+

@@ -108,12 +108,13 @@ def postprocess_roles(doc, neural_roles):
             if not embedded_wh_object:
                 out[i] = 'C'; reason[i] = 'dep-complement'
         elif dep == 'pobj':
-            # Preserve a neural core label through an "of" NP only when the
-            # containing nominal already has the same core role. This restores
-            # phrase-internal core continuity without the old broad inheritance.
+            # Preserve a neural core label through an "of" NP only for lexical
+            # nominals whose containing nominal already has the same core role.
+            # Relative/partitive pronouns ("of whom/which") remain modifiers.
             nominal_head = t.head.head if t.head.lower_ == 'of' else None
             same_of_core = (
                 nominal_head is not None
+                and t.pos_ != 'PRON'
                 and neural_roles[i] in {'S','O','C'}
                 and out[nominal_head.i] == neural_roles[i]
             )

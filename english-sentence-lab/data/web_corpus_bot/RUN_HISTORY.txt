@@ -1240,3 +1240,50 @@ new_items_sample:
 - [childes] 36cabedea7273c433d774c58ea80873a4a955d3bcf15476789ff145a861ab4e8 | You like cereal. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:28:14+09:00 / 2026-09-17T18:28:14+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35258718227
+run_attempt: 1
+event_head_sha: 77fc12c9c47fc5a5476124389153bca6509fd54a
+worker_base_sha: 77fc12c9c47fc5a5476124389153bca6509fd54a
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 29955
+after_total: 30955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 395faad6cabf1ee031ac1c3dc5e95f4c60b60c17fc17fcde6791cd61d60c9440 | Ah see. | UD_English-CHILDES
+- [childes] 395ff390fad7c118db1b632756ceafc7ffc9e8b02434a950e8d5e4b353aba31f | Rig horn. | UD_English-CHILDES
+- [childes] 396266ae5ec3db6fbf4264590c4c4372804cc59429b42d3959a4f1763834fcd9 | What would you like? | UD_English-CHILDES
+- [childes] 3965f9c35feb43442c7074466b09afccb55bd6b9dd43a35e5829ec2b06092b4b | T r e g. | UD_English-CHILDES
+- [childes] 39692212b87cde411305bc0f2f91ae961b5eeec168b8335afdf6bf99ca43e8b9 | I'll show ya. | UD_English-CHILDES
+- [childes] 3969bf80e7f1cdbc3648fb8f8761a271062676e06ac2d2466bee24e17f484b35 | It 's a crab. | UD_English-CHILDES
+- [childes] 3969c868a31c3f171dcab3637ecea0ccfad05330f020015b35252f5a5244f46a | What were you singing? | UD_English-CHILDES
+- [childes] 396ac2a3e12c23bd541a0bf00b15f4af2ff405b55edff529f464a3a2e84c8a10 | It's good though. | UD_English-CHILDES
+- [childes] 396bd9b5bb0ee595dcdb7e289713766d7b9d51ba0acd3ecd2ab5e5898e750784 | Are you getting a runny nose? | UD_English-CHILDES
+- [childes] 396c62f90b44a54448b181b00a4e0a90a7c8cbb4f8fc647d537503e3b16ee1ee | Adam walk. | UD_English-CHILDES
+- [childes] 396d880b57103232a60c6946abaa03be850137d7374b835d652197146a0599fa | Swim with you? | UD_English-CHILDES
+- [childes] 396db6fc759b7d1d7f218b3357131443780871da0a5011a69e791bf0315d717b | No over. | UD_English-CHILDES
+- [childes] 396eb7029ec4667bf07000d306d6123ac2ebf99ce7e462c865b08973f4f9d572 | Well that looks very complicated. | UD_English-CHILDES
+- [childes] 396ef645befc1cfc7f7f36b47f73bd343c2fb82461351f3f68aaed90abe5be9f | I guess. | UD_English-CHILDES
+- [childes] 396fbc46976e15d731fa44b2fa8b008219d227344eb1129241df20560481609b | You play tickle my dog? | UD_English-CHILDES
+- [childes] 397476c2199bc095b359839225ab1bb5a45eeb6046b9cc8592c9d7eefbfe03af | You want me to grate salty cheese? | UD_English-CHILDES
+- [childes] 3975f155d7a3f5e6ef1fd6e89f1ca9cee9cb6b1afd650ebaec8d3697bc8d5ee3 | There's a ribbon on his hat yeah. | UD_English-CHILDES
+- [childes] 3976b671070ad247faff549a425165801743d94dc82b3277e50f8fe1c4b4e466 | Your hands don't. | UD_English-CHILDES
+- [childes] 397a4ffb9bf1b98c727305e3d65f3b3a26477e170f15c007222592293809551a | That's not a c. | UD_English-CHILDES
+- [childes] 397b49cde0ea619b073025799032ddf3d0e6db364ba54cfc99d2f34a55e61099 | We 'll come and do it won 't we Adam? | UD_English-CHILDES
+- [childes] 397bab8896d4f2ab3932eed3ba6178cce0a1e936713a99ed8eb97934a2561f99 | And make a and go to work. | UD_English-CHILDES
+- [childes] 39840f10978934f2f9ed943cb3ef8a53264035b071df75be463955d4a2a3327f | I gotta think of her name. | UD_English-CHILDES
+- [childes] 3984733b51b47e6e598d5d86707720b90515c6914a21ca52c2654f9213124559 | That's not the penis. | UD_English-CHILDES
+- [childes] 3986700ea7d6379db6994a80bcd015c22fcc599a9da7e88246fedb7398c55b4d | Don 't step on it. | UD_English-CHILDES
+- [childes] 3986dafc4fc6296f76b4f1cfcd79d987a76fd1169f02551adf30f4436b13e8c9 | Adam funny? | UD_English-CHILDES
+- [childes] 39885905460e11fb31d6370bc8dbaad19a8f8e236a754e6f7b5b3e64980aa5db | Looking for Cromer! | UD_English-CHILDES
+- [childes] 39895472c2e1b353f3a701d3f18c72b3a2bf0b0dfc201c21a50e7f4c9a509413 | Letter. | UD_English-CHILDES
+- [childes] 398da7d393f7ac7b9fbefd987a333a597c57c52e009f38ea0596da0abeb62c3d | What kind of game are you going to watch? | UD_English-CHILDES
+- [childes] 398dc981c21c3fda1a83ab6139c965f6c8aea145fb1509a5b87006601478fa29 | Uhhuh more more milk. | UD_English-CHILDES
+- [childes] 398f08776f5e3de276ef565742b78976c6da27f5077cf7daf8dd6d007c694fac | There goes another one. | UD_English-CHILDES
+- ... 970 more new items
+

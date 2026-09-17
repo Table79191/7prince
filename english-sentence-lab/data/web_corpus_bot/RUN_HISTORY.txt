@@ -1616,3 +1616,50 @@ new_items_sample:
 - [childes] 4d9243add4fe2fee6f973790f8a093460d723003952c500afe24a7cf5e54fc3c | Okay you wanna hold that? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:09:27+09:00 / 2026-09-17T19:09:27+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35262931225
+run_attempt: 1
+event_head_sha: 0fc5e23ee4e42bb29655bec32f2d5f2e483c977c
+worker_base_sha: 0fc5e23ee4e42bb29655bec32f2d5f2e483c977c
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 37955
+after_total: 38955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 4ff834a00e812b9202eb2d920be92949215cd2cea80db3a391b0bc86de37774c | Oh I wonder what this is. | UD_English-CHILDES
+- [childes] 4ff87aae4397b8cb1ef105692613d500ba4bdef6a966aee2bce7dfedbcaa1f18 | Just let me get on. | UD_English-CHILDES
+- [childes] 4ff89c656f6977788af2e455104fd3db2a379121522718f155fb05b9c82c096f | It's not straight. | UD_English-CHILDES
+- [childes] 4ffc2075394ae883478b95fee2723fdd3afd6f9d01c99028e0be712f41ce52ec | Do you remember their names or no? | UD_English-CHILDES
+- [childes] 4ffe029b4a1cbacc98c7f73b7d0f0450e4579120b54f825dc678425eb95a2043 | I left down dere. | UD_English-CHILDES
+- [childes] 4fff725b48374e12a5ee02a4e1099c389cfc02f131bcdda8b9e045f499f68856 | Chee chee chee chee. | UD_English-CHILDES
+- [childes] 5001881bc0c27bed84ecefad8a49b1e58ce77b6014a4b1f9bbb4ed01942e85f8 | What are you going to do with this? | UD_English-CHILDES
+- [childes] 5002bf10ee6e61d392e645d34e2dc66986fd64bdb47e72c5c46de76a7b7e82d4 | Sonia leg. | UD_English-CHILDES
+- [childes] 5004a9d8f10e02f40b19f378ac6ba870931e8333dbfb74bac194c18c288a1433 | The baby book. | UD_English-CHILDES
+- [childes] 5004b3a9fffbc28f78723240e4b97d0c8b396bfa37572115fa0836d797ab7eec | I'll give you some punch. | UD_English-CHILDES
+- [childes] 5004d9d69e30776f84afe2601725df4e62a5190fad2b00170004c553d93d2afd | Oh here it is. | UD_English-CHILDES
+- [childes] 50060b8a589b8033f87c8c069b09939cf328fee85364e6212dd104a5c63d8914 | One more thing. | UD_English-CHILDES
+- [childes] 50073ad7905b5d410e38e02ab82c1a7bfc794d7038869176d8b618f2e1dbd46d | That is a lie. | UD_English-CHILDES
+- [childes] 500c6dfd84e11108d8ef17569c9d8b6dea20cc7200a6f42f4995d4a8734be2dc | The button dropped Adam. | UD_English-CHILDES
+- [childes] 500cda94fe78dbe1c5fbe441f878abc55d204d4507fc8a218bc69b6615779f61 | Where Sally go? | UD_English-CHILDES
+- [childes] 500e6af67b365f09685a56483a562680b85a3ff7fa62a22896bfc944a8d9cffc | Is this a boy? | UD_English-CHILDES
+- [childes] 500fee1616bbd14d0d736f26a02188fff9f43aae6a72373f557d328e3321100e | Hold your hand way up. | UD_English-CHILDES
+- [childes] 5014fcd5798cbceacd5fa09f2d13b2c48fbe8bd93f62e604898bfb3855b0b81b | Be quiet. | UD_English-CHILDES
+- [childes] 501a4b849d0acedb8a373ed958f7f5fe887e52235d6e575c394c569d00ae1a92 | He sure does. | UD_English-CHILDES
+- [childes] 501b788301622ef4f4da3a535f83d717b0a5eea15f4d095818b465d7c3af27d7 | Pink and blue and purple. | UD_English-CHILDES
+- [childes] 501cdbc38c43e715527b938c6af8159631e7af678d14db35b0df2bd5495aeb1d | It 's not broken. | UD_English-CHILDES
+- [childes] 5022a5ca0714d64f79d8989b0cc1b330847dca6b5707d30e91fd458e35e93440 | No that's too much. | UD_English-CHILDES
+- [childes] 5022f9ca8a20ddfadda084aff6a82242d513e165b6421091dea0b2338f062548 | No that 's the baby 's. | UD_English-CHILDES
+- [childes] 502689ed454c3aef90015f5c9d4927ae25292c6eb71f2a258e9d74ca1083dc37 | You're the father. | UD_English-CHILDES
+- [childes] 502833530dea173f90bb3a16bd1494937e53fec060288642dc735c964104eac7 | You won't do this yet because you can't reach but. | UD_English-CHILDES
+- [childes] 50290792650911c56b79c059c56daa64ad34aa1c0f596d6462a226f34e53468a | But Daddy I do! | UD_English-CHILDES
+- [childes] 5029f8b153f0ff305ef1b7b652754985b37943d73a64001e3bd28375f0141923 | Where will it be going? | UD_English-CHILDES
+- [childes] 502a13bbdcea74e56d3387dcc2bf37ab2ecd5fca6fed2d7aa5af449ed338e9ba | You can make a bracelet with paper clips. | UD_English-CHILDES
+- [childes] 502b6d33eacb281a9b1a55aab30d8adc7ad6b73082554c9807383fb3e3c57a61 | Can I go on that. | UD_English-CHILDES
+- [childes] 502c74cee1f0e4876568ca1e0b90834572445d5c9ea5e7a6cffe0df2bd2e1aca | My pocketbook. | UD_English-CHILDES
+- ... 970 more new items
+

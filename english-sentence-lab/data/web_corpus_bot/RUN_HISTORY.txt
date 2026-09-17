@@ -2979,3 +2979,50 @@ new_items_sample:
 - [childes] e7f69275ca4fe0cb3c600bc5af5dfac1b20db011c3720d256c84379206626938 | How I wonder what you are. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:42:41+09:00 / 2026-09-17T21:42:41+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35277715370
+run_attempt: 1
+event_head_sha: 72b3f3279d8f82598ea102e2abc506e32e16e01c
+worker_base_sha: 72b3f3279d8f82598ea102e2abc506e32e16e01c
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 66955
+after_total: 67955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] ed4648348b8134d72855260bc36b1291fd99e9d1e8e4b44e12d63f43f443566d | What 's too big? | UD_English-CHILDES
+- [childes] ed48ae2c903cc7d68e5de48df24d977b080b3fd931d061c84cfc2b617d201033 | I'm going in the tractor. | UD_English-CHILDES
+- [childes] ed48e0c6e2dbfc52d0f333d3d20c105ec9786c86cec4c043538a1ee578ad42ed | That means fun jolly. | UD_English-CHILDES
+- [childes] ed4aebdbc6051d26690f56cb41df90abd5fa7a6c871850d9ac17f368cd42985d | I didn't check. | UD_English-CHILDES
+- [childes] ed4b582824294e4c4db6665e1a36ddc08a95295df3617e4aa5930a1bdb67dd5c | It's very wide isn't it? | UD_English-CHILDES
+- [childes] ed4b7bcc93cd9572bea5440d08b545c79cc4a52e7ae3280a26ef200b3e588c91 | Not drive de car. | UD_English-CHILDES
+- [childes] ed4b9d7c40cc526fbd6ece759dc057539f10f74bf7b36e2b1e676fa67f18c404 | No there wasn't they didn't have a swimming pool. | UD_English-CHILDES
+- [childes] ed4f38293d16d717728f22226e0cb9526c7a9ae0a93878d489be928234523abc | Turn the radio on. | UD_English-CHILDES
+- [childes] ed505edaeaf23a0f7093fbe2dbed3c77bb2fa9d760f89e1e70d658c097416f61 | Bozo Popeye. | UD_English-CHILDES
+- [childes] ed51a034fc7e7f3a987ec265887f7c8fc3490e8e78dac265f515234587634814 | You have a car in the back yard? | UD_English-CHILDES
+- [childes] ed539e6518869d10f7df5b879dfef73e7a5b5d25b3cc511c120e609071b47aac | Where does it go? | UD_English-CHILDES
+- [childes] ed5788fb11672d9b5480200873a21b2d8a80701b00b89de84cc698aef7e8017d | Count them again. | UD_English-CHILDES
+- [childes] ed578f0d98250fc4cea8a62c3894c4e4e0b4fdad5748419230b9af6e20f31381 | It was Saturday yesterday. | UD_English-CHILDES
+- [childes] ed5b46ae592459d662829a2b6ab16511e495f14b2f55fbfd51edd3e138b6fe41 | Oh teddy there with a bandage on his paw. | UD_English-CHILDES
+- [childes] ed5bcc47b33bc08169ea98ef9ee746720a9e4a8f31b2722a1004f104cc319c4f | That's a puppy. | UD_English-CHILDES
+- [childes] ed5f23dcf79cf3f0f99aa07a9f699594b92a104711f59088a6ad9b0b5c206b44 | Did it pop? | UD_English-CHILDES
+- [childes] ed62935d11d6a02b9b4b0951d1c86270a54ea99d1cfa17f2b9f5cca71168ec17 | And a pepper. | UD_English-CHILDES
+- [childes] ed64a8a2afb1892915f278f93e14d8c258cba43cc5fd6deb526db5941efb84bc | Oh it was. | UD_English-CHILDES
+- [childes] ed66dfe8e28699259883c25f0e63433792a3d0775f1723a79ace6c3f8b2df10a | Let Adam stir you. | UD_English-CHILDES
+- [childes] ed6764a337142a73b168a1a4e5df4113ce6e0af16e2306c0b4cf06ee7b0becaa | A blue. | UD_English-CHILDES
+- [childes] ed67d22fb2b832c81981ae2a52179cdc38da64b936cae8f478952e4aef71bff1 | We going at the picnic now? | UD_English-CHILDES
+- [childes] ed6a37af0f5b0d9aeee6d3282425b829a7c93f4eb5309489ad491db8300929d8 | No but the shop's too busy. | UD_English-CHILDES
+- [childes] ed6b412bae43f2e19d4c6e21dc7f7fde78f8c2c729587d8a676f5ee91daafea5 | And he's happy. | UD_English-CHILDES
+- [childes] ed6b81574173ef5c44efa5aed3e73978aac6e7d714d120a8fcd194200cc030a2 | He flew on the tree? | UD_English-CHILDES
+- [childes] ed6cc8797e383701395399f8903d1e7e5f6f9a8089d934ee04c56ae99bebacfb | It 's sharp. | UD_English-CHILDES
+- [childes] ed6fc352e7ab57529747a65a3ea3032032db1889d5df5d1e99ddbd57689d3f5d | No we're not gonna glue. | UD_English-CHILDES
+- [childes] ed75ff2a6c13dff030cbd0858a73eecad992ded0bdab3124e1100e495eb41f8e | A toy house. | UD_English-CHILDES
+- [childes] ed760ffaaf43b61490337f100fab33eb6e3184bf9933b11e95b9012f7ba1c385 | Three six ears? | UD_English-CHILDES
+- [childes] ed79b5cc25c9ab04f4496805a92981068a01edee503ce35a95b206b407373597 | Do you know that your little watering trough is in the very deep green water right now? | UD_English-CHILDES
+- [childes] ed7a6ea557c736c922abd5417a93837cfd10aba3c00c8f4f9d20b60237576ec0 | No p. | UD_English-CHILDES
+- ... 970 more new items
+

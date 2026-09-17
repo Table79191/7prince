@@ -253,3 +253,50 @@ new_items_sample:
 - [atis] 52f54098bea1c9ba3fc60c428d6d5f44e58763ac1861df98850761798f08efb5 | list daily flights from oakland to boston using continental airlines | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T01:42:46+09:00 / 2026-09-17T16:42:46+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35248100574
+run_attempt: 1
+event_head_sha: e1bebf8a0f7aecc50c50ad7d8bfd29cd1611521a
+worker_base_sha: e1bebf8a0f7aecc50c50ad7d8bfd29cd1611521a
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 10051
+after_total: 10955
+net_total_change: +904
+new_items_added: 904
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, eslspok: +154 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 5df632b819050561ed9bb9e367b7b05574fa7934084bb5f912e79dcc4b2a7a98 | show me the coach fares from baltimore to dallas | UD_English-Atis
+- [atis] 5df63484ff6d53212b799dc4e5447868823837d8f0030a0f0e84d25882e5edb2 | when is the first flight leaving from oakland to boston | UD_English-Atis
+- [atis] 5dfd36e5a1b500d76a9b1d588e4216356f23ef9c009afa9e56f8a0dd93a065b5 | i would like a list of flights from pittsburgh to dallas | UD_English-Atis
+- [atis] 5e03dd8d25faabded1524bfb54c8a789890593e502a139153e9e407e053dd2b2 | i want to fly from philadelphia to dallas with a stop in atlanta on a breakfast flight | UD_English-Atis
+- [atis] 5e0c229f24018e290a93c0c73f3e97299f7d4bf11d405a062aa9032d08e6e5cd | us 201 | UD_English-Atis
+- [atis] 5e1e00ecebc2312caa7ed8fe9acb402de5a2c291518f968b559d0906a980ee40 | list the cheapest round trip flights from orlando to kansas city | UD_English-Atis
+- [atis] 5e4c85042362e270a647ddf46af46e9b4feba4707f6e81f125b84e2d5ef85de9 | what does yn stand for | UD_English-Atis
+- [atis] 5e5178ac47dc997d706be878bbf6808e84a333a74b9669b60c6d7dd4c298dbc8 | i'm traveling from boston to atlanta and i'd like to go sometime after 5 pm but i want to know what kind of airplane it's on | UD_English-Atis
+- [atis] 5e5383b06aff4bcef1c27489f3e3899276253c95721f19326667953e2110e0a3 | what's the lowest round trip fare from bwi to any city | UD_English-Atis
+- [atis] 5e6351eace4d5c7393e143ea65433725727c33990096fd421c7f1c1f3a4bbe88 | i would like to book a flight from chicago to seattle on june fourth | UD_English-Atis
+- [atis] 5e67ab9f548620d83b6e2fbd1ab894a02a61aa2ae932bcc4ae37987bfc66b32e | show me all flights arriving to denver from oakland | UD_English-Atis
+- [atis] 5e683a2ac40cdb8ed8764545606d919f8d1dc4662658377c88cb27e46b1f654b | please give me flights available from denver to philadelphia | UD_English-Atis
+- [atis] 5e6d7fa4da64e1cc2110c9185b65d185a2deea8890bafed4dcf21336b4e9aaea | do you have a flight from atlanta to charlotte north carolina next monday | UD_English-Atis
+- [atis] 5e6dad42781ae9cc60335090e3800d085ab0868d0806256bf553a6f54e5bbde0 | show any flights leaving san francisco on sunday and arriving in pittsburgh | UD_English-Atis
+- [atis] 5e71b562559066a9ffca2289606c3cf43826b9df457e7001e366ecda98871b21 | what is the cheapest flight from pittsburgh to atlanta leaving on october fifth | UD_English-Atis
+- [atis] 5e7cdf74fc85b8358dd9036dc87e1cadff0d814126108c32d2d64e8abe60187f | what types of ground transportation are available in denver | UD_English-Atis
+- [atis] 5e815251ad832932662966a9ef76f7d362875c78a4586e83818f42c85c6dafe3 | show me the flights from boston to denver on august second | UD_English-Atis
+- [atis] 5e8b914e1abb48f3747684134fd80e05e10cf250cce95fa912904cbccbf5b522 | give me flights from pittsburgh to baltimore | UD_English-Atis
+- [atis] 5e94d274b964b0981c61c5c5a4db2fe9dacb6ab07317f53797eadb1b69861a25 | what flights go from dallas to denver leaving after 3 pm | UD_English-Atis
+- [atis] 5ea2665d1ebdad052426150e655899015460061d8b9fed9fb8d2c94849ff674c | i want to go between boston and washington early in the morning | UD_English-Atis
+- [atis] 5eb0a85fb469c5103955954ece69fe939ca7fde3b5b8f7d20cabd846f8f494b5 | information on american airlines from fort worth texas to philadelphia | UD_English-Atis
+- [atis] 5eb3288405d45a2017c2fbfa37dc3c85ec847f13fe7df0c509aa47a64c4acf16 | looking for a flight from denver to salt lake city | UD_English-Atis
+- [atis] 5ee62aea70f16e0517be14cf0cf3ae636265cac30f3f195dbfb2dde2af47ce34 | is there a fare from pittsburgh to cleveland under 200 dollars | UD_English-Atis
+- [atis] 5ee89c520915c1a3896e6361edf4dbfa78f32889919f5080ee7e510e1cee8c02 | i want to fly from boston at 838 am and arrive in denver at 1110 in the morning | UD_English-Atis
+- [atis] 5f1018be5e5435942f09e3d5cc0934288b444b3215996a61e3ff060201e1a928 | i'd also like to see a list of the flights from pittsburgh to atlanta | UD_English-Atis
+- [atis] 5f14b4b8f660ef4a70c0504040f2bb67587118ab002ae97b0a61023e5dd3cb1b | show me the flights from st. petersburg to toronto that arrive early in the morning | UD_English-Atis
+- [atis] 5f227a67b7bc613060880b07de2ebae657db92276fa1f4a2f1a931d65bb1c364 | are there any flights from denver to atlanta to pittsburgh | UD_English-Atis
+- [atis] 5f3912d46dac7c155b7e8923e359230b7f71c189d5713736caa658dacf6d0765 | list number of people that can be carried on each type of plane that flies between pittsburgh and baltimore | UD_English-Atis
+- [atis] 5f3988b7a36c5663b430543491cd0980e48b35703b7e9b8dc8d29d440b8cac6c | show morning flights from philadelphia to dallas | UD_English-Atis
+- [atis] 5f4516fcf7130d793ffc41efc9380acd0fa0bae0136b1de0557497d0d7a648d9 | show me the flights from denver to philadelphia and the flights from pittsburgh to philadelphia | UD_English-Atis
+- ... 874 more new items
+

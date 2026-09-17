@@ -8,17 +8,17 @@ Exhausted unchanged or capped sources are checked by upstream HEAD and skip larg
 
 | Source | License | Stored | Added | Remaining | Download | Auto-pass | Review |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| atis | CC-BY-SA-4.0 | 2000 | 250 | 3430 | fetched | 1970 | 30 |
-| childes | CC-BY-SA-4.0 | 2000 | 250 | 43499 | fetched | 1976 | 24 |
+| atis | CC-BY-SA-4.0 | 2250 | 250 | 3180 | fetched | 2216 | 34 |
+| childes | CC-BY-SA-4.0 | 2250 | 250 | 43249 | fetched | 2223 | 27 |
 | ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | skipped | 218 | 56 |
-| eslspok | CC-BY-SA-4.0 | 2000 | 250 | 154 | fetched | 1910 | 90 |
-| ewt | CC-BY-SA-4.0 | 2000 | 250 | 13050 | fetched | 1794 | 206 |
+| eslspok | CC-BY-SA-4.0 | 2154 | 154 | 0 | fetched | 2054 | 100 |
+| ewt | CC-BY-SA-4.0 | 2250 | 250 | 12800 | fetched | 2022 | 228 |
 | littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | skipped | 474 | 18 |
 | pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | skipped | 275 | 10 |
 | pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | skipped | 882 | 118 |
 
-**Total analyzed sentences:** 10051
-**New items added this run:** 1000
+**Total analyzed sentences:** 10955
+**New items added this run:** 904
 **Raw sources fetched/skipped this run:** 4/4
 
 Every record retains its original UD provenance/license and canonical role analysis.

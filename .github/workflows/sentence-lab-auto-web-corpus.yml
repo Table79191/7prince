@@ -42,6 +42,34 @@ jobs:
       - name: Run collection-time self-test
         run: python english-sentence-lab/scripts/stamp_collection_times.py --self-test
 
+      - name: Snapshot corpus state before run
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('english-sentence-lab/data/web_corpus_bot')
+          state = {'sources': {}, 'total': 0}
+          for path in sorted(root.glob('*.jsonl')):
+              ids = []
+              try:
+                  with path.open(encoding='utf-8') as f:
+                      for line in f:
+                          if not line.strip():
+                              continue
+                          row = json.loads(line)
+                          ids.append(str(row.get('id', '')))
+              except Exception:
+                  ids = []
+              state['sources'][path.stem] = ids
+              state['total'] += len(ids)
+          Path('/tmp/sentence_lab_before.json').write_text(
+              json.dumps(state, ensure_ascii=False), encoding='utf-8'
+          )
+          print(f"snapshot before run: {state['total']} records")
+          PY
+
       - name: Collect already-annotated public English data
         run: |
           python english-sentence-lab/scripts/auto_web_corpus_bot.py \
@@ -50,12 +78,99 @@ jobs:
       - name: Stamp first collection time in UTC and KST
         run: python english-sentence-lab/scripts/stamp_collection_times.py
 
+      - name: Record run history
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          root = Path('english-sentence-lab/data/web_corpus_bot')
+          before_path = Path('/tmp/sentence_lab_before.json')
+          before = json.loads(before_path.read_text(encoding='utf-8')) if before_path.exists() else {'sources': {}, 'total': 0}
+          manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+
+          current = {}
+          new_rows = []
+          removed_count = 0
+          source_changes = []
+
+          for key in sorted(manifest['sources']):
+              path = root / f'{key}.jsonl'
+              rows = []
+              with path.open(encoding='utf-8') as f:
+                  for line in f:
+                      if line.strip():
+                          rows.append(json.loads(line))
+
+              current_ids = {str(row.get('id', '')) for row in rows}
+              before_ids = set(before.get('sources', {}).get(key, []))
+              added_ids = current_ids - before_ids
+              removed_ids = before_ids - current_ids
+              current[key] = len(current_ids)
+              removed_count += len(removed_ids)
+
+              if added_ids or removed_ids:
+                  source_changes.append(f"{key}: +{len(added_ids)} / -{len(removed_ids)}")
+
+              for row in rows:
+                  rid = str(row.get('id', ''))
+                  if rid in added_ids:
+                      source = row.get('source', {})
+                      new_rows.append({
+                          'key': key,
+                          'id': rid,
+                          'text': str(row.get('text', '')).replace('\n', ' ').strip(),
+                          'repo': source.get('repo', ''),
+                          'raw_file': source.get('raw_file', source.get('filename', '')),
+                          'url': source.get('url', source.get('raw_url', '')),
+                      })
+
+          after_total = sum(current.values())
+          before_total = int(before.get('total', 0))
+          added_count = len(new_rows)
+          net_change = after_total - before_total
+
+          now_utc = datetime.now(timezone.utc).replace(microsecond=0)
+          now_kst = now_utc.astimezone(timezone(timedelta(hours=9)))
+          history = root / 'RUN_HISTORY.txt'
+
+          lines = [
+              f"=== {now_kst.isoformat()} / {now_utc.isoformat()} ===",
+              'status: success',
+              f'before_total: {before_total}',
+              f'after_total: {after_total}',
+              f'net_total_change: {net_change:+d}',
+              f'new_items_added: {added_count}',
+              f'items_removed: {removed_count}',
+              'source_changes: ' + (', '.join(source_changes) if source_changes else 'none'),
+              'new_items_sample:',
+          ]
+
+          if new_rows:
+              for item in new_rows[:30]:
+                  text = item['text'][:220]
+                  provenance = item['repo'] or item['url'] or item['raw_file'] or 'unknown-source'
+                  lines.append(f"- [{item['key']}] {item['id']} | {text} | {provenance}")
+              if len(new_rows) > 30:
+                  lines.append(f"- ... {len(new_rows) - 30} more new items")
+          else:
+              lines.append('- none')
+          lines.append('')
+
+          previous = history.read_text(encoding='utf-8') if history.exists() else '# SentenceLab corpus run history\n\n'
+          history.write_text(previous + '\n'.join(lines) + '\n', encoding='utf-8')
+          print(f"run history: before={before_total}, after={after_total}, added={added_count}, removed={removed_count}")
+          PY
+
       - name: Validate generated corpus files
         shell: bash
         run: |
           set -euo pipefail
           test -s english-sentence-lab/data/web_corpus_bot/manifest.json
           test -s english-sentence-lab/data/web_corpus_bot/REPORT.md
+          test -s english-sentence-lab/data/web_corpus_bot/RUN_HISTORY.txt
           python - <<'PY'
           import json
           from pathlib import Path
@@ -153,7 +268,7 @@ jobs:
               print('heartbeat still fresh')
           PY
 
-      - name: Commit only real data, comparison, or heartbeat changes
+      - name: Commit run history plus real data, comparison, or heartbeat changes
         shell: bash
         run: |
           set -euo pipefail
@@ -161,7 +276,7 @@ jobs:
           git config user.email 'sentence-lab-corpus-bot@users.noreply.github.com'
           git add english-sentence-lab/data/web_corpus_bot english-sentence-lab/artifacts/web_corpus_comparison.txt
           if git diff --cached --quiet; then
-            echo 'No corpus/model/heartbeat changes detected. Loop will continue on the next schedule.'
+            echo 'No corpus/model/heartbeat/history changes detected.'
             exit 0
           fi
           git commit -m 'Autonomous corpus loop update'

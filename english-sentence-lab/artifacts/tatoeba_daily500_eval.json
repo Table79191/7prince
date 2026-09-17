@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-17T13:46:20.620722+00:00",
+  "retrieved_at_utc": "2026-09-17T13:49:58.148167+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -59,20 +59,20 @@
   },
   "final_r018": {
     "tokens": 3256,
-    "correct": 2968,
-    "accuracy": 0.9115479115479116,
+    "correct": 2953,
+    "accuracy": 0.9069410319410319,
     "core_tokens": 2032,
-    "core_correct": 1991,
-    "core_accuracy": 0.9798228346456693,
-    "macro_f1": 0.8572926531742274,
-    "exact_sentences": 281,
-    "exact_sentence_accuracy": 0.562,
+    "core_correct": 1985,
+    "core_accuracy": 0.9768700787401575,
+    "macro_f1": 0.8488707287902209,
+    "exact_sentences": 274,
+    "exact_sentence_accuracy": 0.548,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9335394126738794,
+        "precision": 0.9306625577812019,
         "recall": 0.9805194805194806,
-        "f1": 0.9564528899445763
+        "f1": 0.9549407114624507
       },
       "V": {
         "support": 1009,
@@ -82,21 +82,21 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.6875,
+        "precision": 0.6756756756756757,
         "recall": 0.9450171821305842,
-        "f1": 0.7959479015918959
+        "f1": 0.7879656160458453
       },
       "C": {
         "support": 116,
-        "precision": 0.5147058823529411,
-        "recall": 0.9051724137931034,
-        "f1": 0.6562499999999999
+        "precision": 0.5,
+        "recall": 0.853448275862069,
+        "f1": 0.6305732484076433
       },
       "M": {
         "support": 1224,
-        "precision": 0.9848790322580645,
-        "recall": 0.798202614379085,
-        "f1": 0.881768953068592
+        "precision": 0.9787664307381193,
+        "recall": 0.7908496732026143,
+        "f1": 0.8748305467690918
       }
     }
   },
@@ -137,11 +137,11 @@
       "net": 4
     },
     "dep-pobj": {
-      "changed": 29,
-      "helpful": 26,
-      "harmful": 3,
+      "changed": 26,
+      "helpful": 17,
+      "harmful": 9,
       "still_wrong": 0,
-      "net": 23
+      "net": 8
     },
     "dep-function": {
       "changed": 91,
@@ -547,6 +547,20 @@
     {
       "sentence_id": "12486964",
       "text": "You think it's for you, but it's really for them.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "ccomp",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "12486964",
+      "text": "You think it's for you, but it's really for them.",
       "token": "really",
       "upos": "ADV",
       "deprel": "advmod",
@@ -557,6 +571,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "12486964",
+      "text": "You think it's for you, but it's really for them.",
+      "token": "them",
+      "upos": "PRON",
+      "deprel": "conj",
+      "gold": "C",
+      "spacy_token": "them",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "12771096",
@@ -585,20 +613,6 @@
       "neural_direct": "O",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "10756415",
-      "text": "You can have both of them.",
-      "token": "them",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "them",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "8737569",
@@ -641,20 +655,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "12773564",
-      "text": "Could this be the end of it all?",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "12773564",
@@ -725,20 +725,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "8805539",
-      "text": "This is some of your best work.",
-      "token": "work",
-      "upos": "NOUN",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "work",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "12029161",
@@ -909,20 +895,6 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "10799491",
-      "text": "I need some of those too.",
-      "token": "those",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "those",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "12090816",
       "text": "What did you season it with?",
       "token": "What",
@@ -1061,20 +1033,6 @@
       "neural_direct": "M",
       "final": "S",
       "guard_reason": "dep-subject"
-    },
-    {
-      "sentence_id": "11619721",
-      "text": "So much of it is so good.",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "S",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "11781548",
@@ -1245,34 +1203,6 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "12391141",
-      "text": "I'm going to have the best night of my life.",
-      "token": "life",
-      "upos": "NOUN",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "life",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "10313808",
-      "text": "The two of us are friends.",
-      "token": "us",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "us",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "S",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "12772655",
       "text": "Could it really be over?",
       "token": "really",
@@ -1399,6 +1329,20 @@
       "guard_reason": "dep-function"
     },
     {
+      "sentence_id": "12286786",
+      "text": "Some people are into that.",
+      "token": "that",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "that",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "12772668",
       "text": "Is there a reason for all of this?",
       "token": "there",
@@ -1441,20 +1385,6 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "12085109",
-      "text": "What evidence of this do you have?",
-      "token": "this",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "this",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "11080986",
       "text": "How do I talk to a human being about this?",
       "token": "about",
@@ -1467,6 +1397,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "11080986",
+      "text": "How do I talk to a human being about this?",
+      "token": "this",
+      "upos": "PRON",
+      "deprel": "obl",
+      "gold": "M",
+      "spacy_token": "this",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "10926539",
@@ -1537,6 +1481,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "12010655",
+      "text": "He was there for me at a really bad time.",
+      "token": "me",
+      "upos": "PRON",
+      "deprel": "obl",
+      "gold": "M",
+      "spacy_token": "me",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "11669690",
@@ -1747,20 +1705,6 @@
       "neural_direct": "C",
       "final": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "12773622",
-      "text": "Could this be the start of something new?",
-      "token": "something",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "something",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "12774925",
@@ -1987,6 +1931,20 @@
       "guard_reason": "dep-function"
     },
     {
+      "sentence_id": "12772717",
+      "text": "Had it not been for her, I would be lost.",
+      "token": "her",
+      "upos": "PRON",
+      "deprel": "advcl",
+      "gold": "C",
+      "spacy_token": "her",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "9770372",
       "text": "I don't think there is a problem.",
       "token": "there",
@@ -2013,20 +1971,6 @@
       "neural_direct": "S",
       "final": "C",
       "guard_reason": "dep-complement"
-    },
-    {
-      "sentence_id": "11297511",
-      "text": "I hope you can make good use of it.",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "12141695",
@@ -2125,6 +2069,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "12772580",
+      "text": "Was it really all for nothing?",
+      "token": "nothing",
+      "upos": "PRON",
+      "deprel": "obl",
+      "gold": "M",
+      "spacy_token": "nothing",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "10101801",
@@ -2253,6 +2211,20 @@
       "guard_reason": "dep-function"
     },
     {
+      "sentence_id": "12131111",
+      "text": "That wasn't about you.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "11889114",
       "text": "What is there to watch?",
       "token": "What",
@@ -2279,20 +2251,6 @@
       "neural_direct": "O",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "10359348",
-      "text": "Let me know which of these you want.",
-      "token": "these",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "these",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "12766268",
@@ -2449,6 +2407,20 @@
       "guard_reason": "dep-function"
     },
     {
+      "sentence_id": "11077397",
+      "text": "It wasn't about you.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "9477298",
       "text": "We're not just like you.",
       "token": "not",
@@ -2547,20 +2519,6 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "9399285",
-      "text": "I might make one of those this week.",
-      "token": "those",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "those",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "12772597",
       "text": "Were we too late to stop it?",
       "token": "too",
@@ -2593,7 +2551,7 @@
     {
       "gold": "M",
       "pred": "O",
-      "count": 125
+      "count": 132
     },
     {
       "gold": "M",
@@ -2603,7 +2561,12 @@
     {
       "gold": "M",
       "pred": "S",
-      "count": 33
+      "count": 35
+    },
+    {
+      "gold": "C",
+      "pred": "M",
+      "count": 13
     },
     {
       "gold": "S",
@@ -2612,11 +2575,6 @@
     },
     {
       "gold": "O",
-      "pred": "M",
-      "count": 7
-    },
-    {
-      "gold": "C",
       "pred": "M",
       "count": 7
     },
@@ -3181,6 +3139,34 @@
       "guard_reason": "neural"
     },
     {
+      "sentence_id": "12486964",
+      "text": "You think it's for you, but it's really for them.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "ccomp",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "12486964",
+      "text": "You think it's for you, but it's really for them.",
+      "token": "them",
+      "upos": "PRON",
+      "deprel": "conj",
+      "gold": "C",
+      "spacy_token": "them",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "9806859",
       "text": "What city are you from?",
       "token": "What",
@@ -3249,6 +3235,20 @@
       "neural_direct": "C",
       "final": "C",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "10756415",
+      "text": "You can have both of them.",
+      "token": "them",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "them",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "12773742",
@@ -3347,6 +3347,20 @@
       "neural_direct": "C",
       "final": "C",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "12773564",
+      "text": "Could this be the end of it all?",
+      "token": "it",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "it",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "C",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "11692004",
@@ -3543,6 +3557,20 @@
       "neural_direct": "C",
       "final": "C",
       "guard_reason": "dep-complement"
+    },
+    {
+      "sentence_id": "8805539",
+      "text": "This is some of your best work.",
+      "token": "work",
+      "upos": "NOUN",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "work",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "C",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "12029161",
@@ -3783,6 +3811,20 @@
       "guard_reason": "dep-object"
     },
     {
+      "sentence_id": "10799491",
+      "text": "I need some of those too.",
+      "token": "those",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "those",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
+    },
+    {
       "sentence_id": "8743362",
       "text": "It's up to me to thank you.",
       "token": "thank",
@@ -3823,6 +3865,20 @@
       "neural_direct": "O",
       "final": "O",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "11619721",
+      "text": "So much of it is so good.",
+      "token": "it",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "it",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "S",
+      "final": "S",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "6609976",
@@ -4371,6 +4427,20 @@
       "guard_reason": "neural"
     },
     {
+      "sentence_id": "12391141",
+      "text": "I'm going to have the best night of my life.",
+      "token": "life",
+      "upos": "NOUN",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "life",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
+    },
+    {
       "sentence_id": "10313808",
       "text": "The two of us are friends.",
       "token": "The",
@@ -4383,6 +4453,20 @@
       "neural_direct": "S",
       "final": "S",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "10313808",
+      "text": "The two of us are friends.",
+      "token": "us",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "us",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "S",
+      "final": "S",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "9738395",
@@ -4595,6 +4679,20 @@
       "guard_reason": "neural"
     },
     {
+      "sentence_id": "12286786",
+      "text": "Some people are into that.",
+      "token": "that",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "that",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "10288827",
       "text": "I really need your help on this one.",
       "token": "your",
@@ -4721,6 +4819,20 @@
       "guard_reason": "neural"
     },
     {
+      "sentence_id": "12085109",
+      "text": "What evidence of this do you have?",
+      "token": "this",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "this",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
+    },
+    {
       "sentence_id": "11080986",
       "text": "How do I talk to a human being about this?",
       "token": "being",
@@ -4733,20 +4845,6 @@
       "neural_direct": "V",
       "final": "V",
       "guard_reason": "predicate-pos"
-    },
-    {
-      "sentence_id": "11080986",
-      "text": "How do I talk to a human being about this?",
-      "token": "this",
-      "upos": "PRON",
-      "deprel": "obl",
-      "gold": "M",
-      "spacy_token": "this",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "copular-pobj-complement"
     },
     {
       "sentence_id": "11833534",
@@ -4929,20 +5027,6 @@
       "neural_direct": "S",
       "final": "S",
       "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "12010655",
-      "text": "He was there for me at a really bad time.",
-      "token": "me",
-      "upos": "PRON",
-      "deprel": "obl",
-      "gold": "M",
-      "spacy_token": "me",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "copular-pobj-complement"
     },
     {
       "sentence_id": "11669690",
@@ -5437,6 +5521,20 @@
     {
       "sentence_id": "12773622",
       "text": "Could this be the start of something new?",
+      "token": "something",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "something",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "C",
+      "guard_reason": "of-np-neural-core-preserve"
+    },
+    {
+      "sentence_id": "12773622",
+      "text": "Could this be the start of something new?",
       "token": "new",
       "upos": "ADJ",
       "deprel": "amod",
@@ -5827,6 +5925,20 @@
       "guard_reason": "dep-pobj"
     },
     {
+      "sentence_id": "12772717",
+      "text": "Had it not been for her, I would be lost.",
+      "token": "her",
+      "upos": "PRON",
+      "deprel": "advcl",
+      "gold": "C",
+      "spacy_token": "her",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "12344100",
       "text": "You're free to come and go as you please.",
       "token": "please",
@@ -5895,6 +6007,20 @@
       "neural_direct": "O",
       "final": "O",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "11297511",
+      "text": "I hope you can make good use of it.",
+      "token": "it",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "it",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "12141695",
@@ -6035,20 +6161,6 @@
       "neural_direct": "O",
       "final": "O",
       "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "12772580",
-      "text": "Was it really all for nothing?",
-      "token": "nothing",
-      "upos": "PRON",
-      "deprel": "obl",
-      "gold": "M",
-      "spacy_token": "nothing",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "copular-pobj-complement"
     },
     {
       "sentence_id": "12768110",
@@ -6289,6 +6401,20 @@
       "guard_reason": "dep-complement"
     },
     {
+      "sentence_id": "12131111",
+      "text": "That wasn't about you.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "12768185",
       "text": "Did you see the new design?",
       "token": "the",
@@ -6385,6 +6511,20 @@
       "neural_direct": "C",
       "final": "C",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "10359348",
+      "text": "Let me know which of these you want.",
+      "token": "these",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "these",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "12766268",
@@ -6513,6 +6653,20 @@
       "guard_reason": "neural"
     },
     {
+      "sentence_id": "11077397",
+      "text": "It wasn't about you.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "12140049",
       "text": "Who can you reach out to for help with this?",
       "token": "Who",
@@ -6623,6 +6777,20 @@
       "neural_direct": "O",
       "final": "O",
       "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "9399285",
+      "text": "I might make one of those this week.",
+      "token": "those",
+      "upos": "PRON",
+      "deprel": "nmod",
+      "gold": "M",
+      "spacy_token": "those",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "11006479",

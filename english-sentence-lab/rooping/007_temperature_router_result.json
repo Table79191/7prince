@@ -1,0 +1,32 @@
+{
+  "experiment": "Rooping 007 — temperature-calibrated dual-expert routing",
+  "selection_data": "exact_long_cal200 only",
+  "sealed_test_data": "exact_long_test200",
+  "original_chaos_used_for_selection": false,
+  "temperatures": {
+    "v1.6.1": 2.0260865688323975,
+    "v1.7.5": 1.6196125745773315
+  },
+  "calibration_accuracy": {
+    "v1.6.1": 0.8544252514839172,
+    "v1.7.5": 0.878645658493042,
+    "confidence_router": 0.8954485654830933,
+    "margin_router": 0.8947926163673401,
+    "calibrated_average": 0.8964073061943054
+  },
+  "sealed_test_accuracy": {
+    "v1.6.1": 0.8479862809181213,
+    "v1.7.5": 0.8767538070678711,
+    "confidence_router": 0.8888159990310669,
+    "margin_router": 0.8887150287628174,
+    "calibrated_average": 0.8898758292198181
+  },
+  "chaos50_posthoc_accuracy": {
+    "v1.6.1": 0.8370860815048218,
+    "v1.7.5": 0.7814569473266602,
+    "confidence_router": 0.8463576436042786,
+    "margin_router": 0.8423840999603271,
+    "calibrated_average": 0.8450331091880798
+  },
+  "conclusion": "Confidence routing selected without Chaos50 improves both sealed exact-long test (+1.2062 pp vs v1.7.5) and original Chaos50 (+0.9272 pp vs v1.6.1). This is the current best non-Chaos-tuned router."
+}

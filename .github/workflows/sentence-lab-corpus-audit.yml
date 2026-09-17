@@ -1,0 +1,67 @@
+name: SentenceLab corpus integrity audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/audit_web_corpus.py'
+      - '.github/workflows/sentence-lab-corpus-audit.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentence-lab-corpus-integrity-audit
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run deep corpus audit
+        id: audit
+        continue-on-error: true
+        run: python english-sentence-lab/scripts/audit_web_corpus.py
+
+      - name: Persist audit report
+        if: always()
+        run: |
+          set -euo pipefail
+          test -s english-sentence-lab/artifacts/web_corpus_audit.json
+          git config user.name 'sentence-lab-audit-bot'
+          git config user.email 'sentence-lab-audit-bot@users.noreply.github.com'
+          git add english-sentence-lab/artifacts/web_corpus_audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'SentenceLab corpus integrity audit'
+            for attempt in 1 2 3; do
+              if git pull --rebase origin main && git push origin HEAD:main; then
+                break
+              fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((attempt * 2))
+            done
+          fi
+
+      - name: Enforce audit result
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('english-sentence-lab/artifacts/web_corpus_audit.json')
+          r = json.loads(p.read_text(encoding='utf-8'))
+          print(json.dumps(r, ensure_ascii=False, indent=2))
+          if r.get('status') != 'PASS':
+              raise SystemExit(1)
+          PY

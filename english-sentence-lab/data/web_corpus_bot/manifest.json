@@ -41,11 +41,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 15050,
-      "sentences_written": 2750,
+      "sentences_written": 3000,
       "new_items_added": 250,
-      "remaining_unseen": 12300,
-      "auto_pass": 2468,
-      "needs_review": 282,
+      "remaining_unseen": 12050,
+      "auto_pass": 2685,
+      "needs_review": 315,
       "upstream_head_sha": "4a4d77f599ea53cc405f85d0cec4b2f14f81d42b",
       "download_skipped": false,
       "skip_reason": ""
@@ -80,11 +80,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 5430,
-      "sentences_written": 2750,
+      "sentences_written": 3000,
       "new_items_added": 250,
-      "remaining_unseen": 2680,
-      "auto_pass": 2708,
-      "needs_review": 42,
+      "remaining_unseen": 2430,
+      "auto_pass": 2956,
+      "needs_review": 44,
       "upstream_head_sha": "3ba83a5ded2c2b6e69ea2fa862806a892ae62a53",
       "download_skipped": false,
       "skip_reason": ""
@@ -119,11 +119,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 2750,
+      "sentences_written": 3000,
       "new_items_added": 250,
-      "remaining_unseen": 42749,
-      "auto_pass": 2719,
-      "needs_review": 31,
+      "remaining_unseen": 42499,
+      "auto_pass": 2967,
+      "needs_review": 33,
       "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
       "download_skipped": false,
       "skip_reason": ""
@@ -269,9 +269,9 @@
     }
   },
   "totals": {
-    "sentences_written": 12455,
-    "auto_pass": 11798,
-    "needs_review": 657,
+    "sentences_written": 13205,
+    "auto_pass": 12511,
+    "needs_review": 694,
     "new_items_added_this_run": 750,
     "sources_downloaded_this_run": 3,
     "sources_skipped_this_run": 5
@@ -283,8 +283,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 12455,
-    "latest_first_collected_at_utc": "2026-09-17T16:52:40+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T01:52:40+09:00"
+    "records_with_timestamp": 13205,
+    "latest_first_collected_at_utc": "2026-09-17T16:57:56+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T01:57:56+09:00"
   }
 }

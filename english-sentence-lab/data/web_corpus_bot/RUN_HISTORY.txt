@@ -394,3 +394,50 @@ new_items_sample:
 - [atis] 77a429aed429a30e93377ca933451697eae3b99cb7f4552965c41579114f58c6 | are there any flights between pittsburgh and baltimore using a j31 aircraft | UD_English-Atis
 - ... 720 more new items
 
+=== 2026-09-18T01:58:56+09:00 / 2026-09-17T16:58:56+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35249745357
+run_attempt: 1
+event_head_sha: 44bd5a7fb0d3e24d4f6f6af98376afc65d553455
+worker_base_sha: 44bd5a7fb0d3e24d4f6f6af98376afc65d553455
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 12455
+after_total: 13205
+net_total_change: +750
+new_items_added: 750
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 8286134b99b4ad8611288f41e8422eb3ca9df278ffe369526e1c3addba7576cd | what is delta's schedule of morning flights to atlanta | UD_English-Atis
+- [atis] 82a0bbd5177a3fdcf97498dd3ff8cbac64e01dba42b9258f4de41e5271ad7398 | what flights do you have from milwaukee to tampa | UD_English-Atis
+- [atis] 82a6c34973345a72eba3903deddc8d21434b9cd6e76bb0b033bf986bbcaf2f92 | what is the earliest american airlines flight leaving philadelphia for dallas | UD_English-Atis
+- [atis] 82bf939960b3bd5460604de974f0be5005b6473c3913cfbd94386b1545106eb1 | what is american's last flight from boston to washington dc on july twenty first | UD_English-Atis
+- [atis] 82cab00b17509cdb30a9df7edd61e2cc02412872a8dd71df2c299f0da6677b4f | list flights from indianapolis to memphis on monday | UD_English-Atis
+- [atis] 82da0d32f824317a5fe831ae422529a29d1feeb15482cb0031531392655eab7b | show me economy fares from dallas to baltimore | UD_English-Atis
+- [atis] 82dcfe5d8e08fd39b3261629cf87979adb7ece4c6c43f2b0534cb74275a3c7e0 | all flights from boston to washington | UD_English-Atis
+- [atis] 82f1922adefc15955686d3971ccb96a2192a3924dac73e64e3d30fcc211818c0 | what is the earliest flight between boston and washington | UD_English-Atis
+- [atis] 82f3fc18d64f82e1d5458aded483edcab395ffa138ce12b794eddfc133ae56cc | the cheapest flights from atlanta to philadelphia that arrive after 12 pm on a tuesday | UD_English-Atis
+- [atis] 82f6c30ad4f57a86445ee6e84047d9cf3a29abb387130b3ebb6c0f471df58f60 | on a breakfast flight from philadelphia to dallas via atlanta | UD_English-Atis
+- [atis] 82f74560a4820b8c583eb14820ab49f5aba82133b6ab425058bb95a80edee5d4 | what are the flights from st. louis to charlotte north carolina leaving on friday | UD_English-Atis
+- [atis] 82f76bc41dd9b17f71e6773879f248a9a881a541a6d9cfb99efd847ec2589a13 | find travel arrangements for a round trip flight from dallas to pittsburgh | UD_English-Atis
+- [atis] 82fd96951447f1f2f60b046121140c0410b1e9001cdc272559e5259ce89ab047 | what flights from washington to toronto | UD_English-Atis
+- [atis] 82ff3347a57d5be55c4a9377fb26868d34ab8b60cf0f51a24bc7e284d41598c2 | how many flights does continental airlines have with a class of service code f | UD_English-Atis
+- [atis] 830c20193e5169f778adeb537347fb54fc29cf82c4180dfb933f770125254384 | american flights from san francisco please | UD_English-Atis
+- [atis] 831d72fefd5236271296643604231a84657ad6aafa5e6de63abfe0905fb5b97b | all fares and flights from philadelphia | UD_English-Atis
+- [atis] 831f06a66f05ed5bbccb4ba1d8ffdc2bcde32fb0b3667336b05ee50c8f06c577 | i want a flight from ontario to chicago | UD_English-Atis
+- [atis] 8325e5c8dbeb59638604a365de76d1fc38a95bba242e24a18adc5bf1c3697cba | list all american airlines flights from phoenix to milwaukee on wednesday | UD_English-Atis
+- [atis] 83290428fc2067a25241e0f48c1396430fe2d6c5ee0c0e839f5a6d99e64c5f78 | show me the flights from love field to all other airports | UD_English-Atis
+- [atis] 83355f08768b1be2be0e81d6646e006b93486b66bf7780d87c31b8bf96cf6ef5 | please arrange a flight for me from denver to san francisco on us air | UD_English-Atis
+- [atis] 8353de34bd92538eaa1afbad6db8bd65317913195a4dbfd604e6e8a8a8c089d3 | show me the earliest flight from newark to seattle | UD_English-Atis
+- [atis] 8360e6b578372abd810bb4067499e188dd698b04245ee35853aa117f974d6687 | i'd like flights on american airlines from philadelphia to dallas arriving before 1145 am | UD_English-Atis
+- [atis] 8372786668cb5d6875d6d1494812c62f75b8716abc3a000995acbfc95219d2d5 | now i'd like flights from philadelphia to pittsburgh leaving between 430 and 530 pm | UD_English-Atis
+- [atis] 838b194afc9d73af9adce8cbd097a8829beb6d20f8e36f4022f4be1e65aec201 | what is the distance from la guardia to new york's downtown | UD_English-Atis
+- [atis] 839140b78e6fea852f4ae8261a09be3e742ca11bc1cbf2c10dbe073dff1f6a48 | please give me the flights from boston to pittsburgh on thursday of next week | UD_English-Atis
+- [atis] 839e51274705b1f29aa395aeffe9046f4788d376e54d8b606fef67f9c1112f73 | list all flights from nashville to cleveland on sunday | UD_English-Atis
+- [atis] 83ae654b48e603768a2328152d3e8f288e792443434fe622222e4eb3eb45e70e | i need a list of late afternoon flights from chicago to milwaukee | UD_English-Atis
+- [atis] 83b35eb23ceeca4e6c2e46f5bfde885315f2281b9e4ac5dd18558472a0e3781f | i need a flight from san diego to washington dc | UD_English-Atis
+- [atis] 83c96cb9fc61af2f25668167f59afdd76eb69ccc1f50bae6df4573b3fa8b9c4e | what flights are there arriving in chicago on continental after 11 pm | UD_English-Atis
+- [atis] 83cc6c655b45537c00a554a9c2b2d960aaed18fbd3a613c3408c4a83744f6b5c | does united have a flight from miami to washington dc on wednesday | UD_English-Atis
+- ... 720 more new items
+

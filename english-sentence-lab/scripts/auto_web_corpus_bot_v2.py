@@ -4,8 +4,9 @@
 Operational guarantees:
 - authenticated GitHub API discovery via GITHUB_TOKEN/GH_TOKEN
 - append-only collection of unseen sentences
-- bounded additions and per-source storage caps
-- lightweight HEAD checks for exhausted/capped sources
+- no per-source storage ceiling by default
+- a global per-run collection budget that is redistributed when a source is exhausted
+- lightweight HEAD checks for exhausted sources
 - stable provenance, hashes, manifest, and report totals
 """
 from __future__ import annotations
@@ -24,7 +25,7 @@ import auto_web_corpus_bot as legacy
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "data" / "web_corpus_bot"
-USER_AGENT = "SentenceLab-AutoWebCorpusBot/2.1 (+https://github.com/Table79191/7prince)"
+USER_AGENT = "SentenceLab-AutoWebCorpusBot/2.2 (+https://github.com/Table79191/7prince)"
 REPO_COMMIT_API = "https://api.github.com/repos/UniversalDependencies/{repo}/commits/master"
 
 
@@ -117,6 +118,24 @@ def merge_incremental(
     return merged, added, max(0, len(unseen) - len(added))
 
 
+def fair_quota(
+    remaining_budget: int | None,
+    active_sources_left: int,
+    per_source_limit: int,
+) -> int:
+    """Allocate this source a fair share; unused share rolls to later sources."""
+    if remaining_budget is None:
+        return per_source_limit
+    if remaining_budget <= 0:
+        return 0
+    share = (remaining_budget + max(1, active_sources_left) - 1) // max(
+        1, active_sources_left
+    )
+    if per_source_limit > 0:
+        share = min(share, per_source_limit)
+    return share
+
+
 def row_status_counts(rows: list[dict]) -> tuple[int, int]:
     auto_pass = sum(row["analysis"]["status"] == "auto_pass" for row in rows)
     return auto_pass, len(rows) - auto_pass
@@ -128,8 +147,9 @@ def should_skip_download(
     current_head: str,
     max_total: int,
 ) -> tuple[bool, str]:
+    # max_total=0 means unlimited. The cap remains as an emergency CLI option only.
     if max_total > 0 and existing_count >= max_total:
-        return True, "total_cap_reached"
+        return True, "emergency_total_cap_reached"
     previous_head = str(previous_stats.get("upstream_head_sha", ""))
     remaining = previous_stats.get("remaining_unseen")
     if previous_head and previous_head == current_head and remaining == 0:
@@ -172,6 +192,7 @@ def source_stats(
     added: list[dict],
     remaining: int,
     upstream_head: str,
+    quota: int,
 ) -> dict:
     auto_pass, needs_review = row_status_counts(merged)
     return {
@@ -183,6 +204,7 @@ def source_stats(
         "sentences_after_dedupe_upstream": upstream_stats["sentences_after_dedupe"],
         "sentences_written": len(merged),
         "new_items_added": len(added),
+        "allocated_run_quota": quota,
         "remaining_unseen": remaining,
         "auto_pass": auto_pass,
         "needs_review": needs_review,
@@ -227,10 +249,11 @@ def build_report(manifest: dict) -> str:
         "",
         "Incremental allowlisted Universal Dependencies English corpus.",
         "Existing records are retained; only unseen sentences are appended.",
-        "Exhausted unchanged or capped sources are checked by upstream HEAD and skip large raw downloads.",
+        "Per-source storage is unlimited by default. When a source is exhausted, its unused run budget is redistributed to other active sources.",
+        "Exhausted unchanged sources are checked by upstream HEAD and skip large raw downloads.",
         "",
-        "| Source | License | Stored | Added | Remaining | Download | Auto-pass | Review |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|",
+        "| Source | License | Stored | Added | Quota | Remaining | Download | Auto-pass | Review |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for key, stats in sorted(manifest["sources"].items()):
         download = "skipped" if stats.get("download_skipped") else "fetched"
@@ -238,6 +261,7 @@ def build_report(manifest: dict) -> str:
             f"| {key} | {stats.get('license', '')} | "
             f"{stats.get('sentences_written', 0)} | "
             f"{stats.get('new_items_added', 0)} | "
+            f"{stats.get('allocated_run_quota', 0)} | "
             f"{stats.get('remaining_unseen', '?')} | {download} | "
             f"{stats.get('auto_pass', 0)} | {stats.get('needs_review', 0)} |"
         )
@@ -263,19 +287,20 @@ def self_test() -> None:
             "tokens": [{"role": "S", "deprel": "root", "head": 0}],
         },
     }
-    merged, added, remaining = merge_incremental([], [demo], 10, 100)
+    merged, added, remaining = merge_incremental([], [demo], 10, 0)
     assert len(merged) == 1 and len(added) == 1 and remaining == 0
-    merged2, added2, remaining2 = merge_incremental(merged, [demo], 10, 100)
+    merged2, added2, remaining2 = merge_incremental(merged, [demo], 10, 0)
     assert len(merged2) == 1 and not added2 and remaining2 == 0
+    assert fair_quota(1000, 3, 0) == 334
+    assert fair_quota(666, 2, 0) == 333
+    assert fair_quota(333, 1, 0) == 333
     assert "Authorization" not in headers_for("https://raw.githubusercontent.com/x/y")
-    skip, reason = should_skip_download(100, {"remaining_unseen": 5}, "new", 100)
-    assert skip and reason == "total_cap_reached"
     skip, reason = should_skip_download(
-        50, {"remaining_unseen": 0, "upstream_head_sha": "same"}, "same", 100
+        50, {"remaining_unseen": 0, "upstream_head_sha": "same"}, "same", 0
     )
     assert skip and reason == "upstream_unchanged_and_exhausted"
     skip, _ = should_skip_download(
-        50, {"remaining_unseen": 0, "upstream_head_sha": "old"}, "new", 100
+        50, {"remaining_unseen": 0, "upstream_head_sha": "old"}, "new", 0
     )
     assert not skip
     print("collector-v2 self-test: ok")
@@ -284,8 +309,24 @@ def self_test() -> None:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out-dir", default=str(DEFAULT_OUT))
-    ap.add_argument("--max-new-per-source", type=int, default=1000)
-    ap.add_argument("--max-total-per-source", type=int, default=10000)
+    ap.add_argument(
+        "--max-new-per-run",
+        type=int,
+        default=1000,
+        help="global run budget; unused quota is redistributed to other active sources; 0=unlimited",
+    )
+    ap.add_argument(
+        "--max-new-per-source",
+        type=int,
+        default=0,
+        help="optional per-source safety limit; 0=unlimited",
+    )
+    ap.add_argument(
+        "--max-total-per-source",
+        type=int,
+        default=0,
+        help="emergency per-source storage cap; 0=unlimited",
+    )
     ap.add_argument("--source", action="append", choices=sorted(legacy.SOURCES))
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
@@ -293,7 +334,11 @@ def main() -> None:
     if args.self_test:
         self_test()
         return
-    if args.max_new_per_source < 0 or args.max_total_per_source < 0:
+    if (
+        args.max_new_per_run < 0
+        or args.max_new_per_source < 0
+        or args.max_total_per_source < 0
+    ):
         raise SystemExit("collection limits must be >= 0")
 
     legacy.fetch_bytes = authenticated_fetch_bytes
@@ -311,8 +356,11 @@ def main() -> None:
         "source_type": "allowlisted public Universal Dependencies English treebanks",
         "arbitrary_web_scraping": False,
         "append_only": True,
+        "max_new_per_run": args.max_new_per_run,
         "max_new_per_source_per_run": args.max_new_per_source,
         "max_total_per_source": args.max_total_per_source,
+        "per_source_storage_unlimited": args.max_total_per_source == 0,
+        "redistribute_unused_run_budget": True,
         "authenticated_github_api": bool(
             os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
         ),
@@ -322,32 +370,82 @@ def main() -> None:
     manifest.setdefault("sources", {})
 
     selected = args.source or list(legacy.SOURCES)
+    plans = []
     for key in selected:
         source = legacy.SOURCES[key]
         existing = read_jsonl(out / f"{key}.jsonl")
         legacy.validate_output(existing)
         previous_stats = dict(manifest["sources"].get(key, {}))
         current_head = repo_head_sha(source["repo"])
-
         skip, reason = should_skip_download(
             len(existing), previous_stats, current_head, args.max_total_per_source
         )
-        if skip:
+        plans.append(
+            {
+                "key": key,
+                "source": source,
+                "existing": existing,
+                "previous": previous_stats,
+                "head": current_head,
+                "skip": skip,
+                "reason": reason,
+            }
+        )
+
+    active_left = sum(not plan["skip"] for plan in plans)
+    remaining_budget: int | None = (
+        args.max_new_per_run if args.max_new_per_run > 0 else None
+    )
+
+    for plan in plans:
+        key = plan["key"]
+        source = plan["source"]
+        existing = plan["existing"]
+        previous_stats = plan["previous"]
+        current_head = plan["head"]
+
+        if plan["skip"]:
             stats = reused_source_stats(
-                key, source, previous_stats, existing, current_head, reason
+                key,
+                source,
+                previous_stats,
+                existing,
+                current_head,
+                plan["reason"],
             )
+            stats["allocated_run_quota"] = 0
             manifest["sources"][key] = stats
             print(
                 f"{key:14s}: stored={len(existing):5d} added={0:4d} "
-                f"remaining={stats.get('remaining_unseen', '?')} SKIP={reason}"
+                f"remaining={stats.get('remaining_unseen', '?')} SKIP={plan['reason']}"
             )
             continue
 
+        if remaining_budget is not None and remaining_budget <= 0:
+            stats = reused_source_stats(
+                key,
+                source,
+                previous_stats,
+                existing,
+                current_head,
+                "run_budget_exhausted",
+            )
+            stats["allocated_run_quota"] = 0
+            manifest["sources"][key] = stats
+            active_left -= 1
+            print(f"{key:14s}: stored={len(existing):5d} added={0:4d} SKIP=run_budget_exhausted")
+            continue
+
+        quota = fair_quota(
+            remaining_budget,
+            active_left,
+            args.max_new_per_source,
+        )
         upstream, upstream_stats = legacy.collect_source(key, source, 0)
         merged, added, remaining = merge_incremental(
             existing,
             upstream,
-            args.max_new_per_source,
+            quota,
             args.max_total_per_source,
         )
         legacy.write_jsonl(out / f"{key}.jsonl", merged)
@@ -359,10 +457,15 @@ def main() -> None:
             added,
             remaining,
             current_head,
+            quota,
         )
+        if remaining_budget is not None:
+            remaining_budget = max(0, remaining_budget - len(added))
+        active_left -= 1
         print(
-            f"{key:14s}: stored={len(merged):5d} "
-            f"added={len(added):4d} remaining={remaining:5d}"
+            f"{key:14s}: stored={len(merged):5d} added={len(added):4d} "
+            f"quota={quota:4d} remaining={remaining:5d} "
+            f"run_budget_left={remaining_budget if remaining_budget is not None else 'unlimited'}"
         )
 
     recompute_totals(out, manifest)

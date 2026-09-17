@@ -488,3 +488,50 @@ new_items_sample:
 - [atis] 8ef62d8f72c65ad08889a8e7f428f372e93063ab9f053e7198769d8c29d5e4fd | i'd like a flight from boston to san francisco leaving in the afternoon any time please | UD_English-Atis
 - ... 720 more new items
 
+=== 2026-09-18T02:02:51+09:00 / 2026-09-17T17:02:51+00:00 ===
+status: success
+event: push
+run_id: 35249921576
+run_attempt: 1
+event_head_sha: f6fb52df484aaf81c378668159ad67d54366db35
+worker_base_sha: 4b165d9a7c2c64803f1ffc487797368127b6673c
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 13955
+after_total: 14955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +333 / -0, childes: +333 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] 987774b5bf0d7949b94b22923e9b2483776d2332fa92dc41cb154e14f087bbe6 | how do i get from pittsburgh airport to downtown pittsburgh | UD_English-Atis
+- [atis] 988ae10c0f3f57dce438a3e816c65a6fa13cf87c71e9f9f1685745cecffd64f0 | show me all flights from denver to pittsburgh which serve a meal for the day after tomorrow | UD_English-Atis
+- [atis] 988c07be69383127d277502477c673eb70ac8924cb4a44babbac1d4c11c2e020 | please give me the flights from nashville to houston nonstop with dinner served | UD_English-Atis
+- [atis] 988c64af54c8c064ab9ff0dca6b2d74f9c1970067105e5bce908a50c657d0ef5 | show me flights from pittsburgh to san francisco | UD_English-Atis
+- [atis] 98a24e0ff21b5dea2e671cc172a0b7ac84c43dc80237fad9bc3d929acea76949 | how far is the airport from downtown pittsburgh | UD_English-Atis
+- [atis] 98afafcf2b7604c4129a11cc76fb421790083a12e2a72421c46c7c3a0678ed98 | what does ewr mean | UD_English-Atis
+- [atis] 98b19b02dd4a97e1afaa1f123068ef78997877bb699cd3a04536c45c8481ac55 | what is the first class fare for a round trip dallas to denver | UD_English-Atis
+- [atis] 98b6ece73524e80fef75832b3de8c03a9ebb07f938114656fd4f41ec63c6feaf | list all the airlines that fly into general mitchell international | UD_English-Atis
+- [atis] 98c49d967d61161f6a482791ecd1c74bd54d47cc248f6afc9912a8032802d9ba | what kinds of planes are used by midway airlines | UD_English-Atis
+- [atis] 98d6a8d624e237e17bb94bc65ee589ee2a6dd4f319baec5db649a0f6742c6d05 | please list flights from san francisco to milwaukee | UD_English-Atis
+- [atis] 98da8f93401c97fbed574d41c39ddfb78e743daa6a023ccdf076a7bbdac97847 | show me the flights from baltimore to oakland | UD_English-Atis
+- [atis] 98df14112df2549498646e413d31fa397e758f3139cda68198d8638f3cdf43a3 | does delta have an early afternoon flight from boston to san francisco | UD_English-Atis
+- [atis] 98f524293a01c99d57e03e06a36603b4d09cce4761df2f899f105a807461a5e4 | i'm interested in flying from boston to atlanta | UD_English-Atis
+- [atis] 98f5f260791451768ed79cde48d2d546c35cb5fa223eed6789074427dec06705 | what kind of ground transportation can you offer me in seattle | UD_English-Atis
+- [atis] 98fffb0216171a58129fef6535a1d7aa46e914e7f8b6d6a6c21d81c99c53b624 | what flights go to san francisco from boston | UD_English-Atis
+- [atis] 99084e82ddf7995bc7a888b41963df0749e6c7d131b911f6aa4cd80db4ffbfdf | what kind of airline is flight ua 281 from boston to denver | UD_English-Atis
+- [atis] 990ab6b897064b7a4c1cf62fafe0e63242238b8e0b5e8c5b7636fbbe87bc3a07 | show me flights from tampa to st. louis | UD_English-Atis
+- [atis] 9910fc69944bf048fc65071c5f3ec4d74486c1668a5001555bdc5fcf1415ba72 | does dl stand for delta | UD_English-Atis
+- [atis] 993fa1bacbca2b7ac1128b8ee706fd061ed22f8629669ad927a2c6df7e35cf14 | show me the flights from pittsburgh to philadelphia | UD_English-Atis
+- [atis] 99494016c2355199d97a02803d38b597f15d90d7a110cd4f543af4eaed18a986 | all flights from charlotte to anywhere on us air | UD_English-Atis
+- [atis] 9956549d4124104695e06eb026530095dba3976760611c7f7e1c606eff1ad82b | what flights are available from boston to denver today | UD_English-Atis
+- [atis] 996231d01d5efb887a310982d27faa9450783bda3c8346b5fc466505b31d1f25 | find me a flight on united from boston to san francisco with a stopover in denver | UD_English-Atis
+- [atis] 9963da1448e4b1fd12bfb1616f6d5903f677eff0d02d1e0202435b147e04f6a9 | what northwest airlines flights leave denver before noon | UD_English-Atis
+- [atis] 9971e46baeb1b21b4efc6217738eed8b1b42325e9800f6a764a824bbf230bd81 | how much is a first class ticket from baltimore to san francisco | UD_English-Atis
+- [atis] 99a572f004b491abab61e3e6154b71c9aa4c27cda69cfcb5e9eb17eb806b35c8 | what is the cheapest ticket from baltimore to san francisco on friday august thirtieth | UD_English-Atis
+- [atis] 99a6723b9865a004ede34a03b433c393ef16f62722bb38c7082810aa2be7ef6e | i need to take ten people from denver to phoenix please give me the flights during the week | UD_English-Atis
+- [atis] 99aee7ac03319f136f829263d81ccc6933162027dadfad5c7d860010189c6796 | what flights are there on sunday from seattle to minneapolis | UD_English-Atis
+- [atis] 99b6473e745b68b717b777a9e62e1ad1ff9aab677457602115da029f7af0373b | what are the flights on january first 1992 from boston to san francisco | UD_English-Atis
+- [atis] 99b942e5d94485e96bc2cdc2990a161a24e0ad1d7779de8f156f96d70a06b4a3 | what type of aircraft are used on flights from cleveland to dallas that leave before noon | UD_English-Atis
+- [atis] 99be46031b7f9cbbd00ec827a21847697e3867fd57f34b612e5af1c43c5a1133 | i want a return flight from washington to dallas on american airlines | UD_English-Atis
+- ... 970 more new items
+

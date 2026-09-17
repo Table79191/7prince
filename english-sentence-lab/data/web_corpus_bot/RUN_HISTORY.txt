@@ -2556,3 +2556,50 @@ new_items_sample:
 - [childes] b4e97937f1aa4816823defac84aab85e8d0252700ac615010b1002c3da8b563c | Then they can attach by themselves. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:55:31+09:00 / 2026-09-17T20:55:31+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35273269412
+run_attempt: 1
+event_head_sha: 177749d54e7ecad56f520c4742918197c4ebf2b8
+worker_base_sha: 177749d54e7ecad56f520c4742918197c4ebf2b8
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 57955
+after_total: 58955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] ba60248ebf1da60ae171a1f767dd38e6fea3be562ba0e70e994ed5c1d8228499 | Lie down stool. | UD_English-CHILDES
+- [childes] ba609aaab03b30c89901717ad3dc16178712ce9bdaf46ea80e564fc7f5c4f7e4 | Don 't fold it? | UD_English-CHILDES
+- [childes] ba60d80dc627a45bd13d2a1ed8e0910cd9106168cdb9a6e714cb952844af9ba1 | Wonder what's. | UD_English-CHILDES
+- [childes] ba62ea4e250d4d9429bf92fbaf2e0c1913b60d161a8a2f03388ec1319918dbb7 | We're going to take an airplane trip to Texas. | UD_English-CHILDES
+- [childes] ba648f9cf7a39ffdce0468bc6ece3615d8943a67a22b1ba61dc596a3da866f36 | No we're three. | UD_English-CHILDES
+- [childes] ba665457abe0ef8d2a10c505fcb776e6c83f7d8f3a76ea73c953915555262921 | Bozo the clown. | UD_English-CHILDES
+- [childes] ba66d70a9c1d0697dba77ac14f45edf8b21d455e20f1d1c5df59b349d1a751a1 | Bet you didn't know the digger fitted on there. | UD_English-CHILDES
+- [childes] ba686db24eb72abac3d4d5ec2eb50c8295782487fadc50256c873c14bb8fb34f | Show me how please. | UD_English-CHILDES
+- [childes] ba6ab0db2f3ad631ac10bc297320c88aac50f8a9921b3b7d1a5a849893114a8c | Okay that 's enough. | UD_English-CHILDES
+- [childes] ba6adf39bfd6beb9fada28e90bf02fccb3681912431457eb205dbe2011674839 | Oh what's that? | UD_English-CHILDES
+- [childes] ba6e0c8c0f477d03cc859cdf0a4fcf952d8a274fbd7e587fecf9b9761a5b965c | Gonna fall down. | UD_English-CHILDES
+- [childes] ba6e84c40a7e70efa32f8b23f4ed28f8e90b24c0d7db4e18d99e04073159dd1f | She might be. | UD_English-CHILDES
+- [childes] ba6f9b62708147116c6aee7e0bfc6e856f454bb4b3d0d29aafbbeb9b25b36993 | Daddy's not here this morning is he? | UD_English-CHILDES
+- [childes] ba7224a12705773ef85a29aaca51e439cc1f5af4afb943408cf2e8333fb2b7df | I not can find it. | UD_English-CHILDES
+- [childes] ba7243e131d724bd80f65b0b228f86f476ff2d8ecd77aaa48801a8181aa226fc | What babes? | UD_English-CHILDES
+- [childes] ba72555d31426fd481f28aaef8cf6d54f7a1df0ed2770267d8ce71124fa8f6da | And it is lifting her up. | UD_English-CHILDES
+- [childes] ba72faa121add96a7791eabfae850c211ec62a19f5574ec446aece270a8f776d | No it seems that something must have been broken. | UD_English-CHILDES
+- [childes] ba733b16230e20f2443e110331358c30c60688c7f11ffaee5f13166c06c6bf74 | Excuse me Perro. | UD_English-CHILDES
+- [childes] ba7533190380d3089deac08b88bea71a3548c2f022a0a84fb00fac7a3144cb1f | No give her her pencil back Adam because you 've been breaking pencils lately. | UD_English-CHILDES
+- [childes] ba76369a0a3e436c5945c68bbe59b7a058c8c4a02849d8b8077a083e950d11a9 | That 's a banjo? | UD_English-CHILDES
+- [childes] ba76a78a71009abd797a048a4fdd31049bd0e74094c1a09681f5041e64c35186 | If you shoot him he won 't laugh. | UD_English-CHILDES
+- [childes] ba76e09d11b95d2e67cbbfaa77c4cdb98d92bfead00dc6d9600d82f5406cf2b0 | Mummy rabbit. | UD_English-CHILDES
+- [childes] ba77ee18190f06be47985cc487801a8b60c8fb12baac37bf9c3873ebd82b487a | He has gone. | UD_English-CHILDES
+- [childes] ba781199ebc30af45efb75e93b0c0eeefec34eb5c0da6417c1b51a03fac012d9 | A jeep is coming. | UD_English-CHILDES
+- [childes] ba796745f2d2e2fb90aae3e000ff99e39d653dc83e928e12a44f4e321db6f956 | Where a truck? | UD_English-CHILDES
+- [childes] ba7a0da08109c65c0b36f0aa324056bb9cd7a27562c4004210f809807e8ecdee | You like chips. | UD_English-CHILDES
+- [childes] ba7c6c6fff083299c640337598889ebf44db773b2cd9dd2f4965a6a4121eeb6f | This goes down in there and then you close it. | UD_English-CHILDES
+- [childes] ba8100fcd34a1cc611b3f946b49cb4d287b48968535a732a005f7d0b6b9708ff | You didn't have a good day? | UD_English-CHILDES
+- [childes] ba824e665cd8e5055cd7d18b03b9fa5c5645a27e2bca2165dcaa9e36e9822734 | Milk cup milk cup. | UD_English-CHILDES
+- [childes] ba8308a79913cfd083680ec6381edf75b038098ffc18214a83c251cfcf2e943f | Hey dere's no animals. | UD_English-CHILDES
+- ... 970 more new items
+

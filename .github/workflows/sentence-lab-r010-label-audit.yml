@@ -1,0 +1,53 @@
+name: SentenceLab R010 label alignment audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-r010-label-audit.yml'
+      - 'english-sentence-lab/docs/role_label_spec_v1.md'
+      - 'english-sentence-lab/scripts/canonical_roles.py'
+      - 'english-sentence-lab/scripts/audit_label_alignment.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Syntax check
+        run: |
+          python -m py_compile english-sentence-lab/scripts/canonical_roles.py
+          python -m py_compile english-sentence-lab/scripts/audit_label_alignment.py
+
+      - name: Run bounded alignment audit
+        working-directory: english-sentence-lab
+        run: |
+          python scripts/audit_label_alignment.py \
+            --limit-per-source 4000 \
+            --out artifacts/r010_label_alignment_audit.json
+
+      - name: Commit only audit result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'sentence-lab-bot'
+          git config user.email 'sentence-lab-bot@users.noreply.github.com'
+          git add -- english-sentence-lab/artifacts/r010_label_alignment_audit.json
+          if git diff --cached --quiet; then
+            echo 'No audit result change.'
+            exit 0
+          fi
+          git commit -m 'rooping(R010-result): save label alignment audit'
+          git push

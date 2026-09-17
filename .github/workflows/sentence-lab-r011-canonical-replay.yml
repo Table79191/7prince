@@ -1,0 +1,78 @@
+name: SentenceLab R011 canonical replay
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-r011-canonical-replay.yml'
+      - 'english-sentence-lab/train/train_r011_canonical_replay.py'
+      - 'english-sentence-lab/scripts/canonical_roles.py'
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install CPU training dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax check
+        run: |
+          python -m py_compile english-sentence-lab/train/train_r011_canonical_replay.py
+          python -m py_compile english-sentence-lab/scripts/canonical_roles.py
+
+      - name: Generate supervised Gold curriculum if missing
+        shell: bash
+        run: |
+          if [ ! -f english-sentence-lab/data/gold/gold_v2_train_18000.jsonl ]; then
+            python english-sentence-lab/data/gold/generate_gold_curriculum_v2.py
+          fi
+
+      - name: Train R011 canonical replay
+        shell: bash
+        run: |
+          cd english-sentence-lab
+          python train/train_r011_canonical_replay.py \
+            --base artifacts/v1.7.5_gold_ewt_masc_role.pt \
+            --ud data/ud \
+            --ewt data/gold_external/ewt \
+            --masc data/gold_external/masc_conll/extracted/masc-conll/data \
+            --gold-train data/gold/gold_v2_train_18000.jsonl \
+            --gold-val data/gold/gold_v2_val_4000.jsonl \
+            --out artifacts/v1.8.0_r011_canonical_role.pt \
+            --metrics artifacts/v1.8.0_r011_canonical_metrics.json \
+            --epochs 2 \
+            --batch 32
+
+      - name: Commit only R011 outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'sentence-lab-bot'
+          git config user.email 'sentence-lab-bot@users.noreply.github.com'
+          git add -- english-sentence-lab/artifacts/v1.8.0_r011_canonical_role.pt \
+                     english-sentence-lab/artifacts/v1.8.0_r011_canonical_metrics.json
+          if git diff --cached --quiet; then
+            echo 'No R011 output changes.'
+            exit 0
+          fi
+          git commit -m 'rooping(R011-result): save canonical replay model'
+          git push

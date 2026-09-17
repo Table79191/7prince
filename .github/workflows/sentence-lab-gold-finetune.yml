@@ -1,0 +1,72 @@
+name: SentenceLab supervised gold fine-tune
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-gold-finetune.yml'
+      - 'english-sentence-lab/gold_finetune.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  gold-finetune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install CPU training dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Generate supervised Gold curriculum
+        shell: bash
+        run: |
+          python english-sentence-lab/data/gold/generate_gold_curriculum_v2.py
+          cat english-sentence-lab/data/gold/gold_v2_manifest.json
+
+      - name: Fine-tune v1.7.1 with Gold answer keys
+        shell: bash
+        run: |
+          cd english-sentence-lab
+          python train/train_gold_finetune.py \
+            --base artifacts/v1.7.1_ud_full_role.pt \
+            --train data/gold/gold_v2_train_18000.jsonl \
+            --val data/gold/gold_v2_val_4000.jsonl \
+            --ud data/ud \
+            --out artifacts/v1.7.2_gold_role.pt \
+            --metrics artifacts/v1.7.2_gold_metrics.json \
+            --epochs 2 \
+            --batch 32
+
+      - name: Commit Gold data and fine-tuned model
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'sentence-lab-bot'
+          git config user.email 'sentence-lab-bot@users.noreply.github.com'
+          git add english-sentence-lab/data/gold/gold_v2_train_18000.jsonl \
+                  english-sentence-lab/data/gold/gold_v2_val_4000.jsonl \
+                  english-sentence-lab/data/gold/gold_v2_manifest.json \
+                  english-sentence-lab/artifacts/v1.7.2_gold_role.pt \
+                  english-sentence-lab/artifacts/v1.7.2_gold_metrics.json
+          if git diff --cached --quiet; then
+            echo 'No Gold/model changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Fine-tune SentenceLab GRU3 on supervised Gold answer keys'
+          git push

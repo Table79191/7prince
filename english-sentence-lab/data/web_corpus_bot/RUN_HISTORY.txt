@@ -2744,3 +2744,50 @@ new_items_sample:
 - [childes] cbd363bea905cc190509b4e29be25ffc38e791dee99b7d023f5e95f1c9c970e1 | What is your trouble? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:14:27+09:00 / 2026-09-17T21:14:27+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35275276669
+run_attempt: 1
+event_head_sha: d82e433cff4575ac675d7a55fbba1a4bb8871f11
+worker_base_sha: d82e433cff4575ac675d7a55fbba1a4bb8871f11
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 61955
+after_total: 62955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] d12da1b10073df5409319710b4007b20df144150a4c1e3dc1ba41005d5b29a67 | Oh he 's clever isn 't he? | UD_English-CHILDES
+- [childes] d12fe9c2147979ef41c94d21d5af89e95276ffd85b859f766e420dbbc66fb671 | Where's the other one? | UD_English-CHILDES
+- [childes] d130e26ab78db3d140c6ec7dcccf03b9e18373ececf47da436a35f80a66e8e09 | Let her imitate for us. | UD_English-CHILDES
+- [childes] d13124dd078b406a5cf66c520fd98b880e981ee6814862597e6d04200a28f130 | I like to stand up in water and go down in it too. | UD_English-CHILDES
+- [childes] d132b14d1883cf64d39cc959b10cc9aff19442ad9df01d8e837e92e42f5bf0e8 | I tie him. | UD_English-CHILDES
+- [childes] d133abdbb67e2ad7ed8849a92a3a7c46155c36623bc7439ec8abe79b84e4f011 | A g? | UD_English-CHILDES
+- [childes] d1340d6e09850c9aa31ef334cf3f91abb3fc876db6cbdb1f03329466aba37f50 | Milk Daddy. | UD_English-CHILDES
+- [childes] d1348406c49905eaed8b35c8e291334231271d7e40b614765b6ce4436f949db2 | We're gonna eat breakfast right now. | UD_English-CHILDES
+- [childes] d134938d6cd804a95d546b60bf8954dabb1167cb630e1e98974dadcd3e908581 | You cut it out? | UD_English-CHILDES
+- [childes] d136d10c91478b7c9b459a2ff391719dbafeabc0165f92209d0e9c1d572b2a12 | A this. | UD_English-CHILDES
+- [childes] d1396c3ea9e64dbecf6e87919c5b8640a82cd0fadbc098a67c86d662a4431810 | I want some. | UD_English-CHILDES
+- [childes] d13a47161b7e64cd659e647b29e1578f2022f81ae2a5a529b0cdcaa77b56ec24 | I'm ready for it actually. | UD_English-CHILDES
+- [childes] d13bb820eecd624c07fb95524a073444da37fcdbf3d565c42e36540273fc4691 | She's a poor orphan. | UD_English-CHILDES
+- [childes] d13cdcfb73bf2c129bcf5a77d635b5674c31dd3c1c74565e086ad938b000cb8a | You wanna see what happens? | UD_English-CHILDES
+- [childes] d13d9b089c16f938a6b50689d88a8e915ad40e9b986ad4bf81aaea005664fae1 | D is in dog. | UD_English-CHILDES
+- [childes] d14017c75b78a304cbc458b219db271fd34c5c35b7e8996b8d72b4be521b7679 | That time when Jamie wasn't out Lisa and Sherry were out. | UD_English-CHILDES
+- [childes] d144c433c788a414f8bbf7b6e091e5767907ecefca0fb63ec488c40fb1e48201 | Mommy hammer. | UD_English-CHILDES
+- [childes] d144f8898283ef5d6dd331ba12e91c384d62001b7b5ccc57399c372a5a235298 | My skate. | UD_English-CHILDES
+- [childes] d14749b091b103fb48eb147138420c14347881ba3c502bbdb1dc845f87622f20 | Name man. | UD_English-CHILDES
+- [childes] d14750f220b8a05fda76a1e077c821952890f09b8bb1dfd7a0a39ea5231f1831 | Go go like that. | UD_English-CHILDES
+- [childes] d147b3cf24cb8af21d81ab4a7e30445a6e6b598dcff4ceec5647fd808e5f62db | Yes just like the other ones. | UD_English-CHILDES
+- [childes] d148d2c799bf4312f63f5e5cd2ae9c241429c080820e35f7f810ffbfd805659e | We can make some more stuff too. | UD_English-CHILDES
+- [childes] d148e93710171d45a429e97b328ed9b6414d0a40ac6ee0e7f67d1f9cc49d8f25 | Yeah go. | UD_English-CHILDES
+- [childes] d14d2ced97e8f780c8a0e6d2cadf0e4a33b44ace41c5d90d6bf5ca9675044747 | You don't have any of those? | UD_English-CHILDES
+- [childes] d14da12aebe775f048c603ddaee9caf693f129d0c00c7ec60405f12b5633e82a | Yellow and pink. | UD_English-CHILDES
+- [childes] d14e34d8533872a29a0da4d72c6bb990fdcef6aa3b42bf044eb8eb8c8a877513 | A this banana. | UD_English-CHILDES
+- [childes] d151a83d56e014582ed2d1466d7f639622017b3c329a1c114b25ef1bc3e97c7d | One four five. | UD_English-CHILDES
+- [childes] d151f6798faff8601cc10b8b82c3b071b667652a4fc7bac66fc8db7c9ba6f31e | My Papa is. | UD_English-CHILDES
+- [childes] d1526fabf97b6bb3469e444cbd2d3cd750e55da3cae3572a55b44571d8b6297c | I can do that for you. | UD_English-CHILDES
+- [childes] d15315a55dce213e3e99cf2eb917bb38fca1fa23c64aba5728bb87fc1eefa74f | They're. | UD_English-CHILDES
+- ... 970 more new items
+

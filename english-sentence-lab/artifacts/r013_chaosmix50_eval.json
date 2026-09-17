@@ -35,10 +35,10 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 250,
-    "accuracy": 1.0,
-    "exact_sentences": 50,
-    "exact_sentence_accuracy": 1.0,
+    "correct": 247,
+    "accuracy": 0.988,
+    "exact_sentences": 47,
+    "exact_sentence_accuracy": 0.94,
     "by_gold_role": {
       "S": {
         "checks": 173,
@@ -47,28 +47,28 @@
       },
       "O": {
         "checks": 56,
-        "correct": 56,
-        "accuracy": 1.0
+        "correct": 55,
+        "accuracy": 0.9821428571428571
       },
       "C": {
         "checks": 7,
-        "correct": 7,
-        "accuracy": 1.0
+        "correct": 6,
+        "accuracy": 0.8571428571428571
       },
       "M": {
         "checks": 14,
-        "correct": 14,
-        "accuracy": 1.0
+        "correct": 13,
+        "accuracy": 0.9285714285714286
       }
     }
   },
-  "fixed_checks": 48,
-  "regressed_checks": 0,
-  "net_corrections": 48,
+  "fixed_checks": 47,
+  "regressed_checks": 2,
+  "net_corrections": 45,
   "fix_reasons": {
     "dep-object": 9,
     "object-complement": 1,
-    "dep-pobj": 2,
+    "dep-pobj": 1,
     "dep-subject": 21,
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
@@ -83,7 +83,23 @@
     "fronted-between-pp-repair": 1,
     "fronted-between-conj": 1
   },
-  "remaining_confusions": [],
+  "remaining_confusions": [
+    {
+      "gold": "M",
+      "pred": "C",
+      "count": 1
+    },
+    {
+      "gold": "C",
+      "pred": "M",
+      "count": 1
+    },
+    {
+      "gold": "O",
+      "pred": "M",
+      "count": 1
+    }
+  ],
   "fixed_examples": [
     {
       "id": "CM50-001",
@@ -420,27 +436,6 @@
       "confidence": 0.519211,
       "dep_guard": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "id": "CM50-019",
-      "token": "intern",
-      "occurrence": 0,
-      "gold": "M",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "pobj",
-      "head": "for",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "for",
-      "head_neural": "M",
-      "prev": "the",
-      "next": "who",
-      "neural_direct": "C",
-      "confidence": 0.576661,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "id": "CM50-020",
@@ -1094,6 +1089,113 @@
       "guard_reason": "dep-subject"
     }
   ],
-  "regressed_examples": [],
-  "remaining_errors": []
+  "regressed_examples": [
+    {
+      "id": "CM50-021",
+      "token": "compromise",
+      "occurrence": 0,
+      "gold": "C",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "pobj",
+      "head": "of",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "of",
+      "head_neural": "C",
+      "prev": "of",
+      "next": "the",
+      "neural_direct": "C",
+      "confidence": 0.841653,
+      "dep_guard": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
+      "id": "CM50-043",
+      "token": "components",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "tag": "NNS",
+      "dep": "pobj",
+      "head": "of",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "of",
+      "head_neural": "M",
+      "prev": "of",
+      "next": "increased",
+      "neural_direct": "O",
+      "confidence": 0.606943,
+      "dep_guard": "M",
+      "guard_reason": "dep-pobj"
+    }
+  ],
+  "remaining_errors": [
+    {
+      "id": "CM50-019",
+      "token": "intern",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "pobj",
+      "head": "for",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "for",
+      "head_neural": "M",
+      "prev": "the",
+      "next": "who",
+      "neural_direct": "C",
+      "confidence": 0.576661,
+      "dep_guard": "C",
+      "guard_reason": "copular-pobj-complement"
+    },
+    {
+      "id": "CM50-021",
+      "token": "compromise",
+      "occurrence": 0,
+      "gold": "C",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "pobj",
+      "head": "of",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "of",
+      "head_neural": "C",
+      "prev": "of",
+      "next": "the",
+      "neural_direct": "C",
+      "confidence": 0.841653,
+      "dep_guard": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
+      "id": "CM50-043",
+      "token": "components",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "tag": "NNS",
+      "dep": "pobj",
+      "head": "of",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "of",
+      "head_neural": "M",
+      "prev": "of",
+      "next": "increased",
+      "neural_direct": "O",
+      "confidence": 0.606943,
+      "dep_guard": "M",
+      "guard_reason": "dep-pobj"
+    }
+  ]
 }

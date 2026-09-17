@@ -2509,3 +2509,50 @@ new_items_sample:
 - [childes] af09eed51fbe322f6a23511f6dab3ab3c57d17d09c1d13644d1e2142dd87907c | Ball you're right that's a ball. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:50:21+09:00 / 2026-09-17T20:50:21+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35272761665
+run_attempt: 1
+event_head_sha: 6a14667ea1c551636bd782fecb9f671dd99c6112
+worker_base_sha: 6a14667ea1c551636bd782fecb9f671dd99c6112
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 56955
+after_total: 57955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] b4c2b50fb060b931c61045d004c5a469ba5d4a2de85024aa1b38b39f0158b2c4 | Let me get this cord out of your way here. | UD_English-CHILDES
+- [childes] b4c37a124aaec876d566d632ca75ff061803a4ea9014194a4eba09f6d0622c62 | Adam is that boot? | UD_English-CHILDES
+- [childes] b4c4a83c3f8fd8537f1d1d9ed8f9ca4e9dab7b05351a3516b3bf4abb08f0206c | This your new book? | UD_English-CHILDES
+- [childes] b4c8b05fb1517b66905e20f069b32544b22523c03765920906b73308387c8899 | What about mommy is mommy in there? | UD_English-CHILDES
+- [childes] b4c98bc6a810afb2ed7617f507fe965805e752f2f36429417a1cc5888ff03f1e | When Jamie wasn't out there we just played by ourselves. | UD_English-CHILDES
+- [childes] b4cae568dcfa55585b122b1afe25e68c8848ae62bb638941a0ee4571be571f1b | Nursie Daddy. | UD_English-CHILDES
+- [childes] b4cdc08d8e7f951d94ea5a6baf3de19767e695f349f2933af032c22427b4069b | Eat this? | UD_English-CHILDES
+- [childes] b4cecaf9799953ee83f5e9a0d4e76040ebb45eba0f9fd728e3ba98ab08935d6c | Why 're you doing that? | UD_English-CHILDES
+- [childes] b4cecc0951be0e0e155e5b1bb44a03592b9379dfac712db4f6cbff2be964dce7 | And when it's too cold we turn my Mum we ask our Mummy to turn it. | UD_English-CHILDES
+- [childes] b4d216e09cf0664dd7fa4c5c87601817f943703ca21c5154f2282c45f631a961 | I thought that was. | UD_English-CHILDES
+- [childes] b4d3fd18e117c3226f8711b9d9c0d07b7a0d0bb10eb3c73f4161473e298a9891 | I don't like it too. | UD_English-CHILDES
+- [childes] b4d40fc8efe37bc0006d91dd753b0545cadab19fcbd7e3da2e54aab1d44376dd | You're not you're gonna leave that here? | UD_English-CHILDES
+- [childes] b4d424b419c3e3eb3e2e17613b8bc8bfbef8c3a585027e1c3d396b741565d831 | That doesn't make nine. | UD_English-CHILDES
+- [childes] b4d697b6c3e7a0a0385e81ed9c63cb25a883e5b5335abefb9f7fbfc34d2819d1 | We go to country I see beaver dam. | UD_English-CHILDES
+- [childes] b4d697f3732646ec2378f16396e0c811c33051607b51e1b3ef64131a4d5caf4d | Spilled juice off the seat. | UD_English-CHILDES
+- [childes] b4d8b6d43b20c2a055c551cdb4a5d55f0191df7570891cb11a3dad470f26074a | Laiby sing. | UD_English-CHILDES
+- [childes] b4dc485bfc0220e9d36df03adf0f8c0868d1bdc2e44a5f32276debd060493c59 | Anything else? | UD_English-CHILDES
+- [childes] b4dd4053f922de63a9f7bb329e411c0854471d8bcbfce822932b60e11b7c1fb6 | And she even bringed a slide! | UD_English-CHILDES
+- [childes] b4dec137d19c96f9337df5aaecb32a366d210926509d42632bc2eeadbfa18f26 | Sit in the chair and I'll tell you something. | UD_English-CHILDES
+- [childes] b4dec8b024ed439f8f5b7c3b565d940ffd6fb8369a2fdc31c9787a26dfb716a5 | Push it up further. | UD_English-CHILDES
+- [childes] b4e0b68038df851c3b749db83d0c16dcb89c06db06f34b6996562c1f006f22d5 | Did you hear a bag? | UD_English-CHILDES
+- [childes] b4e2f57cf1ba89455071af4b289c2dfaec549794ed3c2b0a7ba75e7fd0c29550 | This is the dining room? | UD_English-CHILDES
+- [childes] b4e4f81551763ca94c50dc572b833778ecb24f36e8cb650ae6cb9d0f0881fd36 | He did what? | UD_English-CHILDES
+- [childes] b4e5db4327fe69f2613ec31239d4f2cb618b17aa37b3a4bbe07666ca096bfe0c | That's a green apple. | UD_English-CHILDES
+- [childes] b4e6230de65e7ac9b2f4bca207e9317cc1b07e8774e6afc7299347b6525b76db | Put de microphone right dere. | UD_English-CHILDES
+- [childes] b4e67f42a68bcf664a01a73f7ff1907f0cb1f51c52dc7630b07e27d18e317ebd | Am I Sleepy Bear's grandpa? | UD_English-CHILDES
+- [childes] b4e69713ffb897606e18698b333a66935d544056a60297f8a93f9aaac4991a6b | Wanna take the bowl outside. | UD_English-CHILDES
+- [childes] b4e6dd78f8a184b226f1a72edf5633998ba9ac91d3217edf3e087417e34e8801 | No she said one. | UD_English-CHILDES
+- [childes] b4e7b193dd8abd7218f1af33ef72e87fded9cf9892e4002df82f808b972a6bc3 | I told you. | UD_English-CHILDES
+- [childes] b4e97937f1aa4816823defac84aab85e8d0252700ac615010b1002c3da8b563c | Then they can attach by themselves. | UD_English-CHILDES
+- ... 970 more new items
+

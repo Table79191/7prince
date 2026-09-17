@@ -27,6 +27,11 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "data" / "web_corpus_bot"
 USER_AGENT = "SentenceLab-AutoWebCorpusBot/2.2 (+https://github.com/Table79191/7prince)"
 REPO_COMMIT_API = "https://api.github.com/repos/UniversalDependencies/{repo}/commits/master"
+REPO_SEARCH_API = (
+    "https://api.github.com/search/repositories"
+    "?q=org%3AUniversalDependencies+UD_English-&per_page=100&page={page}"
+)
+DYNAMIC_ALLOWED_LICENSES = {"CC-BY-SA-4.0", "CC-BY-SA-3.0", "CC-BY-4.0"}
 
 
 def headers_for(url: str) -> dict[str, str]:
@@ -69,6 +74,98 @@ def authenticated_fetch_bytes(url: str, retries: int = 5) -> bytes:
 
 def fetch_json(url: str):
     return json.loads(authenticated_fetch_bytes(url).decode("utf-8"))
+
+
+def source_key_from_repo(repo: str) -> str:
+    prefix = "UD_English-"
+    suffix = repo[len(prefix):] if repo.startswith(prefix) else repo
+    return "".join(ch.lower() for ch in suffix if ch.isalnum())
+
+
+def fetch_license_text(repo: str) -> str:
+    last = None
+    for name in ("LICENSE.txt", "LICENSE", "LICENSE.md"):
+        url = f"https://raw.githubusercontent.com/UniversalDependencies/{repo}/master/{name}"
+        try:
+            return authenticated_fetch_bytes(url, retries=2).decode("utf-8", errors="replace")
+        except Exception as exc:
+            last = exc
+    raise RuntimeError(f"could not read license for {repo}: {last}")
+
+
+def classify_license(repo: str, text: str) -> tuple[str, bool, str]:
+    low = text.lower()
+    if "ldc99t42" in low or "valid license for treebank 3" in low:
+        return "RESTRICTED-LDC", False, "requires_external_LDC_text_license"
+    if "noncommercial" in low or "by-nc" in low:
+        return "CC-BY-NC-SA-4.0", False, "noncommercial_license_excluded"
+    if "annotations are licensed" in low and "underlying texts" in low:
+        return "CC-BY-4.0-ANNOTATIONS", False, "underlying_text_rights_not_clear"
+    if "attribution-sharealike 4.0" in low or "/by-sa/4.0/" in low:
+        return "CC-BY-SA-4.0", True, ""
+    if "attribution-sharealike 3.0" in low or "/by-sa/3.0/" in low:
+        return "CC-BY-SA-3.0", True, ""
+    if (
+        "attribution 4.0 international" in low
+        or "/by/4.0/" in low
+        or "cc-by 4.0" in low
+    ):
+        return "CC-BY-4.0", True, ""
+    return "UNKNOWN", False, "license_not_auto_allowlisted"
+
+
+def discover_english_sources() -> tuple[dict[str, dict], list[dict]]:
+    """Discover every current UD_English-* repository with reusable text terms."""
+    known_by_repo = {v["repo"]: (k, v) for k, v in legacy.SOURCES.items()}
+    accepted: dict[str, dict] = {}
+    skipped: list[dict] = []
+    page = 1
+    seen_repos: set[str] = set()
+
+    while True:
+        payload = fetch_json(REPO_SEARCH_API.format(page=page))
+        items = payload.get("items", []) if isinstance(payload, dict) else []
+        if not items:
+            break
+        for item in items:
+            repo = str(item.get("name", ""))
+            if not repo.startswith("UD_English-") or repo in seen_repos:
+                continue
+            seen_repos.add(repo)
+            if item.get("archived"):
+                skipped.append({"repo": repo, "reason": "archived"})
+                continue
+
+            if repo in known_by_repo:
+                key, source = known_by_repo[repo]
+                accepted[key] = dict(source)
+                continue
+
+            try:
+                license_text = fetch_license_text(repo)
+                license_name, allowed, reason = classify_license(repo, license_text)
+            except Exception as exc:
+                skipped.append(
+                    {"repo": repo, "reason": "license_probe_failed", "detail": str(exc)}
+                )
+                continue
+
+            if not allowed or license_name not in DYNAMIC_ALLOWED_LICENSES:
+                skipped.append(
+                    {"repo": repo, "license": license_name, "reason": reason}
+                )
+                continue
+
+            key = source_key_from_repo(repo)
+            accepted[key] = {"repo": repo, "license": license_name}
+
+        if len(items) < 100:
+            break
+        page += 1
+        if page > 10:
+            break
+
+    return accepted, skipped
 
 
 def repo_head_sha(repo: str) -> str:
@@ -223,7 +320,7 @@ def recompute_totals(out: Path, manifest: dict) -> None:
         "sources_downloaded_this_run": 0,
         "sources_skipped_this_run": 0,
     }
-    for key in legacy.SOURCES:
+    for key in sorted(manifest.get("sources", {})):
         rows = read_jsonl(out / f"{key}.jsonl")
         if not rows:
             continue
@@ -327,7 +424,11 @@ def main() -> None:
         default=0,
         help="emergency per-source storage cap; 0=unlimited",
     )
-    ap.add_argument("--source", action="append", choices=sorted(legacy.SOURCES))
+    ap.add_argument(
+        "--source",
+        action="append",
+        help="optional source key; omit to auto-discover all reusable UD_English-* treebanks",
+    )
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
 
@@ -342,6 +443,7 @@ def main() -> None:
         raise SystemExit("collection limits must be >= 0")
 
     legacy.fetch_bytes = authenticated_fetch_bytes
+    legacy.ALLOWED_LICENSES.update(DYNAMIC_ALLOWED_LICENSES)
 
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -353,7 +455,7 @@ def main() -> None:
 
     manifest["version"] = "AUTO-WEB-CORPUS-2-INCREMENTAL"
     manifest["policy"] = {
-        "source_type": "allowlisted public Universal Dependencies English treebanks",
+        "source_type": "auto-discovered reusable Universal Dependencies UD_English-* treebanks",
         "arbitrary_web_scraping": False,
         "append_only": True,
         "max_new_per_run": args.max_new_per_run,
@@ -365,11 +467,44 @@ def main() -> None:
             os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
         ),
         "skip_exhausted_unchanged_sources": True,
+        "auto_discover_english_treebanks": True,
+        "license_policy": "CC-BY/CC-BY-SA reusable text only; NC/restricted/unclear-text-rights sources excluded",
         "role_analyzer": "english-sentence-lab/scripts/canonical_roles.py",
     }
     manifest.setdefault("sources", {})
 
-    selected = args.source or list(legacy.SOURCES)
+    discovery_error = ""
+    try:
+        discovered_sources, skipped_repositories = discover_english_sources()
+    except Exception as exc:
+        discovered_sources = dict(legacy.SOURCES)
+        skipped_repositories = []
+        discovery_error = f"{type(exc).__name__}: {exc}"
+        print(f"WARNING: dynamic source discovery failed; using known sources: {discovery_error}")
+
+    legacy.SOURCES.update(discovered_sources)
+    manifest["discovery"] = {
+        "matching_repositories_seen": len(discovered_sources) + len(skipped_repositories),
+        "accepted_source_count": len(discovered_sources),
+        "accepted_sources": sorted(
+            {"key": key, "repo": src["repo"], "license": src["license"]}
+            for key, src in discovered_sources.items()
+        , key=lambda x: x["key"]),
+        "skipped_repositories": skipped_repositories,
+        "discovery_error": discovery_error,
+    }
+
+    if args.source:
+        selected = []
+        for requested in args.source:
+            if requested not in legacy.SOURCES:
+                raise SystemExit(
+                    f"unknown/unusable source {requested!r}; available={sorted(legacy.SOURCES)}"
+                )
+            selected.append(requested)
+    else:
+        selected = sorted(legacy.SOURCES)
+
     plans = []
     for key in selected:
         source = legacy.SOURCES[key]

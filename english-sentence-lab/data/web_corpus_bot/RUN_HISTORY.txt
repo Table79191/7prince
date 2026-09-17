@@ -1804,3 +1804,50 @@ new_items_sample:
 - [childes] 5b8567e1da470fa004066c634bf96e27b8951374b7b2a6ccb8bdd6284ff38464 | That's his pen. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:30:58+09:00 / 2026-09-17T19:30:58+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35265003091
+run_attempt: 1
+event_head_sha: 072494597ea6494365dc9e164c08e0b8756aa719
+worker_base_sha: 072494597ea6494365dc9e164c08e0b8756aa719
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 41955
+after_total: 42955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 611a15504289fb6f2e34a8e2e3d10a66514df8abc0a9e0a6d53bd94c1259fdd8 | This is a raccoon. | UD_English-CHILDES
+- [childes] 611a6970aa8cf6192830b2c8e0f22cb2f720e721626bf06c85a48f841f5a245a | Me black. | UD_English-CHILDES
+- [childes] 611d27ee117fea1f140b63313ade9ee643d8ee58ed2356850824a181f1536db2 | I'm thinking of something I like to eat. | UD_English-CHILDES
+- [childes] 6121a22c23f03ae63daff8672ef5fa115208ab73724f5931e6e403bef49b2d2a | Ship airplane. | UD_English-CHILDES
+- [childes] 6122f7cb490d0bc290df37ec8357d550ea9203157cf15dbe14ecfdad2fd0ceff | You get to pick them out whichever ones you want. | UD_English-CHILDES
+- [childes] 61233f102446dce06c85d0eaad77829c63bd5847ac05f83dc4c7fc215316530b | He doesn 't have a nose. | UD_English-CHILDES
+- [childes] 61237b737d81690b409bcf97f1d9d6eedcdbb2d68a75c3b5435cec659bec1d1b | It looks that way. | UD_English-CHILDES
+- [childes] 6123ef9170e19db52b4edf65fd706f34dccbee2299f80e210848de8a97347057 | You wanna hear my voice? | UD_English-CHILDES
+- [childes] 61264789b9c257a6cafd28579d83133f2910313f88601da24577fea9c37337c5 | Just try it and see if you can get the block to stay there. | UD_English-CHILDES
+- [childes] 61267dc68d84c32160408a0cd1b698cfbb637e1bd192316023f90da9d36215c7 | You can go say hi. | UD_English-CHILDES
+- [childes] 6129cb01efb6c2818f64eaaaafc75fc57e7c9c2dbf2315d0da46594239b8e62c | Look at make look at make. | UD_English-CHILDES
+- [childes] 612a53123a5fb67970a3ac2b58a559c56412876294761191db8f0768231f09d2 | I was in the kitchen. | UD_English-CHILDES
+- [childes] 612c82ac2d3fad990df558543000bca64b720d57364914707c3501bea009771b | Oh I may? | UD_English-CHILDES
+- [childes] 612e0e1e8fa79e04f23d904604dac3a274c686d8390306d5fe7a54acaf42ead0 | Just two. | UD_English-CHILDES
+- [childes] 612e2482557a282786566a6bc46d42e53acfdb370d71c29a6e0674974e2782b0 | What are you going to draw? | UD_English-CHILDES
+- [childes] 612f8de762f41c3bd06e28b441c83e563278f7f5b417b50f9ed8ab12a1c6b30a | Maybe what would we hafta do if somebody hadn't invented airplanes? | UD_English-CHILDES
+- [childes] 612f8ef859eb5adddda19119ee069ced5e6138e294c482cc947f7792a2ce07f4 | We've got a nice green car. | UD_English-CHILDES
+- [childes] 61318cc3876803f04683b5e09eed6d12451c9e88fc8e255dc974ab6b047fcfd2 | Dat's gonna slide de tops way on here. | UD_English-CHILDES
+- [childes] 613329b6c89aae7dba4eb8337e1de2202c7f7065c6ad42d3dba9e3703e2a703a | Did you have a dream? | UD_English-CHILDES
+- [childes] 61334e9756d1892d712b7bf22efae73c80dd243fc605ede340df5b72ecdab6ac | No it didn 't break. | UD_English-CHILDES
+- [childes] 61351a2be7ac2165d162ae0b794ad76b189a8a622eaf0642099c9f2f13d6a731 | You did a lot of writing didn 't you? | UD_English-CHILDES
+- [childes] 61392ef3af7f92005287c92e020d640c62478a94cdc8a3143530230b51d0ccb3 | I am quite deaf. | UD_English-CHILDES
+- [childes] 6139ab525e95e2cca8edbe878edd23114c8efc8f03b29ca6132523710471aa96 | What did Tippy do when she was a kid? | UD_English-CHILDES
+- [childes] 613a503ba0610913a96430143faee98a8df3448299901f5f1ad6519a01b835f0 | Yeah they're falling asleep. | UD_English-CHILDES
+- [childes] 613bf2a3b67aa7f95678b40670602342289dd89d8c7fb57ffbd1907747077e76 | He didn't suffer. | UD_English-CHILDES
+- [childes] 613c4c03c946f243baa7d3253d729ea2f6f8eae705bd372f5b0f9459901fdce1 | What do you think Roman a dust pan? | UD_English-CHILDES
+- [childes] 613ec9dec793a790023bd88ad27a19448c1204f936083a16004a137cf698484b | A move one. | UD_English-CHILDES
+- [childes] 6140d76508c750c4303807a251a18d5ad25d54d496f89a184585adb41496dd74 | When you talk you hafta press the button. | UD_English-CHILDES
+- [childes] 6142714f890b7ceb8567350679607aa4867531a00c433c864b0dc2dd50622db6 | I can't. | UD_English-CHILDES
+- [childes] 614407680d3cb711e9729544216bdf3316c056ffbd8442b7b27ca811a9f8ee4e | Adam your juice is out here. | UD_English-CHILDES
+- ... 970 more new items
+

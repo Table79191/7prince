@@ -41,7 +41,7 @@ def main():
             broles=e.base.weak_base_roles(toks)
             feats=[e.base.feat_token(t,b) for t,b in zip(toks,broles)]
             dummy=[0]*len(feats)
-            b,y,m=e.base.collate([(feats,dummy,'','chaosmix50-r013')],torch.device('cpu'))
+            b,y,m=e.base.collate([(feats,dummy,'','chaosmix50-current')],torch.device('cpu'))
             probs=torch.softmax(model(b,m)[0,:len(feats)],dim=-1)
             conf,pred=probs.max(dim=-1)
             neural=[e.base.I2ROLE[int(i)] for i in pred.tolist()]
@@ -49,9 +49,15 @@ def main():
             guarded,reasons=postprocess_roles(doc,neural)
             for text,occ,gold in e.GOLD[s['id']]:
                 i=e.locate(doc,text,occ)
+                h=doc[i].head
                 rows.append({
                     'id':s['id'],'token':doc[i].text,'occurrence':occ,'gold':gold,
-                    'pos':doc[i].pos_,'dep':doc[i].dep_,'head':doc[i].head.text,
+                    'pos':doc[i].pos_,'tag':doc[i].tag_,'dep':doc[i].dep_,
+                    'head':h.text,'head_pos':h.pos_,'head_tag':h.tag_,
+                    'head_dep':h.dep_,'head_lemma':h.lemma_,
+                    'head_neural':neural[h.i],
+                    'prev':doc[i-1].text if i else None,
+                    'next':doc[i+1].text if i+1 < len(doc) else None,
                     'neural_direct':neural[i],'confidence':round(confidence[i],6),
                     'dep_guard':guarded[i],'guard_reason':reasons[i],
                 })
@@ -64,7 +70,7 @@ def main():
     conf=Counter((r['gold'],r['dep_guard']) for r in remaining)
     reasons=Counter(r['guard_reason'] for r in fixed)
     result={
-        'version':'R013 dependency-aware postprocess',
+        'version':'current dependency-aware postprocess',
         'base_model':'v1.8.0-R011-CANONICAL-REPLAY',
         'dataset':'ChaosMix50_ORIGINAL audited sparse gold',
         'training_contamination':False,
@@ -82,7 +88,7 @@ def main():
     }
     OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     lines=[
-        'SentenceLab R013 — dependency-aware ChaosMix50 evaluation',
+        'SentenceLab current — dependency-aware ChaosMix50 evaluation',
         f"before: {direct['correct']}/250 = {direct['accuracy']*100:.2f}% | exact {direct['exact_sentences']}/50",
         f"after : {guarded_score['correct']}/250 = {guarded_score['accuracy']*100:.2f}% | exact {guarded_score['exact_sentences']}/50",
         f"fixed {len(fixed)} | regressed {len(regressed)} | net +{len(fixed)-len(regressed)}",

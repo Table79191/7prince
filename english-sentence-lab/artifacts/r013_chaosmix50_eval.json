@@ -35,15 +35,15 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 246,
-    "accuracy": 0.984,
-    "exact_sentences": 46,
-    "exact_sentence_accuracy": 0.92,
+    "correct": 249,
+    "accuracy": 0.996,
+    "exact_sentences": 49,
+    "exact_sentence_accuracy": 0.98,
     "by_gold_role": {
       "S": {
         "checks": 173,
-        "correct": 169,
-        "accuracy": 0.976878612716763
+        "correct": 172,
+        "accuracy": 0.9942196531791907
       },
       "O": {
         "checks": 56,
@@ -62,14 +62,14 @@
       }
     }
   },
-  "fixed_checks": 44,
+  "fixed_checks": 47,
   "regressed_checks": 0,
-  "net_corrections": 44,
+  "net_corrections": 47,
   "fix_reasons": {
     "dep-object": 9,
     "object-complement": 1,
     "dep-pobj": 2,
-    "dep-subject": 18,
+    "dep-subject": 21,
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
     "clausal-prep-subject-repair": 2,
@@ -86,7 +86,7 @@
     {
       "gold": "S",
       "pred": "O",
-      "count": 4
+      "count": 1
     }
   ],
   "fixed_examples": [
@@ -221,6 +221,19 @@
       "guard_reason": "dep-subject"
     },
     {
+      "id": "CM50-012",
+      "token": "agreement",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "become",
+      "neural_direct": "O",
+      "confidence": 0.776996,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
       "id": "CM50-013",
       "token": "what",
       "occurrence": 0,
@@ -232,6 +245,19 @@
       "confidence": 0.420053,
       "dep_guard": "O",
       "guard_reason": "dep-object"
+    },
+    {
+      "id": "CM50-015",
+      "token": "generator",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "had",
+      "neural_direct": "O",
+      "confidence": 0.915162,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-015",
@@ -468,6 +494,19 @@
       "guard_reason": "dep-object"
     },
     {
+      "id": "CM50-029",
+      "token": "spokesperson",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "finished",
+      "neural_direct": "O",
+      "confidence": 0.781397,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
       "id": "CM50-031",
       "token": "audience",
       "occurrence": 0,
@@ -666,32 +705,6 @@
   "regressed_examples": [],
   "remaining_errors": [
     {
-      "id": "CM50-012",
-      "token": "agreement",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "become",
-      "neural_direct": "O",
-      "confidence": 0.776996,
-      "dep_guard": "O",
-      "guard_reason": "neural-object-local-control"
-    },
-    {
-      "id": "CM50-015",
-      "token": "generator",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "had",
-      "neural_direct": "O",
-      "confidence": 0.915162,
-      "dep_guard": "O",
-      "guard_reason": "neural-object-local-control"
-    },
-    {
       "id": "CM50-025",
       "token": "pattern",
       "occurrence": 0,
@@ -703,19 +716,6 @@
       "confidence": 0.88738,
       "dep_guard": "O",
       "guard_reason": "neural"
-    },
-    {
-      "id": "CM50-029",
-      "token": "spokesperson",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "finished",
-      "neural_direct": "O",
-      "confidence": 0.781397,
-      "dep_guard": "O",
-      "guard_reason": "neural-object-local-control"
     }
   ]
 }

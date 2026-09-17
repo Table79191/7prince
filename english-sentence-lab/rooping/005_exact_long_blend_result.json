@@ -1,0 +1,17 @@
+{
+  "experiment": "Rooping 005 — exact-gold long calibration/test",
+  "gold_source": "generation-time DSL labels; no parser-generated gold",
+  "calibration_sentences": 200,
+  "sealed_test_sentences": 200,
+  "average_words": 99.08,
+  "selected_on_calibration": {
+    "long_expert_weight": 0.25,
+    "calibration_role_accuracy": 0.8978706227
+  },
+  "sealed_test": {
+    "v1.7.5": 0.8767538104,
+    "v1.6.1": 0.8479862723,
+    "blend_0.25_v1.6.1": 0.8931563541
+  },
+  "conclusion": "Fixed logit blending is a real non-overfit improvement for the exact-gold long distribution, but one global weight cannot cover the original Chaos distribution. Continue with calibrated adaptive expert selection."
+}

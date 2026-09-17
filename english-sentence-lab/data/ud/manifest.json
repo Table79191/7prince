@@ -1,0 +1,170 @@
+{
+  "format": "CoNLL-U",
+  "corpora": {
+    "atis": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-Atis",
+      "files": [
+        {
+          "name": "en_atis-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Atis/master/en_atis-ud-train.conllu",
+          "bytes": 2729836,
+          "sha256": "de10d45dd7fc2517b39ae8df074f78ebaea3fd42aeccc0d059b5d42cec6ef118",
+          "sentences": 4274,
+          "tokens": 48655
+        },
+        {
+          "name": "en_atis-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Atis/master/en_atis-ud-dev.conllu",
+          "bytes": 366650,
+          "sha256": "3d289550aa64dea20830c7c109a1afde09de83fdc00bb6c895205681f35e8d52",
+          "sentences": 572,
+          "tokens": 6644
+        },
+        {
+          "name": "en_atis-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Atis/master/en_atis-ud-test.conllu",
+          "bytes": 369237,
+          "sha256": "a98df5e2f11e81deb4698a05ffcb361cff5d74cbba61b234b59685ec304d66a7",
+          "sentences": 586,
+          "tokens": 6580
+        }
+      ],
+      "sentences": 5432,
+      "tokens": 61879,
+      "bytes": 3465723
+    },
+    "pud": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-PUD",
+      "files": [
+        {
+          "name": "en_pud-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-PUD/master/en_pud-ud-test.conllu",
+          "bytes": 1386858,
+          "sha256": "c80584f2bc2b31d5bada78a1136f9feec7ac49e5e18898db02dea434b5b8f0aa",
+          "sentences": 1000,
+          "tokens": 21180
+        }
+      ],
+      "sentences": 1000,
+      "tokens": 21180,
+      "bytes": 1386858
+    },
+    "pronouns": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-Pronouns",
+      "files": [
+        {
+          "name": "en_pronouns-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Pronouns/master/en_pronouns-ud-test.conllu",
+          "bytes": 142229,
+          "sha256": "b4e42921354d71e44e4758892f1a78f53773705e21425a64f454022570caf5b0",
+          "sentences": 285,
+          "tokens": 1705
+        }
+      ],
+      "sentences": 285,
+      "tokens": 1705,
+      "bytes": 142229
+    },
+    "ctetex": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-CTeTex",
+      "files": [
+        {
+          "name": "en_ctetex-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CTeTex/master/en_ctetex-ud-test.conllu",
+          "bytes": 435016,
+          "sha256": "626b1da3281f9f203d9b0c68c8132a2d4211a742a348498a1d8388de89a3aa64",
+          "sentences": 276,
+          "tokens": 9273
+        }
+      ],
+      "sentences": 276,
+      "tokens": 9273,
+      "bytes": 435016
+    },
+    "childes": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-CHILDES",
+      "files": [
+        {
+          "name": "en_childes-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CHILDES/master/en_childes-ud-train.conllu",
+          "bytes": 19558480,
+          "sha256": "3275a76cbfb32f73264f04bc02166ecc5662039bd6c604c65ffde23e45883c58",
+          "sentences": 34732,
+          "tokens": 221030
+        },
+        {
+          "name": "en_childes-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CHILDES/master/en_childes-ud-dev.conllu",
+          "bytes": 2159081,
+          "sha256": "50233b8123256b2910b6adbf5abcaef8a58af9054affe9c95bbdc643fec87972",
+          "sentences": 3860,
+          "tokens": 24310
+        },
+        {
+          "name": "en_childes-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CHILDES/master/en_childes-ud-test.conllu",
+          "bytes": 5194509,
+          "sha256": "a985573aeb9fabc10ab54bd3f99fb739628e4bb16da95fd814f84aee19d95f90",
+          "sentences": 9591,
+          "tokens": 57400
+        }
+      ],
+      "sentences": 48183,
+      "tokens": 302740,
+      "bytes": 26912070
+    },
+    "littleprince": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-LittlePrince",
+      "files": [
+        {
+          "name": "en_littleprince-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-LittlePrince/master/en_littleprince-ud-test.conllu",
+          "bytes": 406743,
+          "sha256": "b1832f66187dea5b8ff27cf7bd607d4fa33962850b84435066c06c4cc1c35232",
+          "sentences": 500,
+          "tokens": 6852
+        }
+      ],
+      "sentences": 500,
+      "tokens": 6852,
+      "bytes": 406743
+    },
+    "eslspok": {
+      "upstream": "https://github.com/UniversalDependencies/UD_English-ESLSpok",
+      "files": [
+        {
+          "name": "en_eslspok-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESLSpok/master/en_eslspok-ud-train.conllu",
+          "bytes": 661827,
+          "sha256": "2d98d2a9520fbc9e20154ab0b51bb688d704c3c59b0e9ae09d82df0a4b1c6330",
+          "sentences": 1856,
+          "tokens": 16879
+        },
+        {
+          "name": "en_eslspok-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESLSpok/master/en_eslspok-ud-dev.conllu",
+          "bytes": 84954,
+          "sha256": "7034c651d3deec369149139a75da31a61e673b9735ae88589695ab1d2d235000",
+          "sentences": 232,
+          "tokens": 2167
+        },
+        {
+          "name": "en_eslspok-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESLSpok/master/en_eslspok-ud-test.conllu",
+          "bytes": 87994,
+          "sha256": "7d3b37af353205dc3b2964937e7c511e7763cdca25ec9c830638a2540ffe04be",
+          "sentences": 232,
+          "tokens": 2266
+        }
+      ],
+      "sentences": 2320,
+      "tokens": 21312,
+      "bytes": 834775
+    }
+  },
+  "totals": {
+    "sentences": 57996,
+    "tokens": 424941,
+    "bytes": 33583414
+  }
+}

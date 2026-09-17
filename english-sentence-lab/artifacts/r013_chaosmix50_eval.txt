@@ -1,4 +1,4 @@
-SentenceLab R013 — dependency-aware ChaosMix50 evaluation
+SentenceLab current — dependency-aware ChaosMix50 evaluation
 before: 202/250 = 80.80% | exact 18/50
 after : 249/250 = 99.60% | exact 49/50
 fixed 47 | regressed 0 | net +47

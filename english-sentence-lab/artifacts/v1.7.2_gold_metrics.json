@@ -1,0 +1,103 @@
+{
+  "version": "1.7.2-GOLD-FINETUNE",
+  "params": 615558,
+  "gold_train_sentences": 18000,
+  "gold_val_sentences": 4000,
+  "base_checkpoint": "artifacts/v1.7.1_ud_full_role.pt",
+  "baseline": {
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 0.8946503437866845,
+      "sentence_exact": 1149
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9246018569759576,
+      "sentence_exact": 5791
+    }
+  },
+  "selected": {
+    "epoch": 0,
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 0.8946503437866845,
+      "sentence_exact": 1149
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9246018569759576,
+      "sentence_exact": 5791
+    }
+  },
+  "sealed_holdouts_included": false,
+  "last_chunks": [
+    {
+      "sentences_seen": 15250,
+      "loss": 8.945172301571935e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 15500,
+      "loss": 9.449631348178919e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 15750,
+      "loss": 8.168957847855473e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 16000,
+      "loss": 8.539038190748942e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 16250,
+      "loss": 8.250144330158967e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 16500,
+      "loss": 8.501827593401893e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 16750,
+      "loss": 8.34566833728311e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 17000,
+      "loss": 7.903698992093505e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 17250,
+      "loss": 8.29088854505161e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 17500,
+      "loss": 7.995799266072075e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 17750,
+      "loss": 7.836523184912948e-05,
+      "train_acc": 1.0
+    },
+    {
+      "sentences_seen": 18000,
+      "loss": 7.470582451088052e-05,
+      "train_acc": 1.0
+    }
+  ]
+}

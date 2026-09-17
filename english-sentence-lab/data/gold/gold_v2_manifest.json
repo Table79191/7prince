@@ -1,0 +1,25 @@
+{
+  "train": 18000,
+  "validation": 4000,
+  "families": {
+    "gold_v2_00": 1204,
+    "gold_v2_01": 1207,
+    "gold_v2_02": 1214,
+    "gold_v2_03": 1159,
+    "gold_v2_04": 1215,
+    "gold_v2_05": 786,
+    "gold_v2_06": 1207,
+    "gold_v2_07": 1208,
+    "gold_v2_08": 1200,
+    "gold_v2_09": 1209,
+    "gold_v2_10": 1147,
+    "gold_v2_11": 620,
+    "gold_v2_12": 1174,
+    "gold_v2_13": 1145,
+    "gold_v2_14": 1169,
+    "gold_v2_15": 1136
+  },
+  "sealed_holdouts_included": false,
+  "label_source": "deterministic human-designed grammar templates",
+  "seed": 79191
+}

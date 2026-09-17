@@ -629,3 +629,50 @@ new_items_sample:
 - [atis] b8e881d566d41a7e87a6cf01d9f15e325e8b0cd6d5442fd1eac827f2040067e3 | round trip fares from denver to philadelphia under 1000 dollars and pittsburgh to philadelphia under 1000 dollars | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:20:11+09:00 / 2026-09-17T17:20:11+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35251879935
+run_attempt: 1
+event_head_sha: 7629a33a6a8baf0e0f81f8feb9d3f5a4f9bd7a4d
+worker_base_sha: 7629a33a6a8baf0e0f81f8feb9d3f5a4f9bd7a4d
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 16955
+after_total: 17955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +333 / -0, childes: +333 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] c7b2aa48fb93424ffaf7575855a08c52eca0c17a207a11a29a57712035ca3270 | what are the flights from phoenix arizona to st. paul minnesota on tuesday | UD_English-Atis
+- [atis] c7b92c483fc29f147da2fb20e3aafdfa87cbca25b4bfc944e85a951efe5cba03 | i want to fly philadelphia to dallas on july eighth | UD_English-Atis
+- [atis] c7d869381138416aabab70642a445193ddf2aabfbacbbf1d7be383e314f70732 | could you please find me the earliest flight from boston to oakland | UD_English-Atis
+- [atis] c7dac02f37b686f6485e811dcf11336d350dc5b36aae7ce4f1fe14527ef8e383 | could you please give me the cost of a round trip flight from denver to pittsburgh | UD_English-Atis
+- [atis] c7e31b3837afb50d352b1b41855acb5d16ae16711713958fb9eadf449a081317 | list flights from seattle to salt lake city on delta be1 | UD_English-Atis
+- [atis] c7e4c7321d673a6e2ed0ed94d884ccb3be56fbeb792e2f34321178c8b6ffcd65 | from new york to toronto on thursday morning | UD_English-Atis
+- [atis] c7ff01f568817572773fbb204a100f661d192116bcfa9a3d5b2d8f0d855c715a | what kind of airplane goes from boston to san francisco before noon | UD_English-Atis
+- [atis] c8098544a73601d4cfa1ee12b21b5689695ea0e27aceffc5b49baf5ba2be14ce | what does ewr stand for | UD_English-Atis
+- [atis] c81767aaad4e3a83ad3885fb16767dddf19fbe414e55bcb7390a3e1daf0a448b | define airline us | UD_English-Atis
+- [atis] c81bedc03a99bf763e952c26fb41d85c079dee759153d1c1330d3048d3a5537c | i'd like information on a flight from atlanta to denver a morning flight | UD_English-Atis
+- [atis] c827f7790ee6739831567ff941656b5da18f1c2bde7678bed09775ea74bee372 | what is airline wn | UD_English-Atis
+- [atis] c835154cdd23c0c6f5f38b5e9be4015183e7ce9e0fc0fbfc3ca630f245c8fa91 | what is the lowest fare from washington dc to montreal | UD_English-Atis
+- [atis] c8371a062d3c4e7ca05c6cebcd0df7b6675eddeb2fec3c3ac17984a7cccc0928 | may i fly from san francisco to baltimore | UD_English-Atis
+- [atis] c83cdbe7d692943d5558f5f241957815eb9310fd20de3e828dd7a3dc21d292b3 | first flights and fares from pittsburgh to atlanta on a thursday | UD_English-Atis
+- [atis] c83d4094127f52125a50e83e8e83cac92ecdedb0fce7e7fd13146b5d469b3e25 | show me the flights from dallas to atlanta | UD_English-Atis
+- [atis] c843be9970a43805c70a268eddce4d84a41386a650985d694b6d65686e9f333b | flights from new york city to montreal | UD_English-Atis
+- [atis] c8617335945a1d19a5e0ad1577ec0ce798d082b4aa7acb408e14e3993404bc5d | which flights on northwest and united airlines stop in denver before noon | UD_English-Atis
+- [atis] c8619bc53e926189ea17bdc82bd32fcc3a597f5cbb666c375ff7bc88128535a8 | i would like flights from san francisco to long beach | UD_English-Atis
+- [atis] c869172997df18fcfb32a3172a188208602972039a8c65f15c66118fc8756c8d | i would like to fly from pittsburgh to atlanta on us air | UD_English-Atis
+- [atis] c86c29addcfb77dde9cb119c7624ae348e7c8860fa7b3acdae77f6093aa8675e | i would like to find out the ground travel available in atlanta | UD_English-Atis
+- [atis] c87a3ce4c0b305150f5a024baae849b652efea644aeba2b44980d67651ac5e6c | what are the afternoon flights from denver to san francisco | UD_English-Atis
+- [atis] c88085f74ea04ac4b4ae7fa04886b3124015a930c01a9a0e443ad55723f8dab4 | i need to go from boston to atlanta in the same day find me the earliest flight from boston | UD_English-Atis
+- [atis] c886ef1fb916a35532f0dcb362dc4eff99d00e4859aa105584257b9719f3162c | show me fares from philadelphia to san francisco on thursday morning | UD_English-Atis
+- [atis] c8951275fa20dde58f6f7cfd9990616a87ce4a29e3d7128b0efa4955c7a06fea | i want to fly from boston to baltimore | UD_English-Atis
+- [atis] c8a0add583ea24080b529f36082b16d105d581e72ab567795f0f5226a9f7fa47 | i would like to fly from pittsburgh to atlanta | UD_English-Atis
+- [atis] c8c3054f47c8a0488e62381f8f99b6279f48560667ad6bc7da312ebcd636c161 | show me the united flights which go from boston to washington dc | UD_English-Atis
+- [atis] c8cf66318dc1db113dfa78301f378c76023b46cb77ccc7be9feb8644ecc6afb6 | i need a flight on friday from newark to tampa | UD_English-Atis
+- [atis] c8d76863262f955b09eeceb433f384e742c75bcd547d3800dda9232438181d98 | get last flight from oakland to salt lake city on wednesday or first flight from oakland to salt lake city on thursday | UD_English-Atis
+- [atis] c8d9df4102fdaf11f66eadd3a1ce3fc72222b4790937efe1830a60ee37c88eb8 | are there any flights from denver to atlanta with stops in pittsburgh | UD_English-Atis
+- [atis] c8ddf8a8e5ec03961ede7210aa7ad7f33c0be880cbf3a8697ca466ebe5527934 | what is the earliest flight from pittsburgh to san francisco | UD_English-Atis
+- ... 970 more new items
+

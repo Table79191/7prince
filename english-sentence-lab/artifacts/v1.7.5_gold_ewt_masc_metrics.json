@@ -1,0 +1,159 @@
+{
+  "version": "1.7.5-GOLD-EWT-MASC-REPLAY",
+  "params": 615558,
+  "trainable_params": 191302,
+  "synthetic_gold_train_sentences": 18000,
+  "ewt_train_sentences": 12023,
+  "masc_train_sentences": 2116,
+  "masc_eval_sentences": 364,
+  "ud_replay_sentences": 8000,
+  "masc_filter_stats": {
+    "files": 47,
+    "accepted": 2480,
+    "train": 2116,
+    "val": 364,
+    "rejected": {
+      "split-or-no-gold-pos": 128,
+      "length": 89
+    }
+  },
+  "baseline": {
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ewt": {
+      "sentences": 3827,
+      "tokens": 49991,
+      "base_role_acc": 0.6211718109259666,
+      "neural_role_acc": 0.9016622992138585,
+      "sentence_exact": 2501
+    },
+    "masc": {
+      "sentences": 364,
+      "tokens": 6218,
+      "base_role_acc": 0.6603409456416854,
+      "neural_role_acc": 0.8063686072692184,
+      "sentence_exact": 131
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9276517247740269,
+      "sentence_exact": 5831
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "gold": {
+        "sentences": 4000,
+        "tokens": 59630,
+        "base_role_acc": 0.5926882441723964,
+        "neural_role_acc": 1.0,
+        "sentence_exact": 4000
+      },
+      "ewt": {
+        "sentences": 3827,
+        "tokens": 49991,
+        "base_role_acc": 0.6211718109259666,
+        "neural_role_acc": 0.9019023424216359,
+        "sentence_exact": 2501
+      },
+      "masc": {
+        "sentences": 364,
+        "tokens": 6218,
+        "base_role_acc": 0.6603409456416854,
+        "neural_role_acc": 0.8255065937600514,
+        "sentence_exact": 139
+      },
+      "ud": {
+        "sentences": 7682,
+        "tokens": 81315,
+        "base_role_acc": 0.6457849105331119,
+        "neural_role_acc": 0.9285002767017155,
+        "sentence_exact": 5817
+      },
+      "score": 2.8398676091440533,
+      "last_train": {
+        "sentences_seen": 40139,
+        "loss": 0.17097719416926105,
+        "train_acc": 0.9429756350440642
+      }
+    },
+    {
+      "epoch": 2,
+      "gold": {
+        "sentences": 4000,
+        "tokens": 59630,
+        "base_role_acc": 0.5926882441723964,
+        "neural_role_acc": 1.0,
+        "sentence_exact": 4000
+      },
+      "ewt": {
+        "sentences": 3827,
+        "tokens": 49991,
+        "base_role_acc": 0.6211718109259666,
+        "neural_role_acc": 0.903962713288392,
+        "sentence_exact": 2530
+      },
+      "masc": {
+        "sentences": 364,
+        "tokens": 6218,
+        "base_role_acc": 0.6603409456416854,
+        "neural_role_acc": 0.8224509488581537,
+        "sentence_exact": 135
+      },
+      "ud": {
+        "sentences": 7682,
+        "tokens": 81315,
+        "base_role_acc": 0.6457849105331119,
+        "neural_role_acc": 0.9297915513742852,
+        "sentence_exact": 5858
+      },
+      "score": 2.83916697086565,
+      "last_train": {
+        "sentences_seen": 40139,
+        "loss": 0.19270467232992525,
+        "train_acc": 0.9408766564729868
+      }
+    }
+  ],
+  "selected": {
+    "epoch": 1,
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ewt": {
+      "sentences": 3827,
+      "tokens": 49991,
+      "base_role_acc": 0.6211718109259666,
+      "neural_role_acc": 0.9019023424216359,
+      "sentence_exact": 2501
+    },
+    "masc": {
+      "sentences": 364,
+      "tokens": 6218,
+      "base_role_acc": 0.6603409456416854,
+      "neural_role_acc": 0.8255065937600514,
+      "sentence_exact": 139
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9285002767017155,
+      "sentence_exact": 5817
+    }
+  },
+  "sealed_project_holdouts_included": false,
+  "source_note": "MASC-CONLL checksum-verified; 85/15 deterministic split; split-token or missing-Gold-POS sentences rejected."
+}

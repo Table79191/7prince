@@ -1,0 +1,169 @@
+{
+  "version": "1.8.0-R011-CANONICAL-REPLAY",
+  "base": "v1.7.5_gold_ewt_masc_role.pt",
+  "selected_epoch": 2,
+  "baseline": {
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ewt": {
+      "sentences": 2036,
+      "tokens": 25618,
+      "base_role_acc": 0.6903349207588414,
+      "neural_role_acc": 0.8512764462487313,
+      "sentence_exact": 1135
+    },
+    "ud": {
+      "sentences": 3287,
+      "tokens": 27313,
+      "base_role_acc": 0.6906235126130414,
+      "neural_role_acc": 0.8241130597151539,
+      "sentence_exact": 1999
+    },
+    "masc": {
+      "sentences": 312,
+      "tokens": 4636,
+      "base_role_acc": 0.677739430543572,
+      "neural_role_acc": 0.8764020707506471,
+      "sentence_exact": 152
+    }
+  },
+  "selected": {
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ewt": {
+      "sentences": 2036,
+      "tokens": 25618,
+      "base_role_acc": 0.6903349207588414,
+      "neural_role_acc": 0.9434772425638223,
+      "sentence_exact": 1394
+    },
+    "ud": {
+      "sentences": 3287,
+      "tokens": 27313,
+      "base_role_acc": 0.6906235126130414,
+      "neural_role_acc": 0.9560648775308461,
+      "sentence_exact": 2542
+    },
+    "masc": {
+      "sentences": 312,
+      "tokens": 4636,
+      "base_role_acc": 0.677739430543572,
+      "neural_role_acc": 0.8830888697152718,
+      "sentence_exact": 154
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "eval": {
+        "gold": {
+          "sentences": 4000,
+          "tokens": 59630,
+          "base_role_acc": 0.5926882441723964,
+          "neural_role_acc": 1.0,
+          "sentence_exact": 4000
+        },
+        "ewt": {
+          "sentences": 2036,
+          "tokens": 25618,
+          "base_role_acc": 0.6903349207588414,
+          "neural_role_acc": 0.9337965493012725,
+          "sentence_exact": 1305
+        },
+        "ud": {
+          "sentences": 3287,
+          "tokens": 27313,
+          "base_role_acc": 0.6906235126130414,
+          "neural_role_acc": 0.9483396184966866,
+          "sentence_exact": 2457
+        },
+        "masc": {
+          "sentences": 312,
+          "tokens": 4636,
+          "base_role_acc": 0.677739430543572,
+          "neural_role_acc": 0.8826574633304572,
+          "sentence_exact": 152
+        }
+      },
+      "score": 3.733445529454597,
+      "safe": true,
+      "last_train": {
+        "sentences_seen": 39355,
+        "loss": 0.13448234883697988,
+        "train_acc": 0.9510086455331412
+      }
+    },
+    {
+      "epoch": 2,
+      "eval": {
+        "gold": {
+          "sentences": 4000,
+          "tokens": 59630,
+          "base_role_acc": 0.5926882441723964,
+          "neural_role_acc": 1.0,
+          "sentence_exact": 4000
+        },
+        "ewt": {
+          "sentences": 2036,
+          "tokens": 25618,
+          "base_role_acc": 0.6903349207588414,
+          "neural_role_acc": 0.9434772425638223,
+          "sentence_exact": 1394
+        },
+        "ud": {
+          "sentences": 3287,
+          "tokens": 27313,
+          "base_role_acc": 0.6906235126130414,
+          "neural_role_acc": 0.9560648775308461,
+          "sentence_exact": 2542
+        },
+        "masc": {
+          "sentences": 312,
+          "tokens": 4636,
+          "base_role_acc": 0.677739430543572,
+          "neural_role_acc": 0.8830888697152718,
+          "sentence_exact": 154
+        }
+      },
+      "score": 3.753573639536314,
+      "safe": true,
+      "last_train": {
+        "sentences_seen": 39355,
+        "loss": 0.12247536481319837,
+        "train_acc": 0.952054794520548
+      }
+    }
+  ],
+  "data_stats": {
+    "ud": {
+      "ambig_sentences_dropped": 877,
+      "val": 3287,
+      "train": 19347
+    },
+    "ewt": {
+      "ambig_sentences_dropped": 1619,
+      "val": 2036,
+      "train": 12195
+    },
+    "masc": {
+      "train": 1813,
+      "val": 312,
+      "ambig_sentences_dropped": 355,
+      "reject_split-or-no-gold-pos": 128,
+      "reject_length": 89
+    },
+    "gold_replay": 6000
+  },
+  "selection_used_chaos50": false,
+  "note": "UD/EWT/MASC labels use canonical_roles.py; any sentence containing AMBIG is excluded from supervised training."
+}

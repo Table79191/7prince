@@ -63,8 +63,9 @@ jobs:
         id: collect
         run: |
           python english-sentence-lab/scripts/auto_web_corpus_bot_v2.py \
-            --max-new-per-source 250 \
-            --max-total-per-source 10000
+            --max-new-per-run 1000 \
+            --max-new-per-source 0 \
+            --max-total-per-source 0
 
       - name: Stamp first collection time
         id: stamp
@@ -86,6 +87,9 @@ jobs:
           assert manifest['version'] == 'AUTO-WEB-CORPUS-2-INCREMENTAL'
           assert manifest['policy']['append_only'] is True
           assert manifest['policy']['authenticated_github_api'] is True
+          assert manifest['policy']['per_source_storage_unlimited'] is True
+          assert manifest['policy']['redistribute_unused_run_budget'] is True
+          assert manifest['policy']['max_total_per_source'] == 0
 
           total = 0
           for key, source in manifest['sources'].items():
@@ -115,7 +119,7 @@ jobs:
           assert total >= int(before['total']), (before['total'], total)
           assert total == manifest['totals']['sentences_written']
           assert manifest['collection_time']['records_with_timestamp'] == total
-          print(f'validated incremental corpus: before={before["total"]} after={total}')
+          print(f'validated unlimited incremental corpus: before={before["total"]} after={total}')
           PY
 
       - name: Detect real corpus changes

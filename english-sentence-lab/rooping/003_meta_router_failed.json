@@ -1,0 +1,21 @@
+{
+  "experiment": "Rooping 003 — nonlexical logistic meta-router",
+  "status": "rejected",
+  "training": {
+    "informative_disagreements": 940,
+    "features": "expert probabilities/confidence/margin/entropy + POS/base-role + relative position + sentence length; no lexical identity",
+    "group_cv_accuracy": 0.8159574468,
+    "sources": ["Novel Complex200", "ChaosLike200 validation subset"]
+  },
+  "non_chaos": {
+    "novel_complex200": {"v16": 0.9386227545, "v17": 0.9470059880, "router": 0.9724550898, "oracle": 0.9802395210},
+    "chaoslike_val_aligned": {"v16": 0.7608816964, "v17": 0.8077566964, "router": 0.8454241071, "oracle": 0.8805803571}
+  },
+  "chaos50_diagnostic_only": {
+    "v16": 0.8370860927,
+    "v17": 0.7814569536,
+    "router": 0.7973509934,
+    "oracle": 0.8821192053
+  },
+  "reason_rejected": "Router learned decision geometry from mismatched/non-Chaos label distributions and did not transfer to original Chaos conventions. Do not deploy or tune this router on Chaos50."
+}

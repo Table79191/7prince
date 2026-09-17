@@ -2791,3 +2791,50 @@ new_items_sample:
 - [childes] d15315a55dce213e3e99cf2eb917bb38fca1fa23c64aba5728bb87fc1eefa74f | They're. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:21:15+09:00 / 2026-09-17T21:21:15+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35275762995
+run_attempt: 1
+event_head_sha: d2a2ab551a6c81720788b25c3df00c3f4047a260
+worker_base_sha: d2a2ab551a6c81720788b25c3df00c3f4047a260
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 62955
+after_total: 63955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] d6dbf5fc5186bce40aacb286b2d374713ba745cdebc9bad869080966ea8940e3 | What about all the songs you've been singing on tv with the little girls? | UD_English-CHILDES
+- [childes] d6dc4428c1620a553f59d9c4cf6cbc0b2c86bd7d5f44e067a899f1ab9b37a180 | I just roll my sleeves up. | UD_English-CHILDES
+- [childes] d6dd9189ea05c4ef15a0fa49c410f8f86004223e26e00e69543627fc56585fa0 | Adam can you say this throw the big ball you. | UD_English-CHILDES
+- [childes] d6de9e4cd7fc525892b6eebbba1d3238ab68a45736e7a6860ab6e2b1803852bf | Is this an elephant or a witch? | UD_English-CHILDES
+- [childes] d6df0f8ce1409a438981cc45ee826b663865bca62064a3076c2280006cd1be65 | Oh you don 't know what that is? | UD_English-CHILDES
+- [childes] d6e3f122375f6604784c51a879034acc5181a35b8dae364ad3b9198443ddb440 | And drop it. | UD_English-CHILDES
+- [childes] d6e4fd6e14a7715ef9e3d1ef974a0720dfbd12360827822f4fac4fb059d8915a | Yes the wind 's blowing. | UD_English-CHILDES
+- [childes] d6e77eb0147c61427b922acaa09338eac06c1bbecb5d2a8392cd1ed17e5b8793 | You pull it up and close it and you pull it down and you open it. | UD_English-CHILDES
+- [childes] d6e79017a4684d698010bdfa75ab7b355f1d39fe296c2abc713a187790c89e50 | It stands. | UD_English-CHILDES
+- [childes] d6ee0d527c6ee5c38750ddf1baef86283b337653a9206c652e6d11056cf679e6 | Not for digging. | UD_English-CHILDES
+- [childes] d6ee5eefb0307665192530413d89716a930288e91c3e3ac12633ee8bafbbb83b | Adam maybe your fire engine will stay on better. | UD_English-CHILDES
+- [childes] d6efa5e1dd2753296f885b4d9c249cbaa81a383b7d5a83d627d2002727afa8a4 | Not cranberries. | UD_English-CHILDES
+- [childes] d6f155afb0013b0994ac14b8750d11325eaf984b18b4d548aa098c36c1976f73 | Lassie. | UD_English-CHILDES
+- [childes] d6f3862876a9f3e0d93b836149769ec8c9649e05d8b5eb66928257f26d4c6812 | Can bread talk? | UD_English-CHILDES
+- [childes] d6f44828953b2baddbfc654fce60988db9a9bec07cb394a20e5ae0360eb8d760 | Do they feel better? | UD_English-CHILDES
+- [childes] d6f6770699e97ec3e2d6c3840b656f12d01bf442e90bd73573669a404c7bf369 | Where Mommy pocket book? | UD_English-CHILDES
+- [childes] d6f8f883103a56604caade8151b3a4ccff45a3e901b70754ad68d6c848a2fc15 | Because I 'm going to put the door on. | UD_English-CHILDES
+- [childes] d6fa81cc8acd2393cbf1bcddf1245bbd255788a0a3a6eb8b69765499994c3cd1 | Brownie muffins. | UD_English-CHILDES
+- [childes] d6fa923500b084c4c0e9445bd6de12600306807a7a2caec90a330233bd158c94 | You going to dancing school tomorrow? | UD_English-CHILDES
+- [childes] d6fd56246a8a37f4397bf34c2d3e469c1866149064ce740a9cd75b15f83a7974 | It's it's a desk right? | UD_English-CHILDES
+- [childes] d6fd939828736df836e2a7bea0ed762d951d45e1a9cf45ef3dee4bedabaa00ae | Oh is that like a glue gun? | UD_English-CHILDES
+- [childes] d6fdcc514999feca8e3592c63bebd9c320d8195f6c48a905a947e3ea06e8ec7e | Didn't Teppy? | UD_English-CHILDES
+- [childes] d6fe1dce6248567f89835d79b7645e2f0fc2593f15933e84013b44479280d5e0 | How many little puppies over here? | UD_English-CHILDES
+- [childes] d6ff06d7214dcbefe2528725033e3c0809c7837133c37cca05c00d34db1d01d1 | And we going at the movies. | UD_English-CHILDES
+- [childes] d6ffe9709214572979b47497b90e40ad92f85332d9ec5367a846dc199052172f | One two in there. | UD_English-CHILDES
+- [childes] d700f14769d6233586f09069ab5e95d5d16fc70c597f6dfa234a2f1a088c3bc2 | That's not a d. | UD_English-CHILDES
+- [childes] d701e2ddae38819be1ca325dc8743461e1724e5ce29f915a64a9d01dcaad2a9b | Climb over me you not. | UD_English-CHILDES
+- [childes] d702a52cf7acd5696252eefe43fba0d3bd2b078a80f816be64eed9ffdc13b46d | You're gonna try all the numbers? | UD_English-CHILDES
+- [childes] d704b762d3d4f6ae65d9e7b69ab9e9dac412fbe571e176ff94f1864c253ff6f5 | Who hit you? | UD_English-CHILDES
+- [childes] d705d4444e77b74e719650d1deac715ae97e9a38e6d620114ae7c4713649d6f6 | He's got an eye. | UD_English-CHILDES
+- ... 970 more new items
+

@@ -1052,3 +1052,50 @@ new_items_sample:
 - [childes] 2b7f4169eed0698b137a8fd853ee5c0bcc74838d0217abc90036629d2399fc23 | Fell down on his face. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:07:19+09:00 / 2026-09-17T18:07:19+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35256608183
+run_attempt: 1
+event_head_sha: 4b0dd47356f02941d05f80a7b9af3b15aac35140
+worker_base_sha: 4b0dd47356f02941d05f80a7b9af3b15aac35140
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 25955
+after_total: 26955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 2e2ef23b1d997deb16279e4efbc5ea8d7c17b6721243928e6d3255e7ca596f24 | Flower she usually says something like fla fla. | UD_English-CHILDES
+- [childes] 2e2f1e3ff9df0afb8b9bfa54d1bf4490e6e54d3d3401b4862cd6a1484bb0d1d8 | The sunshine is laughing. | UD_English-CHILDES
+- [childes] 2e30e5a7075bb48ccfa6c7f9132592548750de6fdf39e5d415396b4b0486d66a | No it's somebody else. | UD_English-CHILDES
+- [childes] 2e31041f334596bb50cc153efe4d05e3e07b2ffb4a3b79c5280149f0f3c80fb3 | Where Pap go? | UD_English-CHILDES
+- [childes] 2e3180b09a9da50ab148266e47c9ce2f3e943229b215cb1cc6dad73004935654 | I going show it to Kent. | UD_English-CHILDES
+- [childes] 2e328a09e87b59bb5f482bfef23264ddc8992b0041fffd8518171fee71da0728 | David is Ursula 's little boy. | UD_English-CHILDES
+- [childes] 2e3418cb8afcf879b1530066b8ba49cf801413d1443ec813aa5fca5f499f5125 | No this car gonna go in book. | UD_English-CHILDES
+- [childes] 2e348e5ed8df4fd185da7e4ef240da575c441cf6abd6069adf1d511a8d2bfc67 | You didn 't look all the way down. | UD_English-CHILDES
+- [childes] 2e38371c951ebd03c45d27279f44dcba99a47c828e127a6df4a34c81f374166b | Dinner's almost ready. | UD_English-CHILDES
+- [childes] 2e388e6f5d46f63971db913707ea77b346731a0a52965918b8122e8c333dc273 | I wanna draw. | UD_English-CHILDES
+- [childes] 2e3a6d86435ada887b6196c97fe75abd4766d38f1073a0c0726e456fae4b0c22 | This is green. | UD_English-CHILDES
+- [childes] 2e3cc8fefaf04f098e64b5d46a798f65084449d1c525c5874ebce3c4dfe8356d | You 'll give the duck your hands and then you 'll be a duck? | UD_English-CHILDES
+- [childes] 2e3db8bc638bd411f8c3cc1fc6fb13942f81d17c68fa5eba56490fef979a75e4 | Can you Mum? | UD_English-CHILDES
+- [childes] 2e3df3a75ba3f1c4d044197ae9b170441af4adac039e0457482a5191d0e21c98 | The oven. | UD_English-CHILDES
+- [childes] 2e3fa7b437f4da0842b09d01930d707d9db8fd87c9a84d0f24cbb79183a96c73 | Guess what'll be on tv when we come home? | UD_English-CHILDES
+- [childes] 2e4003b2011ff419d78602f5fe2309874e0dd065398b374cd9f57e1edb32fa60 | The little boy 's name is what? | UD_English-CHILDES
+- [childes] 2e40d7e335b023d0ec21ccba5c8d63f203cdd93d1278d9e3797bfa6186381bf3 | Okay I remember that too. | UD_English-CHILDES
+- [childes] 2e4237ec6a69a87902326a9cf58f3d73d5376b2e330562270880e4f05abaa071 | One left down dere Mommy. | UD_English-CHILDES
+- [childes] 2e42a1194539823e6488cd4ff827b35390f431be6ddc65de57fa897a38c62e5c | No out like this. | UD_English-CHILDES
+- [childes] 2e42cc8fe08bed597d89bf039cbe38e57f4cf10e262250e7372507fbb14285b1 | Why does your tummy cry? | UD_English-CHILDES
+- [childes] 2e4470b984e52b83fc12f361c25dbe695e0efe7f772e23e20089740774e323eb | I know what he eats. | UD_English-CHILDES
+- [childes] 2e457dab11176014aafecbb52b9381224727dc9898114747e2dd88becf3bed4e | Look it you're a little baby who's holding you? | UD_English-CHILDES
+- [childes] 2e45efd788296b66e6630c987970f2d7badf3bd7960bfccbafd7b587136da6a0 | I don't want red. | UD_English-CHILDES
+- [childes] 2e48d64785dc06e1f257d55d769781723cb00af1e5e36937cde621fe44b6f9f1 | Now it's recording your voice. | UD_English-CHILDES
+- [childes] 2e48efe291bf38a7ba4aeacc7d2cee99688c411dd0bef02624d554549a0cfad7 | It goes over here see? | UD_English-CHILDES
+- [childes] 2e49e99fd586598a26d9b656461ba0b3ff2339985728a2da2f26013d67fe4b30 | Leave on. | UD_English-CHILDES
+- [childes] 2e4aa029016507b45892d8f90c96812ac198c2f55c36a6528892db245daa41fb | Two flat tires. | UD_English-CHILDES
+- [childes] 2e4b288f632006fe7f875a9225a66ab40c0c0fdfc5627286eb525192dceb3981 | What do you want me to do in there? | UD_English-CHILDES
+- [childes] 2e50266f0e1f466978f3966cd637d5e1e20aebb721d1b5fb96aefea5e4101c20 | Yeah you always fall down and go boom boom on that slide don't you. | UD_English-CHILDES
+- [childes] 2e5493d0d7133d991fd23718346a0d377b3bad22f1e170d4f7da9e38e45af8ef | No I don 't think it opens does it? | UD_English-CHILDES
+- ... 970 more new items
+

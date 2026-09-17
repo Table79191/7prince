@@ -114,3 +114,49 @@ new_items_sample:
 - [atis] 3beb69cf245df84dbca85f1d91a3b9fef76d7c1d7a1cd7f5fd88719dc15e095c | i'd like to fly late tomorrow from minneapolis to long beach | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T01:29:44+09:00 / 2026-09-17T16:29:44+00:00 ===
+status: failure
+event: push
+run_id: 35246868865
+run_attempt: 1
+head_sha: 8e3d67c58437a0d103f9f40859d7502567b634c8
+details: collect=success,stamp=success,validate=failure,runtime=skipped,comparetest=skipped,compare=skipped
+before_total: 8051
+after_total: 9051
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, eslspok: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 45147875179a1441ac13d21aa778c47c40d23fc06d36d4633f8f6bf475b9505f | please show me flights from san francisco to dallas | UD_English-Atis
+- [atis] 452f396892511c1b05de1e70801ec02a8d2395357e9a4e4b533083e87833a3e9 | give me the flights from los angeles to pittsburgh on tuesday | UD_English-Atis
+- [atis] 456b13523752a6c04b9480c09aa42df9d5c05be9357210332bc2785ca5b49808 | show flights between boston and denver | UD_English-Atis
+- [atis] 45806b63ce4d2a1c8075617e00f75654dfc0a7054e940eebb6c3a6da8855052e | what flights from indianapolis to memphis | UD_English-Atis
+- [atis] 458311f417a2c8b7bcfe2b324bb8ea0ad9b75d0ae26624753dc8a86aa4c4bf31 | morning flight from atlanta to philadelphia | UD_English-Atis
+- [atis] 458e9f9cbbe9c4568885257c320d48af23732ede8f4974e8323a860377400ecb | show me the least expensive flight from miami to cleveland on sunday after noon | UD_English-Atis
+- [atis] 45923c2ffd6d19eb65ddc7b4357fbf31cd0cb04b8a3e1c9a957f029efa82c94b | i need to reverse the flight from pittsburgh to denver please | UD_English-Atis
+- [atis] 459536dfedb36e3c4c64577f4d055b69e4aecf865be4e6915b62b39a2641f367 | i would like to find a flight that goes from tampa to montreal making a stop in new york and a flight that serves lunch | UD_English-Atis
+- [atis] 45a32a693abfd65df1ea0cf6f99a10753080a11cb765d196b73147974a860b4e | show me the flights from denver to las vegas | UD_English-Atis
+- [atis] 45aba63714a47accc02746ff3be453755a5f2a4a930ef1013c33c5cd2bfcb721 | what ground transportation is there in denver | UD_English-Atis
+- [atis] 45ae6748b056cdaf1def7d03cd16534f423de7aebfac7fefb51eadc93902601f | what ground transportation is there in oakland | UD_English-Atis
+- [atis] 45df6891fff9a75e32101da61d9c702e410cb6a55adb09aa21994a2750211d9c | can you show me flights from dallas to atlanta on tuesday night | UD_English-Atis
+- [atis] 45f6ebccf422469bd78482d3acb0596f242a2e8ea40172f9f9a2ce086d53b2c0 | what delta flights fly from washington to dallas in the morning | UD_English-Atis
+- [atis] 461146c1d0a2fac4c9e228515b1affa6a228b9c496362ea8923c742d72c9059c | what are the morning flights from nashville to tacoma and from nashville to san jose in the next two days | UD_English-Atis
+- [atis] 462dcca7d0ea355e8d87d1e5603b6e37a8668ccad1fdf01f14ca7ce178a8ad69 | show me the flights from denver to philadelphia again | UD_English-Atis
+- [atis] 4637c65811db12ee534bcac750788f3ec1242c7e2d47f089ac5fb6721f77376d | is there an atlanta flight to denver connecting | UD_English-Atis
+- [atis] 4648b96a7a8722619b57105a821fa3c3cfaf5089f04f98d3dc0be24c2fe6eeb1 | list flights from washington dc to montreal | UD_English-Atis
+- [atis] 4649877005ad86442e087f193dcdd6430b85bd08c7c109d45083cdddfe5f7d96 | show me all flights from new york to miami leaving on a tuesday | UD_English-Atis
+- [atis] 464d92580c382a12c88f4779390c8cbc21447f9fa59e6a30b5e9863bc39b4f60 | i'd like a cheap flight from dallas to baltimore on january first | UD_English-Atis
+- [atis] 4654ac09d8095159cfd529cd1ae86978c16b03fcf6861695847060b659c6880d | what are the fares from newark to la monday and wednesday | UD_English-Atis
+- [atis] 46635f7ec350dfe6a6d6e4e24eba2c7464fbcb21c20059c4bb6cbd7d3edd10d1 | show flights from pittsburgh into san francisco arriving after 12 noon | UD_English-Atis
+- [atis] 466cdff335dcbb0649669cf15fb169ae71edb2def31a2bd7c32995462b2c1d1f | show me a list of ground transportation at denver | UD_English-Atis
+- [atis] 467b325a99d197d87f8b681f9b512773b2a89ed8fd3430acf0fdd48e8e603bed | flights from nashville to seattle | UD_English-Atis
+- [atis] 468c659f5a15ec2c1dccedbee5d52d57ceb5e3be0004dcf24d791c1ab46fe5a4 | do you have any direct flights from pittsburgh to atlanta | UD_English-Atis
+- [atis] 46ae0212c0bc8d392f3dd973316b86bbfeb8e7dcc38360422bb1edd00694ec3b | list the flights and time of arrival for flights arriving in dallas fort worth from boston before noon | UD_English-Atis
+- [atis] 46bc4d70492793e5511b2af1917a517b51278e192448a7e0fd88baf19f993273 | us 3724 baltimore to philadelphia what is the round trip fare | UD_English-Atis
+- [atis] 46c122731e8fda957c675c2ebbe97c67c74ddbef50c455f3ad5388c8b6a2eba1 | flights from washington to seattle | UD_English-Atis
+- [atis] 46c29609ad21763e35eb535147934ed65dbb12b24f79ae538cf1a86a0c8e2d50 | show me flights from minneapolis to seattle on july second | UD_English-Atis
+- [atis] 46c675d056165ee8f99f211b5d3e94e1df1907c14da02bf11a15cffdd778635d | what flights go from dallas to phoenix | UD_English-Atis
+- [atis] 46cc370908ef31b01f4da66c090a9d325c79d8bfa30f8bb5352c7cd630a059f8 | what airlines have flights from boston to philadelphia that leave before 630 am | UD_English-Atis
+- ... 970 more new items
+

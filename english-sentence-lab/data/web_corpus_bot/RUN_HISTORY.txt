@@ -2603,3 +2603,50 @@ new_items_sample:
 - [childes] ba8308a79913cfd083680ec6381edf75b038098ffc18214a83c251cfcf2e943f | Hey dere's no animals. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:00:45+09:00 / 2026-09-17T21:00:45+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35273767810
+run_attempt: 1
+event_head_sha: 3a20c44693ee4ef8341be8348a1401c040d5a7d1
+worker_base_sha: 3a20c44693ee4ef8341be8348a1401c040d5a7d1
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 58955
+after_total: 59955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] c017d04c6fcb0e02dc0b579d8533d1956f79b8007881249d2c198955ee13baad | Shall we do a game? | UD_English-CHILDES
+- [childes] c019513971083a87e309f6e1d13d660987f56e7480c1ad3e230ccb01db42c752 | Well because I know. | UD_English-CHILDES
+- [childes] c0196ce6c899498a65b565be0dd594e6777e9462a2570cfc0b10b9ee37b2be8b | Um well it's that red box. | UD_English-CHILDES
+- [childes] c01cbd9915132b7a7c561c5cf1f32f949adfba3545bc74ee6bad5fdcf7672762 | Under the hay? | UD_English-CHILDES
+- [childes] c01e8088bfefaf54e572a18ee360e0751eb732587d2b69dff824774b44d71afc | Well go see if it looks like that. | UD_English-CHILDES
+- [childes] c01fb94e2f223f1e010d6d23fe4cb74ce85fc21c5b556f115dedb2c56778f7b7 | She was at the doctors. | UD_English-CHILDES
+- [childes] c023f20d3702fa0c5d7bfd84e70026e2eb1e39ae2fb2b66e41d4aab15a1457e4 | And what kind of bug was it? | UD_English-CHILDES
+- [childes] c02533aafcbead0c06220c058b815a0ae4ad919b3c064bf665931ccc8f44f27b | Gonna see the boops. | UD_English-CHILDES
+- [childes] c027b1788cb99875ddd2e2187fc87ae098be0b9c6104f3b68c77fe5638b853e6 | Let him give you some paper okay? | UD_English-CHILDES
+- [childes] c02a79b00d8583c451e3688d253f5703994ca7daa7a0d56d91a0920d36ad80f3 | Yes yes look at this mirror! | UD_English-CHILDES
+- [childes] c02cafcb5def38ddf7fca92038fc805e957dfd310d1ffb0665ccc51ce57b6884 | I don't know. | UD_English-CHILDES
+- [childes] c02d49f5ce8b13ad6f3e55efd186636d922a7aa23ef6645eb6aba286d31186ce | We're not going to get very far at the moment are we? | UD_English-CHILDES
+- [childes] c02e9b36cee74190536edb3f52cb9a8fefef009ca5e270c8113e18380abf70fc | Adam can you spell your name over here? | UD_English-CHILDES
+- [childes] c02ec5a5ce8d872736cb5d8586b8241e8de539048f637abf8996d3e96335c559 | Okay you read it to me tonight. | UD_English-CHILDES
+- [childes] c02f62486d940298c88b48acb0786160014eca0b2fbb0492ca35d0119d239125 | Were you all red? | UD_English-CHILDES
+- [childes] c032897c3e4a11e722083845d493d73058259dcba745934ff4572a1d01a1a217 | Alright I'll bring it out. | UD_English-CHILDES
+- [childes] c0349b579decd5dbb8b6da38a9783351b9d26d982ab0fc31926eb63123d5eeba | Because I wanna. | UD_English-CHILDES
+- [childes] c034f67d69e83a4bf588280b1529e900f85bd4e1385616633af7a137f50b4998 | Are you ready Adam? | UD_English-CHILDES
+- [childes] c0352e6b11e8a14fde21dbcd46a36e683cbdb3f80934641f6cddf734f3619efd | After you draw on here it's gonna make it purple. | UD_English-CHILDES
+- [childes] c03557f83694a2391846f190cedc036660f81e38d7d013f2c2df1fd09cee337e | Flies don't come in. | UD_English-CHILDES
+- [childes] c036899ca7df1f8022e5ee705e24583f3c2b38b7f95cac6672a31387f0fc80a8 | Uhhuh when my Mom gets tiny. | UD_English-CHILDES
+- [childes] c0376ebcef479118a40668545b59ebac78a1b0478d8bd108110c1ac0c550cb6c | School bus. | UD_English-CHILDES
+- [childes] c038003159ab2178fce2f85d4a6d10d194dfe9f75cfbe00165b072f9723860a8 | Is that the kitchen? | UD_English-CHILDES
+- [childes] c0390767930ed1d0e48913578765034164c5eef8d87e3675a96185bcef29e005 | Uhhuh I'm hiding. | UD_English-CHILDES
+- [childes] c039976c3217b83bc0ae6675782f5a75c9304bdae03b373bf5eae5e1d9039f85 | I'm gungy. | UD_English-CHILDES
+- [childes] c03ade8b91d93ab765fe689b919bd56860daf58a605c0a8806fd738e8661ae3c | Come on there is enough room. | UD_English-CHILDES
+- [childes] c03dce256d99d3f5222f5242e88eec59f67372249117f9a300de69fe55ec4e1e | I go in there. | UD_English-CHILDES
+- [childes] c03eabf0d9c93d5d12192ec551556040a21b3bd678e6ff05c68693d50528d366 | The monster? | UD_English-CHILDES
+- [childes] c03f3230f30c860699ebd5129c7103a8be7c5ec09b59c451daa54fbbc31a91d0 | You know I think this horsie wants to go use the bathroom. | UD_English-CHILDES
+- [childes] c040f04b10474b6626695601cd3457c20322735cf185bc0eb037be16350c0a05 | You do dis? | UD_English-CHILDES
+- ... 970 more new items
+

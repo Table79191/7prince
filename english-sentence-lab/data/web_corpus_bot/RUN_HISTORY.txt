@@ -206,3 +206,50 @@ new_items_sample:
 - [atis] 46cc370908ef31b01f4da66c090a9d325c79d8bfa30f8bb5352c7cd630a059f8 | what airlines have flights from boston to philadelphia that leave before 630 am | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T01:34:02+09:00 / 2026-09-17T16:34:02+00:00 ===
+status: success
+event: push
+run_id: 35247254114
+run_attempt: 1
+event_head_sha: a54cf428a6c202b0952a3f5a90da5b20904e5332
+worker_base_sha: a54cf428a6c202b0952a3f5a90da5b20904e5332
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 9051
+after_total: 10051
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, eslspok: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 513745016d50c3f551c84616680a5fdc178b1be97fba37e5e482afa3830cc573 | i want a flight from atlanta to washington that leaves after 3 pm | UD_English-Atis
+- [atis] 513e004b1914dcb7f9350d9d6f19f6e14ca03465d55f31db1f0dbbdfb319ea46 | what flights from miami to indianapolis | UD_English-Atis
+- [atis] 513fd92321a5951c24cc653d22729fd32bc823128aa4eb4025a073ae5adf8cd5 | how can i go from the san francisco airport to downtown san francisco | UD_English-Atis
+- [atis] 51462ca2a0adde3305ddc7160afa29e9eb37cf51924e6113fa0116880a55c57a | i would like to fly from denver to pittsburgh and atlanta | UD_English-Atis
+- [atis] 514c5c9b70250d5743cc20306529a787fcf286e3ff3d697e14c01f3a8e0652ee | what does the fare code f and fn mean | UD_English-Atis
+- [atis] 5158969b71e6f2b802a61fc5aa0c0754b841935261bd3ca60de209f2a9f7366e | show flights from philadelphia to boston | UD_English-Atis
+- [atis] 515bf74757ddbb9323eff52500a59dac97505a12995f7589b9adaf069a34037f | flights from dc to denver | UD_English-Atis
+- [atis] 51707ba854a76e7736d88ed2910b69c61140e29c7e282ec1b9e68b7ea39d08cb | what are the united airlines flights between baltimore and denver on august twelfth | UD_English-Atis
+- [atis] 5189b72a0fba913f8be267663286da3c3c9f94cf8a7fa1d12e71387b06436b50 | please list the flights from ontario california to orlando florida | UD_English-Atis
+- [atis] 51a1cf9d4d282f101c4e6137064988fc7b8a8f65ca29dba2b36306d65c77180d | show me the flights from boston to baltimore | UD_English-Atis
+- [atis] 51b707ff413f3a848cf404c96ff90d79ba1046d08b62ccc225150f84b334e503 | round trip fares new york to san jose | UD_English-Atis
+- [atis] 51c1a38d7a0f4f9357c4899e6482279882fca999be08ecda758b85e4ce3cfaad | newark to cleveland | UD_English-Atis
+- [atis] 51e73cfba29e835bf3de24d67ba4df0bd521c05783646e269dc01aa8906c338b | what flights from detroit to st. petersburg | UD_English-Atis
+- [atis] 51f646a9af6b613b9212e981499561c2e129adba540b71b1df8f0064e40c3ab8 | show me flights from philadelphia to oakland on friday | UD_English-Atis
+- [atis] 51fa2669c67588c09d5eff6398216dfbdd24e5c0878c2672138e90cc2d3f6050 | show me the economy flights from baltimore to dallas | UD_English-Atis
+- [atis] 5222b3d895c9a6d8aa0607d5836e262568ef13989fe9e3b4894463fe496f6341 | show me a return flight from miami to jfk please | UD_English-Atis
+- [atis] 5225e5e1e3621597f5a8aab9cb382cfd015c73fba1c34df690a2332e3ea66553 | i would like a flight from washington to boston leaving at 230 on august twentieth | UD_English-Atis
+- [atis] 5228b91ba6f7a4206a22e47715f39d8ea332195792c690ac3bce1d00b5fb288e | what are the cheapest round trip flights from denver to atlanta | UD_English-Atis
+- [atis] 5242de063364285e544dcb7792b15889a8b2ffd855d9d14f2aa27320b7ed2c42 | can you give me information on transportation from the airport in philadelphia to downtown philadelphia | UD_English-Atis
+- [atis] 5242fc3059f3c0f256332877e8bcdd6f336eaf441a2e2c549a83e9755aa5e2fa | show me times for flights from san francisco to atlanta | UD_English-Atis
+- [atis] 5244aeb4c8bfd6500552c617c6dbe4cd298e66b00077531280eedb099b31d54c | what flights are there from memphis to las vegas | UD_English-Atis
+- [atis] 5267f72983d19f96dc0ffae84ddcea9ff8b02cce0bc62be04a266a1672aebf55 | dallas ground transportation | UD_English-Atis
+- [atis] 5274eb29b4f116a7c14ed9d60f9ccc2dd480b541ad42074b18b69c8f2525cc3e | list flights from pittsburgh to baltimore | UD_English-Atis
+- [atis] 5286c9a8bc3856a183cbd54456426c2be59710c77deefee0012fded7e1ab346c | i'd like to arrange a trip to baltimore on january first | UD_English-Atis
+- [atis] 5287e6fa83a6fe9084d6e88e3e0ba3875d235bc056801ec7d425397f20aaa345 | show me all the information about the flight from baltimore to dallas which is listed dl 1055 dl 405 | UD_English-Atis
+- [atis] 529cc710ce89dcd6b531e4a622bc6be007f92a5309832af6f4f81a3617789a43 | list all the flights that takeoff from general mitchell international | UD_English-Atis
+- [atis] 52a4e13666ff382fcfe8ffdee5e84779723e7b83e93e7e6b875738363db93bb5 | show me round trip flights from montreal to orlando | UD_English-Atis
+- [atis] 52c8ac82e87fe26ff924f83875800281dfefb91a34aa6cf38f4eaa31d71d75ef | give me all flights from new york city to las vegas that arrive on a sunday | UD_English-Atis
+- [atis] 52d12cd6e605c9f53d3d639e6dac6d60f1aab061353f600f10a15cdfb0ca68d1 | on united airlines give me the flight times from boston to dallas | UD_English-Atis
+- [atis] 52f54098bea1c9ba3fc60c428d6d5f44e58763ac1861df98850761798f08efb5 | list daily flights from oakland to boston using continental airlines | UD_English-Atis
+- ... 970 more new items
+

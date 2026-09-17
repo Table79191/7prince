@@ -41,11 +41,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 15050,
-      "sentences_written": 1750,
+      "sentences_written": 2000,
       "new_items_added": 250,
-      "remaining_unseen": 13300,
-      "auto_pass": 1572,
-      "needs_review": 178,
+      "remaining_unseen": 13050,
+      "auto_pass": 1794,
+      "needs_review": 206,
       "upstream_head_sha": "4a4d77f599ea53cc405f85d0cec4b2f14f81d42b",
       "download_skipped": false,
       "skip_reason": ""
@@ -80,11 +80,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 5430,
-      "sentences_written": 1750,
+      "sentences_written": 2000,
       "new_items_added": 250,
-      "remaining_unseen": 3680,
-      "auto_pass": 1725,
-      "needs_review": 25,
+      "remaining_unseen": 3430,
+      "auto_pass": 1970,
+      "needs_review": 30,
       "upstream_head_sha": "3ba83a5ded2c2b6e69ea2fa862806a892ae62a53",
       "download_skipped": false,
       "skip_reason": ""
@@ -119,11 +119,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 1750,
+      "sentences_written": 2000,
       "new_items_added": 250,
-      "remaining_unseen": 43749,
-      "auto_pass": 1729,
-      "needs_review": 21,
+      "remaining_unseen": 43499,
+      "auto_pass": 1976,
+      "needs_review": 24,
       "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
       "download_skipped": false,
       "skip_reason": ""
@@ -150,8 +150,8 @@
       "auto_pass": 218,
       "needs_review": 56,
       "upstream_head_sha": "3d2bda424dcdedb8889aeec9f81ee6401994f7f2",
-      "download_skipped": false,
-      "skip_reason": ""
+      "download_skipped": true,
+      "skip_reason": "upstream_unchanged_and_exhausted"
     },
     "eslspok": {
       "source": "eslspok",
@@ -183,11 +183,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 2154,
-      "sentences_written": 1750,
+      "sentences_written": 2000,
       "new_items_added": 250,
-      "remaining_unseen": 404,
-      "auto_pass": 1679,
-      "needs_review": 71,
+      "remaining_unseen": 154,
+      "auto_pass": 1910,
+      "needs_review": 90,
       "upstream_head_sha": "3feb27b9759454c4cf02263b371963137bee0d2b",
       "download_skipped": false,
       "skip_reason": ""
@@ -214,8 +214,8 @@
       "auto_pass": 474,
       "needs_review": 18,
       "upstream_head_sha": "60d7a34bcae4d3a09f11dd9fd47e743375e3b9c4",
-      "download_skipped": false,
-      "skip_reason": ""
+      "download_skipped": true,
+      "skip_reason": "upstream_unchanged_and_exhausted"
     },
     "pronouns": {
       "source": "pronouns",
@@ -239,8 +239,8 @@
       "auto_pass": 275,
       "needs_review": 10,
       "upstream_head_sha": "6c5934b7330dd0302723178d266f8326bfa358df",
-      "download_skipped": false,
-      "skip_reason": ""
+      "download_skipped": true,
+      "skip_reason": "upstream_unchanged_and_exhausted"
     },
     "pud": {
       "source": "pud",
@@ -264,17 +264,17 @@
       "auto_pass": 882,
       "needs_review": 118,
       "upstream_head_sha": "f16eba4ae7f3d161870ed320676c5088b8fa476c",
-      "download_skipped": false,
-      "skip_reason": ""
+      "download_skipped": true,
+      "skip_reason": "upstream_unchanged_and_exhausted"
     }
   },
   "totals": {
-    "sentences_written": 9051,
-    "auto_pass": 8554,
-    "needs_review": 497,
+    "sentences_written": 10051,
+    "auto_pass": 9499,
+    "needs_review": 552,
     "new_items_added_this_run": 1000,
-    "sources_downloaded_this_run": 8,
-    "sources_skipped_this_run": 0
+    "sources_downloaded_this_run": 4,
+    "sources_skipped_this_run": 4
   },
   "upstream_snapshot_sha256": "b99d09afd946f910a9ec0f5e0081ee8ac7da74241652b5d537b1793b54b3c512",
   "collection_time": {
@@ -283,8 +283,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 9051,
-    "latest_first_collected_at_utc": "2026-09-17T16:30:55+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T01:30:55+09:00"
+    "records_with_timestamp": 10051,
+    "latest_first_collected_at_utc": "2026-09-17T16:33:22+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T01:33:22+09:00"
   }
 }

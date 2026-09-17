@@ -3073,3 +3073,50 @@ new_items_sample:
 - [childes] f345024ec67ebef61a706fc2770fd3d574db939dcc49cf9c8921ae5c65ee0c01 | Packed up? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:58:15+09:00 / 2026-09-17T21:58:15+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35279110245
+run_attempt: 1
+event_head_sha: e3ebc27ec419a43652cdf7ce53f534388623c2d7
+worker_base_sha: e3ebc27ec419a43652cdf7ce53f534388623c2d7
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 68955
+after_total: 69955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] f90329b4a6d3e1ef9f42e0e3cddf30eaf3c3d80f3d11582fc1e86bafe251c0d3 | Because he's gonna cry. | UD_English-CHILDES
+- [childes] f9046ba6ed5e40f29c3d2b7cc84a271ffa6d55f3d04d0a1b56c81f457f1b9172 | No scooter. | UD_English-CHILDES
+- [childes] f906e75047396fe0b14bc654875c18424c20b6935d0c3aae409ed26fbd831d4a | Dis not purse dis a pocket book. | UD_English-CHILDES
+- [childes] f9099de2c82b5d596010c565f04649d32fafb649168c94f60f2331386183f9b8 | The doggie does okay. | UD_English-CHILDES
+- [childes] f90b63c5b900536e6040b5390a505a43f1df544684eb151a92a874bc9aa486fe | He 's not a copy cat. | UD_English-CHILDES
+- [childes] f90bc7caaa0a50318ff5501b495e79152a451cb55304847129936e3d5cd1e0d5 | Write pencil Adam a. | UD_English-CHILDES
+- [childes] f90d909d95575674b66cef0e4f3e3478dee08a28a3866d82b34cdff5d56aaf07 | Talk to his mouth? | UD_English-CHILDES
+- [childes] f90deac9b75793e9afa2b51971ed33ae0530081ff54d12765ee93c61110bffd5 | That 's enough thank you. | UD_English-CHILDES
+- [childes] f90f6a825241d6ebffe4d191323f7ade947b37fb7e4c23867b67519555e7b07f | Uhhuh I'm through riding. | UD_English-CHILDES
+- [childes] f9124ad41d9d2d07319b2e73ded26e894bb3e22a7414fc23b9d5d0b58ae167df | You 're not an eye? | UD_English-CHILDES
+- [childes] f912b47764612326930ead15165582089c504c8ab2fe90ca40b57b32398cedc5 | When Jamie was out in the two bedrooms then I was playing with Jason. | UD_English-CHILDES
+- [childes] f914067f5ee317fd138114a53b64c7492d07213e86f031fba0769846727ab086 | In the water? | UD_English-CHILDES
+- [childes] f917d40f858b29ad75a2e0938838cff9f87f9e7229936417e33648d7db2b2c44 | Something's broke down. | UD_English-CHILDES
+- [childes] f91a2b604dffbd6e35cd6c700d346bc1b1b5b06775f74eb6f38d5ce4c3357b7d | I'm gonna make a basket to. | UD_English-CHILDES
+- [childes] f91e1104919d52c2b4d6acd3cd687649c9f91d1fa2d46385fe3ff1818066e48b | Is on the other side. | UD_English-CHILDES
+- [childes] f91e34dc1c04a242cd8a76d1280216952387960bf984cfa8fa83a1c7941fc19a | Oh the other one. | UD_English-CHILDES
+- [childes] f91f775d391aa820eb1080285a47b9e70aac16019ad3d0c41db1f7cdabfe6ad4 | Uhhuh there's dust in my eyes. | UD_English-CHILDES
+- [childes] f91fcfb16e3e8dc725ff475df1274ad02743c6d983b7374253b68a7a2a4a0a91 | You don 't mean razor blades. | UD_English-CHILDES
+- [childes] f92133bd2d98432c7a974ba3696aa47dcfeabe6e4c41237050513ba0dfa01416 | Paul Adam 's talking to you. | UD_English-CHILDES
+- [childes] f92162a4d0c6fecc019b021d24cc38683881cf64904132b2a1485dac3c6bf23c | What did we say about the light? | UD_English-CHILDES
+- [childes] f9236863a5e81b58ff16f3b71d9a42598db993f8ab27560bb62dcee30b73f81c | You should tell Jessica again who Heidi is because Jessica didn't really hear. | UD_English-CHILDES
+- [childes] f9237d6134dc9798858fb10e591fb4f2f3efe30cba57dbbd3291bd20925f6d7b | You 're going to shave again? | UD_English-CHILDES
+- [childes] f9262498cf7dcdd494a4b8f0365d0e06cba907702bb095f49f39b7354d2536d1 | Come on pal? | UD_English-CHILDES
+- [childes] f92667163949c00b5d1ca7fd5a5763737f1d9cbf59a712caf32c6cfda77f69eb | Beep beep beep beep beep. | UD_English-CHILDES
+- [childes] f9275408f91d403c977f162984d6d3993b9b4d1048dfc709f24b559331e3e9a0 | Another bird? | UD_English-CHILDES
+- [childes] f92a29513667d5b731c1ae9faebcc6b4f82decc1a30b9aa184e62c25f5afa1b3 | Yes but it must not be the right way. | UD_English-CHILDES
+- [childes] f92ac0c2b5f1c8a044cef8b89bc1adfa11503657e90037a2e508ee0a4b911c88 | A choo choo there. | UD_English-CHILDES
+- [childes] f92c1658edf4bbdad70232fbfad47a16cbf657c00e680e3d90a923925bcba416 | Come from the other one? | UD_English-CHILDES
+- [childes] f92d08853b3fce6451f8a715157b5e96e1b613569610c2df3acd56de85456ae1 | Put cracker in my in my milk. | UD_English-CHILDES
+- [childes] f92f1a8099a8ce7368d4440785dd771b9d05f0fe6510ccf8a552ecea91cef7d6 | The paint came off in your mouth. | UD_English-CHILDES
+- ... 970 more new items
+

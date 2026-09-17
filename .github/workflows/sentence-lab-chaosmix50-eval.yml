@@ -6,6 +6,8 @@ on:
     paths:
       - 'english-sentence-lab/eval/eval_chaosmix50.py'
       - 'english-sentence-lab/eval/eval_chaosmix50_audited.py'
+      - 'english-sentence-lab/eval/eval_chaosmix50_r013.py'
+      - 'english-sentence-lab/scripts/spacy_role_postprocess.py'
       - 'english-sentence-lab/data/chaoslike200/ChaosMix50_ORIGINAL.json'
       - '.github/workflows/sentence-lab-chaosmix50-eval.yml'
   workflow_dispatch:
@@ -36,8 +38,8 @@ jobs:
           python -m pip install spacy
           python -m spacy download en_core_web_sm
 
-      - name: Evaluate audited ChaosMix50
-        run: python english-sentence-lab/eval/eval_chaosmix50_audited.py
+      - name: Evaluate R013 dependency guard
+        run: python english-sentence-lab/eval/eval_chaosmix50_r013.py
 
       - name: Commit evaluation report
         shell: bash
@@ -45,11 +47,11 @@ jobs:
           set -euo pipefail
           git config user.name 'sentence-lab-bot'
           git config user.email 'sentence-lab-bot@users.noreply.github.com'
-          git add english-sentence-lab/artifacts/v1.8.0_chaosmix50_audited_baseline.json english-sentence-lab/artifacts/v1.8.0_chaosmix50_audited_baseline.txt
+          git add english-sentence-lab/artifacts/r013_chaosmix50_eval.json english-sentence-lab/artifacts/r013_chaosmix50_eval.txt
           if git diff --cached --quiet; then
-            echo 'No ChaosMix50 audited report changes.'
+            echo 'No R013 report changes.'
             exit 0
           fi
-          git commit -m 'eval: save audited v1.8.0 ChaosMix50 baseline'
+          git commit -m 'eval: save R013 ChaosMix50 report'
           git pull --rebase origin main
           git push origin HEAD:main

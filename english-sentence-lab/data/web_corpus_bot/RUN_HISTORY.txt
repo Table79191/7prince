@@ -582,3 +582,50 @@ new_items_sample:
 - [atis] a91beca1f59dd5af7224f1e68ffd03db55761596b7c44477b7b155d23eab282e | show me the earliest flight from boston to denver | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:14:25+09:00 / 2026-09-17T17:14:25+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35251344123
+run_attempt: 1
+event_head_sha: d18614d103f61c1718700666b7a6cbc3189dca77
+worker_base_sha: d18614d103f61c1718700666b7a6cbc3189dca77
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 15955
+after_total: 16955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +333 / -0, childes: +333 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] b77b4de9c72911710ae6e34961ddce9dc6b9ffa13ae541a750ed189b38d1591c | what's the earliest flight from san jose to houston | UD_English-Atis
+- [atis] b783b5351748c2653c11fa2b85b5a9721cff27810cafe5b83f60895dba91ab16 | get flights between st. petersburg and charlotte | UD_English-Atis
+- [atis] b788ba1c8b097fb32ce127998d48acf37053bf9087f60c358b2fec4f1c5c6288 | okay i'm sorry could you tell me what flights leave atlanta and arrive in philadelphia around 5 o'clock | UD_English-Atis
+- [atis] b79331dccf0fef246ee94070aeddbca107a8275d7fb12d9fd53fee2597ec0492 | what is phl | UD_English-Atis
+- [atis] b794ce0c01dbfef1010bb365d793d4c348d4833179cd6e130a2eecc5dca5f9c2 | show me the ground transportation at denver | UD_English-Atis
+- [atis] b7afe8cca1fb33d732efe49efa13cbecd96bcc031b98d50cc1f96bcc45cf34c8 | i'd like a flight tomorrow from san diego to toronto | UD_English-Atis
+- [atis] b7d28acf40ce20fae96747960fc4f5160b858c28bb25316dc86a957e4b005541 | i would like to see flights from denver to philadelphia | UD_English-Atis
+- [atis] b7d4358d0e679b39c0c8775c2f94fb38b5fd4f57bb11ec3c4e4183fd1978ac80 | i'd like a round trip ticket from los angeles to tacoma washington | UD_English-Atis
+- [atis] b7f58bf572ca5277445e97b955fff11cd217c649d6e2b00b7cee9daf48173866 | list flights from minneapolis to pittsburgh on friday | UD_English-Atis
+- [atis] b7fc5dd3434a145ba45455d3f7d3e22f9ae12f9494c08bbd34e03bafefbdfbc2 | also give me a list of flights between oakland and boston | UD_English-Atis
+- [atis] b82864041bdc2ed26c2b01c2e7ed982c384971bbd6a57b5262eabf01f69f27cb | do you have an american airlines flight from denver to san francisco in the early morning | UD_English-Atis
+- [atis] b8318d499913ee6a3cb2364dec0cf61999c721ff5c07ad3f7404ce02a06ec0fa | i would like to fly on american airlines from baltimore to san francisco | UD_English-Atis
+- [atis] b837d694b8be9195a161437bd556fec2497ef50ec63a06b7a8cd99e8648b3935 | how many first class flights does delta airlines have | UD_English-Atis
+- [atis] b83eb4614db90fd011155a74967bddbdc3b3ecec8f94f6d0a8235973749d9074 | please give me flight schedules from pittsburgh to philadelphia | UD_English-Atis
+- [atis] b83f8992583312821d6d407c38676cbf07b5a9523025414b295b1cdfd22bccf1 | show me all meals on flights from atlanta to washington | UD_English-Atis
+- [atis] b83fec40845b1c1f529016deb68b6af57808e6b356d2686284a04826a92f888d | what is the least expensive business class flight between boston and san francisco | UD_English-Atis
+- [atis] b842058dfe2bbb86f6baa6d4d29284d5169f6d0f93d2d72b12f8806284a6b2e6 | could you please tell me the cheapest fare from atlanta to boston | UD_English-Atis
+- [atis] b846c459d3804feb938d0f31f315c92cf5f9550be59211c8d755302496d916f6 | what evening flights do you have available from baltimore to philadelphia | UD_English-Atis
+- [atis] b8559cfa024e89525e889848e185f622523ab2eaf6cde18afaf5509709270b9d | i'd like a flight from san diego to toronto on alaska airlines leaving around 1 pm | UD_English-Atis
+- [atis] b856588a64109ce2476c7e4de33db8ff597fbe33b110e727e4f76d32827992c1 | what does flight code us mean | UD_English-Atis
+- [atis] b8704ec39991e01f50aaaac90a797fb00ec38da7047cec52635eb3a96200b6d8 | list the flights from westchester county to cincinnati on june eighth | UD_English-Atis
+- [atis] b872e7f4ffee8faf660c60d860648f4fb9e4305342c62f83f9e14fb6ac3ca49c | i want to go from denver to oakland | UD_English-Atis
+- [atis] b889cc7c2aaf336a87a561e7cc311a183bf253582886d83f29b4471e1507851a | what about the flights from boston to la | UD_English-Atis
+- [atis] b89daa72ee0394b275777978256fe87b2c557830b9d738511958fcc42a579d91 | list the flights from westchester county to denver on june seventh | UD_English-Atis
+- [atis] b8b177043a70b4edf3fb3700bc9f1c33837a71681a5cd16296197db401f39b77 | please list all flights from new york to miami any any type of class | UD_English-Atis
+- [atis] b8b6fb0047ffee03cfdee9dea68e808ee105abaa6c7e2e70ccedc971fb3dd3e4 | what's the first flight from dallas to houston | UD_English-Atis
+- [atis] b8b7ef6f95410e18fa4b0f5a24ba651e364d83c656a8539f6f91e94e15a25825 | show me all flights from seattle to boston with stopovers in minneapolis | UD_English-Atis
+- [atis] b8c93986317b64b04146cc133cc8867f71edba34c7a76502b1761c282e0e25c1 | flights from pittsburgh to newark | UD_English-Atis
+- [atis] b8df9f33b456b947f1277819ded8c8f9903623076758b87c5a939b9b63d2e57b | what is mco | UD_English-Atis
+- [atis] b8e881d566d41a7e87a6cf01d9f15e325e8b0cd6d5442fd1eac827f2040067e3 | round trip fares from denver to philadelphia under 1000 dollars and pittsburgh to philadelphia under 1000 dollars | UD_English-Atis
+- ... 970 more new items
+

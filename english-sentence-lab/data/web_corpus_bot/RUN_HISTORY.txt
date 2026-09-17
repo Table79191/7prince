@@ -2462,3 +2462,50 @@ new_items_sample:
 - [childes] a96841bb7dc51868ae17743d3be4012d5063587e0e1385384112758eda3dee59 | Little boy's happy. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:45:06+09:00 / 2026-09-17T20:45:06+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35272245196
+run_attempt: 1
+event_head_sha: 13b30aa01c2d8ef669ea41aed85402a6032e51a4
+worker_base_sha: 13b30aa01c2d8ef669ea41aed85402a6032e51a4
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 55955
+after_total: 56955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] aedeb9ed0270cca8cc227c0d789679eb4c56cf2374d4e49d43bbe301d5eb766e | On chair. | UD_English-CHILDES
+- [childes] aedf9c9ef7de34df0f5581240eef20e0cd0166b50003f740ec78d6269950ab6d | I can't do it all the way. | UD_English-CHILDES
+- [childes] aee08fe8a792f62c089194402d91381eba5369ba29fa8aaa6035a38b0b63a022 | Those are not sweeties. | UD_English-CHILDES
+- [childes] aee4b2885b53517fb0f90b19ccfac85160b1d6f4e1d5cdb7b3be2a8a20aadf85 | Oh how do you know? | UD_English-CHILDES
+- [childes] aee6041442ad9efc7732b464a4f941c0766e662c2cc36bb8dc9b06103b740545 | Oh that would be an awfully smart baby. | UD_English-CHILDES
+- [childes] aee8f3c679bbcd762fae897eda07d2d6ea018162c625c6c387a1838d4c95a5cc | They're kinda crazy wild monster creatures. | UD_English-CHILDES
+- [childes] aeef6b09a5d7b6348081a8136272ae0b4945a7c4d05029e86230ac06c8feb8e0 | Dinosaur what? | UD_English-CHILDES
+- [childes] aef1c03aef8f5b1cb5d017838b2fef861f4b09f9d50ab8ed7e267fd8f8853188 | Oh he can 't write with a spoon. | UD_English-CHILDES
+- [childes] aef2af2bbf16eb5e81969304ff5c24e68b3b4c01b5a2765d29e28e4687df042f | What's coming off? | UD_English-CHILDES
+- [childes] aef38c5f3d2fccbfa176cdd44f579bbf8c1938041010c02f618bc4a7bcd76d17 | I don 't see it. | UD_English-CHILDES
+- [childes] aef789af2139e45a4ac532125be4a139114669428731d4ccc8cdc34b38ff8192 | Here lick this beater. | UD_English-CHILDES
+- [childes] aef7fdb9fab7e7a912845e567b1e0be6def214e96c875039f44094fefb52d838 | Where baby? | UD_English-CHILDES
+- [childes] aefa88d8c3e8c3ba484b446ef60c1cdc9bdfca026b00bb0a73378b54ff615e60 | Get Laura. | UD_English-CHILDES
+- [childes] aefaa8344f482256b7aa61bb55adff12593215e1a3d90592bc2b0cf1276018cf | Get in kitty. | UD_English-CHILDES
+- [childes] aefd0094c4f5abe15aa5c48a1178a9022dfabbd3551698a48df9172a21d5edc8 | You were sitting on the head to your puzzle. | UD_English-CHILDES
+- [childes] aefd4f528f82b0d2a2a016b336c6c262294a88664daa59f9597a5943ba5e242c | But then you went outside again. | UD_English-CHILDES
+- [childes] af0012f44f76edf11d4818cf5eb704872f82f25f9660c0c0ec680e116e23f9ad | Here's your banana Laura. | UD_English-CHILDES
+- [childes] af00588cab7b466ff47109dde4df9b2062a1f1970ff9ec8ec585a7cc326a0ce3 | W x y and z. | UD_English-CHILDES
+- [childes] af0087d4e52523a9b8c7c03039def2cb97fb338f6107062481477311b6570434 | No cause this might be something. | UD_English-CHILDES
+- [childes] af020a8f9fa440f85794f268453cc3c9b285736141b310f81a88d4b670155b97 | Are you Dwww. | UD_English-CHILDES
+- [childes] af0385b6d91de95ef276e5bf1fffe5505502ebfebde4d50ac49444a4975b4e22 | Pretty seal. | UD_English-CHILDES
+- [childes] af03a29fc9a9ac0f287e925ed1485edb43d1a6533604064997897a9c15281bf3 | Well come on let me get ya I wanna put your dress on. | UD_English-CHILDES
+- [childes] af04545025163b13f6ac93598eb672ab8a96f37cce3bd2facc5595f1412c1629 | A poodle. | UD_English-CHILDES
+- [childes] af052d0cd705c0452e1e3e7c3fe0807d66ef148ff1551db4e85a5e16f09d44c3 | I'll pretend to be. | UD_English-CHILDES
+- [childes] af059edfea4586c62d9afd08391d7029cedf7339498b880611a41881ba94df36 | I saw a cow. | UD_English-CHILDES
+- [childes] af05ff6391f822086de576913010f2e182f902face2b6931568272f3d36a7ed8 | We see them. | UD_English-CHILDES
+- [childes] af06b284adebf209cb7a1b6b68799070efcc84d7af26a7aeedc591036614fa63 | Oh your telephone. | UD_English-CHILDES
+- [childes] af080be355427296fe132a57b55942d5d891cd1b12b3f325092c9c7338031258 | I forgot where. | UD_English-CHILDES
+- [childes] af085a83c2d6ac1ef2883ba49d19f99449961560c7d476de2d57565b450ea07a | You okay Batman? | UD_English-CHILDES
+- [childes] af09eed51fbe322f6a23511f6dab3ab3c57d17d09c1d13644d1e2142dd87907c | Ball you're right that's a ball. | UD_English-CHILDES
+- ... 970 more new items
+

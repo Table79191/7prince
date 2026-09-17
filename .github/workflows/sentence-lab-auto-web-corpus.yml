@@ -63,7 +63,7 @@ jobs:
         id: collect
         run: |
           python english-sentence-lab/scripts/auto_web_corpus_bot_v2.py \
-            --max-new-per-run 1000 \
+            --max-new-per-run 0 \
             --max-new-per-source 0 \
             --max-total-per-source 0
 
@@ -90,6 +90,8 @@ jobs:
           assert manifest['policy']['per_source_storage_unlimited'] is True
           assert manifest['policy']['redistribute_unused_run_budget'] is True
           assert manifest['policy']['max_total_per_source'] == 0
+          assert manifest['policy']['max_new_per_run'] == 0
+          assert manifest['policy']['auto_discover_english_treebanks'] is True
 
           total = 0
           for key, source in manifest['sources'].items():

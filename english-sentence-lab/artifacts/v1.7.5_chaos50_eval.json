@@ -1,0 +1,1041 @@
+{
+  "model": "v1.7.5-GOLD-EWT-MASC",
+  "checkpoint": "v1.7.5_gold_ewt_masc_role.pt",
+  "sealed_holdout": "Chaos Long50",
+  "sentences": 50,
+  "focus_checks": 755,
+  "input_source": "frozen v1.5.3 parser token/POS/base-role outputs from original sealed holdout package",
+  "training_contamination": false,
+  "notes": [
+    "POS is frozen from v1.5.3 for apples-to-apples RoleNet comparison.",
+    "hybrid75 uses the pre-existing 0.75 confidence gate; threshold was not tuned on Chaos50."
+  ],
+  "base_v153": {
+    "focus_checks": 755,
+    "pos_correct": 670,
+    "pos_accuracy": 0.8874172185430463,
+    "role_correct": 534,
+    "role_accuracy": 0.7072847682119205,
+    "both_correct": 528,
+    "both_accuracy": 0.6993377483443709,
+    "exact_sentences": 0,
+    "exact_sentence_accuracy": 0.0,
+    "role_improvements_vs_base": 0,
+    "role_regressions_vs_base": 0,
+    "net_role_corrections": 0,
+    "categories": {
+      "nested-relative-causative-wh": {
+        "checks": 90,
+        "pos": 82,
+        "role": 71,
+        "both": 70,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9111111111111111,
+        "role_accuracy": 0.7888888888888889,
+        "both_accuracy": 0.7777777777777778
+      },
+      "participle-whether-passive": {
+        "checks": 80,
+        "pos": 65,
+        "role": 50,
+        "both": 48,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8125,
+        "role_accuracy": 0.625,
+        "both_accuracy": 0.6
+      },
+      "negative-inversion-concessive": {
+        "checks": 70,
+        "pos": 60,
+        "role": 53,
+        "both": 53,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8571428571428571,
+        "role_accuracy": 0.7571428571428571,
+        "both_accuracy": 0.7571428571428571
+      },
+      "conditional-find-object-complement": {
+        "checks": 70,
+        "pos": 68,
+        "role": 57,
+        "both": 57,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9714285714285714,
+        "role_accuracy": 0.8142857142857143,
+        "both_accuracy": 0.8142857142857143
+      },
+      "long-wh-no-question-mark": {
+        "checks": 75,
+        "pos": 70,
+        "role": 55,
+        "both": 54,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9333333333333333,
+        "role_accuracy": 0.7333333333333333,
+        "both_accuracy": 0.72
+      },
+      "cleft-resultative-embedded-why": {
+        "checks": 70,
+        "pos": 63,
+        "role": 45,
+        "both": 45,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9,
+        "role_accuracy": 0.6428571428571429,
+        "both_accuracy": 0.6428571428571429
+      },
+      "coordinated-relatives-passive-whose": {
+        "checks": 70,
+        "pos": 65,
+        "role": 46,
+        "both": 45,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9285714285714286,
+        "role_accuracy": 0.6571428571428571,
+        "both_accuracy": 0.6428571428571429
+      },
+      "comparative-parenthetical-object-complement": {
+        "checks": 70,
+        "pos": 58,
+        "role": 56,
+        "both": 55,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8285714285714286,
+        "role_accuracy": 0.8,
+        "both_accuracy": 0.7857142857142857
+      },
+      "unless-indirect-wh-multi-embedding": {
+        "checks": 80,
+        "pos": 66,
+        "role": 55,
+        "both": 55,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.825,
+        "role_accuracy": 0.6875,
+        "both_accuracy": 0.6875
+      },
+      "messy-discourse-apposition-raising": {
+        "checks": 80,
+        "pos": 73,
+        "role": 46,
+        "both": 46,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9125,
+        "role_accuracy": 0.575,
+        "both_accuracy": 0.575
+      }
+    },
+    "sample_improvements": [],
+    "sample_regressions": []
+  },
+  "v175_direct_neural": {
+    "focus_checks": 755,
+    "pos_correct": 670,
+    "pos_accuracy": 0.8874172185430463,
+    "role_correct": 541,
+    "role_accuracy": 0.7165562913907285,
+    "both_correct": 523,
+    "both_accuracy": 0.6927152317880795,
+    "exact_sentences": 0,
+    "exact_sentence_accuracy": 0.0,
+    "role_improvements_vs_base": 56,
+    "role_regressions_vs_base": 49,
+    "net_role_corrections": 7,
+    "categories": {
+      "nested-relative-causative-wh": {
+        "checks": 90,
+        "pos": 82,
+        "role": 75,
+        "both": 74,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9111111111111111,
+        "role_accuracy": 0.8333333333333334,
+        "both_accuracy": 0.8222222222222222
+      },
+      "participle-whether-passive": {
+        "checks": 80,
+        "pos": 65,
+        "role": 51,
+        "both": 46,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8125,
+        "role_accuracy": 0.6375,
+        "both_accuracy": 0.575
+      },
+      "negative-inversion-concessive": {
+        "checks": 70,
+        "pos": 60,
+        "role": 62,
+        "both": 60,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8571428571428571,
+        "role_accuracy": 0.8857142857142857,
+        "both_accuracy": 0.8571428571428571
+      },
+      "conditional-find-object-complement": {
+        "checks": 70,
+        "pos": 68,
+        "role": 58,
+        "both": 58,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9714285714285714,
+        "role_accuracy": 0.8285714285714286,
+        "both_accuracy": 0.8285714285714286
+      },
+      "long-wh-no-question-mark": {
+        "checks": 75,
+        "pos": 70,
+        "role": 50,
+        "both": 50,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9333333333333333,
+        "role_accuracy": 0.6666666666666666,
+        "both_accuracy": 0.6666666666666666
+      },
+      "cleft-resultative-embedded-why": {
+        "checks": 70,
+        "pos": 63,
+        "role": 47,
+        "both": 46,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9,
+        "role_accuracy": 0.6714285714285714,
+        "both_accuracy": 0.6571428571428571
+      },
+      "coordinated-relatives-passive-whose": {
+        "checks": 70,
+        "pos": 65,
+        "role": 42,
+        "both": 40,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9285714285714286,
+        "role_accuracy": 0.6,
+        "both_accuracy": 0.5714285714285714
+      },
+      "comparative-parenthetical-object-complement": {
+        "checks": 70,
+        "pos": 58,
+        "role": 52,
+        "both": 48,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8285714285714286,
+        "role_accuracy": 0.7428571428571429,
+        "both_accuracy": 0.6857142857142857
+      },
+      "unless-indirect-wh-multi-embedding": {
+        "checks": 80,
+        "pos": 66,
+        "role": 53,
+        "both": 51,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.825,
+        "role_accuracy": 0.6625,
+        "both_accuracy": 0.6375
+      },
+      "messy-discourse-apposition-raising": {
+        "checks": 80,
+        "pos": 73,
+        "role": 51,
+        "both": 50,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9125,
+        "role_accuracy": 0.6375,
+        "both_accuracy": 0.625
+      }
+    },
+    "sample_improvements": [
+      {
+        "sentence": 1,
+        "token": "interns",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.833664059638977,
+        "gold": "O"
+      },
+      {
+        "sentence": 1,
+        "token": "rewrite",
+        "base": "S",
+        "neural": "V",
+        "confidence": 0.9975676536560059,
+        "gold": "V"
+      },
+      {
+        "sentence": 1,
+        "token": "figures",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9681452512741089,
+        "gold": "S"
+      },
+      {
+        "sentence": 3,
+        "token": "estimates",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.7620788216590881,
+        "gold": "S"
+      },
+      {
+        "sentence": 5,
+        "token": "students",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.49576959013938904,
+        "gold": "O"
+      },
+      {
+        "sentence": 6,
+        "token": "executives",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.7977530360221863,
+        "gold": "S"
+      },
+      {
+        "sentence": 7,
+        "token": "coherent",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8989001512527466,
+        "gold": "C"
+      },
+      {
+        "sentence": 7,
+        "token": "draft",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.6933497190475464,
+        "gold": "O"
+      },
+      {
+        "sentence": 7,
+        "token": "skeptical",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.97175532579422,
+        "gold": "C"
+      },
+      {
+        "sentence": 8,
+        "token": "note",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.6582819223403931,
+        "gold": "O"
+      },
+      {
+        "sentence": 8,
+        "token": "uneasy",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.3767551779747009,
+        "gold": "C"
+      },
+      {
+        "sentence": 9,
+        "token": "catalog",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.7154064178466797,
+        "gold": "O"
+      },
+      {
+        "sentence": 10,
+        "token": "invoices",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9938066005706787,
+        "gold": "S"
+      },
+      {
+        "sentence": 10,
+        "token": "legitimate",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9403906464576721,
+        "gold": "C"
+      },
+      {
+        "sentence": 10,
+        "token": "emailed",
+        "base": "C",
+        "neural": "V",
+        "confidence": 0.6590399742126465,
+        "gold": "V"
+      },
+      {
+        "sentence": 11,
+        "token": "server",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.7988773584365845,
+        "gold": "S"
+      },
+      {
+        "sentence": 11,
+        "token": "corrupted",
+        "base": "C",
+        "neural": "V",
+        "confidence": 0.9560535550117493,
+        "gold": "V"
+      },
+      {
+        "sentence": 13,
+        "token": "officer",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.9894779324531555,
+        "gold": "S"
+      },
+      {
+        "sentence": 14,
+        "token": "testimony",
+        "base": "M",
+        "neural": "S",
+        "confidence": 0.9410014152526855,
+        "gold": "S"
+      },
+      {
+        "sentence": 14,
+        "token": "witnesses",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9980083107948303,
+        "gold": "S"
+      }
+    ],
+    "sample_regressions": [
+      {
+        "sentence": 3,
+        "token": "director",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.4476426839828491,
+        "gold": "S"
+      },
+      {
+        "sentence": 6,
+        "token": "agency",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.7809596657752991,
+        "gold": "S"
+      },
+      {
+        "sentence": 6,
+        "token": "contract",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.5540428161621094,
+        "gold": "S"
+      },
+      {
+        "sentence": 7,
+        "token": "manuscript",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.7264379858970642,
+        "gold": "S"
+      },
+      {
+        "sentence": 8,
+        "token": "diagnosis",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.7139894366264343,
+        "gold": "S"
+      },
+      {
+        "sentence": 9,
+        "token": "exhibit",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.7644937038421631,
+        "gold": "S"
+      },
+      {
+        "sentence": 9,
+        "token": "prematurely",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9843276739120483,
+        "gold": "M"
+      },
+      {
+        "sentence": 9,
+        "token": "donors",
+        "base": "S",
+        "neural": "C",
+        "confidence": 0.500778079032898,
+        "gold": "S"
+      },
+      {
+        "sentence": 10,
+        "token": "payment",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.6838692426681519,
+        "gold": "S"
+      },
+      {
+        "sentence": 10,
+        "token": "accidentally",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.7518993616104126,
+        "gold": "M"
+      },
+      {
+        "sentence": 16,
+        "token": "assumptions",
+        "base": "O",
+        "neural": "C",
+        "confidence": 0.4655676782131195,
+        "gold": "O"
+      },
+      {
+        "sentence": 18,
+        "token": "predictions",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.9555308222770691,
+        "gold": "O"
+      },
+      {
+        "sentence": 19,
+        "token": "requirements",
+        "base": "O",
+        "neural": "C",
+        "confidence": 0.6049855351448059,
+        "gold": "O"
+      },
+      {
+        "sentence": 21,
+        "token": "proposal",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.5059221982955933,
+        "gold": "O"
+      },
+      {
+        "sentence": 22,
+        "token": "candidate",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.5777658820152283,
+        "gold": "O"
+      },
+      {
+        "sentence": 23,
+        "token": "prototype",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.461276113986969,
+        "gold": "O"
+      },
+      {
+        "sentence": 25,
+        "token": "route",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.5018406510353088,
+        "gold": "O"
+      },
+      {
+        "sentence": 25,
+        "token": "efficient",
+        "base": "C",
+        "neural": "M",
+        "confidence": 0.792814314365387,
+        "gold": "C"
+      },
+      {
+        "sentence": 31,
+        "token": "analysts",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.8435463905334473,
+        "gold": "S"
+      },
+      {
+        "sentence": 31,
+        "token": "publisher",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8875250220298767,
+        "gold": "M"
+      }
+    ]
+  },
+  "v175_hybrid75": {
+    "focus_checks": 755,
+    "pos_correct": 670,
+    "pos_accuracy": 0.8874172185430463,
+    "role_correct": 553,
+    "role_accuracy": 0.7324503311258278,
+    "both_correct": 537,
+    "both_accuracy": 0.7112582781456953,
+    "exact_sentences": 0,
+    "exact_sentence_accuracy": 0.0,
+    "role_improvements_vs_base": 45,
+    "role_regressions_vs_base": 26,
+    "net_role_corrections": 19,
+    "categories": {
+      "nested-relative-causative-wh": {
+        "checks": 90,
+        "pos": 82,
+        "role": 75,
+        "both": 74,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9111111111111111,
+        "role_accuracy": 0.8333333333333334,
+        "both_accuracy": 0.8222222222222222
+      },
+      "participle-whether-passive": {
+        "checks": 80,
+        "pos": 65,
+        "role": 51,
+        "both": 47,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8125,
+        "role_accuracy": 0.6375,
+        "both_accuracy": 0.5875
+      },
+      "negative-inversion-concessive": {
+        "checks": 70,
+        "pos": 60,
+        "role": 61,
+        "both": 60,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8571428571428571,
+        "role_accuracy": 0.8714285714285714,
+        "both_accuracy": 0.8571428571428571
+      },
+      "conditional-find-object-complement": {
+        "checks": 70,
+        "pos": 68,
+        "role": 60,
+        "both": 60,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9714285714285714,
+        "role_accuracy": 0.8571428571428571,
+        "both_accuracy": 0.8571428571428571
+      },
+      "long-wh-no-question-mark": {
+        "checks": 75,
+        "pos": 70,
+        "role": 54,
+        "both": 54,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9333333333333333,
+        "role_accuracy": 0.72,
+        "both_accuracy": 0.72
+      },
+      "cleft-resultative-embedded-why": {
+        "checks": 70,
+        "pos": 63,
+        "role": 47,
+        "both": 46,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9,
+        "role_accuracy": 0.6714285714285714,
+        "both_accuracy": 0.6571428571428571
+      },
+      "coordinated-relatives-passive-whose": {
+        "checks": 70,
+        "pos": 65,
+        "role": 43,
+        "both": 41,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9285714285714286,
+        "role_accuracy": 0.6142857142857143,
+        "both_accuracy": 0.5857142857142857
+      },
+      "comparative-parenthetical-object-complement": {
+        "checks": 70,
+        "pos": 58,
+        "role": 51,
+        "both": 47,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.8285714285714286,
+        "role_accuracy": 0.7285714285714285,
+        "both_accuracy": 0.6714285714285714
+      },
+      "unless-indirect-wh-multi-embedding": {
+        "checks": 80,
+        "pos": 66,
+        "role": 58,
+        "both": 56,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.825,
+        "role_accuracy": 0.725,
+        "both_accuracy": 0.7
+      },
+      "messy-discourse-apposition-raising": {
+        "checks": 80,
+        "pos": 73,
+        "role": 53,
+        "both": 52,
+        "sentences": 5,
+        "exact": 0,
+        "pos_accuracy": 0.9125,
+        "role_accuracy": 0.6625,
+        "both_accuracy": 0.65
+      }
+    },
+    "sample_improvements": [
+      {
+        "sentence": 1,
+        "token": "interns",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.833664059638977,
+        "gold": "O"
+      },
+      {
+        "sentence": 1,
+        "token": "rewrite",
+        "base": "S",
+        "neural": "V",
+        "confidence": 0.9975676536560059,
+        "gold": "V"
+      },
+      {
+        "sentence": 1,
+        "token": "figures",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9681452512741089,
+        "gold": "S"
+      },
+      {
+        "sentence": 3,
+        "token": "estimates",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.7620788216590881,
+        "gold": "S"
+      },
+      {
+        "sentence": 6,
+        "token": "executives",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.7977530360221863,
+        "gold": "S"
+      },
+      {
+        "sentence": 7,
+        "token": "coherent",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8989001512527466,
+        "gold": "C"
+      },
+      {
+        "sentence": 7,
+        "token": "skeptical",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.97175532579422,
+        "gold": "C"
+      },
+      {
+        "sentence": 10,
+        "token": "invoices",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9938066005706787,
+        "gold": "S"
+      },
+      {
+        "sentence": 10,
+        "token": "legitimate",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9403906464576721,
+        "gold": "C"
+      },
+      {
+        "sentence": 11,
+        "token": "server",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.7988773584365845,
+        "gold": "S"
+      },
+      {
+        "sentence": 11,
+        "token": "corrupted",
+        "base": "C",
+        "neural": "V",
+        "confidence": 0.9560535550117493,
+        "gold": "V"
+      },
+      {
+        "sentence": 13,
+        "token": "officer",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.9894779324531555,
+        "gold": "S"
+      },
+      {
+        "sentence": 14,
+        "token": "testimony",
+        "base": "M",
+        "neural": "S",
+        "confidence": 0.9410014152526855,
+        "gold": "S"
+      },
+      {
+        "sentence": 14,
+        "token": "witnesses",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9980083107948303,
+        "gold": "S"
+      },
+      {
+        "sentence": 15,
+        "token": "professor",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.9930063486099243,
+        "gold": "S"
+      },
+      {
+        "sentence": 15,
+        "token": "slides",
+        "base": "V",
+        "neural": "S",
+        "confidence": 0.9982773065567017,
+        "gold": "S"
+      },
+      {
+        "sentence": 15,
+        "token": "temporary",
+        "base": "V",
+        "neural": "C",
+        "confidence": 0.9544041156768799,
+        "gold": "C"
+      },
+      {
+        "sentence": 16,
+        "token": "unrealistic",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9535239338874817,
+        "gold": "C"
+      },
+      {
+        "sentence": 17,
+        "token": "unworkable",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9370815753936768,
+        "gold": "C"
+      },
+      {
+        "sentence": 19,
+        "token": "impractical",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8611690998077393,
+        "gold": "C"
+      }
+    ],
+    "sample_regressions": [
+      {
+        "sentence": 6,
+        "token": "agency",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.7809596657752991,
+        "gold": "S"
+      },
+      {
+        "sentence": 9,
+        "token": "exhibit",
+        "base": "S",
+        "neural": "O",
+        "confidence": 0.7644937038421631,
+        "gold": "S"
+      },
+      {
+        "sentence": 9,
+        "token": "prematurely",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9843276739120483,
+        "gold": "M"
+      },
+      {
+        "sentence": 10,
+        "token": "accidentally",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.7518993616104126,
+        "gold": "M"
+      },
+      {
+        "sentence": 18,
+        "token": "predictions",
+        "base": "O",
+        "neural": "S",
+        "confidence": 0.9555308222770691,
+        "gold": "O"
+      },
+      {
+        "sentence": 25,
+        "token": "efficient",
+        "base": "C",
+        "neural": "M",
+        "confidence": 0.792814314365387,
+        "gold": "C"
+      },
+      {
+        "sentence": 31,
+        "token": "analysts",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.8435463905334473,
+        "gold": "S"
+      },
+      {
+        "sentence": 31,
+        "token": "publisher",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8875250220298767,
+        "gold": "M"
+      },
+      {
+        "sentence": 31,
+        "token": "missing",
+        "base": "C",
+        "neural": "V",
+        "confidence": 0.9895456433296204,
+        "gold": "C"
+      },
+      {
+        "sentence": 32,
+        "token": "inspectors",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.8272504210472107,
+        "gold": "S"
+      },
+      {
+        "sentence": 32,
+        "token": "agency",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8319187164306641,
+        "gold": "M"
+      },
+      {
+        "sentence": 33,
+        "token": "technicians",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.8482200503349304,
+        "gold": "S"
+      },
+      {
+        "sentence": 34,
+        "token": "reviewers",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.8543252944946289,
+        "gold": "S"
+      },
+      {
+        "sentence": 34,
+        "token": "journal",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.7759451270103455,
+        "gold": "M"
+      },
+      {
+        "sentence": 35,
+        "token": "operators",
+        "base": "S",
+        "neural": "M",
+        "confidence": 0.8422967791557312,
+        "gold": "S"
+      },
+      {
+        "sentence": 35,
+        "token": "company",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8800269365310669,
+        "gold": "M"
+      },
+      {
+        "sentence": 36,
+        "token": "replacement",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9342780709266663,
+        "gold": "M"
+      },
+      {
+        "sentence": 36,
+        "token": "probably",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9939885139465332,
+        "gold": "M"
+      },
+      {
+        "sentence": 37,
+        "token": "edition",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.8602993488311768,
+        "gold": "M"
+      },
+      {
+        "sentence": 37,
+        "token": "probably",
+        "base": "M",
+        "neural": "C",
+        "confidence": 0.9941970109939575,
+        "gold": "M"
+      }
+    ]
+  }
+}

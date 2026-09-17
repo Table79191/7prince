@@ -1,0 +1,4 @@
+SentenceLab v1.7.5 — sealed Chaos Long50 evaluation
+Base v1.5.3 role: 534/755 = 70.73% | both 69.93% | exact 0/50
+v1.7.5 direct role: 541/755 = 71.66% | both 69.27% | exact 0/50 | +7 net role corrections
+v1.7.5 hybrid75 role: 553/755 = 73.25% | both 71.13% | exact 0/50 | +19 net role corrections

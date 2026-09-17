@@ -1,0 +1,991 @@
+{
+  "source_page": "https://anc.org/data/masc/downloads/data-download/",
+  "download_url": "https://www.anc.org/MASC/download/masc-conll.zip",
+  "license": "MASC official site states distribution without license/restrictions; corpus documentation should be retained",
+  "archive_bytes": 557450,
+  "archive_sha1": "d9f53a05c659204a3223e901c450fe8ffa5fa9fa",
+  "expected_sha1": "d9f53a05c659204a3223e901c450fe8ffa5fa9fa",
+  "archive_sha256": "e688db4e825edb0438f50d3c00b07ccf5b16e72065650cb9f13bb26c1decf5cd",
+  "tls_fallback_used": true,
+  "tls_fallback_reason": "anc.org expired certificate; exact published archive checksum required",
+  "files": [
+    {
+      "path": "__MACOSX/masc-conll/._masc-connl-format.txt",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "1e0750e7c6e2fd0e0bd834f29bc05f32be7a41a85956e4342736bc90ff597971",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/._nombank-propbank",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "98c4089b7debcf8ac36439e5c12d2febbb6f639b70e83da084c4b4f0ced8bd19",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/._spoken",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "902a339d08821aca837e21716b7197d5591aaf05731677f32c3b474898fc2733",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/._written",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "53cbdc8ae37db77424273e833f7bd35058066cc2c349c67bc74d022e5aae3913",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._NapierDianne.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "e659736fa8b3bbde0b478a97bbe365cd9e1dd32c48a68a98d260b9e4cede2fef",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._PolkMaria.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "7a7a7b1b492693e895015ff92f5506bf58966c25201f0b7b537505cfbc0eb2dc",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._ReidSandra.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "c75ff2709a0f2cdb234dd7446d10a093cabdc5cd737a7a92b4497b968f8f2f4a",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._RindnerBonnie.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "4f7e8591a85449333354a7b44bd01d2fbad5a675adde60747dfd3a074b2b8e65",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._sw2014-UTF16-ms98-a-trans.conll",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "06e029c3d9275db343c1161195c9792972ad6289338ea3c226973a9a375301cf",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._sw2015-ms98-a-trans.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "c08b8c57901e94fa7fee86c111aa23c40fad126d25a78f1e125ec86f11a61f29",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._sw2071-UTF16-ms98-a-trans.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "f2e9b0e12fcc7992db0e3918dfbcb6f9b710ff65e253a85cf7309ac65cf6f8b6",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/spoken/._sw2078-UTF16-ms98-a-trans.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "90f0de083aecc8e88a6cc507aabd1361df46352bcdf294cb59d126724fe2b921",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL067.conll",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "06e029c3d9275db343c1161195c9792972ad6289338ea3c226973a9a375301cf",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL068.conll",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "06e029c3d9275db343c1161195c9792972ad6289338ea3c226973a9a375301cf",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL069.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "5e9126ac0c45f4229963ad5a637f60a2575a2cbc0a01e1c982a2d19a0c9e3975",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL070.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "24f196377226cdd90ca7cbaef160f814fb2fbb4082943454d0676753a321f328",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL071.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "f8ff46210c3e7c253c1cb099475c43820500afe0f6a7f7ad2757adffb3c10c76",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL072.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "7e8d42c9a40c0b91d19a51d2a4b2420b9dda8eaa9da1c42cb603745e870a944c",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._110CYL200.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "79961c5a0530f1b53e500a4ab7ae1c842f2f13998894b18a46a5099386ccbba8",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._112C-L012.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "4bf1a97b14a343dba880013709b917b93c024a4aa07a03fa534d0d8e543c5059",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._112C-L013.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "d30905c6b7234c42909c33c655bb09ccefb654da668f2741c9e9629da4d0eab9",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._112C-L014.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "4cef9a2096ea8cdd7d3fb6170912fe75f599a9389704741155e9a592cedb8ae2",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._112C-L015.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "b9824b4bed71ceb6844ca5a9c99dc4539290a6cef9b510515d8686b65037d548",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._112C-L016.conll",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "06e029c3d9275db343c1161195c9792972ad6289338ea3c226973a9a375301cf",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._113CWL017.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "8a127313af4396e5c0d65d3c6a4191f79328a712703b4d6e6847da8931ea54e6",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._113CWL018.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "8bbfb5e63d1540f4eaad3c1d1287cd44383fd7991cc9f618525db6c92f446e75",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._114CUL057.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "ed99b2de6eeb75a11e2cb4056ae20167984f2c5a5da22ba194b285cfcee99d0f",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._114CUL058.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "5dd933fa12370554720dce05567b15a54ceb2920d5fc828c57ec6e6e3ca8fa2d",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._114CUL059.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "381a67f0cf10ace9eb6b1c175bd55fdc10da6b8012ac2d88131ef9a713b628e9",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._114CUL060.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "19bfb5c0898e9a5ad19eb4be7fb4a986511a49280cf6b8473f2986a04edd1e66",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._115CVL035.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "658c7b29deb1149884d5b2e10a4e276a37f3e0b7a804f8e1672dd48e95c33bb4",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._115CVL036.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "4523b530f1e3fb51041151142b14ad6d88c83efa6ef4174d28cfa4cfdb7a9f8d",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._115CVL037.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "f0fa7f22ce37f0f171a07a8ffeee8902f6e70d3590f312e85caff60e93c01583",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._116CUL032.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "9c846a13fca49e5b7ff4a5f18721c6e48d3af9e52bc964d91b4c58f08ec2fda6",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._116CUL033.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "3037783b83526b0e97a624abad416bcad198d4e90df89fb0385ef0399cbab05c",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._116CUL034.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "28b081a1bf26194ff1e641c7280354bccb76d0ef475c524c5beec6492463dd19",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._117CWL008.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "e721127558cc676c15c3af5e88cef40c0307b70fd9b2b2d2576ce6466bf2b47c",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._118CWL048.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "cc15daacd3ad1949b880f8bc456d67fb044e76e0d850f77cbeac19c13be3b1b9",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._118CWL049.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "b0be78bc0ba358f24a8c512aea9e6bdafc552dcb32200d5e240d548cc5dca403",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._118CWL050.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "48dcbea3050fb678a14a3e270b89925f89ad8309f5405d5ea3b7f8dfc589cf9d",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._119CWL041.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "79c3f890b3bd1acdef84c1b1b747d2528365431c6c88bbf7433ce718c691d4f2",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._Article247_327.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "c722e3fe6192f60061cd2bb3404469b868233dc3dd75fdd5e90b9d76189b9cd4",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._Article247_328.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "a64fc2ec5e830c1a839771dd1c5a29e2fda619659c98188983b34b65d7eb2720",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._Article247_3500.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "94748f7a66432f8a5cf08388aab865add801ff05af6a60c1335fddf9ba6620be",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._Article247_400.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "e94fcd787117a481ae8fd8424efa5197e174cb8d6e799e4a9f05ef6568a60d34",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._Article247_500.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "abcd934e13f0b2913cdb8912c8bede416fd786b215e4f8f51da37d33131b4ca8",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._Article247_66.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "0b4bd71060c8fe0164848fd8e2fd6842b1ab40f0846eb46ed48d95052a5e23d7",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._HistoryGreek.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "f207e49e9eac0b033a871af98d1b6aa961e4b5c6e961889478bfebb81a9730ee",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._HistoryJerusalem.conll",
+      "bytes": 82,
+      "encoding": "utf-8",
+      "sha256": "06e029c3d9275db343c1161195c9792972ad6289338ea3c226973a9a375301cf",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._ch5.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "494fde6b9b0326d3e15dd68d1997e85ba7f765dd9e7d8d5016b2aa138f4a58e0",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "__MACOSX/masc-conll/data/written/._chapter-10.conll",
+      "bytes": 225,
+      "encoding": "cp1252",
+      "sha256": "9604e997d9479d09cf94e26c0507759f0c70515ef5484ad64667eb537eb4783b",
+      "data_rows_seen": 1
+    },
+    {
+      "path": "masc-conll/data/spoken/NapierDianne.conll",
+      "bytes": 126454,
+      "encoding": "utf-8",
+      "sha256": "30e3e6a60a2ec2273721ca82a864c1e87dd2a62b27494db4fe7fd5f32c294bb2",
+      "data_rows_seen": 2805
+    },
+    {
+      "path": "masc-conll/data/spoken/PolkMaria.conll",
+      "bytes": 29329,
+      "encoding": "utf-8",
+      "sha256": "6991a68da68664d466fadd1f9566ab8baaf701d0bc467d105e8f57eb4679bda7",
+      "data_rows_seen": 707
+    },
+    {
+      "path": "masc-conll/data/spoken/ReidSandra.conll",
+      "bytes": 111634,
+      "encoding": "utf-8",
+      "sha256": "be2e3cd56e0e669c5b3a2d7c2884f72d22d8e3a2727a2a05bd4995baa2a4088f",
+      "data_rows_seen": 2345
+    },
+    {
+      "path": "masc-conll/data/spoken/RindnerBonnie.conll",
+      "bytes": 20697,
+      "encoding": "utf-8",
+      "sha256": "ff21acd8bf715b51ffc9a5fe7c2bac02fef7e677f17922cffaedda412cbe864b",
+      "data_rows_seen": 439
+    },
+    {
+      "path": "masc-conll/data/spoken/sw2014-UTF16-ms98-a-trans.conll",
+      "bytes": 45419,
+      "encoding": "utf-8",
+      "sha256": "fdbc9bbc2a305f004257eb52228893d7c3afce89542113d7c6424e1e5a0bceca",
+      "data_rows_seen": 960
+    },
+    {
+      "path": "masc-conll/data/spoken/sw2015-ms98-a-trans.conll",
+      "bytes": 75164,
+      "encoding": "utf-8",
+      "sha256": "eaaf470ab385d651ffa127f5a3f45dbece359a49a7825e4bbc53e97364a3659c",
+      "data_rows_seen": 1529
+    },
+    {
+      "path": "masc-conll/data/spoken/sw2071-UTF16-ms98-a-trans.conll",
+      "bytes": 47305,
+      "encoding": "utf-8",
+      "sha256": "0f3804efa03adc5fb6022b622e393c06d818d045373d31dbb17ee4f42d628ef8",
+      "data_rows_seen": 984
+    },
+    {
+      "path": "masc-conll/data/spoken/sw2078-UTF16-ms98-a-trans.conll",
+      "bytes": 109805,
+      "encoding": "utf-8",
+      "sha256": "a25f102dab5947b6f735e71aecf7526fb357fb49c05c07b2677a87a168af75e1",
+      "data_rows_seen": 2440
+    },
+    {
+      "path": "masc-conll/data/written/110CYL067.conll",
+      "bytes": 29743,
+      "encoding": "utf-8",
+      "sha256": "dd9838c699789a1db85e10aec7320f1bbd96c82c852dc12899c8e492877205dc",
+      "data_rows_seen": 584
+    },
+    {
+      "path": "masc-conll/data/written/110CYL068.conll",
+      "bytes": 27638,
+      "encoding": "utf-8",
+      "sha256": "b7698cdd96db5a44b6dcb79b591c9adf4411c50c658b566343b9d2b69be6e852",
+      "data_rows_seen": 525
+    },
+    {
+      "path": "masc-conll/data/written/110CYL069.conll",
+      "bytes": 34737,
+      "encoding": "utf-8",
+      "sha256": "2e8a0d4b416e99186f420126ff9f275788366aa475370af4abb1a983026da5ce",
+      "data_rows_seen": 649
+    },
+    {
+      "path": "masc-conll/data/written/110CYL070.conll",
+      "bytes": 12213,
+      "encoding": "utf-8",
+      "sha256": "746f4ad208acd2c7fc631e7e2ff8e0838f670fa3b1d13790d2a6e21b075e2572",
+      "data_rows_seen": 226
+    },
+    {
+      "path": "masc-conll/data/written/110CYL071.conll",
+      "bytes": 25723,
+      "encoding": "utf-8",
+      "sha256": "6c8fdae13a17bc8591ecb27a8817406f7c4a5dc012d22693710821a6f9dfae58",
+      "data_rows_seen": 485
+    },
+    {
+      "path": "masc-conll/data/written/110CYL072.conll",
+      "bytes": 8822,
+      "encoding": "utf-8",
+      "sha256": "da8fea7791e02a35504444af54231ce840fead99423edcd0b86ab477a779b554",
+      "data_rows_seen": 167
+    },
+    {
+      "path": "masc-conll/data/written/110CYL200.conll",
+      "bytes": 24531,
+      "encoding": "utf-8",
+      "sha256": "d4599685abd8122b7e4579fd64d5500aed3d3ec62ee6432d896d178f557f1b6e",
+      "data_rows_seen": 456
+    },
+    {
+      "path": "masc-conll/data/written/112C-L012.conll",
+      "bytes": 17010,
+      "encoding": "utf-8",
+      "sha256": "668ae5e388341edc1aaa64483fcf584d4e91a8e03fd19274bf70933f63482f51",
+      "data_rows_seen": 305
+    },
+    {
+      "path": "masc-conll/data/written/112C-L013.conll",
+      "bytes": 22566,
+      "encoding": "utf-8",
+      "sha256": "8594427f4dae72400dbb0fe6c39c08b09cdb7a7fde49ec70b84522fc4f14364f",
+      "data_rows_seen": 430
+    },
+    {
+      "path": "masc-conll/data/written/112C-L014.conll",
+      "bytes": 15522,
+      "encoding": "utf-8",
+      "sha256": "846773ff54ee4e51d76584df1d909441dbbd392cfcb658beb41da4c9eac33dd6",
+      "data_rows_seen": 311
+    },
+    {
+      "path": "masc-conll/data/written/112C-L015.conll",
+      "bytes": 18229,
+      "encoding": "utf-8",
+      "sha256": "10385e8df8f34d887f184bb4a6acbba23090d0f86da76f6a553c783d5270db15",
+      "data_rows_seen": 347
+    },
+    {
+      "path": "masc-conll/data/written/112C-L016.conll",
+      "bytes": 11419,
+      "encoding": "utf-8",
+      "sha256": "57a116bb4bbc6b559b9b076b2c44cfcc0e09101b0e412f67cd368526b8b22cb1",
+      "data_rows_seen": 219
+    },
+    {
+      "path": "masc-conll/data/written/113CWL017.conll",
+      "bytes": 15342,
+      "encoding": "utf-8",
+      "sha256": "49215bd5fb8af5c43d93241157360160092851d1fdfcc1522687ac5a6ff5982b",
+      "data_rows_seen": 311
+    },
+    {
+      "path": "masc-conll/data/written/113CWL018.conll",
+      "bytes": 12163,
+      "encoding": "utf-8",
+      "sha256": "8bd6fc90da04ca513d474bef02f97e70b11bbdf41e7f8bac2013823e70e27191",
+      "data_rows_seen": 239
+    },
+    {
+      "path": "masc-conll/data/written/114CUL057.conll",
+      "bytes": 15175,
+      "encoding": "utf-8",
+      "sha256": "03254596b895b075fc60e50120fc475d6f2cebf6fc90aa29b1ac257581c88e7f",
+      "data_rows_seen": 311
+    },
+    {
+      "path": "masc-conll/data/written/114CUL058.conll",
+      "bytes": 21844,
+      "encoding": "utf-8",
+      "sha256": "70349b882aa1a19a17d62ac372f301bb7fc869ae17ae8ae433e5e0276e7144cc",
+      "data_rows_seen": 424
+    },
+    {
+      "path": "masc-conll/data/written/114CUL059.conll",
+      "bytes": 19064,
+      "encoding": "utf-8",
+      "sha256": "bb3f5dd591e2677eaf707425b98ad9297c594fa5b4d449779fca112f46be01ff",
+      "data_rows_seen": 344
+    },
+    {
+      "path": "masc-conll/data/written/114CUL060.conll",
+      "bytes": 24913,
+      "encoding": "utf-8",
+      "sha256": "7937b15dd6ab93b9b824dac425e45bab4ae7852e2c998e0854197a3e998b081e",
+      "data_rows_seen": 463
+    },
+    {
+      "path": "masc-conll/data/written/115CVL035.conll",
+      "bytes": 22112,
+      "encoding": "utf-8",
+      "sha256": "fcb645f3e89ffa8741b7cbd2c1cb2d8fd93dce8490218eaf2df54df21cc7ee56",
+      "data_rows_seen": 382
+    },
+    {
+      "path": "masc-conll/data/written/115CVL036.conll",
+      "bytes": 22608,
+      "encoding": "utf-8",
+      "sha256": "34b730485e446baff3420de64fc3c1f06634c68749014a6d9b3425a6a14311ca",
+      "data_rows_seen": 405
+    },
+    {
+      "path": "masc-conll/data/written/115CVL037.conll",
+      "bytes": 29936,
+      "encoding": "utf-8",
+      "sha256": "c6a8e8bd0347ecf3c49a003e49c9ac0e5e334f364b8fc03638eeac7bfdc4653a",
+      "data_rows_seen": 464
+    },
+    {
+      "path": "masc-conll/data/written/116CUL032.conll",
+      "bytes": 25484,
+      "encoding": "utf-8",
+      "sha256": "15fb892821071fc2229d1158745a3863629d5895c40e0b7ceb7f64796a3bd5ff",
+      "data_rows_seen": 438
+    },
+    {
+      "path": "masc-conll/data/written/116CUL033.conll",
+      "bytes": 20090,
+      "encoding": "utf-8",
+      "sha256": "04b40ef1da602dc9dad7562b667d7eb8a6eb06b2e7af796ae9faef0b255a780a",
+      "data_rows_seen": 337
+    },
+    {
+      "path": "masc-conll/data/written/116CUL034.conll",
+      "bytes": 51095,
+      "encoding": "utf-8",
+      "sha256": "77a553caaf8e50e1b34c6630d002be28918be6a1aeb78161f43fd0f305cbd33e",
+      "data_rows_seen": 751
+    },
+    {
+      "path": "masc-conll/data/written/117CWL008.conll",
+      "bytes": 15141,
+      "encoding": "utf-8",
+      "sha256": "ba92a3349c0058fcbd99936f693b51b3af7510e2594e09d3eb56b35ead885dd1",
+      "data_rows_seen": 260
+    },
+    {
+      "path": "masc-conll/data/written/118CWL048.conll",
+      "bytes": 14886,
+      "encoding": "utf-8",
+      "sha256": "f76e861d7987c6cfbad93f2f2838ac204b1aa980789eea8d4fb3767b942480be",
+      "data_rows_seen": 276
+    },
+    {
+      "path": "masc-conll/data/written/118CWL049.conll",
+      "bytes": 23756,
+      "encoding": "utf-8",
+      "sha256": "394ee69eb77708e570f6378e71ee3ea8806cd952dcacfb248989ec3ef846f1b2",
+      "data_rows_seen": 421
+    },
+    {
+      "path": "masc-conll/data/written/118CWL050.conll",
+      "bytes": 40227,
+      "encoding": "utf-8",
+      "sha256": "1313e423d820793d66760d42a892e4638a9ec4424cc0102fefd9870d8473b032",
+      "data_rows_seen": 731
+    },
+    {
+      "path": "masc-conll/data/written/119CWL041.conll",
+      "bytes": 13393,
+      "encoding": "utf-8",
+      "sha256": "5fae22386c1c04a618c813af2d36e3ccde82be90d239e5c2eb115162841b8141",
+      "data_rows_seen": 264
+    },
+    {
+      "path": "masc-conll/data/written/Article247_327.conll",
+      "bytes": 58359,
+      "encoding": "utf-8",
+      "sha256": "4101c66a473d1b27888748f87b119ae7ca0671dab10e8304a61190ecb123199b",
+      "data_rows_seen": 922
+    },
+    {
+      "path": "masc-conll/data/written/Article247_328.conll",
+      "bytes": 32232,
+      "encoding": "utf-8",
+      "sha256": "12546c67b6f07b3eab9e6c79d7260250acafd306c8541e85c1af42090f67bc7b",
+      "data_rows_seen": 572
+    },
+    {
+      "path": "masc-conll/data/written/Article247_3500.conll",
+      "bytes": 44868,
+      "encoding": "utf-8",
+      "sha256": "245ed4d62aed92719c7819b037a3504d616bde4f5f159981bc74b079b52f7f71",
+      "data_rows_seen": 802
+    },
+    {
+      "path": "masc-conll/data/written/Article247_400.conll",
+      "bytes": 51164,
+      "encoding": "utf-8",
+      "sha256": "27755bc1b3245919a3af01db44ecfadfb8f71d526ac8d025496b046382d98b9b",
+      "data_rows_seen": 828
+    },
+    {
+      "path": "masc-conll/data/written/Article247_500.conll",
+      "bytes": 50839,
+      "encoding": "utf-8",
+      "sha256": "f78ce726f1b45aba3d85de71079d1d0b664a317705b60ca84cb8eff5b06e5442",
+      "data_rows_seen": 888
+    },
+    {
+      "path": "masc-conll/data/written/Article247_66.conll",
+      "bytes": 41871,
+      "encoding": "utf-8",
+      "sha256": "82f28811a1519fadf3c2400d8daaf8176da49e2bf0866af5c28054532915808e",
+      "data_rows_seen": 769
+    },
+    {
+      "path": "masc-conll/data/written/HistoryGreek.conll",
+      "bytes": 165302,
+      "encoding": "utf-8",
+      "sha256": "6348acc942e0e5987ec4c4dbdf538bfec7bbb668fb99833338f734cd5df27f1c",
+      "data_rows_seen": 3072
+    },
+    {
+      "path": "masc-conll/data/written/HistoryJerusalem.conll",
+      "bytes": 166710,
+      "encoding": "utf-8",
+      "sha256": "56dddeeee84124eb80125150cfebfa2a8b3d510ebb7d1431fc7126a98d593a35",
+      "data_rows_seen": 3081
+    },
+    {
+      "path": "masc-conll/data/written/ch5.conll",
+      "bytes": 291614,
+      "encoding": "utf-8",
+      "sha256": "fecdd354fbd28441918a212fb375bafc7f753933cacf608ddb2f1e1cd4fc5fa3",
+      "data_rows_seen": 5189
+    },
+    {
+      "path": "masc-conll/data/written/chapter-10.conll",
+      "bytes": 411080,
+      "encoding": "utf-8",
+      "sha256": "92af917a12c1c171898b71cf9c1614f211305f1e6038ce104d5afbb3a9bf7485",
+      "data_rows_seen": 6954
+    },
+    {
+      "path": "masc-conll/masc-connl-format.txt",
+      "bytes": 3028,
+      "encoding": "cp1252",
+      "sha256": "a7149e369540eb86e324bdae400817011e88dc977e56262190df5017b13dc8d8",
+      "data_rows_seen": 12
+    },
+    {
+      "path": "masc-conll/nombank-propbank",
+      "bytes": 7297,
+      "encoding": "utf-8",
+      "sha256": "cde561261cc1a582638d44de4a8c36d6bcd2dc8ed02d65aa8ad55d9e47f7fd5a",
+      "data_rows_seen": 112
+    }
+  ],
+  "column_count_histogram": {
+    "2": 53,
+    "3": 2,
+    "4": 12,
+    "5": 1,
+    "7": 5,
+    "8": 8,
+    "9": 13,
+    "10": 30,
+    "11": 1602,
+    "12": 3363,
+    "13": 5412,
+    "14": 6011,
+    "15": 5386,
+    "16": 5782,
+    "17": 4575,
+    "18": 3547,
+    "19": 2440,
+    "20": 2388,
+    "21": 1537,
+    "22": 1137,
+    "23": 869,
+    "24": 478,
+    "25": 620,
+    "26": 266,
+    "27": 233,
+    "28": 291,
+    "29": 70,
+    "30": 131,
+    "32": 194,
+    "34": 115,
+    "37": 96,
+    "38": 82,
+    "40": 106,
+    "44": 131
+  },
+  "sample_rows": [
+    {
+      "file": "__MACOSX/masc-conll/._masc-connl-format.txt",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000 \u0000\u0000\u0000\u0002\u0000\u0000\u0000R\u0000\u0000\u0000\u0000TEXTXCEL\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/._nombank-propbank",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000 \u0000\u0000\u0000\u0002\u0000\u0000\u0000R\u0000\u0000\u0000\u0000TEXTR*ch\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/._spoken",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/._written",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ò\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._NapierDianne.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u001f\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._PolkMaria.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016 \u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._ReidSandra.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016!\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._RindnerBonnie.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\"\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._sw2014-UTF16-ms98-a-trans.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000 \u0000\u0000\u0000\u0002\u0000\u0000\u0000R\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._sw2015-ms98-a-trans.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016$\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._sw2071-UTF16-ms98-a-trans.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016%\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/spoken/._sw2078-UTF16-ms98-a-trans.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016&\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL067.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000 \u0000\u0000\u0000\u0002\u0000\u0000\u0000R\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL068.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000 \u0000\u0000\u0000\u0002\u0000\u0000\u0000R\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL069.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ö\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL070.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015÷\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL071.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ø\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL072.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ù\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._110CYL200.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ú\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._112C-L012.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015û\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._112C-L013.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ü\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._112C-L014.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015ý\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._112C-L015.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0015þ\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._112C-L016.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000 \u0000\u0000\u0000\u0002\u0000\u0000\u0000R\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._113CWL017.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u0000\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._113CWL018.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u0001\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._114CUL057.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u0002\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._114CUL058.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u0003\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._114CUL059.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u0004\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    },
+    {
+      "file": "__MACOSX/masc-conll/data/written/._114CUL060.conll",
+      "columns": 2,
+      "row": [
+        "\u0000\u0005\u0016\u0007\u0000\u0002\u0000\u0000Mac OS X        \u0000\u0002\u0000\u0000\u0000",
+        "\u0000\u0000\u00002\u0000\u0000\u0000¯\u0000\u0000\u0000\u0002\u0000\u0000\u0000á\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000@\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ATTR\u0001\u0011\u0016\u0005\u0000\u0000\u0000á\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000˜\u0000\u0000\u0000I\u0000\u0000\u0015com.apple.quarantine\u0000q/0000;4835efcd;Mail;B84E1212-B693-4877-A564-D577B16DAB9A|com.apple.mail\u0000"
+      ]
+    }
+  ]
+}

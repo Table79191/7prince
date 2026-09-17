@@ -1,0 +1,816 @@
+{
+  "model": "v1.8.0-R011-CANONICAL-REPLAY",
+  "checkpoint": "v1.8.0_r011_canonical_role.pt",
+  "dataset": "ChaosMix50_ORIGINAL",
+  "sentences": 50,
+  "focus_checks": 250,
+  "training_contamination": false,
+  "frontend": "spaCy en_core_web_sm POS/tokenization + existing RoleNet feature path",
+  "modes": {
+    "weak_base": {
+      "checks": 250,
+      "correct": 92,
+      "accuracy": 0.368,
+      "exact_sentences": 1,
+      "exact_sentence_accuracy": 0.02,
+      "by_gold_role": {
+        "S": {
+          "checks": 171,
+          "correct": 38,
+          "accuracy": 0.2222222222222222
+        },
+        "O": {
+          "checks": 59,
+          "correct": 53,
+          "accuracy": 0.8983050847457628
+        },
+        "C": {
+          "checks": 7,
+          "correct": 0,
+          "accuracy": 0.0
+        },
+        "M": {
+          "checks": 13,
+          "correct": 1,
+          "accuracy": 0.07692307692307693
+        }
+      }
+    },
+    "neural_direct": {
+      "checks": 250,
+      "correct": 199,
+      "accuracy": 0.796,
+      "exact_sentences": 16,
+      "exact_sentence_accuracy": 0.32,
+      "by_gold_role": {
+        "S": {
+          "checks": 171,
+          "correct": 142,
+          "accuracy": 0.8304093567251462
+        },
+        "O": {
+          "checks": 59,
+          "correct": 44,
+          "accuracy": 0.7457627118644068
+        },
+        "C": {
+          "checks": 7,
+          "correct": 5,
+          "accuracy": 0.7142857142857143
+        },
+        "M": {
+          "checks": 13,
+          "correct": 8,
+          "accuracy": 0.6153846153846154
+        }
+      }
+    },
+    "hybrid75": {
+      "checks": 250,
+      "correct": 189,
+      "accuracy": 0.756,
+      "exact_sentences": 12,
+      "exact_sentence_accuracy": 0.24,
+      "by_gold_role": {
+        "S": {
+          "checks": 171,
+          "correct": 129,
+          "accuracy": 0.7543859649122807
+        },
+        "O": {
+          "checks": 59,
+          "correct": 48,
+          "accuracy": 0.8135593220338984
+        },
+        "C": {
+          "checks": 7,
+          "correct": 4,
+          "accuracy": 0.5714285714285714
+        },
+        "M": {
+          "checks": 13,
+          "correct": 8,
+          "accuracy": 0.6153846153846154
+        }
+      }
+    }
+  },
+  "neural_error_count": 51,
+  "neural_confusions": [
+    {
+      "gold": "S",
+      "pred": "O",
+      "count": 14
+    },
+    {
+      "gold": "S",
+      "pred": "M",
+      "count": 12
+    },
+    {
+      "gold": "O",
+      "pred": "S",
+      "count": 8
+    },
+    {
+      "gold": "O",
+      "pred": "M",
+      "count": 7
+    },
+    {
+      "gold": "M",
+      "pred": "S",
+      "count": 3
+    },
+    {
+      "gold": "M",
+      "pred": "C",
+      "count": 2
+    },
+    {
+      "gold": "S",
+      "pred": "C",
+      "count": 2
+    },
+    {
+      "gold": "C",
+      "pred": "O",
+      "count": 1
+    },
+    {
+      "gold": "C",
+      "pred": "S",
+      "count": 1
+    },
+    {
+      "gold": "S",
+      "pred": "V",
+      "count": 1
+    }
+  ],
+  "neural_errors": [
+    {
+      "id": "CM50-001",
+      "token": "whom",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "PRON",
+      "dep": "dobj",
+      "head": "assumed",
+      "weak_base": "S",
+      "neural_direct": "S",
+      "confidence": 0.976595,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-001",
+      "token": "success",
+      "occurrence": 0,
+      "gold": "C",
+      "pos": "NOUN",
+      "dep": "ccomp",
+      "head": "declared",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.688991,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-002",
+      "token": "whom",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "PRON",
+      "dep": "pobj",
+      "head": "of",
+      "weak_base": "O",
+      "neural_direct": "S",
+      "confidence": 0.90769,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-003",
+      "token": "What",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "PRON",
+      "dep": "dobj",
+      "head": "explain",
+      "weak_base": "S",
+      "neural_direct": "S",
+      "confidence": 0.593937,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-003",
+      "token": "camera",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "stopped",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.858458,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-004",
+      "token": "researcher",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "dobj",
+      "head": "Had",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.985452,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-005",
+      "token": "translator",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "pobj",
+      "head": "until",
+      "weak_base": "S",
+      "neural_direct": "M",
+      "confidence": 0.876265,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-007",
+      "token": "interview",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubjpass",
+      "head": "confirmed",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.465524,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-008",
+      "token": "report",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "dobj",
+      "head": "has",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.887775,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-010",
+      "token": "orders",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubjpass",
+      "head": "canceled",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.987337,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-012",
+      "token": "agreement",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "become",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.776996,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-013",
+      "token": "what",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "PRON",
+      "dep": "dobj",
+      "head": "labels",
+      "weak_base": "S",
+      "neural_direct": "S",
+      "confidence": 0.420053,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-015",
+      "token": "generator",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "had",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.915162,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-015",
+      "token": "update",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "pobj",
+      "head": "than",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.875404,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-015",
+      "token": "pumps",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "continue",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.82968,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-016",
+      "token": "whom",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "PRON",
+      "dep": "dobj",
+      "head": "praised",
+      "weak_base": "S",
+      "neural_direct": "S",
+      "confidence": 0.519211,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-016",
+      "token": "counterexample",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "violated",
+      "weak_base": "O",
+      "neural_direct": "S",
+      "confidence": 0.855691,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-018",
+      "token": "that",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "SCONJ",
+      "dep": "mark",
+      "head": "fail",
+      "weak_base": "M",
+      "neural_direct": "M",
+      "confidence": 0.978331,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-019",
+      "token": "intern",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "dep": "pobj",
+      "head": "for",
+      "weak_base": "O",
+      "neural_direct": "C",
+      "confidence": 0.576661,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-020",
+      "token": "Whatever",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "PRON",
+      "dep": "dobj",
+      "head": "meant",
+      "weak_base": "S",
+      "neural_direct": "S",
+      "confidence": 0.72345,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-020",
+      "token": "behind",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "ADP",
+      "dep": "prep",
+      "head": "was",
+      "weak_base": "M",
+      "neural_direct": "C",
+      "confidence": 0.722839,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-020",
+      "token": "fact",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "conj",
+      "head": "position",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.935556,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-022",
+      "token": "There",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "PRON",
+      "dep": "expl",
+      "head": "being",
+      "weak_base": "S",
+      "neural_direct": "M",
+      "confidence": 0.757326,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-022",
+      "token": "record",
+      "occurrence": 0,
+      "gold": "C",
+      "pos": "NOUN",
+      "dep": "attr",
+      "head": "being",
+      "weak_base": "O",
+      "neural_direct": "S",
+      "confidence": 0.742321,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-022",
+      "token": "value",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "was",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.797879,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-024",
+      "token": "Few",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "ADJ",
+      "dep": "ROOT",
+      "head": "Few",
+      "weak_base": "M",
+      "neural_direct": "M",
+      "confidence": 0.609633,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-025",
+      "token": "telescope",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "Were",
+      "weak_base": "O",
+      "neural_direct": "C",
+      "confidence": 0.832519,
+      "hybrid75": "C"
+    },
+    {
+      "id": "CM50-025",
+      "token": "pattern",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "compound",
+      "head": "repeats",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.88738,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-025",
+      "token": "regularity",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "reflects",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.440516,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-025",
+      "token": "effect",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "conj",
+      "head": "feature",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.689043,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-027",
+      "token": "identifier",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "ADV",
+      "dep": "nsubjpass",
+      "head": "reconstructed",
+      "weak_base": "M",
+      "neural_direct": "M",
+      "confidence": 0.847901,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-028",
+      "token": "experiments",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubjpass",
+      "head": "optimized",
+      "weak_base": "O",
+      "neural_direct": "C",
+      "confidence": 0.563562,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-028",
+      "token": "cases",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "dobj",
+      "head": "filtered",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.596021,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-029",
+      "token": "spokesperson",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "finished",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.781397,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-031",
+      "token": "audience",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "dobj",
+      "head": "reached",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.536208,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-031",
+      "token": "conclusion",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "follow",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.687954,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-031",
+      "token": "assumption",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "dep": "appos",
+      "head": "those",
+      "weak_base": "O",
+      "neural_direct": "S",
+      "confidence": 0.959324,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-032",
+      "token": "assumption",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubjpass",
+      "head": "abandoned",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.545525,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-033",
+      "token": "clause",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "dobj",
+      "head": "treats",
+      "weak_base": "S",
+      "neural_direct": "S",
+      "confidence": 0.843698,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-033",
+      "token": "question",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "pobj",
+      "head": "as",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.988773,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-035",
+      "token": "fact",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "ROOT",
+      "head": "fact",
+      "weak_base": "S",
+      "neural_direct": "M",
+      "confidence": 0.689625,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-039",
+      "token": "office",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "pobj",
+      "head": "after",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.897799,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-040",
+      "token": "protocol",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "keep",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.808429,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-042",
+      "token": "phrases",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubjpass",
+      "head": "attributed",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.59294,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-043",
+      "token": "inspections",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "dobj",
+      "head": "required",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.544639,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-044",
+      "token": "forecast",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "pobj",
+      "head": "on",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.964915,
+      "hybrid75": "M"
+    },
+    {
+      "id": "CM50-045",
+      "token": "controls",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "remained",
+      "weak_base": "O",
+      "neural_direct": "S",
+      "confidence": 0.835324,
+      "hybrid75": "S"
+    },
+    {
+      "id": "CM50-045",
+      "token": "curve",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "dep": "conj",
+      "head": "controls",
+      "weak_base": "O",
+      "neural_direct": "S",
+      "confidence": 0.681003,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-047",
+      "token": "logs",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "VERB",
+      "dep": "nsubj",
+      "head": "pair",
+      "weak_base": "V",
+      "neural_direct": "V",
+      "confidence": 0.999927,
+      "hybrid75": "V"
+    },
+    {
+      "id": "CM50-049",
+      "token": "committee",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "postponed",
+      "weak_base": "O",
+      "neural_direct": "O",
+      "confidence": 0.650139,
+      "hybrid75": "O"
+    },
+    {
+      "id": "CM50-050",
+      "token": "filter",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "removed",
+      "weak_base": "O",
+      "neural_direct": "M",
+      "confidence": 0.878418,
+      "hybrid75": "M"
+    }
+  ]
+}

@@ -160,6 +160,28 @@ def score(rows,key):
             'exact_sentences':exact,'exact_sentence_accuracy':exact/COUNT,'by_role':by_role}
 
 
+def rule_audit(rows):
+    stats=defaultdict(lambda:{'changed':0,'helpful':0,'harmful':0,'still_wrong':0,'net':0})
+    changed=[]
+    for r in rows:
+        if r['neural_direct']==r['final']:
+            continue
+        x=stats[r['guard_reason']]
+        x['changed']+=1
+        before_ok=r['neural_direct']==r['gold']
+        after_ok=r['final']==r['gold']
+        if after_ok and not before_ok:
+            x['helpful']+=1
+        elif before_ok and not after_ok:
+            x['harmful']+=1
+        elif not before_ok and not after_ok:
+            x['still_wrong']+=1
+        x['net']=x['helpful']-x['harmful']
+        changed.append(r)
+    ordered=dict(sorted(stats.items(), key=lambda kv:(kv[1]['net'], -kv[1]['changed'], kv[0])))
+    return ordered, changed
+
+
 def main():
     torch.set_num_threads(4)
     nlp=spacy.load('en_core_web_sm')
@@ -195,6 +217,7 @@ def main():
 
     direct_score=score(rows,'neural_direct'); final_score=score(rows,'final')
     conf=Counter((r['gold'],r['final']) for r in rows if r['gold']!=r['final']); errors=[r for r in rows if r['gold']!=r['final']]
+    audit,changed=rule_audit(rows)
     result={'benchmark':'TatoebaDaily500-CC0 high-frequency independent-silver','source_url':SOURCE_URL,
             'source_last_modified':last_modified,'license':'CC0 1.0','retrieved_at_utc':datetime.now(timezone.utc).isoformat(),
             'selection':'top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter',
@@ -203,15 +226,18 @@ def main():
             'alignment':{'gold_nonpunct_words':total_gold_words,'aligned_words':len(rows),'skipped_words':skipped_words,
                          'coverage':len(rows)/total_gold_words if total_gold_words else 0},
             'neural_direct':direct_score,'final_r018':final_score,
+            'postprocess_rule_audit':audit,'postprocess_changed_rows':changed,
             'remaining_confusions':[{'gold':a,'pred':b,'count':n} for (a,b),n in conf.most_common()],
             'errors':errors,'sentences_meta':sentence_meta}
     OUT_JSON.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    worst=', '.join(f"{name}: net {s['net']:+d} ({s['helpful']} fix/{s['harmful']} harm/{s['still_wrong']} still)" for name,s in list(audit.items())[:8])
     lines=['SentenceLab practical benchmark — Tatoeba Daily 500 HIGH-FREQUENCY (CC0)',
            f'sentences: {COUNT} | aligned tokens: {len(rows)}/{total_gold_words} ({result["alignment"]["coverage"]*100:.2f}%)',
            f'neural direct: full {direct_score["accuracy"]*100:.2f}% | core {direct_score["core_accuracy"]*100:.2f}% | macro-F1 {direct_score["macro_f1"]*100:.2f}% | exact {direct_score["exact_sentences"]}/{COUNT}',
            f'R018 final   : full {final_score["accuracy"]*100:.2f}% | core {final_score["core_accuracy"]*100:.2f}% | macro-F1 {final_score["macro_f1"]*100:.2f}% | exact {final_score["exact_sentences"]}/{COUNT}',
            'role F1: '+', '.join(f'{r}={final_score["by_role"][r]["f1"]*100:.2f}%' for r in ROLES),
            'top confusions: '+', '.join(f'{a}->{b}:{n}' for (a,b),n in conf.most_common(10)),
+           'rule audit worst-first: '+worst,
            'NOTE: independent Stanza-derived UD labels are silver reference labels, not human-audited gold.']
     OUT_TXT.write_text('\n'.join(lines)+'\n',encoding='utf-8'); print('\n'.join(lines))
 

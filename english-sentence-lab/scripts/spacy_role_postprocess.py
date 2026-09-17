@@ -38,6 +38,8 @@ CONTROLLER_BOUNDARIES = {
     'unless','since','once','after','before','than','where','wherever','whenever',
 }
 CLAUSE_MARKERS = {'that','whether','if'}
+WH_NOMINALS = {'what','who','whom','which','whatever','whoever','whomever','whichever'}
+WH_ADVERBIALS = {'when','where','why','how','whenever','wherever','however'}
 
 
 def _nearest_lexical_controller(doc, i, window=6):
@@ -60,23 +62,55 @@ def _has_left_clause_marker(doc, i, window=7):
     return False
 
 
+def _has_subject_before(doc, i):
+    return any(t.dep_.lower() in SUBJECT_DEPS for t in doc[:i])
+
+
+def _copular_prep_complement(t):
+    """True for pobj-like nominals inside a PP selected by copular *be*."""
+    if t.dep_.lower() != 'pobj' or t.head.pos_ not in {'ADP','ADV'}:
+        return False
+    host = t.head.head
+    return host.lemma_.lower() == 'be' or (
+        host.dep_.lower() == 'root' and any(ch.dep_.lower() == 'cop' for ch in host.children)
+    )
+
+
 def postprocess_roles(doc, neural_roles):
     if len(doc) != len(neural_roles):
         raise ValueError('token/role length mismatch')
     out = list(neural_roles)
     reason = ['neural'] * len(doc)
 
-    # 1) High-precision canonical dependency overrides.
+    # 1) High-precision canonical dependency overrides.  R019 keeps a neural C
+    # for copular/free-relative WH complements, where statistical dependency
+    # parsers frequently attach the WH token as an object of an embedded verb.
     for i,t in enumerate(doc):
         dep = t.dep_.lower()
         if dep in SUBJECT_DEPS:
             out[i] = 'S'; reason[i] = 'dep-subject'
         elif dep in OBJECT_DEPS:
-            out[i] = 'O'; reason[i] = 'dep-object'
+            copular_wh = (
+                neural_roles[i] == 'C' and t.lower_ in WH_NOMINALS
+                and any(x.lemma_.lower() == 'be' for x in doc[:i])
+            )
+            if not copular_wh:
+                out[i] = 'O'; reason[i] = 'dep-object'
         elif dep in COMPLEMENT_DEPS:
-            out[i] = 'C'; reason[i] = 'dep-complement'
+            # Embedded interrogatives such as "I don't know who he is" are
+            # often attr in spaCy but object-like under independent UD parses.
+            embedded_wh_object = (
+                neural_roles[i] == 'O' and t.lower_ in WH_NOMINALS
+                and t.head.lemma_.lower() == 'be'
+                and any(x.lemma_.lower() in CLAUSAL_COMPLEMENT_VERBS for x in doc[:i])
+            )
+            if not embedded_wh_object:
+                out[i] = 'C'; reason[i] = 'dep-complement'
         elif dep == 'pobj':
-            out[i] = 'M'; reason[i] = 'dep-pobj'
+            if neural_roles[i] == 'C' and _copular_prep_complement(t):
+                out[i] = 'C'; reason[i] = 'copular-pobj-complement'
+            else:
+                out[i] = 'M'; reason[i] = 'dep-pobj'
         elif dep == 'appos':
             out[i] = 'M'; reason[i] = 'dep-appos'
         elif dep in FUNCTION_DEPS:
@@ -92,16 +126,9 @@ def postprocess_roles(doc, neural_roles):
                 and t.head.lemma_.lower() in OBJECT_COMPLEMENT_VERBS):
             out[i] = 'C'; reason[i] = 'object-complement'
 
-    # 3) NP-internal "of" complements inherit a core nominal phrase role when
-    # attached to a nominal head already known to be S/O/C.
-    for i,t in enumerate(doc):
-        if t.dep_.lower() != 'pobj' or t.head.lower_ != 'of':
-            continue
-        nominal_head = t.head.head
-        if nominal_head.pos_ in {'NOUN','PROPN','PRON','NUM'}:
-            inherited = out[nominal_head.i]
-            if inherited in {'S','O','C'}:
-                out[i] = inherited; reason[i] = 'of-np-core-inherit'
+    # 3) R019 intentionally does NOT propagate S/O/C through every NP-internal
+    # "of" pobj.  On ordinary short sentences that heuristic had no measured
+    # fixes and created regressions; the nominal head itself remains core-labeled.
 
     # 4) Object-control / small-clause recovery.
     for i,t in enumerate(doc):
@@ -111,21 +138,25 @@ def postprocess_roles(doc, neural_roles):
             if ctl in OBJECT_CONTROL_VERBS:
                 out[i] = 'O'; reason[i] = 'neural-object-local-control'
 
-    # 5) Omitted complementizer / embedded subject recovery.
+    # 5) Omitted complementizer / embedded subject recovery.  Preserve a direct
+    # O prediction unless there is independent evidence that it was not an object.
     for i,t in enumerate(doc[:-1]):
         if t.dep_.lower() in OBJECT_DEPS and t.pos_ in NOMINAL_POS:
             nxt = doc[i+1]
-            if ((nxt.pos_ == 'AUX' or nxt.lower_ in AUX_WORDS)
+            if (neural_roles[i] != 'O'
+                    and (nxt.pos_ == 'AUX' or nxt.lower_ in AUX_WORDS)
                     and t.head.lemma_.lower() in CLAUSAL_COMPLEMENT_VERBS):
                 out[i] = 'S'; reason[i] = 'clausal-object-before-aux-subject'
-            elif t.head.pos_ == 'ADJ':
+            elif neural_roles[i] != 'O' and t.head.pos_ == 'ADJ':
                 out[i] = 'S'; reason[i] = 'object-of-adjective-subject-repair'
 
-    # 6) Subject-auxiliary inversion repair.
+    # 6) Subject-auxiliary inversion repair.  Do not reinterpret an ordinary
+    # post-verbal object when a subject has already appeared to its left.
     for i,t in enumerate(doc):
         if (t.dep_.lower() in {'dobj','obj'} and t.pos_ in NOMINAL_POS
                 and t.head.i <= 2 and i > t.head.i
-                and (t.head.pos_ == 'AUX' or t.head.lower_ in AUX_WORDS)):
+                and (t.head.pos_ == 'AUX' or t.head.lower_ in AUX_WORDS)
+                and not _has_subject_before(doc, i)):
             out[i] = 'S'; reason[i] = 'initial-aux-inversion'
 
     # 7) Compound-to-predicate recovery.
@@ -137,10 +168,6 @@ def postprocess_roles(doc, neural_roles):
         elif neural_roles[t.head.i] == 'V' and t.head.i == i + 1:
             out[i] = 'S'; reason[i] = 'compound-to-neural-predicate-subject'
             out[t.head.i] = 'V'; reason[t.head.i] = 'neural-predicate-pos-repair'
-        # A nominal-tagged ccomp is internally inconsistent with a finite clause
-        # analysis. When it directly follows a nominal compound and the local
-        # clause is explicitly introduced by that/whether/if, recover the compound
-        # as S and the ccomp head as V. No lexical item is hard-coded.
         elif (t.head.i == i + 1 and t.head.pos_ == 'NOUN'
                 and t.head.dep_.lower() == 'ccomp' and _has_left_clause_marker(doc, i)):
             out[i] = 'S'; reason[i] = 'compound-to-mistagged-ccomp-subject'
@@ -209,11 +236,13 @@ def postprocess_roles(doc, neural_roles):
                 if t.dep_.lower() == 'conj' and t.head.i < there_i and out[t.head.i] == 'M':
                     out[i]='M'; reason[i]='fronted-between-conj'
 
-    # 14) Coordination inheritance after all core repairs.
+    # 14) Coordination inheritance after all core repairs.  WH adverbials such
+    # as "and when/where/how" are modifiers, not nominal conjuncts inheriting O.
     for _ in range(3):
         changed=False
         for i,t in enumerate(doc):
-            if t.dep_.lower() == 'conj' and t.pos_ not in {'VERB','AUX'}:
+            if (t.dep_.lower() == 'conj' and t.pos_ not in {'VERB','AUX','ADV','SCONJ'}
+                    and t.lower_ not in WH_ADVERBIALS):
                 hr=out[t.head.i]
                 if hr in {'S','O','C','M'} and out[i] != hr:
                     out[i]=hr; reason[i]='conj-inherit'; changed=True

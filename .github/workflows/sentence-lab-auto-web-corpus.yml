@@ -28,10 +28,19 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
 
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
+
+      - name: Refresh latest main before work
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+          echo "worker_base_sha=$(git rev-parse HEAD)" | tee /tmp/sentence_lab_worker_base
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -135,12 +144,15 @@ jobs:
           echo "corpus_changed=$corpus_changed compare_needed=$compare_needed"
 
       - name: Install CPU model runtime
+        id: runtime
         if: steps.changes.outputs.compare_needed == 'true'
         run: |
           python -m pip install --upgrade pip
+          python -m pip install numpy
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 
       - name: Run comparison self-test
+        id: comparetest
         if: steps.changes.outputs.compare_needed == 'true'
         run: python english-sentence-lab/scripts/compare_web_corpus_to_model.py --self-test
 
@@ -190,15 +202,19 @@ jobs:
           collect='${{ steps.collect.outcome }}'
           stamp='${{ steps.stamp.outcome }}'
           validate='${{ steps.validate.outcome }}'
+          runtime='${{ steps.runtime.outcome }}'
+          comparetest='${{ steps.comparetest.outcome }}'
           compare='${{ steps.compare.outcome }}'
-          details="collect=$collect,stamp=$stamp,validate=$validate,compare=$compare"
+          details="collect=$collect,stamp=$stamp,validate=$validate,runtime=$runtime,comparetest=$comparetest,compare=$compare"
           status=success
           if [ "$collect" != "success" ] || [ "$stamp" != "success" ] || [ "$validate" != "success" ]; then
             status=failure
           fi
-          if [ "$compare" = "failure" ] || [ "$compare" = "cancelled" ]; then
-            status=failure
-          fi
+          for value in "$runtime" "$comparetest" "$compare"; do
+            if [ "$value" = "failure" ] || [ "$value" = "cancelled" ]; then
+              status=failure
+            fi
+          done
           echo "$status" > /tmp/sentence_lab_status
           echo "$details" > /tmp/sentence_lab_details
           echo "status=$status" >> "$GITHUB_OUTPUT"

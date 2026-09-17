@@ -3,26 +3,77 @@ name: SentenceLab long sentence collector
 on:
   workflow_dispatch:
   schedule:
+    # Fallback only. The self-rearming dispatcher is the primary trigger.
     - cron: '*/30 * * * *'
 
 permissions:
   contents: write
 
+concurrency:
+  group: sentence-lab-long-sentence-collector
+  cancel-in-progress: false
+
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Refresh latest main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Build long sentence queue
         run: python english-sentence-lab/scripts/long_sentence_collector.py
-      - name: Commit queue
+
+      - name: Validate queue
         run: |
+          set -euo pipefail
+          test -s english-sentence-lab/data/web_corpus_bot/long_sentence_queue.jsonl
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('english-sentence-lab/data/web_corpus_bot/long_sentence_queue.jsonl')
+          rows = 0
+          for line in p.open(encoding='utf-8'):
+              if not line.strip():
+                  continue
+              row = json.loads(line)
+              assert row['tokens'] >= 25 or row['text'].count(',') >= 2
+              assert row.get('analysis', {}).get('tokens')
+              rows += 1
+          assert rows > 0
+          print(f'validated_long_sentences={rows}')
+          PY
+
+      - name: Commit queue safely
+        run: |
+          set -euo pipefail
           git config user.name sentence-lab-long-bot
           git config user.email sentence-lab-long-bot@users.noreply.github.com
           git add english-sentence-lab/data/web_corpus_bot/long_sentence_queue.jsonl
-          git diff --cached --quiet || git commit -m 'SentenceLab long sentence queue refresh'
-          git push
+          if git diff --cached --quiet; then
+            echo 'Long sentence queue unchanged.'
+            exit 0
+          fi
+          git commit -m 'SentenceLab long sentence queue refresh'
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 3))
+          done
+          echo 'Failed to push long sentence queue after retries.' >&2
+          exit 1

@@ -1,0 +1,7 @@
+SentenceLab practical benchmark — Tatoeba Daily 500 (CC0)
+sentences: 500 | aligned tokens: 3143/3143 (100.00%)
+neural direct: full 82.18% | core 96.46% | macro-F1 78.84% | exact 165/500
+R018 final   : full 82.47% | core 95.28% | macro-F1 78.43% | exact 163/500
+role F1: S=83.53%, V=98.36%, O=64.85%, C=66.81%, M=78.60%
+top confusions: M->O:200, M->S:151, M->C:110, O->S:21, S->C:16, C->M:15, S->V:12, M->V:6, V->C:4, O->M:4
+NOTE: independent Stanza-derived UD labels are silver reference labels, not human-audited gold.

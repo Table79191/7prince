@@ -1,0 +1,122 @@
+{
+  "version": "1.7.0-UD-BOOTSTRAP",
+  "params": 615558,
+  "train_sentences": 18130,
+  "validation": {
+    "sentences": 7682,
+    "tokens": 81315,
+    "base_role_acc": 0.6457849105331119,
+    "neural_role_acc": 0.8771198425874684,
+    "sentence_exact": 5153
+  },
+  "distribution": {
+    "atis:val": 1157,
+    "atis:train": 4274,
+    "childes:val": 4000,
+    "childes:train": 12000,
+    "ctetex:val": 276,
+    "eslspok:val": 464,
+    "eslspok:train": 1856,
+    "littleprince:val": 500,
+    "pronouns:val": 285,
+    "pud:val": 1000
+  },
+  "last_chunks": [
+    {
+      "epoch": 1,
+      "sentences_seen": 15500,
+      "loss": 0.1940877836936655,
+      "train_acc": 0.9318525996971226,
+      "base_acc": 0.6860171630489652,
+      "seconds": 0.3399512767791748
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 15750,
+      "loss": 0.20571752085101105,
+      "train_acc": 0.9352667011910927,
+      "base_acc": 0.6696012428793371,
+      "seconds": 0.3807222843170166
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 16000,
+      "loss": 0.16843521029336503,
+      "train_acc": 0.9436689930209372,
+      "base_acc": 0.6660019940179461,
+      "seconds": 0.3545966148376465
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 16250,
+      "loss": 0.19307642197861144,
+      "train_acc": 0.9251805985552115,
+      "base_acc": 0.651702786377709,
+      "seconds": 0.3347914218902588
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 16500,
+      "loss": 0.17607668276784738,
+      "train_acc": 0.9508907077515648,
+      "base_acc": 0.6567164179104478,
+      "seconds": 0.36826109886169434
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 16750,
+      "loss": 0.18595992430047042,
+      "train_acc": 0.939802802283342,
+      "base_acc": 0.6268811624286456,
+      "seconds": 0.33510255813598633
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 17000,
+      "loss": 0.1791134530302903,
+      "train_acc": 0.9314796425024826,
+      "base_acc": 0.6668321747765641,
+      "seconds": 0.3915374279022217
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 17250,
+      "loss": 0.26243850287686976,
+      "train_acc": 0.910880829015544,
+      "base_acc": 0.627979274611399,
+      "seconds": 0.3245205879211426
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 17500,
+      "loss": 0.13541694392527764,
+      "train_acc": 0.9588541666666667,
+      "base_acc": 0.6682291666666667,
+      "seconds": 0.35532116889953613
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 17750,
+      "loss": 0.15082915790808138,
+      "train_acc": 0.949738219895288,
+      "base_acc": 0.6539267015706807,
+      "seconds": 0.37515830993652344
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 18000,
+      "loss": 0.21674030128618837,
+      "train_acc": 0.9325215626585489,
+      "base_acc": 0.6118721461187214,
+      "seconds": 0.35733771324157715
+    },
+    {
+      "epoch": 1,
+      "sentences_seen": 18130,
+      "loss": 0.1544199890922755,
+      "train_acc": 0.95,
+      "base_acc": 0.6885416666666667,
+      "seconds": 0.17748641967773438
+    }
+  ]
+}

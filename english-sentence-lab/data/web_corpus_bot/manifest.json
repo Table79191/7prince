@@ -237,5 +237,15 @@
     "auto_pass": 5680,
     "needs_review": 371
   },
-  "upstream_snapshot_sha256": "5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f"
+  "upstream_snapshot_sha256": "5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f",
+  "collection_time": {
+    "meaning": "first time each record was collected by this repository bot",
+    "timezone_fields": [
+      "UTC",
+      "Asia/Seoul (+09:00)"
+    ],
+    "records_with_timestamp": 6051,
+    "latest_first_collected_at_utc": "2026-09-17T13:51:34+00:00",
+    "latest_first_collected_at_kst": "2026-09-17T22:51:34+09:00"
+  }
 }

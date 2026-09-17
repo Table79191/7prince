@@ -1,0 +1,241 @@
+{
+  "version": "AUTO-WEB-CORPUS-1",
+  "policy": {
+    "source_type": "allowlisted public Universal Dependencies English treebanks",
+    "arbitrary_web_scraping": false,
+    "max_per_source": 1000,
+    "role_analyzer": "english-sentence-lab/scripts/canonical_roles.py"
+  },
+  "sources": {
+    "ewt": {
+      "source": "ewt",
+      "repo": "UD_English-EWT",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_ewt-ud-dev.conllu",
+        "en_ewt-ud-test.conllu",
+        "en_ewt-ud-train.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_ewt-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-EWT/master/en_ewt-ud-dev.conllu",
+          "sha256": "39239e0a60db3ae68f4b7036189f11b6692741d10ff8240dd91f74f2760d90f8",
+          "bytes": 1898574
+        },
+        {
+          "filename": "en_ewt-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-EWT/master/en_ewt-ud-test.conllu",
+          "sha256": "fa024f43dc5da3c5ac02563bc9bd0e974f46cbb1560823976a8f342a37dc494a",
+          "bytes": 1900101
+        },
+        {
+          "filename": "en_ewt-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-EWT/master/en_ewt-ud-train.conllu",
+          "sha256": "d68e06122a702464c613076523d56740f047e5bbe89dd90ec32737e04d952143",
+          "bytes": 15034493
+        }
+      ],
+      "sentences_parsed": 15850,
+      "sentences_after_dedupe": 15050,
+      "sentences_written": 1000,
+      "auto_pass": 898,
+      "needs_review": 102
+    },
+    "atis": {
+      "source": "atis",
+      "repo": "UD_English-Atis",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_atis-ud-dev.conllu",
+        "en_atis-ud-test.conllu",
+        "en_atis-ud-train.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_atis-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Atis/master/en_atis-ud-dev.conllu",
+          "sha256": "3d289550aa64dea20830c7c109a1afde09de83fdc00bb6c895205681f35e8d52",
+          "bytes": 366650
+        },
+        {
+          "filename": "en_atis-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Atis/master/en_atis-ud-test.conllu",
+          "sha256": "a98df5e2f11e81deb4698a05ffcb361cff5d74cbba61b234b59685ec304d66a7",
+          "bytes": 369237
+        },
+        {
+          "filename": "en_atis-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Atis/master/en_atis-ud-train.conllu",
+          "sha256": "de10d45dd7fc2517b39ae8df074f78ebaea3fd42aeccc0d059b5d42cec6ef118",
+          "bytes": 2729836
+        }
+      ],
+      "sentences_parsed": 5431,
+      "sentences_after_dedupe": 5430,
+      "sentences_written": 1000,
+      "auto_pass": 987,
+      "needs_review": 13
+    },
+    "childes": {
+      "source": "childes",
+      "repo": "UD_English-CHILDES",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_childes-ud-dev.conllu",
+        "en_childes-ud-test.conllu",
+        "en_childes-ud-train.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_childes-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CHILDES/master/en_childes-ud-dev.conllu",
+          "sha256": "50233b8123256b2910b6adbf5abcaef8a58af9054affe9c95bbdc643fec87972",
+          "bytes": 2159081
+        },
+        {
+          "filename": "en_childes-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CHILDES/master/en_childes-ud-test.conllu",
+          "sha256": "a985573aeb9fabc10ab54bd3f99fb739628e4bb16da95fd814f84aee19d95f90",
+          "bytes": 5194509
+        },
+        {
+          "filename": "en_childes-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CHILDES/master/en_childes-ud-train.conllu",
+          "sha256": "3275a76cbfb32f73264f04bc02166ecc5662039bd6c604c65ffde23e45883c58",
+          "bytes": 19558480
+        }
+      ],
+      "sentences_parsed": 48183,
+      "sentences_after_dedupe": 45499,
+      "sentences_written": 1000,
+      "auto_pass": 986,
+      "needs_review": 14
+    },
+    "ctetex": {
+      "source": "ctetex",
+      "repo": "UD_English-CTeTex",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_ctetex-ud-test.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_ctetex-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-CTeTex/master/en_ctetex-ud-test.conllu",
+          "sha256": "626b1da3281f9f203d9b0c68c8132a2d4211a742a348498a1d8388de89a3aa64",
+          "bytes": 435016
+        }
+      ],
+      "sentences_parsed": 276,
+      "sentences_after_dedupe": 274,
+      "sentences_written": 274,
+      "auto_pass": 218,
+      "needs_review": 56
+    },
+    "eslspok": {
+      "source": "eslspok",
+      "repo": "UD_English-ESLSpok",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_eslspok-ud-dev.conllu",
+        "en_eslspok-ud-test.conllu",
+        "en_eslspok-ud-train.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_eslspok-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESLSpok/master/en_eslspok-ud-dev.conllu",
+          "sha256": "7034c651d3deec369149139a75da31a61e673b9735ae88589695ab1d2d235000",
+          "bytes": 84954
+        },
+        {
+          "filename": "en_eslspok-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESLSpok/master/en_eslspok-ud-test.conllu",
+          "sha256": "7d3b37af353205dc3b2964937e7c511e7763cdca25ec9c830638a2540ffe04be",
+          "bytes": 87994
+        },
+        {
+          "filename": "en_eslspok-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESLSpok/master/en_eslspok-ud-train.conllu",
+          "sha256": "2d98d2a9520fbc9e20154ab0b51bb688d704c3c59b0e9ae09d82df0a4b1c6330",
+          "bytes": 661827
+        }
+      ],
+      "sentences_parsed": 2320,
+      "sentences_after_dedupe": 2154,
+      "sentences_written": 1000,
+      "auto_pass": 960,
+      "needs_review": 40
+    },
+    "littleprince": {
+      "source": "littleprince",
+      "repo": "UD_English-LittlePrince",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_littleprince-ud-test.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_littleprince-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-LittlePrince/master/en_littleprince-ud-test.conllu",
+          "sha256": "b1832f66187dea5b8ff27cf7bd607d4fa33962850b84435066c06c4cc1c35232",
+          "bytes": 406743
+        }
+      ],
+      "sentences_parsed": 500,
+      "sentences_after_dedupe": 492,
+      "sentences_written": 492,
+      "auto_pass": 474,
+      "needs_review": 18
+    },
+    "pronouns": {
+      "source": "pronouns",
+      "repo": "UD_English-Pronouns",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_pronouns-ud-test.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_pronouns-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-Pronouns/master/en_pronouns-ud-test.conllu",
+          "sha256": "b4e42921354d71e44e4758892f1a78f53773705e21425a64f454022570caf5b0",
+          "bytes": 142229
+        }
+      ],
+      "sentences_parsed": 285,
+      "sentences_after_dedupe": 285,
+      "sentences_written": 285,
+      "auto_pass": 275,
+      "needs_review": 10
+    },
+    "pud": {
+      "source": "pud",
+      "repo": "UD_English-PUD",
+      "license": "CC-BY-SA-3.0",
+      "discovered_files": [
+        "en_pud-ud-test.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_pud-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-PUD/master/en_pud-ud-test.conllu",
+          "sha256": "c80584f2bc2b31d5bada78a1136f9feec7ac49e5e18898db02dea434b5b8f0aa",
+          "bytes": 1386858
+        }
+      ],
+      "sentences_parsed": 1000,
+      "sentences_after_dedupe": 1000,
+      "sentences_written": 1000,
+      "auto_pass": 882,
+      "needs_review": 118
+    }
+  },
+  "totals": {
+    "sentences_written": 6051,
+    "auto_pass": 5680,
+    "needs_review": 371
+  },
+  "upstream_snapshot_sha256": "5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f"
+}

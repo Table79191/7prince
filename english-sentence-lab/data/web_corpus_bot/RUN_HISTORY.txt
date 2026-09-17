@@ -2274,3 +2274,50 @@ new_items_sample:
 - [childes] 9306d46eddf84b570aaa0abe718f353a3359c0d9ff61880a154d1e50151196fe | What's saying that? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:23:34+09:00 / 2026-09-17T20:23:34+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35270101452
+run_attempt: 1
+event_head_sha: 8b0cd1da7e4582723fe3b157a380d6ae2e5bd366
+worker_base_sha: 8b0cd1da7e4582723fe3b157a380d6ae2e5bd366
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 51955
+after_total: 52955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 98656a09f78f346cf12f5278bcdd52c7ef8206ae2f878ab308d344bf081840ff | How many cats? | UD_English-CHILDES
+- [childes] 986648621e3a3ef32475909ac275756e107a6018b6aa5f6484fce54b111431d5 | How about this. | UD_English-CHILDES
+- [childes] 9867333b6f11fd72bc087dfed6f412fea62af92c0de15c9738d7e002e68a2770 | Can I try em on this? | UD_English-CHILDES
+- [childes] 986787a482bd1fa72b49aea1836a3a7313e6aa362219b4e2f645c711271ae523 | Yes Michael 's at his home. | UD_English-CHILDES
+- [childes] 986832697a4d4a155f2ed315c356307ea208ba438118067e2f40b9204e7d23db | What do you use that for? | UD_English-CHILDES
+- [childes] 986961f5e2b7e33885693aadf3ef59130cc77c90d3afb7a43cf7a12b29d61e48 | Oh you're going to read. | UD_English-CHILDES
+- [childes] 986acafc6dfd76e178421d42172f79cccfdee9413da0d47cfcce26fd4e832f6f | Um well I'd like a carrot please. | UD_English-CHILDES
+- [childes] 986be621e7dbcccd196d7e29e91210b6a36b3aba1b55e3dc9c9b02cfd86d23ce | Is there stuff inside? | UD_English-CHILDES
+- [childes] 986cff05856f241ed9bf68670cc4efe5007046bc076008b12e7d1b626109e827 | He must have had something in his bag. | UD_English-CHILDES
+- [childes] 986e3da59bd76adde61107f175dd0607f4883f81f76ffc7901bf632046f00873 | It's a present from us and the Max Planck. | UD_English-CHILDES
+- [childes] 986f0302f6622348889d721385c6395dc88b68f987d2ab9f10c3c5b4c117a1a4 | How many ears? | UD_English-CHILDES
+- [childes] 987009c0552432134b60ff2d2d1bdcfa51fcd91d009dd602f6e70561bf13245e | Oh you hold it. | UD_English-CHILDES
+- [childes] 98728928a7cbed003fe7aa10d90970b994f85f633e945ef087a8edaab62dc083 | Here comes the other one. | UD_English-CHILDES
+- [childes] 98733f96a3d320146f70fd0ac0249ae7d710c6ff965451f2b7b8f577b8aff928 | No drink. | UD_English-CHILDES
+- [childes] 987556fc634251e87df6c4cd5816308402d4ae9e30bac27505cc937246272b69 | How about please. | UD_English-CHILDES
+- [childes] 98776c3e745a0eb651a86df44681579e2e897739b9682d27bc8af0b0b43c7d4a | No it's not a car Laura. | UD_English-CHILDES
+- [childes] 987828689c10464cccb26ad749cc01341ca282167a0343c87e581d3aa6b5096e | This is salad roll. | UD_English-CHILDES
+- [childes] 9878dc0840c80d5d1ee6152eb774890034b36667095399eba92ba6bfeaa1ea3d | What color is the other one? | UD_English-CHILDES
+- [childes] 9879447019bd00beb54adbe295cd819f5aafdf08f763ea69981e6192c830f961 | Does he have hat on? | UD_English-CHILDES
+- [childes] 9882dab6b4e0c97a165b2a5adad39f30238b9714473a8bdf80756586b5528a95 | Mom here here's the paint things. | UD_English-CHILDES
+- [childes] 988ab0760bc7347de8f811113770e6357f89ca590cbb4fcb718e950a15df1e66 | Look at dat big one. | UD_English-CHILDES
+- [childes] 988b443d055bd4faa9ed95854370134e3db68b534a3b92bcdf781a2e7d14c4e6 | Oh were you telling her that? | UD_English-CHILDES
+- [childes] 988c568eb1ae18ba0b22f71bd44630139c8f31c1fb0fe587c941e2a321718e9e | Is that your doggie? | UD_English-CHILDES
+- [childes] 988e1f3feef68fa921764e9f80b1a234bc2524264180add969f309e5d65e0972 | Who can 't? | UD_English-CHILDES
+- [childes] 989077e68fb549a384a233ab6a22a35ff1481cf54459769b3b23cc62695d4367 | That 's not a peacock. | UD_English-CHILDES
+- [childes] 9890c59582fa38b6d90fe8705f732a35e378118840b2abce0e865686984044c8 | Mm yummy! | UD_English-CHILDES
+- [childes] 98911061d5efc7c5b15a0bd2ff9ffeebc1a7081ff47575dc5174255005be57da | Tramp gone. | UD_English-CHILDES
+- [childes] 989161be86b119e72736745dd6b76ee5cb1d732bdd97953fd704bb6922218482 | Can I cut cut all the way like that? | UD_English-CHILDES
+- [childes] 989266a459173ac4b879b433f63c16dc050f326a8fd44bab46e29a2cd907c392 | Why did he stop? | UD_English-CHILDES
+- [childes] 9893cee321fede77cbef798e3f9fdf3a8d962c20eddcc80c3046cbb3a2b19440 | Fix bike? | UD_English-CHILDES
+- ... 970 more new items
+

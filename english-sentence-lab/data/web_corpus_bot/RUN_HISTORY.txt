@@ -1757,3 +1757,50 @@ new_items_sample:
 - [childes] 55f7b13d974fcd069418e217e6d23a3c6f682ea4638a75aaca0f693c81daaf97 | Oh no no no no. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:24:51+09:00 / 2026-09-17T19:24:51+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35264488035
+run_attempt: 1
+event_head_sha: da77ef92125e50fbcb81fa928ee324667620d002
+worker_base_sha: da77ef92125e50fbcb81fa928ee324667620d002
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 40955
+after_total: 41955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 5b5c2db5a096721994d751b287243433c1d34df85476a764b9b23b539fa7f661 | Ooh stuck. | UD_English-CHILDES
+- [childes] 5b5c7715e9e7e267b81cd48b3b62d4d2eddd5998adbdf2593991a82abb5a776b | It 's easier to put it in your pocket if you fold it. | UD_English-CHILDES
+- [childes] 5b617c6547e4d34e1bc0a4521532b2839c3797acece5be05f4d6bf448da47f59 | Does it taste good? | UD_English-CHILDES
+- [childes] 5b6328ca43ad63ab34c4ff073962d5a2873d297c0f7598272ff497919c31a0f2 | I understood fire truck. | UD_English-CHILDES
+- [childes] 5b648252c5e83eb795b7a45df1cde4ef41cf17216741b03a161d9af553cbaaae | That's f. | UD_English-CHILDES
+- [childes] 5b6b22e6a2fb98a8bcac35914a4c61479ede9d561f76fa5745b1763d378294d4 | We used to carry blueberry. | UD_English-CHILDES
+- [childes] 5b6c5655956fdd83af8acf7b3855b36a36263b843696795d4ff03fc5e55cbc08 | Why do they make you laugh? | UD_English-CHILDES
+- [childes] 5b6e6e523d03e842247f90770ff9e3651dfec1adfa172062fde99f6423fea286 | Where is four? | UD_English-CHILDES
+- [childes] 5b6f9cc3def140806a0c7d0eea809b3c8fd2548c791fcbee31857cd023fbf5c3 | I want my pen. | UD_English-CHILDES
+- [childes] 5b6fe966249b8f48eaf4a72c90d67fa7effbdc17df2deb17dc43d6c461b9e7e8 | I went dancing school. | UD_English-CHILDES
+- [childes] 5b70c474406513b1a6549f36494905b4f9051e73b4c4948e811e303dc93b7e8c | Mommy wanna see how I did it? | UD_English-CHILDES
+- [childes] 5b7188c3f56e8483530da7ade9f0501eb1e59b7244033364a87ceffe38e82348 | Go go go. | UD_English-CHILDES
+- [childes] 5b73f07606e1d80ed9ef72afe543bb63032e01d8a7cf714e0d43a152d5a16986 | Go up air? | UD_English-CHILDES
+- [childes] 5b746eecc65c34861c960a4a76c7ed0a62483b7c79d7ce02129f25fa43cf378f | Are you too tired? | UD_English-CHILDES
+- [childes] 5b74fa76d8f9554e24acd1261cce7a6eeb739d82c56ad95bbce774bba069321a | Some water juice? | UD_English-CHILDES
+- [childes] 5b75b1780757b3686975fcdfe5de4f9287f37e2b7723edb6c7e733d37e6858e9 | Bad girl. | UD_English-CHILDES
+- [childes] 5b760821e8af730e3bda9a3c7674fa1dab6e44a2e056cd1369bd2da054850a92 | You sound like Donald Duck. | UD_English-CHILDES
+- [childes] 5b771dbecc6960dfd6a1a16ba0422b06e0fd0195a35d2d72e0ac844570482fc7 | He jumped up in the air and turned around and ran away as fast as he could go. | UD_English-CHILDES
+- [childes] 5b77438d3bb8058bf89658c2e2a625732935f72f2b813e6ccb3a74be861e1946 | Sometimes they take their trunks off. | UD_English-CHILDES
+- [childes] 5b781cb62e8a638b69ed075a9a71887e9c34082f6f11b885ce10157724881ae7 | A neck? | UD_English-CHILDES
+- [childes] 5b7853fc64402d0826cd2726ab51061cb2ecdf63c62e073dc753c878d2ebf80d | I don 't think he talks does he? | UD_English-CHILDES
+- [childes] 5b79278315ed4132d3edd9814faa967884ad870129474cb3a70ccad661127322 | He no bite ya. | UD_English-CHILDES
+- [childes] 5b7956caa743d6d7f085b0c60fdaf6143e3a33d5528cb223c368068e4bff350d | So I think we're all fitted and working now Thomas. | UD_English-CHILDES
+- [childes] 5b7ababcd48f7b92bf51d00c6aaf4dd3db8d1caea5834334470a9c0431f431c3 | Oh well if you wanna put that one on first. | UD_English-CHILDES
+- [childes] 5b7e41981c4fea7e14f0d336cb5dd787ef0b609d133bf2af953ef2b1f780f5b1 | Bye bye Thomas. | UD_English-CHILDES
+- [childes] 5b81c73d76c6415dd222d40e8edc9d7a336471c3355b6807c0f44baa57653809 | You really wanna be on the mat don't ya? | UD_English-CHILDES
+- [childes] 5b82ab17c29a7f8eb3b9972386ff8966f16e25095c9283cb6b453b14dc638c49 | Wanna hear Daddy again. | UD_English-CHILDES
+- [childes] 5b832c1cbe96de22061b1e9565bd38d15c61d4a676e5f5b5c59f9621eb5c95a3 | Maybe it only goes there. | UD_English-CHILDES
+- [childes] 5b83aa973c461d9b232e6d0f3ee4af6aa4c5ffbaa8282ba7b99f2c5526f41710 | Is that a good song? | UD_English-CHILDES
+- [childes] 5b8567e1da470fa004066c634bf96e27b8951374b7b2a6ccb8bdd6284ff38464 | That's his pen. | UD_English-CHILDES
+- ... 970 more new items
+

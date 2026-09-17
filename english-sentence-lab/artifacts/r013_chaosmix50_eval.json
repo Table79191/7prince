@@ -35,25 +35,25 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 236,
-    "accuracy": 0.944,
-    "exact_sentences": 38,
-    "exact_sentence_accuracy": 0.76,
+    "correct": 240,
+    "accuracy": 0.96,
+    "exact_sentences": 40,
+    "exact_sentence_accuracy": 0.8,
     "by_gold_role": {
       "S": {
         "checks": 173,
-        "correct": 164,
-        "accuracy": 0.9479768786127167
+        "correct": 171,
+        "accuracy": 0.9884393063583815
       },
       "O": {
         "checks": 56,
-        "correct": 53,
-        "accuracy": 0.9464285714285714
+        "correct": 48,
+        "accuracy": 0.8571428571428571
       },
       "C": {
         "checks": 7,
-        "correct": 5,
-        "accuracy": 0.7142857142857143
+        "correct": 7,
+        "accuracy": 1.0
       },
       "M": {
         "checks": 14,
@@ -62,19 +62,20 @@
       }
     }
   },
-  "fixed_checks": 43,
+  "fixed_checks": 47,
   "regressed_checks": 9,
-  "net_corrections": 34,
+  "net_corrections": 38,
   "fix_reasons": {
     "dep-object": 9,
     "object-complement": 1,
     "dep-pobj": 2,
-    "dep-subject": 18,
+    "dep-subject": 21,
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
     "clausal-prep-subject-repair": 2,
     "dep-function": 1,
     "conj-inherit": 2,
+    "dep-complement": 1,
     "initial-partitive-subject": 1,
     "dep-appos": 1,
     "correlative-subject-repair": 1,
@@ -83,28 +84,18 @@
   },
   "remaining_confusions": [
     {
+      "gold": "O",
+      "pred": "S",
+      "count": 8
+    },
+    {
       "gold": "S",
       "pred": "O",
-      "count": 9
-    },
-    {
-      "gold": "O",
-      "pred": "S",
-      "count": 2
-    },
-    {
-      "gold": "C",
-      "pred": "M",
       "count": 1
     },
     {
-      "gold": "C",
-      "pred": "S",
-      "count": 1
-    },
-    {
-      "gold": "O",
-      "pred": "M",
+      "gold": "S",
+      "pred": "C",
       "count": 1
     }
   ],
@@ -209,7 +200,7 @@
       "dep": "nsubjpass",
       "head": "confirmed",
       "neural_direct": "M",
-      "confidence": 0.465525,
+      "confidence": 0.465524,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -240,6 +231,19 @@
       "guard_reason": "dep-subject"
     },
     {
+      "id": "CM50-012",
+      "token": "agreement",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "become",
+      "neural_direct": "O",
+      "confidence": 0.776996,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
       "id": "CM50-013",
       "token": "what",
       "occurrence": 0,
@@ -251,6 +255,19 @@
       "confidence": 0.420053,
       "dep_guard": "O",
       "guard_reason": "dep-object"
+    },
+    {
+      "id": "CM50-015",
+      "token": "generator",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "had",
+      "neural_direct": "O",
+      "confidence": 0.915162,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-015",
@@ -326,7 +343,7 @@
       "dep": "prep",
       "head": "was",
       "neural_direct": "C",
-      "confidence": 0.722838,
+      "confidence": 0.722839,
       "dep_guard": "M",
       "guard_reason": "dep-function"
     },
@@ -355,6 +372,19 @@
       "confidence": 0.757326,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
+    },
+    {
+      "id": "CM50-022",
+      "token": "record",
+      "occurrence": 0,
+      "gold": "C",
+      "pos": "NOUN",
+      "dep": "attr",
+      "head": "being",
+      "neural_direct": "S",
+      "confidence": 0.742321,
+      "dep_guard": "C",
+      "guard_reason": "dep-complement"
     },
     {
       "id": "CM50-022",
@@ -430,7 +460,7 @@
       "dep": "nsubjpass",
       "head": "reconstructed",
       "neural_direct": "M",
-      "confidence": 0.847902,
+      "confidence": 0.847901,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -443,7 +473,7 @@
       "dep": "nsubj",
       "head": "assumed",
       "neural_direct": "O",
-      "confidence": 0.460442,
+      "confidence": 0.460441,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -474,6 +504,19 @@
       "guard_reason": "dep-object"
     },
     {
+      "id": "CM50-029",
+      "token": "spokesperson",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "finished",
+      "neural_direct": "O",
+      "confidence": 0.781397,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
       "id": "CM50-031",
       "token": "audience",
       "occurrence": 0,
@@ -495,7 +538,7 @@
       "dep": "nsubj",
       "head": "follow",
       "neural_direct": "O",
-      "confidence": 0.687953,
+      "confidence": 0.687954,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -651,7 +694,7 @@
       "dep": "nsubj",
       "head": "postponed",
       "neural_direct": "O",
-      "confidence": 0.65014,
+      "confidence": 0.650139,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -671,56 +714,82 @@
   ],
   "regressed_examples": [
     {
-      "id": "CM50-014",
-      "token": "delay",
+      "id": "CM50-007",
+      "token": "meeting",
       "occurrence": 0,
-      "gold": "S",
+      "gold": "O",
       "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "resulted",
-      "neural_direct": "S",
-      "confidence": 0.880852,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "dep": "nsubjpass",
+      "head": "moved",
+      "neural_direct": "O",
+      "confidence": 0.951766,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
-      "id": "CM50-019",
-      "token": "it",
+      "id": "CM50-011",
+      "token": "restoration",
       "occurrence": 0,
-      "gold": "S",
-      "pos": "PRON",
+      "gold": "O",
+      "pos": "NOUN",
       "dep": "nsubj",
-      "head": "been",
-      "neural_direct": "S",
-      "confidence": 0.724414,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "head": "look",
+      "neural_direct": "O",
+      "confidence": 0.732194,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
+      "id": "CM50-013",
+      "token": "model",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "look",
+      "neural_direct": "O",
+      "confidence": 0.975086,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-021",
-      "token": "compromise",
+      "token": "supplier",
       "occurrence": 0,
-      "gold": "C",
-      "pos": "NOUN",
-      "dep": "pobj",
-      "head": "of",
-      "neural_direct": "C",
-      "confidence": 0.841653,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "id": "CM50-029",
-      "token": "email",
-      "occurrence": 0,
-      "gold": "S",
+      "gold": "O",
       "pos": "NOUN",
       "dep": "nsubj",
-      "head": "invited",
-      "neural_direct": "S",
-      "confidence": 0.831285,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "head": "redefine",
+      "neural_direct": "O",
+      "confidence": 0.997456,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
+      "id": "CM50-023",
+      "token": "coincidence",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "difficult",
+      "neural_direct": "O",
+      "confidence": 0.810035,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
+      "id": "CM50-030",
+      "token": "archive",
+      "occurrence": 0,
+      "gold": "O",
+      "pos": "NOUN",
+      "dep": "nsubj",
+      "head": "difficult",
+      "neural_direct": "O",
+      "confidence": 0.82402,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-039",
@@ -736,136 +805,97 @@
       "guard_reason": "dep-subject"
     },
     {
-      "id": "CM50-041",
-      "token": "causation",
+      "id": "CM50-045",
+      "token": "little",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "ADJ",
+      "dep": "attr",
+      "head": "remained",
+      "neural_direct": "S",
+      "confidence": 0.613513,
+      "dep_guard": "C",
+      "guard_reason": "dep-complement"
+    },
+    {
+      "id": "CM50-047",
+      "token": "prediction",
       "occurrence": 0,
       "gold": "O",
       "pos": "NOUN",
-      "dep": "dobj",
-      "head": "infer",
+      "dep": "nsubj",
+      "head": "look",
       "neural_direct": "O",
-      "confidence": 0.595634,
+      "confidence": 0.891104,
       "dep_guard": "S",
-      "guard_reason": "object-before-finite-aux-subject"
-    },
-    {
-      "id": "CM50-043",
-      "token": "components",
-      "occurrence": 0,
-      "gold": "O",
-      "pos": "NOUN",
-      "dep": "pobj",
-      "head": "of",
-      "neural_direct": "O",
-      "confidence": 0.606943,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "id": "CM50-048",
-      "token": "anyone",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "PRON",
-      "dep": "nsubj",
-      "head": "asked",
-      "neural_direct": "S",
-      "confidence": 0.94206,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
-    },
-    {
-      "id": "CM50-048",
-      "token": "sensor",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "was",
-      "neural_direct": "S",
-      "confidence": 0.399371,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "guard_reason": "dep-subject"
     }
   ],
   "remaining_errors": [
     {
-      "id": "CM50-012",
-      "token": "agreement",
+      "id": "CM50-007",
+      "token": "meeting",
       "occurrence": 0,
-      "gold": "S",
+      "gold": "O",
       "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "become",
+      "dep": "nsubjpass",
+      "head": "moved",
       "neural_direct": "O",
-      "confidence": 0.776996,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "confidence": 0.951766,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
-      "id": "CM50-014",
-      "token": "delay",
+      "id": "CM50-011",
+      "token": "restoration",
       "occurrence": 0,
-      "gold": "S",
+      "gold": "O",
       "pos": "NOUN",
       "dep": "nsubj",
-      "head": "resulted",
-      "neural_direct": "S",
-      "confidence": 0.880852,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
-    },
-    {
-      "id": "CM50-015",
-      "token": "generator",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "had",
+      "head": "look",
       "neural_direct": "O",
-      "confidence": 0.915162,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "confidence": 0.732194,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
-      "id": "CM50-019",
-      "token": "it",
+      "id": "CM50-013",
+      "token": "model",
       "occurrence": 0,
-      "gold": "S",
-      "pos": "PRON",
+      "gold": "O",
+      "pos": "NOUN",
       "dep": "nsubj",
-      "head": "been",
-      "neural_direct": "S",
-      "confidence": 0.724414,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "head": "look",
+      "neural_direct": "O",
+      "confidence": 0.975086,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-021",
-      "token": "compromise",
+      "token": "supplier",
       "occurrence": 0,
-      "gold": "C",
+      "gold": "O",
       "pos": "NOUN",
-      "dep": "pobj",
-      "head": "of",
-      "neural_direct": "C",
-      "confidence": 0.841653,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
+      "dep": "nsubj",
+      "head": "redefine",
+      "neural_direct": "O",
+      "confidence": 0.997456,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
-      "id": "CM50-022",
-      "token": "record",
+      "id": "CM50-023",
+      "token": "coincidence",
       "occurrence": 0,
-      "gold": "C",
+      "gold": "O",
       "pos": "NOUN",
-      "dep": "attr",
-      "head": "being",
-      "neural_direct": "S",
-      "confidence": 0.742321,
+      "dep": "nsubj",
+      "head": "difficult",
+      "neural_direct": "O",
+      "confidence": 0.810035,
       "dep_guard": "S",
-      "guard_reason": "existential-postverbal-subject"
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-025",
@@ -881,30 +911,17 @@
       "guard_reason": "neural"
     },
     {
-      "id": "CM50-029",
-      "token": "spokesperson",
+      "id": "CM50-030",
+      "token": "archive",
       "occurrence": 0,
-      "gold": "S",
+      "gold": "O",
       "pos": "NOUN",
       "dep": "nsubj",
-      "head": "finished",
+      "head": "difficult",
       "neural_direct": "O",
-      "confidence": 0.781397,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
-    },
-    {
-      "id": "CM50-029",
-      "token": "email",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "invited",
-      "neural_direct": "S",
-      "confidence": 0.831285,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "confidence": 0.82402,
+      "dep_guard": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-039",
@@ -920,56 +937,30 @@
       "guard_reason": "dep-subject"
     },
     {
-      "id": "CM50-041",
-      "token": "causation",
+      "id": "CM50-045",
+      "token": "little",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "ADJ",
+      "dep": "attr",
+      "head": "remained",
+      "neural_direct": "S",
+      "confidence": 0.613513,
+      "dep_guard": "C",
+      "guard_reason": "dep-complement"
+    },
+    {
+      "id": "CM50-047",
+      "token": "prediction",
       "occurrence": 0,
       "gold": "O",
       "pos": "NOUN",
-      "dep": "dobj",
-      "head": "infer",
+      "dep": "nsubj",
+      "head": "look",
       "neural_direct": "O",
-      "confidence": 0.595634,
+      "confidence": 0.891104,
       "dep_guard": "S",
-      "guard_reason": "object-before-finite-aux-subject"
-    },
-    {
-      "id": "CM50-043",
-      "token": "components",
-      "occurrence": 0,
-      "gold": "O",
-      "pos": "NOUN",
-      "dep": "pobj",
-      "head": "of",
-      "neural_direct": "O",
-      "confidence": 0.606943,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "id": "CM50-048",
-      "token": "anyone",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "PRON",
-      "dep": "nsubj",
-      "head": "asked",
-      "neural_direct": "S",
-      "confidence": 0.94206,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
-    },
-    {
-      "id": "CM50-048",
-      "token": "sensor",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "dep": "nsubj",
-      "head": "was",
-      "neural_direct": "S",
-      "confidence": 0.399371,
-      "dep_guard": "O",
-      "guard_reason": "surface-object-control"
+      "guard_reason": "dep-subject"
     }
   ]
 }

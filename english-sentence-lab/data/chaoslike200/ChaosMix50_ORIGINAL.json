@@ -1,0 +1,216 @@
+{
+  "name": "ChaosMix50_ORIGINAL",
+  "version": "1.0",
+  "language": "en",
+  "count": 50,
+  "source": "synthetic-original",
+  "purpose": "evaluation-only stress test for highly nested and syntactically twisted English sentences",
+  "training_allowed": false,
+  "notes": [
+    "All 50 sentences were newly written for this repository.",
+    "Do not copy this evaluation set into training data.",
+    "Sentences intentionally mix nested relative clauses, subordinate clauses, inversion, counterfactuals, fused relatives, extraposition, parentheticals, coordination, passives, participial clauses, and long-distance dependencies."
+  ],
+  "sentences": [
+    {
+      "id": "CM50-001",
+      "sentence": "Although the engineer whom everyone assumed the board had quietly dismissed before the audit began turned out to have been consulting for the rival firm that had warned us about the flaw, the prototype that she insisted we postpone testing failed only after the backup system, which no one remembered installing, had already declared the trial a success."
+    },
+    {
+      "id": "CM50-002",
+      "sentence": "Only after the committee had rejected the proposal that its own advisers, several of whom later denied having read the appendix in which the crucial exception was buried, had described as unnecessarily cautious did anyone notice that the model on which the projected savings depended assumed the very price increase the policy was supposed to prevent."
+    },
+    {
+      "id": "CM50-003",
+      "sentence": "What the witnesses who arrived after the alarm could not explain was why the door that should have remained locked unless both sensors agreed had opened just as the camera, which had been replaced because the previous one occasionally froze, stopped recording what the guard claimed he had seen."
+    },
+    {
+      "id": "CM50-004",
+      "sentence": "Had the researcher who first questioned whether the supposedly independent measurements had in fact been calibrated against the same defective reference not kept a handwritten copy of the readings that the server later overwrote, we might still be arguing about whether the anomaly was real rather than asking what caused it."
+    },
+    {
+      "id": "CM50-005",
+      "sentence": "Not until the translator, having compared the version that the publisher said was definitive with a draft whose missing pages had been found inside a notebook belonging to the editor who resigned, pointed out that one negation had vanished did the legal team realize how completely the meaning of the clause had been reversed."
+    },
+    {
+      "id": "CM50-006",
+      "sentence": "The more confidently the analysts who had predicted that demand would fall explained why the unexpected surge could not possibly last, the less willing the investors, many of whom had already sold the shares they were now recommending, became to admit that the assumptions on which both forecasts rested might have been wrong."
+    },
+    {
+      "id": "CM50-007",
+      "sentence": "Because whoever designed the scheduling system apparently expected every meeting that could be postponed to be postponed unless someone marked it urgent, the interview that the dean believed had been confirmed was moved to a time when neither the candidate nor the professor whose approval was required could attend."
+    },
+    {
+      "id": "CM50-008",
+      "sentence": "Rarely has a report that was intended merely to summarize what the inspectors had already found managed, by omitting a footnote that contradicted the headline figure while preserving a chart whose scale disguised the discrepancy, to create so many new questions about what had actually happened."
+    },
+    {
+      "id": "CM50-009",
+      "sentence": "Even if the device had behaved exactly as the manual that came with the earlier model said it should, which it did not, the technician who repaired it would still have had to explain why the warning light came on before the sensor it was meant to monitor had received any power."
+    },
+    {
+      "id": "CM50-010",
+      "sentence": "It was not the rumor that the company might close the plant, troubling though that rumor was, but the fact that the manager who denied it refused to say whether the orders on which next quarter's schedule depended had been canceled that convinced the workers something larger was being hidden."
+    },
+    {
+      "id": "CM50-011",
+      "sentence": "Whoever persuaded the curator to move the painting that had been hanging beside the window since before the renovation seems not to have realized that the empty space would expose a patch of wall whose faded color makes the supposedly seamless restoration look more conspicuous than the damage it was meant to conceal."
+    },
+    {
+      "id": "CM50-012",
+      "sentence": "So complicated had the licensing agreement become after three amendments, two mergers, and a court decision that neither side believed applied to it that the lawyer assigned to explain which restrictions survived ended up asking the engineer who had written the original specification what the product was actually supposed to do."
+    },
+    {
+      "id": "CM50-013",
+      "sentence": "If what the algorithm labels as noise sometimes contains the only evidence that a rare event occurred, then removing every observation that differs sharply from the majority may make the model look more stable while ensuring that the cases for which stability matters most are precisely the ones it learns least about."
+    },
+    {
+      "id": "CM50-014",
+      "sentence": "Much as the director wanted to believe that the delay resulted from weather, she could not ignore that the shipment whose tracking number had vanished from the carrier's database had been rerouted twice before the storm began and signed for by someone no employee at the destination claimed to know."
+    },
+    {
+      "id": "CM50-015",
+      "sentence": "No sooner had the backup generator, which technicians had tested that morning under conditions they considered more demanding than any likely outage, taken over than a software update installed the night before reset the controller whose settings determined whether the cooling pumps would continue running."
+    },
+    {
+      "id": "CM50-016",
+      "sentence": "The student whom the professor praised for noticing that the proof depended on a lemma stated only for finite cases later discovered that the counterexample he had constructed violated an assumption that everyone, including the professor, had treated as obvious precisely because no one had written it down."
+    },
+    {
+      "id": "CM50-017",
+      "sentence": "Whether the committee chooses to publish the preliminary result before the replication finishes or to wait until the uncertainty narrows, it will have to explain why the confidence interval reported in the press release differs from the one in the paper that the release claims merely to summarize."
+    },
+    {
+      "id": "CM50-018",
+      "sentence": "Strange though it may seem that a machine built to detect inconsistencies should fail when two inconsistent records agree with each other, that is exactly what happens whenever the verification step compares sources for similarity without asking whether either source was independently established."
+    },
+    {
+      "id": "CM50-019",
+      "sentence": "Had it not been for the intern who, while searching for a missing invoice, noticed that the timestamps in three unrelated folders advanced by exactly the same impossible interval, the team might never have suspected that the migration script had reordered events whose original sequence was essential to interpreting them."
+    },
+    {
+      "id": "CM50-020",
+      "sentence": "Whatever the witness meant when she said that the second vehicle was 'behind' the first, the reconstruction cannot simply assume a direction, because from where she was standing, behind could describe either the vehicle's position on the road or the fact that it entered the intersection later."
+    },
+    {
+      "id": "CM50-021",
+      "sentence": "To have accepted the contract because rejecting it would have delayed the project, only to discover that the clause everyone regarded as boilerplate allowed the supplier to redefine what counted as delivery, was exactly the sort of compromise the negotiator had warned would save time immediately and cost months later."
+    },
+    {
+      "id": "CM50-022",
+      "sentence": "There being no record of who changed the threshold, and the engineer who normally approved such changes being on leave, the investigators were left to decide whether a value that appeared in every log after Tuesday was evidence of a deliberate adjustment or merely the default restored by an unnoticed reboot."
+    },
+    {
+      "id": "CM50-023",
+      "sentence": "Not that the editor doubted the author's claim that the scene had been rewritten independently, but the unusual error preserved in both versions, together with a sentence whose punctuation matched an unpublished draft almost character for character, made coincidence increasingly difficult to defend."
+    },
+    {
+      "id": "CM50-024",
+      "sentence": "Few of the people who objected when the city proposed narrowing the road realized that the traffic model they cited had simulated a bridge that no longer existed, a bus route that had been canceled, and a population distribution based on a census taken before half the district was built."
+    },
+    {
+      "id": "CM50-025",
+      "sentence": "Were the telescope to confirm that the dimming pattern repeats at the interval suggested by the incomplete observations, astronomers would still need to determine whether the regularity reflects an orbiting object, a rotating feature on the star, or an instrumental effect that happens to mimic both."
+    },
+    {
+      "id": "CM50-026",
+      "sentence": "The package that was supposed to contain the samples collected after the reactor had stabilized arrived with seals that appeared intact, yet the temperature logger inside showed a gap beginning twenty minutes before the courier's record says the package left the laboratory."
+    },
+    {
+      "id": "CM50-027",
+      "sentence": "However carefully the policy distinguishes between information that may be collected, information that may be stored, and information that may be shared, those categories collapse in practice if the identifier removed before storage can be reconstructed from the metadata retained for auditing."
+    },
+    {
+      "id": "CM50-028",
+      "sentence": "By the time the mathematician realized that the elegant shortcut with which she had simplified the recurrence silently assumed the sequence was monotonic, the numerical experiments that seemed to support the result had already been optimized in a way that filtered out the cases where monotonicity failed."
+    },
+    {
+      "id": "CM50-029",
+      "sentence": "Scarcely had the spokesperson finished insisting that no decision had been made when an email, scheduled hours earlier by an assistant who apparently had not been told the announcement was postponed, invited employees to a meeting about implementing the decision everyone was still publicly denying."
+    },
+    {
+      "id": "CM50-030",
+      "sentence": "What makes the archive difficult to interpret is not merely that several dates are missing, but that later clerks sometimes copied earlier entries into new ledgers, so a record that appears contemporary with an event may actually preserve a description written decades after it."
+    },
+    {
+      "id": "CM50-031",
+      "sentence": "Even granting that the survey reached exactly the audience it intended to reach, the conclusion that most residents supported the proposal does not follow unless those who chose not to answer differed in no relevant way from those who did, an assumption the report mentions only in passing."
+    },
+    {
+      "id": "CM50-032",
+      "sentence": "If the witness who says she heard the alarm before seeing the smoke is right, then either the sensor reacted to something other than the fire, the timeline reconstructed from the cameras is offset, or the assumption that all devices shared the same clock must be abandoned."
+    },
+    {
+      "id": "CM50-033",
+      "sentence": "So long as the parser treats every clause beginning with what as a question, it will misread sentences in which what introduces a fused relative, especially when that clause itself contains an embedded question whose subject has been omitted under coordination."
+    },
+    {
+      "id": "CM50-034",
+      "sentence": "The claim, repeated so often that even its critics began quoting it as background, that the river had never crossed the old embankment was finally undermined by a photograph whose date was disputed until the shadow cast by a clock tower fixed the hour closely enough to identify the flood."
+    },
+    {
+      "id": "CM50-035",
+      "sentence": "Neither the fact that the simulation reproduced the historical data nor the fact that an alternative model did worse tells us which mechanism is correct if both models were tuned on the same period and evaluated on outcomes that the tuning procedure indirectly used."
+    },
+    {
+      "id": "CM50-036",
+      "sentence": "Should the supplier fail to deliver the revised component by Friday, the factory can switch to the older design, provided that the regulator accepts a waiver whose approval depends on tests that cannot begin until the component the waiver concerns has already been installed."
+    },
+    {
+      "id": "CM50-037",
+      "sentence": "The report recommends that every exception be documented, that every undocumented exception be reviewed, and that any review finding no justification trigger a process whose first step is to ask the person who created the exception why it was not documented."
+    },
+    {
+      "id": "CM50-038",
+      "sentence": "However unlikely it seemed that two teams working independently would make the same peculiar simplification, the possibility could not be dismissed until someone checked whether both had copied a preprocessing script from a tutorial that itself contained the shortcut."
+    },
+    {
+      "id": "CM50-039",
+      "sentence": "To whichever department the complaint was forwarded after the office that received it decided it lacked jurisdiction, it apparently arrived without the attachment in which the complainant had explained why the deadline printed on the form could not apply to her case."
+    },
+    {
+      "id": "CM50-040",
+      "sentence": "The experiment was less a test of whether the material could survive extreme heat than of whether the cooling protocol, which had been designed for a smaller chamber and scaled up by a factor nobody could reconstruct, would keep the sensors within the range in which their readings remained meaningful."
+    },
+    {
+      "id": "CM50-041",
+      "sentence": "Suppose that the message the server logged as arriving at 09:03 was actually queued locally at 08:58, transmitted after a reconnect, and timestamped only when the remote process handled it; in that case, the sequence everyone used to infer causation may be almost exactly backwards."
+    },
+    {
+      "id": "CM50-042",
+      "sentence": "As if the distinction between what the witness remembered and what she later learned were not difficult enough, the interviewer repeatedly summarized her answers before asking follow-up questions, creating a record in which some phrases cannot confidently be attributed to either speaker."
+    },
+    {
+      "id": "CM50-043",
+      "sentence": "The reason the cheaper redesign proved more expensive was that reducing the number of components increased the load on the few that remained, which shortened their service life, which in turn required inspections whose labor cost exceeded the savings the redesign had been meant to produce."
+    },
+    {
+      "id": "CM50-044",
+      "sentence": "Whatever else may be said of the proposal, it cannot simultaneously rely on the forecast when estimating benefits, reject the same forecast as too uncertain when discussing costs, and then claim that the difference between those treatments is methodologically neutral."
+    },
+    {
+      "id": "CM50-045",
+      "sentence": "Between the samples that were mislabeled, the controls that were prepared on a different day, and the calibration curve that was regenerated after the first analysis failed, there remained so little of the original comparison unchanged that repeating the calculation could no longer count as an independent check."
+    },
+    {
+      "id": "CM50-046",
+      "sentence": "Not only did the new rule apply to transactions completed after the announcement; because the definition of completion referred to when records were entered rather than when agreements were signed, it also captured several deals that everyone involved had considered finished weeks earlier."
+    },
+    {
+      "id": "CM50-047",
+      "sentence": "The machine appears to know which lever the operator intends to pull, but only because the training logs pair each hand movement with a command issued milliseconds later, making prediction look like anticipation when the model may simply be exploiting a timing artifact."
+    },
+    {
+      "id": "CM50-048",
+      "sentence": "Had anyone asked why the oldest sensor, whose readings were consistently lower than those of the newer devices, was also the only one mounted in the shade, the team might have discovered before publishing that what looked like long-term drift was partly a difference in exposure."
+    },
+    {
+      "id": "CM50-049",
+      "sentence": "It is difficult to say whether the committee postponed the vote because members needed more evidence or whether members decided they needed more evidence because postponing the vote had already become politically convenient, since the minutes record the decision but not the order in which the reasons emerged."
+    },
+    {
+      "id": "CM50-050",
+      "sentence": "By insisting that the exception was too rare to matter, the designers overlooked the fact that rarity was measured after a filter had removed cases lacking complete metadata, even though missing metadata was itself one of the defining features of the exception they were trying to estimate."
+    }
+  ]
+}

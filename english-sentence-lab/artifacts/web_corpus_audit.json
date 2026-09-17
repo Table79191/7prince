@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "total_rows": 14955,
+  "manifest_total": 14955,
+  "source_counts": {
+    "atis": 3583,
+    "childes": 3583,
+    "ctetex": 274,
+    "eslspok": 2154,
+    "ewt": 3584,
+    "littleprince": 492,
+    "pronouns": 285,
+    "pud": 1000
+  },
+  "analysis_status_counts": {
+    "auto_pass": 14196,
+    "needs_review": 759
+  },
+  "global_unique_ids": 14955,
+  "normalized_unique_texts": 14954,
+  "duplicate_text_groups_anywhere": 1,
+  "duplicate_extra_rows_anywhere": 1,
+  "cross_source_duplicate_groups": 1,
+  "cross_source_duplicate_extra_rows": 1,
+  "errors": [],
+  "warnings": [
+    "normalized-text duplicates across sources: 1 groups / 1 extra rows"
+  ],
+  "cross_source_duplicate_examples": [
+    {
+      "text": "Good morning .",
+      "sources": [
+        "eslspok",
+        "littleprince"
+      ],
+      "count": 2
+    }
+  ]
+}

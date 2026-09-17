@@ -10,16 +10,16 @@ Exhausted unchanged sources are checked by upstream HEAD and skip large raw down
 | Source | License | Stored | Added | Quota | Remaining | Download | Auto-pass | Review |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | atis | CC-BY-SA-4.0 | 5430 | 0 | 0 | 0 | skipped | 5354 | 76 |
-| childes | CC-BY-SA-4.0 | 15270 | 538 | 538 | 30229 | fetched | 15096 | 174 |
+| childes | CC-BY-SA-4.0 | 16270 | 1000 | 1000 | 29229 | fetched | 16089 | 181 |
 | ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | 0 | skipped | 218 | 56 |
 | eslspok | CC-BY-SA-4.0 | 2154 | 0 | 0 | 0 | skipped | 2054 | 100 |
-| ewt | CC-BY-SA-4.0 | 15050 | 462 | 500 | 0 | fetched | 13463 | 1587 |
+| ewt | CC-BY-SA-4.0 | 15050 | 0 | 0 | 0 | skipped | 13463 | 1587 |
 | littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | 0 | skipped | 474 | 18 |
 | pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | 0 | skipped | 275 | 10 |
 | pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | 0 | skipped | 882 | 118 |
 
-**Total analyzed sentences:** 39955
+**Total analyzed sentences:** 40955
 **New items added this run:** 1000
-**Raw sources fetched/skipped this run:** 2/6
+**Raw sources fetched/skipped this run:** 1/7
 
 Every record retains its original UD provenance/license and canonical role analysis.

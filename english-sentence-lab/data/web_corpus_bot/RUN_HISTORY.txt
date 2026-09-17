@@ -1710,3 +1710,50 @@ new_items_sample:
 - [childes] 52f90a0b790cf6b06f4779a26d783aec17187bcf8249e4479ac08ed0eac6fae9 | I want one. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:20:46+09:00 / 2026-09-17T19:20:46+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35263973189
+run_attempt: 1
+event_head_sha: af0c80cb13b36544900ff58a4ada4ef610f8df32
+worker_base_sha: af0c80cb13b36544900ff58a4ada4ef610f8df32
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 39955
+after_total: 40955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 55d5a156070421388b99db2fd6bf6aa1de3be2859862f1392cf6c2dc90349aa7 | Did she put that there or did you do it? | UD_English-CHILDES
+- [childes] 55d6f435b051715bcc3d2a8782044010c79a580335b2e8ff66f188b5d8023cf4 | When the dogs attacked him. | UD_English-CHILDES
+- [childes] 55d9f8742b70a0120225ecda341809157076af874e01730054dd4cb665d4bb0b | Your groceries? | UD_English-CHILDES
+- [childes] 55db41c1c5a8a610edfb28ca867b33068cb924c8d3abcf9fe5c52f69bbd85c86 | It come out it doesn't come out. | UD_English-CHILDES
+- [childes] 55e05237cc8741cda734e8252b67be246cb0fed9ac77ea5aa481217196e9554b | Well why don 't you pick those up off the floor first and put those in the dairy. | UD_English-CHILDES
+- [childes] 55e06026bed66d3186327bf66d06286d4bbcfcbc42b2942c65a83202f5f86134 | Mommy I want push the big button. | UD_English-CHILDES
+- [childes] 55e07791a9c77a43936b24e678d9f7ee8824948c141bd7914315822ee5626e5b | I want my. | UD_English-CHILDES
+- [childes] 55e080261e98095db14807541a136c802896f72d2075c73b4bbdaed8491aa942 | It wouldn 't fit me. | UD_English-CHILDES
+- [childes] 55e1441363bb656c4905c708a74556830e27afec8f0b377b1cb89eb7e6782eb1 | You got plenty of them to look for. | UD_English-CHILDES
+- [childes] 55e1a525f5c708e143d44489c35debd1dd164d3f07ae841e0e2e1964d9929a36 | Swiper no swiping. | UD_English-CHILDES
+- [childes] 55e32708572cc24cdee7f1755083a514cb09a139151e4c13f9b68d2f7b9a7adc | Where's mines? | UD_English-CHILDES
+- [childes] 55e400c87ea8ca4cab6553aa02679b6bff3cc7e204633bcf274e7e1ef223c4ce | What you writing about? | UD_English-CHILDES
+- [childes] 55e44fcabe15d71e260bd44ba100906d512e2f0f5fba3d75ce43f69b15c4456b | It's not your bicycle is it? | UD_English-CHILDES
+- [childes] 55e4c74fca2787b5118ff46ef8a224833e5edcb002c8cd00fd8a4d6724f0ddc7 | What nasty ones? | UD_English-CHILDES
+- [childes] 55e4d4a56bda2677dcf856ded071fcd7d30490e4415872c08562befa99878ce0 | But that's it. | UD_English-CHILDES
+- [childes] 55e5eb3fbaf8b368b1badf98bc2b02aaa86382289837480173cc4a7b867ca116 | This is orange. | UD_English-CHILDES
+- [childes] 55e6a9673a4e41c670a650e1707418d6fb79c9710b63c363875eae779c2cb1e3 | I pull a ear out. | UD_English-CHILDES
+- [childes] 55e6baf0f2a85e15d58bffdd175ac9ea6d068b1a4c72f76c0fbe9db90ad8717b | It's a big flower can you say flower? | UD_English-CHILDES
+- [childes] 55e7d73c267c953ab4a962f406d532e34b4f4cf51ebc720d9bcf1fd55585a73b | Winstons taste good like a cigarette should. | UD_English-CHILDES
+- [childes] 55e93c97bda2703362f7abcc1af89cd8e735f20e747370603882b468bbcf212d | I almost got it. | UD_English-CHILDES
+- [childes] 55ebacf6c5c7dba3451a87aa23c81d29ea6a04f8f661c5c8db89f05c3cce200d | What kind of pies do I bake? | UD_English-CHILDES
+- [childes] 55edc52c0d1cbd666533c3bf2a39902f4404405ebbf95e0dcd901788a4c28a82 | You've got a burnt one. | UD_English-CHILDES
+- [childes] 55ee9aa2f5e64b5b9542a2dd8b33bdee3b5eb08ac05a592bbd76c8fedf6026ff | Can I play with the toys? | UD_English-CHILDES
+- [childes] 55eec593443381f9ae3bf14e706d1acd7046e96ccb2349efb44c8b38c483499d | Don't know that dish over again. | UD_English-CHILDES
+- [childes] 55f2973a5357f4efed3aeaafbc60f5a26a4a5e4f781c2e24e7dd2df3226db2ec | That's a dell. | UD_English-CHILDES
+- [childes] 55f413d7e68baefb071d754885059c3dce84538692046b73a84d79025e05c6f5 | Not today though. | UD_English-CHILDES
+- [childes] 55f55877b35ded90a956bb65d5fd17e5b5a4cf3cc84193736639e1a6e22b224c | This cut off. | UD_English-CHILDES
+- [childes] 55f63b86e637a6fb77c65c5602b636461957b068ee3c0e73ebd8f838edc0c602 | Up Dwww. | UD_English-CHILDES
+- [childes] 55f6d4e62f481a9a7e5f326260d5a3c7b36941381429c43ae36b0c7c39bca204 | Chantilly you want some water after you leave huh? | UD_English-CHILDES
+- [childes] 55f7b13d974fcd069418e217e6d23a3c6f682ea4638a75aaca0f693c81daaf97 | Oh no no no no. | UD_English-CHILDES
+- ... 970 more new items
+

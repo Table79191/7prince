@@ -45,14 +45,14 @@
       ],
       "sentences_after_dedupe_upstream": 15050,
       "sentences_written": 15050,
-      "new_items_added": 462,
-      "allocated_run_quota": 500,
+      "new_items_added": 0,
+      "allocated_run_quota": 0,
       "remaining_unseen": 0,
       "auto_pass": 13463,
       "needs_review": 1587,
       "upstream_head_sha": "4a4d77f599ea53cc405f85d0cec4b2f14f81d42b",
-      "download_skipped": false,
-      "skip_reason": ""
+      "download_skipped": true,
+      "skip_reason": "upstream_unchanged_and_exhausted"
     },
     "atis": {
       "source": "atis",
@@ -124,12 +124,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 15270,
-      "new_items_added": 538,
-      "allocated_run_quota": 538,
-      "remaining_unseen": 30229,
-      "auto_pass": 15096,
-      "needs_review": 174,
+      "sentences_written": 16270,
+      "new_items_added": 1000,
+      "allocated_run_quota": 1000,
+      "remaining_unseen": 29229,
+      "auto_pass": 16089,
+      "needs_review": 181,
       "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
       "download_skipped": false,
       "skip_reason": ""
@@ -280,12 +280,12 @@
     }
   },
   "totals": {
-    "sentences_written": 39955,
-    "auto_pass": 37816,
-    "needs_review": 2139,
+    "sentences_written": 40955,
+    "auto_pass": 38809,
+    "needs_review": 2146,
     "new_items_added_this_run": 1000,
-    "sources_downloaded_this_run": 2,
-    "sources_skipped_this_run": 6
+    "sources_downloaded_this_run": 1,
+    "sources_skipped_this_run": 7
   },
   "upstream_snapshot_sha256": "b99d09afd946f910a9ec0f5e0081ee8ac7da74241652b5d537b1793b54b3c512",
   "collection_time": {
@@ -294,8 +294,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 39955,
-    "latest_first_collected_at_utc": "2026-09-17T19:12:36+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T04:12:36+09:00"
+    "records_with_timestamp": 40955,
+    "latest_first_collected_at_utc": "2026-09-17T19:18:01+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T04:18:01+09:00"
   }
 }

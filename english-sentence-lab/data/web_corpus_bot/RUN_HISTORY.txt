@@ -2415,3 +2415,50 @@ new_items_sample:
 - [childes] a3a75780f02c63e41b13b7465137060f7c815d55e428585cca0d4c160a3f386a | I'm putting them back in. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:39:53+09:00 / 2026-09-17T20:39:53+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35271726574
+run_attempt: 1
+event_head_sha: 264a31be2cefb3c542cb1377f3bc6fd0bebe5eca
+worker_base_sha: 264a31be2cefb3c542cb1377f3bc6fd0bebe5eca
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 54955
+after_total: 55955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] a9424f4ceca16eb688355096af3d74ca921996af63c389371d0f357165d3e601 | No that's sand box. | UD_English-CHILDES
+- [childes] a942a64dd85d3868e1e85bd547eb8194bfd6e34bd485ed3f6ef40198dead5c25 | Look who makes the bread. | UD_English-CHILDES
+- [childes] a9437b42082f274295c11858e92648689ba0c9738034f666ff1fa64ff61fa295 | May I sit beside you? | UD_English-CHILDES
+- [childes] a946bd854d3476443c869d018e28540e23ba7d159920e256d7dfe7ab05050c24 | What would you like to eat? | UD_English-CHILDES
+- [childes] a94ad1304ea71188b1f7bfa497d1a48943a0060247d2734e6a6a3531ddf89247 | Diggy dig. | UD_English-CHILDES
+- [childes] a94dcef0be07f150dd6e0ab3a9e1d11ab2ed66a181889a5b2d9eea92d959a9f5 | Open na chair please. | UD_English-CHILDES
+- [childes] a94e3e6cd3cd3bdafa606ec82888741f993c8dce6cb2d70fc4958c30c0b03385 | Those are yummy. | UD_English-CHILDES
+- [childes] a94f3ef04e5cde330a3c55edd59d3ce7ca445317f00cbdd496164d19d21dc2fb | Don 't run over Paul. | UD_English-CHILDES
+- [childes] a950d695f388226f17029b2dc204c9ac8c848478535e10c7c7daf14708e4a43f | Dat's so big. | UD_English-CHILDES
+- [childes] a951e3f3fcc4850fe7d91dcdffc1cbd0e29581df804bbaf477fe9b0282910e78 | Bump my head. | UD_English-CHILDES
+- [childes] a95231c60156a69bd6f61a970e61119fb9f34cbfa010a5ee6c97a216694bd1a4 | If you see a big line. | UD_English-CHILDES
+- [childes] a952d114824301132dcb7e0d7c8e9aadeeb8d4e335aa1ae3dff69c774d7ba497 | See me jump Fraser? | UD_English-CHILDES
+- [childes] a952d44268e1ecb1e6d0967e83b15347f97c4df1c486ee2f9d161aa398abdd0c | Did you miss one? | UD_English-CHILDES
+- [childes] a952ebee33bfbe076e356c2ce0c3655621a44c6a57263cff0070b94338806fc4 | I just pushed the buttons. | UD_English-CHILDES
+- [childes] a9531ed072ca6c05bc6476a7262ac993760734ef935b8f2a50d794cc1b0ed9c2 | I wanna bag. | UD_English-CHILDES
+- [childes] a955c33fede1bd9979d8d971aa5c7f8797a09f33c6983f270e41d8197151c164 | Put your other one on. | UD_English-CHILDES
+- [childes] a95747265bd9a0a2534221e617d24a3dccc1c08cb99d7b7e63f1b3b8567b0514 | Can I open my present? | UD_English-CHILDES
+- [childes] a958d16d3ab60f8910679cd0d4745a3946c930c601fea7112b93d74737aa4d24 | The the string. | UD_English-CHILDES
+- [childes] a95be07079bdd1a26782af7d76bd5162b4e12e558f89e6ae3962f4b45ecfb181 | Perhaps so. | UD_English-CHILDES
+- [childes] a95c96a9e5829dfd17ce6dc9fdd147e22ced0411de46d5d80d525c5d24931971 | Okay alright. | UD_English-CHILDES
+- [childes] a95eb89a4636c7521964c487e67bf30a472636d210e59c59cfab4f6220ad6242 | Piece of pie? | UD_English-CHILDES
+- [childes] a95ff9cc8605d8e102958a07c3744b8185d4f3d04ed8b9421b6592f5cb9b2622 | Is this gonna? | UD_English-CHILDES
+- [childes] a96204609c04718f9e8c2cfbd7ba634374d1b75febb664056c24becd1d9855f5 | Oh button on the chair? | UD_English-CHILDES
+- [childes] a962db93023542449985c397b86452236bce797021c61b50f34316677c84021c | That pink bit. | UD_English-CHILDES
+- [childes] a9636e25d6f38d5d900fcf2c5b4735123a1081d805a6b21ecb677e69f19ed624 | Are you going to say goodbye? | UD_English-CHILDES
+- [childes] a96430de842745916f82252d553be58fae801a8ada4425ef59a21071fb5a4d9a | I am a only when I grumble. | UD_English-CHILDES
+- [childes] a9655e40efa57d4a9b65341d03e4e75fba391d1a1e1efcaf87a837c3562557c8 | Do you like the puzzle? | UD_English-CHILDES
+- [childes] a9658269f973442e8c156dd33c65d8ddd0f68e70f2dba76584dda0a333900505 | I want my toast. | UD_English-CHILDES
+- [childes] a965d7043be03c30cb82505e506e577776fb6895fe64ba0a82aff4d211a78831 | No I let you look at it. | UD_English-CHILDES
+- [childes] a96841bb7dc51868ae17743d3be4012d5063587e0e1385384112758eda3dee59 | Little boy's happy. | UD_English-CHILDES
+- ... 970 more new items
+

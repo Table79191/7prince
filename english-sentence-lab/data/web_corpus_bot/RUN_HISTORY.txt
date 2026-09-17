@@ -3456,3 +3456,20 @@ source_changes: none
 new_items_sample:
 - none
 
+=== 2026-09-18T08:42:50+09:00 / 2026-09-17T23:42:50+00:00 ===
+status: failure
+event: workflow_dispatch
+run_id: 35287979764
+run_attempt: 1
+event_head_sha: 077e6f76a8bc797fa153a915d82f86b63e03d6b4
+worker_base_sha: 077e6f76a8bc797fa153a915d82f86b63e03d6b4
+details: collect=success,stamp=success,validate=failure,runtime=skipped,comparetest=skipped,compare=skipped
+before_total: 75014
+after_total: 75014
+net_total_change: +0
+new_items_added: 0
+items_removed: 0
+source_changes: none
+new_items_sample:
+- none
+

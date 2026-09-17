@@ -1569,3 +1569,50 @@ new_items_sample:
 - [childes] 4adff444e797c59051c35730ae8ce9763bf74a40d81459b80e737cbd805ca2b3 | Do you want me to hang it up? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:03:51+09:00 / 2026-09-17T19:03:51+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35262393179
+run_attempt: 1
+event_head_sha: 22726b0d63eb842941f53532f97afec51e5b3676
+worker_base_sha: 22726b0d63eb842941f53532f97afec51e5b3676
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 36955
+after_total: 37955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 4d5b816dea38e5f9764b8f94f212db7e35125f86def8dd5e824017230b0c2066 | Adam will you have swordfish tonight? | UD_English-CHILDES
+- [childes] 4d5df6752bec14a424a2f088711062366a878520f0d78f2e9a7876de5d0e7d19 | They're green. | UD_English-CHILDES
+- [childes] 4d608ff3dc7ffe249d50e58b6a8b9a08e9d0b92e5527e5abf96b81c74fa82e50 | I 'd like to be a bunny today. | UD_English-CHILDES
+- [childes] 4d618a65aae11986d758e0b6a6a4de48f7936605a6d2aae90b93a76b0e594a5f | Dis doggie name. | UD_English-CHILDES
+- [childes] 4d62b75b9adc55b084b0eeab937d19895a16a239fa97de4cdcc071c54858ad59 | Oh you mean one place to put things. | UD_English-CHILDES
+- [childes] 4d62d8689d57bda0cd29d2c38f163365a2c29fa50ce28b73f59cd55b06706ac1 | I want this way. | UD_English-CHILDES
+- [childes] 4d6340fbc63f861af47e398a9d39e1dd9b4cc0503b8891d8951a704da2033e98 | Pick the one you dropped on the floor up. | UD_English-CHILDES
+- [childes] 4d645cae2a97197043d833d454b07806ff69c03817b416b0bc1f6b0d6fc08a67 | But we 're not clowns in a circus. | UD_English-CHILDES
+- [childes] 4d65f8e43462bd6a46cb7d92570ababd7fdc348387909e59b5accff9f5b64aea | I going tell Daddy. | UD_English-CHILDES
+- [childes] 4d660b2e5492c12ac988ce65d8202d3440e404941689d9f60abbd3b363cea307 | My husband was talking about them last night and he was brushing Paul 's hair to the front. | UD_English-CHILDES
+- [childes] 4d66c62f3fe2872aa06cfb30f122c6783fa99d966799f32d7ffb53e07bef1716 | My jam on it. | UD_English-CHILDES
+- [childes] 4d67235e3b7dd7691ab050f2988dc6fd70be904750a9b7b378c29f0acdf2f033 | You liked Rwww didn't you? | UD_English-CHILDES
+- [childes] 4d67fe5f6860c2d85780c550ff45e59a91502237b3fe4653dea0a40ff2e6d195 | Yes that 's pretty. | UD_English-CHILDES
+- [childes] 4d6b3c08b41ded3de21d5a76c66fa6606aa70f01f5bb2c8b0fad80e58faa4fa9 | Good bye you take came. | UD_English-CHILDES
+- [childes] 4d6ca4b4f2bf4360145c8ee121d451fe944a2a4c30bfe0ba40ccb84f4f6586a3 | If you sit down you can. | UD_English-CHILDES
+- [childes] 4d6dd019f14bb3ac6f044289485ab8284f1405677ab8e091839791e6f1665060 | Nana wants to know how you are? | UD_English-CHILDES
+- [childes] 4d7182df053f54d8d0304de5ff0a79437ff201e52d06897a93f52e9aef928eed | A Mommy soup. | UD_English-CHILDES
+- [childes] 4d735fa416cb8d898ece15a09b8eefdd5b96e24e86e050a938ba85cae9977a6e | That's a ostrich. | UD_English-CHILDES
+- [childes] 4d73d806016f68de2ade67be632710316900fa56a8a06ff3f52cd185137cf0fe | I going break it Mummy. | UD_English-CHILDES
+- [childes] 4d75f940d72e545ae4ce98bede26fdaa7e45a287e67f0c699742d5fc6dc4f069 | He hat on. | UD_English-CHILDES
+- [childes] 4d7beb7e8cea76235d4f5d948ae1f8cc9688efb9ea4656bc3083f31b4da367af | Three trucks? | UD_English-CHILDES
+- [childes] 4d7dad06571a99965c11a1dcc76e44ae4b577220d57292a3210f565717c65cf2 | Oh that 's a ball right there. | UD_English-CHILDES
+- [childes] 4d7dfb48cffc2e961772b3c025645cb10663aaa139885726bc335e02dd03d347 | What are ya writing? | UD_English-CHILDES
+- [childes] 4d7e8406e9b4f54b0616f976297f6cfb734f7217acaebee6e85e814743297918 | I know you're not. | UD_English-CHILDES
+- [childes] 4d81f8cd5da7dd54bb6195daf07e5e27250f228f449091265a58f977e86149bf | It hurt. | UD_English-CHILDES
+- [childes] 4d839cdf24016242acc2b8a8f65211df872b248626bd75df1cc218e38d2c326f | Ah it's a dinosaur ah! | UD_English-CHILDES
+- [childes] 4d87f7527cfbecae8f4cbfd23906914bb1f3f62623701d2fda1bd56c0e6b7222 | I'm gonna go away. | UD_English-CHILDES
+- [childes] 4d8ca2d1c6426b851252af4e2e5841e7967d38272579492cae725d3d2eaef2c7 | Le bin bag lorry come. | UD_English-CHILDES
+- [childes] 4d91ab70bc753c86d3e6b4bad5fbf1c17f54000c5b7fe63f896b20c481109d49 | That what. | UD_English-CHILDES
+- [childes] 4d9243add4fe2fee6f973790f8a093460d723003952c500afe24a7cf5e54fc3c | Okay you wanna hold that? | UD_English-CHILDES
+- ... 970 more new items
+

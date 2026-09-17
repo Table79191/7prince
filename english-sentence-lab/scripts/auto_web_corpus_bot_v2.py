@@ -156,6 +156,28 @@ def discover_english_sources() -> tuple[dict[str, dict], list[dict]]:
                 )
                 continue
 
+            try:
+                conllu_files = legacy.discover_conllu_files(repo)
+            except Exception as exc:
+                skipped.append(
+                    {
+                        "repo": repo,
+                        "license": license_name,
+                        "reason": "no_released_conllu_files",
+                        "detail": str(exc),
+                    }
+                )
+                continue
+            if not conllu_files:
+                skipped.append(
+                    {
+                        "repo": repo,
+                        "license": license_name,
+                        "reason": "no_released_conllu_files",
+                    }
+                )
+                continue
+
             key = source_key_from_repo(repo)
             accepted[key] = {"repo": repo, "license": license_name}
 
@@ -579,7 +601,37 @@ def main() -> None:
             active_left,
             args.max_new_per_source,
         )
-        upstream, upstream_stats = legacy.collect_source(key, source, 0)
+        try:
+            upstream, upstream_stats = legacy.collect_source(key, source, 0)
+        except Exception as exc:
+            manifest.setdefault("discovery", {}).setdefault("runtime_skips", []).append(
+                {
+                    "key": key,
+                    "repo": source["repo"],
+                    "reason": "source_collection_failed",
+                    "detail": f"{type(exc).__name__}: {exc}",
+                }
+            )
+            if existing:
+                stats = reused_source_stats(
+                    key,
+                    source,
+                    previous_stats,
+                    existing,
+                    current_head,
+                    "source_collection_failed_preserved_existing",
+                )
+                stats["allocated_run_quota"] = 0
+                manifest["sources"][key] = stats
+            else:
+                manifest["sources"].pop(key, None)
+            active_left -= 1
+            print(
+                f"{key:14s}: collection failed but run continues: "
+                f"{type(exc).__name__}: {exc}"
+            )
+            continue
+
         merged, added, remaining = merge_incremental(
             existing,
             upstream,

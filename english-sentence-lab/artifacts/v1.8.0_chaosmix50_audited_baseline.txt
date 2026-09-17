@@ -1,0 +1,6 @@
+SentenceLab v1.8.0 — ChaosMix50 original stress evaluation
+Evaluation-only: 50 sentences / 250 sparse canonical-role focus checks
+weak_base: 89/250 = 35.60% | exact 1/50
+neural_direct: 202/250 = 80.80% | exact 18/50
+hybrid75: 192/250 = 76.80% | exact 13/50
+Top neural confusions: S->O:15, S->M:11, O->S:6, O->M:5, M->S:4, M->C:2, S->C:2, C->O:1

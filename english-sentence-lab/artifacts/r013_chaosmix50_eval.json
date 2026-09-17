@@ -35,10 +35,10 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 249,
-    "accuracy": 0.996,
-    "exact_sentences": 49,
-    "exact_sentence_accuracy": 0.98,
+    "correct": 250,
+    "accuracy": 1.0,
+    "exact_sentences": 50,
+    "exact_sentence_accuracy": 1.0,
     "by_gold_role": {
       "S": {
         "checks": 173,
@@ -57,22 +57,22 @@
       },
       "M": {
         "checks": 14,
-        "correct": 13,
-        "accuracy": 0.9285714285714286
+        "correct": 14,
+        "accuracy": 1.0
       }
     }
   },
-  "fixed_checks": 47,
+  "fixed_checks": 48,
   "regressed_checks": 0,
-  "net_corrections": 47,
+  "net_corrections": 48,
   "fix_reasons": {
     "dep-object": 9,
     "object-complement": 1,
+    "dep-pobj": 2,
     "dep-subject": 21,
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
     "clausal-prep-subject-repair": 2,
-    "dep-pobj": 1,
     "dep-function": 1,
     "conj-inherit": 2,
     "dep-complement": 1,
@@ -83,13 +83,7 @@
     "fronted-between-pp-repair": 1,
     "fronted-between-conj": 1
   },
-  "remaining_confusions": [
-    {
-      "gold": "M",
-      "pred": "S",
-      "count": 1
-    }
-  ],
+  "remaining_confusions": [],
   "fixed_examples": [
     {
       "id": "CM50-001",
@@ -132,6 +126,27 @@
       "confidence": 0.688991,
       "dep_guard": "C",
       "guard_reason": "object-complement"
+    },
+    {
+      "id": "CM50-002",
+      "token": "whom",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "PRON",
+      "tag": "WP",
+      "dep": "pobj",
+      "head": "of",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "of",
+      "head_neural": "M",
+      "prev": "of",
+      "next": "later",
+      "neural_direct": "S",
+      "confidence": 0.90769,
+      "dep_guard": "M",
+      "guard_reason": "dep-pobj"
     },
     {
       "id": "CM50-003",
@@ -1080,27 +1095,5 @@
     }
   ],
   "regressed_examples": [],
-  "remaining_errors": [
-    {
-      "id": "CM50-002",
-      "token": "whom",
-      "occurrence": 0,
-      "gold": "M",
-      "pos": "PRON",
-      "tag": "WP",
-      "dep": "pobj",
-      "head": "of",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "of",
-      "head_neural": "M",
-      "prev": "of",
-      "next": "later",
-      "neural_direct": "S",
-      "confidence": 0.90769,
-      "dep_guard": "S",
-      "guard_reason": "of-np-neural-core-preserve"
-    }
-  ]
+  "remaining_errors": []
 }

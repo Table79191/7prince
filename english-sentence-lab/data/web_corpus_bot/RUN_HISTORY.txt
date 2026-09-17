@@ -2650,3 +2650,50 @@ new_items_sample:
 - [childes] c040f04b10474b6626695601cd3457c20322735cf185bc0eb037be16350c0a05 | You do dis? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:06:09+09:00 / 2026-09-17T21:06:09+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35274266816
+run_attempt: 1
+event_head_sha: 13226b64c04cbcd0e9c2b870bf95941fc456a0e0
+worker_base_sha: 13226b64c04cbcd0e9c2b870bf95941fc456a0e0
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 59955
+after_total: 60955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] c5c1daa08ea30fbd2656b1f9725f61ac5d009237e6f6e0781ef3be951bf255f8 | I have these. | UD_English-CHILDES
+- [childes] c5c4781b8498a54c4cc896e17f7afaeff85b0e3fdf10a4528cc27c2356217ba1 | I got all my wishes! | UD_English-CHILDES
+- [childes] c5c56400f1b85b326651fb07bd00cbd134b242b6684493062860e5b13f70d7f6 | Did you tell Ursula what kind of train that is? | UD_English-CHILDES
+- [childes] c5c96484a50c75f0340c03920219c00de1ba4f52d1d8360a8e95620ea6d452a5 | I raisin toast. | UD_English-CHILDES
+- [childes] c5ca9501404f49e9187f268cb2dac5f40c9e4f3e69606534d7ab6230089d1a27 | There that looks nice. | UD_English-CHILDES
+- [childes] c5ce7b18ea8fdb92c08dbf79979bd269486764b5541f892ef2fb3295fbb55bc8 | He just jump on the head too hard. | UD_English-CHILDES
+- [childes] c5cf83135f4ea1dac77adcdadd1a725e1da0686370de6d8de13837b203f294f4 | Adam wants Ursula to see if you can walk. | UD_English-CHILDES
+- [childes] c5d055a300812303cfadaa964a8ac3d7e91367c015d4ada706fed59c99197e17 | That's a really good boy. | UD_English-CHILDES
+- [childes] c5d43b56c4535a2bfce8be8578ca7f1499605f1fcdb3cf28b5c65f62832ab134 | That's salad rolls. | UD_English-CHILDES
+- [childes] c5d92a4e7aef750f9837298ac18280a8c0631804e3aaa8e51c3e627db50d99f0 | One of those unexplainable things again? | UD_English-CHILDES
+- [childes] c5db0fb88ee6748b471b3fb793af0dc90c81f85936ba9420ca554a7ba5a89a3f | What is this I 've got? | UD_English-CHILDES
+- [childes] c5dbc828da64a632ea3322d1815a2603739d8d3cad10cc1a7af1a449c76cd3d0 | It 's going to what? | UD_English-CHILDES
+- [childes] c5dc8c8f896d6bc5c3e02bc88283a5c2fc73ff74f41e0491e41e04779072dd6f | Abe you know what? | UD_English-CHILDES
+- [childes] c5ddc0ee4a0043c6f0dcaf397efa4d6d921b72e1967447f185f1997ceaf0ca17 | A yesterday day? | UD_English-CHILDES
+- [childes] c5e16885e8f359e241b1c498c972c2d6b145a7656a753fed4cb61751a39010c6 | Can I do it right now? | UD_English-CHILDES
+- [childes] c5e2c55f0d502e02927fecb2dbafbd445a61b67b348600414b0f50330e44ed82 | Number two? | UD_English-CHILDES
+- [childes] c5e4dc6ac720679bdb760ff9a99eabe7d83eb8688b149adfeb42cf5f5e9342ec | Where did we go? | UD_English-CHILDES
+- [childes] c5e54d8fecbf147c87e40b3b6673fba8832642291d5545b07381da2cad0b8ff9 | Mummy there. | UD_English-CHILDES
+- [childes] c5e70eac3fd4a9b8fdabf6b7bf0e79adf32c0077177b2f9ee6f3a2346bbaffe5 | A crane. | UD_English-CHILDES
+- [childes] c5e7111ed1daa957aaaeec02b65672d4f904ffd8ded1f6ea6749aff9c07dba97 | Mine pillow mine pillow. | UD_English-CHILDES
+- [childes] c5e8a757680f8a61381a2f958da22d471e8e53ea9da6464c27edf3a2e92efd8e | You missed. | UD_English-CHILDES
+- [childes] c5e8edff5801168ad5b88ea3ea5ae8ee77f67d966c8f1867c44ba077b974b564 | What does your Mommy teach? | UD_English-CHILDES
+- [childes] c5e98848c035b54924ab2dff336dc3151b30a5cb7ffa2c4021318c4eeaf49ea3 | What 's your name? | UD_English-CHILDES
+- [childes] c5eda87c1c2835a52c20b65e4ba71b8cfc10685553152eb8f380cd21cb7df4c0 | It's not stuck. | UD_English-CHILDES
+- [childes] c5efcbd617e8df60576650388cb7d4ff68dcb3c78ac1dfa4df455f6130b9df46 | Kiki kiki. | UD_English-CHILDES
+- [childes] c5f27e2539f16a3bd6878d468f23f4d1ed424fb69e0b6d4a197d4b40bde71085 | Poor old Millisandy. | UD_English-CHILDES
+- [childes] c5f33c9ad49514d90db8404c9aa0066778a8d2b4e6dd6f4228e73e869e007e57 | The light on. | UD_English-CHILDES
+- [childes] c5f37b6e70a06c2ad1079503263d5c2035aa9cb33de7fa49b783e482d02e728d | No you didn 't see them all. | UD_English-CHILDES
+- [childes] c5fbc60dc0b6b06c5580d2fb4f2dcb115877c9d8336b10b214a9f4781f775775 | Now we're all finished. | UD_English-CHILDES
+- [childes] c5fc8ef86d72be902a1d2cca36e75daba801e0bace7e6b4510bd5a085347ded9 | Pretty Mommy. | UD_English-CHILDES
+- ... 970 more new items
+

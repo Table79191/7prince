@@ -10,15 +10,15 @@ Exhausted unchanged sources are checked by upstream HEAD and skip large raw down
 | Source | License | Stored | Added | Quota | Remaining | Download | Auto-pass | Review |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | atis | CC-BY-SA-4.0 | 5430 | 0 | 0 | 0 | skipped | 5354 | 76 |
-| childes | CC-BY-SA-4.0 | 14732 | 500 | 500 | 30767 | fetched | 14568 | 164 |
+| childes | CC-BY-SA-4.0 | 15270 | 538 | 538 | 30229 | fetched | 15096 | 174 |
 | ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | 0 | skipped | 218 | 56 |
 | eslspok | CC-BY-SA-4.0 | 2154 | 0 | 0 | 0 | skipped | 2054 | 100 |
-| ewt | CC-BY-SA-4.0 | 14588 | 500 | 500 | 462 | fetched | 13034 | 1554 |
+| ewt | CC-BY-SA-4.0 | 15050 | 462 | 500 | 0 | fetched | 13463 | 1587 |
 | littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | 0 | skipped | 474 | 18 |
 | pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | 0 | skipped | 275 | 10 |
 | pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | 0 | skipped | 882 | 118 |
 
-**Total analyzed sentences:** 38955
+**Total analyzed sentences:** 39955
 **New items added this run:** 1000
 **Raw sources fetched/skipped this run:** 2/6
 

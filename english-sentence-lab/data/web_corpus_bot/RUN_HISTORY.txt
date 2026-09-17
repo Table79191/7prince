@@ -1663,3 +1663,50 @@ new_items_sample:
 - [childes] 502c74cee1f0e4876568ca1e0b90834572445d5c9ea5e7a6cffe0df2bd2e1aca | My pocketbook. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:14:09+09:00 / 2026-09-17T19:14:09+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35263441952
+run_attempt: 1
+event_head_sha: 78df6a54fb758c730e460a400820f60d43e1d43f
+worker_base_sha: 78df6a54fb758c730e460a400820f60d43e1d43f
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 38955
+after_total: 39955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +538 / -0, ewt: +462 / -0
+new_items_sample:
+- [childes] 52ca0cf7480f19a531521a930f0928e514f2f7026f9a5a312f8266998230992a | You don't needta. | UD_English-CHILDES
+- [childes] 52cae68b50381b22d816ba1468f2c648c9ef657b0e551cf47203d5786311ae80 | Na play. | UD_English-CHILDES
+- [childes] 52cb68e0ea6ab1776c65304bf874832c0f5ea04d9479fb3f3f3ec15c07d6e0f4 | They went where? | UD_English-CHILDES
+- [childes] 52cb929f2f5ca58522b40100ad7edc52f966b13ce38e953f3ebbb537b764f28e | You eat your supper. | UD_English-CHILDES
+- [childes] 52cf6f36724bdf1f13c2ba21548cba5262734601cfdb7be18b84b81e63bb2048 | Well you don't like it. | UD_English-CHILDES
+- [childes] 52cfba963c5b1928c516efe3661621a662aa06e3fb03f26d3708d7dbecfbed8e | Did you find it? | UD_English-CHILDES
+- [childes] 52d1150e2db548cceb8674f3e5d2aa980d51ce9340c6ae940ab2e5fc404f3ec2 | Whose girl are you? | UD_English-CHILDES
+- [childes] 52d1c60dde9ee4f7ddfd31c25722c991f0af3d8986ba93c5d36ff7a072b25cb2 | Oh you don't mean peculiar? | UD_English-CHILDES
+- [childes] 52d3c1b667421f4645e5ecb15736326991920767abbcab2654d91122d81e2d8c | I don 't see them. | UD_English-CHILDES
+- [childes] 52d3c3f5a238b9fcb7167d2ffac7430287d7eaff0f88d94f0409198864d95aed | At least it's something. | UD_English-CHILDES
+- [childes] 52d77d1ae412d228fe22d103dd22d91491408b4e999b6102291664b7e583196e | Wanna go get your cards? | UD_English-CHILDES
+- [childes] 52daa7962a234376c8aa9f74342920881d88b7e584db7a92ddb345b932041950 | Woohoo. | UD_English-CHILDES
+- [childes] 52dc1fe21ac6ac2e5818f1ada2459d29c5f7ea4f7a57366232449c0d410f5ce2 | Right I'm gonna blow bubbles on your tummy. | UD_English-CHILDES
+- [childes] 52dd09a5133f7ce82b91ede47886ef789e1351047359767b5ba6e0a4620176c3 | You're the one with all the knowhow. | UD_English-CHILDES
+- [childes] 52de453a4f423830571a1224560eba92a2ea75e927125f6a95ea2b424e41dbda | I wanna go at the park. | UD_English-CHILDES
+- [childes] 52df4046a15eebfa1d9d8b56056ac39027323ff1184c9548333865b0e1e28bbd | Oh maybe so. | UD_English-CHILDES
+- [childes] 52e1792e88c6c822c71a4eca25a0f72dd768771f12fc4617cbf37778735ba7b3 | They like brown and yellow ones. | UD_English-CHILDES
+- [childes] 52e1d742babdf95e4bae0684ab320d9e7b2c2711122d07984468ef13fc641d56 | What did your grandmother get on? | UD_English-CHILDES
+- [childes] 52e47289e742248328b5f773c991bd7d006c46c0c7c47084c41a1496ab10c530 | I like grapes Mommy. | UD_English-CHILDES
+- [childes] 52e5d20e98ce9b4a32a55d2ed1312aa088bb89be4093dc18b052479d7bdb96a5 | Do you want another piece of paper? | UD_English-CHILDES
+- [childes] 52e7b2442cead1583c3e00da5fb6d08b3caedfb287585da60a83220674e21f8e | Okay make pie too. | UD_English-CHILDES
+- [childes] 52e9eadbd6270517700d83f15400f4dc3b763f857c43db48debf1ac32d56aacd | Let 's put the puzzle together. | UD_English-CHILDES
+- [childes] 52eca6b1029eb800c29ee5815a4185283a891cb76f230c2b50008d07082de365 | Mama you turn the light on. | UD_English-CHILDES
+- [childes] 52ed081459e6f3ed5dd1e02c01071ec0cf9775bf05ba5f71453461b544098a3d | What do we want to read sweetie pie? | UD_English-CHILDES
+- [childes] 52f3266aae683db5d3fba2c8f2f5d857bbdbb20db4e2d09efe68b4e6e6d33138 | Some kind of what Adam? | UD_English-CHILDES
+- [childes] 52f3bd97cfd83a7d0729c45a8087a098268cef2159eba00954b61c566f59aec8 | They're all on the floor there. | UD_English-CHILDES
+- [childes] 52f635084674219343fbacc84392b0d9beda43e45d7b07da4446efd5d06bbc96 | And I won't take out all the more because I don't know how to guess what the other ones are. | UD_English-CHILDES
+- [childes] 52f7228d68e5b6d4729fdc59bad1e7270c447fee8630e6061b221c37fcb6d4de | Don 't be so rough. | UD_English-CHILDES
+- [childes] 52f8db1ec81755f16ee2e7e26593e27d93efece6febed3565d6d7ce697e028c8 | And then we went for a walk didn't we? | UD_English-CHILDES
+- [childes] 52f90a0b790cf6b06f4779a26d783aec17187bcf8249e4479ac08ed0eac6fae9 | I want one. | UD_English-CHILDES
+- ... 970 more new items
+

@@ -1005,3 +1005,50 @@ new_items_sample:
 - [childes] 288ab09151642f33a58017c2cf90f06d36ce13ec7572781b1ead35c921aa51a9 | It 's a restaurant where you go to eat. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:02:06+09:00 / 2026-09-17T18:02:06+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35256066588
+run_attempt: 1
+event_head_sha: 25cfbb3ce039e66b5013bc4e58a4876913351195
+worker_base_sha: 25cfbb3ce039e66b5013bc4e58a4876913351195
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 24955
+after_total: 25955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 2b5b79956443ca4374cfbac628e32fa96f298f9991cff91a4a38b6b21d0d81df | This and this and this. | UD_English-CHILDES
+- [childes] 2b5c7a25b047cae9e273397635de87ee5ef682e7cc601da37ad0f07802cea21b | I hope she's in because she's got pretty eyes. | UD_English-CHILDES
+- [childes] 2b5df1257ed43882a93fa58b191e69d51436ac6f57717da7fc3e2c2664e62d37 | It 's not a rope. | UD_English-CHILDES
+- [childes] 2b5df1670dbc3a5b9832fe562c997c68d3275dae135a2b5628cf6edeab9f169d | Did you take a nap today? | UD_English-CHILDES
+- [childes] 2b5ec5adafc27a236a7fc7046ce84f92e1a6ddefb4c0fea0a76a288d04e6f204 | I going flash it. | UD_English-CHILDES
+- [childes] 2b60a39623ede60401777fb0b44f5ac4e6a183d74ec2eeea9c81f167c7f0351a | That's nice. | UD_English-CHILDES
+- [childes] 2b61c5bd1ab940b2106e50d0bc8c0b2ca350ee7724bb4d651818d72fb23fff90 | What're you doing over in the corner Paul? | UD_English-CHILDES
+- [childes] 2b620f57a58f9f2f02a2a88da0493af353f4d9778b5d312a22c37ae667431207 | Didn 't you go out in the snow? | UD_English-CHILDES
+- [childes] 2b62c6d9d901d27359e17f595970ce0f60ea348c4c48007744a5c579d0064c41 | Yup pretty soon no more school. | UD_English-CHILDES
+- [childes] 2b62ca5454a63c7a6839be53bfaafb597444bad2b85ad47be3d797657d6b67a0 | A farmhouse and aminals. | UD_English-CHILDES
+- [childes] 2b63e15963da6cf046e67bd7ced6e9d5239e107dd83e543aa68cc95bd3b08372 | He want Tickles. | UD_English-CHILDES
+- [childes] 2b64e57018e45f280cadae2a0b199efb0c2e2f6b363e3dfbf452bd4afb4dbd55 | When you get it down you hafta jerk it a little so it will come back up. | UD_English-CHILDES
+- [childes] 2b6628241268f503b842ea3901b337f61daf76f690727280a2feab8aec6130a5 | She 's a lady. | UD_English-CHILDES
+- [childes] 2b6dbe977799f8e84da7aa004a82ee75fc1cd353ce2a4c82420df096feb8ee5e | To me so I just sat down and being grumpy outside. | UD_English-CHILDES
+- [childes] 2b7276d47ef51f5a273bdc0068ad6d91d38bb62819ce088d66115867ccb9e018 | Let's see what we've bought. | UD_English-CHILDES
+- [childes] 2b7312c7e675f11ffb4a440cbeac2843cd8f95387262bcec5983c8394d5dc435 | Want some of that. | UD_English-CHILDES
+- [childes] 2b75f8a6674bd0eb9c20197ca841bf2df067d5fcc3e97c4eab0aad8d8eb9281e | No when you're big you're a lady. | UD_English-CHILDES
+- [childes] 2b7633a90d5dcd09f3cf41a42c3470faccc520c3c6d011b31c37560f987db4c3 | It 's a snake on what? | UD_English-CHILDES
+- [childes] 2b77cc8ef6864336c529749e4f2857c4921c603495ba793abb274eddbce8e0e5 | Orange nose. | UD_English-CHILDES
+- [childes] 2b7995251e274ade74e4fb5af64dc08eea552d625e9edba0870806b560ecb826 | Are you playing with your dolly? | UD_English-CHILDES
+- [childes] 2b7a2f096fa9b3e3295da4533d28819591cd945e1fbf91c82e7ea555580e4fca | Baby baby baby. | UD_English-CHILDES
+- [childes] 2b7a8e749b3eb1c7235c62a7f1fdedc8e34c68cca7fa4901113bd6391bc9c031 | Don 't put that so far. | UD_English-CHILDES
+- [childes] 2b7bcba24c16249d7e61dec535fd30805903a108d4d85044ad68513a08456dcf | Yes he may try. | UD_English-CHILDES
+- [childes] 2b7bf1703c33d867f504861accc5c1e0ab45ad6cbedbddd22f4492646a0ec551 | Just like dat b. | UD_English-CHILDES
+- [childes] 2b7bf9b85adb343821ee5b9f53091ee4722f38c201ee14c5692031727477b034 | You don't fall asleep! | UD_English-CHILDES
+- [childes] 2b7c892308ad717268e4af5011787e6a6a2ffd90f65a9913d59489952be55eca | Yes if you 'd like to play blocks. | UD_English-CHILDES
+- [childes] 2b7ddf9759fb02d3ba30c7b3b1d654e686e3040bf724079a5313fe9148e4e1ba | We stopped carrying that. | UD_English-CHILDES
+- [childes] 2b7df905603efc2d4f4484ce7a85e2b37bf172609ff5cf95729ebf0f36380682 | A cat. | UD_English-CHILDES
+- [childes] 2b7f1cc913d4ead3129d01b0c13d3cb023bc0a4a1bf9eae41c5fd79efa1baebf | I want a ride a horsie. | UD_English-CHILDES
+- [childes] 2b7f4169eed0698b137a8fd853ee5c0bcc74838d0217abc90036629d2399fc23 | Fell down on his face. | UD_English-CHILDES
+- ... 970 more new items
+

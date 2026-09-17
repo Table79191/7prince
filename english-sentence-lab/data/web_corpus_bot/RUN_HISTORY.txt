@@ -2885,3 +2885,50 @@ new_items_sample:
 - [childes] dc8fbaea6dbdac0f28f2168e3c6c37492a1ee39f047950d1418d5358f46c97ae | That 's what you call chalk. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:29:54+09:00 / 2026-09-17T21:29:54+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35276738096
+run_attempt: 1
+event_head_sha: 015bb5e3fcbfb4177295e34ad561d4b539e72cc7
+worker_base_sha: 015bb5e3fcbfb4177295e34ad561d4b539e72cc7
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 64955
+after_total: 65955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] e2143e2abbd174d07a291f2d630830bbae677810230d2915d2382651819a7cc3 | What do you wanna drink? | UD_English-CHILDES
+- [childes] e2147b988c935f43a23cea498adf80c0b1d1bff615f1022ecb831b52112e0614 | That's not a chicken. | UD_English-CHILDES
+- [childes] e21ced61000826af7b0cf37b30d23a2b096ec5cb39b981062f946e88becd0ce8 | In fact in this. | UD_English-CHILDES
+- [childes] e21ee0b73bbad350a56c227718b928909de49daf1c8ff80cd1f143233cc3c9e9 | Is that a garage? | UD_English-CHILDES
+- [childes] e21f11f0ab2f7b35a2890b7cfca29566980c420f4de6417a0db39ea3d677bf48 | Did you see Nana today? | UD_English-CHILDES
+- [childes] e21f8164af1468644ef11cf5cf1cc03d8a25eadd6c43dc5e7047ceb9e7c61c23 | You color girl. | UD_English-CHILDES
+- [childes] e2216957c0a3663caec4edcd17ac3dc9dcb273c69337d58798315ecf9faad58f | Adam go sleep. | UD_English-CHILDES
+- [childes] e22226855207819952844d72786299a1e97379d7583cd72486f235bcb62e9bee | You love that. | UD_English-CHILDES
+- [childes] e2233f0963e8f2686fd349a7671dfc2c67c9ffe10de3d31378cd4789c51aff2d | You dropped your dollars on the floor. | UD_English-CHILDES
+- [childes] e2262249bb26de1f994ec15bf98af687cc499013efa73651e8a280cdc5e20d8f | Well just. | UD_English-CHILDES
+- [childes] e2265758d4cb6de1d6b135af812d7ab5a602e4a28822c85c8215e62e05e426b5 | Why are you so tired? | UD_English-CHILDES
+- [childes] e2276d7b10ed3541438be0e4f9a7dd44eec000835d3311f11655d4ad82d0adb2 | Well how do you know? | UD_English-CHILDES
+- [childes] e2277597806fbc679fa2b241b79154f79e6a5a134158dbe17731bd4c2faaae74 | No I'm not going to take a bath now. | UD_English-CHILDES
+- [childes] e22c6381c025d578a6156d83444f98a0cdaf49b6785e7f1a6fba43b69e88c5c8 | Yeah that's the rug. | UD_English-CHILDES
+- [childes] e22e1d76e2f255493a64cad69102091ed9ea29abdaaa3b2e9190efc0a11d8a7d | Stand the top. | UD_English-CHILDES
+- [childes] e230a837fe53d130fb097c86447cbcc801164d706f7c143be60d13288189b552 | That 's what? | UD_English-CHILDES
+- [childes] e231e472fa175270db57fbce0769b9687dc4cba5700f67e8af7675dd9405bf96 | About a funny dog. | UD_English-CHILDES
+- [childes] e2326fe9fa26a9f825722d89576a04867c5c91a75571f048c5cd9195bbfeb162 | I tricked you. | UD_English-CHILDES
+- [childes] e2331e3458c97b680303cbdfaf8f891138418e3d1be67e300e5bc3bb724fc351 | No I don't want you to go at work. | UD_English-CHILDES
+- [childes] e233c6d4d13d28f422ed255ab68d31d05facace915e2950c62a400f577eeb38a | We want it on yes. | UD_English-CHILDES
+- [childes] e2347b1051a1d9e7a91194a5ca0116a0958a4c8776059d17df28387b91115eae | I don 't go to nursery school. | UD_English-CHILDES
+- [childes] e237a42e3cea57156f86e60dde96e4d8e9247629464f4ee7c349288f46278c07 | Juice please. | UD_English-CHILDES
+- [childes] e238c47a8df16fab71010301918e65d293924a63b3e4e33d69fb3a1e62fc7d58 | Why does the other part leave? | UD_English-CHILDES
+- [childes] e23b307d2955d06a0804b464f5bcd67506883c7b071c87cc5874e3281181561f | I get it top. | UD_English-CHILDES
+- [childes] e23c6efb73dc1c5f8bb7a618ae8c01a13320073831e5bf72fc6d1f23e52f4dc9 | I can knock anything down Mommy. | UD_English-CHILDES
+- [childes] e23c7b4239ba3d3ad90c7157be5ddc9f80a25a12451812809edf525475e87b1d | Oh that's so pretty. | UD_English-CHILDES
+- [childes] e23ca50c41b88b2b31996da9fa00dd857e89cdef1a775b7690dee9a15a0a84e2 | That 's five four three two one zero. | UD_English-CHILDES
+- [childes] e2406b87a689ae0f771e50c6536b71df8a6d2113531eda49299f8b1136ac68e1 | And another bust. | UD_English-CHILDES
+- [childes] e2407df2c06358561333270169d9dbac04896544fde6de28d61f5101aa8643ad | A book isn 't a ball. | UD_English-CHILDES
+- [childes] e242595ff1cd099f1bc1dc399a80da8e1c2b24eca35f086d11ae26c4f236073c | And I have how shall I that in here. | UD_English-CHILDES
+- ... 970 more new items
+

@@ -1146,3 +1146,50 @@ new_items_sample:
 - [childes] 3118bc38752b203b693aee81ef206eb207464e6a0017ebd30a1bc1be7ebeaf9d | In here. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:18:23+09:00 / 2026-09-17T18:18:23+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35257663548
+run_attempt: 1
+event_head_sha: 7c3886aeb53f640d0c34c8fe2409b097bd842bec
+worker_base_sha: 7c3886aeb53f640d0c34c8fe2409b097bd842bec
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 27955
+after_total: 28955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 33c964d1aad52437916bd6254af519acbf0d8b3bc6428e66c4b3c7ede59f531a | And you hafta turn it like this. | UD_English-CHILDES
+- [childes] 33cd0f2a4020e8f88ac0be403e845e3e2e2110a854105888fc541e46e940a714 | What takes the car? | UD_English-CHILDES
+- [childes] 33cd4c80b6d6769e6d20b635459f4e3fbcafd4bee8107a248109928af60fc15a | Oink oink oink oink. | UD_English-CHILDES
+- [childes] 33cf8adb19f7008b1c68b4a3b23fed42e97d8469ba394d9ba1a79c939373d5b2 | See what you can do? | UD_English-CHILDES
+- [childes] 33cf9c47c9e734c644856de79209219fc09fd8f70a74b5edb379b63b3de27d02 | Mommy some one write is this is crayon pencil? | UD_English-CHILDES
+- [childes] 33d006820a70beff0e9515d5d496ce777b4ade995b4ac4bb02417586cb36318d | Where did you stay? | UD_English-CHILDES
+- [childes] 33d09dd879b023615ca16ebb7ec1e6aabe42106038d02d1791d89ecb32955d54 | I've got that popsicle on right here. | UD_English-CHILDES
+- [childes] 33d0b84357751ce607beba7da07dfeefa866f85e244b57f195274294a6b42b4d | How come you hafta repeat everything twenty times? | UD_English-CHILDES
+- [childes] 33d13a3b5bba49e41b41e904f592efefaef68eaab34b84b6e6807c00d22ef41f | He's going to be very disappointed on his birthday pres cake. | UD_English-CHILDES
+- [childes] 33d32967b20fe37ee3700dd911bbecfdf7191a519abb3efebf65a87d460fc8bb | Is that the right one? | UD_English-CHILDES
+- [childes] 33d35dbc04e8b6f2d2147aeeadb9c036e65b486aa3d20e77eeebc83fbd6781d8 | Let me see it okay? | UD_English-CHILDES
+- [childes] 33d66f0573fef4dd39af67d0725fdf79d0b609c60c566ab8fab8fccf61df1b4a | Want Papa. | UD_English-CHILDES
+- [childes] 33d700e89cae7c8e36078dd959e7131290f1cd6ca6ca1d65a6d419f4e6a74fc1 | I have one thank you. | UD_English-CHILDES
+- [childes] 33d7513183452f79935f599d2dff67383363ca8e8e42198560775c706400739f | Come here and jump off the table for Fraser. | UD_English-CHILDES
+- [childes] 33d853b16993189b8244279ad272d22c0fbe045cbabe312af164a9774baf15d9 | Is there a horn on there? | UD_English-CHILDES
+- [childes] 33da43f49508c51253ef2eceb8da4da3df16c29b969dc16b6312ddd93c102e3c | Ursula did. | UD_English-CHILDES
+- [childes] 33daeb39f5991c1058713f1076ef0c4522aedce21f668958fce67c80557722ce | Yeah this have it. | UD_English-CHILDES
+- [childes] 33db8a9550826f7a01a1894bf09d1ac9efdfc128c1f093c489c906e8e644902a | Eve what did you say? | UD_English-CHILDES
+- [childes] 33dd554712ce69c7645c0e37e217a03cb9140b0d91340c4c963a29f99f571a1c | No dancing. | UD_English-CHILDES
+- [childes] 33de7aa2065b24d3b6cb71f51f3fbcfc71e6faf627f5554cd44da1b39fd58813 | Mommy come on. | UD_English-CHILDES
+- [childes] 33dea42216cb1132264d962116816b608e1105c5ba9ebd7c4b80c2f8e9c7c5cf | Well you've been wearing them haven't you? | UD_English-CHILDES
+- [childes] 33df12198e4c30d85ff9eb90cdf427a7de3f03d2b0ca0bca89382ad78a0a52c4 | Hey you know you can't you cannot take the pocketbook to school. | UD_English-CHILDES
+- [childes] 33e23d74f676a6c364adc7880285ee682218fbfe4950ff86de2e38a118442f10 | Eat food! | UD_English-CHILDES
+- [childes] 33e60513702239ef929a7d4b6daf7147cf5a5434b3308610edc9698c7c569907 | The reindeer pulls his sleigh. | UD_English-CHILDES
+- [childes] 33e8bef401f3b989b2fdfd5e5711dd42b3de8a6ab3dd02186594f16b8ebe703c | He wants a bottle? | UD_English-CHILDES
+- [childes] 33ea53aabff67a7208cfb188ffdd06ffdc3426856ba7fd21aa28071683b11702 | I'm okay. | UD_English-CHILDES
+- [childes] 33eb09f2ed074ef77097229e49f2c08286fce40b11813c65a275805ade10ee47 | Two duck. | UD_English-CHILDES
+- [childes] 33ec12a1226fa8a8b2b89047e6d057b66f3435f7a83d57c499b4e03aec480e66 | From dat? | UD_English-CHILDES
+- [childes] 33ed3c3353bab955ec125e3a0a20096c30013863319888e22d8f9b4959ef0b0a | Oh boy I really want. | UD_English-CHILDES
+- [childes] 33ed86566e36671ecc43cdde4b244bb0719690f6c1d2b5296daf8288018b048f | Are you going to cook peas on it? | UD_English-CHILDES
+- ... 970 more new items
+

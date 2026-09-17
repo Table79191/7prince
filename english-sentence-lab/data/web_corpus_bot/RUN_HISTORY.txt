@@ -2697,3 +2697,50 @@ new_items_sample:
 - [childes] c5fc8ef86d72be902a1d2cca36e75daba801e0bace7e6b4510bd5a085347ded9 | Pretty Mommy. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:10:09+09:00 / 2026-09-17T21:10:09+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35274788128
+run_attempt: 1
+event_head_sha: 6cd9041e209dff7121f24202f2d2a2560bc219d9
+worker_base_sha: 6cd9041e209dff7121f24202f2d2a2560bc219d9
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 60955
+after_total: 61955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] cbb16a64330d3f36aaebfc354393e63dafa68023e349f8256c9c9cd16c8f253e | I didn't play it. | UD_English-CHILDES
+- [childes] cbb1a4a6dbcf628bee7dc9f222822cf544ed43d6524cd2001cfaf0246478a60b | Which feet do these go on? | UD_English-CHILDES
+- [childes] cbb223c2a1e2df08054865015758ce7814ea249fd7d8d24896d60902b0c1aa78 | She has no more toys. | UD_English-CHILDES
+- [childes] cbb4c3081f0cbbfe84f08462bd8fa4552eb1bde47753d78ba151d1be16688c6e | And I said tomorrow would be kid's day. | UD_English-CHILDES
+- [childes] cbb4e15373b5c6f983726140fb0291d32e3e9bdae1baff403d462925f830afa1 | Okay finish that one. | UD_English-CHILDES
+- [childes] cbb567010642dec75711533541a10d7ef5160656e0bf8b744783328b6102f6e8 | What were you telling Awww which we missed on the tape? | UD_English-CHILDES
+- [childes] cbbab6df0c35daa9141e00ea3f7b936dc123b5d03a88e5052a7071f3f3e6004e | They're part of big rabbit. | UD_English-CHILDES
+- [childes] cbbb7439eea9467e96c048e41476b6358826feff2f2d4d20af7457a49ea97606 | If you say something rude then the tape machine won't listen to it. | UD_English-CHILDES
+- [childes] cbbc39e4d8b2f8e8f073e2b3432e7c9fe6cdca26a761a25b8450d6dadf2d96d2 | Where did we go this morning? | UD_English-CHILDES
+- [childes] cbbc45c1be556b9aaacc3f39cc06c842509b6f883128fd7de742f0e136cd12a3 | Daddy back soon. | UD_English-CHILDES
+- [childes] cbbefce24a866cb8deb6bc37baa6cd16dda98f7d9b40e2bb0409fc4b900b66c6 | What would you like for your lunch? | UD_English-CHILDES
+- [childes] cbbfccb7d3a1516e25bdd2d47a9d6997a1de7e5e9769d0bffda03bcacbe9bba1 | And you can the cows. | UD_English-CHILDES
+- [childes] cbc0dc4234ae4a24867a1c38d5f9d666bbcd9d65988ecf336b631cafbfada5ac | Everybody's eating but Fraser. | UD_English-CHILDES
+- [childes] cbc0dd9943f73d120b3aa0834a94512efe9365f401208e8580c8eb4e06ce08d3 | Back in. | UD_English-CHILDES
+- [childes] cbc131d37ce9f2a529dff9c0378e94c4377b8dfbefc4dbf939138c2e04415e41 | Oh you're Miss Chaos the sister okay. | UD_English-CHILDES
+- [childes] cbc18f29227f701368be3209edf41659b57af5ea3f740b0422c9e10db19eb1ae | Robin Adam. | UD_English-CHILDES
+- [childes] cbc1933ae24a003d0fed08444c8c12f10f343c3d951e59b9b753888d40d56ead | Yeah that what he says tattah. | UD_English-CHILDES
+- [childes] cbc195946c1f863f13d35c753694a04bf5db8c03e9b41c1782bb09f1e3c84b0c | Come and catch him. | UD_English-CHILDES
+- [childes] cbc2693a6d089f598e9af592042d84f894c8adc4438b7e8b761b42dbe98b8e44 | I guess he means ride buggy buggy. | UD_English-CHILDES
+- [childes] cbc553c0cea03d6ceb4fa0114331a4e2801c8e6262e14de7730ac911a5709d5d | That 's her pocketbook. | UD_English-CHILDES
+- [childes] cbc7ad6dc334717eb7131068fea3da02207ce09f1caa4c1dd502e67290c4f4b3 | DW's still up. | UD_English-CHILDES
+- [childes] cbcbd97917640c0d809c3dc875d141b35474ed573f518d38608b45da029f3cda | There's two. | UD_English-CHILDES
+- [childes] cbcc14eac55c4baa14afb59e0569d9e3eca5d0a9becce0bf52277aff75559fcf | Are you taking your nap? | UD_English-CHILDES
+- [childes] cbcdc7a2a26421e801b8e792e21d78259e3e65433415e2e5d663989d5e305b6e | Bird take nose off? | UD_English-CHILDES
+- [childes] cbce9b96d3cbade6f260f260aaa2daab44d8a128cb8746dd63cf50e21e36f02a | Oh did you pay him? | UD_English-CHILDES
+- [childes] cbcefdb08b93b7f64e9b0918e73762d04a5f44e09d017ad96bc479735740ceb2 | Yes last year. | UD_English-CHILDES
+- [childes] cbcf5f5695f6bbc1dc5e2c81bdd821a0ddd8f8546635db481a49ffc8336989da | Why does she think that? | UD_English-CHILDES
+- [childes] cbd26e8341b3ecad4dd1b471c9a90ba5930ef13aab757157c45516533cea8773 | Oh that 's the steering wheel. | UD_English-CHILDES
+- [childes] cbd3310df4c66ba711d77305256c9bb6a5d288ab7b3e38deb3c111ba86ed3194 | It tickles. | UD_English-CHILDES
+- [childes] cbd363bea905cc190509b4e29be25ffc38e791dee99b7d023f5e95f1c9c970e1 | What is your trouble? | UD_English-CHILDES
+- ... 970 more new items
+

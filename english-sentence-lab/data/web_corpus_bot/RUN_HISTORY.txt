@@ -958,3 +958,50 @@ new_items_sample:
 - [childes] 25c5cd716e5d5f59ec1e38942a3a0584dd5fc1510b484a429b2e241fcb7a6265 | Dis a other one. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T02:56:54+09:00 / 2026-09-17T17:56:54+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35255554544
+run_attempt: 1
+event_head_sha: e443ff8899f060b292994d8f5fb741047698650e
+worker_base_sha: e443ff8899f060b292994d8f5fb741047698650e
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 23955
+after_total: 24955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 28621af9baea69ab94311e5d799450fd0460291f7bdbaece6ea96cd959901aa6 | Oh it 's a game. | UD_English-CHILDES
+- [childes] 2864edc9fc483e0aa06f8bd47717ce183243b4f0b23358e16a8c5612db4494a1 | You can 't play with that. | UD_English-CHILDES
+- [childes] 2865f7e15bb8b33b407b3c231123e47d45f5f0a845151056ffe03b33abfe8b40 | It's good and happy. | UD_English-CHILDES
+- [childes] 286673d270e8b5aa8ea6256009649abc4443f96d955ad2f2a293549921532e03 | What happened to your tooth? | UD_English-CHILDES
+- [childes] 2868239ccda0c14c1f8723ab108ebd372c9641cb9628158dd1201bb1b79aac26 | I can't understand. | UD_English-CHILDES
+- [childes] 2868fbb9d58f3f4f8059547d1c58e592b82b398c227e941a93da37e443b2c7ba | With a big wiggle? | UD_English-CHILDES
+- [childes] 28693e12f34c75a9761a13c0644b4101393e4f7aba5c667e768c86dd360da1a3 | A puppy a puppy dog. | UD_English-CHILDES
+- [childes] 286bcdc967603ea122d50de96a609d73636f347988ed8bd37b1535c617f1e94e | No I turned it down. | UD_English-CHILDES
+- [childes] 286e2976cf94b1d362a379203421e48356b25aac536038a50ca47d4a3cbaf644 | Wait a minute Roman. | UD_English-CHILDES
+- [childes] 2871925437850869b25f8b7557d0cb6659bc80af78b163d9142fdbfbbd2d1a1a | I'll sit. | UD_English-CHILDES
+- [childes] 2871e18e5713f3dfe10dfb120be5be7007fb25f785635530088f9aad9dcf2822 | Somebody was laughing. | UD_English-CHILDES
+- [childes] 28723e7a3669fed7bbc2f2fe920f62940e8c88596947b8bc10c76ec5ca473992 | Don 't get it on the rug Adam. | UD_English-CHILDES
+- [childes] 287284becdd26e0b905d544e6f2c2db05d27883e038a8c51925440aac215f37e | Jack takes the treasure from the sleeping giant. | UD_English-CHILDES
+- [childes] 28732bd7460be1b96cea99baecb0016cfa567f9b8c30b5e88457f3b6b71a7ed5 | Roman let's go. | UD_English-CHILDES
+- [childes] 28736174d1c6e0467f3ec4c7abf2e02718b8cc00b271f8460519cb7deb80055a | Have some drink it? | UD_English-CHILDES
+- [childes] 2873af869825aba4acdf9df8665ca46e53b036a61430085387218950164b83bc | You haven't eaten your noodle soup so far. | UD_English-CHILDES
+- [childes] 287634bfc6adb4f3e6fa4d437c621f221bae8601aeb7e6cc7c1f33da8bb670d3 | What about the picture? | UD_English-CHILDES
+- [childes] 2877a4c05666794562e1d6e526d170b47f2391588daa33a895fcbd346cc420c5 | I wanna I wanna show you something. | UD_English-CHILDES
+- [childes] 287b0cb2f8730255e68f06e378658f2e690de31c14b58f5b8886ff364ea24c57 | On your side of the paper. | UD_English-CHILDES
+- [childes] 287cef2170d3844e0b13b0979c043c2e634a4c8519dc3ace10e334696821abe3 | Daddy a work. | UD_English-CHILDES
+- [childes] 287d7eb273cf3564045b35dd8a3a19a240e781b94fe72886c11c7d2eec55e776 | In the refrigerator so it will be nice and warm. | UD_English-CHILDES
+- [childes] 2880849ea24a73c2cd3a538554623752291bf958c37592472c4fc9677b7a3e1b | Is there one behind the door? | UD_English-CHILDES
+- [childes] 28808674e99238008b8220bc03aec0107bd65c118a4fb629647fe357ad2f699c | She's hungry. | UD_English-CHILDES
+- [childes] 288099063a7c615b5e0fafdd71b09be52435a30b51f57ca9f2bdae1f906d0910 | Write Cromer. | UD_English-CHILDES
+- [childes] 28820c017299c456b5cc72eb9c1cc82929f971edeb2a4805cacf49d9e3b17287 | Um he turns into the Hulk. | UD_English-CHILDES
+- [childes] 28835c5e3ea9c2d9ccc7cd5e5a1aca197703c6e43224949f04bfc944f49d819f | Dere my yoyo. | UD_English-CHILDES
+- [childes] 28850dc458585e4e8f30ecd4d7cc28db25e131a809270b4e5949f63aea12c474 | Is that what you did your finger? | UD_English-CHILDES
+- [childes] 2885558a44c4986f116673a2b3fedaf4373cde97e29a37d5154fdf49bf2fe2dd | You like red? | UD_English-CHILDES
+- [childes] 28861a06a8c400339aa6725bf874c40172872502b63d7d666f682a3911198fd0 | Oh we met some new children there. | UD_English-CHILDES
+- [childes] 288ab09151642f33a58017c2cf90f06d36ce13ec7572781b1ead35c921aa51a9 | It 's a restaurant where you go to eat. | UD_English-CHILDES
+- ... 970 more new items
+

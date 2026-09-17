@@ -2133,3 +2133,50 @@ new_items_sample:
 - [childes] 8221bd1e00ac1a60a1b45b56aac23d0ae0a67cb7f49784265332b8b3b9d25b39 | No the baby's scared what's it gonna do? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:07:58+09:00 / 2026-09-17T20:07:58+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35268546734
+run_attempt: 1
+event_head_sha: e588a57515f5ecb0f17eb492185e8acad6d32e19
+worker_base_sha: e588a57515f5ecb0f17eb492185e8acad6d32e19
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 48955
+after_total: 49955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 8755b3082e60882f11f85864ecc3043d7268844185c47dad8760dcc260726d17 | They're chickens. | UD_English-CHILDES
+- [childes] 8756abb1bf25b2a9510ca7140a59febf39f3fe6d46ef48d635b3d00e618281df | The thread out. | UD_English-CHILDES
+- [childes] 8759508ba934ac1025609c1862a868531f88d98233eca99f74dc5b8b1c8d8db3 | Letters the mailman brought. | UD_English-CHILDES
+- [childes] 875b2de9c79d84f4761ef51cd4b2ca854b9376c14f464247d38d6f2ab3a51857 | Who's sitting? | UD_English-CHILDES
+- [childes] 875c1dad3179436129fc545b1953bdb00316f428e3d946f7264c6a586a2b32d7 | Let you reach what? | UD_English-CHILDES
+- [childes] 875d5260e28ca06754c6eb32f429d3899252b2559925cd984de3e62c81aa0ef3 | No just pretend. | UD_English-CHILDES
+- [childes] 875e0ec9834683c8ecb2f28b89b022a9c987741c7d2e28a881f7181de2a4a3ba | What did you see in Italy? | UD_English-CHILDES
+- [childes] 875f6c3e782f8270efda9e3f51d59c3644f00bd4157fefb09f4ff33ca4bff315 | Paul no no. | UD_English-CHILDES
+- [childes] 8762fb620a7f88a0d88f5f15affc4bc74963312135f03d3399c6eb988ff84455 | No no no not over there. | UD_English-CHILDES
+- [childes] 8764706d600df5921555c73e24b99ca82dfc2193c41d035e345099d39768e69d | What are those? | UD_English-CHILDES
+- [childes] 876530fe625e799ee1309a4da3175b86cdde8ebe616b3e001e08841e6bc9f942 | Stop raining. | UD_English-CHILDES
+- [childes] 87659796f5e519db88904c55070a5dc1d6accb28a2e8c8876189976aa65e2112 | July remember? | UD_English-CHILDES
+- [childes] 8765a045ee447e96632dcea34ab33d8fe370d8f5bc04dcb3f6630d868e4c0777 | Almost fell get de ball. | UD_English-CHILDES
+- [childes] 8765dff02cee5d0fdc4066bf79801c3efd75e57bb711f0c9af36d7a262794308 | A finger print? | UD_English-CHILDES
+- [childes] 8766b04569052e26cf852cb4de673a6f82f57af2fdb09b1c3815f1af22c6c282 | Did you hear a door closing? | UD_English-CHILDES
+- [childes] 8767ea27e58848a71fce4426de5e297186b23bc7c937c0f0edfcd5c290a86ed1 | How is what? | UD_English-CHILDES
+- [childes] 876a819a7330ed58ad22bd2006feeb657e8a94ea047babff87cfe5142f7199a3 | Bye then. | UD_English-CHILDES
+- [childes] 8770184886e6d511ae4db077f091c64bf93174cb1c4bd8aef3cee4f76b6bdf92 | A one more. | UD_English-CHILDES
+- [childes] 8770bdb108b5f2ce446b9a94394b1960cd3643b9eb29e89a42c8934b98e44853 | Just take one paper and then find one that you 'd like to make. | UD_English-CHILDES
+- [childes] 87762da9f23c242b73e156498552931050e4a16d337d6f642eb45bf138da2228 | Where Eve? | UD_English-CHILDES
+- [childes] 8777204a7994bbfa2c1d08fa3849a85784281beeb25c211cd9b37be6a4d81344 | Alright that's the last of the ginger. | UD_English-CHILDES
+- [childes] 8777ac4c13f68d240fef328f5fbc2cb174c5e5f60dd6d77207f08225a0797b0f | We will read it. | UD_English-CHILDES
+- [childes] 8777cca2cf1de4ee659c7d6d3e87d605bef02b9f675d3263e66785d7de5fb35a | Where's the squirrel? | UD_English-CHILDES
+- [childes] 8778429365000ca09e7dc849048831313625102bd46635e428f87809487d32d0 | That 's the doggie. | UD_English-CHILDES
+- [childes] 8778daa0fc13dc43dec784ec7d254a7878c4a3f412ff179ce542e2c63d807d12 | There was one before on the floor. | UD_English-CHILDES
+- [childes] 877a2afdef090aa8a6fc1a0fa2e66971e4cb8f521dc7a2dc27cee68f1bf37d18 | A string. | UD_English-CHILDES
+- [childes] 877c10140630d933bfc6caa04dc2c94c3215be16e032ba3c89856b303301a2c9 | Mommy you tell. | UD_English-CHILDES
+- [childes] 877cc16529b02a9622c80cf6951dae1e470a0e2694179ac1ed58ce5cf71e233a | No Friday night. | UD_English-CHILDES
+- [childes] 877d198ad0772fec822e8d9ea605f8d5c52ed70d046fae25a2350344123832d9 | But it wasn't called that. | UD_English-CHILDES
+- [childes] 877de0608a39fc377adf2573bf52015ff46912972d8eb44c803977406cc033ac | You 're not big enough to play the game yet okay? | UD_English-CHILDES
+- ... 970 more new items
+

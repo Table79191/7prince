@@ -3,9 +3,10 @@ from __future__ import annotations
 
 """Dependency-aware SentenceLab role postprocessor.
 
-This module never uses ChaosMix50 IDs or sentence-specific vocabulary.  It applies
-canonical role-spec rules to a spaCy parse after RoleNet inference, primarily to
-repair long-distance S/O confusion and function-material leakage.
+No evaluation IDs or sentence-specific vocabulary are used here.  The layer
+combines RoleNet with general surface/dependency rules from the canonical role
+spec, while explicitly guarding against common statistical-parser attachment
+errors in inversion, object-control and small-clause constructions.
 """
 
 SUBJECT_DEPS = {'nsubj','nsubjpass','csubj','csubjpass','expl'}
@@ -18,7 +19,28 @@ OBJECT_COMPLEMENT_VERBS = {
     'declare','consider','find','make','call','name','deem','elect','appoint',
     'render','prove','label','pronounce',
 }
+# Verbs whose following NP is canonically the matrix O even when a dependency
+# parser attaches that NP as the subject of an infinitival/small-clause predicate.
+OBJECT_CONTROL_VERBS = {
+    'make','let','have','get','allow','permit','force','cause','expect','want',
+    'believe','consider','persuade','order','require','enable','encourage','ask',
+}
 PARTITIVE_SUBJECTS = {'few','many','several','most','some','none','all','both','neither','either'}
+AUX_WORDS = {
+    'am','is','are','was','were','be','been','being','have','has','had','do','does','did',
+    'can','could','may','might','must','shall','should','will','would',
+}
+
+
+def _nearest_left_controller(doc, i, window=5):
+    """Return a nearby matrix controller verb before NP i, without crossing punctuation."""
+    for j in range(i-1, max(-1, i-window-1), -1):
+        t = doc[j]
+        if t.is_punct:
+            break
+        if t.pos_ in {'VERB','AUX'}:
+            return t.lemma_.lower()
+    return None
 
 
 def postprocess_roles(doc, neural_roles):
@@ -28,8 +50,6 @@ def postprocess_roles(doc, neural_roles):
     reason = ['neural'] * len(doc)
 
     # 1) High-precision canonical dependency overrides.
-    # Dependency subject/object evidence intentionally outranks POS because a
-    # tagger may occasionally call a nominal token VERB/ADV in hard sentences.
     for i,t in enumerate(doc):
         dep = t.dep_.lower()
         if dep in SUBJECT_DEPS:
@@ -39,7 +59,6 @@ def postprocess_roles(doc, neural_roles):
         elif dep in COMPLEMENT_DEPS:
             out[i] = 'C'; reason[i] = 'dep-complement'
         elif dep == 'pobj':
-            # Canonical spec M002: ordinary PP complements are function/modifier material.
             out[i] = 'M'; reason[i] = 'dep-pobj'
         elif dep == 'appos':
             out[i] = 'M'; reason[i] = 'dep-appos'
@@ -50,54 +69,64 @@ def postprocess_roles(doc, neural_roles):
         elif t.pos_ in {'VERB','AUX'}:
             out[i] = 'V'; reason[i] = 'predicate-pos'
 
-    # 2) Non-verbal object-complement rescue (e.g. declare X a success).
+    # 2) Non-verbal object complement (declare X a success, find X difficult).
     for i,t in enumerate(doc):
         if (t.dep_.lower() in {'ccomp','xcomp'} and t.pos_ in NOMINAL_POS
                 and t.head.lemma_.lower() in OBJECT_COMPLEMENT_VERBS):
             out[i] = 'C'; reason[i] = 'object-complement'
 
-    # 3) Coordination inheritance for nominal conjuncts.  The conjunction itself
-    # stays M, but a coordinated NP can inherit the head NP's core role.
-    for _ in range(3):
-        changed = False
-        for i,t in enumerate(doc):
-            if t.dep_.lower() == 'conj' and t.pos_ not in {'VERB','AUX'}:
-                hr = out[t.head.i]
-                if hr in {'S','O','C','M'} and out[i] != hr:
-                    out[i] = hr; reason[i] = 'conj-inherit'; changed = True
-        if not changed:
-            break
+    # 3) Object-control / small-clause protection.  In 'make the model look stable'
+    # and 'allow the supplier to redefine X', the NP is the matrix O under the
+    # SentenceLab surface-role spec even if spaCy attaches it as nsubj of look/redefine.
+    for i,t in enumerate(doc):
+        if t.dep_.lower() in SUBJECT_DEPS and t.pos_ in NOMINAL_POS:
+            ctl = _nearest_left_controller(doc, i)
+            if ctl in OBJECT_CONTROL_VERBS:
+                out[i] = 'O'; reason[i] = 'surface-object-control'
 
-    # 4) Subject–auxiliary inversion repair.  Some statistical parses label the
-    # NP after a fronted auxiliary as dobj even though it is the surface subject:
-    # 'Had the researcher ...', 'Rarely has a report ...'.
+    # 4) Impossible-looking object attachment before a finite predicate often
+    # signals an omitted complementizer / embedded subject: 'assumed the board had...'.
+    for i,t in enumerate(doc[:-1]):
+        if t.dep_.lower() in OBJECT_DEPS and t.pos_ in NOMINAL_POS:
+            nxt = doc[i+1]
+            if nxt.pos_ == 'AUX' or nxt.lower_ in AUX_WORDS:
+                out[i] = 'S'; reason[i] = 'object-before-finite-aux-subject'
+            elif t.head.pos_ == 'ADJ':
+                out[i] = 'S'; reason[i] = 'object-of-adjective-subject-repair'
+
+    # 5) Subject–auxiliary inversion repair: Had the researcher..., Rarely has a report...
     for i,t in enumerate(doc):
         if (t.dep_.lower() in {'dobj','obj'} and t.pos_ in NOMINAL_POS
-                and t.head.pos_ == 'AUX' and t.head.i <= 2 and i > t.head.i):
+                and t.head.i <= 2 and i > t.head.i
+                and (t.head.pos_ == 'AUX' or t.head.lower_ in AUX_WORDS)):
             out[i] = 'S'; reason[i] = 'initial-aux-inversion'
 
-    # 5) A nominal immediately attached as 'compound' to a following finite verb
-    # is almost certainly a parser recovery error, not a true nominal compound.
+    # 6) A nominal attached as compound directly to a following verbal head is
+    # usually a recovery error; inherit S when the head is recognized as verbal.
     for i,t in enumerate(doc):
         if (t.dep_.lower() == 'compound' and t.pos_ in {'NOUN','PROPN','PRON'}
                 and t.head.pos_ in {'VERB','AUX'} and i < t.head.i):
             out[i] = 'S'; reason[i] = 'compound-to-verb-subject-repair'
 
-    # 6) Partitive quantified subjects at sentence start: 'Few of the people ...'.
+    # 7) Partitive quantified subjects: Few of..., Most of...
     if len(doc) >= 3 and doc[0].lower_ in PARTITIVE_SUBJECTS and doc[1].lower_ == 'of':
         out[0] = 'S'; reason[0] = 'initial-partitive-subject'
 
-    # 7) If a clausal preposition was parsed as taking a nominal pobj but that
-    # nominal precedes a finite predicate inside the same comma-delimited region,
-    # recover it as the clause subject.  This handles difficult fronted clauses
-    # without hard-coding any test sentence.
+    # 8) Correlative subject beginning with Neither/Either: recover the first NP
+    # head before nor/or when the statistical parse chooses it as ROOT/material.
+    if len(doc) and doc[0].lower_ in {'neither','either'}:
+        stopper = 'nor' if doc[0].lower_ == 'neither' else 'or'
+        stop = next((j for j,t in enumerate(doc) if t.lower_ == stopper), len(doc))
+        for i in range(1, stop):
+            if doc[i].pos_ in {'NOUN','PROPN','PRON'} and doc[i].dep_.lower() in {'root','pobj','dobj','obj'}:
+                out[i] = 'S'; reason[i] = 'correlative-subject-repair'; break
+
+    # 9) Clausal preposition subject recovery.  Keep the conservative local rule,
+    # then add a special structural check for fronted 'Not until ... did ...' where
+    # parenthetical commas can separate the subject from its predicate.
     for i,t in enumerate(doc):
-        if t.dep_.lower() != 'pobj' or t.pos_ not in NOMINAL_POS:
+        if t.dep_.lower() != 'pobj' or t.pos_ not in NOMINAL_POS or t.head.lower_ not in CLAUSAL_PREPS:
             continue
-        if t.head.lower_ not in CLAUSAL_PREPS:
-            continue
-        # Stop at the next major punctuation. Relative-clause verbs alone do not
-        # qualify unless a second predicate is also present.
         end = len(doc)
         for j in range(i+1, len(doc)):
             if doc[j].text in {',',';'}:
@@ -105,5 +134,52 @@ def postprocess_roles(doc, neural_roles):
         lexical = [doc[j] for j in range(i+1,end) if doc[j].pos_ == 'VERB']
         if lexical:
             out[i] = 'S'; reason[i] = 'clausal-prep-subject-repair'
+
+    if len(doc) > 3 and doc[0].lower_ == 'not' and doc[1].lower_ == 'until':
+        matrix_aux = next((j for j,t in enumerate(doc[2:],2) if t.lower_ in {'do','does','did'}), len(doc))
+        for i,t in enumerate(doc[2:matrix_aux],2):
+            if t.dep_.lower() == 'pobj' and t.head.lower_ == 'until' and t.pos_ in NOMINAL_POS:
+                has_clause_pred = any(
+                    x.pos_ == 'VERB' and x.dep_.lower() not in {'relcl','acl'}
+                    for x in doc[i+1:matrix_aux]
+                )
+                if has_clause_pred:
+                    out[i] = 'S'; reason[i] = 'not-until-clause-subject'
+
+    # 10) Existential/postverbal NP with the same predicate as an expletive there.
+    # Canonical spec labels expletive there as S and retains the clause-local core
+    # role of the postverbal nominal rather than forcing it to C.
+    for i,t in enumerate(doc):
+        if t.dep_.lower() == 'attr':
+            if any(x.dep_.lower() == 'expl' and x.head.i == t.head.i for x in doc):
+                out[i] = 'S'; reason[i] = 'existential-postverbal-subject'
+
+    # 11) Fronted Between-PP followed by existential there.  Top-level coordinated
+    # PP objects remain M even when the dependency parser accidentally links one
+    # of them to the matrix predicate as nsubj.
+    if len(doc) and doc[0].lower_ == 'between':
+        there_i = next((i for i,t in enumerate(doc) if t.lower_ == 'there' and t.dep_.lower() == 'expl'), None)
+        if there_i is not None:
+            for i,t in enumerate(doc[:there_i]):
+                dep=t.dep_.lower()
+                if dep == 'pobj' and t.head.lower_ == 'between':
+                    out[i]='M'; reason[i]='fronted-between-pp'
+                elif dep == 'nsubj' and t.head.i > there_i:
+                    out[i]='M'; reason[i]='fronted-between-pp-repair'
+            # propagate M over nominal conjunctions within the fronted region
+            for i,t in enumerate(doc[:there_i]):
+                if t.dep_.lower() == 'conj' and t.head.i < there_i and out[t.head.i] == 'M':
+                    out[i]='M'; reason[i]='fronted-between-conj'
+
+    # 12) Coordination inheritance after all core repairs.
+    for _ in range(3):
+        changed=False
+        for i,t in enumerate(doc):
+            if t.dep_.lower() == 'conj' and t.pos_ not in {'VERB','AUX'}:
+                hr=out[t.head.i]
+                if hr in {'S','O','C','M'} and out[i] != hr:
+                    out[i]=hr; reason[i]='conj-inherit'; changed=True
+        if not changed:
+            break
 
     return out, reason

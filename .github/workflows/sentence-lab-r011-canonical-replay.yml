@@ -75,4 +75,14 @@ jobs:
             exit 0
           fi
           git commit -m 'rooping(R011-result): save canonical replay model'
-          git push
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; retrying after refresh."
+            sleep 2
+          done
+          echo 'R011 result push failed after 3 attempts.' >&2
+          exit 1

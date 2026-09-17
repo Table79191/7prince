@@ -2321,3 +2321,50 @@ new_items_sample:
 - [childes] 9893cee321fede77cbef798e3f9fdf3a8d962c20eddcc80c3046cbb3a2b19440 | Fix bike? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:28:47+09:00 / 2026-09-17T20:28:47+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35270624056
+run_attempt: 1
+event_head_sha: 87721b191148c3a3f6a1a3351c3d6669f0dd8d74
+worker_base_sha: 87721b191148c3a3f6a1a3351c3d6669f0dd8d74
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 52955
+after_total: 53955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 9dea02309a7f17aa5406c6248d9606acec5fd75526cace1505c8032155143b83 | We bought two postcards and two stamps. | UD_English-CHILDES
+- [childes] 9dec4d6fa7fdd62f381608b48cc7353db844069ef08bcba940f0457ac9f4b7eb | Five kinds of leftovers. | UD_English-CHILDES
+- [childes] 9dee16c26977f3722b59872f85cd504ef193e0e68519ace5ddd635f516dc3fb8 | Where goes? | UD_English-CHILDES
+- [childes] 9dee2681bc7b4bba4bfec0e3b879f03aa01f0308383d72a207db279e730242b0 | We're not being nosy. | UD_English-CHILDES
+- [childes] 9dee56b314dc6aa1b74c03e1bfc792111643d2d4503fffb5bc16952726e0cc48 | Mm dinner time. | UD_English-CHILDES
+- [childes] 9defcd90431e8c9f07e0887f050bf278fbdcb6fc5f3511ddaa25a20f21ec0923 | It 's like your train isn 't it? | UD_English-CHILDES
+- [childes] 9df1625ad6ba3ef6a409e8e72b69ae2efdd19c77fb58f140cb5510f1fa449ba7 | What letter is dis? | UD_English-CHILDES
+- [childes] 9df46276dbd9ff546575a4cc09694f5c583b96caa22c264e9c338bab336d3165 | How do you flash them? | UD_English-CHILDES
+- [childes] 9df4dad1c075aad878a0e37eef0159f3d87b2cf202de5d1ebf9c997ce2b0fee6 | I'm far from you. | UD_English-CHILDES
+- [childes] 9df868d1458f3330d0b99c5d02f894c95d59bce3fc79bd49cbdcc38fa037771d | On the dogs. | UD_English-CHILDES
+- [childes] 9df876ca2709a83c5882fc2b81cf37461d03a680e5d5a8f3f3c66c0071792321 | You 're going to mail that? | UD_English-CHILDES
+- [childes] 9dfa53fdbd559336b633643642978b74e6e823d6b604f11a5b149866f93cefcd | I ride my horsie. | UD_English-CHILDES
+- [childes] 9dfa9f874a62c3f770cfed0f3138c94167cb92ee8b0039517a757394a124dc59 | No you already opened it. | UD_English-CHILDES
+- [childes] 9dfac0b64652cd9cf91d156bb6d2e5c8402fb2439155c3be513aecc47bbedc8d | Gone. | UD_English-CHILDES
+- [childes] 9dfd4e1a59c22f0033503cef8b115e904eb550c6d856b19cd8b31a4d680a66cd | Screwdriver hurt. | UD_English-CHILDES
+- [childes] 9dfe032fa29a663ef70c8cdee8f64dbea9c94da99d032df70014ff9dd31829e5 | Do you wanna read Olivia honey? | UD_English-CHILDES
+- [childes] 9dfff5dccc6e18ddc40ce9a2164618642948b4447172109e1ecd4d9ef9659b65 | Is it alright if he drinks his coffee now? | UD_English-CHILDES
+- [childes] 9e001620b230b9197b11b295f5d3a26485ea4c7abfda7fe75fb0f11b495edbae | Two sizes. | UD_English-CHILDES
+- [childes] 9e00a2708d6b2d6b45194237c17a321261a82543bc97c3ccdc5100ed12f8d2ff | I take a picture. | UD_English-CHILDES
+- [childes] 9e01a1a2f419a1dfedab8bd51b13e47bd4770197a17ab49a2ad720abd315a15d | Adam wanted to know the other day where the sun went when night came and why the rain was wet. | UD_English-CHILDES
+- [childes] 9e028c291fc8941db5a4f86fc6fa8189c1519b4ac5ffeb5f822454530fbc2571 | What's the name of that soup? | UD_English-CHILDES
+- [childes] 9e034531e29b2da1f0c2a9c6afe2858101d92c1ca96b7fc14b88ed617f1d9456 | Sick yes. | UD_English-CHILDES
+- [childes] 9e07911fe4d984e4d097e27190f12eb9396f5ea052e926ec3f535f966468ccf2 | I'm really worried about my Mummy having to go to school and not always being home when get in from my school. | UD_English-CHILDES
+- [childes] 9e0a096691bcfa86cca08bb21e70ce53d7d0723d5e7ec719947338f6bb05d713 | Oh my Adam bulldozer alright. | UD_English-CHILDES
+- [childes] 9e0ae557f4a0dc2f0ac330b63f86ce2e0f7b463c62c71dcfc65ab63318c2467e | Oh yes they will all break if you aren 't careful. | UD_English-CHILDES
+- [childes] 9e0b129c1ca625c6e6d8801eeeec3831a3838757af9b22b9eda2999cc9e0b547 | Wait I got three. | UD_English-CHILDES
+- [childes] 9e0b747139e302b1ab0ca6d753422bebc58d39195de4d39c03926c38e5630379 | A road another road? | UD_English-CHILDES
+- [childes] 9e0caa227948217f8c0b54f0588344160f05f440b9b3ea0838ca1b5053ed159b | Get off of there. | UD_English-CHILDES
+- [childes] 9e0f446cd272b780b75c84e2aea15b83e75154bb8fb3a43d6da75d0a6b063634 | Is it sharp? | UD_English-CHILDES
+- [childes] 9e10ca14e0977ca8d23128fc0a772ababd3784e31cc091087d5a05bad4662373 | Do you want Daddy to help you? | UD_English-CHILDES
+- ... 970 more new items
+

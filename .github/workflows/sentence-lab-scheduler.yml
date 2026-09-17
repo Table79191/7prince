@@ -1,0 +1,33 @@
+name: SentenceLab schedule dispatcher
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '2-57/5 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-scheduler.yml'
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: sentence-lab-schedule-dispatcher
+  cancel-in-progress: true
+
+jobs:
+  dispatch-worker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch corpus worker
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh workflow run sentence-lab-auto-web-corpus.yml \
+            --repo "${{ github.repository }}" \
+            --ref main
+          echo "Dispatched SentenceLab corpus worker at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"

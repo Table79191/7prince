@@ -1,0 +1,46 @@
+name: SentenceLab fetch annotated English corpora
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/bootstrap.trigger'
+      - '.github/workflows/sentence-lab-fetch-data.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download public annotated corpora
+        run: python english-sentence-lab/scripts/download_ud.py
+
+      - name: Show manifest
+        run: cat english-sentence-lab/data/ud/manifest.json
+
+      - name: Commit downloaded corpora
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'sentence-lab-bot'
+          git config user.email 'sentence-lab-bot@users.noreply.github.com'
+          git add english-sentence-lab/data/ud
+          if git diff --cached --quiet; then
+            echo 'No corpus changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Vendor public annotated English UD corpora'
+          git push

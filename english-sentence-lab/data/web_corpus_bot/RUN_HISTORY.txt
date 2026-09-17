@@ -2180,3 +2180,50 @@ new_items_sample:
 - [childes] 877de0608a39fc377adf2573bf52015ff46912972d8eb44c803977406cc033ac | You 're not big enough to play the game yet okay? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:12:56+09:00 / 2026-09-17T20:12:56+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35269057979
+run_attempt: 1
+event_head_sha: 69a687e831ab5377117e7ec2e836e8e6677e55c5
+worker_base_sha: 69a687e831ab5377117e7ec2e836e8e6677e55c5
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 49955
+after_total: 50955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 8d23d3cb361460676d94395ee0a08f5f0d23fec37898184aa63021aca40b2cfb | In my bag? | UD_English-CHILDES
+- [childes] 8d254fac6bfc779023ba2c90a829db9bc8207127c59994e89f161ecb2280072a | Mm this is good. | UD_English-CHILDES
+- [childes] 8d28d9a42cf15eec830c5980068cf019c1d6519412689f26464702003c10aac1 | You 're looking for what? | UD_English-CHILDES
+- [childes] 8d28fdd2c730b73a6f4f2353a5e1abaa9bd7f81aa05bd8a31a7a6461b439b60d | Adam you let her look. | UD_English-CHILDES
+- [childes] 8d2a6cf61b42e125405412646a4bce1ca262c374a7fe9e401565c28ea9ee04dc | You turned some on? | UD_English-CHILDES
+- [childes] 8d2a9aee287b814612eb3c1835c20b4ef9b026e0f43084b6756359348aabb460 | After Diandra 's father stops working? | UD_English-CHILDES
+- [childes] 8d3138b0e3e8a69ba760342f5eebf06994778a6d6cfc99deff3106c2b51a4672 | I put it under here. | UD_English-CHILDES
+- [childes] 8d3159c5442e411570c9261da6d16afe553fba4337356d1cd29f0ff8dce8817d | Close your eyes. | UD_English-CHILDES
+- [childes] 8d31f3beb57712cc2a4b55846133c4a94f552744bacb7801eb3ce54f395e330a | A piece of celery. | UD_English-CHILDES
+- [childes] 8d3300cf7d352d6251c7b3ca1165a91442575c4323de11bd223870c474513d27 | This is Rocky. | UD_English-CHILDES
+- [childes] 8d3469d46ff7ae4bc48307dd815f549282b022f95005913e7695d1ee83036aff | She needs pens for writing you know. | UD_English-CHILDES
+- [childes] 8d348e2240c130d1e4e0bfc1e6619818c8ec90cc4062fa4c099a082734461493 | I write Tammy. | UD_English-CHILDES
+- [childes] 8d352e7c913aa5c530da6e1fd44c10d6312a9947f3c1b5a48d619553b9e8f74b | Ever heard of a animal that say cuckoo cuckoo? | UD_English-CHILDES
+- [childes] 8d3593f02266520f490529db42aac691c88bd36fdfc115085457e5ea2dfe9644 | Do you like the snow Sarah? | UD_English-CHILDES
+- [childes] 8d359b983f95a05dae8a5645897d39a0e866bd289a9cd4bc4aa7d3e27cd03447 | I'm afraid you might get stuck. | UD_English-CHILDES
+- [childes] 8d35cbb1634c69ffcf624c833c8104b6de078cb74ab5e513e36e4af82529361a | We have one of these too. | UD_English-CHILDES
+- [childes] 8d36cb94cd770abbcfbee08088a6d409be208e4888133e8fd9be3db58cd2435f | Now there's some policemen Thomas. | UD_English-CHILDES
+- [childes] 8d39566b748323e17090680b7fe2b01a14b17efdfee596f4b4bb5f5b3b8b7b5a | Yeah but don't eat mine. | UD_English-CHILDES
+- [childes] 8d3a657064b1b85ee9181a4a2fc55f209b68c9954246ec996430d99bbe18f5f6 | In your garage? | UD_English-CHILDES
+- [childes] 8d3a90eb4cda587369f670809a8bac0e6e7c321df0ed0ef333b5197a9faf6ecd | Put it on your ear. | UD_English-CHILDES
+- [childes] 8d3b203efc006f9375032d942f415e7ba7176d19e50be99df85aba4e90cf9388 | Number train? | UD_English-CHILDES
+- [childes] 8d3b8bc478ffae791305b910ad2e31f08909246f22644442a446e57d7fa573d2 | Show Paul how it goes. | UD_English-CHILDES
+- [childes] 8d3ca0efb95712e6d1d5296526a5142a6de68618105c2264627c53365ac0ae95 | You don't remember what that is? | UD_English-CHILDES
+- [childes] 8d3d3a9f2f323337833d35505ace3383f16422edc2a6bcb00ec5a0fdb1b315c8 | Did we see the monkeys? | UD_English-CHILDES
+- [childes] 8d3e766380c8b93ebf3350190db3f971f2d764b4bcb6bd22119ecd59ae803f8c | The bear's looking up at the pink line? | UD_English-CHILDES
+- [childes] 8d3ff3319d2cbf3de3b237ced75a555b3c5d43d68deca94039223de396ff88ce | Because the people are trying make so the baby one doesn't come in because baby ones are slimy. | UD_English-CHILDES
+- [childes] 8d41f2091c845dbf96e095fd92ab4fb1213b03588e7c522d005015e9dbdcd1d7 | What letter is this? | UD_English-CHILDES
+- [childes] 8d432f72c13e5be81707f81932ff7dbabea0d5d97e060c318938ae5c754a4cf4 | Sure. | UD_English-CHILDES
+- [childes] 8d44f4d05adc105a7b6be232d4cc3881a3e79cd66746a3374b65022ba6adfac3 | Are you tired? | UD_English-CHILDES
+- [childes] 8d491e45dad86824f0544b82909f6c60b8388c2d18d8b95b00af17a5479d1551 | A little puppy. | UD_English-CHILDES
+- ... 970 more new items
+

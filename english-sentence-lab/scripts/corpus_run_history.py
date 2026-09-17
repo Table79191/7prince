@@ -37,6 +37,16 @@ def snapshot(root: Path, output: Path) -> None:
     print(f"snapshot: {compact['total']} records")
 
 
+def actual_worker_base_sha() -> str:
+    path = Path("/tmp/sentence_lab_worker_base")
+    if not path.exists():
+        return "-"
+    text = path.read_text(encoding="utf-8").strip()
+    if "=" in text:
+        return text.split("=", 1)[1].strip() or "-"
+    return text or "-"
+
+
 def record(root: Path, snapshot_path: Path, status: str, details: str) -> None:
     before = (
         json.loads(snapshot_path.read_text(encoding="utf-8"))
@@ -82,7 +92,8 @@ def record(root: Path, snapshot_path: Path, status: str, details: str) -> None:
         f"event: {os.environ.get('GITHUB_EVENT_NAME', 'local')}",
         f"run_id: {os.environ.get('GITHUB_RUN_ID', '-')}",
         f"run_attempt: {os.environ.get('GITHUB_RUN_ATTEMPT', '-')}",
-        f"head_sha: {os.environ.get('GITHUB_SHA', '-')}",
+        f"event_head_sha: {os.environ.get('GITHUB_SHA', '-')}",
+        f"worker_base_sha: {actual_worker_base_sha()}",
         f"details: {details or '-'}",
         f"before_total: {before_total}",
         f"after_total: {after_total}",

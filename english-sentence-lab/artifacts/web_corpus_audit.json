@@ -1,37 +1,189 @@
 {
   "status": "PASS",
-  "total_rows": 14955,
-  "manifest_total": 14955,
+  "total_rows": 70184,
+  "manifest_total": 70184,
   "source_counts": {
-    "atis": 3583,
-    "childes": 3583,
+    "atis": 5430,
+    "childes": 45499,
     "ctetex": 274,
     "eslspok": 2154,
-    "ewt": 3584,
+    "ewt": 15050,
     "littleprince": 492,
     "pronouns": 285,
     "pud": 1000
   },
   "analysis_status_counts": {
-    "auto_pass": 14196,
-    "needs_review": 759
+    "auto_pass": 67720,
+    "needs_review": 2464
   },
-  "global_unique_ids": 14955,
-  "normalized_unique_texts": 14954,
-  "duplicate_text_groups_anywhere": 1,
-  "duplicate_extra_rows_anywhere": 1,
-  "cross_source_duplicate_groups": 1,
-  "cross_source_duplicate_extra_rows": 1,
+  "global_unique_ids": 70184,
+  "normalized_unique_texts": 70138,
+  "duplicate_text_groups_anywhere": 46,
+  "duplicate_extra_rows_anywhere": 46,
+  "cross_source_duplicate_groups": 46,
+  "cross_source_duplicate_extra_rows": 46,
   "errors": [],
   "warnings": [
-    "normalized-text duplicates across sources: 1 groups / 1 extra rows"
+    "normalized-text duplicates across sources: 46 groups / 46 extra rows"
   ],
   "cross_source_duplicate_examples": [
     {
-      "text": "Good morning .",
+      "text": "I got this.",
       "sources": [
-        "eslspok",
-        "littleprince"
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "I have.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Oh.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "What do you think?",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "It's easy.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Why?",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Good.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "That's it.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Thank you very much.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Here it is.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "What happened?",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Hi.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Not yet.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "I'm just curious.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "What do I do?",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "You can do it.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "I hope so.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Yes they do.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Looks good.",
+      "sources": [
+        "childes",
+        "ewt"
+      ],
+      "count": 2
+    },
+    {
+      "text": "Yes.",
+      "sources": [
+        "childes",
+        "ewt"
       ],
       "count": 2
     }

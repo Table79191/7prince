@@ -2932,3 +2932,50 @@ new_items_sample:
 - [childes] e242595ff1cd099f1bc1dc399a80da8e1c2b24eca35f086d11ae26c4f236073c | And I have how shall I that in here. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:36:09+09:00 / 2026-09-17T21:36:09+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35277237957
+run_attempt: 1
+event_head_sha: 2ff52ced27f808e9308895aaad4f8ada0a01920e
+worker_base_sha: 2ff52ced27f808e9308895aaad4f8ada0a01920e
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 65955
+after_total: 66955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] e7c786c4dcc5ed4befdbab39284a469ea57ecdf457fa8db8e0f663297c5caa03 | And yours is too. | UD_English-CHILDES
+- [childes] e7c792f5a5a54fc00b148e0c3720ecd450ccba462616ef5af50c42c2c80994a5 | I don 't think that would work. | UD_English-CHILDES
+- [childes] e7c8af88c1da2bd8d9317babccbad9c96fab3d66484e57a88aa433938cb1c634 | It's train. | UD_English-CHILDES
+- [childes] e7cd30e4006ad3d67d6ea046fa0e03376dc7475c9c3e4f5c296845fceeabead0 | Squeeze your own. | UD_English-CHILDES
+- [childes] e7cd834a62199a009c45f8b3bda991b818c82d9814cb5083b021c86f61d8ac94 | How long to my apple juice? | UD_English-CHILDES
+- [childes] e7d07b0ea5a227b26f260f6682fb75d5f228e950abd4802b2401ec0d26602006 | They do sometimes eat insects. | UD_English-CHILDES
+- [childes] e7d23025460b46f9bc9dd577d1ac82577bbf1bd6b7dc788f33cf388cdf76872a | Left the crayons. | UD_English-CHILDES
+- [childes] e7d29ac801464975934650955b9a18b9b9406077245c5f491f144dace0e2ac90 | Feel inside. | UD_English-CHILDES
+- [childes] e7d2a3168d415b6a7c5638f2db849d2dd18c29d2803ce39ad00d0728c701d783 | I should hope not. | UD_English-CHILDES
+- [childes] e7d2e86fe7c017824e845ee9c3a179087cfc28e0dfa721bcf374b92ee8981f2b | And why do you put the toys in there? | UD_English-CHILDES
+- [childes] e7d464f111c0944600bbe958588a1448521f8902cd35b8ae46433d3abb6879c4 | It's okay by you huh? | UD_English-CHILDES
+- [childes] e7d56861a129dfba2d34eee921dc4fa92bf821683993606c029779074dd29ef9 | What kind of big fish is it? | UD_English-CHILDES
+- [childes] e7d6d3e08941b309fa0a01350df476f73a4454980f09279de163d014a19f1c53 | You stay here and talk to Fraser and I'm going to go in here and talk to the insurance man. | UD_English-CHILDES
+- [childes] e7d78a0db27797db2802507d5473934a2cebcb4e13d57df51155bbcee5a9b6a1 | Was you man you boy. | UD_English-CHILDES
+- [childes] e7da7ab4c3da853bf8a71540d5d566c7dcb1f4410406be43206b915405089519 | Is there a doggie in this house? | UD_English-CHILDES
+- [childes] e7de1865c48f4c535208d6bedd6180ff84ded346b3f8cbcb48eae2c092abc387 | Maybe he likes ball players. | UD_English-CHILDES
+- [childes] e7deaeed8096fcc675ccb205effceccf9e8a38b9be3c2dbaed815124aceb9126 | Did cha tell Kent you slept over Nana's the other night? | UD_English-CHILDES
+- [childes] e7e08fad5042c442830e946cb62a8a2116e670df226e212bc5404f6b381246eb | If you wanna do something hit your own self. | UD_English-CHILDES
+- [childes] e7e231625fb7383826b3f66d38187a5a823c01b0129ddfe3251b5b448283525f | Did we just take them out of the refrigerator and eat them like that? | UD_English-CHILDES
+- [childes] e7e289267ac960327da4b15526b5df24d8d4ee435b7401df754d9d70af14218e | Let's. | UD_English-CHILDES
+- [childes] e7e4961bf5cf845a2a05437bc3d19b55ed2bea5e3e86af3578838dc4b68e37a5 | Is it ready? | UD_English-CHILDES
+- [childes] e7e49a2aaa1cf1339bef9b22275c7163737dd71dad119a8980e3d8654e52dfc6 | I'm right there right there right there. | UD_English-CHILDES
+- [childes] e7e4b57e638218caf81eb680be3599fdddb8bbc471b7b8e0cf7bcbd02bff9a22 | Very very good. | UD_English-CHILDES
+- [childes] e7e60ba839267ea1ff85c46bada2f6f57a1a1f9d51aaf9c0058b9e5b2cac6205 | Play there. | UD_English-CHILDES
+- [childes] e7e634f92f3e2fa8af1937db88042dbe2e0b7419b7b0d38ff3a38615509dbdac | Did you ever use a pencil sharpener? | UD_English-CHILDES
+- [childes] e7eada7df296172218debdfc1dfc40c05dadaa49fbf1950123d7b262ef5049de | Okay come eat or no snacks later on. | UD_English-CHILDES
+- [childes] e7ec1705f57242be3621b3c719ef7eb95a999fa531290ab2ac574de6034abea1 | Let me shut the door. | UD_English-CHILDES
+- [childes] e7f060ea1b15cc452973adf198f18f2c36992c10fd74ec7603874e32d7d51a40 | The pea. | UD_English-CHILDES
+- [childes] e7f13effa84a7b9c9b6b3e443c9a6a4f38d944ac778075467fa15d03a74864c4 | I need three quarts. | UD_English-CHILDES
+- [childes] e7f69275ca4fe0cb3c600bc5af5dfac1b20db011c3720d256c84379206626938 | How I wonder what you are. | UD_English-CHILDES
+- ... 970 more new items
+

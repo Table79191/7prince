@@ -2227,3 +2227,50 @@ new_items_sample:
 - [childes] 8d491e45dad86824f0544b82909f6c60b8388c2d18d8b95b00af17a5479d1551 | A little puppy. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:16:39+09:00 / 2026-09-17T20:16:39+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35269580145
+run_attempt: 1
+event_head_sha: 8e2939d2fd1d844f67d6cfee1b861c7d6515ab0d
+worker_base_sha: 8e2939d2fd1d844f67d6cfee1b861c7d6515ab0d
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 50955
+after_total: 51955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 92d89698fc002636c3f2c51ebcde161e2c8d271668d4dd26b659624fd4d14ab1 | I wish I could stop this. | UD_English-CHILDES
+- [childes] 92da678d08cb79155c4234e976c3d1b858073c6e33b9ce608af7df4f9c9d1815 | I'm way over in the corner over there. | UD_English-CHILDES
+- [childes] 92dcae27044a028a27f4e6bd6e290bfc44302ba1a56fa68392d5c6fcbffb5677 | Setting sun. | UD_English-CHILDES
+- [childes] 92dcc2cb6bda97b8a7ac772397d6b1239d8cc1c2b2ef6ac292eb59742db1274b | You going to nursery school? | UD_English-CHILDES
+- [childes] 92e26a6de1e4c80126acb3c23d3806477f7795aa3190c031e6ea1e8167727fed | Two tramps. | UD_English-CHILDES
+- [childes] 92e390e46fda0b3e3b8c1d725c24455e925b8a281de9e417ba3ed82f572910bc | I already did Mom. | UD_English-CHILDES
+- [childes] 92e46c2a795c982f9419c0616c3d2ff7ee46a93a1918c093077074e8f3131c2b | Do you have any elephant did you get any elephant food? | UD_English-CHILDES
+- [childes] 92e51e22b74dbf907563a26d4bf28035bdbd916a8bd94e620a64a36fe602897a | Mommy more more cake! | UD_English-CHILDES
+- [childes] 92e5cfe17115a758f91bed4f43ae0d75b0ba06aaa78b3644c1ad3bd3a0a11eed | Becky's at home. | UD_English-CHILDES
+- [childes] 92e6206059cc608b0403d205503571375b79f262637bab61d606e4910e040ffa | Doggie take nose off? | UD_English-CHILDES
+- [childes] 92e760dc08165fd21ee0eff5c07b6dab30981eae8c331a705aabffe4decff159 | Stop stop I wanna get off. | UD_English-CHILDES
+- [childes] 92e8f2dbdd44af6b6896549ac395b2977b65d453e9cbc0619901b12f546d8cbb | I think it 's running into the television set isn 't it? | UD_English-CHILDES
+- [childes] 92e97fb38d9a0c593843cc93a4204b3bd6faeed8d0ab7b09966aee7f55fde12d | I get I get you slipper okay? | UD_English-CHILDES
+- [childes] 92ebb61cf5a0db70bc76c2886c86367190c87ae8607876d4febc4181f46b0c55 | It was all over your face remember? | UD_English-CHILDES
+- [childes] 92efd7c046f851caf563f127cd44458963d14c4bbf226a68f78c2194188b2b23 | You made a room a school room. | UD_English-CHILDES
+- [childes] 92f046d7fbf4002c4de990e4c8e810b9b623c79b7108dadf102804d836ca9b42 | You can't eat that. | UD_English-CHILDES
+- [childes] 92f35a741bdee751c0a404d32748d89ea554abd9fc324bba0a6d6926c238ce1f | And den it growed some more toof again. | UD_English-CHILDES
+- [childes] 92f4ca3623d136f2e056278ebdc0bcee8034e6acde4dd24fbebd3d012f47bb27 | My favorite is my favorite is. | UD_English-CHILDES
+- [childes] 92f50192d9cf0cecc844a604e883a19967138552d3732f589e8b36adb22aa087 | Those are her feet. | UD_English-CHILDES
+- [childes] 92fa60181ee7e65c3fdeeb0800ff26fb40d321f2a7bd48ae4d684905fd5355e5 | Well something like a game. | UD_English-CHILDES
+- [childes] 92fadaa155eea99bb101e539c2c5df43534b42adc5224515d7c57d16c31bdbd4 | May I look now? | UD_English-CHILDES
+- [childes] 92fdc94eb4bfffcea698765d72a3d366d9a801b4807d30a09d746548b95deb04 | What does a snail do? | UD_English-CHILDES
+- [childes] 92fedce687f943e42b3e5549ecf473595cc69944321bc09bed09ab6be21eabf8 | You get over there and catch it. | UD_English-CHILDES
+- [childes] 92ff0bd046639f68757c239428bc435c75cace371e9202db2851abd34ba4434a | Are they different from any other tigers? | UD_English-CHILDES
+- [childes] 92ff3e58cea19a3c9fb9c9575cf6a774b126b4908d0628d4de31f52d1893037b | I'm going shoot them to a target and take them off. | UD_English-CHILDES
+- [childes] 9300af17c2568833a15303ff82dbac1a49efc84e1fd3774832c544c3dcb6b6ef | Not Fraser. | UD_English-CHILDES
+- [childes] 9300b42f2dd28cb15b7b0e4a6b20e99ba99973acf99ad1b30888f018d413848e | They have junk. | UD_English-CHILDES
+- [childes] 9301aa48bc97c9a48031fb9efa6efee19fb1d6b0206d413b082a6b6b4a501363 | To why do you wanna smoke? | UD_English-CHILDES
+- [childes] 930489e31a76a66dc683742f6b8de522811c7d4c6cd83194062083f738d9f465 | Your Daddy? | UD_English-CHILDES
+- [childes] 9306d46eddf84b570aaa0abe718f353a3359c0d9ff61880a154d1e50151196fe | What's saying that? | UD_English-CHILDES
+- ... 970 more new items
+

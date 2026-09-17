@@ -1,0 +1,91 @@
+{
+  "version": "1.7.3-GOLD-REPLAY",
+  "params": 615558,
+  "trainable_params": 191302,
+  "gold_train_sentences": 18000,
+  "ud_replay_sentences": 8000,
+  "gold_val_sentences": 4000,
+  "baseline": {
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 0.8946503437866845,
+      "sentence_exact": 1149
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9246018569759576,
+      "sentence_exact": 5791
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "gold": {
+        "sentences": 4000,
+        "tokens": 59630,
+        "base_role_acc": 0.5926882441723964,
+        "neural_role_acc": 1.0,
+        "sentence_exact": 4000
+      },
+      "ud": {
+        "sentences": 7682,
+        "tokens": 81315,
+        "base_role_acc": 0.6457849105331119,
+        "neural_role_acc": 0.9271106191969501,
+        "sentence_exact": 5780
+      },
+      "score": 1.55626637151817,
+      "last_train": {
+        "sentences_seen": 26000,
+        "loss": 0.032811040436202074,
+        "train_acc": 0.9922887106724244
+      }
+    },
+    {
+      "epoch": 2,
+      "gold": {
+        "sentences": 4000,
+        "tokens": 59630,
+        "base_role_acc": 0.5926882441723964,
+        "neural_role_acc": 1.0,
+        "sentence_exact": 4000
+      },
+      "ud": {
+        "sentences": 7682,
+        "tokens": 81315,
+        "base_role_acc": 0.6457849105331119,
+        "neural_role_acc": 0.921982414068745,
+        "sentence_exact": 5718
+      },
+      "score": 1.553189448441247,
+      "last_train": {
+        "sentences_seen": 26000,
+        "loss": 0.019659959387455798,
+        "train_acc": 0.9945495351074062
+      }
+    }
+  ],
+  "selected": {
+    "epoch": 1,
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9271106191969501,
+      "sentence_exact": 5780
+    }
+  },
+  "sealed_holdouts_included": false,
+  "external_downloads_for_this_run": false
+}

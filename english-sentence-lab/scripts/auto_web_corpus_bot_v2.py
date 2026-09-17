@@ -306,7 +306,7 @@ def main() -> None:
     except Exception:
         manifest = {}
 
-    manifest["version"] = "AUTO-WEB-CORPUS-2.1-INCREMENTAL"
+    manifest["version"] = "AUTO-WEB-CORPUS-2-INCREMENTAL"
     manifest["policy"] = {
         "source_type": "allowlisted public Universal Dependencies English treebanks",
         "arbitrary_web_scraping": False,

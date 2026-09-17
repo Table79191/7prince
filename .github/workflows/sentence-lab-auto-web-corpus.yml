@@ -3,11 +3,12 @@ name: SentenceLab autonomous corpus loop
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '*/5 * * * *'
   push:
     branches: [main]
     paths:
       - 'english-sentence-lab/scripts/auto_web_corpus_bot.py'
+      - 'english-sentence-lab/scripts/stamp_collection_times.py'
       - 'english-sentence-lab/scripts/compare_web_corpus_to_model.py'
       - 'english-sentence-lab/artifacts/*.pt'
       - '.github/workflows/sentence-lab-auto-web-corpus.yml'
@@ -38,10 +39,16 @@ jobs:
       - name: Run collector self-test
         run: python english-sentence-lab/scripts/auto_web_corpus_bot.py --self-test
 
+      - name: Run collection-time self-test
+        run: python english-sentence-lab/scripts/stamp_collection_times.py --self-test
+
       - name: Collect already-annotated public English data
         run: |
           python english-sentence-lab/scripts/auto_web_corpus_bot.py \
             --max-per-source 1000
+
+      - name: Stamp first collection time in UTC and KST
+        run: python english-sentence-lab/scripts/stamp_collection_times.py
 
       - name: Validate generated corpus files
         shell: bash
@@ -65,11 +72,15 @@ jobs:
                       assert row['source']['key'] == key
                       assert row['source']['license'] == source['license']
                       assert row['analysis']['tokens']
+                      collection = row['collection']
+                      assert collection['first_collected_at_utc'].endswith('+00:00')
+                      assert collection['first_collected_at_kst'].endswith('+09:00')
                       rows += 1
               assert rows == source['sentences_written'], (key, rows, source['sentences_written'])
               total += rows
           assert total == manifest['totals']['sentences_written'], (total, manifest['totals'])
-          print(f'validated {total} analyzed sentences from {len(manifest["sources"])} sources')
+          assert manifest['collection_time']['records_with_timestamp'] == total
+          print(f'validated {total} timestamped analyzed sentences from {len(manifest["sources"])} sources')
           PY
 
       - name: Detect corpus or model changes

@@ -1,0 +1,125 @@
+{
+  "version": "1.7.4-GOLD-EWT-REPLAY",
+  "params": 615558,
+  "trainable_params": 191302,
+  "synthetic_gold_train_sentences": 18000,
+  "ewt_gold_train_sentences": 12023,
+  "ud_replay_sentences": 8000,
+  "gold_val_sentences": 4000,
+  "ewt_eval_sentences": 3827,
+  "baseline": {
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ewt": {
+      "sentences": 3827,
+      "tokens": 49991,
+      "base_role_acc": 0.6211718109259666,
+      "neural_role_acc": 0.8946010281850734,
+      "sentence_exact": 2415
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9271106191969501,
+      "sentence_exact": 5780
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "gold": {
+        "sentences": 4000,
+        "tokens": 59630,
+        "base_role_acc": 0.5926882441723964,
+        "neural_role_acc": 1.0,
+        "sentence_exact": 4000
+      },
+      "ewt": {
+        "sentences": 3827,
+        "tokens": 49991,
+        "base_role_acc": 0.6211718109259666,
+        "neural_role_acc": 0.8984017123082155,
+        "sentence_exact": 2469
+      },
+      "ud": {
+        "sentences": 7682,
+        "tokens": 81315,
+        "base_role_acc": 0.6457849105331119,
+        "neural_role_acc": 0.9259915144807231,
+        "sentence_exact": 5781
+      },
+      "score": 2.2729367884263807,
+      "last_train": {
+        "sentences_seen": 38023,
+        "loss": 0.1909620612859726,
+        "train_acc": 0.9285714285714286
+      }
+    },
+    {
+      "epoch": 2,
+      "gold": {
+        "sentences": 4000,
+        "tokens": 59630,
+        "base_role_acc": 0.5926882441723964,
+        "neural_role_acc": 1.0,
+        "sentence_exact": 4000
+      },
+      "ewt": {
+        "sentences": 3827,
+        "tokens": 49991,
+        "base_role_acc": 0.6211718109259666,
+        "neural_role_acc": 0.9016622992138585,
+        "sentence_exact": 2501
+      },
+      "ud": {
+        "sentences": 7682,
+        "tokens": 81315,
+        "base_role_acc": 0.6457849105331119,
+        "neural_role_acc": 0.9276517247740269,
+        "sentence_exact": 5831
+      },
+      "score": 2.2766214029574945,
+      "last_train": {
+        "sentences_seen": 38023,
+        "loss": 0.05777965858578682,
+        "train_acc": 0.9965034965034965
+      }
+    }
+  ],
+  "selected": {
+    "epoch": 2,
+    "gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ewt": {
+      "sentences": 3827,
+      "tokens": 49991,
+      "base_role_acc": 0.6211718109259666,
+      "neural_role_acc": 0.9016622992138585,
+      "sentence_exact": 2501
+    },
+    "ud": {
+      "sentences": 7682,
+      "tokens": 81315,
+      "base_role_acc": 0.6457849105331119,
+      "neural_role_acc": 0.9276517247740269,
+      "sentence_exact": 5831
+    }
+  },
+  "ewt_distribution": {
+    "ewt:val": 3827,
+    "ewt:train": 12023
+  },
+  "sealed_project_holdouts_included": false,
+  "source_note": "UD English EWT train only used for fitting; official dev/test kept evaluation-only"
+}

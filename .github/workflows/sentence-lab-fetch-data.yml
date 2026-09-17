@@ -39,18 +39,18 @@ jobs:
       - name: Show downloaded corpus manifest
         run: cat english-sentence-lab/data/ud/manifest.json
 
-      - name: Train SentenceLab GRU3 + self-attention role network
+      - name: Train SentenceLab GRU3 + self-attention role network on full corpus pool
         shell: bash
         run: |
           cd english-sentence-lab
-          python train/train_ud_role.py \
+          python train/train_ud_role_v2.py \
             --data data/ud \
-            --out artifacts/v1.7.0_ud_role.pt \
-            --metrics artifacts/v1.7.0_ud_metrics.json \
+            --out artifacts/v1.7.1_ud_full_role.pt \
+            --metrics artifacts/v1.7.1_ud_full_metrics.json \
             --epochs 1 \
             --batch 32 \
             --chunk-sentences 250 \
-            --max-per-corpus 12000
+            --max-per-corpus 40000
           rm -f artifacts/latest.pt
 
       - name: Commit downloaded corpora and trained model
@@ -64,5 +64,5 @@ jobs:
             echo 'No corpus/model changes to commit.'
             exit 0
           fi
-          git commit -m 'Train SentenceLab GRU3 on public annotated English corpora'
+          git commit -m 'Train SentenceLab GRU3 on full public English corpus pool'
           git push

@@ -35,15 +35,15 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 249,
-    "accuracy": 0.996,
-    "exact_sentences": 49,
-    "exact_sentence_accuracy": 0.98,
+    "correct": 250,
+    "accuracy": 1.0,
+    "exact_sentences": 50,
+    "exact_sentence_accuracy": 1.0,
     "by_gold_role": {
       "S": {
         "checks": 173,
-        "correct": 172,
-        "accuracy": 0.9942196531791907
+        "correct": 173,
+        "accuracy": 1.0
       },
       "O": {
         "checks": 56,
@@ -62,9 +62,9 @@
       }
     }
   },
-  "fixed_checks": 47,
+  "fixed_checks": 48,
   "regressed_checks": 0,
-  "net_corrections": 47,
+  "net_corrections": 48,
   "fix_reasons": {
     "dep-object": 9,
     "object-complement": 1,
@@ -77,18 +77,13 @@
     "conj-inherit": 2,
     "dep-complement": 1,
     "initial-partitive-subject": 1,
+    "compound-to-mistagged-ccomp-subject": 1,
     "dep-appos": 1,
     "correlative-subject-repair": 1,
     "fronted-between-pp-repair": 1,
     "fronted-between-conj": 1
   },
-  "remaining_confusions": [
-    {
-      "gold": "S",
-      "pred": "O",
-      "count": 1
-    }
-  ],
+  "remaining_confusions": [],
   "fixed_examples": [
     {
       "id": "CM50-001",
@@ -617,6 +612,27 @@
     },
     {
       "id": "CM50-025",
+      "token": "pattern",
+      "occurrence": 0,
+      "gold": "S",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "compound",
+      "head": "repeats",
+      "head_pos": "NOUN",
+      "head_tag": "NNS",
+      "head_dep": "ccomp",
+      "head_lemma": "repeat",
+      "head_neural": "O",
+      "prev": "dimming",
+      "next": "repeats",
+      "neural_direct": "O",
+      "confidence": 0.88738,
+      "dep_guard": "S",
+      "guard_reason": "compound-to-mistagged-ccomp-subject"
+    },
+    {
+      "id": "CM50-025",
       "token": "regularity",
       "occurrence": 0,
       "gold": "S",
@@ -1079,27 +1095,5 @@
     }
   ],
   "regressed_examples": [],
-  "remaining_errors": [
-    {
-      "id": "CM50-025",
-      "token": "pattern",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "compound",
-      "head": "repeats",
-      "head_pos": "NOUN",
-      "head_tag": "NNS",
-      "head_dep": "ccomp",
-      "head_lemma": "repeat",
-      "head_neural": "O",
-      "prev": "dimming",
-      "next": "repeats",
-      "neural_direct": "O",
-      "confidence": 0.88738,
-      "dep_guard": "O",
-      "guard_reason": "neural"
-    }
-  ]
+  "remaining_errors": []
 }

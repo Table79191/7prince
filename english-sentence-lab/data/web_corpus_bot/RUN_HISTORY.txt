@@ -2039,3 +2039,50 @@ new_items_sample:
 - [childes] 7749151bf89cfb7c4d5d04e431d2f6123df3418191f1b2011e13672d0268f5bf | Say do you like ham. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:57:22+09:00 / 2026-09-17T19:57:22+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35267540773
+run_attempt: 1
+event_head_sha: 16bbb552747023fe66148ba3ed92fec7ca83724d
+worker_base_sha: 16bbb552747023fe66148ba3ed92fec7ca83724d
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 46955
+after_total: 47955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 7c634c1d643e8c7f8db70878ea002f047df272ad44858fd75cac28008155d69f | Aren't they upstairs? | UD_English-CHILDES
+- [childes] 7c6374ad20bbb091ee2bde45ede553a2fa9e2a02bf4a306b5edef9c237c25d9b | Now cana give me this I'll scan this. | UD_English-CHILDES
+- [childes] 7c6526e0b5f00542eedd79bc443b76d34db9dbca300031ebc83a4565f8f5cc8c | Maybe I have something for an arrow. | UD_English-CHILDES
+- [childes] 7c661cfa73db91aec517c4d8dbe4515bf81e998c5a1a945c8a56759882489277 | Adam doesn 't have cowboy boots like that. | UD_English-CHILDES
+- [childes] 7c67fff1278c156a4f855e144a20211b6f90bd59732aaa658edd9a61c6222509 | I got it easily. | UD_English-CHILDES
+- [childes] 7c68c526f5ce92d0931c13bf361e559e3d43707987a53a354b34967f988cbc9a | Oh tell me why you 're frightened. | UD_English-CHILDES
+- [childes] 7c6926523b3fb2a1755dd52030f73d1e1231b9f2cd7b55c73ae1b5ec1c586243 | You don't want her to stand on her head do you? | UD_English-CHILDES
+- [childes] 7c6965d9eeb7e6cd819d634ab7272928002a81d9e919990239f0ecbdb00e9ec0 | This is the and this these are things for the salad bar. | UD_English-CHILDES
+- [childes] 7c6cdad0363fb2941afb6a83e3647df65725f250c05bffe7ee6753ae15ec2143 | That's how to add. | UD_English-CHILDES
+- [childes] 7c6d999392b5935470110eb899ebc43cbe40d9cfdd390bffddc81442f8f484e4 | I need help sometimes when I look for stuff. | UD_English-CHILDES
+- [childes] 7c6e1960aff25b8758af0f9d8f44157144bce97cd1a17b119f9dd2ccd517d30c | But I don't want my leaves. | UD_English-CHILDES
+- [childes] 7c7052ab27529c435be3ad3731258d46418c1260de261c6fc150a00b32ebdcfc | Seven little ladybugs sitting on on. | UD_English-CHILDES
+- [childes] 7c71afb1795a26b4e84533b0163ef17082e2b3457692bdb1eafce55d21d4946a | That 's Ursula 's tape recorder. | UD_English-CHILDES
+- [childes] 7c71f728600eb16a6055be0a6cd037ff56dfd444c9ca438a61ddaf011dc4f02b | Bo bo bo bo. | UD_English-CHILDES
+- [childes] 7c7417c084355c350f92c4e9e0276296315e53cbdea9d8bfbfb5ca1f5fae7655 | I don't think you'd like for Rinny to bite you. | UD_English-CHILDES
+- [childes] 7c75da3353c5d7fb98781f3c519d8f9007b47777ce757c9e8b6b0b96e0ad0728 | I don't need one more. | UD_English-CHILDES
+- [childes] 7c77173f42f2d42980e21f995a6ae5ab8f679edffe45bf9100572ca933b1fd0d | Jwww Laura was. | UD_English-CHILDES
+- [childes] 7c771c536485d0dd447f917a47faa5e4ec33ed07143bf147a0043370e47f4770 | Later alright? | UD_English-CHILDES
+- [childes] 7c776f162d3c65e202d027db76423896a6000360ca37a8ec165ee11e8773381d | I needta open it with this. | UD_English-CHILDES
+- [childes] 7c78be72dafc1af2b4747ce6b2ba17e6c4e27195a063008a6325a2e65c1aac49 | Play a Thomas. | UD_English-CHILDES
+- [childes] 7c7b11d87374d0438fe916871a6e208569c8d2b3f4cc2831ef3d55bf6afc5353 | I don't like the way you're talking to people not only is it not informative it's mean. | UD_English-CHILDES
+- [childes] 7c7b479d8f42ede732d0f6674374e5042ce10e2b238c87ae1e7d7148cb38d239 | Oh you have money? | UD_English-CHILDES
+- [childes] 7c7b5925cfc2c14537a0eab22c2150cfe592c3ef970711bd247edf7e54b38d12 | Read dat train track. | UD_English-CHILDES
+- [childes] 7c7e1a22c9fc8b31a9b5bc8a5c457ff2f10e75e8223ce1c8e374132878ff5880 | You woke up at fourteen o'clock. | UD_English-CHILDES
+- [childes] 7c7e21f9788bd1f19a62d59a13ec403862a9011d3151ca81b32c79e877462c3a | I need them. | UD_English-CHILDES
+- [childes] 7c7ed64c6e5268928962b84cca1caf7dcfd33c8f874ce20b9cd4887a05a87e3a | Adam no honey. | UD_English-CHILDES
+- [childes] 7c7fc261db0a580703446dcc74b1b55916ee76d7a59310b890417e3ecdcbc4b8 | Okay see? | UD_English-CHILDES
+- [childes] 7c80dbc4365c941ac2ce562c113fe8cd71a3666aad5bb40285488c2e38ee8148 | Look what I have. | UD_English-CHILDES
+- [childes] 7c829448bb61d9d94748c7daa2029421327aa19b7ea870081debd562cbc48b4d | Another fish in the fish store. | UD_English-CHILDES
+- [childes] 7c83933d3a9373030a1cb879b8af67f84ed06102ad2fc7b2bdee985f07887535 | I don't know honey. | UD_English-CHILDES
+- ... 970 more new items
+

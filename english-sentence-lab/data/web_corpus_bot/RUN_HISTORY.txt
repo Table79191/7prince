@@ -1428,3 +1428,50 @@ new_items_sample:
 - [childes] 422014c8f9a43f21ab8e9eabb2ad31f39330d18d86a3eba40da6964d86b52c3f | You drawing a kitty? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:50:00+09:00 / 2026-09-17T18:50:00+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35260832578
+run_attempt: 1
+event_head_sha: 9b2b3ad88dc742c04690a5cc76bba10f2707f213
+worker_base_sha: 9b2b3ad88dc742c04690a5cc76bba10f2707f213
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 33955
+after_total: 34955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 44ad5660f1ebe9b8dfc02fa4c227e987789dac44ebd7cb70a5917bbf01b3e6a5 | What what don't you like about orange juice? | UD_English-CHILDES
+- [childes] 44b24a8183130f1e801f1d81d7cf3b53f20b68eca6facea2f440085ad73ccb98 | Good girl. | UD_English-CHILDES
+- [childes] 44b336b10da51d7927b4fd617da716fa118cd4e503affa7e2f2a3c6b8a3acfd3 | Oh you're putting supper on the table. | UD_English-CHILDES
+- [childes] 44b62c673e798b1e4aa0a978f43681fbd0e3d3e94cba169710555dd77779381c | I was going to say it wouldn't go that quickly because I haven't even got the lid on the bottle yet. | UD_English-CHILDES
+- [childes] 44b7033cb34e023628e7fcc3d09ed83eed47e980dd3da04c114f8090cd5238d8 | With a flat tire? | UD_English-CHILDES
+- [childes] 44b7a08c6f919d48927d9d45fffd704067a04d37e49d7b43235d3fc380e31020 | See these basket? | UD_English-CHILDES
+- [childes] 44b7ac25c6e36dd3c9b9bdeef11839d9b0bde39de170f374ac25fac86b4d2e2f | Okay why did it break? | UD_English-CHILDES
+- [childes] 44b83a63bb7848d8fff6066fc546dd8fb10d3bb67add4014dc86584a3352c8de | He was looking right at you when you came out of my belly. | UD_English-CHILDES
+- [childes] 44b902cdc52369b6c84e9cd34811aa9d27e7cb560061353bf720c6e5696bd0da | Oh Tom Tom the piper 's son? | UD_English-CHILDES
+- [childes] 44bdea8f1d66deaf5e19424a64caca9f0cc339aa574cc9d8cc11822bf6f04965 | He got one eye. | UD_English-CHILDES
+- [childes] 44be3ab5adc045f3c0843cfbfcb435aacabbdfc7686b0790dfb498e6335e4e9e | Now I'm gonna go in the pool and now you can play in the sandbox. | UD_English-CHILDES
+- [childes] 44c1326aaa200aa43e56e79b697d60f17d659c2a354601f5be84152337748609 | Adam where did you see the lobster? | UD_English-CHILDES
+- [childes] 44c16f065f1c63182b07a251d2ee0981116e7aa8a22267f039d7aeca42d74316 | I'm doing something here. | UD_English-CHILDES
+- [childes] 44c190282d28e6885cb3db16b19ca926411f17a4783e804570b24edb1a079ed1 | That spells one? | UD_English-CHILDES
+- [childes] 44c1cd1e75269ec5bd075cbe364f62338aeb2026e26ea5e6b6fd5201b51a2034 | I want some hot bread. | UD_English-CHILDES
+- [childes] 44c31db5255d84ea3075db30d496ec6fdfd689fab32b0bdaa8a5f92f39e8e2a5 | You're a cat. | UD_English-CHILDES
+- [childes] 44c8875f83b4ca7bdee0b1f7a1e9eca353e658a5c7f144bdfa7e5e1ce55c6a00 | I don't know what you call it. | UD_English-CHILDES
+- [childes] 44c8f6cad86df48169e8458a9e3d21a42ee5b68f615f4d5f8a59b3c090850c29 | Are they just the same? | UD_English-CHILDES
+- [childes] 44c9a8ac581396ffd5d4ebd0a19cbfd1db85e73b5a68857459738eba709deb98 | Yeah that's small enough. | UD_English-CHILDES
+- [childes] 44ca06f41a284858d7ae46eee73ab086d4ad6f69def6d55c93598b737d49b325 | He dirty. | UD_English-CHILDES
+- [childes] 44cba3272abf3ec069159d52ace665e49b37868ede7d81ef83d29b4e0fc7167a | And rain like lie and like a choo choo train arout. | UD_English-CHILDES
+- [childes] 44cd4b7447a4be5dfe4422d0d58ef91daaaf057fd776731c99e0e43306098ec7 | Last summer when Olivia was little her mother showed her how to make sand castles. | UD_English-CHILDES
+- [childes] 44d3b960b8ee7d7252027d7bd3599e979c620a5a7fac7de7b607d7bd4cee7cca | She watched till nine. | UD_English-CHILDES
+- [childes] 44d467d048b78852d31387997deb5f4854bbecc3565bb88f23fd2e1491041e19 | That 's heavy. | UD_English-CHILDES
+- [childes] 44d490ac388d8a30552fa40babc7efc84a7ebf61de3c340f31687e6b32fdd2ab | They're in the fridge. | UD_English-CHILDES
+- [childes] 44d4b47abaaeb75857d6e167d45a7eebef5c94b81fc876117bd089e02f22df1f | One side is alright. | UD_English-CHILDES
+- [childes] 44d861c425442a28f006f3d423f08dd200c41b0b607d2ef3114f76ff30f83920 | About a month? | UD_English-CHILDES
+- [childes] 44d991cf71fce9e0d033df35d6bf65de3925219485ce06344c721be7a423d281 | And jam. | UD_English-CHILDES
+- [childes] 44dbd2a916c461670fc39f7da8901d9a5232ff468bd0e315d6946ee8f5fc7406 | Well it doesn 't seem to have a top. | UD_English-CHILDES
+- [childes] 44df19efe549772b9ecdc4e3f91f1d3dce4657546cb144c9644f423cfa5e3da4 | Okay just a second I want you to do something see what's that? | UD_English-CHILDES
+- ... 970 more new items
+

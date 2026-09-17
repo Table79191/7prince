@@ -1334,3 +1334,50 @@ new_items_sample:
 - [childes] 3c5cf6bbc1f89bab6af235916ab796f53bdf25bc584855adeeac24d81e7f0c04 | Quite often when people visit other people's house. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:39:01+09:00 / 2026-09-17T18:39:01+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35259781372
+run_attempt: 1
+event_head_sha: 3cdaa610990029bac27878e1fbe0eed7b06aae62
+worker_base_sha: 3cdaa610990029bac27878e1fbe0eed7b06aae62
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 31955
+after_total: 32955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 3f25f9f92f16a6e29dae3ff5d9963a852289040d4f6ecd48dd433b406d1f57c6 | One day Danny's mother had a birthday. | UD_English-CHILDES
+- [childes] 3f26bb987773f8900be565416c6353aac2ff815e7c8e23fd31e49badaaa0399d | A dinosaur! | UD_English-CHILDES
+- [childes] 3f26c1dd656445d11fbaf2faa02ced8966540393f7c1fea0250d7e96411e747b | What will be in the paper? | UD_English-CHILDES
+- [childes] 3f2999d9e00e90b8dc2ffa29b64501770094e308f33a7e12f741346d9b4e96a6 | It's um. | UD_English-CHILDES
+- [childes] 3f2a4b7cf723a08134d2f5271d3f9c19798bff399b78ddeadc90660060f0a208 | You you. | UD_English-CHILDES
+- [childes] 3f2ad4df89c065e690055fb72d0d6afd7fb5046619474d5ea5498dccf76d0efc | I need it big. | UD_English-CHILDES
+- [childes] 3f2c1b1ad6b1799414fea45b29f739fcfe37e092475bb092bad8089f4dc78435 | Let him have a turn alright? | UD_English-CHILDES
+- [childes] 3f2e3bb4ac02f98cedd114c8d078c2d030cdd3133b7a3b21a778761784ea568d | Because we couldn 't find the key to fit it. | UD_English-CHILDES
+- [childes] 3f2e87ac5b60d8395becb460a75a0f896203589599e67b540d717d57f7b4ce11 | Today isn 't Thursday. | UD_English-CHILDES
+- [childes] 3f2f20f2598255c07e092aab41aab9e3067991a5c89013de5aa12f055459aafd | Do you wanna help me put some on the car in a little while? | UD_English-CHILDES
+- [childes] 3f2fbc6264d88fd1144a9cd565ae927fab4886d75cf859c49905aa3f3521a345 | A bench. | UD_English-CHILDES
+- [childes] 3f344b8f7dfd5d320465aecfbdb2bef925c7f2e7f804eda30ce588c39e177fd5 | The worm. | UD_English-CHILDES
+- [childes] 3f35dcbf0334f3b15717a2d48a5fad6e490c2b17afce7cbb089a2eb1b0bc0c91 | I do the sit and spin. | UD_English-CHILDES
+- [childes] 3f3610210728337314dc134b07ee95b01b3d95ce3bbaf0070be5550cedd2db42 | I need some peach jam. | UD_English-CHILDES
+- [childes] 3f3796330848bd938b26deed3c1fad9a7bbacfbbc1e90554d655adbcaaa97126 | Oh he only has half of his ear. | UD_English-CHILDES
+- [childes] 3f37bd295944069d9e7eef4417ad7d30adfca5244742f5c621dfefd5f61bff4e | Because they didn't have any food left. | UD_English-CHILDES
+- [childes] 3f382d0f9a76d5ce82005c3532c16b93386a79cd52bd12a61726bee96d27d0a0 | I'm going to see bear. | UD_English-CHILDES
+- [childes] 3f3960fd689041ce14cce39fdb27fe5c1d2c83b580798ebc38b30afaeb346e66 | That 's not Daddy 's suitcase. | UD_English-CHILDES
+- [childes] 3f399346a93c7eb10cf10afeeafc2be82bae5006f71c636393f5b6aac8b885a3 | Police stop. | UD_English-CHILDES
+- [childes] 3f3ca00c8467fddcd4e6556267d4ce218401467d7e3432c127b515315c15b39a | With Dad. | UD_English-CHILDES
+- [childes] 3f3cbe1a2244069d8d602199281ccf0a893ec562c22e9b039e8f00fbf55dc017 | Well who 's that? | UD_English-CHILDES
+- [childes] 3f3db55da224927ebe2837b2ac49171f8c56764e2a4b1aec105e6352c23976b3 | And this the sand? | UD_English-CHILDES
+- [childes] 3f3dc3e5e3f90722bf9271c3d348181fb1e317e71192310ec01357153742a044 | What happens when you win? | UD_English-CHILDES
+- [childes] 3f3f13446620e476f2f7c374a839385bd26e4c0fdb970852c67003e51776758f | Right Mommy? | UD_English-CHILDES
+- [childes] 3f40198ac440e17c7cf493919f0e2f3316c1fe228ef46ba2287446260a3ca7f7 | Look at the camera. | UD_English-CHILDES
+- [childes] 3f40c13dea2770c3a04f618cc6c946f7ab4d3788a4b9aa0f9b221a61ff49ea1d | What would he say if he knew how to talk? | UD_English-CHILDES
+- [childes] 3f40c9e7d1c60140303028d826652b7e56bcd23cbb03f5808a7f0ee95a36a72e | Driving a what? | UD_English-CHILDES
+- [childes] 3f43057a518c856ce8e7b33dc15d7a4d3c60184bcbedfa1db842f34577e7c4f4 | She'll turn purple you know. | UD_English-CHILDES
+- [childes] 3f43985e652ba80b555c060a36a7c90a143b3f9186585b07c81bfa3946b22e31 | A cheese cheese. | UD_English-CHILDES
+- [childes] 3f43ba0cb42ec99ec78e1b0fd812103a4dbbf5af8c8e4c36917d8b2108fce824 | That 's too small? | UD_English-CHILDES
+- ... 970 more new items
+

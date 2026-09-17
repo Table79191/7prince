@@ -1099,3 +1099,50 @@ new_items_sample:
 - [childes] 2e5493d0d7133d991fd23718346a0d377b3bad22f1e170d4f7da9e38e45af8ef | No I don 't think it opens does it? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:12:30+09:00 / 2026-09-17T18:12:30+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35257130857
+run_attempt: 1
+event_head_sha: e482693c70db633e356c246b66b646f465e88e76
+worker_base_sha: e482693c70db633e356c246b66b646f465e88e76
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 26955
+after_total: 27955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 30e27c32a1e584f6abe9c503cad395562a5fb6bee03b2ed69ba52d4452b28ae5 | That 's a train part isn 't it? | UD_English-CHILDES
+- [childes] 30e55211e8192270b4aafe6f714ea2652be72897f0f7921b86e323041fb9cbbb | Count them. | UD_English-CHILDES
+- [childes] 30e5989a7bcdbb3bf011ec205606734dcae2ffed7c65785bcd52cf77b3debb2f | Is that the kitty puppet? | UD_English-CHILDES
+- [childes] 30e7843291423d3cdce95f416067697b19030e1351f8fd0866bde267f24fd4e2 | Uh Manuela Manuela. | UD_English-CHILDES
+- [childes] 30eb6a17b0cb835222fc23f3f526e78140381a35ed04412aca77a01b2268851a | Now your turn Jwww. | UD_English-CHILDES
+- [childes] 30ee39c0b05e007035695efca06d42b5f3eca1526f8d90f173ecf819c37b3388 | Every time I was hungry I could break off the house. | UD_English-CHILDES
+- [childes] 30ef4102d5044fc4587c15f925357b92e184cf52ad522faf98b5f8bbd89ca47a | You see a lime disease. | UD_English-CHILDES
+- [childes] 30efa2ea38f079d3beb6fb3faca567ec038170abc6abaf3a4032ba597db8b5e6 | Anything carrying what? | UD_English-CHILDES
+- [childes] 30f20b47d78f27574591b12c49dda6ebaaf452a25898006eea8d36d93b813aba | Lily microphone. | UD_English-CHILDES
+- [childes] 30f38a572fc0d38e7c142aec2a7275f194ed2cc6b0da671869b3efec034b4698 | Then we can look through it for another curved piece. | UD_English-CHILDES
+- [childes] 30f7df7bbd3816fea5cdc659834550ee948de4f8c275f7eea939443f81264ca1 | I will go water the garden. | UD_English-CHILDES
+- [childes] 30f8230be530ec911170998dd9f6b683d7ee66a98a153f83e709fa34e67ebfa0 | It's starting to go. | UD_English-CHILDES
+- [childes] 30f92da2f0ceb50dab22e51f9265f4bbefcd80b642f7eb915473cc450593db76 | She was sick. | UD_English-CHILDES
+- [childes] 30fa1907f5c9fc4b432669ef94e1bf739128d449cffd139e73dc59c58299804c | That's the back of him. | UD_English-CHILDES
+- [childes] 30fbec88e643133c6a122b6e26db8debe44fdec35b50aa18773cc5250b508623 | All the world. | UD_English-CHILDES
+- [childes] 30ffe4be4385f45762ccddf3bc9b5e6b954365582a3d4cf6d096e2e1594ade5a | He went alone? | UD_English-CHILDES
+- [childes] 3100ff7ae4c28e0c73a23f6628455aca22e5417951aa302bdcf85ce449d6ff20 | No it 's all_gone all put away. | UD_English-CHILDES
+- [childes] 3101da2410c5cc6d4014b331abb13ee384d03e528db0aefd4107a178ad6b7212 | Can you say toy? | UD_English-CHILDES
+- [childes] 3103c7762a40ce562da2574c476168ed95df5c7d9c2a890683b24de3cab94748 | Ah but on this page it says the wipers on the bus go swishswishswish. | UD_English-CHILDES
+- [childes] 3108998afdfb774110ce285e9eb919670a62ff9f166637bb1e0b33182eb00f70 | A butterfly. | UD_English-CHILDES
+- [childes] 310b9d34f00501e85eceb8e79be2f505fa33d0f45b87f52315ff38273639fcfb | You put it together. | UD_English-CHILDES
+- [childes] 310cfbe2942dbd64b8a9735e5898381b0bb6fe009070aceb1819ab5be8a86816 | No it was Sophie's school. | UD_English-CHILDES
+- [childes] 310e1983aea3d58d0a9132ab1a61a4b3e2f3b5fac3dbd89d80a8eaac046e7109 | Yeah the dinosaur's hungry. | UD_English-CHILDES
+- [childes] 3111020e5316695ea0cd7d136adf3ba722a5946cdc6a34a5fdaf005ff8e304f5 | Two sponge. | UD_English-CHILDES
+- [childes] 3112c18a090d8c84fe8e3a2956275216bf80e9eceae988cfa8d22c4b019eaf6e | Take the hat. | UD_English-CHILDES
+- [childes] 3113143d2a9658597885f085fe1a5465c0644565bb649e52c4ba39d4376271a9 | I think it ready. | UD_English-CHILDES
+- [childes] 31141a57c2044ed66899ee957bcbf540c19f6351582f5612a8a81b94329a7437 | Right right here? | UD_English-CHILDES
+- [childes] 3115219bad23e20097c9ff9b68c35aafedee96f8d74c3f5c4d3f1571271da4d9 | Your girl? | UD_English-CHILDES
+- [childes] 3115b29cf5f9fc3c28f19f4ed96484d84bbd8342eab13f4325d1ab4c35a5bda2 | I being a big crocodile under here. | UD_English-CHILDES
+- [childes] 3118bc38752b203b693aee81ef206eb207464e6a0017ebd30a1bc1be7ebeaf9d | In here. | UD_English-CHILDES
+- ... 970 more new items
+

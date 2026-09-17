@@ -1851,3 +1851,50 @@ new_items_sample:
 - [childes] 614407680d3cb711e9729544216bdf3316c056ffbd8442b7b27ca811a9f8ee4e | Adam your juice is out here. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:36:30+09:00 / 2026-09-17T19:36:30+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35265512157
+run_attempt: 1
+event_head_sha: 4924273340947ae64e62dfb2ea952e9ec6f4a62c
+worker_base_sha: 4924273340947ae64e62dfb2ea952e9ec6f4a62c
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 42955
+after_total: 43955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 66b834e6a32f00534db96760ae8ee18ee3b6f448c6ce33047d5d973007156169 | What kind of corn is it? | UD_English-CHILDES
+- [childes] 66b978f85333010eb1b028d684ba48bbc80725e32b36f432c283be7dec7a80ea | In the top tv. | UD_English-CHILDES
+- [childes] 66b9984dfcd2f7727f56c42c3d786713da18527435ec27959832c0c3e77b34ae | You don 't have any boots on. | UD_English-CHILDES
+- [childes] 66bb9e4ef4bd98154d6cf3fecab6e973327f96ce32edd6c46a8d2fe86ecc6487 | That's not funny. | UD_English-CHILDES
+- [childes] 66c04463f0fb769d32b2b9573a6229b56a66b96eac6429b15493625c7cebf435 | Now you make a b. | UD_English-CHILDES
+- [childes] 66c14b662d3597d583cec64b4a4e6f124647a42ff9f055df31debe4738b69370 | You 're turning around like a propeller? | UD_English-CHILDES
+- [childes] 66c3227e7e1113cd3adb555d26a36393e8f8170bf8a322121d21df4f17ca7024 | Can I have on the mug. | UD_English-CHILDES
+- [childes] 66c6c7f8621b830691ebd2baa396de02e52438b0fb7f37cfb3734b0303feb602 | Let 's do this page first. | UD_English-CHILDES
+- [childes] 66c7c8822433d207ac469c274b395ea5d799de032a4754fe598cfeb1d36d1a28 | It 's a wig. | UD_English-CHILDES
+- [childes] 66c8abe93f7bcd073d51366cd3146163cd18a61a6671392fe562b02a2970a479 | Don 't knock it over. | UD_English-CHILDES
+- [childes] 66c8c2e1120d72e505ebd6be589a0c9ea2eef8df46c273d1b944672a08fab30d | Uh put that back. | UD_English-CHILDES
+- [childes] 66cca1b6826c5c8a3ff3fd77d4889cbb06b99fad85c1bcd536d06f36a98ed790 | I saw he can walk yes. | UD_English-CHILDES
+- [childes] 66ce42a955f4583e801a8e0b22b9e0ed5699e1f0d473a1a7a38c1cd5e0c63ce5 | What's Mommy doing? | UD_English-CHILDES
+- [childes] 66ceea52328bae9520b9ae43b6e494e61386ca963796817507917387b11bce68 | Are you drinking your coffee? | UD_English-CHILDES
+- [childes] 66cfef453ce66de235c9f11cdb979c9fdbf11fe122a604c99676e7bae09684b6 | How spell my name? | UD_English-CHILDES
+- [childes] 66cff39309c3ab4f76dc4f5bce286fb6c1f4dff86d087f6ec1e2e79ff810e14b | Do you know the man's name? | UD_English-CHILDES
+- [childes] 66d17874dea4d84295e2c42a86a952d56514c1f2542c6c8aae97b2978de44f8d | We have a tear here. | UD_English-CHILDES
+- [childes] 66d44416ad2c307d37cf70c1f20d817e2468a0af22a38e21cc43b27f8dac461e | This is quite a noisy lunch actually when we're eating crisps isn't it? | UD_English-CHILDES
+- [childes] 66d56ebb9931babaae03e5bd82c0cb598916d5fd438cf11d944a5e8573f64822 | C recorder is on. | UD_English-CHILDES
+- [childes] 66dcd648fb363025f6b808a158ab479e34c83d2248483296beb92857b42fc4d9 | They don 't go together do they Adam? | UD_English-CHILDES
+- [childes] 66df6f2f2c72843b06101b2374238f4ca7ab4d145b25c9a75d4c4481861e0eb2 | I heard a little crunch. | UD_English-CHILDES
+- [childes] 66e082956fe9e2c1dec53117b104bdb8e9389f5d9f687a415bd2967e1f6a53c8 | I love cherry. | UD_English-CHILDES
+- [childes] 66e0f63eb4e924b0b416bbe125db46e11f49e220161fcb0a05b09b3309518349 | And Grandma and Granddad are coming to look after you today. | UD_English-CHILDES
+- [childes] 66e3e640353855001184642efb640b3c3f87c6514e121003238ae869f27e10d9 | Um Washington State. | UD_English-CHILDES
+- [childes] 66e4a27394d5640ec20f66f6510abe99eaf7b92fdccadc30cf8d3ec3c515b9ff | What kind of corn? | UD_English-CHILDES
+- [childes] 66e5b2437b342408e94dba38ad2b083a07dee537cb03e0b5cf169a5abc344e0b | You don't want this. | UD_English-CHILDES
+- [childes] 66e62437d71c764d2ae0a955543b58467f14e9fc7db02b61ff2b0e89ef3e6556 | It's um a bouncy ball. | UD_English-CHILDES
+- [childes] 66e7c4e79c259ac83f61553ae4227056df545f712143837817dff22732e433ea | Your hat? | UD_English-CHILDES
+- [childes] 66e8296222d593a5cdbe53281e1a158c4ec730ed64a77a2059f6381b0097005e | No that's my house. | UD_English-CHILDES
+- [childes] 66e9e1739e3998d44a92d0a89cee1f8a573dce0bd1841da36fcee7de86392dc3 | The seed shouldn't have come out then. | UD_English-CHILDES
+- ... 970 more new items
+

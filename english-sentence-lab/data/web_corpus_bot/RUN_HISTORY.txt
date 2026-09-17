@@ -1381,3 +1381,50 @@ new_items_sample:
 - [childes] 3f43ba0cb42ec99ec78e1b0fd812103a4dbbf5af8c8e4c36917d8b2108fce824 | That 's too small? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:44:00+09:00 / 2026-09-17T18:44:00+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35260303258
+run_attempt: 1
+event_head_sha: 3ab95ac24b6f3e01bf902f23471bb7ae2f75e72d
+worker_base_sha: 3ab95ac24b6f3e01bf902f23471bb7ae2f75e72d
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 32955
+after_total: 33955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 41fdf3308890687329dfc92e6d65241e26de5edc9d7308e46d7566060d59a74b | Yeah I found an elephant though. | UD_English-CHILDES
+- [childes] 4201efb1b7f82060ce6c81d484ed7eefc147f5764e5e709e2af9a70c50a722e8 | Hold it up to the light. | UD_English-CHILDES
+- [childes] 4202bfa5937edb373e2325721e7f373bc5ce289d0e70d8f4594ebe1c31167333 | Let's do it. | UD_English-CHILDES
+- [childes] 420524236b718cfeb6b918be36a1b7852f977c9cf7fe87f06ad9e8fe854cdb5b | I don't know what dis goes to. | UD_English-CHILDES
+- [childes] 4208a00dcbc1184d8e3a5723b0d0f0487755db2fce08f8e80c499f92daed8ce2 | They're comics. | UD_English-CHILDES
+- [childes] 420acd45e8fcd865beb3bb1f44e01b1c40684ce3c6107460f5c7822285e7bc05 | And eyes. | UD_English-CHILDES
+- [childes] 420c536e8e4e7f9185b47da309295d89970a56aa90f87a1db59f8e9afd6b0753 | That looks like that. | UD_English-CHILDES
+- [childes] 420cae561501d6d6cb8a9ff6e9a5586bff525726cbe88cc15afd523e61f2bed8 | That 's so you can put it in your pocket. | UD_English-CHILDES
+- [childes] 420d7b3895a825ac774dcbc36c29b435d2dac468d746ee3348c4915032c12a9a | He jumps. | UD_English-CHILDES
+- [childes] 420e16932b510b25320d9f8e0692dc3b92f54d09b4732937955f5a54dd6aec4b | Well tear it off from the other end. | UD_English-CHILDES
+- [childes] 420e380dbd525d147cd26ff8e4248d8f29ee3c3f82b10df5356545cae18b2c50 | Doggie we don't have anymore ginger. | UD_English-CHILDES
+- [childes] 420e7c9b343fb4cd0a436cb8794e33c148b47918ff46af28431a8331f8791918 | What does a goat say? | UD_English-CHILDES
+- [childes] 420ef4f9f18d012713a35d86586b1b498c42c3fca9e40f9be5fc1a3c44b4e95d | You don't want anything else to eat? | UD_English-CHILDES
+- [childes] 421004562a8272a54b53cf413e0d914193f7c499391ecb1fbbc03cad5ca34d1c | Yes you can pretend. | UD_English-CHILDES
+- [childes] 42107ae986eb1b6a4543d4aa929610840b9f971b7933279e53f259effe039727 | I want just a minute. | UD_English-CHILDES
+- [childes] 421148767e36dbdda7db991226b0315107b16dd55fdbd808ea62a008eefe653e | It says stop and go. | UD_English-CHILDES
+- [childes] 421253be2a7e032e4461016eff48eb1158c6e7f2d83b1f2544019f3f7c57bac1 | Lights flash? | UD_English-CHILDES
+- [childes] 42130e52a336c2fdaf0a328df4a08b63a077eb0423137b0e43efc0927488fe5f | Are you sure you don't? | UD_English-CHILDES
+- [childes] 42139f0a894b0779053ac11fbd14ab3c17c6403e8a87b8cd3b44bb9b92d130bc | Swww sting a bee. | UD_English-CHILDES
+- [childes] 42143e527979cea53acc44ca8fe37832b90584c9f8b7d7c164fb57fad4a90547 | It's not meat. | UD_English-CHILDES
+- [childes] 42159bbd851439dfc638f303068f928d0f7255fc8c79e91151599f842194fbb9 | She got a clay set. | UD_English-CHILDES
+- [childes] 4216552172ac5f79cb51d2629ab406aa0ad4bafa1e1af1c579e5ed6e42f1f165 | Maybe it 's a flying dinosaur. | UD_English-CHILDES
+- [childes] 4217194c780e15ca4cef7cce95459f615a34c9ef7d9e4cb4d99356731ef6b15c | Were you a pirate too? | UD_English-CHILDES
+- [childes] 42185300dac3e33c9724ade7696f95bc0123b251ea9cccf76ba089a5b3f5173a | You going to draw the train? | UD_English-CHILDES
+- [childes] 4218e3224e817f4dfe470ce93e53d92f835ee7501d496a689091f1bd8480f009 | He might be going to sleepy. | UD_English-CHILDES
+- [childes] 42193a1394a49439a75b721e1c8d04e6b96e930ed9f699d69ae488fe2f16d75e | Because it has a motor and it has a pilot to drive it. | UD_English-CHILDES
+- [childes] 421a0c73118658f00b63fda0fba9ffaa6a787c77d75fa9e4658f6c44ffc2c8f3 | What kind of bird was that? | UD_English-CHILDES
+- [childes] 421a21d24bab54fafffa26da0ec7e98517738cebfb736f2879f8f948691f01bb | She's in love with it now. | UD_English-CHILDES
+- [childes] 421e80d30a22056a856019057b3616a8c633866b66741ffe0b414d32bd610ecc | Kiku Mommy? | UD_English-CHILDES
+- [childes] 422014c8f9a43f21ab8e9eabb2ad31f39330d18d86a3eba40da6964d86b52c3f | You drawing a kitty? | UD_English-CHILDES
+- ... 970 more new items
+

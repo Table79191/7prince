@@ -535,3 +535,50 @@ new_items_sample:
 - [atis] 99be46031b7f9cbbd00ec827a21847697e3867fd57f34b612e5af1c43c5a1133 | i want a return flight from washington to dallas on american airlines | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:09:36+09:00 / 2026-09-17T17:09:36+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35250816133
+run_attempt: 1
+event_head_sha: b6e3f0daa84a20179831955797f3c9761bf42b95
+worker_base_sha: b6e3f0daa84a20179831955797f3c9761bf42b95
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 14955
+after_total: 15955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +333 / -0, childes: +333 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] a7cc15536972ba0b32bbd849d5eca7025ab6320b5bcfe2b69f009aca221c4085 | ground transportation washington | UD_English-Atis
+- [atis] a7cf9e88e0ad58ceb7fdea37c797d7860c4302d5b78443752bcd178c21dbbcfd | what night flight do you have from san francisco to denver on united on the evening of august twenty seventh | UD_English-Atis
+- [atis] a7e5b83419cf5582b88ef6fea5cfb9ed322b710e03becdd16bce09e61b137378 | what does co mean | UD_English-Atis
+- [atis] a7e9905f66d24840e7dcf3df1e9853aaee3e53a71a20c49975933be47ee948ed | okay what flights are there us air from orlando to cleveland leaving in the afternoon | UD_English-Atis
+- [atis] a7f01a540317d865f83f00572f07a91b82a696074832151b81c6290f793414c9 | show me all the flights from san francisco to boston for august thirty first 1991 | UD_English-Atis
+- [atis] a7f0e532183aab0e856220e463ad90bdb2acdc189316a2d8e74c15cde55031ba | does us air fly from dc to dallas | UD_English-Atis
+- [atis] a8058c8fba3833020f9f09a4b8acf78d99eb6460fb5d74533ddc3b9851fc65b2 | please show me airlines with flights from denver to boston with a stopover in philadelphia | UD_English-Atis
+- [atis] a811e3cd7f7e305ea7af9ff1f6fc68bfc71e63b1d39f6b1cf821d2662a6f10dc | what are the nonstop flights on america west or southwest air from kansas city to burbank on saturday may twenty two | UD_English-Atis
+- [atis] a8228fd1a84d9db92e89f645c8db0853bd987a16ba10b14551ed7fff3d833d5e | what are the flights from tacoma to san jose | UD_English-Atis
+- [atis] a8445d45f7a3915aee0ef17dd85fbe2e2bd7eddf9e398f841d5d825beab6e6f5 | i would like an evening flight from pittsburgh to los angeles on june third | UD_English-Atis
+- [atis] a85058abc9c6caeb94e83da6f140b83f60cf33f09f04442581624f87d8d56742 | i would like a flight on continental airlines leaving from boston making a stop in denver and arriving in san francisco | UD_English-Atis
+- [atis] a8546006c55c67aa49c0d40a80ed6232a9884ac3b8e883dd0283f9590f708173 | i would like to fly from atlanta to boston arriving in boston at 5 pm | UD_English-Atis
+- [atis] a8549d95b5b2460e2a665de1c4806fc6ea5457ac56fa745caf2375e00d2ef2cc | i would like a flight on american airlines from baltimore to san francisco with a stop in denver | UD_English-Atis
+- [atis] a85f278638f6e4dbe83dfecfed87ee81b797a95a7c86b95d0fab17a9a33d03c1 | i need an early flight from dallas to houston | UD_English-Atis
+- [atis] a8620057d1e7e8b8d8758ab4e862820be67dd52397208a7e8a40e1e8c70a7956 | show me round trip tickets from new york to miami | UD_English-Atis
+- [atis] a87460dc57fc5632fb172b55c182f7cb5386558d8002e834fda75b802a7c38b6 | show me the latest flight from las vegas to denver | UD_English-Atis
+- [atis] a885362cf8cb6e12093f86e111552fa61401bb99bb5ef9797a7fd132caed1e29 | tell me about flights leaving from atlanta and going to charlotte north carolina next monday i need to know about flights that arrive in charlotte between 415 and 530 pm | UD_English-Atis
+- [atis] a88d9ca4cfbe982743602529e7d9ad75fe3cca5e20f9fd1146630605eb9c254c | where do the flights from boston to oakland stop | UD_English-Atis
+- [atis] a8bdc5246a3899c5fe86b75fb6c90ca54cdc80bf934ed8ea4edf8fc2fefd1a7e | show me all flights from san francisco to la guardia nonstop | UD_English-Atis
+- [atis] a8c8c25c58a2eaba389bac17cae347ea66263e7a10efa7a55c4baa69e4df91db | list flights from houston to milwaukee friday pm | UD_English-Atis
+- [atis] a8cfdf22b6c462fb97b2a8bd4a37478dfc53209e272cf2b9f45119140aea70fc | show me the flights that go from san diego to newark by way of houston | UD_English-Atis
+- [atis] a8e3883b2f1a18cc18505b2b641f1311f72ff8e168cadcc3ff8ac59a8e65ad12 | please list the flights from kansas city to denver | UD_English-Atis
+- [atis] a8e5b0c2341cb731a62aa950b0aacdf8d7a6cb1051371312c982625c6465396f | give me morning flights from atlanta to baltimore | UD_English-Atis
+- [atis] a8fa52bbb66a21fe85c363db797e933d400623f376130a1a6ea3682fd7330ce7 | i would like to see the daily flights from baltimore to philadelphia | UD_English-Atis
+- [atis] a9008af72448de32d45c5f8b310202b1947e722af5a6f254f828151128d626ea | do you have a flight from salt lake city to st. petersburg on june second | UD_English-Atis
+- [atis] a901fe6085ea15a416a2d843f522446377c0dc60da959fee3579f3a698a57c0b | is there ground transportation available at the denver airport | UD_English-Atis
+- [atis] a9054651cf8743e93de351325e6040f214e528fdc2d6cc75fdb0f0092943eaf6 | find me a flight from boston to san francisco with a layover in denver | UD_English-Atis
+- [atis] a90dbae6c9219b8a28a8785aa109de5bff65e6f7f1242c7ee40c52906cf90781 | what are the flights on mondays that travel from charlotte north carolina to phoenix arizona | UD_English-Atis
+- [atis] a90ec8cbf7bd63569e882d4c9d8312def574f2f74fa2f9ff1d02043b5cc50931 | what is the earliest flight you have that leaves philadelphia to dallas | UD_English-Atis
+- [atis] a91beca1f59dd5af7224f1e68ffd03db55761596b7c44477b7b155d23eab282e | show me the earliest flight from boston to denver | UD_English-Atis
+- ... 970 more new items
+

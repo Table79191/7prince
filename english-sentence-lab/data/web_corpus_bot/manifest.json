@@ -44,12 +44,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 15050,
-      "sentences_written": 3584,
+      "sentences_written": 3918,
       "new_items_added": 334,
       "allocated_run_quota": 334,
-      "remaining_unseen": 11466,
-      "auto_pass": 3215,
-      "needs_review": 369,
+      "remaining_unseen": 11132,
+      "auto_pass": 3520,
+      "needs_review": 398,
       "upstream_head_sha": "4a4d77f599ea53cc405f85d0cec4b2f14f81d42b",
       "download_skipped": false,
       "skip_reason": ""
@@ -84,12 +84,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 5430,
-      "sentences_written": 3583,
+      "sentences_written": 3916,
       "new_items_added": 333,
       "allocated_run_quota": 333,
-      "remaining_unseen": 1847,
-      "auto_pass": 3534,
-      "needs_review": 49,
+      "remaining_unseen": 1514,
+      "auto_pass": 3863,
+      "needs_review": 53,
       "upstream_head_sha": "3ba83a5ded2c2b6e69ea2fa862806a892ae62a53",
       "download_skipped": false,
       "skip_reason": ""
@@ -124,12 +124,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 3583,
+      "sentences_written": 3916,
       "new_items_added": 333,
       "allocated_run_quota": 333,
-      "remaining_unseen": 41916,
-      "auto_pass": 3544,
-      "needs_review": 39,
+      "remaining_unseen": 41583,
+      "auto_pass": 3874,
+      "needs_review": 42,
       "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
       "download_skipped": false,
       "skip_reason": ""
@@ -280,9 +280,9 @@
     }
   },
   "totals": {
-    "sentences_written": 14955,
-    "auto_pass": 14196,
-    "needs_review": 759,
+    "sentences_written": 15955,
+    "auto_pass": 15160,
+    "needs_review": 795,
     "new_items_added_this_run": 1000,
     "sources_downloaded_this_run": 3,
     "sources_skipped_this_run": 5
@@ -294,8 +294,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 14955,
-    "latest_first_collected_at_utc": "2026-09-17T17:01:25+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T02:01:25+09:00"
+    "records_with_timestamp": 15955,
+    "latest_first_collected_at_utc": "2026-09-17T17:08:24+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T02:08:24+09:00"
   }
 }

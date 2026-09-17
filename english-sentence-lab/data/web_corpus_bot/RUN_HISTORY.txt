@@ -723,3 +723,50 @@ new_items_sample:
 - [atis] d87cbcaf811706c4bd2631cbaa54086b1aeb04578b2e1fb22f7056fbe36658b3 | what is the earliest flight between logan and bwi | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:30:37+09:00 / 2026-09-17T17:30:37+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35252943331
+run_attempt: 1
+event_head_sha: b151e8ba41464266d7c7544de4a3dad758a5a85b
+worker_base_sha: b151e8ba41464266d7c7544de4a3dad758a5a85b
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 18955
+after_total: 19955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +333 / -0, childes: +333 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] e6e7e9c3703093a61c7e1389f210de4e780f111c38af704a7c00289e3a8ae18c | is bwi washington | UD_English-Atis
+- [atis] e6ee914ca298973257350a66b1fad84df572bc34ed073b133d7d859dd5839631 | i want a flight from toronto to montreal that leaves early friday morning | UD_English-Atis
+- [atis] e71245b758e16ac8390913ac0481951104622ea7916bbb252f1c1e3702214c01 | how far from the airport in the dallas fort worth airport is dallas | UD_English-Atis
+- [atis] e7181b894413d2d923575181237eec152e3e2c325a7daa45efd4b34bfe6e41b9 | i would like to fly to denver for under 500 dollars please show me the airfares between pittsburgh and denver | UD_English-Atis
+- [atis] e74a721db1343b3e78ae665af115ba115e5788bca06b87ccecc347910b4b6a1b | what flights are available from denver to philadelphia with stopover in pittsburgh | UD_English-Atis
+- [atis] e773a051a20fd79c01a9658f7863493e55d921bd6543790c2dfe6336dccff0b4 | what are the flights from la guardia to san jose on united | UD_English-Atis
+- [atis] e77584cc273449cfdf65a274875351013fe7576761f764d19019bb68430fb92f | what first class flights are available on july twenty fifth 1991 from denver to baltimore | UD_English-Atis
+- [atis] e7760cfe56478a2e7847012d6e3d6ea52b182b98c12710556c410bbc8be87a8d | list the airlines that have nonstop afternoon flights from boston to oakland | UD_English-Atis
+- [atis] e77c2fd1af7799b34577369e12dc2b8aa4acf7b96e3b97174f8abe419c27f32e | i'm looking for a flight that goes from san jose to houston on may thirtieth and that leaves after noon | UD_English-Atis
+- [atis] e77c3b869b46ece17ed0d9326797368e49ce96f955536a50d5e2cebb5e57935e | show me all flights from milwaukee to orlando | UD_English-Atis
+- [atis] e783ae4a86bdcb1723871113657a3533eb1f3e6b6d94b00379e1f547c77a0911 | flight from milwaukee to denver | UD_English-Atis
+- [atis] e78ceac1e88763d646eed14acf1f41d41008307148beb6b7f0e224cf59f423b4 | show me all flights from new york to miami on a tuesday with round trip fare less than 932 dollars | UD_English-Atis
+- [atis] e7a0b9bdaaa81cf86c1fa1fe2df48416c9dd430a4546f17665e35536d974398c | from las vegas to montreal | UD_English-Atis
+- [atis] e7a65122c38230faed64a135f0e635da553d199ddb0aa588e1d60f848bff461c | please list all united flights between pittsburgh and baltimore | UD_English-Atis
+- [atis] e7b3da034a7e6d187b2ad6ab469c450e0a939cc4abe5b9910318ed233efaf331 | show me all flights from indianapolis | UD_English-Atis
+- [atis] e7b5931fdb01ffb01a282f2821f63b74722f69bdcd11ed1cfecbf59906e18d1d | can you tell me the cheapest flight between boston and san francisco | UD_English-Atis
+- [atis] e7ba6603785a2b2e5af2a6569fe131772809618bac88cae8dcca6b42ecf649e2 | what flights go from philadelphia to san francisco with a stopover in dallas | UD_English-Atis
+- [atis] e7bb558302f1247bb203b190d62d78a9bb2746e8028c27bdad5e24cc16977336 | is there a round trip flight from baltimore to dallas connecting in denver | UD_English-Atis
+- [atis] e7d92f957ea1171566686544a2d3134747f8ff1b3fbc645ca1f68e3bc04bc890 | show me the flights before 11 am on august second from boston to denver on delta | UD_English-Atis
+- [atis] e7efb05ebd65149c291d2d690adc1efabf6803bffda23cbd64b3285fdc899870 | what is the smallest aircraft available to fly on from pittsburgh to baltimore | UD_English-Atis
+- [atis] e80d00b0c90f6fefb8f4bdf4df1b941c076995e0f5df8ff366ec617c08345692 | what flights go from chicago to seattle on continental airlines on saturday | UD_English-Atis
+- [atis] e80faef96788659e3c258ed7c638ef4cae8a97a8abfb73767997557ee332249a | i want a flight from long beach to st. louis that stops in dallas | UD_English-Atis
+- [atis] e813d08716600dc60f24d16f9cabc5347036a9590e680919514c96d1ac4a9cb6 | please find a flight from las vegas to michigan | UD_English-Atis
+- [atis] e81e556b81c67458a76fd29492e6432af9831443b609244e82391a8a4884509c | show me all flights from boston to pittsburgh on wednesday after 6 o'clock pm | UD_English-Atis
+- [atis] e82fe265bd9ed35337c707d8e80b1640e2a19d583ea955258b76c7c52610bf2c | what flights are available from pittsburgh to baltimore on july twenty fifth 1991 | UD_English-Atis
+- [atis] e843361abe112d65c3651fea27a7f2c87337ca92dac3eb66da9153097b33de38 | is there a flight between san francisco and boston with a stopover in dallas fort worth | UD_English-Atis
+- [atis] e85a05dcbc6128d29cad906c14ce645e86905d9f6e8516ae8bb77ea687be2026 | show me flights from philadelphia to denver on a monday | UD_English-Atis
+- [atis] e87cb49a98a6b1b306d9b2992a49f558abf1ef0398009b83f11fcfd2667c3af2 | what does iah mean | UD_English-Atis
+- [atis] e8827b4f8bb28cb2c68b5733ade0d425769ce60d11ae69da0da2e9048c51ff10 | how much does a first class ticket cost from boston to san francisco round trip | UD_English-Atis
+- [atis] e889a2cc839fe2407e2c15c4906d3718f72221a9ad49aa0a468e9d621ff50cda | what kind of ground transportation is there in dallas | UD_English-Atis
+- ... 970 more new items
+

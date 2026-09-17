@@ -7,6 +7,7 @@
     "max_new_per_source_per_run": 250,
     "max_total_per_source": 10000,
     "authenticated_github_api": true,
+    "skip_exhausted_unchanged_sources": true,
     "role_analyzer": "english-sentence-lab/scripts/canonical_roles.py"
   },
   "sources": {
@@ -40,11 +41,14 @@
         }
       ],
       "sentences_after_dedupe_upstream": 15050,
-      "sentences_written": 1500,
+      "sentences_written": 1750,
       "new_items_added": 250,
-      "remaining_unseen": 13550,
-      "auto_pass": 1342,
-      "needs_review": 158
+      "remaining_unseen": 13300,
+      "auto_pass": 1572,
+      "needs_review": 178,
+      "upstream_head_sha": "4a4d77f599ea53cc405f85d0cec4b2f14f81d42b",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "atis": {
       "source": "atis",
@@ -76,11 +80,14 @@
         }
       ],
       "sentences_after_dedupe_upstream": 5430,
-      "sentences_written": 1500,
+      "sentences_written": 1750,
       "new_items_added": 250,
-      "remaining_unseen": 3930,
-      "auto_pass": 1479,
-      "needs_review": 21
+      "remaining_unseen": 3680,
+      "auto_pass": 1725,
+      "needs_review": 25,
+      "upstream_head_sha": "3ba83a5ded2c2b6e69ea2fa862806a892ae62a53",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "childes": {
       "source": "childes",
@@ -112,11 +119,14 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 1500,
+      "sentences_written": 1750,
       "new_items_added": 250,
-      "remaining_unseen": 43999,
-      "auto_pass": 1482,
-      "needs_review": 18
+      "remaining_unseen": 43749,
+      "auto_pass": 1729,
+      "needs_review": 21,
+      "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "ctetex": {
       "source": "ctetex",
@@ -138,7 +148,10 @@
       "new_items_added": 0,
       "remaining_unseen": 0,
       "auto_pass": 218,
-      "needs_review": 56
+      "needs_review": 56,
+      "upstream_head_sha": "3d2bda424dcdedb8889aeec9f81ee6401994f7f2",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "eslspok": {
       "source": "eslspok",
@@ -170,11 +183,14 @@
         }
       ],
       "sentences_after_dedupe_upstream": 2154,
-      "sentences_written": 1500,
+      "sentences_written": 1750,
       "new_items_added": 250,
-      "remaining_unseen": 654,
-      "auto_pass": 1439,
-      "needs_review": 61
+      "remaining_unseen": 404,
+      "auto_pass": 1679,
+      "needs_review": 71,
+      "upstream_head_sha": "3feb27b9759454c4cf02263b371963137bee0d2b",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "littleprince": {
       "source": "littleprince",
@@ -196,7 +212,10 @@
       "new_items_added": 0,
       "remaining_unseen": 0,
       "auto_pass": 474,
-      "needs_review": 18
+      "needs_review": 18,
+      "upstream_head_sha": "60d7a34bcae4d3a09f11dd9fd47e743375e3b9c4",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "pronouns": {
       "source": "pronouns",
@@ -218,7 +237,10 @@
       "new_items_added": 0,
       "remaining_unseen": 0,
       "auto_pass": 275,
-      "needs_review": 10
+      "needs_review": 10,
+      "upstream_head_sha": "6c5934b7330dd0302723178d266f8326bfa358df",
+      "download_skipped": false,
+      "skip_reason": ""
     },
     "pud": {
       "source": "pud",
@@ -240,24 +262,29 @@
       "new_items_added": 0,
       "remaining_unseen": 0,
       "auto_pass": 882,
-      "needs_review": 118
+      "needs_review": 118,
+      "upstream_head_sha": "f16eba4ae7f3d161870ed320676c5088b8fa476c",
+      "download_skipped": false,
+      "skip_reason": ""
     }
   },
   "totals": {
-    "sentences_written": 8051,
-    "auto_pass": 7591,
-    "needs_review": 460,
-    "new_items_added_this_run": 1000
+    "sentences_written": 9051,
+    "auto_pass": 8554,
+    "needs_review": 497,
+    "new_items_added_this_run": 1000,
+    "sources_downloaded_this_run": 8,
+    "sources_skipped_this_run": 0
   },
-  "upstream_snapshot_sha256": "5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f",
+  "upstream_snapshot_sha256": "b99d09afd946f910a9ec0f5e0081ee8ac7da74241652b5d537b1793b54b3c512",
   "collection_time": {
     "meaning": "first time each record was collected by this repository bot",
     "timezone_fields": [
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 8051,
-    "latest_first_collected_at_utc": "2026-09-17T16:25:12+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T01:25:12+09:00"
+    "records_with_timestamp": 9051,
+    "latest_first_collected_at_utc": "2026-09-17T16:30:55+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T01:30:55+09:00"
   }
 }

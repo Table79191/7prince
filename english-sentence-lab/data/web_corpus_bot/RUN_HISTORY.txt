@@ -300,3 +300,50 @@ new_items_sample:
 - [atis] 5f4516fcf7130d793ffc41efc9380acd0fa0bae0136b1de0557497d0d7a648d9 | show me the flights from denver to philadelphia and the flights from pittsburgh to philadelphia | UD_English-Atis
 - ... 874 more new items
 
+=== 2026-09-18T01:48:21+09:00 / 2026-09-17T16:48:21+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35248700157
+run_attempt: 1
+event_head_sha: 7aca61f523828d4f7e6cf04a80f9eb189f31baef
+worker_base_sha: 7aca61f523828d4f7e6cf04a80f9eb189f31baef
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 10955
+after_total: 11705
+net_total_change: +750
+new_items_added: 750
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 6a5396b3e8e9d87219ad14f41e9e1d03498190c37afd8a0c8bb57cc2ecd33225 | list the number of flights arriving in dallas fort worth from boston before noon | UD_English-Atis
+- [atis] 6a54e7eee5d83c09f6a93c2f3c5a448cec90d1642f8507afc02d1027e0fcbe7b | denver to atlanta | UD_English-Atis
+- [atis] 6a5cce81a634c2c7260e29a01d85e4d04fbd0fca15338b85f93cc0871455957a | list the alaska airlines flights arriving in burbank | UD_English-Atis
+- [atis] 6a9eec25537752260fce8773aa27bac7f9225217cfa010fe1ab3bf171a7725ef | what afternoon flights are available from denver to san francisco on wednesdays | UD_English-Atis
+- [atis] 6aaca37d25eee509e8c059c7aad75dd996cfb0a467d60daab558b434d9d6448a | flights from baltimore denver and pittsburgh to philadelphia where the round trip fare for each is less than 1000 dollars | UD_English-Atis
+- [atis] 6aacfb2c73cae29cf10037587f694885b8c9cbc7f19ef33b1cf9bf6b951e708d | show all flights from baltimore to dallas on monday evening and the cost of each flight | UD_English-Atis
+- [atis] 6ad6e276ec9f6a18c7a8c598157041fbb8739ea8c0abc8cf3cd8e44e41960ee7 | round trip houston to las vegas nonstop | UD_English-Atis
+- [atis] 6ae0643abd944fbc9b9ffe8cc6bd48093badfffb2f3b1b00095be495c9d704ff | show me airline abbreviations | UD_English-Atis
+- [atis] 6af048b9b593651f9d477ce2561f557568643f5138c4f04d8b19f361e540535e | looking for a flight from toronto to san diego | UD_English-Atis
+- [atis] 6b076ad11529523b2a1b62da6b0bfa065c2c91b28498e0bf3547527cdc274333 | show me the airlines that use love field | UD_English-Atis
+- [atis] 6b0d0ab2291580c6a15de4c1ba0a4ceb76f4631f5d36fb7b3db86f6e2d4ed8a6 | show me the price of flight ea 212 from atlanta to washington | UD_English-Atis
+- [atis] 6b236aecf8641c8b3f4670d8e9a0285014504a44fce796bd47edadfed3cf304b | show me the flights from new york to los angeles with stop in milwaukee | UD_English-Atis
+- [atis] 6b3d8d6fc5bcea799346cbc4f82508f898110491799e14b138d46de2628397df | us 3724 baltimore to philadelphia what is the fare | UD_English-Atis
+- [atis] 6b47e3a4fc4ac9cb54d192821eef2aa5e4b04ebfddf0189bb889dd173733158e | show me the flights on american airlines from fort worth to denver on the evening of july eleventh | UD_English-Atis
+- [atis] 6b6acc77e917f49f3ff3db6318ab90c9c8cdc0db14a2c59c50094a9ff462f78a | show me the flights between houston and orlando | UD_English-Atis
+- [atis] 6b74774feafc879ab65c6bf520612383df5540811e5b760ceda803fa5c38a684 | give me the fares from miami to cleveland next sunday | UD_English-Atis
+- [atis] 6b8020d482296acc6393104efdd362f7c8b520b2e2ffe54a3b1613d1d6126c37 | what are the flights from boston to philadelphia | UD_English-Atis
+- [atis] 6b933501c86b2915c74ddb5a4c45d008cc11a5193f657927f80c6af223420de5 | what flights from chicago to kansas city | UD_English-Atis
+- [atis] 6bab613ba83c3af806923df310210c4bf2ca6dd4b03c35189c82da173babf2da | i need flight information on saturday for a flight from philadelphia to dallas | UD_English-Atis
+- [atis] 6bbcf64458d2acae0cd4cb36eba93bef35bbf7b26c6d5d0881965cf4bd1f5401 | show me the latest flight on wednesday from atlanta to washington dc | UD_English-Atis
+- [atis] 6bd536fa2f1ede89815c4f381988abcb66f1bfa417cb205ea42e8e99c3750070 | please give me direct morning flights from pittsburgh to atlanta | UD_English-Atis
+- [atis] 6bd77c11910f6609c0fe644f05c7450fd2b63cdb001881d512e7a038f026d3cf | list seating capacities of delta flights from seattle to salt lake city | UD_English-Atis
+- [atis] 6be7b8249e38daff0428908ccafabc132aabd7c64f7f49abac41fd1ffbfa516b | show me flights from milwaukee to orlando on wednesday night | UD_English-Atis
+- [atis] 6bead3f2047cc74246117343f42fb923c2bb66d113757b24d213c11118f0dd54 | how far is it from salt lake city airport to salt lake city | UD_English-Atis
+- [atis] 6beef2a544c70e7136cf5314619ef49e10a4180f146ff2f1819d443f1c140f61 | i need a nonstop flight from san diego to phoenix | UD_English-Atis
+- [atis] 6bef21abea1d425b31dc6f8d3beb1fa755bfa12768986fbd2c503403e94c8746 | find me all the round trip flights from burbank to milwaukee stopping in st. louis | UD_English-Atis
+- [atis] 6bf60049276c28868d370035839009e0b906a80e85ce677c05ca570d6c59eb40 | what is the schedule of ground transportation from washington airport into downtown | UD_English-Atis
+- [atis] 6c0a8d351d9fab447467a22c8aeea48b1bef425aca256ef2d1dcb65d76d6385e | list all flights on continental leaving denver and arriving at chicago on monday before noon | UD_English-Atis
+- [atis] 6c1f750b963eb7cb8dc8e6ade19b1400cdc14edcd6f59cf936ac09372680f0ad | could you please show me all flights from milwaukee to montreal | UD_English-Atis
+- [atis] 6c25288846604364584df20f74e7c8ddb0dcb95135aeb5c77f7c1987c76571a2 | tell me about flights from atlanta to charlotte next monday | UD_English-Atis
+- ... 720 more new items
+

@@ -1,8 +1,8 @@
 SentenceLab practical benchmark — Tatoeba Daily 500 HIGH-FREQUENCY (CC0)
 sentences: 500 | aligned tokens: 3256/3256 (100.00%)
 neural direct: full 87.59% | core 97.83% | macro-F1 81.30% | exact 241/500
-R018 final   : full 90.69% | core 97.69% | macro-F1 84.89% | exact 274/500
-role F1: S=95.49%, V=99.60%, O=78.80%, C=63.06%, M=87.48%
-top confusions: M->O:132, M->C:86, M->S:35, C->M:13, S->C:9, O->M:7, O->S:5, O->C:4, C->S:3, M->V:3
-rule audit worst-first: dep-complement: net -2 (3 fix/5 harm/1 still), conj-inherit: net -1 (0 fix/1 harm/0 still), dep-object: net +3 (8 fix/5 harm/2 still), dep-subject: net +4 (13 fix/9 harm/1 still), dep-appos: net +4 (5 fix/1 harm/0 still), dep-pobj: net +8 (17 fix/9 harm/0 still), dep-function: net +85 (88 fix/3 harm/0 still)
+R018 final   : full 91.00% | core 97.69% | macro-F1 85.24% | exact 279/500
+role F1: S=95.65%, V=99.60%, O=79.48%, C=63.46%, M=87.99%
+top confusions: M->O:126, M->C:84, M->S:33, C->M:13, S->C:9, O->M:7, O->S:5, O->C:4, C->S:3, M->V:3
+rule audit worst-first: dep-complement: net -2 (3 fix/5 harm/1 still), conj-inherit: net -1 (0 fix/1 harm/0 still), dep-object: net +3 (8 fix/5 harm/2 still), dep-subject: net +4 (13 fix/9 harm/1 still), dep-appos: net +4 (5 fix/1 harm/0 still), dep-pobj: net +18 (27 fix/9 harm/0 still), dep-function: net +85 (88 fix/3 harm/0 still)
 NOTE: independent Stanza-derived UD labels are silver reference labels, not human-audited gold.

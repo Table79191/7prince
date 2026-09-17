@@ -40,11 +40,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 15050,
-      "sentences_written": 1250,
+      "sentences_written": 1500,
       "new_items_added": 250,
-      "remaining_unseen": 13800,
-      "auto_pass": 1121,
-      "needs_review": 129
+      "remaining_unseen": 13550,
+      "auto_pass": 1342,
+      "needs_review": 158
     },
     "atis": {
       "source": "atis",
@@ -76,11 +76,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 5430,
-      "sentences_written": 1250,
+      "sentences_written": 1500,
       "new_items_added": 250,
-      "remaining_unseen": 4180,
-      "auto_pass": 1236,
-      "needs_review": 14
+      "remaining_unseen": 3930,
+      "auto_pass": 1479,
+      "needs_review": 21
     },
     "childes": {
       "source": "childes",
@@ -112,11 +112,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 1250,
+      "sentences_written": 1500,
       "new_items_added": 250,
-      "remaining_unseen": 44249,
-      "auto_pass": 1235,
-      "needs_review": 15
+      "remaining_unseen": 43999,
+      "auto_pass": 1482,
+      "needs_review": 18
     },
     "ctetex": {
       "source": "ctetex",
@@ -170,11 +170,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 2154,
-      "sentences_written": 1250,
+      "sentences_written": 1500,
       "new_items_added": 250,
-      "remaining_unseen": 904,
-      "auto_pass": 1197,
-      "needs_review": 53
+      "remaining_unseen": 654,
+      "auto_pass": 1439,
+      "needs_review": 61
     },
     "littleprince": {
       "source": "littleprince",
@@ -244,9 +244,9 @@
     }
   },
   "totals": {
-    "sentences_written": 7051,
-    "auto_pass": 6638,
-    "needs_review": 413,
+    "sentences_written": 8051,
+    "auto_pass": 7591,
+    "needs_review": 460,
     "new_items_added_this_run": 1000
   },
   "upstream_snapshot_sha256": "5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f",
@@ -256,8 +256,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 7051,
-    "latest_first_collected_at_utc": "2026-09-17T16:20:38+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T01:20:38+09:00"
+    "records_with_timestamp": 8051,
+    "latest_first_collected_at_utc": "2026-09-17T16:25:12+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T01:25:12+09:00"
   }
 }

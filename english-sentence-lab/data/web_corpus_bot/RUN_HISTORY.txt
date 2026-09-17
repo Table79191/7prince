@@ -68,3 +68,49 @@ new_items_sample:
 - [atis] 2ef36f986286c215bd51e57d51edf2a45220aed67e87b7ed9a0d5dc6502b1055 | i would like to fly from boston to san francisco | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T01:26:13+09:00 / 2026-09-17T16:26:13+00:00 ===
+status: success
+event: push
+run_id: 35246405875
+run_attempt: 1
+head_sha: 1fdc782c8beba60c529296b4dec5728ac95f79f0
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 7051
+after_total: 8051
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, eslspok: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 3a5cdb66b8b071e159d260d4ffafd72b0ccd546cb4691bcfcf235eef7c154172 | where is lester pearson airport | UD_English-Atis
+- [atis] 3a61038926dba98eb83449d93aa534c7bb478281462fd15710b58b29070a311d | information on flights from boston to washington | UD_English-Atis
+- [atis] 3a7dcb8a441abd3170b6a8c32dda079123b4eb770c4432cb016dd9591ca2810f | find travel arrangements for a round trip flight from boston to pittsburgh arriving after 8 pm | UD_English-Atis
+- [atis] 3a9e27a9ac654727a17168dbbc1cd2ced926cc383467f63602e83f8e142bdea7 | list flights from philadelphia to san francisco thursday | UD_English-Atis
+- [atis] 3aa6bd9ce6809e4d88263766fed529eea3d07b8755ab8b82d924e576b23f031e | what flights do you have between pittsburgh and atlanta | UD_English-Atis
+- [atis] 3aab41b5f48b35f653252fe99367a30ee12722e6c3153604081c6b39ed71b762 | show me the last flight available in the evening from boston to dc on july twenty first | UD_English-Atis
+- [atis] 3ab2896a4c4bb42c1ab2241fe082a2f4e237ea5dfc57301bdc6d8fb40d292014 | find flight from detroit to san diego on tuesday | UD_English-Atis
+- [atis] 3ab7903658fda68f81cdf6eb8937ecc456bee4398ef33e05f6ad9065ff298498 | shortest morning flights from cincinnati to tampa | UD_English-Atis
+- [atis] 3abfead0587652b2319e97dad4ab12df9f6f1af46c674d3ed90cf0c065ba3f72 | i need a flight from phoenix to atlanta | UD_English-Atis
+- [atis] 3ad7721ef7c77751f76b297da0c7c0197f2edf6349ec847572cb6acf323e4bdf | are there delta flights leaving atlanta | UD_English-Atis
+- [atis] 3ae3ed9d1572310a7a28f773b2a5ccc5c279bfca1aab20e6f5785128290d4095 | next sunday flights from miami to cleveland after 1200 hours | UD_English-Atis
+- [atis] 3afdc59464bee840fe465cc879c146098fd2f4d23f50dbad1ad849dacbd6a464 | show me all the morning flights from philadelphia to fort worth | UD_English-Atis
+- [atis] 3b008e56ee0f504d6f4950c3dd9e1eca760defad7d66139a695d8ff426cdc0bb | i need flight information for flights departing from cleveland to milwaukee on wednesday after 5 pm | UD_English-Atis
+- [atis] 3b47bd2e3b27e88c0f005aaeaa6f48d2c4d39f55c2280a4fde9e5263f0b1f5a5 | please give me flights available from baltimore to philadelphia | UD_English-Atis
+- [atis] 3b5487a4ee8ed828335b4361b052d032a95eea5fb8cf57f801fc2c7499e711fb | flights from new york to miami | UD_English-Atis
+- [atis] 3b603db01571206b2470aa555059d5ef8041d263c436dcc32546c3cc4d9790e6 | please list the earliest lunch flight from columbus to phoenix | UD_English-Atis
+- [atis] 3b612f41b14e97b080e92ea269f6ee0f2592bd3d4493f5f5c630b4803bc4fc41 | what is the latest flight available between san francisco and boston | UD_English-Atis
+- [atis] 3b61dcb279f59ab5273d76d73aeb1a60a7bc4d4c1b06a8650e939262b35c902b | what types of meals are available | UD_English-Atis
+- [atis] 3b74a03a61267b10165b5691a6ca681162e68367e259c48a7b42958fe979eedb | could you please list all of the classes of flights there are | UD_English-Atis
+- [atis] 3b781d787abe358795184669a3e1ab12feaf1457b32cd2234dc46b88dacf1b71 | i need to book a flight from newark to tampa on april fourth | UD_English-Atis
+- [atis] 3b811f986dddc8bb58a33f82378d6c487ab747a8edb20be6c18573c1cf0ea248 | okay i've got somebody else who wants to take a round trip ticket from charlotte to montreal | UD_English-Atis
+- [atis] 3b8f7b7e1c263c40092ad4cd1030cda93453312bd058a2731e5f3029cc205b55 | show me the flights from newark new jersey to ontario international next saturday | UD_English-Atis
+- [atis] 3bb0ad8ae7b07e9914b096993ae8200689b4ba5f1619a10005661eb1a8e142f1 | show me the flights from minneapolis to indiana | UD_English-Atis
+- [atis] 3bb74efa2531282f19437f9a60494055a445554c8b791aabb52cb166455c43ec | show last flight from philadelphia to boston | UD_English-Atis
+- [atis] 3bbb43a31c06eeb070ccf2d5f24d136a95b8fa2c19480600f233f6ca54954486 | what is the first flight after 8 am from boston to san francisco | UD_English-Atis
+- [atis] 3bc28f592f06f2fe9ea52a37b1f528ecf460f49dd3a49e02ca7f2f7abc14d376 | i want to find a flight from boston to atlanta | UD_English-Atis
+- [atis] 3bc9a15d88e10f6bf57335a84f698152ea9fca85cb5889b7ab40c100a0ba1327 | does united airlines provide any first class flights from denver to baltimore | UD_English-Atis
+- [atis] 3bca0192d885a2e1058f905b65e17e2a86d73deafaede6df975223e834df127f | what flights go from atlanta to washington dc on thursday | UD_English-Atis
+- [atis] 3bcb906a908058be9741ed92c8ce14611704879b2dd7c3d3dadc8a189c06de5b | what are your flights from denver to baltimore | UD_English-Atis
+- [atis] 3beb69cf245df84dbca85f1d91a3b9fef76d7c1d7a1cd7f5fd88719dc15e095c | i'd like to fly late tomorrow from minneapolis to long beach | UD_English-Atis
+- ... 970 more new items
+

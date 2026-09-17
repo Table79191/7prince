@@ -1,9 +1,12 @@
 {
-  "version": "AUTO-WEB-CORPUS-1",
+  "version": "AUTO-WEB-CORPUS-2-INCREMENTAL",
   "policy": {
     "source_type": "allowlisted public Universal Dependencies English treebanks",
     "arbitrary_web_scraping": false,
-    "max_per_source": 1000,
+    "append_only": true,
+    "max_new_per_source_per_run": 250,
+    "max_total_per_source": 10000,
+    "authenticated_github_api": true,
     "role_analyzer": "english-sentence-lab/scripts/canonical_roles.py"
   },
   "sources": {
@@ -36,11 +39,12 @@
           "bytes": 15034493
         }
       ],
-      "sentences_parsed": 15850,
-      "sentences_after_dedupe": 15050,
-      "sentences_written": 1000,
-      "auto_pass": 898,
-      "needs_review": 102
+      "sentences_after_dedupe_upstream": 15050,
+      "sentences_written": 1250,
+      "new_items_added": 250,
+      "remaining_unseen": 13800,
+      "auto_pass": 1121,
+      "needs_review": 129
     },
     "atis": {
       "source": "atis",
@@ -71,11 +75,12 @@
           "bytes": 2729836
         }
       ],
-      "sentences_parsed": 5431,
-      "sentences_after_dedupe": 5430,
-      "sentences_written": 1000,
-      "auto_pass": 987,
-      "needs_review": 13
+      "sentences_after_dedupe_upstream": 5430,
+      "sentences_written": 1250,
+      "new_items_added": 250,
+      "remaining_unseen": 4180,
+      "auto_pass": 1236,
+      "needs_review": 14
     },
     "childes": {
       "source": "childes",
@@ -106,11 +111,12 @@
           "bytes": 19558480
         }
       ],
-      "sentences_parsed": 48183,
-      "sentences_after_dedupe": 45499,
-      "sentences_written": 1000,
-      "auto_pass": 986,
-      "needs_review": 14
+      "sentences_after_dedupe_upstream": 45499,
+      "sentences_written": 1250,
+      "new_items_added": 250,
+      "remaining_unseen": 44249,
+      "auto_pass": 1235,
+      "needs_review": 15
     },
     "ctetex": {
       "source": "ctetex",
@@ -127,9 +133,10 @@
           "bytes": 435016
         }
       ],
-      "sentences_parsed": 276,
-      "sentences_after_dedupe": 274,
+      "sentences_after_dedupe_upstream": 274,
       "sentences_written": 274,
+      "new_items_added": 0,
+      "remaining_unseen": 0,
       "auto_pass": 218,
       "needs_review": 56
     },
@@ -162,11 +169,12 @@
           "bytes": 661827
         }
       ],
-      "sentences_parsed": 2320,
-      "sentences_after_dedupe": 2154,
-      "sentences_written": 1000,
-      "auto_pass": 960,
-      "needs_review": 40
+      "sentences_after_dedupe_upstream": 2154,
+      "sentences_written": 1250,
+      "new_items_added": 250,
+      "remaining_unseen": 904,
+      "auto_pass": 1197,
+      "needs_review": 53
     },
     "littleprince": {
       "source": "littleprince",
@@ -183,9 +191,10 @@
           "bytes": 406743
         }
       ],
-      "sentences_parsed": 500,
-      "sentences_after_dedupe": 492,
+      "sentences_after_dedupe_upstream": 492,
       "sentences_written": 492,
+      "new_items_added": 0,
+      "remaining_unseen": 0,
       "auto_pass": 474,
       "needs_review": 18
     },
@@ -204,9 +213,10 @@
           "bytes": 142229
         }
       ],
-      "sentences_parsed": 285,
-      "sentences_after_dedupe": 285,
+      "sentences_after_dedupe_upstream": 285,
       "sentences_written": 285,
+      "new_items_added": 0,
+      "remaining_unseen": 0,
       "auto_pass": 275,
       "needs_review": 10
     },
@@ -225,17 +235,19 @@
           "bytes": 1386858
         }
       ],
-      "sentences_parsed": 1000,
-      "sentences_after_dedupe": 1000,
+      "sentences_after_dedupe_upstream": 1000,
       "sentences_written": 1000,
+      "new_items_added": 0,
+      "remaining_unseen": 0,
       "auto_pass": 882,
       "needs_review": 118
     }
   },
   "totals": {
-    "sentences_written": 6051,
-    "auto_pass": 5680,
-    "needs_review": 371
+    "sentences_written": 7051,
+    "auto_pass": 6638,
+    "needs_review": 413,
+    "new_items_added_this_run": 1000
   },
   "upstream_snapshot_sha256": "5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f",
   "collection_time": {
@@ -244,8 +256,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 6051,
-    "latest_first_collected_at_utc": "2026-09-17T13:51:34+00:00",
-    "latest_first_collected_at_kst": "2026-09-17T22:51:34+09:00"
+    "records_with_timestamp": 7051,
+    "latest_first_collected_at_utc": "2026-09-17T16:20:38+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T01:20:38+09:00"
   }
 }

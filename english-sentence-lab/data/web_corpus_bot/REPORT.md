@@ -2,20 +2,21 @@
 
 Upstream snapshot: `5a6819f53e0225632336a39e444397070eec63a828758b631d4d3acb1ba91b6f`
 
-This dataset contains internet-fetched **already annotated** UD English sentences plus SentenceLab S/V/O/C/M role analysis.
-No arbitrary webpages are scraped; only the explicit allowlist in `auto_web_corpus_bot.py` is used.
+Incremental allowlisted Universal Dependencies English corpus.
+Existing records are retained; only unseen sentences are appended.
 
-| Source | License | Written | Auto-pass | Needs review |
-|---|---:|---:|---:|---:|
-| ewt | CC-BY-SA-4.0 | 1000 | 898 | 102 |
-| atis | CC-BY-SA-4.0 | 1000 | 987 | 13 |
-| childes | CC-BY-SA-4.0 | 1000 | 986 | 14 |
-| ctetex | CC-BY-SA-4.0 | 274 | 218 | 56 |
-| eslspok | CC-BY-SA-4.0 | 1000 | 960 | 40 |
-| littleprince | CC-BY-SA-4.0 | 492 | 474 | 18 |
-| pronouns | CC-BY-SA-4.0 | 285 | 275 | 10 |
-| pud | CC-BY-SA-3.0 | 1000 | 882 | 118 |
+| Source | License | Stored | Added this run | Remaining unseen | Auto-pass | Needs review |
+|---|---:|---:|---:|---:|---:|---:|
+| atis | CC-BY-SA-4.0 | 1250 | 250 | 4180 | 1236 | 14 |
+| childes | CC-BY-SA-4.0 | 1250 | 250 | 44249 | 1235 | 15 |
+| ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | 218 | 56 |
+| eslspok | CC-BY-SA-4.0 | 1250 | 250 | 904 | 1197 | 53 |
+| ewt | CC-BY-SA-4.0 | 1250 | 250 | 13800 | 1121 | 129 |
+| littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | 474 | 18 |
+| pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | 275 | 10 |
+| pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | 882 | 118 |
 
-**Total analyzed sentences:** 6051
+**Total analyzed sentences:** 7051
+**New items added this run:** 1000
 
-Every JSONL record preserves the upstream repository, raw file URL, sentence id, expected license, content hash, UD parse, and canonical role rules.
+Every record retains its original UD provenance/license and canonical role analysis.

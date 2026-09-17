@@ -22,3 +22,49 @@ source_changes: none
 new_items_sample:
 - none
 
+=== 2026-09-18T01:21:24+09:00 / 2026-09-17T16:21:24+00:00 ===
+status: success
+event: push
+run_id: 35245933778
+run_attempt: 1
+head_sha: d8720af2e814402872319595c86e52b4fffb5fdd
+details: collect=success,stamp=success,validate=success,compare=success
+before_total: 6051
+after_total: 7051
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, eslspok: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 2d7d8d7860387707ccc2af1ddcc36f7314d341de206ab71443b9985f15e1913c | show me all flights arriving at dallas | UD_English-Atis
+- [atis] 2d80a3697748a9dea6d4e1e8582f96767c40b1fe305f3e273c6e67e1b882db56 | i want a flight from philadelphia to dallas with a stop in atlanta | UD_English-Atis
+- [atis] 2d81e7ce485bd0ce2469550356af6f05b326f4192716683a20e2e0482612615e | please list all available flights from oakland california to philadelphia on wednesday | UD_English-Atis
+- [atis] 2d882701908cb273326d188aa655ff7ce5bb05ceebb02f24d4fcab6f976f237e | what airline flies from boston to san diego | UD_English-Atis
+- [atis] 2d9256169ee4ac4aeff4d27a741df5d7e70b28e4d755c2097b9521d2662bb319 | list all flights departing from general mitchell | UD_English-Atis
+- [atis] 2da484942895eace4886d00800c69332888a83440b65a4c18abba9fde5423f8a | how do i get from the airport to downtown in tacoma | UD_English-Atis
+- [atis] 2da9c06e490ecb8700664371af227cd1b5bf67c49973cfbf6ee978daa21f10ce | does us air fly from washington dc to denver | UD_English-Atis
+- [atis] 2dbdd8bbe1f478a6b17fa536f1d020bb7f05294c23486b93b6b6ee7026b84678 | does continental fly from boston to san francisco | UD_English-Atis
+- [atis] 2dc6f0476d4f72594380c6694aa572b650049149644670d2d2d447786ed7fa8c | list flights from pittsburgh to newark daily | UD_English-Atis
+- [atis] 2dc814030d8b3377e42945b830ef1ddad7934ad95fbe6d85e29bb20d665938e5 | could you find me a flight from boston to san francisco that stops in denver | UD_English-Atis
+- [atis] 2dcf5048f6574aa36f91a949be7f21e09938599e30799526e89e0ac0b9d2f612 | show me all flights from dallas to san francisco | UD_English-Atis
+- [atis] 2dd76060e87560439abb0155fb722032731b6c46e26557a70de69685c93770f2 | list the flights arriving in boston from atlanta on august fifth | UD_English-Atis
+- [atis] 2de57e1a2953abee374188189e99b89b1e91570f05b619a515d85e84861837fe | i'd like a flight from washington that stops in denver and goes on to san francisco | UD_English-Atis
+- [atis] 2df3daed370e7725cf34a890175e8dea200368649ba2f16144d7b3978089b6e7 | dallas to oakland monday | UD_English-Atis
+- [atis] 2e015c7a28991f2e5b50ea31c46f27ea74aa661d35e0c71ff78e147babcf5e6e | what airlines fly into salt lake city | UD_English-Atis
+- [atis] 2e06f5f5cf24822c5b583acb3db46d69e021711ae956b6fcdea4dc3e30f03607 | round trip flights from minneapolis to san diego coach economy fare | UD_English-Atis
+- [atis] 2e0b56f92290e5fee424de93e05864291aad025c8b06ba38536fe7d77b453f0c | tell me about ground transportation at san francisco | UD_English-Atis
+- [atis] 2e1421cb341e3adae953e3199c2583aa6191cd2005dfd93a1e619eedfb320111 | list all flights from tampa florida to miami that are the cheapest one way | UD_English-Atis
+- [atis] 2e1a322ab9bed014b0ad080d30ea5cd8c03bd3b35d454d69df54a82a6f01dff1 | which flights depart from new york and arrive in los angeles after 10 am | UD_English-Atis
+- [atis] 2e1fa040a29096f86371dc7c29ca091abcd99e0bd6658cd7a7969a40da3e062c | what times does continental depart from boston to san francisco | UD_English-Atis
+- [atis] 2e43932043eb38b26d8a1e795767d10aa052454787473a0864fbccc79bc0c6de | i would like a flight as early as possible in the day leaving from boston and to denver | UD_English-Atis
+- [atis] 2e466b1717d374259583773eae9ffd55f157471052c38bf5841095cbba7d309d | is there a flight from nashville to houston in the evening tomorrow | UD_English-Atis
+- [atis] 2e51a9100ce142feb196610fbfcc7f88841844fcd229cb50aa460e58fbeb059b | show me all the flights from kansas city to st. paul | UD_English-Atis
+- [atis] 2e5f973f90801a232b6982a7f3eb70d4b7f4f4c5233c5e2e06e6d5dd704901f2 | please list all flights tuesday dallas atlanta | UD_English-Atis
+- [atis] 2e79ada7c1838db64bbca575a4cd07b4e7d13a15ac2b95c3e0928aadc2882cb9 | can you list all the flights between phoenix and las vegas | UD_English-Atis
+- [atis] 2e812fae4fc163fa2cc296fdb0576721dd8ae91a5c226d83b6f7f251667bf51e | what is fare code h | UD_English-Atis
+- [atis] 2e9ee503634c4c14662215a193f8d4c6f0ec2b7df35fcf308eb9f055f0b1398e | i would like to fly from salt lake city back to st. petersburg on wednesday | UD_English-Atis
+- [atis] 2ee1739d471ef6dc79d1fbfcddc13f8b92adc902df1e5e3715bf157e55d1bdb0 | show me the flights from westchester county to cincinnati | UD_English-Atis
+- [atis] 2eeb1bea600edca061bc53775e42644c8b952d09b9a945d256c4af247f832b5c | what is the fare on november seventh going one way from san francisco to oakland | UD_English-Atis
+- [atis] 2ef36f986286c215bd51e57d51edf2a45220aed67e87b7ed9a0d5dc6502b1055 | i would like to fly from boston to san francisco | UD_English-Atis
+- ... 970 more new items
+

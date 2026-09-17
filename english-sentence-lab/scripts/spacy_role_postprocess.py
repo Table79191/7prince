@@ -19,9 +19,6 @@ OBJECT_COMPLEMENT_VERBS = {
     'declare','consider','find','make','call','name','deem','elect','appoint',
     'render','prove','label','pronounce',
 }
-# Keep this set deliberately conservative. Bare-infinitive HAVE is ambiguous
-# with auxiliary HAVE under inversion, so it is not used as a high-precision
-# controller here; RoleNet remains free to predict the object without override.
 OBJECT_CONTROL_VERBS = {
     'make','let','get','allow','permit','force','cause','expect','want',
     'believe','consider','persuade','order','require','enable','encourage','ask',
@@ -40,6 +37,7 @@ CONTROLLER_BOUNDARIES = {
     'that','whether','if','why','how','when','while','because','although','though',
     'unless','since','once','after','before','than','where','wherever','whenever',
 }
+CLAUSE_MARKERS = {'that','whether','if'}
 
 
 def _nearest_lexical_controller(doc, i, window=6):
@@ -50,6 +48,16 @@ def _nearest_lexical_controller(doc, i, window=6):
         if t.pos_ == 'VERB':
             return t.lemma_.lower()
     return None
+
+
+def _has_left_clause_marker(doc, i, window=7):
+    for j in range(i - 1, max(-1, i - window - 1), -1):
+        t = doc[j]
+        if t.is_punct:
+            break
+        if t.lower_ in CLAUSE_MARKERS:
+            return True
+    return False
 
 
 def postprocess_roles(doc, neural_roles):
@@ -95,9 +103,7 @@ def postprocess_roles(doc, neural_roles):
             if inherited in {'S','O','C'}:
                 out[i] = inherited; reason[i] = 'of-np-core-inherit'
 
-    # 4) Object-control / small-clause recovery. Only undo an apparent subject
-    # when RoleNet independently predicts O and a lexical controller occurs in
-    # the same local clause.
+    # 4) Object-control / small-clause recovery.
     for i,t in enumerate(doc):
         if (t.dep_.lower() in SUBJECT_DEPS and neural_roles[i] == 'O'
                 and t.pos_ in NOMINAL_POS):
@@ -122,9 +128,7 @@ def postprocess_roles(doc, neural_roles):
                 and (t.head.pos_ == 'AUX' or t.head.lower_ in AUX_WORDS)):
             out[i] = 'S'; reason[i] = 'initial-aux-inversion'
 
-    # 7) Compound-to-predicate recovery. First trust a normal verbal head. If the
-    # statistical tagger instead calls the head nominal but RoleNet independently
-    # classifies that exact head as V, use the two signals together to recover S.
+    # 7) Compound-to-predicate recovery.
     for i,t in enumerate(doc):
         if t.dep_.lower() != 'compound' or t.pos_ not in {'NOUN','PROPN','PRON'} or i >= t.head.i:
             continue
@@ -133,6 +137,14 @@ def postprocess_roles(doc, neural_roles):
         elif neural_roles[t.head.i] == 'V' and t.head.i == i + 1:
             out[i] = 'S'; reason[i] = 'compound-to-neural-predicate-subject'
             out[t.head.i] = 'V'; reason[t.head.i] = 'neural-predicate-pos-repair'
+        # A nominal-tagged ccomp is internally inconsistent with a finite clause
+        # analysis. When it directly follows a nominal compound and the local
+        # clause is explicitly introduced by that/whether/if, recover the compound
+        # as S and the ccomp head as V. No lexical item is hard-coded.
+        elif (t.head.i == i + 1 and t.head.pos_ == 'NOUN'
+                and t.head.dep_.lower() == 'ccomp' and _has_left_clause_marker(doc, i)):
+            out[i] = 'S'; reason[i] = 'compound-to-mistagged-ccomp-subject'
+            out[t.head.i] = 'V'; reason[t.head.i] = 'mistagged-ccomp-predicate'
 
     # 8) Partitive quantified subjects.
     if len(doc) >= 3 and doc[0].lower_ in PARTITIVE_SUBJECTS and doc[1].lower_ == 'of':

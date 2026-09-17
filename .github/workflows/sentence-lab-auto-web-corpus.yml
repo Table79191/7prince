@@ -1,4 +1,4 @@
-name: SentenceLab auto web corpus bot
+name: SentenceLab autonomous corpus loop
 
 on:
   workflow_dispatch:
@@ -9,13 +9,14 @@ on:
     paths:
       - 'english-sentence-lab/scripts/auto_web_corpus_bot.py'
       - 'english-sentence-lab/scripts/compare_web_corpus_to_model.py'
+      - 'english-sentence-lab/artifacts/*.pt'
       - '.github/workflows/sentence-lab-auto-web-corpus.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: sentence-lab-auto-web-corpus
+  group: sentence-lab-autonomous-corpus-loop
   cancel-in-progress: false
 
 jobs:
@@ -34,17 +35,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install CPU model runtime
-        shell: bash
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-
       - name: Run collector self-test
         run: python english-sentence-lab/scripts/auto_web_corpus_bot.py --self-test
-
-      - name: Run comparison self-test
-        run: python english-sentence-lab/scripts/compare_web_corpus_to_model.py --self-test
 
       - name: Collect already-annotated public English data
         run: |
@@ -80,14 +72,77 @@ jobs:
           print(f'validated {total} analyzed sentences from {len(manifest["sources"])} sources')
           PY
 
+      - name: Detect corpus or model changes
+        id: changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          corpus_changed=false
+          if ! git diff --quiet -- english-sentence-lab/data/web_corpus_bot; then
+            corpus_changed=true
+          fi
+
+          compare_needed=false
+          if [ "$corpus_changed" = "true" ] || [ "${{ github.event_name }}" = "push" ] || [ ! -s english-sentence-lab/artifacts/web_corpus_comparison.txt ]; then
+            compare_needed=true
+          fi
+
+          echo "corpus_changed=$corpus_changed" >> "$GITHUB_OUTPUT"
+          echo "compare_needed=$compare_needed" >> "$GITHUB_OUTPUT"
+          echo "corpus_changed=$corpus_changed compare_needed=$compare_needed"
+
+      - name: Install CPU model runtime only when comparison is needed
+        if: steps.changes.outputs.compare_needed == 'true'
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Run comparison self-test
+        if: steps.changes.outputs.compare_needed == 'true'
+        run: python english-sentence-lab/scripts/compare_web_corpus_to_model.py --self-test
+
       - name: Run current SentenceLab model and compare with original analysis
+        if: steps.changes.outputs.compare_needed == 'true'
         shell: bash
         run: |
           python english-sentence-lab/scripts/compare_web_corpus_to_model.py
           test -s english-sentence-lab/artifacts/web_corpus_comparison.txt
           head -n 30 english-sentence-lab/artifacts/web_corpus_comparison.txt
 
-      - name: Commit corpus and comparison table
+      - name: Maintain monthly heartbeat so scheduled loop stays active
+        shell: bash
+        run: |
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          path = Path('english-sentence-lab/data/web_corpus_bot/HEARTBEAT.txt')
+          now = datetime.now(timezone.utc)
+          refresh = True
+
+          if path.exists():
+              try:
+                  first = path.read_text(encoding='utf-8').splitlines()[0].strip()
+                  previous = datetime.fromisoformat(first.replace('Z', '+00:00'))
+                  refresh = (now - previous).days >= 30
+              except Exception:
+                  refresh = True
+
+          if refresh:
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_text(
+                  now.replace(microsecond=0).isoformat().replace('+00:00', 'Z') + '\n'
+                  'SentenceLab autonomous corpus loop heartbeat.\n'
+                  'No GPT/OpenAI API is used by this workflow.\n',
+                  encoding='utf-8',
+              )
+              print('heartbeat refreshed')
+          else:
+              print('heartbeat still fresh')
+          PY
+
+      - name: Commit only real data, comparison, or heartbeat changes
         shell: bash
         run: |
           set -euo pipefail
@@ -95,9 +150,9 @@ jobs:
           git config user.email 'sentence-lab-corpus-bot@users.noreply.github.com'
           git add english-sentence-lab/data/web_corpus_bot english-sentence-lab/artifacts/web_corpus_comparison.txt
           if git diff --cached --quiet; then
-            echo 'No upstream corpus/model comparison changes detected.'
+            echo 'No corpus/model/heartbeat changes detected. Loop will continue on the next schedule.'
             exit 0
           fi
-          git commit -m 'Update analyzed corpus comparison table'
+          git commit -m 'Autonomous corpus loop update'
           git pull --rebase origin main
           git push origin HEAD:main

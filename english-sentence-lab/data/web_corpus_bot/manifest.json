@@ -124,12 +124,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 45270,
-      "new_items_added": 1000,
+      "sentences_written": 45499,
+      "new_items_added": 229,
       "allocated_run_quota": 1000,
-      "remaining_unseen": 229,
-      "auto_pass": 44772,
-      "needs_review": 498,
+      "remaining_unseen": 0,
+      "auto_pass": 45000,
+      "needs_review": 499,
       "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
       "download_skipped": false,
       "skip_reason": ""
@@ -280,10 +280,10 @@
     }
   },
   "totals": {
-    "sentences_written": 69955,
-    "auto_pass": 67492,
-    "needs_review": 2463,
-    "new_items_added_this_run": 1000,
+    "sentences_written": 70184,
+    "auto_pass": 67720,
+    "needs_review": 2464,
+    "new_items_added_this_run": 229,
     "sources_downloaded_this_run": 1,
     "sources_skipped_this_run": 7
   },
@@ -294,8 +294,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 69955,
-    "latest_first_collected_at_utc": "2026-09-17T21:53:56+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T06:53:56+09:00"
+    "records_with_timestamp": 70184,
+    "latest_first_collected_at_utc": "2026-09-17T22:04:17+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T07:04:17+09:00"
   }
 }

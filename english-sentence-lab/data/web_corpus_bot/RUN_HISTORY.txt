@@ -3120,3 +3120,50 @@ new_items_sample:
 - [childes] f92f1a8099a8ce7368d4440785dd771b9d05f0fe6510ccf8a552ecea91cef7d6 | The paint came off in your mouth. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T07:08:25+09:00 / 2026-09-17T22:08:25+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35280038892
+run_attempt: 1
+event_head_sha: 1346e00a69fe795c62e1026f018799e48c84eeca
+worker_base_sha: 1346e00a69fe795c62e1026f018799e48c84eeca
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 69955
+after_total: 70184
+net_total_change: +229
+new_items_added: 229
+items_removed: 0
+source_changes: childes: +229 / -0
+new_items_sample:
+- [childes] fed2296eb5187254bfe6a96ff4aa0a9cae861ecd22bc344776ff258bc5b75970 | Are you making a bench? | UD_English-CHILDES
+- [childes] fed55cbe2ee73ca87ed2a46b67832a9bd75a3615d81a5666e9997e413a9e1b96 | Let me finish combing my hair. | UD_English-CHILDES
+- [childes] fed78b94ff170e34ef7808e0406937006134cda805cef33f296650145eb0334f | Where racket? | UD_English-CHILDES
+- [childes] fed8b96c8d533e929294d072668f00f0449053ac8ee66f6f69ba936538b0422f | I don 't need one. | UD_English-CHILDES
+- [childes] feda9427399957e34dc45cd40ee3c754887f4a412d86fd62fe907f5eab6ba12c | Just say something. | UD_English-CHILDES
+- [childes] fedb8e307c0053dc2a3757f22572b4a269190356ca6ad2f2029dd528140aecf0 | Stop crying Paul. | UD_English-CHILDES
+- [childes] fede147793e048009c27b320a43a9d405454c3bf424956404a0b1a40cbb16c30 | That 's just the way it was made. | UD_English-CHILDES
+- [childes] fedeb9f2fd9fa78c9525ff06032548f0ad0ed413edee6745f8c540144baef278 | Bike outside. | UD_English-CHILDES
+- [childes] fedf292b35bbfcfdb23309fb278f32478f7eb35aa4a4f12e570b22606f08a571 | Did you go shopping? | UD_English-CHILDES
+- [childes] fedf765891b7d7b5d30bb317a7f78c298e344da3f8fbe41ad3fd0aaa70a64c19 | And it's beautiful. | UD_English-CHILDES
+- [childes] fedfad70ae00a3bc267c2584ebd5ccf3d8ec80c8c10a18c8ee78fd239d5ab6cf | It really would be. | UD_English-CHILDES
+- [childes] fee0a2f09f02e2e604a450f6304eaa1b67a5ff2259094b2b7edc953be37ba3a0 | I slipped. | UD_English-CHILDES
+- [childes] fee2e81974af82fe9d2f6fcfa6689b9ae95f17b567af3e48e57bda9b7c43ca2c | I could draw that paint box. | UD_English-CHILDES
+- [childes] fee3336ae7955520b636f010f1ad7d7f2a83885953eb050f0076c0a3e599a5e3 | I didn't chew it. | UD_English-CHILDES
+- [childes] fee3e88ce4e99d43c8f1bcc2b2b8eecf599b4889c32c44983d1400cd5ea8b7f9 | Well what did you do with the one you had? | UD_English-CHILDES
+- [childes] fee47d1727afcf87244e859bb06c4369fa9bd7a6ac191f2b388dccfa47119fe1 | I caught your spear. | UD_English-CHILDES
+- [childes] fee4f499400c680741ec20f6892d127b82a6529efecb41e79daf5f8faed7ce93 | I too heavy. | UD_English-CHILDES
+- [childes] fee691dcf7d6fcd37d4c726da4f46135563798261f32de655df6892086bb4b5a | We went to buy things. | UD_English-CHILDES
+- [childes] feea7f8c7f9db4a1cd9344f4b165fd1e61ccfdf1e07e278f8dc98b0f28667aba | No no no don 't crawl in there. | UD_English-CHILDES
+- [childes] feefee09311d760d7a7413f151f61cde9767b640643c0c890750cf1e8d457c4d | A ribbon hat. | UD_English-CHILDES
+- [childes] fef0817672747de34cbf89cedf302496561993332fc2c629b2dfce75a0f960f7 | These guys. | UD_English-CHILDES
+- [childes] fef08683e8dcd9e2f46ee364d165ef637e3f02772f8defdd4699a226df322fc9 | A fire engine? | UD_English-CHILDES
+- [childes] fef16397be993c078cb7399bba77df9e683854219ecac79ca1d5f0c607a86e4b | How young are you Simba or how old are you? | UD_English-CHILDES
+- [childes] fef1bf262c1fb88f97c919d30ce3267203b493af8e524122370c9942f0e85fa9 | Okay I'll ask Avril. | UD_English-CHILDES
+- [childes] fef1cac4d2dc1807cdc58289bed7d1d4730c344b508bcc30d0c771e36bc590d0 | You're stepping on her feet. | UD_English-CHILDES
+- [childes] fef5034c3ab65951369d4763dcba38c4bf92e11459ffe63f5dc537a72e753fa7 | What's gonna suck it up? | UD_English-CHILDES
+- [childes] fef7934399c83d936cc83bcd5390c6fcd27a109616b3587b82a58bb45ed8049d | Like grandpa Bunch? | UD_English-CHILDES
+- [childes] fefa2a2e89326098058211e7344db189815ea5d34097bcf99bfe13b57efbd245 | I take run out. | UD_English-CHILDES
+- [childes] fefa5412825647276c54ae9c4125175475fdaed95b306faa303203832e6a4bca | But he's learning how to crawl isn't he? | UD_English-CHILDES
+- [childes] fefb2cd47a4aaf5e1ae0db3dcd2ec05d5b6d02cc733bda3fdb404cfbda38bc12 | I don't know what you're talking about. | UD_English-CHILDES
+- ... 199 more new items
+

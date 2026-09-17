@@ -1992,3 +1992,50 @@ new_items_sample:
 - [childes] 71b3875173d6c4a97f7e4c687d50260e937db772e8402198994faae93d4944ef | Won't we name her. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:52:12+09:00 / 2026-09-17T19:52:12+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35267035320
+run_attempt: 1
+event_head_sha: 496e9672416ebf2731aa887b5d69ddf2680b3997
+worker_base_sha: 496e9672416ebf2731aa887b5d69ddf2680b3997
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 45955
+after_total: 46955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 772380a0968c5002e12aa55059ee9d684f5e2868c1ae6f98cd8e31e92331efa2 | Did you wash your hands? | UD_English-CHILDES
+- [childes] 772558c909d771f87386aa175d2fb7c7736d58e0aa58ea3882515b1ece91ec6b | That 's not a leaf that 's a feather. | UD_English-CHILDES
+- [childes] 772603e21022789c26884a47687000f4a8fa6f336572a1b720f57704e5e7845b | You have eighteen there. | UD_English-CHILDES
+- [childes] 7727b4e85b1e2432ac020a5dbea4f787adffae6469f2eb2c416f9eb409d390d3 | What does feather brain mean? | UD_English-CHILDES
+- [childes] 7727ce988de592c0fdffdd4b1c51fe4506db6a2c09b34ebdbdb5ea8f6b4ebcf1 | Oh we can't go yet we hafta wait a little while. | UD_English-CHILDES
+- [childes] 7728b74c46e37f41d52a41d12d577ecf4cd6da03cb3d0faac823cd5035ef0fdc | I love it too. | UD_English-CHILDES
+- [childes] 772c77df8070b76af9a47970ec15e6a5256ed9a5a4dbf96364dd8b86e48e7739 | We have enough for our babies! | UD_English-CHILDES
+- [childes] 772d0d9e1363ce4e63ea0c57c349bec436ea9edf46cb0ade393d5d8f0e453bf5 | Did I bring it in the car? | UD_English-CHILDES
+- [childes] 772d33c18e89a254834ebb763449b63d797ff1753b407ef348e8262bdc87aff9 | Where is my trains go mommy? | UD_English-CHILDES
+- [childes] 772d5801c043e32115d9cd5c6193d37905695fe755091beb26fbe89eebaf1cf4 | Why are you going to use all of the paper? | UD_English-CHILDES
+- [childes] 772e2e53e2e1d6ebace19516cf229589426f080d1f347f15c4c754a3039eed49 | What has gone in here? | UD_English-CHILDES
+- [childes] 7731a87fd71dd6fd84fa47af64dcf3b59238ae40cb2cebde09f3137e32516d75 | Roman what is this when they do this? | UD_English-CHILDES
+- [childes] 773224c364def481b2db0fdebf72d7c57e4e0e65699ee1faedb0c8eca5d02bd9 | How you make a s like that? | UD_English-CHILDES
+- [childes] 773294f2ba7204a880b828c5c236d4ba13703cbfc446fefeaa4c1c51be783b2b | Or do you think they just make the noises? | UD_English-CHILDES
+- [childes] 7732f5311b333b6420796ea0ace6ea01fe529a56828d4f5e58482de4c58a0e34 | Hafta draw in. | UD_English-CHILDES
+- [childes] 7734dcb236899829549c2546e9f81aa1eec83dd57ec49274a1086a2dc4a9b623 | Hey Roman when you have a ring is that the only thing you can do with it is put it on your finger? | UD_English-CHILDES
+- [childes] 77367ae767e031429c8fbc43afb0cfc347c6969a6971eb4c400a619dd393d339 | And what are you gonna do with them when they're through growing? | UD_English-CHILDES
+- [childes] 773689676eed2adccddfb0d0dc6d644998232d59753d1fa7812d85d6fe51c8cb | You broken the trains. | UD_English-CHILDES
+- [childes] 7737be5f09b609e5e6858581f61fcac96c4dad66dd027c605814b213263d11cb | Twinkle elephant. | UD_English-CHILDES
+- [childes] 7737c8d398fe6dfc577bb06e3dda05eb8c79a91c1cda328667645943d287a5e6 | Climbed up all again. | UD_English-CHILDES
+- [childes] 77383aa6fd8062f53ca8d5f61080187ee4d8f79edf1f2e896fb55913e201672c | Just the way you put the track on look. | UD_English-CHILDES
+- [childes] 773887bf9f05a0320af72c030b85ccf88e0101ef45aba7293b1ea20aafae5651 | Go get it and come down. | UD_English-CHILDES
+- [childes] 773acbc1bddf38af89b1fef3f5d2564126e71b8e5ca51604710d615e990114dc | What did you say those were? | UD_English-CHILDES
+- [childes] 773b78ffa5326a7111a34b2043aef2b87cf366b1340b9cf2fe5a9905dc9814af | Man a pencil. | UD_English-CHILDES
+- [childes] 773cd8f1e54c5f58b01b7a99e8c104200b34441dce8e74b037dc5acb608966a3 | Sometimes Ian just won't leave her alone so Olivia has to be firm. | UD_English-CHILDES
+- [childes] 773de159cf7cfcc2b06c13c5d4bdba9c011dd69c2832d78020bca639132b1e99 | You missed these. | UD_English-CHILDES
+- [childes] 7741f9a81c54da14ffdcc071d69d325421a468bb26fc3d073793af677843b231 | Mosquitoes can't come in. | UD_English-CHILDES
+- [childes] 7744b3c165b9ffe10045ae3f95109f3cbc9d8917838b81be47744178b95aad9d | He can 't say Cecile. | UD_English-CHILDES
+- [childes] 774534c681c47f4c36ee02f4a2a24876e8faf609317df09e99428afcc45e2c38 | A little bit. | UD_English-CHILDES
+- [childes] 7749151bf89cfb7c4d5d04e431d2f6123df3418191f1b2011e13672d0268f5bf | Say do you like ham. | UD_English-CHILDES
+- ... 970 more new items
+

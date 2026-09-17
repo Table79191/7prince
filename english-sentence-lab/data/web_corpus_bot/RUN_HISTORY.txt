@@ -864,3 +864,50 @@ new_items_sample:
 - [childes] 202bc3b9a388d2a72632d9614158293838d16dd2fe1f6045c7530bd6958a2ac9 | Because it will disrupt the machine. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T02:46:34+09:00 / 2026-09-17T17:46:34+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35254505712
+run_attempt: 1
+event_head_sha: ff1474acd18a8d9792ffc1c72e7c78fc46ecb1aa
+worker_base_sha: ff1474acd18a8d9792ffc1c72e7c78fc46ecb1aa
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 21955
+after_total: 22955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 22df59dfd090bd9e9692b7b6340a6559424d720041cc6a9b3054bf315138e4e7 | Over on the bench. | UD_English-CHILDES
+- [childes] 22e329947a653e73aa1880cd88d7e4683af77f6983d188ecc9574e0fabd9de32 | Only a little bowl teen. | UD_English-CHILDES
+- [childes] 22e522750e1b3faca967d6a1c9b059b16e367e74cc44838d77d20a2fde432672 | We shoot poor things. | UD_English-CHILDES
+- [childes] 22e60de36ba8f8bb68e17bd21db1c5344c2cfa06dc71e384e196c4065b57a00b | Watch me put dis. | UD_English-CHILDES
+- [childes] 22e7a0551d171e1e0ce82635fd95606fe9cf1b028deb56d77252a3ac18d841e1 | Be careful. | UD_English-CHILDES
+- [childes] 22e7ce90b707a3f9a5348e9d0f1e984ab02b7d9dc0e0de8f549e8ad41da85742 | How many. | UD_English-CHILDES
+- [childes] 22e9bfb8e5ec3d90c0d9a6303c048d53ebedcc1e0fb97a00cd3ba2ab5f95605e | Uh round the bend round the bend round the bend round the bend. | UD_English-CHILDES
+- [childes] 22eacbc223f6e90eabc870f31f04dd281266a72eca24a711859a20183e5ad3df | Here take some. | UD_English-CHILDES
+- [childes] 22eaebc743369c11f133acfea52bb3b86505d5b4ae09f6314d52b3b6f7a8dbbe | Shame on you! | UD_English-CHILDES
+- [childes] 22eb8a03f57c64dc4b8e9494b11e4ab2c7756dce8bd0b02af96ba635e8920981 | Who is driving? | UD_English-CHILDES
+- [childes] 22eb9672b122d043b44a03c0f3e4a7b360ac4966f0b0d2122c548ddd56eb0915 | Yes it 's yours. | UD_English-CHILDES
+- [childes] 22ebf2b3eb2c26a74b159ed5a3a3564d78e6675c65af4a6e41a871c6405bb358 | He went to Boston University? | UD_English-CHILDES
+- [childes] 22ec31b65e522c80b9b7e4f82ef6f63aa3ef744562a0298de8b7d1096ac3e0ed | Now red light be next. | UD_English-CHILDES
+- [childes] 22ef3253619bc05b5ac61d8c5365c7f0e7da826e7098062c16565477d98bd047 | Just thought of it. | UD_English-CHILDES
+- [childes] 22efb319ab7b16a42c04e4080bf1b2708f548d7fde61144fb53edd2003dfca2e | He just gonna lie down. | UD_English-CHILDES
+- [childes] 22f008e00f142d399d6f6265fdf098d8cc0695461537849f1d4ea83d6d75d5a0 | Oh you got some of the cabbage in there huh? | UD_English-CHILDES
+- [childes] 22f20bfdae6799b0da71b7f77c8c1537b96ac9df8e3d038ca9f9caa12b8cbe16 | Pinocchio Mommy. | UD_English-CHILDES
+- [childes] 22f28326ca2ab464648c24b31848b6eacc2cfeb072e16792ca3efb07706fc883 | No no don 't play with that. | UD_English-CHILDES
+- [childes] 22f5956447f74c5762f0573977284309d92a037b89519ae3f6c482fde7904012 | Moon going up. | UD_English-CHILDES
+- [childes] 22f5977b634987f2b0174d1c62d8f599327d8cdf2f7023e98a4abde40ef91dc9 | There's Danny. | UD_English-CHILDES
+- [childes] 22f7b7b5f29921d55cb047062c3d985112e7022f43eee37ea9eab238b2491538 | Um a yeah. | UD_English-CHILDES
+- [childes] 22f85ba867ffcdbbad1051b0dc33e6eb47cbae13adda732e8c673186f3b8cf5f | Do you wanna take a shower after you eat your cracker? | UD_English-CHILDES
+- [childes] 22f8da5ac2822819e7e0fa78437ff2139af5d8cb47b670e4fbef5c5da89e0157 | Because I can't. | UD_English-CHILDES
+- [childes] 22f96c3f95078a8717c76f294612d946f47893faa4cd442fc471309b899f189a | So maybe they were gonna drain her ears or something. | UD_English-CHILDES
+- [childes] 22fa9df4bf74c90e822bf0ea7e38f5d9372e1e748c49b4d8b18431414e194081 | I don't think that's exactly right. | UD_English-CHILDES
+- [childes] 22fab927421b6cf084f1169800c868674d70f12277f54da8aba7b205d59db324 | Oh oh. | UD_English-CHILDES
+- [childes] 22fccd1d2cf525ca62d43bd221e7a37bae3f470d9344700b7665a9c52ce21cfd | Ya think ya had em. | UD_English-CHILDES
+- [childes] 22feb992aae97bcbd4a1bf76c7b208e9a32fb97a99ccb966bc89ac0d2658e03b | Beethoven is who? | UD_English-CHILDES
+- [childes] 22ff276b3c04c94244c7cc4d506ccfee107e74a676fd6a1376f29dc84cfb02f4 | You like to be green? | UD_English-CHILDES
+- [childes] 22ff7f0f8b36e1f19f3c99e93a4af97375bb5bf0098628b2911251b5454d58d6 | Yep yep. | UD_English-CHILDES
+- ... 970 more new items
+

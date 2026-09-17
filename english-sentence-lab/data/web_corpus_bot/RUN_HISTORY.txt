@@ -1945,3 +1945,50 @@ new_items_sample:
 - [childes] 6c2e6805003473910fe85f92e47581d586161012996a91b5591e50b8ae63bc34 | Careful Adam you don 't want it to break it. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T04:46:58+09:00 / 2026-09-17T19:46:58+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35266524724
+run_attempt: 1
+event_head_sha: b82e76219f80a0fdd8b51502d80bd13adc3da1fc
+worker_base_sha: b82e76219f80a0fdd8b51502d80bd13adc3da1fc
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 44955
+after_total: 45955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 7189bc44422b5a96d5bd5da2b6377960bdb6c6832de25be9db942a421fedb131 | Downtown working. | UD_English-CHILDES
+- [childes] 718c534616b1e9eac7ccf972c7e2ea9779eb3a528e26015ca098294cdf76c45c | What did you write? | UD_English-CHILDES
+- [childes] 718d6d3d723ab4419476b366fe86e4b93b33bc21ede15ab74bd9f64f2df2b0fc | Oh you're rolling it are you? | UD_English-CHILDES
+- [childes] 718e7151473a1cf2523fdeefa598ba3d727c03430125c38a5f0ce1fec71401f5 | I just wanted to hear one. | UD_English-CHILDES
+- [childes] 718ee83a012ae167f6643ad48b4e896df1f4f55a5f651b3a1c176029985ef6ae | Is that still a train? | UD_English-CHILDES
+- [childes] 718f7c9cc7f0896b56d87122e6c03618e6dba133fd45887c1481de5382f099c6 | What does he have for breakfast? | UD_English-CHILDES
+- [childes] 71903cef1ae8d35ae8995793f7d6ab979b4d2d5340fd874e96a7acbd21d4acb3 | This I can see the price it's. | UD_English-CHILDES
+- [childes] 71924e5d8f33db00a1675c55c29f1156908a4298e962f1b2a22b8f6a2f6e9812 | Give me my string. | UD_English-CHILDES
+- [childes] 719526dea64a88a0fc7940d8540c62e16fec6242913b603e8a65ce06a87dc32a | You sing it. | UD_English-CHILDES
+- [childes] 71958481f55bf642ca65251097426e6bb8dbabd9e8ac1b1bb5412a34457f2ea8 | Schroeder and he eats a bread and butter sandwich. | UD_English-CHILDES
+- [childes] 7196d61ad75c336042ad96d9ba05485ab70e5d111fc3048999b10b6c93692275 | Well look. | UD_English-CHILDES
+- [childes] 7197c234229e40468f409913876eaa8cad2071ea08bc1cb5eb47133c02f82f57 | Go over there. | UD_English-CHILDES
+- [childes] 719856253521dd18aa10c0a5cb663497b346488c5dd54756a9b5cd84ec578b6d | Cromer has a watch. | UD_English-CHILDES
+- [childes] 719902572cf6c0df67570f368533e3468d6f52f9b82e21134561e52f8f3592df | Oh you silly boy. | UD_English-CHILDES
+- [childes] 719d80e18450db14366de62de1216029028dfc371dad99fed61a94d9d6842662 | Help you reach? | UD_English-CHILDES
+- [childes] 71a285e8d2fb03612f1493fcfe35f1aae019661b6110cfedec39977b77925678 | Now who is it? | UD_English-CHILDES
+- [childes] 71a3a1444352321d638241e63a040ff4efc15e8ab1120415318e7d94544b5da1 | What what that? | UD_English-CHILDES
+- [childes] 71a3be417f78eaf9ededefa372054e3b43c5e4293778718177c4612898d27207 | So you get far away. | UD_English-CHILDES
+- [childes] 71a48630283c39bd17cb09baedbbb56a82733dff9c5adfdeeb02c7ef970cf4aa | Push it. | UD_English-CHILDES
+- [childes] 71a4e63df9e1b849804fae84632e7748ff2d4894ea0075f804a3dcc1ddef3abe | Not me. | UD_English-CHILDES
+- [childes] 71a6c548bab38bf06958e69ff8c3dc29754b322426bc0ba25b44dfebecd3f089 | Orange as a. | UD_English-CHILDES
+- [childes] 71a6db6b494e0771b7f2d47564d394bdf551cf15a566a928fe7ae5b435013c0c | They different them? | UD_English-CHILDES
+- [childes] 71a7654dc4759f511c5dc62fc1c858805dab2b2e0b6afdecaad36324910c785b | Play the music. | UD_English-CHILDES
+- [childes] 71acd8800517f6e2ef7fcf4b223a8adf8610ff682431898ad620bdbf9a1b3a54 | It bumped. | UD_English-CHILDES
+- [childes] 71b078da94780d4545eb77d7afd36e2784d365c0a16ee43a5f95d9f5b9bedb0f | Am talk to my Mom. | UD_English-CHILDES
+- [childes] 71b11e64bf7820d7f7e0da1c3185609b7b16e2533c42d44229506a890abf8a7a | Here Jwww. | UD_English-CHILDES
+- [childes] 71b12d892f0d72b5d8f1e3f0516c109364a744080868e11bc1c695e5bb6181d4 | What happened to Danny Thomas? | UD_English-CHILDES
+- [childes] 71b2074c7d88aa2f544598cbef18c54da578ada6423a17597a0e4d500db866fd | A tiny one. | UD_English-CHILDES
+- [childes] 71b2808ecb734ddc5dad491c1bd8dad96033fead6e226a4f85463dbcc5cfae06 | Wanna hear corder. | UD_English-CHILDES
+- [childes] 71b3875173d6c4a97f7e4c687d50260e937db772e8402198994faae93d4944ef | Won't we name her. | UD_English-CHILDES
+- ... 970 more new items
+

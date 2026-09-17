@@ -911,3 +911,50 @@ new_items_sample:
 - [childes] 22ff7f0f8b36e1f19f3c99e93a4af97375bb5bf0098628b2911251b5454d58d6 | Yep yep. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T02:51:37+09:00 / 2026-09-17T17:51:37+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35255029771
+run_attempt: 1
+event_head_sha: 16a0ae767b9bdf52e090b26885037df97a431b85
+worker_base_sha: 16a0ae767b9bdf52e090b26885037df97a431b85
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 22955
+after_total: 23955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 25a06a944dafd76d3fc749dcce85a4ea9976667d3519f2cbcbad05713ef18bd9 | Bick a bick back. | UD_English-CHILDES
+- [childes] 25a21dbf3905b0854917f5a8eceed049bde12916a8c5304698a7633515823bf9 | And we seen another man squirting a lot of water on the grass. | UD_English-CHILDES
+- [childes] 25a2a7a483e429e7b9178cb35376bb3aaf243f9d11eead7241f8cff2ebe1c4d9 | Now let me see you write it. | UD_English-CHILDES
+- [childes] 25a2de3f19155de9d5317c8c58175556dcbb884ddf2fcd7d147ac0ace2b31da2 | Boots yes. | UD_English-CHILDES
+- [childes] 25a2f94a3b0334e9d2c55093d69ec0688ffd377a35e15c0f11dd8aaa9f48ddb5 | Thank you very much. | UD_English-CHILDES
+- [childes] 25a37b3b99f3a75de194fd64059f8caf9bd1f2fcad73164a407882ff713c761c | Whyd you need that? | UD_English-CHILDES
+- [childes] 25a392261bf5008ddb1972a67a38e34cf8e1d3e5bce1e4b1c5c53d2c28474182 | What're you doing? | UD_English-CHILDES
+- [childes] 25a3d2b68e0d03692d88c0804038f5e52cad706aefe1665b2c3e8c3845114670 | You can pull this way. | UD_English-CHILDES
+- [childes] 25ab95b44642e7cd82387cab9b9aaef075aa05c0866301fc958dc0cb486b442a | Do you remember who gave you the binoculars? | UD_English-CHILDES
+- [childes] 25abd1cf1c94cf71d5b79605225017a0c02644f5952d304da840c9ab556b3fb4 | I didn't make scrambled eggs this morning because I hadta change your pants so I didn't have time to. | UD_English-CHILDES
+- [childes] 25ae2135c518cdf575ea198aca1ecd7a9b6432bc83b965f557b1864c34533a4d | That carrot. | UD_English-CHILDES
+- [childes] 25aea9b644e8858815d3994c5eadda707bc553c8a5014d6c19de68a55146cb3f | Where 's the cowboy? | UD_English-CHILDES
+- [childes] 25afa360eb6f7312a277010190aad868e4dc0f8aad45864127ec1f292346ea29 | He likes it but it 's not particularly good for him. | UD_English-CHILDES
+- [childes] 25b0d8e1078b2898ef0441d40fa316bdee80bace209745ac0576fb88fea007b8 | So he can help make people well. | UD_English-CHILDES
+- [childes] 25b197920f8030c8dc2b7e2d90e024a914218481e4b689a490f6f38cefd1ec23 | This is a panda. | UD_English-CHILDES
+- [childes] 25b1c1cb229b4800842136904546347ce9b15c355de63d00223d284cdcf40080 | Mean mean God's inside people? | UD_English-CHILDES
+- [childes] 25b37bb0f7cf612eecc04cefe89907b19231a70b3a2d3a664839ad8ce6ddbcc6 | Let me see what's in it. | UD_English-CHILDES
+- [childes] 25b5a397b192ad9e3b9590fbb3d08e4b9d541dd6fb6edf7fa5d51d7ec2ceebc9 | You don't remember we went to the park? | UD_English-CHILDES
+- [childes] 25b6ea11e46a3ccef2acdf59f0a1f3b21aa171d31ee2904a8ee872a66764c82e | No Santa's for everybody. | UD_English-CHILDES
+- [childes] 25bcdeae05cf730ea9b1462d98c2ca92e26bf33d6b67fd31d4d58c3297fd0411 | Does he like it? | UD_English-CHILDES
+- [childes] 25bd70bff8fa98516ddadb60eafdc361fecdede6f974f3eba5f29410bd29d00e | Go ahead and try. | UD_English-CHILDES
+- [childes] 25beddb8ea701555c0a0e276f6f7292a3efa97e85835ab8e7a0fc49f98baa98f | Not in this one no. | UD_English-CHILDES
+- [childes] 25c022945eb2eb1bec156fc45ef393a312ea00a43bd5fee5c771dbb495977471 | We're doing the matching game. | UD_English-CHILDES
+- [childes] 25c1142fc55634425038854759af8b6fb73565369360a65253ff7f1f23f87797 | This one right here. | UD_English-CHILDES
+- [childes] 25c13345fc877766fab59a55f800402c025cc7c82ac12165e22369515da97967 | She doesn't cry now. | UD_English-CHILDES
+- [childes] 25c2c0bf5b91bf2b64b107a0d831af747edccaaa5102acedda59deaf0fe35cbd | Can you blow? | UD_English-CHILDES
+- [childes] 25c30bad647324067ca0f24298cbbf8da912fe6b891be7ab96c145d370b94e8d | There's his green backpack! | UD_English-CHILDES
+- [childes] 25c319b9b7f78fd8da51ee9fc75d7818e18daf9e661c9fa7ad4667e2721181b0 | My mommy said that we make popcorn. | UD_English-CHILDES
+- [childes] 25c4bcc524df57c48f6586aecaff6dddfaf34ac0a4f77444eee44cd219c7f942 | Crawl under the bed. | UD_English-CHILDES
+- [childes] 25c5cd716e5d5f59ec1e38942a3a0584dd5fc1510b484a429b2e241fcb7a6265 | Dis a other one. | UD_English-CHILDES
+- ... 970 more new items
+

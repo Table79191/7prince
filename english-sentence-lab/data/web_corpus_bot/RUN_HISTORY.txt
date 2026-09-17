@@ -1193,3 +1193,50 @@ new_items_sample:
 - [childes] 33ed86566e36671ecc43cdde4b244bb0719690f6c1d2b5296daf8288018b048f | Are you going to cook peas on it? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:22:21+09:00 / 2026-09-17T18:22:21+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35258191062
+run_attempt: 1
+event_head_sha: f3967fdd7fec6497ee7506f8aeafeb546abfc51e
+worker_base_sha: f3967fdd7fec6497ee7506f8aeafeb546abfc51e
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 28955
+after_total: 29955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 36a38bc3f06d958acd517a2ba57503bd76763b48871e56c6d7c7a2b5c45b7c7f | Why why can't I swim there? | UD_English-CHILDES
+- [childes] 36a462ec75e9cbbcb6842210ed448ffeb17c9f4a3a70f9060bc13093cc8b00f2 | Don 't get on the chair. | UD_English-CHILDES
+- [childes] 36a8137f94ea76da4c4256f2af8047419a7726eb6783b04fe9b46c31ed18cceb | Snow beard snow beard. | UD_English-CHILDES
+- [childes] 36a89c88dca6689d88ea22739918f493b16678f79b6645341ec9280036f71afb | Jump down. | UD_English-CHILDES
+- [childes] 36aca1a8802bde983266ed1508e6d7b7d1e87339b1a9bd5d6e20c2837c00aeb8 | I wanna get your teddy. | UD_English-CHILDES
+- [childes] 36ad0fb641682e0e844c49050207416b2ade50d3ad517d5f7477d8637b590b77 | I love. | UD_English-CHILDES
+- [childes] 36ad757cf8ef711347f3bf19f7543b5187d8183a36968eafb12399596ae84bec | This is one of Robin 's favorites. | UD_English-CHILDES
+- [childes] 36aec68ca505f9443fe978015b44b3e3c8b5ed47518a7b44adb855b91c23f892 | Uhoh she's gonna get into some trouble. | UD_English-CHILDES
+- [childes] 36aeebd29e8efa92629a5a1bdc6fff69e10adbf3ec850df54083e24a1a046a2e | That's not the cheese sandwich. | UD_English-CHILDES
+- [childes] 36af0c142d6316d703db226869b003858f984138e86c7b4e28c1551c65a74cf3 | It has a a feet. | UD_English-CHILDES
+- [childes] 36affe4ff240e5e007e71b4b23dc9658ba117199a993969e1f5b70a3f1260e6d | Tomato. | UD_English-CHILDES
+- [childes] 36b2a46eadeb4466bb4bc5bf84df60520f492ca7f16c20801e20229e0e8aeb6b | Yes he is a little baby. | UD_English-CHILDES
+- [childes] 36b375577f0d55fca5f47e23b7e4046389de7707a2f69196240d76357f2d6ade | You have macaroni and cheese. | UD_English-CHILDES
+- [childes] 36b62aa632fb70ceb17688871dbca2ad93b11f7c4cfae982ecb231ac4ac43c6f | The baby is gonna slide down the do do do the slide! | UD_English-CHILDES
+- [childes] 36b81d22c3d79f571f15db337e294a5318cbc5ea28e73eb0ad584af29ce22ac1 | And Mommy you will let me when I get hurt. | UD_English-CHILDES
+- [childes] 36ba708b1adbc7dbb619594c12e530b47f0ac842e55f237272e99393ad576baf | Didn 't you drop your pennies on the floor? | UD_English-CHILDES
+- [childes] 36bdbedce4018875df3598773e9b556edd602d7770dd62f12c1ec44bf40d923f | Hey Sophie I mean hey Roman. | UD_English-CHILDES
+- [childes] 36c0f32baed294a2b8b6187b59da6bbd0c258b97ba83df8a1f04b138de4e5762 | The horse. | UD_English-CHILDES
+- [childes] 36c0f7ccabfa96c4f9285e7d238047b449c532b49b941f671bdfb4fecab0835c | Will surprise? | UD_English-CHILDES
+- [childes] 36c127d35d7b77aa2f14b02fd746c8c3e772d803e79ff2001825fca90b3cae46 | A thing that look like someone. | UD_English-CHILDES
+- [childes] 36c29cef1e78a8dc2b04deda390190f1a90dd8066576b4dd8eaf1d35657811f4 | Abe where are you going? | UD_English-CHILDES
+- [childes] 36c32310175ebb70676b625b176140f3b41c70433b69e3efa79d17de8d23de2a | That's Mr Cromer's briefcase. | UD_English-CHILDES
+- [childes] 36c351addb924bec309d741028da78f05d59f73112f7d394ef281aaf04cbd65a | Little tape me little tape. | UD_English-CHILDES
+- [childes] 36c3e993989de8dc8e567dc6b715190c1ea8efe23621ab31f0787499f4239f5d | What's a bonfire site? | UD_English-CHILDES
+- [childes] 36c46c36c10a75f9a38fb77cedc9c04da4c4519fd3694e1c359ef77e9c8b117f | You want some more paint it's hard to see isn't it? | UD_English-CHILDES
+- [childes] 36c6d5a077e54c718c2ed0c0cc5187e50bf735f4aa21d10ad5467a5ed7248732 | Because you broke it. | UD_English-CHILDES
+- [childes] 36c7f916a6e0a3cc7c24f2bf3d833716dfb1991de6f75ab17a7e2084b9634ff0 | Adam do it. | UD_English-CHILDES
+- [childes] 36c8d90efb70312a63fe708bb9c42587642f1fc8456e1134110fb43a49c342be | Now I found an l. | UD_English-CHILDES
+- [childes] 36ca43fdba2019ef355b0aa77fe30e8f531965d4415ff3a01ebbe940b040a5bc | Seven o'clock. | UD_English-CHILDES
+- [childes] 36cabedea7273c433d774c58ea80873a4a955d3bcf15476789ff145a861ab4e8 | You like cereal. | UD_English-CHILDES
+- ... 970 more new items
+

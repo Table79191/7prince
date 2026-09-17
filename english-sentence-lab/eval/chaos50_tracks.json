@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "sealed_holdout": "Chaos Long50",
+  "selection_policy": "evaluation_only_never_train_replay_calibrate_threshold_or_model_select",
+  "gold": {
+    "path": "chaos50_gold_indexed.json.gz.b64",
+    "sha256_encoded_file": "4442cd1261f63a64370d6a6fe0e43aff7b3fb5126ec0ecfdb1ba4a69e0872671",
+    "sentences": 50,
+    "focus_checks": 755
+  },
+  "tracks": {
+    "historical-v153": {
+      "input_path": "chaos50_base_v153.json.gz.b64",
+      "sha256_encoded_file": "3745995310bdf83a9146e0f1662b12ad7ab872a6ce4cbf34095deae9155fc17d",
+      "description": "Frozen v1.5.3 parser token/POS/base-role outputs from the original sealed package.",
+      "expected_baseline": {
+        "pos_correct": 670,
+        "role_correct": 534,
+        "both_correct": 528,
+        "exact_sentences": 0
+      }
+    },
+    "production-v155": {
+      "input_path": "chaos50_base_v155.json.gz.b64",
+      "sha256_encoded_file": "07ceba4e951775b1ab5b35cb0da4a2b7fd2e899c734dbf1d309c1f0b88d1b12c",
+      "description": "Frozen v1.5.5 production parser token/POS/base-role outputs used by Rooping 006/007.",
+      "expected_baseline": {
+        "pos_correct": 670,
+        "role_correct": 603,
+        "both_correct": 593,
+        "exact_sentences": 3
+      }
+    }
+  }
+}

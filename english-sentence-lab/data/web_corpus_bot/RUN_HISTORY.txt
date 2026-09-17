@@ -3618,3 +3618,50 @@ new_items_sample:
 - [esl] 623ecc4e28d6d503e8816a7d8f3b15583b4c087d56bc358c46cb1b5c88536b58 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
 - ... 37 more new items
 
+=== 2026-09-18T08:58:46+09:00 / 2026-09-17T23:58:46+00:00 ===
+status: success
+event: push
+run_id: 35288995555
+run_attempt: 1
+event_head_sha: 654bcffeec585ae78202dc02cd7684b76865286b
+worker_base_sha: 654bcffeec585ae78202dc02cd7684b76865286b
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 70184
+after_total: 70251
+net_total_change: +67
+new_items_added: 67
+items_removed: 0
+source_changes: esl: +67 / -0
+new_items_sample:
+- [esl] 05651744673d947aadfff86de52fe06403db80d68fb66764c351e1537420e612 | _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 0668b2ad9edc3915a3c5b0e1b265a8f4e00d60868133d1b4a5f329b54df2e6a1 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 06a5295d87baa60cbdaf41987383eb00b7aa06efb7932f20e9911753bbf2990a | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 0716a296cbee573b82dcd155689f18f307d9d55944181a5d593fc6ead53c7c00 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 0ac0a62ca63c80b57c4fdc465e1ff0968b583392abb75b69c3b1aedea07c8818 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 0b84df37147653184111f137a45e56a34938dc5d35310454d3f71f7ac50e0e49 | _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 0c85dfa2e5f88708c9f889947ce43afeaada64f2c5375c82a5144c6c34f471d3 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 0cf1feebec4b96e1ac2ee823ac9ef63c5a7fe51a3ef578914121ab5c12429143 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 19d9465de4cce355dcf234b353f91b3ef8007a63264815b2f84e2078e884b30b | _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 1a935509bbba7a97c42267887d571fc6e7c159fad1cde97ff2313c472a0166e7 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 26cc02decd267f6bef2177c5f154b811ecd927a640c6f31db5e35cd4c9c3551c | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 2bba6a9485996ccd0a324c5513528677ed599e58e380085aab63c08f0c4066d5 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 2e9558a1c34e5fef584d11dcf4f618dc733366b03d819e096061df133d897d75 | _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 315403ed8c6ffe0a14944dd1f3e7db1428ec43e8d6685bcbc0816cf0e7991afb | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 3418f943faf0deec56565ca0c647a29463a463d1d3b6a608d978d32edc60ea75 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 37a7e52d29f38b6ae24a84bd3115c2d9f9005ddd08e0721119368a6efa576d81 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 37bceab434722d9699542b8f31358afc10c52e577ee2215603ef725558be297d | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 38759366c6a1c2f28637481e038f0cfa5f8f8d33803ab8ff5e4d276d2db0b02a | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 3a7e79054698be03c04280aa9199fb3830c3a63a313f29bb3dbba1f22f1f0000 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 3cc80da37e7f1759db2eaf31a4bc30b5acd870c1fa7c1dc2f23b32b74a43b368 | _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 3ee352df79d5d8b8e8dcee74f30f21a5a42c8a849ff3bdb7d200cf515b06b07d | _ _ _ | UD_English-ESL
+- [esl] 4237a16f09fa073dbb6dd49bd1ee6bdd593cfb33cd47670b755287ae35c758eb | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 50394f91a4133f9365467a90434e060cf0f776760b753c766ea5438b712e9c2f | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 54d1e5c6a095136481565564eaa7392fe57df9599b354530743d6bb3d0787daa | _ _ _ _ | UD_English-ESL
+- [esl] 574997bc04ad751ae094bcb5b8f656e2574f94775588949be46cb2e79bdad8ce | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 59d02a9c95d4fb8cc5e976f5618497fb6e86232080e3bff4ee4440cd60a2ecb4 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 5e6e41c6f30e54dbe35ce2bc33a90ea4af9fc01967bb2e71c6751051ee294ab8 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 5f51d8385dbcb953b494a68bb5c8be8fdb41644e38903196f22dfa12853c979b | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 61c4b9440b878a2c4bbe014c1387f7eca3da3bc2eea9affe953e096e118a3915 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- [esl] 623ecc4e28d6d503e8816a7d8f3b15583b4c087d56bc358c46cb1b5c88536b58 | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | UD_English-ESL
+- ... 37 more new items
+

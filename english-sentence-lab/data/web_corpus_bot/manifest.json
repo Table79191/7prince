@@ -1,16 +1,18 @@
 {
   "version": "AUTO-WEB-CORPUS-2-INCREMENTAL",
   "policy": {
-    "source_type": "allowlisted public Universal Dependencies English treebanks",
+    "source_type": "auto-discovered reusable Universal Dependencies UD_English-* treebanks",
     "arbitrary_web_scraping": false,
     "append_only": true,
-    "max_new_per_run": 1000,
+    "max_new_per_run": 0,
     "max_new_per_source_per_run": 0,
     "max_total_per_source": 0,
     "per_source_storage_unlimited": true,
     "redistribute_unused_run_budget": true,
     "authenticated_github_api": true,
     "skip_exhausted_unchanged_sources": true,
+    "auto_discover_english_treebanks": true,
+    "license_policy": "CC-BY/CC-BY-SA reusable text only; NC/restricted/unclear-text-rights sources excluded",
     "role_analyzer": "english-sentence-lab/scripts/canonical_roles.py"
   },
   "sources": {
@@ -277,25 +279,155 @@
       "download_skipped": true,
       "skip_reason": "upstream_unchanged_and_exhausted",
       "allocated_run_quota": 0
+    },
+    "esl": {
+      "source": "esl",
+      "repo": "UD_English-ESL",
+      "license": "CC-BY-SA-4.0",
+      "discovered_files": [
+        "en_esl-ud-dev.conllu",
+        "en_esl-ud-test.conllu",
+        "en_esl-ud-train.conllu"
+      ],
+      "raw_files": [
+        {
+          "filename": "en_esl-ud-dev.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESL/master/en_esl-ud-dev.conllu",
+          "sha256": "aa93b21ffc4f4ccff42e272fda3e663c344587030b513af2e64a2dde1a30116d",
+          "bytes": 327396
+        },
+        {
+          "filename": "en_esl-ud-test.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESL/master/en_esl-ud-test.conllu",
+          "sha256": "fcfdd0e8f4270634a02781a43a6c5f3de25dd1c98109b03ca7bef9b3c87c4fd6",
+          "bytes": 329371
+        },
+        {
+          "filename": "en_esl-ud-train.conllu",
+          "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-ESL/master/en_esl-ud-train.conllu",
+          "sha256": "3f03264b4501d4a7d8103c55aa6d6fbcdb1e29aafa0a7d819c1116c661543f4e",
+          "bytes": 2694781
+        }
+      ],
+      "sentences_after_dedupe_upstream": 67,
+      "sentences_written": 67,
+      "new_items_added": 67,
+      "allocated_run_quota": 0,
+      "remaining_unseen": 0,
+      "auto_pass": 52,
+      "needs_review": 15,
+      "upstream_head_sha": "c4c0f90680371425a82c54391fd7eb070636a563",
+      "download_skipped": false,
+      "skip_reason": ""
     }
   },
   "totals": {
-    "sentences_written": 70184,
-    "auto_pass": 67720,
-    "needs_review": 2464,
-    "new_items_added_this_run": 0,
-    "sources_downloaded_this_run": 0,
+    "sentences_written": 70251,
+    "auto_pass": 67772,
+    "needs_review": 2479,
+    "new_items_added_this_run": 67,
+    "sources_downloaded_this_run": 1,
     "sources_skipped_this_run": 8
   },
-  "upstream_snapshot_sha256": "b99d09afd946f910a9ec0f5e0081ee8ac7da74241652b5d537b1793b54b3c512",
+  "upstream_snapshot_sha256": "cca4832cb5eb1850ef97e6d7bd3793d78ff4a2417cff383b7a53c4091b54a604",
   "collection_time": {
     "meaning": "first time each record was collected by this repository bot",
     "timezone_fields": [
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 70184,
-    "latest_first_collected_at_utc": "2026-09-17T22:04:17+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T07:04:17+09:00"
+    "records_with_timestamp": 70251,
+    "latest_first_collected_at_utc": "2026-09-17T23:56:34+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T08:56:34+09:00"
+  },
+  "discovery": {
+    "matching_repositories_seen": 16,
+    "accepted_source_count": 9,
+    "accepted_sources": [
+      {
+        "key": "atis",
+        "repo": "UD_English-Atis",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "childes",
+        "repo": "UD_English-CHILDES",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "ctetex",
+        "repo": "UD_English-CTeTex",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "esl",
+        "repo": "UD_English-ESL",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "eslspok",
+        "repo": "UD_English-ESLSpok",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "ewt",
+        "repo": "UD_English-EWT",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "littleprince",
+        "repo": "UD_English-LittlePrince",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "pronouns",
+        "repo": "UD_English-Pronouns",
+        "license": "CC-BY-SA-4.0"
+      },
+      {
+        "key": "pud",
+        "repo": "UD_English-PUD",
+        "license": "CC-BY-SA-3.0"
+      }
+    ],
+    "skipped_repositories": [
+      {
+        "repo": "UD_English-GUM",
+        "license": "CC-BY-NC-SA-4.0",
+        "reason": "noncommercial_license_excluded"
+      },
+      {
+        "repo": "UD_English-GUMReddit",
+        "license": "CC-BY-4.0-ANNOTATIONS",
+        "reason": "underlying_text_rights_not_clear"
+      },
+      {
+        "repo": "UD_English-ParTUT",
+        "license": "CC-BY-NC-SA-4.0",
+        "reason": "noncommercial_license_excluded"
+      },
+      {
+        "repo": "UD_English-LinES",
+        "license": "CC-BY-NC-SA-4.0",
+        "reason": "noncommercial_license_excluded"
+      },
+      {
+        "repo": "UD_English-GENTLE",
+        "license": "CC-BY-NC-SA-4.0",
+        "reason": "noncommercial_license_excluded"
+      },
+      {
+        "repo": "UD_English-PCEDT",
+        "license": "RESTRICTED-LDC",
+        "reason": "requires_external_LDC_text_license"
+      },
+      {
+        "repo": "UD_English-UniDive",
+        "license": "CC-BY-SA-4.0",
+        "reason": "no_released_conllu_files",
+        "detail": "no .conllu files discovered in UD_English-UniDive"
+      }
+    ],
+    "discovery_error": ""
   }
 }

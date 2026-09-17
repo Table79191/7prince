@@ -1287,3 +1287,50 @@ new_items_sample:
 - [childes] 398f08776f5e3de276ef565742b78976c6da27f5077cf7daf8dd6d007c694fac | There goes another one. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:32:42+09:00 / 2026-09-17T18:32:42+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35259249409
+run_attempt: 1
+event_head_sha: 7c25c1b0001b714a3eee1bcf931d93b3492b6f1e
+worker_base_sha: 7c25c1b0001b714a3eee1bcf931d93b3492b6f1e
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 30955
+after_total: 31955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 3c3d96d29d82b3b5fbee767d10a2f7a7163290fc346cea9a65ab5bd882d31b6d | Oh no it 's a busy bulldozer. | UD_English-CHILDES
+- [childes] 3c42c6c313e87d8c1a1a8d36fe8a81b77d27804d4160648c8db8c06eee59f888 | Mm I know you did. | UD_English-CHILDES
+- [childes] 3c47a4dd43c069c101c177deb8b1e59af9ab6543712b78b7ea37e533d85767a0 | Did he trick you? | UD_English-CHILDES
+- [childes] 3c47d3c81750c2a6a06fd31fdc94216faf1fe1ac3c6eed0b3c32c091508a76ec | It's cold I know it. | UD_English-CHILDES
+- [childes] 3c49a378aad1b106267c92c5661da4e7d5023cf3878e0f18b03d2a13cb54088e | A green bus. | UD_English-CHILDES
+- [childes] 3c4c4f2e84b44005020d72971bf9fd616b575552be78aaa0f455999e023911b2 | Oh when did you go to Italy? | UD_English-CHILDES
+- [childes] 3c4d5e6924125d007dd124ad035febe0eecd3274a6fae4383147f8637b74d6c5 | What else do we need? | UD_English-CHILDES
+- [childes] 3c4ef709c00641aca7f7ea16da4bf8b6e9810d58f47f30c1a247f19a63be0508 | Don't play with that. | UD_English-CHILDES
+- [childes] 3c4fd6b9b87663f0abe292ea4e8f2bc85f2da9156dcb09593d416776c4717031 | What time is that two o'clock? | UD_English-CHILDES
+- [childes] 3c4ff878be1ad3a514e1cb23b1e8153fa6c2ade2a5f45a8372e2a032a5f53abd | I can't find the key. | UD_English-CHILDES
+- [childes] 3c51b6f72616dbf9583cbf0b07b58bf65cdbc346fa7a20fa9f76efc11e916bbc | I know I put them in your toy box. | UD_English-CHILDES
+- [childes] 3c525951a6632d1574f4d6a74d8ef41802a397ba2c89a254f92442b06eb18034 | She doesn't know us very well it would be very helpful for her if she could learn about us a little bit. | UD_English-CHILDES
+- [childes] 3c52e7ecd57dd841364d81f9a93ce6da4066bf81336f7f18a18d2652371cce79 | I've not got an ache but my head hurts. | UD_English-CHILDES
+- [childes] 3c53072d638b04a9523764a77f12e6801331e14af6b99d6098d8f391845436ff | No it 's not going faster Adam. | UD_English-CHILDES
+- [childes] 3c530edb2e6f0c9a88b022fe3833391344372a032eee19b773a366baeec3343e | How does the water get in here? | UD_English-CHILDES
+- [childes] 3c538a583594b3c886307e4b3899420fd5f05a256b9777da4654719d8543968e | One for Daddy and one for you. | UD_English-CHILDES
+- [childes] 3c54e1a38a3f8150376f3e8c12af6023a3994b93b00fa7fce78c1476912189fb | Here sun. | UD_English-CHILDES
+- [childes] 3c558c2ebab7bbb863ecc4a6cae527af18a8d57491b0890f1166de0077dc3d3e | Want one of those? | UD_English-CHILDES
+- [childes] 3c56475c37da1b1cacc45d57485a73549c88ddc76e010f1a485d9246a8cddae5 | Then what does it do? | UD_English-CHILDES
+- [childes] 3c56de20f7fdb74c67dc7b5627a484577c3ebd39bc275e6cf54d7979d9fec941 | You were playing a game and then you made the soup? | UD_English-CHILDES
+- [childes] 3c57467ab22842b88d65f9c7bb3096a74bcfa0674e6f003eddaf41e3381354b9 | Don 't put the tape in? | UD_English-CHILDES
+- [childes] 3c58df3a071ae0ca0d1f30af86d48d5f2e25a88c9bfc0ad056076e0697f35ed6 | Adam what did you do yesterday afternoon? | UD_English-CHILDES
+- [childes] 3c59a2ca12aeb0c606a1f07e85f398fe9edcb7eaa47c8f89d6300dc8a6cc0610 | Oh I step on shoe. | UD_English-CHILDES
+- [childes] 3c59e82cefd647b88b241654b8228a5812695399a40d051fe81ddf67c96e6a27 | And Richard. | UD_English-CHILDES
+- [childes] 3c5a298a63e197fd652ab11bcc543f5a5e11002f52f0bd35a7c13ec5207deabf | What did they do. | UD_English-CHILDES
+- [childes] 3c5b53cee40c7a629a033d542cb021bf72e3c78949b2e6c02b1a17766af8bbbc | Where 's the zipper? | UD_English-CHILDES
+- [childes] 3c5c06c3a326ec54fd2ef55e35a6d1f9d3718e4da97916f4b9139ca2b127bbad | We'll have lunch in a little while. | UD_English-CHILDES
+- [childes] 3c5c136d09131c88b74cbf6d4159fe8a7935442440363d2e82bfdb7032d66d3e | Are koala bears? | UD_English-CHILDES
+- [childes] 3c5c495c54a1c2771424d72e99a21a2e15c114134ee0b6954a224297e8808a24 | No I like it. | UD_English-CHILDES
+- [childes] 3c5cf6bbc1f89bab6af235916ab796f53bdf25bc584855adeeac24d81e7f0c04 | Quite often when people visit other people's house. | UD_English-CHILDES
+- ... 970 more new items
+

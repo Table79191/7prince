@@ -1,0 +1,17 @@
+{
+  "experiment": "Rooping 002 — fixed-logit blend on Novel Complex200",
+  "selection_data": "Novel Complex200 holdout (not Chaos Long50)",
+  "input_parser": "v1.5.5",
+  "experts": {
+    "long": "v1.6.1 GRU3+attention",
+    "gold": "v1.7.5 Gold+EWT+MASC"
+  },
+  "results": {
+    "alpha_0_long_expert": {"role_accuracy": 0.947006, "sentence_exact": 103},
+    "alpha_0_25_long_expert": {"role_accuracy": 0.963772, "sentence_exact": 119},
+    "alpha_0_30_long_expert": {"role_accuracy": 0.958084, "sentence_exact": 122},
+    "alpha_0_35_long_expert": {"role_accuracy": 0.958383, "sentence_exact": 122},
+    "alpha_1_long_expert": {"role_accuracy": 0.938623, "sentence_exact": 95}
+  },
+  "interpretation": "The experts are complementary. A fixed blend materially improves short/medium complex sentences, but the blend weight must not be chosen from Chaos50. Next loop will learn a length/structure-aware router using non-Chaos long development data."
+}

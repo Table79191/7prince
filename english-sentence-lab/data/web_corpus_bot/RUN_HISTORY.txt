@@ -770,3 +770,50 @@ new_items_sample:
 - [atis] e889a2cc839fe2407e2c15c4906d3718f72221a9ad49aa0a468e9d621ff50cda | what kind of ground transportation is there in dallas | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:35:56+09:00 / 2026-09-17T17:35:56+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35253476197
+run_attempt: 1
+event_head_sha: 7d926a8fac765a661e7cdfe81dbf5bb2b497d1be
+worker_base_sha: 7d926a8fac765a661e7cdfe81dbf5bb2b497d1be
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 19955
+after_total: 20955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +182 / -0, childes: +484 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] f7101f4d18afc3282790211f670d0eea7e838c7ea2b1319bd05575ebdb8f206a | looking for a flight from cleveland to dallas | UD_English-Atis
+- [atis] f718c491f91ad6b05445960ee1858f89c8aaf8ef84b59e1d2f415561e81ad3c5 | i'd like to find a flight from miami florida to las vegas nevada that would arrive before 4 pm on sunday | UD_English-Atis
+- [atis] f7237a7a23b52f8cb2442267a2e89bd83a4779e0a94f824b4808dd49a7c2f8eb | i need information on flights for tuesday leaving baltimore for dallas dallas to boston and boston to baltimore | UD_English-Atis
+- [atis] f72d72a03d6b22eb4450bcdd8954aed84d560fa99bfee4e1f8a6f9d332fccccc | show flights from boston to denver on wednesday morning | UD_English-Atis
+- [atis] f73d2dfbe26221108d4a17c634f1bc3c9a0109ff18b76ddac4382adf2cfc7d1e | on tuesday are the flights from san diego california to indianapolis indiana i would like the flight to be in the afternoon | UD_English-Atis
+- [atis] f74093492d5f25d05b9e38aa1ae762c297b6dd9a4d38b34f0003b2a2cae81c6f | what about flights from boston to san diego | UD_English-Atis
+- [atis] f747f7093e6bf894881cf49feaa9114064e01638b0377fc2e44def99042c9c02 | show me the flights from atlanta to bwi | UD_English-Atis
+- [atis] f774680e06ee55cfe3d1d2f9de8d57dd01492c656b46e6a18a8a8edb323e4a23 | american airlines leaving phoenix | UD_English-Atis
+- [atis] f77f77761839abc9d503f6f62db585806ffbe70b17f16f3db7896639e5e6f58a | i would like a flight from san francisco to pittsburgh on friday morning after 10 o'clock | UD_English-Atis
+- [atis] f788c9c1bfd6dbaf777b76e7a5b6fe51a3dab02827d48f28077a67043fb1492e | are there any early flights from atlanta to washington on thursday mornings | UD_English-Atis
+- [atis] f78a49d5b78dba7897f7574ab8c292b6893f4f96822f07c0c27675b4073d1315 | what flights leave chicago and arrive in detroit around 6 pm next tuesday | UD_English-Atis
+- [atis] f7910661666ab13fbf1f3f4481c4ae84017d8797711b4db4c9c9fca0281b5b0a | i would like to see flights from cincinnati to salt lake city | UD_English-Atis
+- [atis] f798eaa044fb2d7fd66f8e7343680c836a303f0461ad270057ef88660c8edbdf | show me all flights that depart from san francisco and go to either boston philadelphia or baltimore | UD_English-Atis
+- [atis] f7a90efea0564a39559bf0833bf3ff62ac1d486d9c50f081710c504562d6c60d | can you show me flights that are economy class from baltimore to dallas | UD_English-Atis
+- [atis] f7b14299e67a00865a41e4656850dc545f55932485f424c0899f6abd96319a86 | what are the morning flights from boston to philadelphia | UD_English-Atis
+- [atis] f7b7e9fb56648db3285db6affaa29a441699bec7b52077fae16e4c20deac2598 | what is the cheapest one way ticket from denver to pittsburgh | UD_English-Atis
+- [atis] f7c0e6d73769b5328ba355ba1ada3eaa495333fa4061db81f91c2a331ade8113 | what are the most expensive first class tickets between atlanta and dallas | UD_English-Atis
+- [atis] f7c80d2f51096c8628351fa960230b65c33637d447b2df8e9f99f0d44e77d248 | show nonstop flights from new york to miami on a tuesday which cost less than 466 dollars one way | UD_English-Atis
+- [atis] f7ce9576608544c14fd8bdd8c5f600c762bbb16893104eb23764aab49bacb765 | what is the total schedule for delta's flights to all airports | UD_English-Atis
+- [atis] f7d24f72b304e8d41f67a595771463757e88a2f81a2017c4531a124240392e12 | show me the airlines from love field | UD_English-Atis
+- [atis] f8002d139cc215cfd14adfa24ebf0c4170aab9016c7e12b4998da76d85723c4e | show me flights from miami to new york leaving on a sunday first class | UD_English-Atis
+- [atis] f8016f73036b56701261d9f9f15e5e54a56fae3c588d5f3a385e5a8946fd16f4 | what is the last flight to atlanta from baltimore | UD_English-Atis
+- [atis] f80ef2d1bded6bff46c3a08cba949e092e1c73682c6b4cf39dcef0289f5d6036 | show me the flights from philadelphia to dallas | UD_English-Atis
+- [atis] f83e8b8d1b07545803489932a0905141912dc1de655110aa5565ec2d0e965358 | does midwest express have any flights from montreal to detroit | UD_English-Atis
+- [atis] f84052a182f0601b599e073ac011000b9494e78cae5cfafca68651765e352e4c | can you show me what fares are available from oakland to dallas on december sixteenth one way only | UD_English-Atis
+- [atis] f845a01527e71fd241c8648e39f578429165010600beade79d7a9a5d32df48b9 | what are the flights from milwaukee to orlando on wednesday night | UD_English-Atis
+- [atis] f848c455e70a3bfb22f1df94e2a9aafaf1de14c84b45aa01185db852de2d8c97 | what type of ground transportation is available at philadelphia airport | UD_English-Atis
+- [atis] f85b4b625b8fe34fe05982c6736db1c0360df027da43923c02c60065e0fd245a | what type of ground transportation is there at the las vegas airport | UD_English-Atis
+- [atis] f860aee44677807598491a31954171be21f88bcaa73ce840382d27fc7a55d571 | round trip flights from orlando to montreal please | UD_English-Atis
+- [atis] f875a4fb9e309e797dbe0e04d1a6a415a66dae4021d85b742691ef5471b4f3b3 | hi i need to go from cincinnati to san jose california after 6 pm on saturday | UD_English-Atis
+- ... 970 more new items
+

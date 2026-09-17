@@ -2086,3 +2086,50 @@ new_items_sample:
 - [childes] 7c83933d3a9373030a1cb879b8af67f84ed06102ad2fc7b2bdee985f07887535 | I don't know honey. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:02:30+09:00 / 2026-09-17T20:02:30+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35268028635
+run_attempt: 1
+event_head_sha: 6638fca14233637a312810d2a6ddeab59f2412cf
+worker_base_sha: 6638fca14233637a312810d2a6ddeab59f2412cf
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 47955
+after_total: 48955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] 81fd897be755984c681627c752324a32f2986360ab34ef06d6dc4935f99182a9 | A a. | UD_English-CHILDES
+- [childes] 81fd9b4bcde72bc13cbce9703e585e958a8f2e4f82a3ec9b052338ced167244b | Adam Daddy. | UD_English-CHILDES
+- [childes] 81ff65a09233c542fa0794072d9d736e934e1c6ff1fc5aeb8124d06e24396b85 | Or somebody will climb up your ladder? | UD_English-CHILDES
+- [childes] 8200138c07fe5f5334dbfd7348a7ae761990434afac960d79dbc6fcfad07f78c | Yes they 're nice. | UD_English-CHILDES
+- [childes] 82001cef4e1c40f0b8592f6b66741c48e8eb0beee577e5482b504aa5e6bac691 | She's showing you Laura. | UD_English-CHILDES
+- [childes] 82007a7ec7d41c7fd94b01e6af83b3797ca4032523db869a4514510b3886bfb7 | I wanna brush it. | UD_English-CHILDES
+- [childes] 8205991ada93e97d9dc4d3d5a85566eacd2e15390ddc8f9a40b596e14d2106ec | It's falling. | UD_English-CHILDES
+- [childes] 82063546c3fdaf060cf640dac4d0b02fee28efe538e6abf0aeb5e0be1051f536 | Where mints gone? | UD_English-CHILDES
+- [childes] 8207ba91819a7ebe3ea754b51def6049b3e24d5c554da464ca0e005bf7605323 | What is Tigger doing there? | UD_English-CHILDES
+- [childes] 8209cddcbe9b1b5ee23be7d53fe9f9f3c700d6902b86dd50528a9f653751f752 | How could you write with it if you break it? | UD_English-CHILDES
+- [childes] 820bcbc74e77fcf8fb051071191f6a36e26077b88b59f7f63d0af00d4ea079fc | Hey one two three four five. | UD_English-CHILDES
+- [childes] 820eb2b8a0f970cc6ca13dd8e2e76658d3b3beb56037982be7089cb96c892cb4 | Playing playing playing playing playing cowboy. | UD_English-CHILDES
+- [childes] 820ee578ff99b8d2e317b3e39bd50f96287108ce5bce4ef85f6c204b23a355da | You put it back together. | UD_English-CHILDES
+- [childes] 820f4573b203cda8aa174ec389fd6aa0c9587f860b21218f183e5d75716f0788 | Then I'll bring it. | UD_English-CHILDES
+- [childes] 820f6c532dd724004e7ed8c24e644f1df4da123d0084c0c40aeb61dc26d12870 | Very distinctive. | UD_English-CHILDES
+- [childes] 820fb77d56bbb981b15a0387eb6b109f062b4434102d2b6e30e4dd7b5b4af027 | He 's trying his new words out. | UD_English-CHILDES
+- [childes] 8210235f483bd61839b02056a8b2cff2dfc9df035d5da7c3d3947520f8c0ce7c | Bring that. | UD_English-CHILDES
+- [childes] 821231247458387bfca5697f40d40bfa33f91209fe94efedd1068e034c6a0697 | Yes that 's what Paul did. | UD_English-CHILDES
+- [childes] 82123e66d32401f24b0555b83388310479c30f018e79faeebfd89fa25b5a7f20 | And this is special bath soap for the bath for you. | UD_English-CHILDES
+- [childes] 8212e8a120f4b1b89f8b074a9df5794c2abe87f4267121f4071d5600d03f3458 | You can have one money two money three money four money. | UD_English-CHILDES
+- [childes] 82135c6e66d4950d0aa0fc5b6490b6ad2f288be5dc4212952db5e1c952377929 | Polly with kettle on. | UD_English-CHILDES
+- [childes] 821464d3b86bf4ea2d0fe4713724cae8da5fd67e815111cbd0582d28175c71be | You rode on the Dodge car? | UD_English-CHILDES
+- [childes] 82172c1636a53539b7c13032866c2eee8015ee472f727502a46aadd32c75331d | It's dere. | UD_English-CHILDES
+- [childes] 8217a368886d6966d8cf4083c0bc92a910e18d3645cc3ddb08b3ae893ac72247 | Do what again? | UD_English-CHILDES
+- [childes] 8218db313e9c21a59e1bf0748f5740d5597babf19a123a91d7ac301d1502d46d | So I fell. | UD_English-CHILDES
+- [childes] 821a0c4ae13aead2c6fb8ffbcb381547acc49cce77d5f211923f2e1f0aa38708 | Where did they go where did they go? | UD_English-CHILDES
+- [childes] 821aa6406d450a118ea957533138704c7339d4179966180a93daccd22bc0c295 | He 'll come down backwards. | UD_English-CHILDES
+- [childes] 821b8f5a67fd8eb30f33dcd754640b798d018269d18ad848c61222a5e81d7569 | You're gonna what? | UD_English-CHILDES
+- [childes] 821f008fe2da71fd18ea4b53b4a24524bd339dd84e73d4734b4fcf3cbc8f8e53 | And I'll read you another book. | UD_English-CHILDES
+- [childes] 8221bd1e00ac1a60a1b45b56aac23d0ae0a67cb7f49784265332b8b3b9d25b39 | No the baby's scared what's it gonna do? | UD_English-CHILDES
+- ... 970 more new items
+

@@ -10,7 +10,7 @@ Exhausted unchanged sources are checked by upstream HEAD and skip large raw down
 | Source | License | Stored | Added | Quota | Remaining | Download | Auto-pass | Review |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | atis | CC-BY-SA-4.0 | 5430 | 0 | 0 | 0 | skipped | 5354 | 76 |
-| childes | CC-BY-SA-4.0 | 23270 | 1000 | 1000 | 22229 | fetched | 23008 | 262 |
+| childes | CC-BY-SA-4.0 | 24270 | 1000 | 1000 | 21229 | fetched | 23998 | 272 |
 | ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | 0 | skipped | 218 | 56 |
 | eslspok | CC-BY-SA-4.0 | 2154 | 0 | 0 | 0 | skipped | 2054 | 100 |
 | ewt | CC-BY-SA-4.0 | 15050 | 0 | 0 | 0 | skipped | 13463 | 1587 |
@@ -18,7 +18,7 @@ Exhausted unchanged sources are checked by upstream HEAD and skip large raw down
 | pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | 0 | skipped | 275 | 10 |
 | pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | 0 | skipped | 882 | 118 |
 
-**Total analyzed sentences:** 47955
+**Total analyzed sentences:** 48955
 **New items added this run:** 1000
 **Raw sources fetched/skipped this run:** 1/7
 

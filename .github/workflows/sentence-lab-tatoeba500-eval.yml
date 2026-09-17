@@ -1,0 +1,61 @@
+name: SentenceLab Tatoeba Daily500 evaluation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/eval/eval_tatoeba500.py'
+      - 'english-sentence-lab/scripts/spacy_role_postprocess.py'
+      - '.github/workflows/sentence-lab-tatoeba500-eval.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tatoeba500-eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install spacy stanza
+          python -m spacy download en_core_web_sm
+          python - <<'PY'
+          import stanza
+          stanza.download('en', processors='tokenize,pos,depparse', verbose=False)
+          PY
+
+      - name: Evaluate Tatoeba Daily500
+        run: python english-sentence-lab/eval/eval_tatoeba500.py
+
+      - name: Commit benchmark artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'sentence-lab-bot'
+          git config user.email 'sentence-lab-bot@users.noreply.github.com'
+          git add \
+            english-sentence-lab/artifacts/tatoeba_daily500_eval.json \
+            english-sentence-lab/artifacts/tatoeba_daily500_eval.txt \
+            english-sentence-lab/data/tatoeba500/TatoebaDaily500_CC0.tsv
+          if git diff --cached --quiet; then
+            echo 'No Tatoeba500 report changes.'
+            exit 0
+          fi
+          git commit -m 'eval: save Tatoeba Daily500 practical benchmark'
+          git pull --rebase origin main
+          git push origin HEAD:main

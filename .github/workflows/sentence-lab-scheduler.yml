@@ -39,7 +39,6 @@ jobs:
           set -euo pipefail
           requested='${{ inputs.interval_seconds }}'
           if [ "${{ github.event_name }}" = "push" ]; then
-            # Fast bootstrap once after this workflow file is changed.
             delay=30
           elif [[ "$requested" =~ ^[0-9]+$ ]] && [ "$requested" -ge 60 ] && [ "$requested" -le 900 ]; then
             delay="$requested"
@@ -49,30 +48,49 @@ jobs:
           echo "delay=$delay" >> "$GITHUB_OUTPUT"
           echo "Dispatcher event=${{ github.event_name }} delay=${delay}s"
 
-      - name: Dispatch worker if idle
+      - name: Dispatch corpus worker if idle
         shell: bash
         run: |
           set -euo pipefail
-          busy="$(gh api \
-            -H 'Accept: application/vnd.github+json' \
-            "/repos/${REPO}/actions/workflows/sentence-lab-auto-web-corpus.yml/runs?per_page=20" \
-            --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
+          busy="$(gh api             -H 'Accept: application/vnd.github+json'             "/repos/${REPO}/actions/workflows/sentence-lab-auto-web-corpus.yml/runs?per_page=20"             --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
 
           if [ "$busy" -eq 0 ]; then
             for attempt in 1 2 3 4 5; do
-              if gh workflow run sentence-lab-auto-web-corpus.yml \
-                --repo "$REPO" \
-                --ref main; then
+              if gh workflow run sentence-lab-auto-web-corpus.yml --repo "$REPO" --ref main; then
                 echo "Dispatched corpus worker at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-                exit 0
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo 'Could not dispatch corpus worker after retries.' >&2
+                exit 1
               fi
               sleep $((attempt * 3))
             done
-            echo 'Could not dispatch corpus worker after retries.' >&2
-            exit 1
+          else
+            echo "Corpus worker already active (${busy}); skipped duplicate dispatch."
           fi
 
-          echo "Worker already active (${busy}); skipped duplicate dispatch."
+      - name: Dispatch long sentence collector if idle
+        shell: bash
+        run: |
+          set -euo pipefail
+          busy="$(gh api             -H 'Accept: application/vnd.github+json'             "/repos/${REPO}/actions/workflows/sentence-lab-long-sentence-collector.yml/runs?per_page=20"             --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
+
+          if [ "$busy" -eq 0 ]; then
+            for attempt in 1 2 3 4 5; do
+              if gh workflow run sentence-lab-long-sentence-collector.yml --repo "$REPO" --ref main; then
+                echo "Dispatched long sentence collector at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo 'Could not dispatch long sentence collector after retries.' >&2
+                exit 1
+              fi
+              sleep $((attempt * 3))
+            done
+          else
+            echo "Long sentence collector already active (${busy}); skipped duplicate dispatch."
+          fi
 
       - name: Keep daemon interval
         shell: bash
@@ -88,10 +106,7 @@ jobs:
         run: |
           set -euo pipefail
           for attempt in 1 2 3 4 5; do
-            if gh workflow run sentence-lab-scheduler.yml \
-              --repo "$REPO" \
-              --ref main \
-              -f interval_seconds=300; then
+            if gh workflow run sentence-lab-scheduler.yml               --repo "$REPO"               --ref main               -f interval_seconds=300; then
               echo "Re-armed dispatcher at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
               exit 0
             fi

@@ -159,7 +159,7 @@ def score(rows,key):
 def main():
     torch.set_num_threads(4)
     nlp=spacy.load('en_core_web_sm')
-    stz=stanza.Pipeline(lang='en',processors='tokenize,pos,depparse',tokenize_no_ssplit=True,use_gpu=False,verbose=False)
+    stz=stanza.Pipeline(lang='en',processors='tokenize,pos,lemma,depparse',tokenize_no_ssplit=True,use_gpu=False,verbose=False)
     ck=torch.load(MODEL,map_location='cpu',weights_only=False)
     model=base.RoleNet().cpu(); model.load_state_dict(ck['model'],strict=True); model.eval()
 
@@ -208,7 +208,7 @@ def main():
         'source_url':SOURCE_URL,'source_last_modified':last_modified,'license':'CC0 1.0',
         'retrieved_at_utc':datetime.now(timezone.utc).isoformat(),
         'selection':'deterministic SHA-256 sample after 2-10 word, <=80 char, single-sentence, no URL/digits, spaCy no-PROPN/X/SYM filter',
-        'sentences':COUNT,'training_allowed':False,'gold_method':'Stanza English UD tokenize+POS+dependency mapped to SentenceLab S/V/O/C/M roles',
+        'sentences':COUNT,'training_allowed':False,'gold_method':'Stanza English UD tokenize+POS+lemma+dependency mapped to SentenceLab S/V/O/C/M roles',
         'alignment':{'gold_nonpunct_words':total_gold_words,'aligned_words':len(rows),'skipped_words':skipped_words,'coverage':len(rows)/total_gold_words if total_gold_words else 0},
         'neural_direct':direct_score,'final_r018':final_score,
         'remaining_confusions':[{'gold':a,'pred':b,'count':n} for (a,b),n in conf.most_common()],

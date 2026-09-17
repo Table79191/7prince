@@ -35,10 +35,10 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 247,
-    "accuracy": 0.988,
-    "exact_sentences": 47,
-    "exact_sentence_accuracy": 0.94,
+    "correct": 249,
+    "accuracy": 0.996,
+    "exact_sentences": 49,
+    "exact_sentence_accuracy": 0.98,
     "by_gold_role": {
       "S": {
         "checks": 173,
@@ -47,13 +47,13 @@
       },
       "O": {
         "checks": 56,
-        "correct": 55,
-        "accuracy": 0.9821428571428571
+        "correct": 56,
+        "accuracy": 1.0
       },
       "C": {
         "checks": 7,
-        "correct": 6,
-        "accuracy": 0.8571428571428571
+        "correct": 7,
+        "accuracy": 1.0
       },
       "M": {
         "checks": 14,
@@ -63,16 +63,16 @@
     }
   },
   "fixed_checks": 47,
-  "regressed_checks": 2,
-  "net_corrections": 45,
+  "regressed_checks": 0,
+  "net_corrections": 47,
   "fix_reasons": {
     "dep-object": 9,
     "object-complement": 1,
-    "dep-pobj": 1,
     "dep-subject": 21,
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
     "clausal-prep-subject-repair": 2,
+    "dep-pobj": 1,
     "dep-function": 1,
     "conj-inherit": 2,
     "dep-complement": 1,
@@ -86,17 +86,7 @@
   "remaining_confusions": [
     {
       "gold": "M",
-      "pred": "C",
-      "count": 1
-    },
-    {
-      "gold": "C",
-      "pred": "M",
-      "count": 1
-    },
-    {
-      "gold": "O",
-      "pred": "M",
+      "pred": "S",
       "count": 1
     }
   ],
@@ -142,27 +132,6 @@
       "confidence": 0.688991,
       "dep_guard": "C",
       "guard_reason": "object-complement"
-    },
-    {
-      "id": "CM50-002",
-      "token": "whom",
-      "occurrence": 0,
-      "gold": "M",
-      "pos": "PRON",
-      "tag": "WP",
-      "dep": "pobj",
-      "head": "of",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "of",
-      "head_neural": "M",
-      "prev": "of",
-      "next": "later",
-      "neural_direct": "S",
-      "confidence": 0.90769,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "id": "CM50-003",
@@ -436,6 +405,27 @@
       "confidence": 0.519211,
       "dep_guard": "O",
       "guard_reason": "dep-object"
+    },
+    {
+      "id": "CM50-019",
+      "token": "intern",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "pobj",
+      "head": "for",
+      "head_pos": "ADP",
+      "head_tag": "IN",
+      "head_dep": "prep",
+      "head_lemma": "for",
+      "head_neural": "M",
+      "prev": "the",
+      "next": "who",
+      "neural_direct": "C",
+      "confidence": 0.576661,
+      "dep_guard": "M",
+      "guard_reason": "dep-pobj"
     },
     {
       "id": "CM50-020",
@@ -1089,100 +1079,15 @@
       "guard_reason": "dep-subject"
     }
   ],
-  "regressed_examples": [
-    {
-      "id": "CM50-021",
-      "token": "compromise",
-      "occurrence": 0,
-      "gold": "C",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "pobj",
-      "head": "of",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "of",
-      "head_neural": "C",
-      "prev": "of",
-      "next": "the",
-      "neural_direct": "C",
-      "confidence": 0.841653,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "id": "CM50-043",
-      "token": "components",
-      "occurrence": 0,
-      "gold": "O",
-      "pos": "NOUN",
-      "tag": "NNS",
-      "dep": "pobj",
-      "head": "of",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "of",
-      "head_neural": "M",
-      "prev": "of",
-      "next": "increased",
-      "neural_direct": "O",
-      "confidence": 0.606943,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
-    }
-  ],
+  "regressed_examples": [],
   "remaining_errors": [
     {
-      "id": "CM50-019",
-      "token": "intern",
+      "id": "CM50-002",
+      "token": "whom",
       "occurrence": 0,
       "gold": "M",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "pobj",
-      "head": "for",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "for",
-      "head_neural": "M",
-      "prev": "the",
-      "next": "who",
-      "neural_direct": "C",
-      "confidence": 0.576661,
-      "dep_guard": "C",
-      "guard_reason": "copular-pobj-complement"
-    },
-    {
-      "id": "CM50-021",
-      "token": "compromise",
-      "occurrence": 0,
-      "gold": "C",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "pobj",
-      "head": "of",
-      "head_pos": "ADP",
-      "head_tag": "IN",
-      "head_dep": "prep",
-      "head_lemma": "of",
-      "head_neural": "C",
-      "prev": "of",
-      "next": "the",
-      "neural_direct": "C",
-      "confidence": 0.841653,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "id": "CM50-043",
-      "token": "components",
-      "occurrence": 0,
-      "gold": "O",
-      "pos": "NOUN",
-      "tag": "NNS",
+      "pos": "PRON",
+      "tag": "WP",
       "dep": "pobj",
       "head": "of",
       "head_pos": "ADP",
@@ -1191,11 +1096,11 @@
       "head_lemma": "of",
       "head_neural": "M",
       "prev": "of",
-      "next": "increased",
-      "neural_direct": "O",
-      "confidence": 0.606943,
-      "dep_guard": "M",
-      "guard_reason": "dep-pobj"
+      "next": "later",
+      "neural_direct": "S",
+      "confidence": 0.90769,
+      "dep_guard": "S",
+      "guard_reason": "of-np-neural-core-preserve"
     }
   ]
 }

@@ -676,3 +676,50 @@ new_items_sample:
 - [atis] c8ddf8a8e5ec03961ede7210aa7ad7f33c0be880cbf3a8697ca466ebe5527934 | what is the earliest flight from pittsburgh to san francisco | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:24:58+09:00 / 2026-09-17T17:24:58+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35252416547
+run_attempt: 1
+event_head_sha: c61fbaff93fa20d0178ef96ce162275f283ece94
+worker_base_sha: c61fbaff93fa20d0178ef96ce162275f283ece94
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 17955
+after_total: 18955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: atis: +333 / -0, childes: +333 / -0, ewt: +334 / -0
+new_items_sample:
+- [atis] d7067d556b44915e4de067b1c93bc5be7d41634da15c211d741011d9838ff026 | fare code y what does that mean | UD_English-Atis
+- [atis] d72d3bf041dfdbecb1741cf4140cfd9577bbe38fdbb4f401ba4faf09f2c394b4 | show me all the one way fares from tacoma to montreal | UD_English-Atis
+- [atis] d73b6dbf70f4ed5050da5eaebfa514101717643c29adef7c0a3cb609a8cc87de | i would like to see the flights available from pittsburgh to san francisco for monday | UD_English-Atis
+- [atis] d7427a06df3fc9aad36964441f1faca67d30239c67ef785925cdca712c1fa46f | i'd like to know the shortest trip between boston and san francisco | UD_English-Atis
+- [atis] d74c8a54a01172c704e77d4ec55c59b55af26a65b258b092b5fe54f9541d478d | show me one way flights from indianapolis to memphis before 10 am on any day | UD_English-Atis
+- [atis] d76959db5948b033d7e5236b0164d574e34ce304639e7854a9445eada4f6889d | tell me about twa flight 539 | UD_English-Atis
+- [atis] d771bae1f076f3c79c90c19a2a0c5980b884b8fa7ed0466bc7de3e9d6869619f | list the flights on friday afternoon from philadelphia to oakland | UD_English-Atis
+- [atis] d7788e094a4310f8d68a26c28e5bfe88837e7a424a8ba079643b6ea783dd04da | my question is i want to go to san francisco and i live in denver and i would like to fly on united airlines do you have an early flight | UD_English-Atis
+- [atis] d7ae9d88b72a2c46d0ecd2926fbad27da325db60d2c491e918f45b40cc10b832 | hello i'm trying to find a flight that goes from pittsburgh to denver after 2 pm | UD_English-Atis
+- [atis] d7c831f0833064c85d5309f7a39bdacd24bbd37d6bd9d0306fb0884109c0392c | show me the price of all flights from atlanta to washington dc | UD_English-Atis
+- [atis] d7d072c62477c8fba3012877d9ff479fad2d54a2785e2299da43a8e3095dbe94 | list all the airlines that service denver | UD_English-Atis
+- [atis] d7d420dd025aa705220866de87fa2a62a3f57ff786c36b8765f4f163b9f2be7f | ground transportation oakland | UD_English-Atis
+- [atis] d7e37a75c7826092b2ab578ea8f325e297a1cc776315383eb3935730283ade93 | what airlines fly from boston to washington | UD_English-Atis
+- [atis] d7efc5715513b6719f0d11046d66959cba69b3c46382a62658b003f3085ece2d | show me weekday flights from milwaukee to orlando one way | UD_English-Atis
+- [atis] d7f3707860e13e02432a01fa64ee7af4c74e6f1ffff9cf79cad1d6d9d574801f | all flights from boston to washington dc on november eleventh before 10 am | UD_English-Atis
+- [atis] d7f3836a92649f58da425f017780306e7b9e4481bab116dc6cd0645e134080e2 | american airlines from phoenix to milwaukee | UD_English-Atis
+- [atis] d80523e5d849e578ecc3db067ab4455773394fbe365a18d9012c4348d668fa90 | what ground transportation is available from the pittsburgh airport to the town | UD_English-Atis
+- [atis] d81dc1a0b3dc1e3fb2479d922d62abad9d2783adec04a14c16953cb0961b6879 | show me the cheapest flight on june fourteenth arriving in baltimore starting from dallas | UD_English-Atis
+- [atis] d8219e9b0fddc51569ffb9cc5d3d2d116e36e98d61b6245662574e743a8a6b79 | may i have a listing of flights from long beach california to columbus ohio on wednesday | UD_English-Atis
+- [atis] d8271fc721c59635d766659a70a49ac555352c05479d91e937321f74205f8fc7 | list first class airfare round trip from indianapolis to memphis | UD_English-Atis
+- [atis] d831df2981db9095c89ca4ce8dde12889842d41b23b10da15f8ae1fcd63b0a2d | all flights from boston to philadelphia which show up on tuesday afternoon | UD_English-Atis
+- [atis] d838487eb6238b0376d6a9f0256a814c7e6baa1daeb6fcb132346492f2201ca8 | what flights from st. paul to kansas city on friday with breakfast served | UD_English-Atis
+- [atis] d84ccf8bdcb5ede631fcc4a6ae9967e0b9af41e9260e2cf6e4a335614c8755a8 | flights from pittsburgh to baltimore arriving between 4 and 5 pm | UD_English-Atis
+- [atis] d8576f34843027726917f0c98323539f3c375f0e70bdc9781de30418b351b93d | show me the flights from atlanta to denver on friday | UD_English-Atis
+- [atis] d8673f2c0edbcea52cb911155860978674c4ae2c04e78b57dc9723fb1ea36f90 | i want a one way ticket from dallas to baltimore | UD_English-Atis
+- [atis] d86827df9806c275453674d2226aa8c12ea58ac6b3852f1d3cf4b938e4683837 | please list flights from philadelphia to san francisco | UD_English-Atis
+- [atis] d8685a4d0b004bf1b1ce12545d7c4dccb497431debdb9414717ee0bf61a4c02d | what is meal code sb | UD_English-Atis
+- [atis] d869cf0e5d689e451e869541cb0b019632a586d3b008a1277612000860f09c66 | can you find me another flight from cincinnati to new york on saturday before 6 pm | UD_English-Atis
+- [atis] d86f1035d7d802134f140e18134c4b9ad10f406becf3609e199c0ff3011029a9 | is there taxi service at the ontario airport | UD_English-Atis
+- [atis] d87cbcaf811706c4bd2631cbaa54086b1aeb04578b2e1fb22f7056fbe36658b3 | what is the earliest flight between logan and bwi | UD_English-Atis
+- ... 970 more new items
+

@@ -4,8 +4,11 @@
     "source_type": "allowlisted public Universal Dependencies English treebanks",
     "arbitrary_web_scraping": false,
     "append_only": true,
+    "max_new_per_run": 1000,
     "max_new_per_source_per_run": 250,
     "max_total_per_source": 10000,
+    "per_source_storage_unlimited": false,
+    "redistribute_unused_run_budget": true,
     "authenticated_github_api": true,
     "skip_exhausted_unchanged_sources": true,
     "role_analyzer": "english-sentence-lab/scripts/canonical_roles.py"
@@ -41,11 +44,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 15050,
-      "sentences_written": 3000,
+      "sentences_written": 3250,
       "new_items_added": 250,
-      "remaining_unseen": 12050,
-      "auto_pass": 2685,
-      "needs_review": 315,
+      "allocated_run_quota": 250,
+      "remaining_unseen": 11800,
+      "auto_pass": 2917,
+      "needs_review": 333,
       "upstream_head_sha": "4a4d77f599ea53cc405f85d0cec4b2f14f81d42b",
       "download_skipped": false,
       "skip_reason": ""
@@ -80,11 +84,12 @@
         }
       ],
       "sentences_after_dedupe_upstream": 5430,
-      "sentences_written": 3000,
+      "sentences_written": 3250,
       "new_items_added": 250,
-      "remaining_unseen": 2430,
-      "auto_pass": 2956,
-      "needs_review": 44,
+      "allocated_run_quota": 250,
+      "remaining_unseen": 2180,
+      "auto_pass": 3204,
+      "needs_review": 46,
       "upstream_head_sha": "3ba83a5ded2c2b6e69ea2fa862806a892ae62a53",
       "download_skipped": false,
       "skip_reason": ""
@@ -119,10 +124,11 @@
         }
       ],
       "sentences_after_dedupe_upstream": 45499,
-      "sentences_written": 3000,
+      "sentences_written": 3250,
       "new_items_added": 250,
-      "remaining_unseen": 42499,
-      "auto_pass": 2967,
+      "allocated_run_quota": 250,
+      "remaining_unseen": 42249,
+      "auto_pass": 3217,
       "needs_review": 33,
       "upstream_head_sha": "92d3cf4c7c567bdebfe412573fecb7ec93332c30",
       "download_skipped": false,
@@ -151,7 +157,8 @@
       "needs_review": 56,
       "upstream_head_sha": "3d2bda424dcdedb8889aeec9f81ee6401994f7f2",
       "download_skipped": true,
-      "skip_reason": "upstream_unchanged_and_exhausted"
+      "skip_reason": "upstream_unchanged_and_exhausted",
+      "allocated_run_quota": 0
     },
     "eslspok": {
       "source": "eslspok",
@@ -190,7 +197,8 @@
       "needs_review": 100,
       "upstream_head_sha": "3feb27b9759454c4cf02263b371963137bee0d2b",
       "download_skipped": true,
-      "skip_reason": "upstream_unchanged_and_exhausted"
+      "skip_reason": "upstream_unchanged_and_exhausted",
+      "allocated_run_quota": 0
     },
     "littleprince": {
       "source": "littleprince",
@@ -215,7 +223,8 @@
       "needs_review": 18,
       "upstream_head_sha": "60d7a34bcae4d3a09f11dd9fd47e743375e3b9c4",
       "download_skipped": true,
-      "skip_reason": "upstream_unchanged_and_exhausted"
+      "skip_reason": "upstream_unchanged_and_exhausted",
+      "allocated_run_quota": 0
     },
     "pronouns": {
       "source": "pronouns",
@@ -240,7 +249,8 @@
       "needs_review": 10,
       "upstream_head_sha": "6c5934b7330dd0302723178d266f8326bfa358df",
       "download_skipped": true,
-      "skip_reason": "upstream_unchanged_and_exhausted"
+      "skip_reason": "upstream_unchanged_and_exhausted",
+      "allocated_run_quota": 0
     },
     "pud": {
       "source": "pud",
@@ -265,13 +275,14 @@
       "needs_review": 118,
       "upstream_head_sha": "f16eba4ae7f3d161870ed320676c5088b8fa476c",
       "download_skipped": true,
-      "skip_reason": "upstream_unchanged_and_exhausted"
+      "skip_reason": "upstream_unchanged_and_exhausted",
+      "allocated_run_quota": 0
     }
   },
   "totals": {
-    "sentences_written": 13205,
-    "auto_pass": 12511,
-    "needs_review": 694,
+    "sentences_written": 13955,
+    "auto_pass": 13241,
+    "needs_review": 714,
     "new_items_added_this_run": 750,
     "sources_downloaded_this_run": 3,
     "sources_skipped_this_run": 5
@@ -283,8 +294,8 @@
       "UTC",
       "Asia/Seoul (+09:00)"
     ],
-    "records_with_timestamp": 13205,
-    "latest_first_collected_at_utc": "2026-09-17T16:57:56+00:00",
-    "latest_first_collected_at_kst": "2026-09-18T01:57:56+09:00"
+    "records_with_timestamp": 13955,
+    "latest_first_collected_at_utc": "2026-09-17T16:59:38+00:00",
+    "latest_first_collected_at_kst": "2026-09-18T01:59:38+09:00"
   }
 }

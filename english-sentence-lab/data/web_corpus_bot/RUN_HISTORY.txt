@@ -441,3 +441,50 @@ new_items_sample:
 - [atis] 83cc6c655b45537c00a554a9c2b2d960aaed18fbd3a613c3408c4a83744f6b5c | does united have a flight from miami to washington dc on wednesday | UD_English-Atis
 - ... 720 more new items
 
+=== 2026-09-18T02:00:41+09:00 / 2026-09-17T17:00:41+00:00 ===
+status: success
+event: push
+run_id: 35249878923
+run_attempt: 1
+event_head_sha: 070aa17207c74dde34db8cc6856c1ea2cf2208ec
+worker_base_sha: f6fb52df484aaf81c378668159ad67d54366db35
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 13205
+after_total: 13955
+net_total_change: +750
+new_items_added: 750
+items_removed: 0
+source_changes: atis: +250 / -0, childes: +250 / -0, ewt: +250 / -0
+new_items_sample:
+- [atis] 8df120181d6ec09b9dfb895f46065b14d3268903d76b436b1d0d06e98cbd17e0 | may i see all the flights from washington to san francisco please | UD_English-Atis
+- [atis] 8df3fc773063654b9f32da13a242093dd385f74c5433e8278698fa024c33845d | find travel arrangements for a round trip flight from dallas to pittsburgh arriving after 8 pm | UD_English-Atis
+- [atis] 8df6135aaacf5852abb7300192aee47df9142ed598159aab1b5a33deb30efdac | i'd like to make a trip between atlanta and boston i wish to know the cheapest fare | UD_English-Atis
+- [atis] 8e0d52e7c3d8592f25e19a67d09475221464a23af35138bbb1ac59445a26e43b | i need a flight from indianapolis to houston on twa | UD_English-Atis
+- [atis] 8e0d80d0633552d0178e722afca8c63b934c505d62c14eab4c3213fe72d0fe13 | i would like information information on flights from san francisco to denver on thursday morning | UD_English-Atis
+- [atis] 8e2306aa4a3f505b6b1c89a81a910e9f0c742188a820e46c26bd7b34296ba53b | please show me any united flights including connections between boston and san francisco at 5 in the evening | UD_English-Atis
+- [atis] 8e260790fd5b6a2218bf27a4da4057f627d1f70d91629add9e6782dd096d52b6 | flight from nashville to cleveland | UD_English-Atis
+- [atis] 8e3260dd19da2c517bf91e8810d90b08bb10711273f6448fc4abdb28496bd4e6 | show me all flights between boston and washington | UD_English-Atis
+- [atis] 8e40bc2e571544a0cbbb909c59b96e52bede3790042b3e95094aa66f531f081f | i would like information on flights leaving atlanta and arriving in dallas | UD_English-Atis
+- [atis] 8e4b6b03d7257bf7a21e2ac7f1bdc63211dffcb32aee2f1af1b9e638279dc93a | list all afternoon flights on united airlines from san francisco to denver | UD_English-Atis
+- [atis] 8e5036d2ff0c83bfa2339cf3b077f396fca215db7e72adda12392f98dd7c4690 | flights from la guardia to jfk | UD_English-Atis
+- [atis] 8e554460a0813f1711392bc432433bd2f34054ffb4c5f596f4aa28cc87910180 | what flights leave denver before noon on northwest airlines | UD_English-Atis
+- [atis] 8e5bb41787f17e427063509d2a6838ce99942f0046dcf6910f560e4edf1fa7b1 | what airline is us | UD_English-Atis
+- [atis] 8e64101e6a356f787f0c307bcc78905ad67f5af0658dc9f5a40dda10be3cf9d4 | find american flight from newark to nashville around 630 pm | UD_English-Atis
+- [atis] 8e718e175eeddd288747faa2a2f165d862250d37691637d6219ce4f2b52bf780 | what is the cost of flights from denver to san francisco | UD_English-Atis
+- [atis] 8e7231b7b3df4e181da7d3c089caeecf81b100c25fc326e35a9744c9d3fa5c23 | is there transportation from the atlanta airport to downtown atlanta | UD_English-Atis
+- [atis] 8e77d567a77df8ee7ab59d4faf6ef8071321683b3685c7f276903649e754eb68 | flights from indianapolis to seattle | UD_English-Atis
+- [atis] 8e799aa64bd7ceeecd01c4a84684a5d0dd4fdd1320cb30eaf6e94172ec1245d3 | how much is a flight from washington to montreal | UD_English-Atis
+- [atis] 8e86a51b596544dbf62d9204c2abd9ff483e657b6f92b24131ca945799dc2fad | i need the cheapest direct flight from atlanta to denver leaving on may seventh | UD_English-Atis
+- [atis] 8e92115ae7c3f325a474f4c3c92e42286eb697c42a12b278341616d99a21bb45 | i need information on flights from toronto to san diego | UD_English-Atis
+- [atis] 8e92ed63d79f337e375bcb2932804daef96f5290df68b41d5d425d9029534f0a | what meals are served on american flight 811 from tampa to milwaukee | UD_English-Atis
+- [atis] 8e974712f8dac925f1078ab1217e422f5dbb4e8972e3f6b2e84e2f8dc065cb22 | list the nonstop flights from miami to washington dc | UD_English-Atis
+- [atis] 8ea0d20004830709a93bde15a23cad894328db79a9cc3c2e7b9097a68068642e | what united airlines flights on june eighth go from westchester county to cincinnati | UD_English-Atis
+- [atis] 8ec46f4b64732d89b5d4c746c2c6ca5ef0e36c6d25eacaf81324477f7826a9db | i need flight numbers for those flights departing on thursday before 8 am from oakland going to salt lake city | UD_English-Atis
+- [atis] 8ed118de039ccb206972150fa363ba9dcd8cb9dd6148d663161c3111a219c5d8 | show me one way flights from milwaukee to orlando after 6 pm on wednesday | UD_English-Atis
+- [atis] 8ed693f766b6828fd71a20c8f4fa4841c53563f838990950baeb17491259228f | may i have a listing of flights on monday from minneapolis to long beach california please | UD_English-Atis
+- [atis] 8ee0fb32c15b984e321f606a3d5199a082a0458fcc6ed2047d90d403319f0e63 | list flights from tampa to cincinnati after 3 pm | UD_English-Atis
+- [atis] 8ee303434258d679d2665545658f2d47f16437dfa4c4c7f677f8fa096d53366d | cheapest fare from memphis to seattle | UD_English-Atis
+- [atis] 8eefde0c427ad80c947c951d376884fcab43d3c5fe69de00e7d75f5c0d8e8a61 | show ground transportation for pittsburgh | UD_English-Atis
+- [atis] 8ef62d8f72c65ad08889a8e7f428f372e93063ab9f053e7198769d8c29d5e4fd | i'd like a flight from boston to san francisco leaving in the afternoon any time please | UD_English-Atis
+- ... 720 more new items
+

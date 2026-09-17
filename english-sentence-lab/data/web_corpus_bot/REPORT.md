@@ -4,20 +4,21 @@ Upstream snapshot: `b99d09afd946f910a9ec0f5e0081ee8ac7da74241652b5d537b1793b54b3
 
 Incremental allowlisted Universal Dependencies English corpus.
 Existing records are retained; only unseen sentences are appended.
-Exhausted unchanged or capped sources are checked by upstream HEAD and skip large raw downloads.
+Per-source storage is unlimited by default. When a source is exhausted, its unused run budget is redistributed to other active sources.
+Exhausted unchanged sources are checked by upstream HEAD and skip large raw downloads.
 
-| Source | License | Stored | Added | Remaining | Download | Auto-pass | Review |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| atis | CC-BY-SA-4.0 | 3000 | 250 | 2430 | fetched | 2956 | 44 |
-| childes | CC-BY-SA-4.0 | 3000 | 250 | 42499 | fetched | 2967 | 33 |
-| ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | skipped | 218 | 56 |
-| eslspok | CC-BY-SA-4.0 | 2154 | 0 | 0 | skipped | 2054 | 100 |
-| ewt | CC-BY-SA-4.0 | 3000 | 250 | 12050 | fetched | 2685 | 315 |
-| littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | skipped | 474 | 18 |
-| pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | skipped | 275 | 10 |
-| pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | skipped | 882 | 118 |
+| Source | License | Stored | Added | Quota | Remaining | Download | Auto-pass | Review |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| atis | CC-BY-SA-4.0 | 3250 | 250 | 250 | 2180 | fetched | 3204 | 46 |
+| childes | CC-BY-SA-4.0 | 3250 | 250 | 250 | 42249 | fetched | 3217 | 33 |
+| ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | 0 | skipped | 218 | 56 |
+| eslspok | CC-BY-SA-4.0 | 2154 | 0 | 0 | 0 | skipped | 2054 | 100 |
+| ewt | CC-BY-SA-4.0 | 3250 | 250 | 250 | 11800 | fetched | 2917 | 333 |
+| littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | 0 | skipped | 474 | 18 |
+| pronouns | CC-BY-SA-4.0 | 285 | 0 | 0 | 0 | skipped | 275 | 10 |
+| pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | 0 | skipped | 882 | 118 |
 
-**Total analyzed sentences:** 13205
+**Total analyzed sentences:** 13955
 **New items added this run:** 750
 **Raw sources fetched/skipped this run:** 3/5
 

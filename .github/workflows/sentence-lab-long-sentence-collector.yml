@@ -5,6 +5,11 @@ on:
   schedule:
     # Fallback only. The self-rearming dispatcher is the primary trigger.
     - cron: '*/30 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/long_sentence_collector.py'
+      - '.github/workflows/sentence-lab-long-sentence-collector.yml'
 
 permissions:
   contents: write

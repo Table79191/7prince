@@ -3026,3 +3026,50 @@ new_items_sample:
 - [childes] ed7a6ea557c736c922abd5417a93837cfd10aba3c00c8f4f9d20b60237576ec0 | No p. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T06:51:37+09:00 / 2026-09-17T21:51:37+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35278646630
+run_attempt: 1
+event_head_sha: f969160f85837288766109697d20193ade55b0e7
+worker_base_sha: f969160f85837288766109697d20193ade55b0e7
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 67955
+after_total: 68955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] f32046d20f7ae6ff67dbe356b859f62664f5368244059157d7751bdc013ea98e | Eee Daisy here. | UD_English-CHILDES
+- [childes] f3209690a2c7d41b55725644cb1cbd11a18dc2710232bcd549f637535bd7a9f8 | We went to the shop. | UD_English-CHILDES
+- [childes] f321f2272021f6f853e59b964a02415f4f8644204fa848cd080d9cfa50c4ce1c | That's paper white paper. | UD_English-CHILDES
+- [childes] f32285292920c1185f8c5e6e0672ce2e878e44fdad4fb6fb3f8d39497bfc2558 | You can draw on the board. | UD_English-CHILDES
+- [childes] f32526988f1039768cb645b2cbcf61cf0166431384577c346f8893d64a102915 | Show me how big you can blow it. | UD_English-CHILDES
+- [childes] f3265323a5b6ed44db037855fde7596d536779e3931ad030e55f79f9c7a7ee67 | Is that yours? | UD_English-CHILDES
+- [childes] f327b435ab85d86360e9a73d5a49a1031290af73594cd2551ed7a12210f847e2 | Sad isn't it? | UD_English-CHILDES
+- [childes] f327bc9a985b43d702e546a193c90f4aed520c373a11a1fe7296ed7f3daedee8 | What kind of work are they going to do? | UD_English-CHILDES
+- [childes] f32e08cda05c2e273f8ccad06804c572c3bb189e917b65c1509bebf70792b83c | Why don't you use the small ones? | UD_English-CHILDES
+- [childes] f3309798614f3c2bc882a44ae1aab0a6480c6a136583f53feee717031b2809f5 | It's hard to play when you have strawberry in your mouth. | UD_English-CHILDES
+- [childes] f33210b400f07ebb6a38a48ea87ce1cf6b97e416b4dafc0e002c3b1ce92f196d | I having a present on my own. | UD_English-CHILDES
+- [childes] f3340d38cdf510e1fae36c07ec9e61d251b515ae1e8bca0fec6aa5bceeb351e3 | Outside. | UD_English-CHILDES
+- [childes] f337bb4d58628016275ec1dec02388f56abe2f1103f9416004373cbff2724d75 | I haven't got any. | UD_English-CHILDES
+- [childes] f3382a8e9569d2cfc4748c599ced2936c8a3c3e79436cef8ae00fa77e77a0fec | Cooking Mama cooking. | UD_English-CHILDES
+- [childes] f3388e0b13e6ec41aeb3217370943e8ec17214832965fb54e64d110a26055205 | Hasta drive out. | UD_English-CHILDES
+- [childes] f33a565977e84d565a7919bc872434938fff3db5ff505fa25a937eef784d8ac5 | If she plays with matches she'll get dead. | UD_English-CHILDES
+- [childes] f33a63348b769f11bfd396900ae22ba8a57b99f6d8442d47d50dfaafc0fee282 | Now I hafta put. | UD_English-CHILDES
+- [childes] f33c412f6977799bef838ca55a4aad5481fa1f539bc2dca89faf5aca1404b57b | Let her pour it. | UD_English-CHILDES
+- [childes] f33d4d964be059681b5a2b4154cf0cf10275f0a4e09af751d00ee9ad55278ede | A Bow gone. | UD_English-CHILDES
+- [childes] f33dee536b92b69d136542c4678471c8f3176d9031e875eb6b9378496067fdb8 | What about you why don't you draw something? | UD_English-CHILDES
+- [childes] f33e9d4faaf3c4b1fe79b781c7b35875993c7b14f9670476c15f089f45a1c1e8 | Mommy dis can't hang. | UD_English-CHILDES
+- [childes] f33f9d7b74bfe2ba919947f9d12c4c48dfb169976f394b435d8dbc4fb4fd2a3d | I ate my supper all up. | UD_English-CHILDES
+- [childes] f340954eccfdabdd6b3dde4fe39246c728023be8552225ef276a665ab36d6cd0 | Help me down. | UD_English-CHILDES
+- [childes] f34160c70a3f20d3bf1b91691aa7c67e94343ad266cab89fe4b964b5f4187eed | Sarah don't touch it. | UD_English-CHILDES
+- [childes] f341c314d581045be45941a1897c0217d5c733ea30cc59d9be6c526c91c5ccde | Here's your change. | UD_English-CHILDES
+- [childes] f3435e21997fc7ba1ae8def7ea4eda6abe1b223037bed9ef238784d1d15496ed | A tower. | UD_English-CHILDES
+- [childes] f343e84c72c674531b29ec8fb9e5ddff5f53d02193d439cbd0fff2381e912691 | No milk on it. | UD_English-CHILDES
+- [childes] f3447cadcfdf737807dab0020e5f93450f71fe35188040684c63f30705a96cc2 | This is one of your tinker toys. | UD_English-CHILDES
+- [childes] f344aa3584dc20f216b76075cb4f5b60711b49f41ca9eb9c1012b918b35cd4ff | Yes why didn 't you? | UD_English-CHILDES
+- [childes] f345024ec67ebef61a706fc2770fd3d574db939dcc49cf9c8921ae5c65ee0c01 | Packed up? | UD_English-CHILDES
+- ... 970 more new items
+

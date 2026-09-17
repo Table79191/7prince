@@ -2368,3 +2368,50 @@ new_items_sample:
 - [childes] 9e10ca14e0977ca8d23128fc0a772ababd3784e31cc091087d5a05bad4662373 | Do you want Daddy to help you? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T05:34:03+09:00 / 2026-09-17T20:34:03+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35271134442
+run_attempt: 1
+event_head_sha: f0c8a758f282eb2e2a972154fd019f8d6e09cb0e
+worker_base_sha: f0c8a758f282eb2e2a972154fd019f8d6e09cb0e
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 53955
+after_total: 54955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +1000 / -0
+new_items_sample:
+- [childes] a3811e592ca69ef7218a4990b550587f191ccefa37f825694778238394f96d33 | You drawing daddy's beard? | UD_English-CHILDES
+- [childes] a382e446b60bd14178a79784a91a5c5dfe47ccd5a58a1dad11f83c2702c86d28 | What is a chest? | UD_English-CHILDES
+- [childes] a384aa5fcdb539ba79f6206a9b9379b447128200ee6a4599f69c39458cdb48bb | I played played. | UD_English-CHILDES
+- [childes] a384cfdcfc9a35090564e323a76bf65fef6f7063103e83fc85c7741d06c472f0 | Here you can write on it. | UD_English-CHILDES
+- [childes] a38612fb83f5bde9b12d89d2c910b556fd7af0ec808c45f67728041e79f64f2a | Yes it is big isn't it? | UD_English-CHILDES
+- [childes] a3861b0ec362c867a80ca98fd8fa46f991a58d81071a0b1adb0cdeebacb4edf6 | Two kittens. | UD_English-CHILDES
+- [childes] a386ae08e2d7c8b691786beb048cab1d5eea471f2543f5c7206b69dfa861ef41 | Now what's the owl say? | UD_English-CHILDES
+- [childes] a3876a0312840a6cba44bc40550f1772b5ba5f626b3272fe220b66811d00d8d4 | I have a haircut like you. | UD_English-CHILDES
+- [childes] a3888f56552936c736b3abcacbc2a5a99ee2b33b7b2965e4bdf42d2b1fda813e | Let go run run faster. | UD_English-CHILDES
+- [childes] a389147ba07e1937dedcec959a036530437b5d952e0e6763921e240e42c4cab0 | Dot dot. | UD_English-CHILDES
+- [childes] a389b46078c3852b5d9d3d1908b5b51068050ad06d05414d29a7f9204883efe6 | I don 't think there is an eraser on that. | UD_English-CHILDES
+- [childes] a38a2d3c7728b7559bc5cd1c25c5c1b94225bb0b6f74ee124899bda881cd4d02 | Just like my o other brother. | UD_English-CHILDES
+- [childes] a38ac1036f87143cc99e4ad03d6b9d766abec6e8cb34e153135c6b89d815063f | What 's a cardy? | UD_English-CHILDES
+- [childes] a38d42a1b9a79ea2a5a60c1826c32d50fe508f55b40960f1830f19c22b466459 | I needta plug in it. | UD_English-CHILDES
+- [childes] a38e38e4f7ce8c7c352cec13355b3c79847f2c89b8dddb834ee4d4f425f6ba80 | A a big tunnel. | UD_English-CHILDES
+- [childes] a38f40b6bc3549c3910759870422f3cb5b61413bd9ac7cc8430a3ea6bdb203ae | Big hat. | UD_English-CHILDES
+- [childes] a392b9f40f71a78b087543f6794eb4fa67c44b387500d6da60c1f3fe6ed42bcc | Yes another bus. | UD_English-CHILDES
+- [childes] a393984f4036352a346aa6c57ac881e94cf0ad4b212e9342e4ffbeeece61bdf4 | You need a chair. | UD_English-CHILDES
+- [childes] a393a0c475a15c4767c4020926457eaec6a7034462185470d25f41ea7ec10bb2 | Mama I want white paper. | UD_English-CHILDES
+- [childes] a3984dd27df2589d3ce0a7093308e1857abc48e68f9e5368a35a5ee28856be10 | Just blow it Dad all over the place. | UD_English-CHILDES
+- [childes] a3993c6cf11b028c294bbd1fe2758f5ab2471f0479fa7cc5f2d6c50f7d2445e1 | Why don't you just sit on your bed. | UD_English-CHILDES
+- [childes] a39cdbf6abf03e5a861f28b8eff9c62010466db7a1199b50e299bba93bb7680e | This it all gone. | UD_English-CHILDES
+- [childes] a39d48c6aa6ac91be58d719d20ec3896df2ae5fa35d75cbd1d2047251d1a61e0 | And Mommy and Daddy will. | UD_English-CHILDES
+- [childes] a3a1b363b38755f332ff4c0d3bd1dd4aa28cab03ac4e8cb85cbe2921f6be347e | Your lunch is ready love. | UD_English-CHILDES
+- [childes] a3a3610f945553a54772b7a80806f902353e020ff58c1531883377d5d4421c1c | I'll just leave them in. | UD_English-CHILDES
+- [childes] a3a3afdcc63b4d7b49c06f5caae8d8d2183b3fb0489061eb6a1c506a24e53dc4 | The saddle goes on first. | UD_English-CHILDES
+- [childes] a3a504525fa6fcec79b18a991b78e947270843e3a41dd14f808dcd18b8a9c5fa | It's it's in the doctor's. | UD_English-CHILDES
+- [childes] a3a6348ece7919059cb75ea244f6710412a2468dac935de8e2ff8fbd395ae857 | Where's the black tape? | UD_English-CHILDES
+- [childes] a3a6f4698eb2046d2f02736c2f2cdb346cca90415f0dc2c1e1814340313212ae | Right a wild dragon. | UD_English-CHILDES
+- [childes] a3a75780f02c63e41b13b7465137060f7c815d55e428585cca0d4c160a3f386a | I'm putting them back in. | UD_English-CHILDES
+- ... 970 more new items
+

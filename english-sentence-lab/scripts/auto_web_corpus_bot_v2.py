@@ -487,9 +487,12 @@ def main() -> None:
         "matching_repositories_seen": len(discovered_sources) + len(skipped_repositories),
         "accepted_source_count": len(discovered_sources),
         "accepted_sources": sorted(
-            {"key": key, "repo": src["repo"], "license": src["license"]}
-            for key, src in discovered_sources.items()
-        , key=lambda x: x["key"]),
+            [
+                {"key": key, "repo": src["repo"], "license": src["license"]}
+                for key, src in discovered_sources.items()
+            ],
+            key=lambda x: x["key"],
+        ),
         "skipped_repositories": skipped_repositories,
         "discovery_error": discovery_error,
     }

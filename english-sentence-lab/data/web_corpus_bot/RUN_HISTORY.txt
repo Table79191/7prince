@@ -3524,3 +3524,50 @@ source_changes: none
 new_items_sample:
 - none
 
+=== 2026-09-18T08:54:30+09:00 / 2026-09-17T23:54:30+00:00 ===
+status: failure
+event: push
+run_id: 35288821106
+run_attempt: 1
+event_head_sha: 4965ae1d80b296959aa43044d8682ab97c48f47c
+worker_base_sha: ff4126e76fe1d51e823614a1768c58081da3f1e6
+details: collect=skipped,stamp=skipped,validate=skipped,runtime=skipped,comparetest=skipped,compare=skipped
+before_total: 0
+after_total: 70184
+net_total_change: +70184
+new_items_added: 70184
+items_removed: 0
+source_changes: atis: +5430 / -0, childes: +45499 / -0, ctetex: +274 / -0, eslspok: +2154 / -0, ewt: +15050 / -0, littleprince: +492 / -0, pronouns: +285 / -0, pud: +1000 / -0
+new_items_sample:
+- [atis] 00080f209bbc6ab627a1ba4a3b59113fbbfac5174d33fe8af6339d2f19725357 | flight will start from boston | UD_English-Atis
+- [atis] 000c9010abe3b63d4bc71e442fb190548f5e1ab1a562397dee3d324e6dff70ec | what are the nonstop flights between houston and memphis | UD_English-Atis
+- [atis] 002055d8997cfcfb8be9f5c3f70f78c8a4e1881f6d25c9388c23b8fb3100a725 | please give me flights from atlanta to boston on wednesday afternoon and thursday morning | UD_English-Atis
+- [atis] 002d156739afa0062dce3d67cc0d20de77ed62a90addfa3e1b4e2c2c47a16ca6 | fares and flights from pittsburgh to philadelphia | UD_English-Atis
+- [atis] 002e5f4bf38d2d328e7869783d9439899cbd700ba873ce5c3280d419ebe418e6 | flight numbers from chicago to seattle | UD_English-Atis
+- [atis] 0032858346f9db042eb7e17b9ef375f9c026a121190f796c029e6217bd30ae62 | does any airline have an early afternoon flight from boston to denver | UD_English-Atis
+- [atis] 0034583083dcb1e5d7fb7aa9ddd99529a7d6d65584c1f366a0fdd4a189758b10 | flights from baltimore to washington dc | UD_English-Atis
+- [atis] 00475deb66c229d896444857c3b77d5aab43023936dba5ab01568839880d7079 | i need a flight from san francisco to boston that leaves after 10 pm | UD_English-Atis
+- [atis] 0056601be2302fca1aeaf3e0334f5abe03af15ee767f620ddb77f5f4446ee7e2 | what is the earliest flight departing san francisco and arriving in boston on november ninth | UD_English-Atis
+- [atis] 0057b3c3d7be277264f0f115d29a308cfd039c92ae7ad78e50a142b293d4a037 | show me the flights from boston to pittsburgh on wednesdays and thursdays | UD_English-Atis
+- [atis] 006d2b2e79905d4fd7c76afa94aa83165b5559c805684c14a8a2df82b9f62984 | give me the latest flight tomorrow on united airlines from milwaukee to tacoma | UD_English-Atis
+- [atis] 00786dc71dc8d752c613b0cbbbc7ecd442dd4e0d0973996c0be5a8cd752c5995 | show me all flights on thursday from atlanta to oakland which arrive in oakland before 5 o'clock pm and serve a meal | UD_English-Atis
+- [atis] 0080ab5f598dd1ebc64b6e39057f3d811efceb9c51d16dba131cdc91e35769a5 | list a flight on delta airlines from toronto to san diego | UD_English-Atis
+- [atis] 00863c6a72c14e2509e59305122aa7f06815ec6087e4a7e797664a126e8f7e1f | show me the first class and coach flights between jfk and orlando | UD_English-Atis
+- [atis] 0095b5729b1e37c01eb36418edfb077c84d1a8347289fa304b75788d317966da | information on round trip flights from pittsburgh to san francisco first class | UD_English-Atis
+- [atis] 0095ff3fff38b51e6fc59245623e30a7054180c0236f60e92df8530f023d6caa | please list all flights between indianapolis and orlando on the twenty seventh of december | UD_English-Atis
+- [atis] 00bdf01dd5f132608b8573375648daf0c7a043f505941cf24d687de9d830a70b | i want a flight from memphis to seattle that arrives no later than 3 pm | UD_English-Atis
+- [atis] 00cedc6c15569cde68a102bd260490cb53dc90523b65d1a1727389229aad0787 | what flights from dallas to houston on sunday | UD_English-Atis
+- [atis] 00cf434765c0081712076555eca0c2e4fd6ca25ab9c51b6ff0748290887a3bbb | give me the flights from chicago to seattle on saturday morning | UD_English-Atis
+- [atis] 00f75a8d9f7e5817fcf03b4f73f37d7ca1d58a00c99ae6dad9d26badab2568d6 | show me flights from dallas to atlanta | UD_English-Atis
+- [atis] 00f90d3a4a6e818e9bfcc4781e0be4abfb0069b9f22781b43e9692a8b886a5f8 | list the first class flights from baltimore to denver | UD_English-Atis
+- [atis] 00fc640bfa20d7be4d266fa163d9b6966bff2f8cbb610aa1a87d5c192bc91ea1 | list the airlines with flights to or from denver | UD_English-Atis
+- [atis] 010add7e6284b6c26869930bdb960ef2bc057f19ff27749d2260c5ed92d779a0 | flights from denver to chicago on sunday on continental | UD_English-Atis
+- [atis] 01235b72b713aa836a5eb043442ccf37ff1892550ae03f6e60e0390cc8955ed7 | could you show me all the flights from oakland to salt lake city | UD_English-Atis
+- [atis] 012ebb84354b9e58ca1043738d02194ea10255db0079c519ca703d971a089444 | can you tell me about ground transportation between the dallas airport and downtown dallas | UD_English-Atis
+- [atis] 0133a3fb7406a38291875fdc8c8c9e27f6d1f24ba2d6af83767a2681674aa94c | is ground transportation available in st. louis | UD_English-Atis
+- [atis] 013ea025bcf341eb08a21a160b07c07a04635c83903fa9ecf87c383d45e62cbe | show me flights between milwaukee and phoenix on saturday or sunday american airlines | UD_English-Atis
+- [atis] 014231451885b9906ac474a1d5b5d92f3a6ce8c8ab2ca839a23848ebe3c42c72 | which flights depart from atlanta and arrive in toronto | UD_English-Atis
+- [atis] 014a98cc8de9cf7c8558234dec56756c6393cb0359b1bd3393606ded36115bcd | show me the flights from washington to boston | UD_English-Atis
+- [atis] 0153d03ac84c9a13f14e67ac882c84a770db78c4a2ec7db4176f52138d733a24 | what are the flights which depart from san francisco fly to washington via indianapolis and arrive by 9 pm | UD_English-Atis
+- ... 70154 more new items
+

@@ -45,11 +45,11 @@ jobs:
       - name: Validate queue
         run: |
           set -euo pipefail
-          test -s english-sentence-lab/data/web_corpus_bot/long_sentence_queue.jsonl
+          test -s english-sentence-lab/data/long_sentence_bot/queue.jsonl
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('english-sentence-lab/data/web_corpus_bot/long_sentence_queue.jsonl')
+          p = Path('english-sentence-lab/data/long_sentence_bot/queue.jsonl')
           rows = 0
           for line in p.open(encoding='utf-8'):
               if not line.strip():
@@ -67,7 +67,7 @@ jobs:
           set -euo pipefail
           git config user.name sentence-lab-long-bot
           git config user.email sentence-lab-long-bot@users.noreply.github.com
-          git add english-sentence-lab/data/web_corpus_bot/long_sentence_queue.jsonl
+          git add english-sentence-lab/data/long_sentence_bot/queue.jsonl
           if git diff --cached --quiet; then
             echo 'Long sentence queue unchanged.'
             exit 0

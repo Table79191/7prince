@@ -1475,3 +1475,50 @@ new_items_sample:
 - [childes] 44df19efe549772b9ecdc4e3f91f1d3dce4657546cb144c9644f423cfa5e3da4 | Okay just a second I want you to do something see what's that? | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:55:06+09:00 / 2026-09-17T18:55:06+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35261350042
+run_attempt: 1
+event_head_sha: ca598c093751019a5312e697cf4d3ee223cf0eb5
+worker_base_sha: ca598c093751019a5312e697cf4d3ee223cf0eb5
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 34955
+after_total: 35955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 47b36ed38ff6540d291eee125c6cd23e0d7906333ce23d01d93b773e1ea0483a | And maybe they chop down trees. | UD_English-CHILDES
+- [childes] 47b67789f32a2a889b4db832afdd094206d2575b60d15eea934ae30b055dec3b | It might do that Dimmer Dim Dimitra. | UD_English-CHILDES
+- [childes] 47b94f4c9cf4385cb053f2bbe5931612520a3c8128966cdb5ab6b1df62e43d3b | Oh well I think you've ripped it open in the bag darling. | UD_English-CHILDES
+- [childes] 47b96c6f52820df3839af182aada1b7bbad47888d1ad009ce2b55da5e8e5c789 | I going give you some plate. | UD_English-CHILDES
+- [childes] 47b98ca04a280fe08506546b0bf2680cd326ced9d605a9cff67d8c99b7ee0c37 | Well that 's just your tricycle. | UD_English-CHILDES
+- [childes] 47ba5ce7e1418cb8378646a72c93eaf1ad40d7dc4a742119492a1778e0c21f54 | Do you remember having to show our passports when you arrived here in Spain? | UD_English-CHILDES
+- [childes] 47bd6457453d7a95bdb7d4cccba86eda047d1b282f26ba7ac7332a73df126320 | No I 'm asking you. | UD_English-CHILDES
+- [childes] 47bda8659f0870457dadad02c4f56499e56051fc7f44d1a5277d5ffc1813acee | Where are you Jwww. | UD_English-CHILDES
+- [childes] 47be2f6a90418c2a57fb94ae417ea5859ff8c61306a5df65764df42072e7d37f | Six and four don't make nine. | UD_English-CHILDES
+- [childes] 47bf0e681e5b51d5f8d0751e624733b6281eb66b2a2051b98484ff28d5d0f921 | What 's that noise? | UD_English-CHILDES
+- [childes] 47bf50c544455042bbacbdabdb16c1861b16790f22ef67b1470a8cb27ccd65bb | That's the light yeah. | UD_English-CHILDES
+- [childes] 47c60f7ebc3f38ff89504b11fdc27da56b64d85581f25ba8a44a0592e0c8b80a | A boo. | UD_English-CHILDES
+- [childes] 47c8264fc74cf38d71481022e3216bc9b2b5600fede26c55d8eed593b6c767e1 | Would you like an apple? | UD_English-CHILDES
+- [childes] 47ca4201114824ec8a8d545266512707c0fb5c148d0d3f3c07ab6dc671171711 | Oh is it a big pig? | UD_English-CHILDES
+- [childes] 47cbfe227aaad5cb3e3113cb4e9ce090254e8480eafe660415ae477a7c06fa2c | You got the back of him. | UD_English-CHILDES
+- [childes] 47cf50a08f4a003511bd80fa7dc5b754d6d176e07c10b3b9164d6d71ce9f198b | Stop it I'm not telling you until I'm done talking! | UD_English-CHILDES
+- [childes] 47cfbace4631273d8bcee060456ce2c729909eb938faeb6380630d6d82dff75d | Can you get that bag? | UD_English-CHILDES
+- [childes] 47d459ed1a59bab8e21e8e7d9280a963f3acaf78cebee424c110ccd368c46b1e | He want a drink. | UD_English-CHILDES
+- [childes] 47d5e96276d9c49f80dd734d30aa11af6be371e44ff13ea9cb57e9f40f620c27 | It's about by Monsters Inc By The Rescue. | UD_English-CHILDES
+- [childes] 47d71e87953fc2fa2e10242f2f5ac2ad27c66b35ef03cab047da9383acd25698 | Did you do something on the bed? | UD_English-CHILDES
+- [childes] 47d89a2e62a95482aaafafa97a0fc97fc3140c32cfb0728fb95ed31962b6debc | There's your toast. | UD_English-CHILDES
+- [childes] 47d8e5eccf5797318867e0e7d3de8a5503637ab1516d110cd31cf71ce2d61a6b | You want me to come there? | UD_English-CHILDES
+- [childes] 47d94408ce7ff844ea47efffbbfb5f2efbd20a0aa70642affe925d62d2380b14 | Just a minute Santa Claus. | UD_English-CHILDES
+- [childes] 47da2b2f1f18b1c60db742927e17d72b0c82aa5e047d0a6a53c60165c1a22831 | Whoo whoo. | UD_English-CHILDES
+- [childes] 47da5fde945cd0af186a9a46fd0a565ed8c46fe2cea2dff746078d90e9aa862f | Shall I make it straight Adam? | UD_English-CHILDES
+- [childes] 47dbc1d430e15a31f46ab822d40e033c4458578c3ad5d06238a8d6c48842facd | Are you letting it dis dissolve in your mouth? | UD_English-CHILDES
+- [childes] 47dc9a1bd7910f841f3dbefd055952f50872e5fff95189c8fca525ec0d85b34e | Give me your toast. | UD_English-CHILDES
+- [childes] 47dd67715b4ba798e600e5e2153ebbf087c3218cb793e57b6a538527f17c9096 | No it 's a red one. | UD_English-CHILDES
+- [childes] 47de197d492799fae80b3391e9edd8ffe632f8edb3209879b1f8afdd14b3ba31 | Well we hafta go. | UD_English-CHILDES
+- [childes] 47e12a2452b906bea19a170294e905c7c8bc6e355328c09fc9b7c46a76ecb808 | I'm not too sure if he's coloring it in or he's trying to erase it all. | UD_English-CHILDES
+- ... 970 more new items
+

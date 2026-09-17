@@ -1522,3 +1522,50 @@ new_items_sample:
 - [childes] 47e12a2452b906bea19a170294e905c7c8bc6e355328c09fc9b7c46a76ecb808 | I'm not too sure if he's coloring it in or he's trying to erase it all. | UD_English-CHILDES
 - ... 970 more new items
 
+=== 2026-09-18T03:59:59+09:00 / 2026-09-17T18:59:59+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35261868168
+run_attempt: 1
+event_head_sha: c2216f93cfb4c833e1c46a6e432fef6b7e01eb54
+worker_base_sha: c2216f93cfb4c833e1c46a6e432fef6b7e01eb54
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 35955
+after_total: 36955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 4ab2c689bdff22d1dd0718b404c577617492b39fc719fcfe29ab3e40e409b0f8 | I don 't think that 's the caboose is it. | UD_English-CHILDES
+- [childes] 4ab312462a2f2ba2a1cfcc17a8f1c4c40a2fcbbaf0619d693e22aeafbef16c8f | Didn't do it. | UD_English-CHILDES
+- [childes] 4ab3558107f449bdee21eb9f59904310e1251209ce7de4283cf29d33373125d7 | Don't want any more milk. | UD_English-CHILDES
+- [childes] 4ab3695ee2850acabd5b4b80714bb55628c31d958f153e98b93086a3940e4fc8 | My neck is hurting. | UD_English-CHILDES
+- [childes] 4ab37b1c15cfa84de07468c0671e5fa5ef1adfefc2344cbbb57e0f7242c242ed | You might break them. | UD_English-CHILDES
+- [childes] 4ab3e4bbc01dee5c3e8627dccfccf8008c1a3e60ea1b3895c627c317c83fa835 | Take it off. | UD_English-CHILDES
+- [childes] 4ab775eac47ce65a444b80c0fd1ef933879dd33c969b4abdcd01781d490cf5af | I'll hold it while you screw. | UD_English-CHILDES
+- [childes] 4abebdeba41626d3b3f03eaa4601188299db9e431417ac72ce5583b15a166044 | Play momma 's slipper. | UD_English-CHILDES
+- [childes] 4ac0c279133075c9f3993b737b51cba8ac5b202fb33316c96c4ec148e62db180 | Who wants to eat banana? | UD_English-CHILDES
+- [childes] 4ac1cffaa155dee24990181d8e03f8489e623a941743e0a0b772a454a151f33f | It's only for big people. | UD_English-CHILDES
+- [childes] 4ac26257f5f3c99b4cbe109142218159c07f4b5564966ce603344e619420b414 | I can see the block what fits. | UD_English-CHILDES
+- [childes] 4ac3b6d9d7031fcca11f9808dac3e65061ccebb4481b8bad1e551ca8cf0b59b1 | A vest. | UD_English-CHILDES
+- [childes] 4ac3cdd52160739298b8b9e0e1b3d7aa1ba9430a998d23b1a896489ddf4ac8af | The other grey thing's something to do with a space shuttle isn't it? | UD_English-CHILDES
+- [childes] 4ac7f876b8bbbbefb6adc1e9fc6ce21033f73eebd167fa706c5a2c661af163d3 | Shoe away? | UD_English-CHILDES
+- [childes] 4acac78a4f905b8c5b75e2c28817a62f866a7255bf129b2f11cc2819c04c4959 | Get what from de inside? | UD_English-CHILDES
+- [childes] 4acae3adeab8cc4f0cceaf3d7824414f1b190bdca8dde4f69994c883ead3c4f5 | My bed bed room. | UD_English-CHILDES
+- [childes] 4acc08027229a6f8d0cb9838965dd3f4005af69b9c95d28a8460d5e645f461b8 | And is Olivia wearing where is Olivia wearing a hat? | UD_English-CHILDES
+- [childes] 4acdbb434e8d889de23759a531e2841b803cc9151a38b0a599f24cf25165a23a | Oh you 're going to make a magic drawing board? | UD_English-CHILDES
+- [childes] 4acf73818b57ef6d49f3cd66eeb5ab8a8bb40f35cf9272dc0bb05a7ba271c0dc | Eight nine ten. | UD_English-CHILDES
+- [childes] 4ad13679644ad0bf7beb5bc15175c22cc5268fd5bda7fbde98fad74462c1e350 | Signed up again. | UD_English-CHILDES
+- [childes] 4ad220eb5cdaf703eba6b5f62bd032d024170dcdcbddaafad7f6724fd9699d39 | For marbles. | UD_English-CHILDES
+- [childes] 4ad2a497029c54bb3b75e365fd9e401566f5137a22c91556e44946a582dc74b6 | When did you see the ball? | UD_English-CHILDES
+- [childes] 4ad5deef1049f872328686e01667268634cdc489de92125b81f12436f22e0082 | I know that you're teasing. | UD_English-CHILDES
+- [childes] 4ad70a57be5a6d1a071d29fc4dd81a7af42b86fd0595599241fb1dd57ed32290 | Big paws. | UD_English-CHILDES
+- [childes] 4ad80b12f3bd8973043390e9e06f58bec27809828c49ccfd19f630e80e576f8a | Adam write penguin. | UD_English-CHILDES
+- [childes] 4ad93efee9447ca6f5187c655e140ef004b2b435d5e616a3938adc0ed7e3fadd | Let me see Jwww and I. | UD_English-CHILDES
+- [childes] 4adb01d347525074c0fac2a04efda5a7fc7402bb8fcafafa8333a7abd561e26b | No more cowboy. | UD_English-CHILDES
+- [childes] 4adbef0133bde93ce30afb0db0c415a0157c0f0c84f7282693eae44a1fb56aa5 | This is more. | UD_English-CHILDES
+- [childes] 4adcfc8632babd294f7d9f0649b184eb4d86fcbd21c5ac946131cc7c8aa13372 | But it's. | UD_English-CHILDES
+- [childes] 4adff444e797c59051c35730ae8ce9763bf74a40d81459b80e737cbd805ca2b3 | Do you want me to hang it up? | UD_English-CHILDES
+- ... 970 more new items
+

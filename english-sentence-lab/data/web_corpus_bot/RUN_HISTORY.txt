@@ -817,3 +817,50 @@ new_items_sample:
 - [atis] f875a4fb9e309e797dbe0e04d1a6a415a66dae4021d85b742691ef5471b4f3b3 | hi i need to go from cincinnati to san jose california after 6 pm on saturday | UD_English-Atis
 - ... 970 more new items
 
+=== 2026-09-18T02:41:09+09:00 / 2026-09-17T17:41:09+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35253985840
+run_attempt: 1
+event_head_sha: 172ff6436306b9e7124a8223f5e8e6be47c5bb32
+worker_base_sha: 172ff6436306b9e7124a8223f5e8e6be47c5bb32
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=success
+before_total: 20955
+after_total: 21955
+net_total_change: +1000
+new_items_added: 1000
+items_removed: 0
+source_changes: childes: +500 / -0, ewt: +500 / -0
+new_items_sample:
+- [childes] 1ffb7ab25ae672289028d99e42a87c3ebe743b3019581fc5dbb00967e5accac9 | Do you know chicken flowers? | UD_English-CHILDES
+- [childes] 1ffbc8b6963d1f6ad6fa4628d28bdb6c8c59b971d07b82d456185d1cf0076a08 | They are Rocky's. | UD_English-CHILDES
+- [childes] 1ffe4c71b200b46d6c6fa056abb64635fa6a0b4011fef6a8b5caa010434c06b7 | No fit in da box. | UD_English-CHILDES
+- [childes] 2000846bb4ca02f74178d893103f1c95979bff230134cf3c8dc0ae17acc7bae2 | Well take it over to him. | UD_English-CHILDES
+- [childes] 2000f8ccecf9c0ac4e0429141b743c990543e3224400ad8b26008dfcc8b63fc0 | Momma I wanna make popcorn. | UD_English-CHILDES
+- [childes] 2001c9a778f38f84d958f259f27274c2bfaea7598db605575e26bd020c035981 | Yeah but I don't want my playroom cupboard open. | UD_English-CHILDES
+- [childes] 2003f126b70ae682df15b2ab51d7a495880b1844435fad7a0120f8d5600d601d | You're swimming? | UD_English-CHILDES
+- [childes] 2004928f72bf408b7a4b6939d39eebee59b5cc19a3de7332a16dfedc54e5095f | Can you name? | UD_English-CHILDES
+- [childes] 2005be13b9a3239872b7dd3f7edea54eeaeac0eec1d2f5ef8648ce4a1cf91ae4 | I was just thinking that I could do without that now. | UD_English-CHILDES
+- [childes] 200634d60c0eafea67776a6c1e9805878e05ed3adb8affe0cfa7a418aad19731 | Oh is that the rope? | UD_English-CHILDES
+- [childes] 2009610320340ddd05d2dd7c1115665ea0e7705b65fcd73e9dc44a59f53c2c00 | A a beetle. | UD_English-CHILDES
+- [childes] 200a72df34f0e7dd51fe6cda57c0ebe79bdd3b2eff5f42e098101f9b0773a06e | Close the side. | UD_English-CHILDES
+- [childes] 200ab702114d6d78e5819e6d0fb4b9c75480575251c697629b52844e8bc16662 | Daddy says did you look under your bed? | UD_English-CHILDES
+- [childes] 200bcf7b5b2916ec90761f0f63bac6b36885f13f81dc277e436e012b15bc637f | My kitty gone. | UD_English-CHILDES
+- [childes] 20118141f39a99ceeb1b6f0b4bf94151c1b79c224fa5e77544792615899ae9de | Where's the eyes? | UD_English-CHILDES
+- [childes] 2011a82d4347f62fc50fb11496bd08ed1df92bdba4c5eb852edb53b5ff5610c1 | Becky. | UD_English-CHILDES
+- [childes] 201367bffea21b06d65780bfbf5cd6b8029f77499bb69f63ff1bfc1adbb0edea | It came home from school? | UD_English-CHILDES
+- [childes] 20136add106a8a066bba476198563c89540d04623789390694c35890312ea995 | He's in there. | UD_English-CHILDES
+- [childes] 201621524afe5056e8080b8822e092a405f86cadc644485b3658c8497f49c030 | That time. | UD_English-CHILDES
+- [childes] 2019da9e96860ecd2af6e33bf7471ae84143d16b2ad815e99db2f0d84b98c396 | I have a good black pen. | UD_English-CHILDES
+- [childes] 201afb7ac62efdabd57bb05b7b5e6f90113a20a40f5b36ac892c8284d827dc95 | I put it away. | UD_English-CHILDES
+- [childes] 201d947f8f1916b93ff6b2e52ebda6e04a93a17a3a8a27441ee74d110e3a9e56 | Wait could you bring Laura's plate. | UD_English-CHILDES
+- [childes] 2020ae8a182c500d0895a5fc7c464b77405c0476093dfe6292d487b653fa5d9e | I'm gonna get Rufus. | UD_English-CHILDES
+- [childes] 2022139f0fc119efbb3023e12a9a389ce8ff897d8aa2b78f3b5fd998c52b6529 | Two seven trees. | UD_English-CHILDES
+- [childes] 2022c135aecfdfd302850c1bd3b822ba4c9bddf0439dcc13e6390cc10d3c123f | What are you going to do? | UD_English-CHILDES
+- [childes] 20271de4874a1da6fd431dec3ad0930285ff8bef8e3da37deeea758a997cb465 | Turning a somersault. | UD_English-CHILDES
+- [childes] 202740d7fc34825105a896b57ec3a41dc75f96091b32da83a7d7850fec1c9361 | Paper write. | UD_English-CHILDES
+- [childes] 2027625dca7e6749cdfef2b33d14f5b670e117426e5868787ec27394b85100d4 | Uhhuh milk milk! | UD_English-CHILDES
+- [childes] 202829b0026343a58946c989ad23a43854784e203ad186abe0c16fb5f0adedec | He didn 't want you to take a nap. | UD_English-CHILDES
+- [childes] 202bc3b9a388d2a72632d9614158293838d16dd2fe1f6045c7530bd6958a2ac9 | Because it will disrupt the machine. | UD_English-CHILDES
+- ... 970 more new items
+

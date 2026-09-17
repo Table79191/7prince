@@ -19,8 +19,11 @@ OBJECT_COMPLEMENT_VERBS = {
     'declare','consider','find','make','call','name','deem','elect','appoint',
     'render','prove','label','pronounce',
 }
+# Keep this set deliberately conservative. Bare-infinitive HAVE is ambiguous
+# with auxiliary HAVE under inversion, so it is not used as a high-precision
+# controller here; RoleNet remains free to predict the object without override.
 OBJECT_CONTROL_VERBS = {
-    'make','let','have','get','allow','permit','force','cause','expect','want',
+    'make','let','get','allow','permit','force','cause','expect','want',
     'believe','consider','persuade','order','require','enable','encourage','ask',
 }
 CLAUSAL_COMPLEMENT_VERBS = {
@@ -33,8 +36,6 @@ AUX_WORDS = {
     'am','is','are','was','were','be','been','being','have','has','had','do','does','did',
     'can','could','may','might','must','shall','should','will','would',
 }
-# A nearby controller must be in the same local clause. These tokens stop the
-# backward search so finite that/wh/adjunct clauses cannot masquerade as object control.
 CONTROLLER_BOUNDARIES = {
     'that','whether','if','why','how','when','while','because','although','though',
     'unless','since','once','after','before','than','where','wherever','whenever',
@@ -46,8 +47,6 @@ def _nearest_lexical_controller(doc, i, window=6):
         t = doc[j]
         if t.is_punct or t.lower_ in CONTROLLER_BOUNDARIES or t.dep_.lower() == 'mark':
             break
-        # AUX is deliberately excluded: fronted had/did/was frequently sits
-        # immediately before a genuine subject in inversion.
         if t.pos_ == 'VERB':
             return t.lemma_.lower()
     return None
@@ -79,7 +78,7 @@ def postprocess_roles(doc, neural_roles):
         elif t.pos_ in {'VERB','AUX'}:
             out[i] = 'V'; reason[i] = 'predicate-pos'
 
-    # 2) Non-verbal object complement (declare X a success, find X difficult).
+    # 2) Non-verbal object complement.
     for i,t in enumerate(doc):
         if (t.dep_.lower() in {'ccomp','xcomp'} and t.pos_ in NOMINAL_POS
                 and t.head.lemma_.lower() in OBJECT_COMPLEMENT_VERBS):
@@ -96,10 +95,9 @@ def postprocess_roles(doc, neural_roles):
             if inherited in {'S','O','C'}:
                 out[i] = inherited; reason[i] = 'of-np-core-inherit'
 
-    # 4) Object-control / small-clause recovery. Dependency parsers often attach
-    # the matrix object as nsubj of the secondary predicate (make X look, allow X
-    # to leave). We only undo that subject label when RoleNet independently says O
-    # and a lexical controller occurs locally with no clause boundary between.
+    # 4) Object-control / small-clause recovery. Only undo an apparent subject
+    # when RoleNet independently predicts O and a lexical controller occurs in
+    # the same local clause.
     for i,t in enumerate(doc):
         if (t.dep_.lower() in SUBJECT_DEPS and neural_roles[i] == 'O'
                 and t.pos_ in NOMINAL_POS):
@@ -107,8 +105,7 @@ def postprocess_roles(doc, neural_roles):
             if ctl in OBJECT_CONTROL_VERBS:
                 out[i] = 'O'; reason[i] = 'neural-object-local-control'
 
-    # 5) Omitted complementizer / embedded subject recovery. Require both a
-    # following finite auxiliary and a predicate that commonly licenses a finite clause.
+    # 5) Omitted complementizer / embedded subject recovery.
     for i,t in enumerate(doc[:-1]):
         if t.dep_.lower() in OBJECT_DEPS and t.pos_ in NOMINAL_POS:
             nxt = doc[i+1]
@@ -125,12 +122,17 @@ def postprocess_roles(doc, neural_roles):
                 and (t.head.pos_ == 'AUX' or t.head.lower_ in AUX_WORDS)):
             out[i] = 'S'; reason[i] = 'initial-aux-inversion'
 
-    # 7) A nominal attached as compound directly to a following verbal head is
-    # usually a parser recovery error.
+    # 7) Compound-to-predicate recovery. First trust a normal verbal head. If the
+    # statistical tagger instead calls the head nominal but RoleNet independently
+    # classifies that exact head as V, use the two signals together to recover S.
     for i,t in enumerate(doc):
-        if (t.dep_.lower() == 'compound' and t.pos_ in {'NOUN','PROPN','PRON'}
-                and t.head.pos_ in {'VERB','AUX'} and i < t.head.i):
+        if t.dep_.lower() != 'compound' or t.pos_ not in {'NOUN','PROPN','PRON'} or i >= t.head.i:
+            continue
+        if t.head.pos_ in {'VERB','AUX'}:
             out[i] = 'S'; reason[i] = 'compound-to-verb-subject-repair'
+        elif neural_roles[t.head.i] == 'V' and t.head.i == i + 1:
+            out[i] = 'S'; reason[i] = 'compound-to-neural-predicate-subject'
+            out[t.head.i] = 'V'; reason[t.head.i] = 'neural-predicate-pos-repair'
 
     # 8) Partitive quantified subjects.
     if len(doc) >= 3 and doc[0].lower_ in PARTITIVE_SUBJECTS and doc[1].lower_ == 'of':
@@ -167,17 +169,13 @@ def postprocess_roles(doc, neural_roles):
                 if has_clause_pred:
                     out[i] = 'S'; reason[i] = 'not-until-clause-subject'
 
-    # 11) Existential lexical predicates such as remain/appear can have spaCy attr
-    # attachments even though the postverbal nominal is the clause subject in the
-    # SentenceLab surface-role convention. Copular BE remains C.
+    # 11) Existential lexical predicates such as remain/appear.
     for i,t in enumerate(doc):
         if t.dep_.lower() == 'attr' and t.head.lemma_.lower() != 'be':
             if any(x.dep_.lower() == 'expl' and x.head.i == t.head.i for x in doc):
                 out[i] = 'S'; reason[i] = 'lexical-existential-postverbal-subject'
 
-    # 12) Rare garden-path recovery inside a relative clause: if a pronoun is
-    # attached as subject of a later predicate but immediately follows a relative
-    # clause verb, preserve RoleNet's object reading rather than overwriting it.
+    # 12) Garden-path recovery inside a relative clause.
     for i,t in enumerate(doc):
         if (i > 0 and t.dep_.lower() in SUBJECT_DEPS and t.pos_ == 'PRON'
                 and neural_roles[i] == 'O' and t.head.i > i):

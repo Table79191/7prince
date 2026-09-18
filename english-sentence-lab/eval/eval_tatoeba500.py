@@ -18,9 +18,17 @@ import train_ud_role as base
 from spacy_role_postprocess import postprocess_roles
 
 SOURCE_URL = 'https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2'
+POINTER = ROOT / 'artifacts' / 'latest_auto_model.json'
 AUTO_MODEL = ROOT / 'artifacts' / 'v1.8.3_auto_promoted_silver_role.pt'
 CORE_MODEL = ROOT / 'artifacts' / 'v1.8.2_r012_school_regression_role.pt'
 MODEL = AUTO_MODEL if AUTO_MODEL.exists() else CORE_MODEL
+if POINTER.exists():
+    try:
+        rel=json.loads(POINTER.read_text(encoding='utf-8')).get('checkpoint')
+        p=ROOT/rel if rel else None
+        if p and p.exists(): MODEL=p
+    except Exception:
+        pass
 OUT_JSON = ROOT / 'artifacts' / 'tatoeba_daily500_eval.json'
 OUT_TXT = ROOT / 'artifacts' / 'tatoeba_daily500_eval.txt'
 OUT_TSV = ROOT / 'data' / 'tatoeba500' / 'TatoebaDaily500_CC0.tsv'

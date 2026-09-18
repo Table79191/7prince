@@ -92,6 +92,42 @@ jobs:
             echo "Long sentence collector already active (${busy}); skipped duplicate dispatch."
           fi
 
+      - name: Dispatch external Tatoeba collector when due
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="/repos/${REPO}/actions/workflows/sentence-lab-external-tatoeba.yml/runs?per_page=20"
+
+          busy="$(gh api -H 'Accept: application/vnd.github+json' "$api"             --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
+          latest="$(gh api -H 'Accept: application/vnd.github+json' "$api"             --jq '.workflow_runs[0].created_at // ""')"
+
+          due=1
+          if [ -n "$latest" ]; then
+            latest_epoch="$(date -u -d "$latest" +%s 2>/dev/null || echo 0)"
+            now_epoch="$(date -u +%s)"
+            age=$((now_epoch - latest_epoch))
+            if [ "$age" -lt 1800 ]; then
+              due=0
+              echo "External Tatoeba collector last ran ${age}s ago; next dispatch waits for 30m."
+            fi
+          fi
+
+          if [ "$busy" -eq 0 ] && [ "$due" -eq 1 ]; then
+            for attempt in 1 2 3 4 5; do
+              if gh workflow run sentence-lab-external-tatoeba.yml --repo "$REPO" --ref main; then
+                echo "Dispatched external Tatoeba collector at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo 'Could not dispatch external Tatoeba collector after retries.' >&2
+                exit 1
+              fi
+              sleep $((attempt * 3))
+            done
+          elif [ "$busy" -gt 0 ]; then
+            echo "External Tatoeba collector already active (${busy}); skipped duplicate dispatch."
+          fi
+
       - name: Keep daemon interval
         shell: bash
         run: |

@@ -56,16 +56,18 @@ class WebWrapper(nn.Module):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--checkpoint", default="artifacts/v1.8.2_r012_school_regression_role.pt")
+    auto = Path("artifacts/v1.8.3_auto_promoted_silver_role.pt")
+    core = Path("artifacts/v1.8.2_r012_school_regression_role.pt")
+    ap.add_argument("--checkpoint", default=str(auto if auto.exists() else core))
     ap.add_argument("--out", default="web/r012/r012_role.onnx")
     ap.add_argument("--meta", default="web/r012/model_meta.json")
     args = ap.parse_args()
 
     ck = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
-    expected_version = "1.8.2-R012-SCHOOL-REGRESSION"
     actual_version = ck.get("metrics", {}).get("version")
-    if actual_version != expected_version:
-        raise SystemExit(f"refusing to export stale R012 checkpoint: {actual_version!r}")
+    allowed = {"1.8.2-R012-SCHOOL-REGRESSION","1.8.3-AUTO-PROMOTED-SILVER"}
+    if actual_version not in allowed:
+        raise SystemExit(f"refusing to export stale production checkpoint: {actual_version!r}")
     model = base.RoleNet().cpu()
     model.load_state_dict(ck["model"], strict=True)
     model.eval()

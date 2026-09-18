@@ -12,6 +12,7 @@ on:
       - 'english-sentence-lab/scripts/browser_smoke_test.sh'
       - 'english-sentence-lab/web/r012/browser_rules.js'
       - 'english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt'
+      - 'english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt'
       - '.github/workflows/sentence-lab-export-r012-onnx.yml'
 permissions:
   contents: write
@@ -49,10 +50,14 @@ jobs:
           cd english-sentence-lab
           python - <<'PY'
           import sys,numpy as np,torch,onnx,onnxruntime as ort
+          from pathlib import Path
           sys.path.insert(0,'train')
           import train_ud_role as base
-          ck=torch.load('artifacts/v1.8.2_r012_school_regression_role.pt',map_location='cpu',weights_only=False)
-          assert ck.get('metrics',{}).get('version')=='1.8.2-R012-SCHOOL-REGRESSION'
+          auto='artifacts/v1.8.3_auto_promoted_silver_role.pt'
+          core='artifacts/v1.8.2_r012_school_regression_role.pt'
+          p=auto if Path(auto).exists() else core
+          ck=torch.load(p,map_location='cpu',weights_only=False)
+          assert ck.get('metrics',{}).get('version') in {'1.8.2-R012-SCHOOL-REGRESSION','1.8.3-AUTO-PROMOTED-SILVER'}
           model=base.RoleNet().cpu();model.load_state_dict(ck['model'],strict=True);model.eval()
           L=9
           wid=torch.randint(0,8192,(1,L));pre=torch.randint(0,1024,(1,L));suf=torch.randint(0,1024,(1,L))

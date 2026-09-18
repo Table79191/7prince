@@ -8,10 +8,13 @@
   const SCONJ=new Set('although though because since while whilst when whenever where wherever if unless until before after once whether as than that'.split(' '));
   const ADP=new Set('in on at by for from with without about against between into through during before after above below to of over under around near behind beside beyond across toward towards upon within outside inside like despite except'.split(' '));
   const ADV=new Set('very really still already just also too quite rather here there now then soon always never often sometimes usually perhaps maybe almost even only again together apart away early late first next well poorly today tomorrow yesterday exactly'.split(' '));
-  const ADJ=new Set('good bad new old young high low large small big little long short right wrong sure ready able likely unlikely possible impossible realistic unrealistic exhausted missing talented gifted skilled tired interested bored'.split(' '));
-  const VERBS=new Set('say says said tell tells told think thinks thought know knows knew known make makes made take takes took taken get gets got gotten go goes went gone come comes came see sees saw seen want wants wanted need needs needed like likes liked love loves loved work works worked help helps helped let lets leave leaves left argue argues argued test tests tested rewrite rewrites rewrote rewritten notice notices noticed assume assumes assumed warn warns warned miss misses missed use uses used give gives gave given find finds found call calls called ask asks asked feel feels felt become becomes became seem seems seemed keep keeps kept believe believes believed lead leads led practice practices practiced improve improves improved rely relies relied perform performs performed focus focuses focused inspect inspects inspected compare compares compared check checks checked review reviews reviewed learn learns learned start starts started respond responds responded'.split(' '));
+  const ADJ=new Set('good bad new old young high low large small big little long short right wrong sure ready able likely unlikely possible impossible realistic unrealistic exhausted missing talented gifted skilled tired interested bored convincing conclusive acceptable reasonable ineffective unacceptable dangerous operational stable reliable available enforceable usable publishable'.split(' '));
+  const VERBS=new Set('say says said tell tells told think thinks thought know knows knew known make makes made take takes took taken get gets got gotten go goes went gone come comes came see sees saw seen want wants wanted need needs needed like likes liked love loves loved work works worked help helps helped let lets leave leaves left argue argues argued test tests tested rewrite rewrites rewrote rewritten notice notices noticed assume assumes assumed warn warns warned miss misses missed use uses used give gives gave given find finds found call calls called ask asks asked feel feels felt become becomes became remain remains remained seem seems seemed keep keeps kept believe believes believed lead leads led practice practices practiced improve improves improved rely relies relied perform performs performed focus focuses focused inspect inspects inspected compare compares compared check checks checked review reviews reviewed learn learns learned start starts started respond responds responded repair repairs repaired damage damages damaged approve approves approved accept accepts accepted reject rejects rejected revise revises revised release releases released hire hires hired redesign redesigns redesigned criticize criticizes criticized promote promotes promoted document documents documented endorse endorses endorsed calibrate calibrates calibrated ignore ignores ignored train trains trained examine examines examined overlook overlooks overlooked propose proposes proposed underestimate underestimates underestimated prepare prepares prepared omit omits omitted realize realizes realized discover discovers discovered copy copies copied require requires required hide hides hid hidden request requests requested delay delays delayed change changes changed expect expects expected repeat repeats repeated alter alters altered contaminate contaminates contaminated misplace misplaces misplaced recover recovers recovered amend amends amended measure measures measured mislabel mislabels mislabeled confess confesses confessed acknowledge acknowledges acknowledged reverse reverses reversed describe describes described reopen reopens reopened predict predicts predicted sell sells sold write writes wrote written complain complains complained record records recorded stop stops stopped report reports reported observe observes observed prove proves proved proven suspend suspends suspended cancel cancels canceled cancelled confirm confirms confirmed replace replaces replaced halt halts halted violate violates violated show shows showed shown uphold upholds upheld build builds built design designs designed modify modifies modified adjust adjusts adjusted validate validates validated update updates updated solve solves solved present presents presented monitor monitors monitored board boards boarded submit submits submitted return returns returned'.split(' '));
   const INTJ=new Set('oh wow hey hi hello yes no okay ok thanks thank please sorry'.split(' '));
   const COPULAS=new Set(['am','is','are','was','were','be','been','being']);
+  const LINKING_VERBS=new Set(['remain','remains','remained','become','becomes','became','seem','seems','seemed']);
+  const CONTEXT_NOUNS=new Set('hospital principal detective factory proposal signal permit'.split(' '));
+  const CLAUSE_MARKERS=new Set('although though because since while whilst when whenever if unless until before after once whether that why how what'.split(' '));
   const WH=new Set(['what','who','whom','which']);
   const DEMONSTRATIVES=new Set(['this','that','these','those']);
 
@@ -28,6 +31,12 @@
   }
   function splitTokens(text){return expandContractions(text).match(/[A-Za-z]+|'(?:s|d)|\d+(?:[.,]\d+)?|[^\sA-Za-z0-9]/g)||[];}
   function looksVerb(w){return VERBS.has(w)||/(ing|ed|ize|ise|ify)$/.test(w);}
+  function nounContext(tokens,i){
+    const prev=(tokens[i-1]||'').toLowerCase(),next=(tokens[i+1]||'').toLowerCase();
+    const prevDet=DETS.has(prev)||POSSESSIVE_DET.has(prev);
+    const nextBoundary=!next||/^[,.!?;:]$/.test(tokens[i+1]||'')||AUX.has(next)||SCONJ.has(next)||CCONJ.has(next)||looksVerb(next);
+    return prevDet&&nextBoundary;
+  }
   function inferPos(tokens){
     const out=[];
     for(let i=0;i<tokens.length;i++){
@@ -49,6 +58,7 @@
       else if(INTJ.has(w))p='INTJ';
       else if(VERBS.has(w))p='VERB';
       else if(ADV.has(w)||/ly$/.test(w))p='ADV';
+      else if(CONTEXT_NOUNS.has(w)&&nounContext(tokens,i))p='NOUN';
       else if(ADJ.has(w))p='ADJ';
       else if(/(ing|ed|ize|ise|ify)$/.test(w))p='VERB';
       else if(/(ous|ful|less|ive|able|ible|al|ic|ary|ory)$/.test(w))p='ADJ';
@@ -87,21 +97,84 @@
     }
     let cop=-1;
     for(let i=0;i<lo.length;i++)if(COPULAS.has(lo[i])&&(pos[i]==='AUX'||pos[i]==='VERB')){cop=i;break;}
-    if(cop>0&&WH.has(lo[0])){
+    const finiteBeforeFirstCop=cop>0&&pos.slice(1,cop).some(p=>p==='VERB'||p==='AUX');
+    const directWhCopular=cop>0&&WH.has(lo[0])&&!finiteBeforeFirstCop;
+    if(directWhCopular){
       setRole(0,'C');
       for(let i=1;i<cop;i++)if(pos[i]!=='PUNCT')setRole(i,'M');
       setRole(cop,'V');
       for(let i=cop+1;i<lo.length;i++){if(pos[i]==='PUNCT')break;setRole(i,'S');}
-    }else if(cop>=0){
-      // Ordinary copular predicate: modifiers stay M; nominal/adjectival head is C.
+    }
+
+    // Process every local copular/linking predicate instead of only the first copula.
+    for(let link=0;link<lo.length;link++){
+      if(!(COPULAS.has(lo[link])||LINKING_VERBS.has(lo[link])))continue;
+      if(!(pos[link]==='AUX'||pos[link]==='VERB'))continue;
+      if(directWhCopular&&link===cop)continue;
       let candidate=-1;
-      for(let i=cop+1;i<lo.length;i++){
-        if(pos[i]==='PUNCT')break;
-        if(pos[i]==='ADV'||pos[i]==='DET'||pos[i]==='NUM'||pos[i]==='SYM'){setRole(i,'M');continue;}
+      for(let i=link+1;i<lo.length;i++){
+        if(pos[i]==='PUNCT'||pos[i]==='CCONJ'||pos[i]==='SCONJ')break;
+        if(pos[i]==='ADV'||pos[i]==='DET'||pos[i]==='NUM'||pos[i]==='SYM'||pos[i]==='PART'){setRole(i,'M');continue;}
         if(pos[i]==='ADJ'||pos[i]==='NOUN'||pos[i]==='PROPN'||pos[i]==='PRON'){candidate=i;break;}
         if(pos[i]==='VERB'||pos[i]==='AUX')break;
       }
       if(candidate>=0)setRole(candidate,'C');
+    }
+
+    // "whom" is an object-form relative/interrogative pronoun in the school-style role set.
+    for(let i=0;i<lo.length;i++)if(lo[i]==='whom')setRole(i,'O');
+
+    const nominal=i=>i>=0&&i<pos.length&&['NOUN','PROPN','PRON'].includes(pos[i]);
+    const boundary=i=>i<0||i>=pos.length||pos[i]==='PUNCT'||pos[i]==='CCONJ';
+    const markClauseSubject=(start,end)=>{
+      let verb=-1,subj=-1;
+      for(let i=start;i<end;i++){
+        if(boundary(i))break;
+        if(pos[i]==='ADP')continue;
+        if((pos[i]==='VERB'||pos[i]==='AUX')&&verb<0){verb=i;break;}
+        if(subj<0&&nominal(i))subj=i;
+      }
+      if(subj>=0&&verb>subj)setRole(subj,'S');
+    };
+
+    // Sentence-initial and comma-delimited clause subjects.
+    markClauseSubject(0,lo.length);
+    for(let i=0;i<lo.length;i++){
+      if(pos[i]==='PUNCT'&&/[,:;]/.test(tokens[i]))markClauseSubject(i+1,lo.length);
+      if(CLAUSE_MARKERS.has(lo[i]))markClauseSubject(i+1,lo.length);
+    }
+
+    // Do-support inversion: "did the accountant admit ..." / ordinary questions.
+    for(let i=0;i<lo.length;i++){
+      if(!['do','does','did'].includes(lo[i])||pos[i]!=='AUX')continue;
+      let subj=-1,lex=-1;
+      for(let j=i+1;j<lo.length&&!boundary(j);j++){
+        if(subj<0&&nominal(j)){subj=j;continue;}
+        if(subj>=0&&pos[j]==='VERB'){lex=j;break;}
+      }
+      if(subj>=0&&lex>subj){setRole(subj,'S');setRole(i,'V');setRole(lex,'V');}
+    }
+
+    // Local lexical-verb objects. Stop at prepositions/subordinators so PP objects stay M.
+    for(let i=0;i<lo.length;i++){
+      if(pos[i]!=='VERB'||LINKING_VERBS.has(lo[i]))continue;
+      let obj=-1;
+      for(let j=i+1;j<lo.length;j++){
+        if(pos[j]==='PUNCT'||pos[j]==='SCONJ'||pos[j]==='CCONJ'||pos[j]==='ADP'||pos[j]==='AUX'||pos[j]==='VERB')break;
+        if(nominal(j)){obj=j;break;}
+      }
+      if(obj>=0)setRole(obj,'O');
+    }
+
+    // Causative make + O + bare infinitive: made the team rewrite ...
+    for(let i=0;i<lo.length;i++){
+      if(!['make','makes','made'].includes(lo[i]))continue;
+      let obj=-1,comp=-1;
+      for(let j=i+1;j<lo.length&&!boundary(j);j++){
+        if(obj<0&&nominal(j)){obj=j;continue;}
+        if(obj>=0&&pos[j]==='VERB'){comp=j;break;}
+      }
+      if(obj>=0){setRole(obj,'O');if(comp>obj)setRole(comp,'C');}
     }
 
     // Ordinary prepositional phrases are modifier material in the v2 school-head spec.

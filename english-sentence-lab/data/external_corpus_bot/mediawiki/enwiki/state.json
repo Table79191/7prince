@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Aleksandrovskoye,_Irkutsk_Oblast",
-  "total_pages_processed": 623338,
-  "total_records": 12495,
-  "auto_pass": 11051,
-  "needs_review": 1444,
+  "apcontinue": "Allan_Fraser_(Australian_politician)",
+  "total_pages_processed": 667359,
+  "total_records": 12989,
+  "auto_pass": 11518,
+  "needs_review": 1471,
   "current_shard": 7,
-  "current_shard_records": 495,
+  "current_shard_records": 989,
   "source_exhausted": false
 }

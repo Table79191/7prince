@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 623338,
-  "total_records": 12495,
-  "auto_pass": 11051,
-  "needs_review": 1444,
+  "total_pages_processed": 667359,
+  "total_records": 12989,
+  "auto_pass": 11518,
+  "needs_review": 1471,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Aleksandrovskoye,_Irkutsk_Oblast",
+  "apcontinue": "Allan_Fraser_(Australian_politician)",
   "source_exhausted": false,
   "shard_count": 7
 }

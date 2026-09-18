@@ -9,12 +9,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  actions: read
+  actions: write
   contents: write
 
 concurrency:
   group: sentencelab-overnight-model-arena
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   arena:
@@ -57,6 +57,21 @@ jobs:
           repository: Table79191/7prince
           run-id: 35369679602
 
+      - name: Ensure corpus scheduler is alive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          busy="$(gh api "/repos/${REPO}/actions/workflows/sentence-lab-scheduler.yml/runs?per_page=20" \
+            --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
+          if [ "$busy" -eq 0 ]; then
+            gh workflow run sentence-lab-scheduler.yml --repo "$REPO" --ref main -f interval_seconds=300
+            echo "Re-armed SentenceLab collection scheduler."
+          else
+            echo "Collection scheduler already active ($busy)."
+          fi
+
       - name: Syntax
         run: |
           python -m py_compile english-sentence-lab/arena/run_model_arena.py
@@ -87,14 +102,69 @@ jobs:
           PY
           rm -rf artifacts/arena_smoke
 
-      - name: Fight autonomously
+      - name: Fight autonomously with live bot feed
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          set -euo pipefail
           cd english-sentence-lab
           CLAUSE_START="artifacts/clause_anchor_graph_v1_01_final.pt"
           if [ ! -f "$CLAUSE_START" ]; then
             CLAUSE_START="/tmp/clause-final/clause_anchor_graph_v1_01_final.pt"
           fi
-          python arena/run_model_arena.py             --role-start artifacts/v1.8.5_r015_accumulated_final_role.pt             --clause-start "$CLAUSE_START"             --out-dir artifacts/arena             --rounds 24             --minutes 300             --probe-per-round 6000
+
+          PROMOTED="data/promoted_silver/promoted.jsonl"
+          START_EPOCH="$(date +%s)"
+          MAX_SECONDS=$((300 * 60))
+
+          for LOOP in $(seq 1 24); do
+            NOW="$(date +%s)"
+            if [ $((NOW - START_EPOCH)) -ge $((MAX_SECONDS - 600)) ]; then
+              echo "Stopping before runner timeout."
+              break
+            fi
+
+            echo "=== hot-feed arena loop ${LOOP}/24 ==="
+            git fetch origin main
+
+            REMOTE_BLOB="$(git rev-parse "origin/main:english-sentence-lab/${PROMOTED}" 2>/dev/null || true)"
+            LOCAL_BLOB="$(git hash-object "${PROMOTED}" 2>/dev/null || true)"
+            if [ -n "$REMOTE_BLOB" ] && [ "$REMOTE_BLOB" != "$LOCAL_BLOB" ]; then
+              git show "origin/main:english-sentence-lab/${PROMOTED}" > "${PROMOTED}.new"
+              mv "${PROMOTED}.new" "$PROMOTED"
+              echo "Hot-loaded newer promoted_silver blob: $REMOTE_BLOB"
+            else
+              echo "No promoted_silver update since previous round."
+            fi
+
+            python arena/run_model_arena.py \
+              --role-start artifacts/v1.8.5_r015_accumulated_final_role.pt \
+              --clause-start "$CLAUSE_START" \
+              --out-dir artifacts/arena \
+              --rounds 1 \
+              --minutes 20 \
+              --probe-per-round 6000
+
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('artifacts/arena/summary.json').read_text())
+          last=json.loads(Path('artifacts/arena/history.jsonl').read_text().splitlines()[-1])
+          print(json.dumps({
+              'round':last['round'],
+              'promoted_pool':last.get('promoted_pool_at_round'),
+              'fresh_available':last.get('fresh_available_before'),
+              'fresh_used':last.get('probe_fresh_silver'),
+              'gold_used':last.get('probe_gold'),
+              'old_or_total_silver_used':last.get('probe_silver'),
+              'role_wins':last['battle']['role_wins'],
+              'clause_wins':last['battle']['clause_wins'],
+              'ties':last['battle']['ties'],
+          },indent=2))
+          PY
+
+            sleep 10
+          done
 
       - name: Verify autonomous arena state
         run: |
@@ -122,6 +192,9 @@ jobs:
 
       - name: Persist arena winners and battle log
         run: |
+          # promoted.jsonl is only a hot-loaded working copy; the collector/promotion
+          # workflows own that tracked file on main.
+          git restore english-sentence-lab/data/promoted_silver/promoted.jsonl || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add english-sentence-lab/artifacts/arena
@@ -143,5 +216,6 @@ jobs:
             english-sentence-lab/artifacts/arena/clause_arena_latest.pt
             english-sentence-lab/artifacts/arena/history.jsonl
             english-sentence-lab/artifacts/arena/summary.json
+            english-sentence-lab/artifacts/arena/feed_state.json
           retention-days: 30
           if-no-files-found: warn

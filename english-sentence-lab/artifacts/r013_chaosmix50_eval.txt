@@ -1,5 +1,5 @@
 SentenceLab current — dependency-aware ChaosMix50 evaluation
-before: 188/250 = 75.20% | exact 15/50
+before: 190/250 = 76.00% | exact 16/50
 after : 240/250 = 96.00% | exact 40/50
-fixed 53 | regressed 1 | net +52
+fixed 51 | regressed 1 | net +50
 remaining confusions: O->S:3, S->O:2, S->M:2, C->M:1, O->M:1, M->S:1

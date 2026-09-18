@@ -8,20 +8,20 @@
   "focus_checks": 250,
   "before_neural_direct": {
     "checks": 250,
-    "correct": 188,
-    "accuracy": 0.752,
-    "exact_sentences": 15,
-    "exact_sentence_accuracy": 0.3,
+    "correct": 190,
+    "accuracy": 0.76,
+    "exact_sentences": 16,
+    "exact_sentence_accuracy": 0.32,
     "by_gold_role": {
       "S": {
         "checks": 173,
-        "correct": 133,
-        "accuracy": 0.7687861271676301
+        "correct": 134,
+        "accuracy": 0.7745664739884393
       },
       "O": {
         "checks": 56,
-        "correct": 39,
-        "accuracy": 0.6964285714285714
+        "correct": 40,
+        "accuracy": 0.7142857142857143
       },
       "C": {
         "checks": 7,
@@ -64,12 +64,12 @@
       }
     }
   },
-  "fixed_checks": 53,
+  "fixed_checks": 51,
   "regressed_checks": 1,
-  "net_corrections": 52,
+  "net_corrections": 50,
   "fix_reasons": {
-    "dep-subject": 26,
-    "dep-object": 11,
+    "dep-subject": 25,
+    "dep-object": 10,
     "object-complement": 1,
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
@@ -133,7 +133,7 @@
       "prev": "the",
       "next": "whom",
       "neural_direct": "M",
-      "confidence": 0.757931,
+      "confidence": 0.727528,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -154,7 +154,7 @@
       "prev": "engineer",
       "next": "everyone",
       "neural_direct": "S",
-      "confidence": 0.694774,
+      "confidence": 0.708021,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -175,7 +175,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.639535,
+      "confidence": 0.631558,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -196,7 +196,7 @@
       "prev": "a",
       "next": ".",
       "neural_direct": "O",
-      "confidence": 0.719308,
+      "confidence": 0.71856,
       "dep_guard": "C",
       "guard_reason": "object-complement"
     },
@@ -217,7 +217,7 @@
       "prev": null,
       "next": "the",
       "neural_direct": "M",
-      "confidence": 0.552431,
+      "confidence": 0.521052,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -238,7 +238,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "C",
-      "confidence": 0.774457,
+      "confidence": 0.781413,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -259,7 +259,7 @@
       "prev": "the",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.739727,
+      "confidence": 0.697292,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -280,7 +280,7 @@
       "prev": "the",
       "next": "who",
       "neural_direct": "O",
-      "confidence": 0.956075,
+      "confidence": 0.959872,
       "dep_guard": "S",
       "guard_reason": "initial-aux-inversion"
     },
@@ -301,7 +301,7 @@
       "prev": "the",
       "next": ",",
       "neural_direct": "M",
-      "confidence": 0.969298,
+      "confidence": 0.964329,
       "dep_guard": "S",
       "guard_reason": "not-until-clause-subject"
     },
@@ -322,7 +322,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "O",
-      "confidence": 0.475445,
+      "confidence": 0.490204,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -343,7 +343,7 @@
       "prev": "the",
       "next": "whose",
       "neural_direct": "M",
-      "confidence": 0.751006,
+      "confidence": 0.645088,
       "dep_guard": "S",
       "guard_reason": "conj-inherit-explicit-core"
     },
@@ -364,7 +364,7 @@
       "prev": "a",
       "next": "that",
       "neural_direct": "O",
-      "confidence": 0.952358,
+      "confidence": 0.955096,
       "dep_guard": "S",
       "guard_reason": "initial-aux-inversion"
     },
@@ -385,7 +385,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "O",
-      "confidence": 0.789758,
+      "confidence": 0.766914,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -406,7 +406,7 @@
       "prev": "the",
       "next": "on",
       "neural_direct": "O",
-      "confidence": 0.966962,
+      "confidence": 0.966918,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -427,7 +427,7 @@
       "prev": "the",
       "next": "something",
       "neural_direct": "M",
-      "confidence": 0.589458,
+      "confidence": 0.53233,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -448,7 +448,7 @@
       "prev": "If",
       "next": "the",
       "neural_direct": "S",
-      "confidence": 0.530411,
+      "confidence": 0.544196,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -469,7 +469,7 @@
       "prev": "the",
       "next": "it",
       "neural_direct": "S",
-      "confidence": 0.566111,
+      "confidence": 0.609479,
       "dep_guard": "C",
       "guard_reason": "dep-complement"
     },
@@ -490,7 +490,7 @@
       "prev": "backup",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.875249,
+      "confidence": 0.873945,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -511,7 +511,7 @@
       "prev": "software",
       "next": "installed",
       "neural_direct": "M",
-      "confidence": 0.853201,
+      "confidence": 0.825425,
       "dep_guard": "S",
       "guard_reason": "clausal-prep-subject-repair"
     },
@@ -532,7 +532,7 @@
       "prev": "the",
       "next": "whose",
       "neural_direct": "M",
-      "confidence": 0.769805,
+      "confidence": 0.62576,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -553,7 +553,7 @@
       "prev": "cooling",
       "next": "would",
       "neural_direct": "O",
-      "confidence": 0.931059,
+      "confidence": 0.930855,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -574,7 +574,7 @@
       "prev": "The",
       "next": "whom",
       "neural_direct": "M",
-      "confidence": 0.573116,
+      "confidence": 0.541134,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -595,30 +595,9 @@
       "prev": "student",
       "next": "the",
       "neural_direct": "S",
-      "confidence": 0.780704,
+      "confidence": 0.810499,
       "dep_guard": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "id": "CM50-016",
-      "token": "counterexample",
-      "occurrence": 0,
-      "gold": "S",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "nsubj",
-      "head": "violated",
-      "head_pos": "VERB",
-      "head_tag": "VBD",
-      "head_dep": "ccomp",
-      "head_lemma": "violate",
-      "head_neural": "V",
-      "prev": "the",
-      "next": "he",
-      "neural_direct": "O",
-      "confidence": 0.472037,
-      "dep_guard": "S",
-      "guard_reason": "dep-subject"
     },
     {
       "id": "CM50-018",
@@ -637,7 +616,7 @@
       "prev": "verification",
       "next": "compares",
       "neural_direct": "M",
-      "confidence": 0.418256,
+      "confidence": 0.37937,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -658,7 +637,7 @@
       "prev": "the",
       "next": "who",
       "neural_direct": "C",
-      "confidence": 0.510786,
+      "confidence": 0.571358,
       "dep_guard": "M",
       "guard_reason": "dep-pobj"
     },
@@ -679,7 +658,7 @@
       "prev": null,
       "next": "the",
       "neural_direct": "M",
-      "confidence": 0.908055,
+      "confidence": 0.874243,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -700,7 +679,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.983402,
+      "confidence": 0.97734,
       "dep_guard": "O",
       "guard_reason": "conj-inherit-explicit-core"
     },
@@ -721,7 +700,7 @@
       "prev": "redefine",
       "next": "counted",
       "neural_direct": "O",
-      "confidence": 0.897358,
+      "confidence": 0.906272,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -742,30 +721,9 @@
       "prev": "a",
       "next": "that",
       "neural_direct": "O",
-      "confidence": 0.913662,
+      "confidence": 0.903014,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
-    },
-    {
-      "id": "CM50-023",
-      "token": "claim",
-      "occurrence": 0,
-      "gold": "O",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "dobj",
-      "head": "doubted",
-      "head_pos": "VERB",
-      "head_tag": "VBD",
-      "head_dep": "ROOT",
-      "head_lemma": "doubt",
-      "head_neural": "V",
-      "prev": "'s",
-      "next": "that",
-      "neural_direct": "C",
-      "confidence": 0.431091,
-      "dep_guard": "O",
-      "guard_reason": "dep-object"
     },
     {
       "id": "CM50-024",
@@ -784,7 +742,7 @@
       "prev": null,
       "next": "of",
       "neural_direct": "M",
-      "confidence": 0.826113,
+      "confidence": 0.784415,
       "dep_guard": "S",
       "guard_reason": "initial-partitive-subject"
     },
@@ -805,7 +763,7 @@
       "prev": "traffic",
       "next": "they",
       "neural_direct": "O",
-      "confidence": 0.746213,
+      "confidence": 0.720183,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -826,7 +784,7 @@
       "prev": "dimming",
       "next": "repeats",
       "neural_direct": "M",
-      "confidence": 0.848435,
+      "confidence": 0.779296,
       "dep_guard": "S",
       "guard_reason": "compound-to-mistagged-ccomp-subject"
     },
@@ -847,7 +805,7 @@
       "prev": "instrumental",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.766225,
+      "confidence": 0.729828,
       "dep_guard": "O",
       "guard_reason": "conj-inherit-explicit-core"
     },
@@ -868,7 +826,7 @@
       "prev": "the",
       "next": "removed",
       "neural_direct": "M",
-      "confidence": 0.995162,
+      "confidence": 0.994996,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -889,7 +847,7 @@
       "prev": "elegant",
       "next": "with",
       "neural_direct": "O",
-      "confidence": 0.517627,
+      "confidence": 0.491964,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -910,7 +868,7 @@
       "prev": "the",
       "next": "where",
       "neural_direct": "M",
-      "confidence": 0.942849,
+      "confidence": 0.935503,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -931,7 +889,7 @@
       "prev": "an",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.579406,
+      "confidence": 0.543709,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -952,7 +910,7 @@
       "prev": "a",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.453467,
+      "confidence": 0.490858,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -973,7 +931,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "O",
-      "confidence": 0.664774,
+      "confidence": 0.709367,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -994,7 +952,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.752037,
+      "confidence": 0.660182,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1015,7 +973,7 @@
       "prev": "every",
       "next": "beginning",
       "neural_direct": "S",
-      "confidence": 0.967489,
+      "confidence": 0.964075,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -1036,7 +994,7 @@
       "prev": "which",
       "next": "introduces",
       "neural_direct": "O",
-      "confidence": 0.367889,
+      "confidence": 0.369582,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1057,7 +1015,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.584404,
+      "confidence": 0.513794,
       "dep_guard": "S",
       "guard_reason": "correlative-subject-repair"
     },
@@ -1078,7 +1036,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "C",
-      "confidence": 0.542076,
+      "confidence": 0.570481,
       "dep_guard": "S",
       "guard_reason": "clausal-prep-subject-repair"
     },
@@ -1099,7 +1057,7 @@
       "prev": "cooling",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.702878,
+      "confidence": 0.752383,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1120,7 +1078,7 @@
       "prev": "The",
       "next": "the",
       "neural_direct": "M",
-      "confidence": 0.872969,
+      "confidence": 0.846429,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1141,7 +1099,7 @@
       "prev": "required",
       "next": "whose",
       "neural_direct": "M",
-      "confidence": 0.906141,
+      "confidence": 0.842804,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -1162,7 +1120,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "S",
-      "confidence": 0.43511,
+      "confidence": 0.445258,
       "dep_guard": "M",
       "guard_reason": "fronted-between-pp-repair"
     },
@@ -1183,7 +1141,7 @@
       "prev": "so",
       "next": "of",
       "neural_direct": "M",
-      "confidence": 0.490721,
+      "confidence": 0.466477,
       "dep_guard": "S",
       "guard_reason": "lexical-existential-postverbal-subject"
     },
@@ -1204,7 +1162,7 @@
       "prev": "when",
       "next": "were",
       "neural_direct": "M",
-      "confidence": 0.819996,
+      "confidence": 0.788764,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1225,7 +1183,7 @@
       "prev": "training",
       "next": "pair",
       "neural_direct": "V",
-      "confidence": 0.999922,
+      "confidence": 0.999928,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     }
@@ -1248,7 +1206,7 @@
       "prev": "calibration",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.820666,
+      "confidence": 0.796355,
       "dep_guard": "S",
       "guard_reason": "conj-inherit-explicit-core"
     }
@@ -1271,7 +1229,7 @@
       "prev": "the",
       "next": "had",
       "neural_direct": "O",
-      "confidence": 0.701754,
+      "confidence": 0.657965,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -1292,7 +1250,7 @@
       "prev": "the",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.530156,
+      "confidence": 0.497544,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -1313,7 +1271,7 @@
       "prev": "seamless",
       "next": "look",
       "neural_direct": "S",
-      "confidence": 0.563537,
+      "confidence": 0.628175,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1334,7 +1292,7 @@
       "prev": "of",
       "next": "the",
       "neural_direct": "M",
-      "confidence": 0.982529,
+      "confidence": 0.977521,
       "dep_guard": "M",
       "guard_reason": "dep-pobj"
     },
@@ -1355,7 +1313,7 @@
       "prev": "the",
       "next": "distinguishes",
       "neural_direct": "M",
-      "confidence": 0.980436,
+      "confidence": 0.977061,
       "dep_guard": "M",
       "guard_reason": "neural"
     },
@@ -1376,7 +1334,7 @@
       "prev": "the",
       "next": "treats",
       "neural_direct": "M",
-      "confidence": 0.960249,
+      "confidence": 0.962905,
       "dep_guard": "M",
       "guard_reason": "neural"
     },
@@ -1397,7 +1355,7 @@
       "prev": "received",
       "next": "decided",
       "neural_direct": "S",
-      "confidence": 0.879484,
+      "confidence": 0.882567,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1418,7 +1376,7 @@
       "prev": "of",
       "next": "increased",
       "neural_direct": "M",
-      "confidence": 0.986445,
+      "confidence": 0.98376,
       "dep_guard": "M",
       "guard_reason": "dep-pobj"
     },
@@ -1439,7 +1397,7 @@
       "prev": "calibration",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.820666,
+      "confidence": 0.796355,
       "dep_guard": "S",
       "guard_reason": "conj-inherit-explicit-core"
     },
@@ -1460,7 +1418,7 @@
       "prev": "making",
       "next": "look",
       "neural_direct": "S",
-      "confidence": 0.516515,
+      "confidence": 0.498369,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     }

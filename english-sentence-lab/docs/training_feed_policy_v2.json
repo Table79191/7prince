@@ -113,5 +113,34 @@
     "r011": "random-init + official train only; official dev selection; official test excluded",
     "r012_safe": "R011 + upstream gold train rows only; Tatoeba/MediaWiki silver excluded from fitting",
     "r012_regression": "separate output artifact; disjoint synthetic train/validation; 10k gold replay; token+sentence-exact safety gates; official test unused"
+  },
+  "promoted_silver": {
+    "status": "performance_gated_training_candidate",
+    "sources": [
+      "Tatoeba",
+      "MediaWiki"
+    ],
+    "raw_external_training_allowed": false,
+    "required_checks": [
+      "source row is auto_pass",
+      "current canonical roles contain no AMBIG",
+      "spaCy and Stanza agree on every core role and >=92% overall",
+      "no overlap with gold/dev/eval-only text",
+      "no overlap with Tatoeba Daily500"
+    ],
+    "training": {
+      "max_recent_rows": 1200,
+      "sample_weight": 0.12,
+      "gold_replay_rows": 10000,
+      "minimum_new_rows_before_attempt": 128
+    },
+    "promotion_gates": {
+      "ud_dev_token_max_regression": 0.0003,
+      "ud_dev_sentence_exact_max_regression": 0.001,
+      "regression_validation_max_regression": 0.003,
+      "composite_min_gain": 0.0001
+    },
+    "production_checkpoint": "v1.8.3_auto_promoted_silver_role.pt",
+    "note": "Only a candidate that passes every gate is exported; rejected candidates never replace production."
   }
 }

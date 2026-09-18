@@ -72,7 +72,7 @@ def score(m):
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument("--base",default="artifacts/v1.7.0_ud_role.pt")
+    ap.add_argument("--base",default="none")
     ap.add_argument("--ud",default="data/ud")
     ap.add_argument("--ewt",default="data/gold_external/ewt")
     ap.add_argument("--masc",default="data/gold_external/masc_conll/extracted/masc-conll/data")
@@ -88,8 +88,9 @@ def main():
     if not ud_tr or not ew_tr or not ud_va or not ew_va:
         raise SystemExit("clean R011 split unexpectedly empty")
 
-    ck=torch.load(args.base,map_location="cpu",weights_only=False)
-    model=base.RoleNet().to(device); model.load_state_dict(ck["model"],strict=True)
+    if str(args.base).lower() not in {"", "none", "random"}:
+        raise SystemExit("clean R011 must start from random initialization; pretrained bases are forbidden")
+    model=base.RoleNet().to(device)
     sets={"ewt":ew_va,"ud":ud_va,"masc":ma_va}
     baseline={k:evaluate(model,v,device,args.batch) for k,v in sets.items()}
     best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
@@ -120,13 +121,13 @@ def main():
             best_score=sc; best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}; best=cur; best_epoch=ep
 
     model.load_state_dict(best_state)
-    metrics={"version":VERSION,"base":Path(args.base).name,"selected_epoch":best_epoch,"baseline":baseline,"selected":best,"history":history,
+    metrics={"version":VERSION,"base":"random-init","selected_epoch":best_epoch,"baseline":baseline,"selected":best,"history":history,
              "data_stats":{"ud":ud_stats,"ewt":ew_stats,"masc":ma_stats},
              "policy":{"official_train_only_for_fit":True,"official_dev_only_for_selection":True,"official_test_never_fit_or_select":True,
                        "synthetic_gold_not_used_for_fit_or_selection":True,"canonical_role_spec":"v2-head-only"},
-             "note":"Clean R011 lineage starts from v1.7.0 and excludes every official UD/EWT test row from fitting and model selection."}
+             "note":"Clean R011 lineage starts from random initialization and excludes every official UD/EWT test row from fitting and model selection."}
     out=Path(args.out); out.parent.mkdir(parents=True,exist_ok=True)
-    torch.save({"model":model.state_dict(),"config":{"gru":3,"attn":1,"source":"v1.7.0 clean base + canonical UD/EWT/MASC","roles":base.I2ROLE,"canonical_role_spec":"v2-head-only"},"metrics":metrics},out)
+    torch.save({"model":model.state_dict(),"config":{"gru":3,"attn":1,"source":"random init + canonical UD/EWT/MASC train only","roles":base.I2ROLE,"canonical_role_spec":"v2-head-only"},"metrics":metrics},out)
     Path(args.metrics).write_text(json.dumps(metrics,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(metrics,indent=2))
 

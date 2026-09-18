@@ -8,6 +8,13 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/promote_external_silver.py'
+      - 'english-sentence-lab/train/train_r013_auto_promote.py'
+      - 'english-sentence-lab/docs/training_feed_policy_v2.json'
+      - '.github/workflows/sentence-lab-auto-promoted-silver.yml'
 
 permissions:
   contents: write

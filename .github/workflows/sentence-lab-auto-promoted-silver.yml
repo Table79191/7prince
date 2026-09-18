@@ -5,6 +5,7 @@ on:
     workflows:
       - "SentenceLab external Tatoeba corpus"
       - "SentenceLab external MediaWiki corpus"
+      - "SentenceLab external enwiki bulk corpus"
     types: [completed]
     branches: [main]
   workflow_dispatch:
@@ -66,9 +67,9 @@ jobs:
       - name: Promote strictly validated external rows
         run: |
           python english-sentence-lab/scripts/promote_external_silver.py \
-            --max-scan-per-source 4000 \
-            --max-accept-per-source 500 \
-            --bootstrap-tail 4000
+            --max-scan-per-source 8000 \
+            --max-accept-per-source 1000 \
+            --bootstrap-tail 8000
 
       - name: Decide whether enough new promoted rows accumulated
         id: decide

@@ -1,0 +1,130 @@
+name: SentenceLab ClauseAnchorGraph FINAL FineTune
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/experiments/clause_anchor_graph_v1_01/final_blind16.py'
+      - 'english-sentence-lab/experiments/clause_anchor_graph_v1_01/finetune_final.py'
+      - '.github/workflows/sentence-lab-clause-anchor-graph-final.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: sentence-lab-clause-anchor-graph-final
+  cancel-in-progress: true
+
+jobs:
+  final-finetune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/data/web_corpus_bot
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax
+        run: |
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/finetune_final.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/final_blind16.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/novel_hard14.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/challenge_probe.py
+
+      - name: Download validated FT1 parent
+        uses: actions/download-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-ft1
+          path: /tmp/ft1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Table79191/7prince
+          run-id: 35368004819
+
+      - name: Freeze FINAL blind score before tuning
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python final_blind16.py             --model /tmp/ft1/clause_anchor_graph_v1_01_ft1.pt             --out artifacts/final_blind16_before.json
+
+      - name: Hard-example mine and final fine-tune
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python finetune_final.py             --init-model /tmp/ft1/clause_anchor_graph_v1_01_ft1.pt             --candidate-per-source 4000             --hard-n 3600             --replay-n 1400             --epochs 2             --batch 20             --lr 5e-5             --out artifacts/clause_anchor_graph_v1_01_final.pt             --metrics artifacts/final_metrics.json
+
+      - name: Open FINAL blind after model selection
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python final_blind16.py             --model artifacts/clause_anchor_graph_v1_01_final.pt             --out artifacts/final_blind16_after.json
+
+      - name: Re-run Hard14
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python novel_hard14.py             --model artifacts/clause_anchor_graph_v1_01_final.pt             --out artifacts/hard14_after_final.json
+
+      - name: Re-run original 64-token regression
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python challenge_probe.py             --model artifacts/clause_anchor_graph_v1_01_final.pt             --out artifacts/original_hard_after_final.json
+
+      - name: Final acceptance gate
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          before=json.loads(Path('artifacts/final_blind16_before.json').read_text())
+          after=json.loads(Path('artifacts/final_blind16_after.json').read_text())
+          h14=json.loads(Path('artifacts/hard14_after_final.json').read_text())
+          old=json.loads(Path('artifacts/original_hard_after_final.json').read_text())
+          m=json.loads(Path('artifacts/final_metrics.json').read_text())
+          summary={
+            'selected_epoch':m['selected_epoch'],
+            'dev_before':m['before']['predicted_owner_role_accuracy'],
+            'dev_after':m['after']['predicted_owner_role_accuracy'],
+            'dev_exact_before':m['before']['predicted_owner_sentence_exact_rate'],
+            'dev_exact_after':m['after']['predicted_owner_sentence_exact_rate'],
+            'owner_before':m['before']['owner_accuracy'],
+            'owner_after':m['after']['owner_accuracy'],
+            'final_blind_before':before['focus_accuracy'],
+            'final_blind_after':after['focus_accuracy'],
+            'final_blind_exact_before':before['exact_rate'],
+            'final_blind_exact_after':after['exact_rate'],
+            'hard14_after':h14['focus_accuracy'],
+            'original64_after':old['focus_accuracy'],
+          }
+          print(json.dumps(summary,indent=2))
+          assert m['selected_epoch'] > 0, summary
+          assert summary['dev_after'] > summary['dev_before'], summary
+          assert summary['final_blind_after'] > summary['final_blind_before'], summary
+          assert summary['hard14_after'] >= 76/87 - 1e-9, summary
+          assert summary['original64_after'] >= .75 - 1e-9, summary
+          Path('artifacts/final_comparison.json').write_text(json.dumps(summary,indent=2)+'\n')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-final
+          path: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/clause_anchor_graph_v1_01_final.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/final_metrics.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/final_blind16_before.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/final_blind16_after.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/hard14_after_final.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/original_hard_after_final.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/final_comparison.json
+          retention-days: 14

@@ -51,12 +51,13 @@ def _finish(tokens, decisions):
 
 
 def canonicalize_ud(tokens):
-    """Canonical UD -> S/V/O/C/M decisions with provenance.
+    """Canonical UD -> school-style token S/V/O/C/M decisions.
 
-    This intentionally prefers AMBIG over guessing for coordination that would
-    otherwise inherit a core phrase role without an explicit subject/object link.
+    Core sentence roles are assigned to the syntactic head only. Determiners,
+    possessives, adjectives, numerals, case markers, compounds and other phrase
+    material remain M instead of inheriting the head's S/O/C label.
     """
-    id2i, children = _children(tokens)
+    id2i, _ = _children(tokens)
     direct = {}
     cop_parents = set()
 
@@ -65,54 +66,30 @@ def canonicalize_ud(tokens):
         base = rel.split(":", 1)[0]
         pos = t.get("pos")
         if base in {"nsubj", "csubj", "expl"}:
-            direct[i] = Decision("S", "S_UD_SUBJ_001")
+            direct[i] = Decision("S", "S_UD_SUBJ_HEAD_002")
         elif base in {"obj", "iobj"}:
-            direct[i] = Decision("O", "O_UD_OBJ_001")
+            direct[i] = Decision("O", "O_UD_OBJ_HEAD_002")
         if base == "cop" and t.get("head") in id2i:
             cop_parents.add(id2i[t["head"]])
         if base == "xcomp" and pos in {"ADJ", "NOUN", "PROPN", "PRON", "NUM"}:
-            direct[i] = Decision("C", "C_UD_XCOMP_001")
+            direct[i] = Decision("C", "C_UD_XCOMP_HEAD_002")
 
     for i in cop_parents:
         if tokens[i].get("pos") not in {"VERB", "AUX"}:
-            direct[i] = Decision("C", "C_UD_COP_HEAD_001")
+            direct[i] = Decision("C", "C_UD_COP_HEAD_002")
 
     decisions = [None] * len(tokens)
+    for i, decision in direct.items():
+        decisions[i] = decision
 
-    def propagate(root, decision):
-        stack = [root]
-        seen = set()
-        while stack:
-            i = stack.pop()
-            if i in seen:
-                continue
-            seen.add(i)
-            if i != root and i in direct:
-                continue
-            t = tokens[i]
-            pos = t.get("pos")
-            if pos in {"VERB", "AUX", "PUNCT"} and i != root:
-                continue
-            if decisions[i] is None:
-                decisions[i] = Decision(
-                    decision.role,
-                    decision.rule_id + "_SPAN" if i != root else decision.rule_id,
-                )
-            for j in children.get(i, []):
-                rel = tokens[j].get("deprel", "")
-                base = rel.split(":", 1)[0]
-                if rel in CLAUSE_BOUNDARY or base in {"ccomp", "xcomp", "advcl", "parataxis", "acl"}:
-                    continue
-                if base == "conj":
-                    if decisions[j] is None:
-                        decisions[j] = Decision("AMBIG", "COORD_REVIEW_001", "needs_review")
-                    continue
-                if rel in UD_PHRASE_PROPAGATE or base in {"det", "amod", "compound", "flat", "fixed", "nummod", "case"}:
-                    stack.append(j)
-
-    order = {"S": 0, "O": 1, "C": 2}
-    for root, decision in sorted(direct.items(), key=lambda kv: order[kv[1].role]):
-        propagate(root, decision)
+    # Preserve the existing conservative coordination policy: a conjunct of a
+    # core head is review-only rather than silently inheriting S/O/C.
+    for i, t in enumerate(tokens):
+        if t.get("deprel", "").split(":", 1)[0] != "conj":
+            continue
+        head = t.get("head")
+        if head in id2i and id2i[head] in direct and decisions[i] is None:
+            decisions[i] = Decision("AMBIG", "COORD_REVIEW_002", "needs_review")
 
     for i, t in enumerate(tokens):
         pos = t.get("pos")
@@ -127,46 +104,28 @@ def canonicalize_ud(tokens):
 
     return _finish(tokens, decisions)
 
-
 def canonicalize_masc(tokens):
-    """Canonical MASC-CONLL -> S/V/O/C/M decisions with provenance."""
-    _, children = _children(tokens)
+    """Canonical MASC-CONLL -> school-style head-only S/V/O/C/M roles."""
+    id2i, _ = _children(tokens)
     direct = {}
     for i, t in enumerate(tokens):
         rel = t.get("deprel", "").upper()
         if rel == "SBJ":
-            direct[i] = Decision("S", "S_MASC_SBJ_001")
+            direct[i] = Decision("S", "S_MASC_SBJ_HEAD_002")
         elif rel == "OBJ":
-            direct[i] = Decision("O", "O_MASC_OBJ_001")
+            direct[i] = Decision("O", "O_MASC_OBJ_HEAD_002")
         elif rel in {"PRD", "OPRD"}:
-            direct[i] = Decision("C", "C_MASC_PRD_001")
+            direct[i] = Decision("C", "C_MASC_PRD_HEAD_002")
 
     decisions = [None] * len(tokens)
-    for root, decision in direct.items():
-        stack = [root]
-        seen = set()
-        while stack:
-            i = stack.pop()
-            if i in seen:
-                continue
-            seen.add(i)
-            if i != root and i in direct:
-                continue
-            if tokens[i].get("pos") in {"VERB", "AUX", "PUNCT"} and i != root:
-                continue
-            if decisions[i] is None:
-                decisions[i] = Decision(
-                    decision.role,
-                    decision.rule_id + "_SPAN" if i != root else decision.rule_id,
-                )
-            for j in children.get(i, []):
-                rel = tokens[j].get("deprel", "").upper()
-                if rel in {"CONJ", "COORD"}:
-                    if decisions[j] is None:
-                        decisions[j] = Decision("AMBIG", "COORD_REVIEW_001", "needs_review")
-                    continue
-                if rel in MASC_PHRASE_PROPAGATE and tokens[j].get("pos") not in {"VERB", "AUX"}:
-                    stack.append(j)
+    for i, decision in direct.items():
+        decisions[i] = decision
+
+    for i, t in enumerate(tokens):
+        rel = t.get("deprel", "").upper()
+        head = t.get("head")
+        if rel in {"CONJ", "COORD"} and head in id2i and id2i[head] in direct:
+            decisions[i] = Decision("AMBIG", "COORD_REVIEW_002", "needs_review")
 
     for i, t in enumerate(tokens):
         if t.get("pos") == "VERB":
@@ -179,7 +138,6 @@ def canonicalize_masc(tokens):
             decisions[i] = decision
 
     return _finish(tokens, decisions)
-
 
 def supervised_roles(decisions):
     """Return roles for supervised loss; AMBIG becomes None/excluded by caller."""

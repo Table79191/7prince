@@ -18,7 +18,7 @@ import train_ud_role as base
 from spacy_role_postprocess import postprocess_roles
 
 SOURCE_URL = 'https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2'
-MODEL = ROOT / 'artifacts' / 'v1.8.0_r011_canonical_role.pt'
+MODEL = ROOT / 'artifacts' / 'v1.8.2_r012_school_regression_role.pt'
 OUT_JSON = ROOT / 'artifacts' / 'tatoeba_daily500_eval.json'
 OUT_TXT = ROOT / 'artifacts' / 'tatoeba_daily500_eval.txt'
 OUT_TSV = ROOT / 'data' / 'tatoeba500' / 'TatoebaDaily500_CC0.tsv'

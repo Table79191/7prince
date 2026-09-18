@@ -40,7 +40,7 @@
     "reason": "UD dependencies are gold annotations, but the collected files mix upstream train/dev/test. CHILDES dominates the corpus, so it is down-weighted to reduce domain skew."
   },
   "tatoeba": {
-    "decision": "CONDITIONAL_WEAK_FEED_ONLY",
+    "decision": "AUDIT_ONLY_NOT_FOR_TRAINING",
     "records_seen": 25546,
     "auto_pass_seen": 24984,
     "needs_review_seen": 562,
@@ -60,10 +60,11 @@
       ],
       "require_independent_parser_consensus": true,
       "dedupe_against_gold_and_weak": true,
-      "max_fraction_of_training_batch": 0.2,
-      "loss_weight_relative_to_gold": 0.15
+      "max_fraction_of_training_batch": 0,
+      "loss_weight_relative_to_gold": 0,
+      "training_allowed": false
     },
-    "reason": "Labels are generated from Stanza parses rather than human gold. Auto-pass only means the canonicalizer did not mark an ambiguity; it is not a correctness guarantee. Use only consensus-filtered examples at low weight."
+    "reason": "Labels are parser-generated silver data. They may be collected and audited, but are excluded from supervised model fitting and epoch selection."
   },
   "mediawiki": {
     "decision": "HOLD",
@@ -72,9 +73,10 @@
       "require_source_level_audit": true,
       "require_deduplication": true,
       "require_revision_and_license_provenance": true,
-      "after_approval_follow_tatoeba_weak_rules": true
+      "after_approval_follow_tatoeba_weak_rules": false,
+      "training_allowed": false
     },
-    "reason": "No committed corpus exists yet; the first collection run failed with HTTP 429 before validation/commit."
+    "reason": "MediaWiki parser labels are collection/audit data only and are not eligible for supervised fitting."
   },
   "validation_and_test": {
     "ud_dev": "VALIDATION_ONLY",
@@ -85,7 +87,8 @@
       "pronouns",
       "pud"
     ],
-    "never_train_on_these": true
+    "never_train_on_these": true,
+    "never_use_test_for_model_selection": true
   },
   "promotion_gate": {
     "weak_feed_can_be_promoted_only_if": [
@@ -93,6 +96,19 @@
       "held-out UD dev/test metrics do not regress beyond 0.3 percentage points",
       "complex-sentence exact accuracy does not regress",
       "source-specific error audit shows no new systematic S/O/C failure mode"
+    ],
+    "regression_patch": [
+      "regression train and holdout text sets are disjoint",
+      "held-out regression accuracy improves",
+      "UD dev does not regress by more than 0.3 percentage points",
+      "official test data is not consulted during fitting or epoch selection"
     ]
+  },
+  "canonical_role_spec": "v2-head-only",
+  "lineage": {
+    "clean_base": "v1.7.0_ud_role.pt",
+    "r011": "official train only; official dev selection; official test excluded",
+    "r012_safe": "R011 + upstream gold train rows only; Tatoeba/MediaWiki silver excluded from fitting",
+    "r012_regression": "separate output artifact; disjoint synthetic train/holdout; official test unused"
   }
 }

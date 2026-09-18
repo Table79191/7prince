@@ -71,9 +71,11 @@ def main():
     reasons=Counter(r['guard_reason'] for r in fixed)
     result={
         'version':'current dependency-aware postprocess',
-        'base_model':'v1.8.0-R011-CANONICAL-REPLAY',
+        'base_model':ck.get('metrics',{}).get('version','unknown'),
         'dataset':'ChaosMix50_ORIGINAL audited sparse gold',
         'training_contamination':False,
+        'benchmark_role':'development_stress_set',
+        'postprocess_tuned_on_benchmark':True,
         'focus_checks':250,
         'before_neural_direct':direct,
         'after_dep_guard':guarded_score,

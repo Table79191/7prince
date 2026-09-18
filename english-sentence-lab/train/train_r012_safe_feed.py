@@ -295,15 +295,10 @@ def main():
     if not gold_train or not ud_dev:
         raise SystemExit("safe feed requires non-empty upstream train and dev sets")
 
-    max_weak = len(gold_train) // 4  # weak <=20% of combined sentence count
-    nlp = spacy.load("en_core_web_sm")
-    weak_train, weak_stats = load_tatoeba_weak(
-        Path(args.tatoeba),
-        nlp,
-        benchmark_ids(Path(args.benchmark_tsv)),
-        seen_gold,
-        max_weak,
-    )
+    # Silver/weak corpora are audit-only. They are deliberately excluded from
+    # supervised fitting so R012 remains gold-only.
+    weak_train = []
+    weak_stats = {"disabled_for_training": 1}
 
     synthetic_val = load_gold(args.gold_val)
     ck = torch.load(args.base, map_location="cpu", weights_only=False)
@@ -317,7 +312,7 @@ def main():
         "eval_only": evaluate(model, eval_only, device, args.batch),
     }
 
-    mix = list(gold_train) + list(weak_train)
+    mix = list(gold_train)
     opt = torch.optim.AdamW(
         [p for p in model.parameters() if p.requires_grad],
         lr=2.0e-5,
@@ -374,9 +369,9 @@ def main():
             "gold_only_upstream_train": True,
             "dev_test_never_trained": True,
             "tatoeba_daily500_excluded": True,
-            "weak_max_fraction": 0.20,
-            "weak_loss_weight": WEAK_WEIGHT,
-            "weak_requires_spacy_stanza_consensus": True,
+            "weak_max_fraction": 0.0,
+            "weak_loss_weight": 0.0,
+            "weak_requires_spacy_stanza_consensus": False,
             "safety_max_regression": 0.003,
             "school_style_head_only_roles": True,
             "relabel_saved_corpora_with_current_canonicalizer": True,
@@ -395,10 +390,11 @@ def main():
         "selected": selected,
         "history": history,
         "note": (
-            "R012 trains only on upstream UD train rows plus strictly consensus-filtered "
-            "Tatoeba weak labels. Saved dependency parses are relabeled at training time with "
-            "the current school-style head-only canonicalizer, and contraction surfaces are "
-            "normalized. UD dev/test and Tatoeba Daily500 are excluded from training."
+            "R012 trains only on upstream UD train rows. Tatoeba and other parser-generated "
+            "silver labels are audit-only and excluded from supervised fitting. Saved dependency "
+            "parses are relabeled at training time with the current school-style head-only "
+            "canonicalizer, and contraction surfaces are normalized. UD dev/test and Tatoeba "
+            "Daily500 are excluded from training."
         ),
     }
 
@@ -410,7 +406,7 @@ def main():
             "config": {
                 "gru": 3,
                 "attn": 1,
-                "source": "R011 + safe gold-train + low-weight consensus Tatoeba",
+                "source": "R011 + upstream gold-train only",
                 "roles": base.I2ROLE,
             },
             "metrics": metrics,

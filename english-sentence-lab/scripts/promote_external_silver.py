@@ -110,7 +110,9 @@ def main():
         total=count_rows(folder,pattern)
         prev=state["sources"].get(key)
         if prev is None:
-            processed=max(0,total-a.bootstrap_tail)
+            # The new bulk collector is already pre-filtered and owns an isolated
+            # append-only queue; do not discard its early rows on first promotion.
+            processed=0 if key=="enwiki_bulk" else max(0,total-a.bootstrap_tail)
         else:
             processed=min(int(prev.get("processed_records",0)),total)
         scanned=accepted=0; counts={}

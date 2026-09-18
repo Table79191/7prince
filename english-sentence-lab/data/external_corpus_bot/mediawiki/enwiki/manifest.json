@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 469414,
-  "total_records": 9895,
-  "auto_pass": 8795,
-  "needs_review": 1100,
+  "total_pages_processed": 509293,
+  "total_records": 10542,
+  "auto_pass": 9373,
+  "needs_review": 1169,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "A_Gate_at_the_Stairs",
+  "apcontinue": "Acazicolcept",
   "source_exhausted": false,
-  "shard_count": 5
+  "shard_count": 6
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "A_Gate_at_the_Stairs",
-  "total_pages_processed": 469414,
-  "total_records": 9895,
-  "auto_pass": 8795,
-  "needs_review": 1100,
-  "current_shard": 5,
-  "current_shard_records": 1895,
+  "apcontinue": "Acazicolcept",
+  "total_pages_processed": 509293,
+  "total_records": 10542,
+  "auto_pass": 9373,
+  "needs_review": 1169,
+  "current_shard": 6,
+  "current_shard_records": 542,
   "source_exhausted": false
 }

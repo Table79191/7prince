@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T08:08:37.814329+00:00",
+  "retrieved_at_utc": "2026-09-18T08:18:31.858090+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -59,14 +59,14 @@
   },
   "final_r018": {
     "tokens": 3256,
-    "correct": 3146,
-    "accuracy": 0.9662162162162162,
+    "correct": 3150,
+    "accuracy": 0.9674447174447175,
     "core_tokens": 2032,
     "core_correct": 1975,
     "core_accuracy": 0.9719488188976378,
-    "macro_f1": 0.9286266371823914,
-    "exact_sentences": 407,
-    "exact_sentence_accuracy": 0.814,
+    "macro_f1": 0.9312666290689879,
+    "exact_sentences": 410,
+    "exact_sentence_accuracy": 0.82,
     "by_role": {
       "S": {
         "support": 616,
@@ -82,32 +82,25 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.9060402684563759,
+        "precision": 0.9090909090909091,
         "recall": 0.9278350515463918,
-        "f1": 0.9168081494057725
+        "f1": 0.9183673469387756
       },
       "C": {
         "support": 116,
-        "precision": 0.76,
+        "precision": 0.7786885245901639,
         "recall": 0.8189655172413793,
-        "f1": 0.7883817427385893
+        "f1": 0.7983193277310925
       },
       "M": {
         "support": 1224,
-        "precision": 0.9758333333333333,
-        "recall": 0.9566993464052288,
-        "f1": 0.9661716171617163
+        "precision": 0.9759136212624585,
+        "recall": 0.9599673202614379,
+        "f1": 0.9678747940691929
       }
     }
   },
   "postprocess_rule_audit": {
-    "conj-inherit": {
-      "changed": 4,
-      "helpful": 0,
-      "harmful": 4,
-      "still_wrong": 0,
-      "net": -4
-    },
     "dep-complement": {
       "changed": 12,
       "helpful": 6,
@@ -242,34 +235,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "12397218",
-      "text": "Is that a need or a want?",
-      "token": "want",
-      "upos": "NOUN",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "want",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "conj-inherit"
-    },
-    {
-      "sentence_id": "12397219",
-      "text": "Is this a need or a want?",
-      "token": "want",
-      "upos": "NOUN",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "want",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "11271755",
@@ -1126,20 +1091,6 @@
       "guard_reason": "clausal-object-before-aux-subject"
     },
     {
-      "sentence_id": "10061279",
-      "text": "It's not like I like you or anything!",
-      "token": "anything",
-      "upos": "PRON",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "anything",
-      "spacy_pos": "PRON",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "conj-inherit"
-    },
-    {
       "sentence_id": "12773496",
       "text": "What more could we have done?",
       "token": "more",
@@ -1404,20 +1355,6 @@
       "neural_direct": "S",
       "final": "C",
       "guard_reason": "dep-complement"
-    },
-    {
-      "sentence_id": "11112102",
-      "text": "It doesn't have to be one or the other.",
-      "token": "other",
-      "upos": "ADJ",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "other",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "12187607",
@@ -1704,7 +1641,7 @@
     {
       "gold": "M",
       "pred": "O",
-      "count": 28
+      "count": 27
     },
     {
       "gold": "C",
@@ -1714,7 +1651,7 @@
     {
       "gold": "M",
       "pred": "C",
-      "count": 16
+      "count": 13
     },
     {
       "gold": "O",
@@ -1844,20 +1781,6 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "12397218",
-      "text": "Is that a need or a want?",
-      "token": "want",
-      "upos": "NOUN",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "want",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "conj-inherit"
-    },
-    {
       "sentence_id": "11601027",
       "text": "You know how I get.",
       "token": "how",
@@ -1870,20 +1793,6 @@
       "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "12397219",
-      "text": "Is this a need or a want?",
-      "token": "want",
-      "upos": "NOUN",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "want",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "11451508",
@@ -2684,20 +2593,6 @@
       "guard_reason": "neural"
     },
     {
-      "sentence_id": "10061279",
-      "text": "It's not like I like you or anything!",
-      "token": "anything",
-      "upos": "PRON",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "anything",
-      "spacy_pos": "PRON",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "conj-inherit"
-    },
-    {
       "sentence_id": "12488733",
       "text": "Is it OK for me to feel this way?",
       "token": "feel",
@@ -3046,20 +2941,6 @@
       "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "11112102",
-      "text": "It doesn't have to be one or the other.",
-      "token": "other",
-      "upos": "ADJ",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "other",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "conj",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "12187607",

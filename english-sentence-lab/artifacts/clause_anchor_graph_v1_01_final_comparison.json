@@ -1,0 +1,15 @@
+{
+  "selected_epoch": 2,
+  "dev_before": 0.9399490542518021,
+  "dev_after": 0.941665311726555,
+  "dev_exact_before": 0.6507835998100364,
+  "dev_exact_after": 0.6419186322621497,
+  "owner_before": 0.821491156757538,
+  "owner_after": 0.8342817914114863,
+  "final_blind_before": 0.8446601941747572,
+  "final_blind_after": 0.8640776699029126,
+  "final_blind_exact_before": 0.25,
+  "final_blind_exact_after": 0.375,
+  "hard14_after": 0.9080459770114943,
+  "original64_after": 0.8571428571428571
+}

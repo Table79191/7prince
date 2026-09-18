@@ -1,0 +1,108 @@
+{
+  "version": "CLAUSE-ANCHOR-GRAPH-V1.01-FINAL",
+  "parent_version": "CLAUSE-ANCHOR-GRAPH-V1.01-FT1",
+  "strategy": "clean-train disagreement/hard-example mining + replay + conservative low-LR fine-tune",
+  "mining": {
+    "candidate_sentences": 13632,
+    "hard_selected": 3600,
+    "replay_selected": 1400,
+    "top_score": 5.64164574097547,
+    "median_selected_score": 1.3965358928434313
+  },
+  "selected_train_sentences": 5000,
+  "selected_epoch": 2,
+  "epochs_attempted": 2,
+  "lr": 5e-05,
+  "role_counts": [
+    6872.0,
+    6686.0,
+    12338.0,
+    3872.0,
+    2063.0,
+    38064.0
+  ],
+  "role_weights": [
+    0.86854487657547,
+    0.9421811699867249,
+    0.6482035517692566,
+    1.2380836009979248,
+    1.9339447021484375,
+    0.36904269456863403
+  ],
+  "before": {
+    "sentences": 6317,
+    "tokens": 55353,
+    "oracle_owner_role_accuracy": 0.9564431918775856,
+    "oracle_owner_sentence_exact": 4576,
+    "oracle_owner_sentence_exact_rate": 0.7243944910558809,
+    "predicted_owner_role_accuracy": 0.9399490542518021,
+    "predicted_owner_sentence_exact": 4111,
+    "predicted_owner_sentence_exact_rate": 0.6507835998100364,
+    "clause_head_precision": 0.8950692520775623,
+    "clause_head_recall": 0.8299599301345937,
+    "clause_head_f1": 0.8612858513700821,
+    "owner_accuracy": 0.821491156757538
+  },
+  "after": {
+    "sentences": 6317,
+    "tokens": 55353,
+    "oracle_owner_role_accuracy": 0.9580691200115622,
+    "oracle_owner_sentence_exact": 4518,
+    "oracle_owner_sentence_exact_rate": 0.7152129175241412,
+    "predicted_owner_role_accuracy": 0.941665311726555,
+    "predicted_owner_sentence_exact": 4055,
+    "predicted_owner_sentence_exact_rate": 0.6419186322621497,
+    "clause_head_precision": 0.8987355811889973,
+    "clause_head_recall": 0.8325285112503853,
+    "clause_head_f1": 0.864366099525308,
+    "owner_accuracy": 0.8342817914114863
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.5939932825344686,
+      "seconds": 24.782257080078125,
+      "dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "oracle_owner_role_accuracy": 0.955178581106715,
+        "oracle_owner_sentence_exact": 4434,
+        "oracle_owner_sentence_exact_rate": 0.7019154662023113,
+        "predicted_owner_role_accuracy": 0.9381244015681174,
+        "predicted_owner_sentence_exact": 3953,
+        "predicted_owner_sentence_exact_rate": 0.6257717270856419,
+        "clause_head_precision": 0.8998984313282925,
+        "clause_head_recall": 0.8192746326929005,
+        "clause_head_f1": 0.8576960309777348,
+        "owner_accuracy": 0.8284103842610157
+      },
+      "score": 1.1098592065664497
+    },
+    {
+      "epoch": 2,
+      "loss": 0.5353538566610881,
+      "seconds": 24.833799123764038,
+      "dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "oracle_owner_role_accuracy": 0.9580691200115622,
+        "oracle_owner_sentence_exact": 4518,
+        "oracle_owner_sentence_exact_rate": 0.7152129175241412,
+        "predicted_owner_role_accuracy": 0.941665311726555,
+        "predicted_owner_sentence_exact": 4055,
+        "predicted_owner_sentence_exact_rate": 0.6419186322621497,
+        "clause_head_precision": 0.8987355811889973,
+        "clause_head_recall": 0.8325285112503853,
+        "clause_head_f1": 0.864366099525308,
+        "owner_accuracy": 0.8342817914114863
+      },
+      "score": 1.1158180232419543
+    }
+  ],
+  "data_policy": {
+    "final_blind16_used_for_training": false,
+    "novel_hard14_used_for_training": false,
+    "original_hard64_used_for_training": false,
+    "official_test_excluded": true
+  }
+}

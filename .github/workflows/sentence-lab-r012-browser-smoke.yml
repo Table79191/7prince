@@ -1,0 +1,150 @@
+name: SentenceLab R012 browser smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-r012-browser-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install runtime
+        run: python -m pip install numpy onnxruntime
+      - name: Test HTML-equivalent preprocessing and R012 ONNX
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, math, re
+          from pathlib import Path
+          import numpy as np
+          import onnxruntime as ort
+
+          SENTENCE = "what the hell was that"
+          POS_LIST=['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X']
+          POS2I={x:i for i,x in enumerate(POS_LIST)}
+          I2ROLE=[None,'S','V','O','C','M']
+          ROLE2I={'S':1,'V':2,'O':3,'C':4,'M':5}
+          pronouns=set("i me my mine myself you your yours yourself yourselves he him his himself she her hers herself it its itself we us our ours ourselves they them their theirs themselves who whom whose what which whoever whatever".split())
+          dets=set("a an the this that these those each every either neither some any no another such all both few many much several enough".split())
+          aux=set("am is are was were be been being have has had having do does did can could may might must shall should will would 'm 's 're 've 'll 'd".split())
+          cconj=set("and or but nor yet so".split())
+          sconj=set("although though because since while whilst when whenever where wherever if unless until before after once whether as than that".split())
+          adp=set("in on at by for from with without about against between into through during before after above below to of over under around near behind beside beyond across toward towards upon within outside inside like despite except".split())
+          adv=set("very really still already just also too quite rather here there now then soon always never often sometimes usually perhaps maybe almost even only again together apart away early late first next".split())
+          adj=set("good bad new old young high low large small big little long short right wrong sure ready able likely unlikely possible impossible realistic unrealistic exhausted missing".split())
+          verbs=set("say says said tell tells told think thinks thought know knows knew known make makes made take takes took taken get gets got gotten go goes went gone come comes came see sees saw seen want wants wanted need needs needed like likes liked love loves loved work works worked help helps helped let lets leave leaves left argue argues argued test tests tested rewrite rewrites rewrote rewritten notice notices noticed assume assumes assumed warn warns warned miss misses missed use uses used give gives gave given find finds found call calls called ask asks asked feel feels felt become becomes became seem seems seemed keep keeps kept".split())
+          intj=set("oh wow hey hi hello yes no okay ok thanks thank please sorry".split())
+
+          def split_tokens(text):
+              s=re.sub(r"([A-Za-z]+)(n['’]t)\b",r"\1 \2",text,flags=re.I)
+              s=re.sub(r"([A-Za-z]+)(['’](?:s|re|ve|ll|d|m))\b",r"\1 \2",s,flags=re.I)
+              return re.findall(r"[A-Za-z]+|n['’]t|['’](?:s|re|ve|ll|d|m)|\d+(?:[.,]\d+)?|[^\sA-Za-z0-9]",s)
+
+          def infer_pos(tokens):
+              out=[]
+              for i,raw in enumerate(tokens):
+                  w=raw.lower().replace('’',"'")
+                  if re.fullmatch(r"[^\w']+",raw): p='PUNCT'
+                  elif re.fullmatch(r"\d+(?:[.,]\d+)?",raw): p='NUM'
+                  elif w=="n't" or w=='not': p='PART'
+                  elif w in aux: p='AUX'
+                  elif w in pronouns: p='PRON'
+                  elif w in dets: p='DET'
+                  elif w in cconj: p='CCONJ'
+                  elif w in sconj: p='SCONJ'
+                  elif w=='to': p='PART'
+                  elif w in adp: p='ADP'
+                  elif w in intj: p='INTJ'
+                  elif w in adv or w.endswith('ly'): p='ADV'
+                  elif w in verbs or re.search(r"(ing|ed|ize|ise|ify)$",w): p='VERB'
+                  elif w in adj or re.search(r"(ous|ful|less|ive|able|ible|al|ic|ary|ory)$",w): p='ADJ'
+                  elif i>0 and raw[:1].isupper(): p='PROPN'
+                  else: p='NOUN'
+                  out.append(p)
+              return out
+
+          def weak_roles(pos):
+              out=[]; seen=False
+              for p in pos:
+                  if p in {'VERB','AUX'}: out.append('V'); seen=True
+                  elif p=='PUNCT': out.append(None)
+                  elif p in {'NOUN','PROPN','PRON'}: out.append('O' if seen else 'S')
+                  else: out.append('M')
+              return out
+
+          def fnv1a(s):
+              h=2166136261
+              for b in s.encode('utf-8'):
+                  h ^= b
+                  h=(h*16777619)&0xffffffff
+              return h
+
+          def shape_feat(w):
+              lo=w.lower()
+              return [
+                  float(bool(re.match(r'^[A-Z]',w))),
+                  float(bool(re.search(r'[A-Za-z]',w)) and w==w.upper()),
+                  float(bool(re.search(r'\d',w))),
+                  float('-' in w),
+                  float(lo.endswith('ing')),
+                  float(lo.endswith('ed')),
+                  float(lo.endswith('ly')),
+                  min(len(w),20)/20.0,
+              ]
+
+          tokens=split_tokens(SENTENCE)
+          pos=infer_pos(tokens)
+          weak=weak_roles(pos)
+          wid=[]; pre=[]; suf=[]; pi=[]; ri=[]; sh=[]
+          for w,p,r in zip(tokens,pos,weak):
+              lo=w.lower()
+              wid.append(fnv1a(lo)%8192)
+              pre.append(fnv1a(lo[:3])%1024)
+              suf.append(fnv1a(lo[-3:])%1024)
+              pi.append(POS2I.get(p,0))
+              ri.append(0 if r is None else ROLE2I.get(r,0))
+              sh.append(shape_feat(w))
+          L=len(tokens)
+          feeds={
+              'wid':np.asarray([wid],dtype=np.int64),
+              'pre':np.asarray([pre],dtype=np.int64),
+              'suf':np.asarray([suf],dtype=np.int64),
+              'pos':np.asarray([pi],dtype=np.int64),
+              'role':np.asarray([ri],dtype=np.int64),
+              'shape':np.asarray([sh],dtype=np.float32),
+              'mask':np.ones((1,L),dtype=np.bool_),
+          }
+          sess=ort.InferenceSession(
+              'english-sentence-lab/web/r012/r012_role.onnx',
+              providers=['CPUExecutionProvider'],
+          )
+          logits=sess.run(['logits'],feeds)[0][0]
+          rows=[]
+          for i,(tok,p,wk,z) in enumerate(zip(tokens,pos,weak,logits)):
+              z=z.astype(np.float64)
+              probs=np.exp(z-z.max()); probs/=probs.sum()
+              idx=int(np.argmax(probs))
+              rows.append({
+                  'token':tok,
+                  'pos':p,
+                  'weak':wk,
+                  'r012':I2ROLE[idx],
+                  'confidence':round(float(probs[idx]),6),
+                  'probs':{str(I2ROLE[j] or 'NONE'):round(float(probs[j]),6) for j in range(6)},
+              })
+          result={'sentence':SENTENCE,'tokens':rows}
+          print('R012_BROWSER_SMOKE_RESULT='+json.dumps(result,ensure_ascii=False))
+          PY

@@ -100,9 +100,10 @@
       "source-specific error audit shows no new systematic S/O/C failure mode"
     ],
     "regression_patch": [
-      "regression train and holdout text sets are disjoint",
-      "held-out regression accuracy improves",
-      "UD dev does not regress by more than 0.3 percentage points",
+      "regression train and validation text sets are disjoint",
+      "target validation contains at least 128 sentences and improves by at least 0.5 percentage points",
+      "UD dev token accuracy does not regress by more than 0.1 percentage points",
+      "UD dev sentence-exact rate does not regress by more than 0.2 percentage points",
       "official test data is not consulted during fitting or epoch selection"
     ]
   },
@@ -111,6 +112,6 @@
     "clean_base": "random initialization; no pretrained checkpoint",
     "r011": "random-init + official train only; official dev selection; official test excluded",
     "r012_safe": "R011 + upstream gold train rows only; Tatoeba/MediaWiki silver excluded from fitting",
-    "r012_regression": "separate output artifact; disjoint synthetic train/holdout; official test unused"
+    "r012_regression": "separate output artifact; disjoint synthetic train/validation; 10k gold replay; token+sentence-exact safety gates; official test unused"
   }
 }

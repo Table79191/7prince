@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'english-sentence-lab/train/train_r012_safe_feed.py'
+      - 'english-sentence-lab/train/train_ud_role.py'
+      - 'english-sentence-lab/scripts/canonical_roles.py'
       - 'english-sentence-lab/docs/training_feed_policy_v2.json'
       - '.github/workflows/sentence-lab-r012-safe-feed.yml'
 
@@ -52,6 +54,38 @@ jobs:
         run: |
           python -m py_compile english-sentence-lab/train/train_r012_safe_feed.py
           python -m py_compile english-sentence-lab/train/train_ud_role.py
+          python -m py_compile english-sentence-lab/scripts/canonical_roles.py
+
+      - name: School-style role regression tests
+        shell: bash
+        run: |
+          python - <<'PY'
+          import sys
+          sys.path.insert(0,'english-sentence-lab/scripts')
+          from canonical_roles import canonicalize_ud
+
+          toks=[
+            {'id':1,'text':'I','pos':'PRON','head':2,'deprel':'nsubj'},
+            {'id':2,'text':'use','pos':'VERB','head':0,'deprel':'root'},
+            {'id':3,'text':'my','pos':'DET','head':6,'deprel':'det'},
+            {'id':4,'text':'0.001','pos':'NUM','head':6,'deprel':'nummod'},
+            {'id':5,'text':'%','pos':'SYM','head':6,'deprel':'nmod'},
+            {'id':6,'text':'powers','pos':'NOUN','head':2,'deprel':'obj'},
+            {'id':7,'text':'.','pos':'PUNCT','head':2,'deprel':'punct'},
+          ]
+          roles=[d.role for d in canonicalize_ud(toks)]
+          assert roles == ['S','V','M','M','M','O',None], roles
+
+          toks2=[
+            {'id':1,'text':'The','pos':'DET','head':3,'deprel':'det'},
+            {'id':2,'text':'exhausted','pos':'ADJ','head':3,'deprel':'amod'},
+            {'id':3,'text':'interns','pos':'NOUN','head':4,'deprel':'nsubj'},
+            {'id':4,'text':'worked','pos':'VERB','head':0,'deprel':'root'},
+          ]
+          roles2=[d.role for d in canonicalize_ud(toks2)]
+          assert roles2 == ['M','M','S','V'], roles2
+          print('school-style canonical role regressions: ok')
+          PY
 
       - name: Generate supervised Gold curriculum if missing
         shell: bash
@@ -74,7 +108,7 @@ jobs:
           from pathlib import Path
           p=Path('english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json')
           m=json.loads(p.read_text(encoding='utf-8'))
-          assert m['version']=='1.8.1-R012-SAFE-FEED'
+          assert m['version']=='1.8.1-R012-SAFE-FEED-SCHOOL-HEADS'
           assert m['policy']['gold_only_upstream_train'] is True
           assert m['policy']['dev_test_never_trained'] is True
           assert m['policy']['tatoeba_daily500_excluded'] is True

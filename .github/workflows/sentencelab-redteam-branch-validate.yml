@@ -62,6 +62,10 @@ jobs:
             if(fin[0]!=='C'||fin[cop]!=='V'||fin[cop+1]!=='S') throw new Error(s+' '+JSON.stringify({t,p,fin}));
             for(let i=1;i<cop;i++) if(fin[i]!=='M') throw new Error(s+' filler '+JSON.stringify(fin));
           }
+          for(const [s,want] of [["He is talented.",["S","V","C",null]],["She is gifted.",["S","V","C",null]],["We rely on data.",["S","V","M","M",null]]]){
+            const t=r.splitTokens(s),p=r.inferPos(t),fin=r.postprocessRoles(t,p,r.weakRoles(p));
+            if(JSON.stringify(fin)!==JSON.stringify(want)) throw new Error('copular complement regression: '+s+' '+JSON.stringify(fin));
+          }
           console.log('browser regressions: ok');
           JS
       - name: Artifact and policy invariants

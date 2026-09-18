@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'english-sentence-lab/scripts/export_r012_onnx.py'
+      - 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt'
       - '.github/workflows/sentence-lab-export-r012-onnx.yml'
 
 permissions:

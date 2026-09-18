@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sentencelab-hotfeed-model-arena-v2
+  group: sentencelab-hotfeed-model-arena-v3
   cancel-in-progress: true
 
 jobs:

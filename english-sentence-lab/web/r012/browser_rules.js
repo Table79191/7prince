@@ -141,7 +141,7 @@
       if(!['NOUN','PROPN','PRON'].includes(pos[head])) continue;
       if(!['S','O','C'].includes(roles[head])) continue;
       for(let j=head-1;j>=0;j--){
-        if(/[,.!?;:]/.test(tokens[j])) break;
+        if(/^[,.!?;:]$/.test(tokens[j])) break;
         if(!isModifier(j)) break;
         setRole(j,'M');
       }

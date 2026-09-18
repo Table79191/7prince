@@ -1,5 +1,5 @@
 from http.server import BaseHTTPRequestHandler
-import json, math, re
+import json, math, re, sys
 from pathlib import Path
 from urllib.request import urlopen
 
@@ -8,6 +8,8 @@ import onnxruntime as ort
 import spacy
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from spacy_role_postprocess import postprocess_roles
 MODEL_PATH = ROOT / "web" / "r012" / "r012_role.onnx"
 MODEL_URL = "https://raw.githubusercontent.com/Table79191/7prince/main/english-sentence-lab/web/r012/r012_role.onnx"
 
@@ -62,12 +64,29 @@ def shape_feat(w: str):
         min(len(w),20)/20.0,
     ]
 
+def normalized_surface_texts(doc):
+    """Mirror training-time contraction surface normalization without changing token count."""
+    out=[t.text for t in doc]
+    for i,w in enumerate(list(out)):
+        lo=w.lower().replace("’","'")
+        nxt=out[i+1].lower().replace("’","'") if i+1<len(out) else ""
+        if lo=="ca" and nxt=="n't": out[i]="can"
+        elif lo=="wo" and nxt=="n't": out[i]="will"
+        elif lo=="sha" and nxt=="n't": out[i]="shall"
+        elif lo=="n't": out[i]="not"
+        elif lo=="'re": out[i]="are"
+        elif lo=="'ve": out[i]="have"
+        elif lo=="'ll": out[i]="will"
+        elif lo=="'m": out[i]="am"
+    return out
+
 def model_roles(doc):
     toks=list(doc)
     weak=weak_roles(toks)
+    surfaces=normalized_surface_texts(doc)
     wid=[]; pre=[]; suf=[]; pos=[]; role=[]; shape=[]
-    for t,b in zip(toks,weak):
-        w=t.text; lo=w.lower()
+    for t,b,w in zip(toks,weak,surfaces):
+        lo=w.lower()
         wid.append(fnv1a(lo)%8192)
         pre.append(fnv1a(lo[:3])%1024)
         suf.append(fnv1a(lo[-3:])%1024)
@@ -360,21 +379,27 @@ def bracket_text(doc, clauses):
 def analyze(text):
     doc=NLP(text)
     model,weak=model_roles(doc)
+    raw_roles=[m["role"] for m in model]
+    guarded_roles,role_reasons=postprocess_roles(doc,raw_roles)
     that_clauses=detect_that_clauses(doc)
     clauses=detect_all_clauses(doc, that_clauses)
     grammar=detect_other_grammar(doc)
 
     tokens=[]
-    for t,m,w in zip(doc,model,weak):
+    for t,m,w,g,reason in zip(doc,model,weak,guarded_roles,role_reasons):
         tokens.append({
             "i":t.i,"text":t.text,"lemma":t.lemma_,"pos":t.pos_,"tag":t.tag_,
             "dep":t.dep_,"head":t.head.i,"head_text":t.head.text,
-            "weak_role":w,"r012_role":m["role"],"confidence":m["confidence"],
+            "weak_role":w,
+            "r012_raw_role":m["role"],
+            "r012_role":g,
+            "role_reason":reason,
+            "confidence":m["confidence"],
         })
 
     return {
         "ok":True,
-        "engine":"spaCy en_core_web_sm + R012 ONNX",
+        "engine":"spaCy en_core_web_sm + R012 ONNX + dependency postprocess",
         "text":text,
         "tokens":tokens,
         "that_clauses":that_clauses,

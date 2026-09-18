@@ -7,6 +7,7 @@ on:
       - 'english-sentence-lab/eval/eval_chaosmix50.py'
       - 'english-sentence-lab/eval/eval_chaosmix50_audited.py'
       - 'english-sentence-lab/eval/eval_chaosmix50_r013.py'
+      - 'english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt'
       - 'english-sentence-lab/scripts/spacy_role_postprocess.py'
       - 'english-sentence-lab/data/chaoslike200/ChaosMix50_ORIGINAL.json'
       - '.github/workflows/sentence-lab-chaosmix50-eval.yml'
@@ -14,6 +15,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: sentence-lab-chaosmix50-main
+  cancel-in-progress: true
 
 jobs:
   chaosmix50-eval:
@@ -53,5 +58,10 @@ jobs:
             exit 0
           fi
           git commit -m 'eval: save R013 ChaosMix50 report'
-          git pull --rebase origin main
-          git push origin HEAD:main
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt*2))
+          done
+          exit 1

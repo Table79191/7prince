@@ -84,7 +84,7 @@ def now_pair() -> tuple[str, str]:
     return utc.isoformat(), kst.isoformat()
 
 
-def request_json(api: str, params: dict[str, str | int], retries: int = 4) -> dict:
+def request_json(api: str, params: dict[str, str | int], retries: int = 7) -> dict:
     q = dict(params)
     q["format"] = "json"
     q["formatversion"] = "2"
@@ -105,7 +105,19 @@ def request_json(api: str, params: dict[str, str | int], retries: int = 4) -> di
             last = exc
             if attempt + 1 >= retries:
                 break
-            time.sleep(min(20, 2 ** attempt))
+            code = getattr(exc, "code", None)
+            if code == 429:
+                headers = getattr(exc, "headers", None)
+                retry_after = None
+                if headers is not None:
+                    try:
+                        retry_after = int(headers.get("Retry-After", "0") or 0)
+                    except (TypeError, ValueError):
+                        retry_after = None
+                delay = max(retry_after or 0, min(180, 30 * (2 ** attempt)))
+            else:
+                delay = min(30, 2 ** attempt)
+            time.sleep(delay)
     raise RuntimeError(f"MediaWiki API failed: {url}: {last}")
 
 
@@ -490,13 +502,19 @@ def main() -> None:
                 active = []
                 break
             cfg = MEDIAWIKI_SOURCES[key]
-            added, skipped, exhausted = process_batch(key, cfg, nlp)
+            try:
+                added, skipped, exhausted = process_batch(key, cfg, nlp)
+            except RuntimeError as exc:
+                # One rate-limited/unavailable project must not kill collection
+                # from every other MediaWiki source in the same run.
+                stats[key]["error"] = str(exc)
+                stats[key]["deferred"] = True
+                print(f"{key}: deferred after source error: {exc}")
+                continue
             stats[key]["added"] += added
             stats[key]["skipped"] += skipped
             stats[key]["exhausted"] = exhausted
-            print(
-                f"{key}: added={added} skipped={skipped} exhausted={exhausted}"
-            )
+            print(f"{key}: added={added} skipped={skipped} exhausted={exhausted}")
             if not exhausted:
                 next_active.append(key)
         if not active:

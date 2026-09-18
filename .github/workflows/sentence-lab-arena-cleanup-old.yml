@@ -1,0 +1,25 @@
+name: SentenceLab Arena Cleanup Old Runs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-arena-cleanup-old.yml'
+  workflow_dispatch:
+
+jobs:
+  cancel-v2:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: sentencelab-hotfeed-model-arena-v2
+      cancel-in-progress: true
+    steps:
+      - run: echo "Superseding stale v2 hot-feed arena run."
+
+  cancel-legacy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: sentencelab-overnight-model-arena
+      cancel-in-progress: true
+    steps:
+      - run: echo "Superseding stale legacy arena run."

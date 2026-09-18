@@ -1,10 +1,10 @@
 {
-  "apcontinue": "2007-08_APOEL_F.C._season",
-  "total_pages_processed": 223688,
-  "total_records": 4709,
-  "auto_pass": 4180,
-  "needs_review": 529,
+  "apcontinue": "2012_Rutgers_Scarlet_Knights_football_season",
+  "total_pages_processed": 264115,
+  "total_records": 5057,
+  "auto_pass": 4480,
+  "needs_review": 577,
   "current_shard": 3,
-  "current_shard_records": 709,
+  "current_shard_records": 1057,
   "source_exhausted": false
 }

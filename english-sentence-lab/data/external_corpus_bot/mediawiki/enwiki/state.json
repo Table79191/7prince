@@ -1,10 +1,10 @@
 {
-  "apcontinue": "A.E._Housman",
-  "total_pages_processed": 450282,
-  "total_records": 8223,
-  "auto_pass": 7217,
-  "needs_review": 1006,
+  "apcontinue": "A_Gate_at_the_Stairs",
+  "total_pages_processed": 469414,
+  "total_records": 9895,
+  "auto_pass": 8795,
+  "needs_review": 1100,
   "current_shard": 5,
-  "current_shard_records": 223,
+  "current_shard_records": 1895,
   "source_exhausted": false
 }

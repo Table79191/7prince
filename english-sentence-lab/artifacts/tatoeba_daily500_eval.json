@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T09:00:54.238777+00:00",
+  "retrieved_at_utc": "2026-09-18T09:59:03.962800+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,

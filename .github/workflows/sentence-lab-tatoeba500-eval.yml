@@ -6,6 +6,7 @@ on:
     paths:
       - 'english-sentence-lab/eval/eval_tatoeba500.py'
       - 'english-sentence-lab/scripts/spacy_role_postprocess.py'
+      - 'english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt'
       - '.github/workflows/sentence-lab-tatoeba500-eval.yml'
   workflow_dispatch:
 

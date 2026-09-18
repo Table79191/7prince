@@ -84,7 +84,7 @@ def load_pools(web_root,promoted_path):
 def rec_key(rec):
     return hashlib.sha1(norm(rec["row"].get("text","")).encode("utf-8")).hexdigest()
 
-def load_feed_state(outdir,silver):
+def load_feed_state(outdir,silver,baseline_promoted_count=15620):
     path=Path(outdir)/"feed_state.json"
     current={rec_key(x):x for x in silver}
     if path.exists():
@@ -94,8 +94,10 @@ def load_feed_state(outdir,silver):
         except Exception:
             consumed=set()
     else:
-        # First hot-feed run establishes the current promoted set as the baseline.
-        consumed=set(current)
+        # R015 already trained on the first 15,620 promoted rows. Anything appended
+        # after that checkpoint is genuinely new arena feed and should be prioritized.
+        baseline=max(0,min(int(baseline_promoted_count),len(silver)))
+        consumed={rec_key(x) for x in silver[:baseline]}
     fresh=[rec for k,rec in current.items() if k not in consumed]
     return path,consumed,fresh
 
@@ -408,6 +410,7 @@ def main():
     ap.add_argument("--rounds",type=int,default=24)
     ap.add_argument("--minutes",type=int,default=300)
     ap.add_argument("--probe-per-round",type=int,default=6000)
+    ap.add_argument("--baseline-promoted-count",type=int,default=15620)
     ap.add_argument("--seed",type=int,default=79191)
     a=ap.parse_args()
 
@@ -440,7 +443,7 @@ def main():
     if history_path.exists():
         old_history=[json.loads(x) for x in history_path.read_text(encoding="utf-8").splitlines() if x.strip()]
     start_round=(old_history[-1]["round"]+1) if old_history else 1
-    feed_path,consumed_promoted,fresh=load_feed_state(outdir,silver)
+    feed_path,consumed_promoted,fresh=load_feed_state(outdir,silver,a.baseline_promoted_count)
     previous_feed={}
     if feed_path.exists():
         try: previous_feed=json.loads(feed_path.read_text(encoding="utf-8"))
@@ -454,7 +457,7 @@ def main():
         rnd=start_round+local
         # This invocation sees the latest promoted snapshot supplied by the workflow.
         # Fresh rows are those never consumed by a prior arena round.
-        feed_path,consumed_promoted,fresh=load_feed_state(outdir,silver)
+        feed_path,consumed_promoted,fresh=load_feed_state(outdir,silver,a.baseline_promoted_count)
         probe,fresh_pick=choose_probe(gold,silver,fresh,rnd,a.probe_per_round,a.seed)
         replay=choose_replay(gold,rnd,1300,a.seed)
         rloss,closs,both,stats,detail=battle(role,clause,probe,device)
@@ -531,7 +534,8 @@ def main():
       "gpt_in_loop":False,
       "judge":"canonical gold/silver labels; never opponent prediction",
       "gold_train_pool":len(gold),"promoted_silver_pool":len(silver),"clean_dev_pool":len(dev),
-      "hot_feed":{"enabled":True,"fresh_available_at_start":len(fresh),
+      "hot_feed":{"enabled":True,"baseline_promoted_count":a.baseline_promoted_count,
+                  "fresh_available_at_start":len(fresh),
                   "fresh_used_total":fresh_used_total,
                   "feed_state":str(feed_path.relative_to(ROOT))},
       "rounds_this_run":len(new_history),"total_rounds":total_rounds,

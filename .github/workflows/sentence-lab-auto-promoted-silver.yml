@@ -8,6 +8,9 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Fallback in case an upstream dispatch chain is suppressed or interrupted.
+    - cron: '12,42 * * * *'
   push:
     branches: [main]
     paths:

@@ -1,0 +1,44 @@
+name: Persist ClauseAnchorGraph FINAL
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/persist-clause-final.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download validated FINAL artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-final
+          path: /tmp/clause-final
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Table79191/7prince
+          run-id: 35369679602
+
+      - name: Persist checkpoint and reports
+        run: |
+          mkdir -p english-sentence-lab/artifacts
+          cp /tmp/clause-final/clause_anchor_graph_v1_01_final.pt english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final.pt
+          cp /tmp/clause-final/final_metrics.json english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final_metrics.json
+          cp /tmp/clause-final/final_comparison.json english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final_comparison.json
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final.pt
+          git add english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final_metrics.json
+          git add english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final_comparison.json
+          git commit -m "model: persist ClauseAnchorGraph FINAL candidate"
+          git push origin HEAD:main

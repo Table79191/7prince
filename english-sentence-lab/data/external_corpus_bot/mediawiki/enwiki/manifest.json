@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 742971,
-  "total_records": 14356,
-  "auto_pass": 12716,
-  "needs_review": 1640,
+  "total_pages_processed": 788357,
+  "total_records": 14666,
+  "auto_pass": 12995,
+  "needs_review": 1671,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Andrew_Dimitri",
+  "apcontinue": "Antaeotricha_insidiata",
   "source_exhausted": false,
   "shard_count": 8
 }

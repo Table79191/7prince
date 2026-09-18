@@ -1,0 +1,130 @@
+name: SentenceLab external enwiki bulk corpus
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/external_enwiki_bulk_bot.py'
+      - '.github/workflows/sentence-lab-external-enwiki-bulk.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: sentence-lab-external-enwiki-bulk-writer
+  cancel-in-progress: false
+
+jobs:
+  collect-analyze-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Refresh latest main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Self-test
+        run: python english-sentence-lab/scripts/external_enwiki_bulk_bot.py --self-test
+
+      - name: Cache Stanza English model
+        uses: actions/cache@v4
+        with:
+          path: ~/stanza_resources
+          key: stanza-en-depparse-v1-${{ runner.os }}
+
+      - name: Install Stanza
+        run: python -m pip install --upgrade stanza
+
+      - name: Ensure English dependency model
+        run: |
+          python - <<'PY'
+          import stanza
+          stanza.download('en', processors='tokenize,pos,lemma,depparse', verbose=False)
+          print('stanza English dependency model ready')
+          PY
+
+      - name: Collect maximum clean random enwiki sentences
+        run: |
+          python english-sentence-lab/scripts/external_enwiki_bulk_bot.py             --runtime-seconds 1200             --max-pages 0
+
+      - name: Validate isolated collector output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('english-sentence-lab/data/external_corpus_bot/enwiki_bulk')
+          manifest=json.loads((root/'manifest.json').read_text())
+          state=json.loads((root/'state.json').read_text())
+          assert manifest['version']=='SENTENCELAB-ENWIKI-BULK-1'
+          assert manifest['policy']['writes_promoted_silver'] is False
+          assert manifest['policy']['isolated_output_directory'] is True
+          assert state['total_records'] >= 0
+          for p in sorted((root/'shards').glob('enwiki-bulk-*.jsonl')):
+              for line in p.read_text(encoding='utf-8').splitlines():
+                  if not line.strip(): continue
+                  row=json.loads(line)
+                  assert row['source']['key']=='enwiki_bulk'
+                  assert row['analysis']['status']=='auto_pass'
+                  assert row.get('dedupe_sha256')
+          print(json.dumps({
+            'total_records':state['total_records'],
+            'added_this_run':manifest['added_this_run'],
+            'pages_this_run':manifest['pages_this_run'],
+            'rejected_this_run':manifest['rejected_this_run'],
+          },indent=2))
+          PY
+
+      - name: Commit isolated corpus with conflict-safe replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-enwiki-bulk-bot
+          git config user.email sentence-lab-enwiki-bulk-bot@users.noreply.github.com
+
+          target="english-sentence-lab/data/external_corpus_bot/enwiki_bulk"
+          tmp="$(mktemp -d)"
+          cp -a "$target" "$tmp/enwiki_bulk"
+
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+
+            rm -rf "$target"
+            mkdir -p "$(dirname "$target")"
+            cp -a "$tmp/enwiki_bulk" "$target"
+
+            git add "$target"
+            if git diff --cached --quiet; then
+              echo "No new enwiki bulk corpus rows."
+              exit 0
+            fi
+
+            git commit -m "SentenceLab external corpus: enwiki bulk checkpoint"
+            if git push origin HEAD:main; then
+              echo "Enwiki bulk checkpoint published safely."
+              exit 0
+            fi
+
+            echo "Push raced with another writer; replaying isolated directory on latest main (attempt $attempt)." >&2
+            sleep $((attempt * 3))
+          done
+
+          echo "Failed to publish isolated enwiki bulk checkpoint after retries." >&2
+          exit 1

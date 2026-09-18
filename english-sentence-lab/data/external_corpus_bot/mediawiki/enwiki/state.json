@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Afan_of_Bulith",
-  "total_pages_processed": 549629,
-  "total_records": 10766,
-  "auto_pass": 9564,
-  "needs_review": 1202,
+  "apcontinue": "Akce_B",
+  "total_pages_processed": 583764,
+  "total_records": 11911,
+  "auto_pass": 10543,
+  "needs_review": 1368,
   "current_shard": 6,
-  "current_shard_records": 766,
+  "current_shard_records": 1911,
   "source_exhausted": false
 }

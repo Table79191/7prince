@@ -59,18 +59,38 @@ jobs:
           ox=s.run(['logits'],{'wid':wid.numpy(),'pre':pre.numpy(),'suf':suf.numpy(),'pos':pos.numpy(),'role':role.numpy(),'shape':shape.numpy(),'mask':mask.numpy()})[0]
           assert float(np.max(np.abs(pt-ox)))<1e-3
           PY
-      - name: Commit web model
+      - name: Commit outputs safely
+        shell: bash
         run: |
           set -euo pipefail
           git config user.name sentence-lab-bot
           git config user.email sentence-lab-bot@users.noreply.github.com
-          git add english-sentence-lab/web/r012/r012_role.onnx english-sentence-lab/web/r012/model_meta.json
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'web: export isolated R012 regression model'
+
+          tmp="$(mktemp -d)"
+          cp 'english-sentence-lab/web/r012/r012_role.onnx' "$tmp/0"
+          cp 'english-sentence-lab/web/r012/model_meta.json' "$tmp/1"
+
           for attempt in 1 2 3; do
             git fetch origin main
-            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
-            git rebase --abort 2>/dev/null || true
-            sleep $((attempt*3))
+            git reset --hard origin/main
+
+            mkdir -p "$(dirname 'english-sentence-lab/web/r012/r012_role.onnx')"
+            cp "$tmp/0" 'english-sentence-lab/web/r012/r012_role.onnx'
+            mkdir -p "$(dirname 'english-sentence-lab/web/r012/model_meta.json')"
+            cp "$tmp/1" 'english-sentence-lab/web/r012/model_meta.json'
+
+            git add \
+              'english-sentence-lab/web/r012/r012_role.onnx' \
+              'english-sentence-lab/web/r012/model_meta.json'
+            if git diff --cached --quiet; then
+              echo 'Outputs already present on latest main.'
+              exit 0
+            fi
+
+            git commit -m 'web: export isolated R012 regression model'
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
           done
           exit 1

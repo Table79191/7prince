@@ -1,0 +1,132 @@
+name: SentenceLab external Tatoeba corpus
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Fallback only. The SentenceLab self-rearming dispatcher is primary.
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/external_tatoeba_corpus_bot.py'
+      - '.github/workflows/sentence-lab-external-tatoeba.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentence-lab-external-tatoeba
+  cancel-in-progress: false
+
+jobs:
+  collect-analyze-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Refresh latest main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Collector self-test
+        run: python english-sentence-lab/scripts/external_tatoeba_corpus_bot.py --self-test
+
+      - name: Cache Stanza English model
+        uses: actions/cache@v4
+        with:
+          path: ~/stanza_resources
+          key: stanza-en-depparse-v1-${{ runner.os }}
+
+      - name: Install Stanza
+        run: python -m pip install --upgrade stanza
+
+      - name: Ensure English dependency model
+        run: |
+          python - <<'PY'
+          import stanza
+          stanza.download(
+              'en',
+              processors='tokenize,pos,lemma,depparse',
+              verbose=False,
+          )
+          print('stanza English dependency model ready')
+          PY
+
+      - name: Collect and structurally analyze Tatoeba English
+        id: collect
+        run: |
+          python english-sentence-lab/scripts/external_tatoeba_corpus_bot.py             --runtime-seconds 1200
+
+      - name: Validate external corpus state
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('english-sentence-lab/data/external_corpus_bot/tatoeba')
+          manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+          state = json.loads((root / 'state.json').read_text(encoding='utf-8'))
+
+          assert manifest['version'] == 'SENTENCELAB-EXTERNAL-TATOEBA-1'
+          assert manifest['license'] == 'CC-BY-2.0-FR'
+          assert manifest['policy']['total_corpus_limit'] == 0
+          assert manifest['policy']['per_run_sentence_limit'] == 0
+          assert manifest['policy']['separate_from_gold_ud_corpus'] is True
+          assert manifest['total_records'] == state['total_records']
+          assert manifest['last_processed_sentence_id'] == state['last_processed_sentence_id']
+
+          total = 0
+          for path in sorted((root / 'shards').glob('tatoeba-*.jsonl')):
+              with path.open(encoding='utf-8') as f:
+                  for line in f:
+                      if not line.strip():
+                          continue
+                      row = json.loads(line)
+                      assert row['source']['provider'] == 'Tatoeba'
+                      assert row['source']['license'] == 'CC-BY-2.0-FR'
+                      assert row['analysis']['format'].startswith('Stanza-UD')
+                      assert row['analysis']['tokens']
+                      total += 1
+          assert total == manifest['total_records'], (total, manifest['total_records'])
+          print(f'validated external Tatoeba corpus: total={total} added={manifest["added_this_run"]}')
+          PY
+
+      - name: Commit external corpus safely
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-external-bot
+          git config user.email sentence-lab-external-bot@users.noreply.github.com
+
+          git add english-sentence-lab/data/external_corpus_bot/tatoeba
+          if git diff --cached --quiet; then
+            echo 'No external corpus changes to commit.'
+            exit 0
+          fi
+
+          git commit -m 'SentenceLab external corpus: Tatoeba checkpoint'
+
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 3))
+          done
+
+          echo 'Failed to push Tatoeba external corpus checkpoint.' >&2
+          exit 1

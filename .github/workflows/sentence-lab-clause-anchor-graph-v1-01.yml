@@ -67,14 +67,15 @@ jobs:
           assert m['version']=='CLAUSE-ANCHOR-GRAPH-V1.01'
           assert m['params'] > 100000
           assert m['train_sentences'] > 200
-          assert m['selected']['role_accuracy'] > m['baseline_random']['role_accuracy']
+          assert m['selected']['predicted_owner_role_accuracy'] > m['baseline_random']['predicted_owner_role_accuracy']
           assert m['selected']['owner_accuracy'] > m['baseline_random']['owner_accuracy']
           print(json.dumps({
             'version':m['version'],
             'params':m['params'],
             'train_sentences':m['train_sentences'],
-            'baseline_role_accuracy':m['baseline_random']['role_accuracy'],
-            'selected_role_accuracy':m['selected']['role_accuracy'],
+            'baseline_predicted_owner_role_accuracy':m['baseline_random']['predicted_owner_role_accuracy'],
+            'selected_predicted_owner_role_accuracy':m['selected']['predicted_owner_role_accuracy'],
+            'selected_oracle_owner_role_accuracy':m['selected']['oracle_owner_role_accuracy'],
             'clause_head_f1':m['selected']['clause_head_f1'],
             'owner_accuracy':m['selected']['owner_accuracy']
           },indent=2))

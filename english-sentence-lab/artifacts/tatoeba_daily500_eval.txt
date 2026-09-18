@@ -1,8 +1,8 @@
 SentenceLab practical benchmark — Tatoeba Daily 500 HIGH-FREQUENCY (CC0)
 sentences: 500 | aligned tokens: 3256/3256 (100.00%)
-neural direct: full 95.64% | core 96.75% | macro-F1 90.91% | exact 385/500
-R018 final   : full 96.74% | core 97.19% | macro-F1 93.13% | exact 410/500
-role F1: S=97.57%, V=99.60%, O=91.84%, C=79.83%, M=96.79%
-top confusions: M->O:27, C->M:17, M->C:13, O->M:10, S->C:9, M->S:6, O->S:6, O->C:5, C->S:3, M->V:3
-rule audit worst-first: dep-complement: net +0 (6 fix/6 harm/0 still), clausal-object-before-aux-subject: net +0 (0 fix/0 harm/1 still), dep-pobj: net +1 (8 fix/7 harm/0 still), dep-object: net +3 (13 fix/10 harm/0 still), dep-appos: net +4 (4 fix/0 harm/0 still), dep-subject: net +5 (14 fix/9 harm/1 still), dep-function: net +23 (25 fix/2 harm/0 still)
+neural direct: full 95.39% | core 95.96% | macro-F1 90.74% | exact 372/500
+R018 final   : full 96.68% | core 97.05% | macro-F1 93.09% | exact 407/500
+role F1: S=97.26%, V=99.60%, O=91.47%, C=80.34%, M=96.79%
+top confusions: M->O:27, C->M:18, M->C:11, O->M:10, O->S:9, S->C:9, M->S:7, O->C:4, C->S:3, M->V:3
+rule audit worst-first: dep-pobj: net +0 (9 fix/9 harm/2 still), clausal-object-before-aux-subject: net +0 (0 fix/0 harm/2 still), dep-appos: net +4 (4 fix/0 harm/0 still), dep-complement: net +5 (8 fix/3 harm/4 still), dep-subject: net +7 (15 fix/8 harm/1 still), dep-object: net +11 (20 fix/9 harm/1 still), dep-function: net +15 (16 fix/1 harm/0 still)
 NOTE: independent Stanza-derived UD labels are silver reference labels, not human-audited gold.

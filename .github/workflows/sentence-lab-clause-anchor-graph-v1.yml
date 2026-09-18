@@ -1,0 +1,86 @@
+name: SentenceLab ClauseAnchorGraph v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/experiments/clause_anchor_graph_v1/**'
+      - '.github/workflows/sentence-lab-clause-anchor-graph-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sentence-lab-clause-anchor-graph-v1
+  cancel-in-progress: true
+
+jobs:
+  smoke-and-mini-train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/data/web_corpus_bot
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax
+        run: |
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/model.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/data.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/train.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/infer.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/smoke_test.py
+
+      - name: Structural smoke
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1
+          python smoke_test.py
+
+      - name: Mini learning test
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1
+          python train.py             --epochs 1             --batch 16             --max-per-source 120             --lr 4e-4             --out artifacts/mini_clause_anchor_graph_v1.pt             --metrics artifacts/mini_metrics.json
+
+      - name: Verify learning artifact
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('artifacts/mini_metrics.json').read_text())
+          assert m['algorithm'].startswith('dilated-conv')
+          assert m['params'] > 100000
+          assert m['train_sentences'] > 100
+          assert m['selected']['role_accuracy'] > m['baseline_random']['role_accuracy']
+          print(json.dumps({
+            'params':m['params'],
+            'train_sentences':m['train_sentences'],
+            'baseline_role_accuracy':m['baseline_random']['role_accuracy'],
+            'selected_role_accuracy':m['selected']['role_accuracy'],
+            'clause_head_f1':m['selected']['clause_head_f1'],
+            'owner_accuracy':m['selected']['owner_accuracy']
+          },indent=2))
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-mini
+          path: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1/artifacts/mini_clause_anchor_graph_v1.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1/artifacts/mini_metrics.json
+          retention-days: 14

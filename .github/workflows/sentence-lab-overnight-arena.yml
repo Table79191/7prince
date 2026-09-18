@@ -140,7 +140,7 @@ jobs:
             python arena/run_model_arena.py \
               --role-start artifacts/v1.8.5_r015_accumulated_final_role.pt \
               --clause-start "$CLAUSE_START" \
-              --out-dir artifacts/arena \
+              --out-dir artifacts/arena_hotfeed \
               --rounds 1 \
               --minutes 20 \
               --probe-per-round 6000
@@ -214,8 +214,8 @@ jobs:
           path: |
             english-sentence-lab/artifacts/arena_hotfeed/role_arena_latest.pt
             english-sentence-lab/artifacts/arena_hotfeed/clause_arena_latest.pt
-            english-sentence-lab/artifacts/arena_hotfeed_hotfeed/history.jsonl
-            english-sentence-lab/artifacts/arena_hotfeed_hotfeed/summary.json
-            english-sentence-lab/artifacts/arena_hotfeed_hotfeed/feed_state.json
+            english-sentence-lab/artifacts/arena_hotfeed/history.jsonl
+            english-sentence-lab/artifacts/arena_hotfeed/summary.json
+            english-sentence-lab/artifacts/arena_hotfeed/feed_state.json
           retention-days: 30
           if-no-files-found: warn

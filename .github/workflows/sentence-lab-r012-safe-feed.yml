@@ -9,6 +9,7 @@ on:
       - 'english-sentence-lab/train/train_ud_role.py'
       - 'english-sentence-lab/scripts/canonical_roles.py'
       - 'english-sentence-lab/docs/training_feed_policy_v2.json'
+      - 'english-sentence-lab/artifacts/v1.8.0_r011_canonical_role.pt'
       - '.github/workflows/sentence-lab-r012-safe-feed.yml'
 
 permissions:

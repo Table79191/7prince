@@ -4,9 +4,9 @@ Parser-generated weak corpus, separate from the UD gold corpus.
 
 - API: https://en.wikipedia.org/w/api.php
 - License: CC-BY-SA-4.0
-- Pages processed: 401332
-- Analyzed sentences: 5723
-- Auto-pass: 5052
-- Needs review: 671
+- Pages processed: 428260
+- Analyzed sentences: 6661
+- Auto-pass: 5865
+- Needs review: 796
 - Added this run: 0
 - Source exhausted: False

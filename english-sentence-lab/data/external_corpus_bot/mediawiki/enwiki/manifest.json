@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 401332,
-  "total_records": 5723,
-  "auto_pass": 5052,
-  "needs_review": 671,
+  "total_pages_processed": 428260,
+  "total_records": 6661,
+  "auto_pass": 5865,
+  "needs_review": 796,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "2026_AVC_Men's_Volleyball_Cup_Pool_A",
+  "apcontinue": "40th_New_Brunswick_general_election",
   "source_exhausted": false,
-  "shard_count": 3
+  "shard_count": 4
 }

@@ -1,0 +1,113 @@
+name: SentenceLab ClauseAnchorGraph v1.01 FineTune FT1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/experiments/clause_anchor_graph_v1_01/finetune.py'
+      - 'english-sentence-lab/experiments/clause_anchor_graph_v1_01/novel_hard14.py'
+      - '.github/workflows/sentence-lab-clause-anchor-graph-v1-01-ft1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sentence-lab-clause-anchor-graph-v1-01-ft1
+  cancel-in-progress: true
+
+jobs:
+  finetune-and-novel-holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/data/web_corpus_bot
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax
+        run: |
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/model.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/data.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/train.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/infer.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/finetune.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/novel_hard14.py
+
+      - name: Rebuild validated v1.01 base
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python train.py             --epochs 2             --batch 16             --max-per-source 240             --lr 4e-4             --out artifacts/base_v1_01.pt             --metrics artifacts/base_v1_01_metrics.json
+
+      - name: Novel hard14 before fine-tune
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python novel_hard14.py             --model artifacts/base_v1_01.pt             --out artifacts/novel_hard14_before.json
+
+      - name: Fine-tune v1.01
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python finetune.py             --init-model artifacts/base_v1_01.pt             --epochs 2             --batch 16             --max-per-source 1200             --lr 1e-4             --out artifacts/clause_anchor_graph_v1_01_ft1.pt             --metrics artifacts/ft1_metrics.json
+
+      - name: Novel hard14 after fine-tune
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python novel_hard14.py             --model artifacts/clause_anchor_graph_v1_01_ft1.pt             --out artifacts/novel_hard14_after.json
+
+      - name: Compare and gate FT1
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          b=json.loads(Path('artifacts/novel_hard14_before.json').read_text())
+          a=json.loads(Path('artifacts/novel_hard14_after.json').read_text())
+          m=json.loads(Path('artifacts/ft1_metrics.json').read_text())
+          before_dev=m['before']['predicted_owner_role_accuracy']
+          after_dev=m['after']['predicted_owner_role_accuracy']
+          summary={
+            'hard_set':a['set'],
+            'hard_before':b['focus_accuracy'],
+            'hard_after':a['focus_accuracy'],
+            'hard_delta':a['focus_accuracy']-b['focus_accuracy'],
+            'exact_before':b['exact_rate'],
+            'exact_after':a['exact_rate'],
+            'dev_before':before_dev,
+            'dev_after':after_dev,
+            'dev_delta':after_dev-before_dev,
+            'owner_before':m['before']['owner_accuracy'],
+            'owner_after':m['after']['owner_accuracy'],
+          }
+          print(json.dumps(summary,indent=2))
+          # Accept only if unseen hard cases improve and clean dev does not materially regress.
+          assert a['focus_accuracy'] > b['focus_accuracy'], summary
+          assert after_dev >= before_dev - 0.005, summary
+          Path('artifacts/ft1_comparison.json').write_text(json.dumps(summary,indent=2)+'\n')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-ft1
+          path: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/base_v1_01.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/base_v1_01_metrics.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/novel_hard14_before.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/clause_anchor_graph_v1_01_ft1.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/ft1_metrics.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/novel_hard14_after.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/ft1_comparison.json
+          retention-days: 14

@@ -88,7 +88,9 @@
       "pud"
     ],
     "never_train_on_these": true,
-    "never_use_test_for_model_selection": true
+    "never_use_test_for_model_selection": true,
+    "do_not_score_test_inside_training_workflows": true,
+    "reason": "Keep final/test-only corpora blind during fitting and epoch selection to avoid manual holdout-driven tuning."
   },
   "promotion_gate": {
     "weak_feed_can_be_promoted_only_if": [

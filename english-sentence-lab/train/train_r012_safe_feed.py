@@ -279,7 +279,6 @@ def main():
     ap.add_argument("--web-corpus", default="data/web_corpus_bot")
     ap.add_argument("--tatoeba", default="data/external_corpus_bot/tatoeba")
     ap.add_argument("--benchmark-tsv", default="data/tatoeba500/TatoebaDaily500_CC0.tsv")
-    ap.add_argument("--gold-val", default="data/gold/gold_v2_val_4000.jsonl")
     ap.add_argument("--out", default="artifacts/v1.8.1_r012_safe_feed_role.pt")
     ap.add_argument("--metrics", default="artifacts/v1.8.1_r012_safe_feed_metrics.json")
     ap.add_argument("--epochs", type=int, default=2)
@@ -300,14 +299,12 @@ def main():
     weak_train = []
     weak_stats = {"disabled_for_training": 1}
 
-    synthetic_val = load_gold(args.gold_val)
     ck = torch.load(args.base, map_location="cpu", weights_only=False)
     model = base.RoleNet().to(device)
     model.load_state_dict(ck["model"], strict=True)
     freeze_lower(model)
 
     baseline = {
-        "synthetic_gold": evaluate(model, synthetic_val, device, args.batch),
         "ud_dev": evaluate(model, ud_dev, device, args.batch),
     }
 
@@ -330,13 +327,9 @@ def main():
             model, mix, opt, lossfn, device, args.batch, 91200 + ep
         )
         current = {
-            "synthetic_gold": evaluate(model, synthetic_val, device, args.batch),
             "ud_dev": evaluate(model, ud_dev, device, args.batch),
         }
-        # The label definition intentionally changed from phrase-span roles to
-        # school-style head-only roles. The legacy synthetic set retains the old
-        # span semantics, so it is reported for reference but is no longer a
-        # promotion gate. Held-out UD dev is relabeled with the current rule.
+        # Model selection is based only on the current head-only UD dev split.
         safe = (
             current["ud_dev"]["neural_role_acc"]
             >= baseline["ud_dev"]["neural_role_acc"] - 0.003
@@ -354,7 +347,6 @@ def main():
 
     model.load_state_dict(best_state)
     selected = {
-        "synthetic_gold": evaluate(model, synthetic_val, device, args.batch),
         "ud_dev": evaluate(model, ud_dev, device, args.batch),
     }
 
@@ -374,7 +366,7 @@ def main():
             "school_style_head_only_roles": True,
             "relabel_saved_corpora_with_current_canonicalizer": True,
             "normalize_contraction_surfaces": True,
-            "legacy_synthetic_is_report_only": True,
+            "legacy_phrase_span_synthetic_removed": True,
             "eval_only_corpora_not_scored_during_training": True,
         },
         "feed": {

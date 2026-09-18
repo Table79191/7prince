@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 117338,
-  "total_records": 3768,
-  "auto_pass": 3367,
-  "needs_review": 401,
+  "total_pages_processed": 139857,
+  "total_records": 3808,
+  "auto_pass": 3402,
+  "needs_review": 406,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "1975_French_Open",
+  "apcontinue": "1985_Florida_Gators_football_team",
   "source_exhausted": false,
   "shard_count": 2
 }

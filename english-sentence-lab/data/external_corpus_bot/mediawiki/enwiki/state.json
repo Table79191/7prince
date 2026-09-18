@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Astro_Squad",
-  "total_pages_processed": 900621,
-  "total_records": 16894,
-  "auto_pass": 14911,
-  "needs_review": 1983,
+  "apcontinue": "Author_&_Punisher",
+  "total_pages_processed": 938985,
+  "total_records": 17364,
+  "auto_pass": 15345,
+  "needs_review": 2019,
   "current_shard": 9,
-  "current_shard_records": 894,
+  "current_shard_records": 1364,
   "source_exhausted": false
 }

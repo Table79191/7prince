@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 583764,
-  "total_records": 11911,
-  "auto_pass": 10543,
-  "needs_review": 1368,
+  "total_pages_processed": 623338,
+  "total_records": 12495,
+  "auto_pass": 11051,
+  "needs_review": 1444,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Akce_B",
+  "apcontinue": "Aleksandrovskoye,_Irkutsk_Oblast",
   "source_exhausted": false,
-  "shard_count": 6
+  "shard_count": 7
 }

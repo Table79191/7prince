@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Akce_B",
-  "total_pages_processed": 583764,
-  "total_records": 11911,
-  "auto_pass": 10543,
-  "needs_review": 1368,
-  "current_shard": 6,
-  "current_shard_records": 1911,
+  "apcontinue": "Aleksandrovskoye,_Irkutsk_Oblast",
+  "total_pages_processed": 623338,
+  "total_records": 12495,
+  "auto_pass": 11051,
+  "needs_review": 1444,
+  "current_shard": 7,
+  "current_shard_records": 495,
   "source_exhausted": false
 }

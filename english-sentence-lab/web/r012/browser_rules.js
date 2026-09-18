@@ -137,8 +137,8 @@
       if(subj>=0&&verb>subj)setRole(subj,'S');
     };
 
-    // Sentence-initial and comma-delimited clause subjects.
-    markClauseSubject(0,lo.length);
+    // Sentence-initial and comma-delimited clause subjects. Preserve direct WH-copular C.
+    if(!directWhCopular)markClauseSubject(0,lo.length);
     for(let i=0;i<lo.length;i++){
       if(pos[i]==='PUNCT'&&/[,:;]/.test(tokens[i]))markClauseSubject(i+1,lo.length);
       if(CLAUSE_MARKERS.has(lo[i]))markClauseSubject(i+1,lo.length);

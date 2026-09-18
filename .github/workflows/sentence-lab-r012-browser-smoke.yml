@@ -1,4 +1,5 @@
 name: SentenceLab R012 browser smoke test
+
 on:
   push:
     branches: [main]
@@ -8,8 +9,10 @@ on:
       - 'english-sentence-lab/web/r012/r012_role.onnx'
       - 'english-sentence-lab/web/r012/model_meta.json'
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -23,44 +26,81 @@ jobs:
           python-version: '3.12'
       - name: Install runtime
         run: python -m pip install numpy onnxruntime
-      - name: Verify model metadata
+      - name: Verify production metadata
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          m=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
-          assert m['version']=='1.8.2-R012-SCHOOL-REGRESSION'
-          assert m['checkpoint']=='v1.8.2_r012_school_regression_role.pt'
+          meta=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
+          assert meta['version']=='1.8.2-R012-SCHOOL-REGRESSION', meta['version']
+          assert meta['checkpoint']=='v1.8.2_r012_school_regression_role.pt', meta['checkpoint']
           PY
-      - name: Exact browser preprocessing regressions
+      - name: Run exact browser preprocessing regressions
         run: |
           node - <<'JS'
-          const fs=require('fs'),r=require('./english-sentence-lab/web/r012/browser_rules.js');
-          const checks=[["They lead the team.",1,"VERB"],["We practice every day.",1,"VERB"],["They improve quickly.",1,"VERB"],["We rely on data.",1,"VERB"],["They perform well.",1,"VERB"],["I focus on grammar.",1,"VERB"],["He is talented.",2,"ADJ"],["She is gifted.",2,"ADJ"],["He's ready.",1,"AUX"],["I'd go.",1,"AUX"]];
-          for(const x of checks){const s=x[0],i=x[1],want=x[2],t=r.splitTokens(s),p=r.inferPos(t);if(p[i]!==want)throw new Error(s+' expected '+want+' got '+p[i]);}
-          for(const s of ["What on earth was that?","Who in the world was that?","what the hell was that?"]){const t=r.splitTokens(s),p=r.inferPos(t),fin=r.postprocessRoles(t,p,r.weakRoles(p)),cop=p.findIndex(x=>x==='AUX');if(fin[0]!=='C'||fin[cop]!=='V'||fin[cop+1]!=='S')throw new Error(s+' '+JSON.stringify(fin));for(let i=1;i<cop;i++)if(fin[i]!=='M')throw new Error(s+' filler '+JSON.stringify(fin));}
-          const np=['my','0.001','%','powers'],pp=['DET','NUM','SYM','NOUN'],nf=r.postprocessRoles(np,pp,['O','O','O','O']);if(JSON.stringify(nf)!==JSON.stringify(['M','M','M','O']))throw new Error('NP '+JSON.stringify(nf));
-          const tokens=r.splitTokens("what the hell was that"),pos=r.inferPos(tokens),weak=r.weakRoles(pos);fs.writeFileSync('/tmp/pre.json',JSON.stringify({tokens,pos,weak}));
+          const fs=require('fs');
+          const r=require('./english-sentence-lab/web/r012/browser_rules.js');
+          const checks=[
+            ["They lead the team.",1,"VERB"],
+            ["We practice every day.",1,"VERB"],
+            ["They improve quickly.",1,"VERB"],
+            ["We rely on data.",1,"VERB"],
+            ["They perform well.",1,"VERB"],
+            ["I focus on grammar.",1,"VERB"],
+            ["He is talented.",2,"ADJ"],
+            ["She is gifted.",2,"ADJ"],
+            ["He's ready.",1,"AUX"],
+            ["I'd go.",1,"AUX"]
+          ];
+          for(const [s,i,want] of checks){
+            const t=r.splitTokens(s),p=r.inferPos(t);
+            if(p[i]!==want) throw new Error(s+' expected '+want+' got '+p[i]);
+          }
+          for(const s of ["What on earth was that?","Who in the world was that?","what the hell was that?"]){
+            const t=r.splitTokens(s),p=r.inferPos(t),fin=r.postprocessRoles(t,p,r.weakRoles(p));
+            const cop=p.findIndex(x=>x==='AUX');
+            if(fin[0]!=='C'||fin[cop]!=='V'||fin[cop+1]!=='S') throw new Error(s+' '+JSON.stringify(fin));
+            for(let i=1;i<cop;i++) if(fin[i]!=='M') throw new Error(s+' filler '+JSON.stringify(fin));
+          }
+          const np=['my','0.001','%','powers'],pp=['DET','NUM','SYM','NOUN'];
+          const nf=r.postprocessRoles(np,pp,['O','O','O','O']);
+          if(JSON.stringify(nf)!==JSON.stringify(['M','M','M','O'])) throw new Error('NP '+JSON.stringify(nf));
+          const tokens=r.splitTokens("what the hell was that"),pos=r.inferPos(tokens),weak=r.weakRoles(pos);
+          fs.writeFileSync('/tmp/pre.json',JSON.stringify({tokens,pos,weak}));
           JS
       - name: Run ONNX on exact JS preprocessing
         run: |
           python - <<'PY'
           import json,numpy as np,onnxruntime as ort
-          x=json.load(open('/tmp/pre.json'));POS=['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X'];P={v:i for i,v in enumerate(POS)};R={'S':1,'V':2,'O':3,'C':4,'M':5};I=[None,'S','V','O','C','M']
+          x=json.load(open('/tmp/pre.json'))
+          POS=['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X']
+          P={v:i for i,v in enumerate(POS)}; R={'S':1,'V':2,'O':3,'C':4,'M':5}; I=[None,'S','V','O','C','M']
           def h(s):
               v=2166136261
-              for b in s.encode():v=((v^b)*16777619)&0xffffffff
+              for b in s.encode(): v=((v^b)*16777619)&0xffffffff
               return v
           def sh(w):
-              lo=w.lower();return [float(w[:1].isupper()),float(w.isupper() and any(c.isalpha() for c in w)),float(any(c.isdigit() for c in w)),float('-' in w),float(lo.endswith('ing')),float(lo.endswith('ed')),float(lo.endswith('ly')),min(len(w),20)/20]
-          t=x['tokens'];feeds={'wid':np.array([[h(w.lower())%8192 for w in t]],np.int64),'pre':np.array([[h(w.lower()[:3])%1024 for w in t]],np.int64),'suf':np.array([[h(w.lower()[-3:])%1024 for w in t]],np.int64),'pos':np.array([[P.get(p,0) for p in x['pos']]],np.int64),'role':np.array([[0 if r is None else R.get(r,0) for r in x['weak']]],np.int64),'shape':np.array([[sh(w) for w in t]],np.float32),'mask':np.ones((1,len(t)),np.bool_)}
+              lo=w.lower()
+              return [float(w[:1].isupper()),float(w.isupper() and any(c.isalpha() for c in w)),float(any(c.isdigit() for c in w)),float('-' in w),float(lo.endswith('ing')),float(lo.endswith('ed')),float(lo.endswith('ly')),min(len(w),20)/20]
+          t=x['tokens']
+          feeds={
+            'wid':np.array([[h(w.lower())%8192 for w in t]],np.int64),
+            'pre':np.array([[h(w.lower()[:3])%1024 for w in t]],np.int64),
+            'suf':np.array([[h(w.lower()[-3:])%1024 for w in t]],np.int64),
+            'pos':np.array([[P.get(p,0) for p in x['pos']]],np.int64),
+            'role':np.array([[0 if r is None else R.get(r,0) for r in x['weak']]],np.int64),
+            'shape':np.array([[sh(w) for w in t]],np.float32),
+            'mask':np.ones((1,len(t)),np.bool_)
+          }
           z=ort.InferenceSession('english-sentence-lab/web/r012/r012_role.onnx',providers=['CPUExecutionProvider']).run(['logits'],feeds)[0][0]
           json.dump([I[int(i)] for i in z.argmax(-1)],open('/tmp/raw.json','w'))
           PY
-      - name: Apply exact JS postprocess
+      - name: Apply exact JS postprocess to ONNX output
         run: |
           node - <<'JS'
-          const fs=require('fs'),r=require('./english-sentence-lab/web/r012/browser_rules.js'),x=JSON.parse(fs.readFileSync('/tmp/pre.json')),raw=JSON.parse(fs.readFileSync('/tmp/raw.json')),fin=r.postprocessRoles(x.tokens,x.pos,raw),want=['C','M','M','V','S'];
-          if(JSON.stringify(fin)!==JSON.stringify(want))throw new Error(JSON.stringify({x,raw,fin,want}));
-          console.log(JSON.stringify({tokens:x.tokens,raw,final:fin}));
+          const fs=require('fs'),r=require('./english-sentence-lab/web/r012/browser_rules.js');
+          const x=JSON.parse(fs.readFileSync('/tmp/pre.json')),raw=JSON.parse(fs.readFileSync('/tmp/raw.json'));
+          const final=r.postprocessRoles(x.tokens,x.pos,raw),want=['C','M','M','V','S'];
+          if(JSON.stringify(final)!==JSON.stringify(want)) throw new Error(JSON.stringify({x,raw,final,want}));
+          console.log(JSON.stringify({tokens:x.tokens,raw,final}));
           JS

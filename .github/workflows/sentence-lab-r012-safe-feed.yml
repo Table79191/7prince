@@ -104,7 +104,7 @@ jobs:
         shell: bash
         run: |
           cd english-sentence-lab
-          python train/train_r012_safe_feed.py             --base artifacts/v1.8.0_r011_canonical_role.pt             --web-corpus data/web_corpus_bot             --tatoeba data/external_corpus_bot/tatoeba             --benchmark-tsv data/tatoeba500/TatoebaDaily500_CC0.tsv             --gold-val data/gold/gold_v2_val_4000.jsonl             --out artifacts/v1.8.1_r012_safe_feed_role.pt             --metrics artifacts/v1.8.1_r012_safe_feed_metrics.json             --epochs 2             --batch 32
+          python train/train_r012_safe_feed.py             --base artifacts/v1.8.0_r011_canonical_role.pt             --web-corpus data/web_corpus_bot             --tatoeba data/external_corpus_bot/tatoeba             --benchmark-tsv data/tatoeba500/TatoebaDaily500_CC0.tsv             --gold-val data/gold/gold_v2_val_4000.jsonl             --out artifacts/v1.8.1_r012_safe_feed_role.pt             --metrics artifacts/v1.8.1_r012_safe_feed_metrics.json             --epochs 1             --batch 32
 
       - name: Validate feed safety metadata
         shell: bash

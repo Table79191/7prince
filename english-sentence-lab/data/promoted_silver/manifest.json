@@ -1,0 +1,59 @@
+{
+  "version": "PROMOTED-SILVER-1",
+  "added_this_run": 1023,
+  "total_promoted": 1023,
+  "sources": {
+    "tatoeba": {
+      "source_records": 231825,
+      "processed_before": 227825,
+      "scanned": 781,
+      "accepted": 500,
+      "rejected": {
+        "length": 102,
+        "consensus": 149,
+        "status": 22,
+        "structure": 8
+      }
+    },
+    "mediawiki/enwiki": {
+      "source_records": 2863,
+      "processed_before": 0,
+      "scanned": 1244,
+      "accepted": 500,
+      "rejected": {
+        "status": 181,
+        "consensus": 382,
+        "length": 108,
+        "structure": 60,
+        "duplicate": 13
+      }
+    },
+    "mediawiki/enwikibooks": {
+      "source_records": 3,
+      "processed_before": 0,
+      "scanned": 3,
+      "accepted": 0,
+      "rejected": {
+        "length": 3
+      }
+    },
+    "mediawiki/simplewiki": {
+      "source_records": 55,
+      "processed_before": 0,
+      "scanned": 55,
+      "accepted": 23,
+      "rejected": {
+        "structure": 5,
+        "consensus": 20,
+        "status": 2,
+        "length": 5
+      }
+    }
+  },
+  "policy": {
+    "label_quality": "promoted_silver_not_gold",
+    "raw_external_never_directly_trained": true,
+    "requires_strict_spacy_stanza_consensus": true,
+    "independent_test_excluded": true
+  }
+}

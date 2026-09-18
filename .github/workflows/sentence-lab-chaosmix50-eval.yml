@@ -21,7 +21,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sentence-lab-chaosmix50-main
+  group: sentence-lab-chaosmix50-${{ github.event_name }}-${{ github.event.workflow_run.id || github.ref }}
   cancel-in-progress: true
 
 jobs:

@@ -1,5 +1,9 @@
 name: SentenceLab export R012 ONNX
 on:
+  workflow_run:
+    workflows: ["SentenceLab R012 school regression patch"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
   push:
     branches: [main]
@@ -14,6 +18,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   export:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:

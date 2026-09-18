@@ -34,3 +34,8 @@ See `docs/training_feed_policy_v2.json` and `docs/role_label_spec_v2.md`.
 ChaosMix50 is a **development stress set**, not a pristine final holdout, because post-processing rules were iterated against it. Tatoeba Daily500 is an independent silver-reference benchmark (Stanza-derived, not human gold). Neither should be described as a human-audited final test.
 
 Third-party licenses and upstream URLs remain with the corresponding corpora and must not be removed.
+
+
+## Legacy checkpoint warning
+
+The committed `v1.7.x` checkpoints are historical artifacts only. Their old loaders could repurpose test-only treebanks into train/validation data, so they must not be used as bases for current production training or as evidence of uncontaminated generalization. The current lineage starts from random initialization at R011.

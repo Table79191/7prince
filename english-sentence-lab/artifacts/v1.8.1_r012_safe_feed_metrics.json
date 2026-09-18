@@ -1,0 +1,151 @@
+{
+  "version": "1.8.1-R012-SAFE-FEED",
+  "base": "v1.8.0_r011_canonical_role.pt",
+  "selected_epoch": 1,
+  "candidate_accepted": true,
+  "policy": {
+    "gold_only_upstream_train": true,
+    "dev_test_never_trained": true,
+    "tatoeba_daily500_excluded": true,
+    "weak_max_fraction": 0.2,
+    "weak_loss_weight": 0.15,
+    "weak_requires_spacy_stanza_consensus": true,
+    "safety_max_regression": 0.003
+  },
+  "feed": {
+    "gold_train_sentences": 48140,
+    "weak_tatoeba_sentences": 7193,
+    "combined_sentences": 55333,
+    "weak_fraction": 0.12999475900457233,
+    "ud_stats": {
+      "dev:atis": 560,
+      "gold_train:atis": 4214,
+      "drop_not_auto_pass": 2479,
+      "gold_train:childes": 32218,
+      "dev:childes": 3804,
+      "eval_only:ctetex": 218,
+      "dev:esl": 42,
+      "gold_train:esl": 7,
+      "gold_train:eslspok": 1625,
+      "dev:eslspok": 226,
+      "gold_train:ewt": 10076,
+      "dev:ewt": 1685,
+      "drop_train_duplicate": 8,
+      "eval_only:littleprince": 474,
+      "eval_only:pronouns": 275,
+      "eval_only:pud": 882
+    },
+    "weak_stats": {
+      "drop_length": 1956,
+      "consensus_candidates": 7193,
+      "drop_consensus": 15469,
+      "drop_duplicate": 20,
+      "drop_not_auto_pass": 562,
+      "drop_no_core_structure": 346,
+      "selected": 7193
+    }
+  },
+  "baseline": {
+    "synthetic_gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 1.0,
+      "sentence_exact": 4000
+    },
+    "ud_dev": {
+      "sentences": 6317,
+      "tokens": 55353,
+      "base_role_acc": 0.7081820316875328,
+      "neural_role_acc": 0.9518183296298304,
+      "sentence_exact": 4853
+    },
+    "eval_only": {
+      "sentences": 1849,
+      "tokens": 33083,
+      "base_role_acc": 0.6972463198621649,
+      "neural_role_acc": 0.9345283075900009,
+      "sentence_exact": 963
+    }
+  },
+  "selected": {
+    "synthetic_gold": {
+      "sentences": 4000,
+      "tokens": 59630,
+      "base_role_acc": 0.5926882441723964,
+      "neural_role_acc": 0.9970820057018279,
+      "sentence_exact": 3826
+    },
+    "ud_dev": {
+      "sentences": 6317,
+      "tokens": 55353,
+      "base_role_acc": 0.7081820316875328,
+      "neural_role_acc": 0.957689736780301,
+      "sentence_exact": 4963
+    },
+    "eval_only": {
+      "sentences": 1849,
+      "tokens": 33083,
+      "base_role_acc": 0.6972463198621649,
+      "neural_role_acc": 0.9415711997098207,
+      "sentence_exact": 1026
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "sentences": 55333,
+        "tokens": 505235,
+        "weighted_tokens": 294097.8957500458,
+        "loss": 0.1284371642999054,
+        "train_acc": 0.9572555345532278
+      },
+      "eval": {
+        "synthetic_gold": {
+          "sentences": 4000,
+          "tokens": 59630,
+          "base_role_acc": 0.5926882441723964,
+          "neural_role_acc": 0.9970820057018279,
+          "sentence_exact": 3826
+        },
+        "ud_dev": {
+          "sentences": 6317,
+          "tokens": 55353,
+          "base_role_acc": 0.7081820316875328,
+          "neural_role_acc": 0.957689736780301,
+          "sentence_exact": 4963
+        }
+      },
+      "safe": true
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "sentences": 55333,
+        "tokens": 505235,
+        "weighted_tokens": 294097.8953552246,
+        "loss": 0.11944382369601685,
+        "train_acc": 0.9605292586618108
+      },
+      "eval": {
+        "synthetic_gold": {
+          "sentences": 4000,
+          "tokens": 59630,
+          "base_role_acc": 0.5926882441723964,
+          "neural_role_acc": 0.9918665101458997,
+          "sentence_exact": 3515
+        },
+        "ud_dev": {
+          "sentences": 6317,
+          "tokens": 55353,
+          "base_role_acc": 0.7081820316875328,
+          "neural_role_acc": 0.9594601918595198,
+          "sentence_exact": 5001
+        }
+      },
+      "safe": false
+    }
+  ],
+  "note": "R012 trains only on upstream UD train rows plus strictly consensus-filtered Tatoeba weak labels. UD dev/test and Tatoeba Daily500 are excluded from training."
+}

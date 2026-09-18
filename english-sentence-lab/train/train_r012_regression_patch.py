@@ -37,7 +37,7 @@ def load_replay(root):
             elif "-dev." in fn:
                 ex=row_example(row,f"dev:{key}",1.0)
                 if ex: dev.append(ex)
-    rng=random.Random(81203); rng.shuffle(train); return train[:5000],dev
+    rng=random.Random(81203); rng.shuffle(train); return train[:10000],dev
 
 def make_example(words,pos,roles,family,weight=2.0):
     toks=[{"text":w,"pos":p} for w,p in zip(words,pos)]; weak=base.weak_base_roles(toks)
@@ -45,41 +45,91 @@ def make_example(words,pos,roles,family,weight=2.0):
     return (feats,labels," ".join(words),family,float(weight))
 
 def school_sets():
-    train=[]; holdout=[]
+    train=[]; validation=[]
+
+    # Training templates.
     for wh,cop,dem in itertools.product(["what","who"],["is","are","was","were"],["this","that","these","those"]):
         if (cop in {"is","was"})!=(dem in {"this","that"}): continue
-        train.append(make_example([wh,cop,dem,"?"],["PRON","AUX","DET","PUNCT"],["C","V","S",None],"school:train:wh",3.0))
-        train.append(make_example([wh,"exactly",cop,dem,"?"],["PRON","ADV","AUX","DET","PUNCT"],["C","M","V","S",None],"school:train:wh",3.0))
-    for words,pos,roles in [
-      (["what","on","earth","was","that","?"],["PRON","ADP","NOUN","AUX","DET","PUNCT"],["C","M","M","V","S",None]),
-      (["who","in","the","world","is","this","?"],["PRON","ADP","DET","NOUN","AUX","DET","PUNCT"],["C","M","M","M","V","S",None]),
-      (["what","in","the","world","are","those","?"],["PRON","ADP","DET","NOUN","AUX","DET","PUNCT"],["C","M","M","M","V","S",None]),
-      (["who","on","earth","were","these","?"],["PRON","ADP","NOUN","AUX","DET","PUNCT"],["C","M","M","V","S",None]),
-    ]: holdout.append(make_example(words,pos,roles,"school:holdout:wh",1.0))
+        train.append(make_example([wh,cop,dem,"?"],["PRON","AUX","DET","PUNCT"],["C","V","S",None],"school:train:wh",2.5))
+        train.append(make_example([wh,"exactly",cop,dem,"?"],["PRON","ADV","AUX","DET","PUNCT"],["C","M","V","S",None],"school:train:wh",2.5))
 
-    prod=itertools.product(["I","we","they","she","he"],["use","need","want","see","find","take"],["my","our","their","her","his"],["0.001","1","3","10","50"],["powers","books","boxes","tools","results","ideas"])
+    prod=itertools.product(
+        ["I","we","they","she","he"],
+        ["use","need","want","see","find","take"],
+        ["my","our","their","her","his"],
+        ["0.001","1","3","10","50"],
+        ["powers","books","boxes","tools","results","ideas"],
+    )
     for s,v,d,num,n in itertools.islice(prod,160):
-        train.append(make_example([s,v,d,num,"%",n,"."],["PRON","VERB","DET","NUM","SYM","NOUN","PUNCT"],["S","V","M","M","M","O",None],"school:train:np-head",2.0))
-    for words in [["we","inspect","these","12","%","documents","."],["they","compare","those","7","%","models","."],["I","check","my","25","%","files","."],["she","reviews","her","4","%","samples","."]]:
-        holdout.append(make_example(words,["PRON","VERB","DET","NUM","SYM","NOUN","PUNCT"],["S","V","M","M","M","O",None],"school:holdout:np-head",1.0))
+        train.append(make_example([s,v,d,num,"%",n,"."],["PRON","VERB","DET","NUM","SYM","NOUN","PUNCT"],["S","V","M","M","M","O",None],"school:train:np-head",1.8))
 
-    for adj,noun,verb in itertools.product(["exhausted","new","old","large","small"],["interns","students","engineers","workers","robots"],["worked","left","argued","helped","waited"]):
-        train.append(make_example(["the",adj,noun,verb,"."],["DET","ADJ","NOUN","VERB","PUNCT"],["M","M","S","V",None],"school:train:adj",2.0))
-    for adj,noun,verb in [("talented","designers","performed"),("gifted","children","learned"),("ready","teams","started"),("skilled","analysts","responded")]:
-        holdout.append(make_example(["the",adj,noun,verb,"."],["DET","ADJ","NOUN","VERB","PUNCT"],["M","M","S","V",None],"school:holdout:adj",1.0))
+    for adj,noun,verb in itertools.product(
+        ["exhausted","new","old","large","small"],
+        ["interns","students","engineers","workers","robots"],
+        ["worked","left","argued","helped","waited"],
+    ):
+        train.append(make_example(["the",adj,noun,verb,"."],["DET","ADJ","NOUN","VERB","PUNCT"],["M","M","S","V",None],"school:train:adj",1.8))
 
-    for subject,aux,verb,obj in itertools.product(["I","you","we","they"],["can","will","do","does"],["believe","see","know","use"],["it","them"]):
-        train.append(make_example([subject,aux,"not",verb,obj,"."],["PRON","AUX","PART","VERB","PRON","PUNCT"],["S","V","M","V","O",None],"school:train:neg",2.0))
-    for words,pos,roles in [
-      (["he","should","not","rely","on","it","."],["PRON","AUX","PART","VERB","ADP","PRON","PUNCT"],["S","V","M","V","M","O",None]),
-      (["she","could","not","focus","on","them","."],["PRON","AUX","PART","VERB","ADP","PRON","PUNCT"],["S","V","M","V","M","O",None]),
-      (["they","must","not","perform","poorly","."],["PRON","AUX","PART","VERB","ADV","PUNCT"],["S","V","M","V","M",None]),
-      (["we","would","not","practice","today","."],["PRON","AUX","PART","VERB","ADV","PUNCT"],["S","V","M","V","M",None]),
-    ]: holdout.append(make_example(words,pos,roles,"school:holdout:neg",1.0))
+    for subject,aux,verb,obj in itertools.product(
+        ["I","you","we","they"],
+        ["can","will","do","does"],
+        ["believe","see","know","use"],
+        ["it","them"],
+    ):
+        train.append(make_example([subject,aux,"not",verb,obj,"."],["PRON","AUX","PART","VERB","PRON","PUNCT"],["S","V","M","V","O",None],"school:train:neg",1.8))
 
-    a={x[2].lower() for x in train}; b={x[2].lower() for x in holdout}
-    if len(a)!=len(train) or len(b)!=len(holdout) or a&b: raise RuntimeError("regression train/holdout not disjoint")
-    return train,holdout
+    # Selection validation: separate lexical/template combinations.
+    cop_demo=[
+        ("is","this"),("is","that"),("are","these"),("are","those"),
+        ("was","this"),("was","that"),("were","these"),("were","those"),
+    ]
+    for wh,(cop,dem),filler in itertools.product(
+        ["what","who"],cop_demo,[("on","earth"),("in","the","world")]
+    ):
+        words=[wh,*filler,cop,dem,"?"]
+        pos=["PRON"]+(["ADP","NOUN"] if len(filler)==2 else ["ADP","DET","NOUN"])+["AUX","DET","PUNCT"]
+        roles=["C"]+["M"]*len(filler)+["V","S",None]
+        validation.append(make_example(words,pos,roles,"school:validation:wh",1.0))
+
+    np_rows=[]
+    for s,v,d,num,n in itertools.product(
+        ["you","we","they"],
+        ["inspect","compare","check","review"],
+        ["your","their"],
+        ["12","25","37","64"],
+        ["documents","models","files","samples"],
+    ):
+        np_rows.append(make_example([s,v,d,num,"%",n,"."],["PRON","VERB","DET","NUM","SYM","NOUN","PUNCT"],["S","V","M","M","M","O",None],"school:validation:np-head",1.0))
+    random.Random(91301).shuffle(np_rows); validation.extend(np_rows[:48])
+
+    adj_rows=[]
+    for adj,noun,verb in itertools.product(
+        ["talented","gifted","ready","skilled","careful","quiet"],
+        ["designers","children","teams","analysts","pilots","teachers"],
+        ["performed","learned","started","responded","waited","worked"],
+    ):
+        adj_rows.append(make_example(["the",adj,noun,verb,"."],["DET","ADJ","NOUN","VERB","PUNCT"],["M","M","S","V",None],"school:validation:adj",1.0))
+    random.Random(91302).shuffle(adj_rows); validation.extend(adj_rows[:48])
+
+    neg_rows=[]
+    for subject,aux,kind in itertools.product(
+        ["he","she","you"],["should","could","must","would"],["rely","focus","perform","practice"]
+    ):
+        if kind=="rely":
+            words=[subject,aux,"not","rely","on","it","."]; pos=["PRON","AUX","PART","VERB","ADP","PRON","PUNCT"]; roles=["S","V","M","V","M","O",None]
+        elif kind=="focus":
+            words=[subject,aux,"not","focus","on","them","."]; pos=["PRON","AUX","PART","VERB","ADP","PRON","PUNCT"]; roles=["S","V","M","V","M","O",None]
+        elif kind=="perform":
+            words=[subject,aux,"not","perform","poorly","."]; pos=["PRON","AUX","PART","VERB","ADV","PUNCT"]; roles=["S","V","M","V","M",None]
+        else:
+            words=[subject,aux,"not","practice","today","."]; pos=["PRON","AUX","PART","VERB","ADV","PUNCT"]; roles=["S","V","M","V","M",None]
+        neg_rows.append(make_example(words,pos,roles,"school:validation:neg",1.0))
+    validation.extend(neg_rows)
+
+    a={x[2].lower() for x in train}; b={x[2].lower() for x in validation}
+    if len(a)!=len(train) or len(b)!=len(validation) or a&b:
+        raise RuntimeError("regression train/validation sets are not disjoint")
+    return train,validation
 
 def evaluate(model,data,device,batch=64): return base.evaluate(model,data,device,batch)
 
@@ -101,27 +151,81 @@ def main():
     ck=torch.load(args.base,map_location="cpu",weights_only=False); base_version=ck.get("metrics",{}).get("version","")
     if base_version!="1.8.1-R012-SAFE-FEED-SCHOOL-HEADS": raise SystemExit(f"refusing non-safe-feed base: {base_version!r}")
     model=base.RoleNet().to(device); model.load_state_dict(ck["model"],strict=True)
-    replay,dev=load_replay(Path(args.web_corpus)); target_train,target_holdout=school_sets()
-    baseline_dev=evaluate(model,dev,device); baseline_holdout=evaluate(model,target_holdout,device)
+    replay,dev=load_replay(Path(args.web_corpus)); target_train,target_validation=school_sets()
+    baseline_dev=evaluate(model,dev,device); baseline_validation=evaluate(model,target_validation,device)
 
     for module in [model.word,model.pre,model.suf,model.pos,model.brole,model.shape,model.proj]:
         for p in module.parameters(): p.requires_grad=False
-    mix=replay+target_train; opt=torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],lr=1.2e-5,weight_decay=3e-4)
+    mix=replay+target_train; opt=torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],lr=6e-6,weight_decay=3e-4)
     weights=torch.tensor([0.35,0.75,0.9,1.05,1.6,0.8],device=device); lossfn=nn.CrossEntropyLoss(weight=weights,reduction="none")
-    best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}; best_score=baseline_holdout["neural_role_acc"]+0.02*baseline_dev["neural_role_acc"]; selected_epoch=0; history=[]
-    for ep in range(1,args.epochs+1):
-        tr=train_epoch(model,mix,opt,lossfn,device,64,81203+ep); devm=evaluate(model,dev,device); hold=evaluate(model,target_holdout,device)
-        safe=devm["neural_role_acc"]>=baseline_dev["neural_role_acc"]-0.003; score=hold["neural_role_acc"]+0.02*devm["neural_role_acc"]
-        history.append({"epoch":ep,"train":tr,"ud_dev":devm,"target_holdout":hold,"score":score,"safe":safe})
-        if safe and score>best_score:
-            best_score=score; best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}; selected_epoch=ep
-    if selected_epoch==0: raise SystemExit("no safe regression candidate improved the disjoint holdout")
-    model.load_state_dict(best_state); selected_dev=evaluate(model,dev,device); selected_holdout=evaluate(model,target_holdout,device)
-    if selected_dev["neural_role_acc"]<baseline_dev["neural_role_acc"]-0.003 or selected_holdout["neural_role_acc"]<=baseline_holdout["neural_role_acc"]: raise SystemExit("regression promotion gate failed")
+    def exact_rate(m):
+        return m["sentence_exact"]/max(m["sentences"],1)
 
-    metrics={"version":VERSION,"base":Path(args.base).name,"regression_patch":{"selected_epoch":selected_epoch,"replay_sentences":len(replay),"target_train_sentences":len(target_train),"target_holdout_sentences":len(target_holdout),"train_holdout_overlap":0,
-    "baseline":{"ud_dev":baseline_dev,"target_holdout":baseline_holdout},"selected":{"ud_dev":selected_dev,"target_holdout":selected_holdout},"history":history,"safety_max_ud_dev_regression":0.003,"selection_metric":"disjoint_target_holdout + 0.02*ud_dev"},
-    "policy":{"official_test_never_used_for_fit_or_selection":True,"target_holdout_never_used_for_fit":True,"canonical_role_spec":"v2-head-only"}}
+    max_token_regression=0.001
+    max_exact_regression=0.002
+    min_target_gain=0.005
+    baseline_score=(
+        baseline_validation["neural_role_acc"]
+        + 0.10*baseline_dev["neural_role_acc"]
+        + 0.05*exact_rate(baseline_dev)
+    )
+    best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+    best_score=baseline_score; selected_epoch=0; history=[]
+    for ep in range(1,args.epochs+1):
+        tr=train_epoch(model,mix,opt,lossfn,device,64,81203+ep)
+        devm=evaluate(model,dev,device)
+        valm=evaluate(model,target_validation,device)
+        token_safe=devm["neural_role_acc"]>=baseline_dev["neural_role_acc"]-max_token_regression
+        exact_safe=exact_rate(devm)>=exact_rate(baseline_dev)-max_exact_regression
+        target_better=valm["neural_role_acc"]>=baseline_validation["neural_role_acc"]+min_target_gain
+        safe=token_safe and exact_safe and target_better
+        score=valm["neural_role_acc"]+0.10*devm["neural_role_acc"]+0.05*exact_rate(devm)
+        history.append({
+            "epoch":ep,"train":tr,"ud_dev":devm,"target_validation":valm,
+            "score":score,"safe":safe,
+            "gates":{"token_safe":token_safe,"exact_safe":exact_safe,"target_better":target_better},
+        })
+        if safe and score>best_score:
+            best_score=score
+            best_state={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+            selected_epoch=ep
+
+    if selected_epoch==0:
+        raise SystemExit("no regression candidate passed target-gain plus UD token/exact safety gates")
+    model.load_state_dict(best_state)
+    selected_dev=evaluate(model,dev,device)
+    selected_validation=evaluate(model,target_validation,device)
+    if (
+        selected_dev["neural_role_acc"]<baseline_dev["neural_role_acc"]-max_token_regression
+        or exact_rate(selected_dev)<exact_rate(baseline_dev)-max_exact_regression
+        or selected_validation["neural_role_acc"]<baseline_validation["neural_role_acc"]+min_target_gain
+    ):
+        raise SystemExit("regression promotion gate failed")
+
+    metrics={
+      "version":VERSION,
+      "base":Path(args.base).name,
+      "regression_patch":{
+        "selected_epoch":selected_epoch,
+        "replay_sentences":len(replay),
+        "target_train_sentences":len(target_train),
+        "target_validation_sentences":len(target_validation),
+        "train_validation_overlap":0,
+        "baseline":{"ud_dev":baseline_dev,"target_validation":baseline_validation},
+        "selected":{"ud_dev":selected_dev,"target_validation":selected_validation},
+        "history":history,
+        "safety_max_ud_dev_token_regression":max_token_regression,
+        "safety_max_ud_dev_exact_rate_regression":max_exact_regression,
+        "minimum_target_validation_gain":min_target_gain,
+        "selection_metric":"target_validation + 0.10*ud_dev_token + 0.05*ud_dev_exact_rate",
+      },
+      "policy":{
+        "official_test_never_used_for_fit_or_selection":True,
+        "target_validation_never_used_for_fit":True,
+        "canonical_role_spec":"v2-head-only",
+      },
+    }
+
     out=Path(args.out); out.parent.mkdir(parents=True,exist_ok=True); torch.save({"model":model.state_dict(),"config":dict(ck.get("config",{}),school_regression_patch=True,canonical_role_spec="v2-head-only"),"metrics":metrics},out)
     Path(args.metrics).write_text(json.dumps(metrics,indent=2)+"\n",encoding="utf-8"); print(json.dumps(metrics,indent=2))
 

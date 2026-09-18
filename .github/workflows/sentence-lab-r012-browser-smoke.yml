@@ -25,6 +25,18 @@ jobs:
           python-version: '3.12'
       - name: Install runtime
         run: python -m pip install numpy onnxruntime
+      - name: Verify school-head web model
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          meta=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
+          assert meta['version']=='1.8.1-R012-SAFE-FEED-SCHOOL-HEADS', meta['version']
+          assert 'school-style head-only' in meta.get('browser_note','')
+          print('web model version:',meta['version'])
+          print('wrapper_max_abs_error:',meta['wrapper_max_abs_error'])
+          PY
       - name: Test shared browser grammar rules
         shell: bash
         run: |

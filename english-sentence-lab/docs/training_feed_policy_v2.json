@@ -106,8 +106,8 @@
   },
   "canonical_role_spec": "v2-head-only",
   "lineage": {
-    "clean_base": "v1.7.0_ud_role.pt",
-    "r011": "official train only; official dev selection; official test excluded",
+    "clean_base": "random initialization; no pretrained checkpoint",
+    "r011": "random-init + official train only; official dev selection; official test excluded",
     "r012_safe": "R011 + upstream gold train rows only; Tatoeba/MediaWiki silver excluded from fitting",
     "r012_regression": "separate output artifact; disjoint synthetic train/holdout; official test unused"
   }

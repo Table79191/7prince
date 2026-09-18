@@ -1,7 +1,7 @@
 {
   "version": "1.8.1-R012-SAFE-FEED-SCHOOL-HEADS",
   "base": "v1.8.0_r011_canonical_role.pt",
-  "selected_epoch": 2,
+  "selected_epoch": 1,
   "candidate_accepted": true,
   "policy": {
     "gold_only_upstream_train": true,
@@ -14,7 +14,8 @@
     "school_style_head_only_roles": true,
     "relabel_saved_corpora_with_current_canonicalizer": true,
     "normalize_contraction_surfaces": true,
-    "legacy_synthetic_is_report_only": true
+    "legacy_phrase_span_synthetic_removed": true,
+    "eval_only_corpora_not_scored_during_training": true
   },
   "feed": {
     "gold_train_sentences": 48140,
@@ -44,49 +45,21 @@
     }
   },
   "baseline": {
-    "synthetic_gold": {
-      "sentences": 4000,
-      "tokens": 59630,
-      "base_role_acc": 0.5926882441723964,
-      "neural_role_acc": 0.7027670635586114,
-      "sentence_exact": 0
-    },
     "ud_dev": {
       "sentences": 6317,
       "tokens": 55353,
       "base_role_acc": 0.7575921810922623,
-      "neural_role_acc": 0.9692699582678446,
-      "sentence_exact": 5055
-    },
-    "eval_only": {
-      "sentences": 1849,
-      "tokens": 33083,
-      "base_role_acc": 0.7668893389354049,
-      "neural_role_acc": 0.9705286703140585,
-      "sentence_exact": 1172
+      "neural_role_acc": 0.962115874478348,
+      "sentence_exact": 4759
     }
   },
   "selected": {
-    "synthetic_gold": {
-      "sentences": 4000,
-      "tokens": 59630,
-      "base_role_acc": 0.5926882441723964,
-      "neural_role_acc": 0.7031192352842529,
-      "sentence_exact": 0
-    },
     "ud_dev": {
       "sentences": 6317,
       "tokens": 55353,
       "base_role_acc": 0.7575921810922623,
-      "neural_role_acc": 0.9704984373024046,
-      "sentence_exact": 5096
-    },
-    "eval_only": {
-      "sentences": 1849,
-      "tokens": 33083,
-      "base_role_acc": 0.7668893389354049,
-      "neural_role_acc": 0.9715261614726597,
-      "sentence_exact": 1192
+      "neural_role_acc": 0.9648980181742633,
+      "sentence_exact": 4835
     }
   },
   "history": [
@@ -96,54 +69,20 @@
         "sentences": 48140,
         "tokens": 438941,
         "weighted_tokens": 284153.7932853699,
-        "loss": 0.08017954706987934,
-        "train_acc": 0.970959650613636
+        "loss": 0.09286326809111922,
+        "train_acc": 0.9650568071790969
       },
       "eval": {
-        "synthetic_gold": {
-          "sentences": 4000,
-          "tokens": 59630,
-          "base_role_acc": 0.5926882441723964,
-          "neural_role_acc": 0.7031360053664263,
-          "sentence_exact": 0
-        },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9701009882029881,
-          "sentence_exact": 5091
-        }
-      },
-      "safe": true
-    },
-    {
-      "epoch": 2,
-      "train": {
-        "sentences": 48140,
-        "tokens": 438941,
-        "weighted_tokens": 284153.79373931885,
-        "loss": 0.07832652513494842,
-        "train_acc": 0.9714449094525233
-      },
-      "eval": {
-        "synthetic_gold": {
-          "sentences": 4000,
-          "tokens": 59630,
-          "base_role_acc": 0.5926882441723964,
-          "neural_role_acc": 0.7031192352842529,
-          "sentence_exact": 0
-        },
-        "ud_dev": {
-          "sentences": 6317,
-          "tokens": 55353,
-          "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9704984373024046,
-          "sentence_exact": 5096
+          "neural_role_acc": 0.9648980181742633,
+          "sentence_exact": 4835
         }
       },
       "safe": true
     }
   ],
-  "note": "R012 trains only on upstream UD train rows. Tatoeba and other parser-generated silver labels are audit-only and excluded from supervised fitting. Saved dependency parses are relabeled at training time with the current school-style head-only canonicalizer, and contraction surfaces are normalized. UD dev/test and Tatoeba Daily500 are excluded from training."
+  "note": "R012 trains only on upstream UD train rows. Tatoeba and other parser-generated silver labels are audit-only and excluded from supervised fitting. Saved dependency parses are relabeled at training time with the current school-style head-only canonicalizer, and contraction surfaces are normalized. UD dev/test and Tatoeba Daily500 are excluded from training. Test/evaluation-only corpora are not scored inside this training workflow, preventing manual holdout-driven model selection."
 }

@@ -1,0 +1,28 @@
+{
+  "version": "SENTENCELAB-EXTERNAL-TATOEBA-1",
+  "provider": "Tatoeba",
+  "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+  "source_page": "https://tatoeba.org/en/downloads",
+  "license": "CC-BY-2.0-FR",
+  "license_url": "https://creativecommons.org/licenses/by/2.0/fr/",
+  "label_quality": "weak_parser_generated",
+  "parser": "stanza tokenize,pos,lemma,depparse -> SentenceLab canonical roles",
+  "policy": {
+    "total_corpus_limit": 0,
+    "per_run_sentence_limit": 0,
+    "append_only": true,
+    "shard_size": 2000,
+    "separate_from_gold_ud_corpus": true,
+    "runtime_checkpoint_seconds": 1200
+  },
+  "archive_sha256": "7c46287a9146d8090ea26b6b2eaadc759b92a550e865e32388077806f584ee62",
+  "archive_bytes": 24873473,
+  "last_processed_sentence_id": 26084,
+  "total_records": 10821,
+  "auto_pass": 10592,
+  "needs_review": 229,
+  "added_this_run": 10821,
+  "skipped_this_run": 0,
+  "source_exhausted_at_last_run": false,
+  "shard_count": 6
+}

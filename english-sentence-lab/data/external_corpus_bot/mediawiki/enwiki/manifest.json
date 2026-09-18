@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 788357,
-  "total_records": 14666,
-  "auto_pass": 12995,
-  "needs_review": 1671,
+  "total_pages_processed": 824783,
+  "total_records": 14976,
+  "auto_pass": 13277,
+  "needs_review": 1699,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Antaeotricha_insidiata",
+  "apcontinue": "Ara_Malikian_discography",
   "source_exhausted": false,
   "shard_count": 8
 }

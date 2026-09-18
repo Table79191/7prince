@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Antaeotricha_insidiata",
-  "total_pages_processed": 788357,
-  "total_records": 14666,
-  "auto_pass": 12995,
-  "needs_review": 1671,
+  "apcontinue": "Ara_Malikian_discography",
+  "total_pages_processed": 824783,
+  "total_records": 14976,
+  "auto_pass": 13277,
+  "needs_review": 1699,
   "current_shard": 8,
-  "current_shard_records": 666,
+  "current_shard_records": 976,
   "source_exhausted": false
 }

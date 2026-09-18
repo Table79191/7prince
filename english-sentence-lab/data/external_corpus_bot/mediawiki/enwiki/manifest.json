@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 183258,
-  "total_records": 4169,
-  "auto_pass": 3734,
-  "needs_review": 435,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "1999-2000_División_de_Honor_de_Fútbol_Femenino",
+  "total_pages_processed": 223688,
+  "total_records": 4709,
+  "auto_pass": 4180,
+  "needs_review": 529,
+  "added_this_run": 224,
+  "skipped_this_run": 9,
+  "apcontinue": "2007-08_APOEL_F.C._season",
   "source_exhausted": false,
   "shard_count": 3
 }

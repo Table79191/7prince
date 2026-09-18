@@ -1,10 +1,10 @@
 {
-  "apcontinue": "1999-2000_División_de_Honor_de_Fútbol_Femenino",
-  "total_pages_processed": 183258,
-  "total_records": 4169,
-  "auto_pass": 3734,
-  "needs_review": 435,
+  "apcontinue": "2007-08_APOEL_F.C._season",
+  "total_pages_processed": 223688,
+  "total_records": 4709,
+  "auto_pass": 4180,
+  "needs_review": 529,
   "current_shard": 3,
-  "current_shard_records": 169,
+  "current_shard_records": 709,
   "source_exhausted": false
 }

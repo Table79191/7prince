@@ -1,6 +1,10 @@
 name: SentenceLab Tatoeba Daily500 evaluation
 
 on:
+  workflow_run:
+    workflows: ["SentenceLab R012 school regression patch"]
+    types: [completed]
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -19,6 +23,7 @@ permissions:
 
 jobs:
   tatoeba500-eval:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -47,25 +52,40 @@ jobs:
       - name: Evaluate Tatoeba Daily500
         run: python english-sentence-lab/eval/eval_tatoeba500.py
 
-      - name: Commit benchmark artifacts
+      - name: Commit benchmark artifacts safely
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'sentence-lab-bot'
-          git config user.email 'sentence-lab-bot@users.noreply.github.com'
-          git add \
-            english-sentence-lab/artifacts/tatoeba_daily500_eval.json \
-            english-sentence-lab/artifacts/tatoeba_daily500_eval.txt \
-            english-sentence-lab/data/tatoeba500/TatoebaDaily500_CC0.tsv
-          if git diff --cached --quiet; then
-            echo 'No Tatoeba500 report changes.'
-            exit 0
-          fi
-          git commit -m 'eval: save Tatoeba Daily500 practical benchmark'
+          git config user.name sentence-lab-bot
+          git config user.email sentence-lab-bot@users.noreply.github.com
+          tmp="$(mktemp -d)"
+          cp 'english-sentence-lab/artifacts/tatoeba_daily500_eval.json' "$tmp/0"
+          cp 'english-sentence-lab/artifacts/tatoeba_daily500_eval.txt' "$tmp/1"
+          cp 'english-sentence-lab/data/tatoeba500/TatoebaDaily500_CC0.tsv' "$tmp/2"
+
           for attempt in 1 2 3; do
             git fetch origin main
-            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
-            git rebase --abort 2>/dev/null || true
-            sleep $((attempt*2))
+            git reset --hard origin/main
+
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/tatoeba_daily500_eval.json')"
+            cp "$tmp/0" 'english-sentence-lab/artifacts/tatoeba_daily500_eval.json'
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/tatoeba_daily500_eval.txt')"
+            cp "$tmp/1" 'english-sentence-lab/artifacts/tatoeba_daily500_eval.txt'
+            mkdir -p "$(dirname 'english-sentence-lab/data/tatoeba500/TatoebaDaily500_CC0.tsv')"
+            cp "$tmp/2" 'english-sentence-lab/data/tatoeba500/TatoebaDaily500_CC0.tsv'
+
+            git add \
+              'english-sentence-lab/artifacts/tatoeba_daily500_eval.json' \
+              'english-sentence-lab/artifacts/tatoeba_daily500_eval.txt' \
+              'english-sentence-lab/data/tatoeba500/TatoebaDaily500_CC0.tsv'
+            if git diff --cached --quiet; then
+              echo 'Outputs already present on latest main.'
+              exit 0
+            fi
+            git commit -m 'eval: save Tatoeba Daily500 practical benchmark'
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
           done
           exit 1

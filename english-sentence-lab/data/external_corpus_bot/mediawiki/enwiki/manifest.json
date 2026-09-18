@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 862554,
-  "total_records": 16192,
-  "auto_pass": 14331,
-  "needs_review": 1861,
+  "total_pages_processed": 900621,
+  "total_records": 16894,
+  "auto_pass": 14911,
+  "needs_review": 1983,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Arrowhead_Farms,_San_Bernardino,_California",
+  "apcontinue": "Astro_Squad",
   "source_exhausted": false,
   "shard_count": 9
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Arrowhead_Farms,_San_Bernardino,_California",
-  "total_pages_processed": 862554,
-  "total_records": 16192,
-  "auto_pass": 14331,
-  "needs_review": 1861,
+  "apcontinue": "Astro_Squad",
+  "total_pages_processed": 900621,
+  "total_records": 16894,
+  "auto_pass": 14911,
+  "needs_review": 1983,
   "current_shard": 9,
-  "current_shard_records": 192,
+  "current_shard_records": 894,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 139857,
-  "total_records": 3808,
-  "auto_pass": 3402,
-  "needs_review": 406,
+  "total_pages_processed": 183258,
+  "total_records": 4169,
+  "auto_pass": 3734,
+  "needs_review": 435,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "1985_Florida_Gators_football_team",
+  "apcontinue": "1999-2000_División_de_Honor_de_Fútbol_Femenino",
   "source_exhausted": false,
-  "shard_count": 2
+  "shard_count": 3
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Zeta",
-  "total_pages_processed": 283228,
-  "total_records": 113,
-  "auto_pass": 105,
-  "needs_review": 8,
+  "apcontinue": null,
+  "total_pages_processed": 285109,
+  "total_records": 148,
+  "auto_pass": 137,
+  "needs_review": 11,
   "current_shard": 1,
-  "current_shard_records": 113,
-  "source_exhausted": false
+  "current_shard_records": 148,
+  "source_exhausted": true
 }

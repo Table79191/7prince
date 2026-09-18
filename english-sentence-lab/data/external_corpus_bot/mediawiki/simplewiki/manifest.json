@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 283228,
-  "total_records": 113,
-  "auto_pass": 105,
-  "needs_review": 8,
-  "added_this_run": 0,
+  "total_pages_processed": 285109,
+  "total_records": 148,
+  "auto_pass": 137,
+  "needs_review": 11,
+  "added_this_run": 4,
   "skipped_this_run": 0,
-  "apcontinue": "Zeta",
-  "source_exhausted": false,
+  "apcontinue": null,
+  "source_exhausted": true,
   "shard_count": 1
 }

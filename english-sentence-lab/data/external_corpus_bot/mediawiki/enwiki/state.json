@@ -1,10 +1,10 @@
 {
-  "apcontinue": "1985_Florida_Gators_football_team",
-  "total_pages_processed": 139857,
-  "total_records": 3808,
-  "auto_pass": 3402,
-  "needs_review": 406,
-  "current_shard": 2,
-  "current_shard_records": 1808,
+  "apcontinue": "1999-2000_División_de_Honor_de_Fútbol_Femenino",
+  "total_pages_processed": 183258,
+  "total_records": 4169,
+  "auto_pass": 3734,
+  "needs_review": 435,
+  "current_shard": 3,
+  "current_shard_records": 169,
   "source_exhausted": false
 }

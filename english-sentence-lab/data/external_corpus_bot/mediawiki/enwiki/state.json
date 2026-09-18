@@ -1,10 +1,10 @@
 {
-  "apcontinue": "1773_in_Denmark",
-  "total_pages_processed": 21415,
-  "total_records": 1665,
-  "auto_pass": 1411,
-  "needs_review": 254,
-  "current_shard": 1,
-  "current_shard_records": 1665,
+  "apcontinue": "18th_Medical_Command",
+  "total_pages_processed": 39027,
+  "total_records": 2138,
+  "auto_pass": 1850,
+  "needs_review": 288,
+  "current_shard": 2,
+  "current_shard_records": 138,
   "source_exhausted": false
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "United_States_Postage_Meter_Stamp_Catalog/Sub-group_AR-NAV:_Stamps_used_by_the_Navy_for_official_business",
-  "total_pages_processed": 86215,
+  "apcontinue": null,
+  "total_pages_processed": 90573,
   "total_records": 3,
   "auto_pass": 3,
   "needs_review": 0,
   "current_shard": 1,
   "current_shard_records": 3,
-  "source_exhausted": false
+  "source_exhausted": true
 }

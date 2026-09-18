@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 72463,
+  "total_pages_processed": 103010,
   "total_records": 6,
   "auto_pass": 6,
   "needs_review": 0,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Disco_music",
+  "apcontinue": "Gravières",
   "source_exhausted": false,
   "shard_count": 1
 }

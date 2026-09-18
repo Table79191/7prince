@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 86215,
+  "total_pages_processed": 90573,
   "total_records": 3,
   "auto_pass": 3,
   "needs_review": 0,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "United_States_Postage_Meter_Stamp_Catalog/Sub-group_AR-NAV:_Stamps_used_by_the_Navy_for_official_business",
-  "source_exhausted": false,
+  "apcontinue": null,
+  "source_exhausted": true,
   "shard_count": 1
 }

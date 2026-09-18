@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sentence-lab-r012-safe-feed
+  group: sentence-lab-r012-school-heads-v1
   cancel-in-progress: false
 
 jobs:

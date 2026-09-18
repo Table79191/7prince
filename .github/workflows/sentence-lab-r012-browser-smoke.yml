@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/sentence-lab-r012-browser-smoke.yml'
+      - 'english-sentence-lab/web/r012/browser_rules.js'
+      - 'english-sentence-lab/web/r012/r012_role.onnx'
   workflow_dispatch:
 
 permissions:
@@ -23,6 +25,34 @@ jobs:
           python-version: '3.12'
       - name: Install runtime
         run: python -m pip install numpy onnxruntime
+      - name: Test shared browser grammar rules
+        shell: bash
+        run: |
+          node - <<'JS'
+          const r=require('./english-sentence-lab/web/r012/browser_rules.js');
+
+          const t1=r.splitTokens("I can't believe it.");
+          if(JSON.stringify(t1)!==JSON.stringify(['I','can','not','believe','it','.'])){
+            throw new Error('contraction normalization failed: '+JSON.stringify(t1));
+          }
+
+          const wh=['what','the','hell','was','that','?'];
+          const whPos=['PRON','DET','NOUN','AUX','DET','PUNCT'];
+          const whRaw=['C','C','C','V','C',null];
+          const whFinal=r.postprocessRoles(wh,whPos,whRaw);
+          if(JSON.stringify(whFinal)!==JSON.stringify(['C','M','M','V','S',null])){
+            throw new Error('WH regression failed: '+JSON.stringify(whFinal));
+          }
+
+          const np=['my','0.001','%','powers'];
+          const npPos=['DET','NUM','SYM','NOUN'];
+          const npFinal=r.postprocessRoles(np,npPos,['O','O','O','O']);
+          if(JSON.stringify(npFinal)!==JSON.stringify(['M','M','M','O'])){
+            throw new Error('NP-head regression failed: '+JSON.stringify(npFinal));
+          }
+
+          console.log('browser_rules regressions: ok');
+          JS
       - name: Test HTML-equivalent preprocessing and R012 ONNX
         shell: bash
         run: |
@@ -49,18 +79,34 @@ jobs:
           intj=set("oh wow hey hi hello yes no okay ok thanks thank please sorry".split())
 
           def split_tokens(text):
-              s=re.sub(r"([A-Za-z]+)(n['’]t)\b",r"\1 \2",text,flags=re.I)
-              s=re.sub(r"([A-Za-z]+)(['’](?:s|re|ve|ll|d|m))\b",r"\1 \2",s,flags=re.I)
-              return re.findall(r"[A-Za-z]+|n['’]t|['’](?:s|re|ve|ll|d|m)|\d+(?:[.,]\d+)?|[^\sA-Za-z0-9]",s)
+              s=text.replace('’',"'").replace('‘',"'")
+              replacements=[
+                  (r"\bcan't\b",'can not'),(r"\bwon't\b",'will not'),(r"\bshan't\b",'shall not'),
+                  (r"\bdon't\b",'do not'),(r"\bdoesn't\b",'does not'),(r"\bdidn't\b",'did not'),
+                  (r"\bisn't\b",'is not'),(r"\baren't\b",'are not'),(r"\bwasn't\b",'was not'),
+                  (r"\bweren't\b",'were not'),(r"\bhaven't\b",'have not'),(r"\bhasn't\b",'has not'),
+                  (r"\bhadn't\b",'had not'),(r"\bcouldn't\b",'could not'),(r"\bshouldn't\b",'should not'),
+                  (r"\bwouldn't\b",'would not'),(r"\bmustn't\b",'must not')
+              ]
+              for pat,full in replacements:
+                  s=re.sub(pat,full,s,flags=re.I)
+              s=re.sub(r"\b([A-Za-z]+)n't\b",r"\1 not",s,flags=re.I)
+              s=re.sub(r"\b([A-Za-z]+)'re\b",r"\1 are",s,flags=re.I)
+              s=re.sub(r"\b([A-Za-z]+)'ve\b",r"\1 have",s,flags=re.I)
+              s=re.sub(r"\b([A-Za-z]+)'ll\b",r"\1 will",s,flags=re.I)
+              s=re.sub(r"\b([A-Za-z]+)'m\b",r"\1 am",s,flags=re.I)
+              return re.findall(r"[A-Za-z]+|'(?:s|d)|\d+(?:[.,]\d+)?|[^\sA-Za-z0-9]",s)
 
           def infer_pos(tokens):
               out=[]
               for i,raw in enumerate(tokens):
                   w=raw.lower().replace('’',"'")
-                  if re.fullmatch(r"[^\w']+",raw): p='PUNCT'
+                  if raw=='%': p='SYM'
+                  elif re.fullmatch(r"[^\w']+",raw): p='PUNCT'
                   elif re.fullmatch(r"\d+(?:[.,]\d+)?",raw): p='NUM'
                   elif w=="n't" or w=='not': p='PART'
                   elif w in aux: p='AUX'
+                  elif w in {'my','your','his','her','its','our','their'}: p='DET'
                   elif w in pronouns: p='PRON'
                   elif w in dets: p='DET'
                   elif w in cconj: p='CCONJ'

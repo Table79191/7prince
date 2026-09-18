@@ -45,6 +45,7 @@ jobs:
           python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/train.py
           python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/infer.py
           python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/smoke_test.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1/challenge_probe.py
 
       - name: Structural smoke
         run: |
@@ -77,10 +78,16 @@ jobs:
           },indent=2))
           PY
 
+      - name: Hard sentence challenge
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1
+          python challenge_probe.py             --model artifacts/mini_clause_anchor_graph_v1.pt             --out artifacts/challenge_probe.json
+
       - uses: actions/upload-artifact@v4
         with:
           name: clause-anchor-graph-v1-mini
           path: |
             english-sentence-lab/experiments/clause_anchor_graph_v1/artifacts/mini_clause_anchor_graph_v1.pt
             english-sentence-lab/experiments/clause_anchor_graph_v1/artifacts/mini_metrics.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1/artifacts/challenge_probe.json
           retention-days: 14

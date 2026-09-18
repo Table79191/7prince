@@ -21,6 +21,7 @@ import hashlib
 import json
 from pathlib import Path
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -84,7 +85,7 @@ def now_pair() -> tuple[str, str]:
     return utc.isoformat(), kst.isoformat()
 
 
-def request_json(api: str, params: dict[str, str | int], retries: int = 4) -> dict:
+def request_json(api: str, params: dict[str, str | int], retries: int = 7) -> dict:
     q = dict(params)
     q["format"] = "json"
     q["formatversion"] = "2"
@@ -99,14 +100,30 @@ def request_json(api: str, params: dict[str, str | int], retries: int = 4) -> di
             },
         )
         try:
+            # A small global throttle is cheap and avoids hammering the same API
+            # when several sources are being round-robined.
+            time.sleep(0.2)
             with urllib.request.urlopen(req, timeout=90) as r:
                 return json.loads(r.read().decode("utf-8"))
-        except Exception as exc:
+        except urllib.error.HTTPError as exc:
+            last = exc
+            retryable = exc.code in {429, 500, 502, 503, 504}
+            if not retryable or attempt + 1 >= retries:
+                break
+            retry_after = exc.headers.get("Retry-After")
+            try:
+                delay = float(retry_after) if retry_after else 0.0
+            except ValueError:
+                delay = 0.0
+            if delay <= 0:
+                delay = min(90.0, 5.0 * (2 ** attempt))
+            time.sleep(delay)
+        except (urllib.error.URLError, TimeoutError, OSError) as exc:
             last = exc
             if attempt + 1 >= retries:
                 break
-            time.sleep(min(20, 2 ** attempt))
-    raise RuntimeError(f"MediaWiki API failed: {url}: {last}")
+            time.sleep(min(60.0, 2.0 * (2 ** attempt)))
+    raise RuntimeError(f"MediaWiki API failed after retries: {url}: {last}")
 
 
 def load_json(path: Path, default: dict) -> dict:
@@ -490,7 +507,15 @@ def main() -> None:
                 active = []
                 break
             cfg = MEDIAWIKI_SOURCES[key]
-            added, skipped, exhausted = process_batch(key, cfg, nlp)
+            try:
+                added, skipped, exhausted = process_batch(key, cfg, nlp)
+            except RuntimeError as exc:
+                # One rate-limited site must not discard successful progress from
+                # the other MediaWiki sources. Stop this source for the current run
+                # and let the next scheduled run resume from its unchanged state.
+                stats[key]["error"] = str(exc)
+                print(f"{key}: deferred after API error: {exc}")
+                continue
             stats[key]["added"] += added
             stats[key]["skipped"] += skipped
             stats[key]["exhausted"] = exhausted

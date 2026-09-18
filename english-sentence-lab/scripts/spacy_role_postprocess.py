@@ -245,15 +245,25 @@ def postprocess_roles(doc, neural_roles):
                 if t.dep_.lower() == 'conj' and t.head.i < there_i and out[t.head.i] == 'M':
                     out[i]='M'; reason[i]='fronted-between-conj'
 
-    # 14) Coordination inheritance after all core repairs.
+    # 14) Conservative coordination inheritance.
+    # Only copy an explicit subject/object role from a nominal head to a nominal
+    # conjunct. Broad C/M inheritance caused false positives such as
+    # "a need or a want", "you or anything", and "one or the other".
     for _ in range(3):
         changed=False
         for i,t in enumerate(doc):
-            if (t.dep_.lower() == 'conj' and t.pos_ not in {'VERB','AUX','ADV','SCONJ'}
-                    and t.lower_ not in WH_ADVERBIALS):
-                hr=out[t.head.i]
-                if hr in {'S','O','C','M'} and out[i] != hr:
-                    out[i]=hr; reason[i]='conj-inherit'; changed=True
+            if t.dep_.lower() != 'conj' or t.pos_ not in {'NOUN','PROPN'}:
+                continue
+            head=t.head
+            hdep=head.dep_.lower()
+            if hdep in SUBJECT_DEPS:
+                hr='S'
+            elif hdep in OBJECT_DEPS:
+                hr='O'
+            else:
+                continue
+            if out[i] != hr:
+                out[i]=hr; reason[i]='conj-inherit-explicit-core'; changed=True
         if not changed:
             break
 

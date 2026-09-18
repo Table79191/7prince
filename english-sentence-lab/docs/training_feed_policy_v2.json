@@ -1,0 +1,98 @@
+{
+  "version": "SENTENCELAB-TRAINING-FEED-POLICY-2",
+  "decision_date": "2026-09-18",
+  "principles": {
+    "no_eval_leakage": true,
+    "gold_and_weak_labels_must_be_separate": true,
+    "ambiguous_labels_are_not_supervised_targets": true,
+    "source_balance_required": true,
+    "weak_data_must_not_dominate_gold": true
+  },
+  "gold_ud": {
+    "decision": "APPROVED_FOR_SUPERVISED_TRAINING",
+    "records_seen": 70251,
+    "rules": {
+      "include_only_upstream_train_files": true,
+      "train_filename_pattern": "*-train.conllu",
+      "exclude_dev_files": true,
+      "exclude_test_files": true,
+      "exclude_analysis_status": [
+        "needs_review"
+      ],
+      "exclude_any_token_role": [
+        "AMBIG"
+      ],
+      "dedupe_normalized_text": true
+    },
+    "source_weighting": {
+      "ewt": 1,
+      "atis": 0.7,
+      "childes": 0.35,
+      "eslspok": 0.7,
+      "esl": 0.7
+    },
+    "evaluation_only_sources": [
+      "ctetex",
+      "littleprince",
+      "pronouns",
+      "pud"
+    ],
+    "reason": "UD dependencies are gold annotations, but the collected files mix upstream train/dev/test. CHILDES dominates the corpus, so it is down-weighted to reduce domain skew."
+  },
+  "tatoeba": {
+    "decision": "CONDITIONAL_WEAK_FEED_ONLY",
+    "records_seen": 25546,
+    "auto_pass_seen": 24984,
+    "needs_review_seen": 562,
+    "rules": {
+      "never_treat_as_gold": true,
+      "require_analysis_status": "auto_pass",
+      "exclude_any_token_role": [
+        "AMBIG"
+      ],
+      "min_tokens": 6,
+      "max_tokens": 100,
+      "require_core_predicate": true,
+      "require_one_of_roles": [
+        "S",
+        "O",
+        "C"
+      ],
+      "require_independent_parser_consensus": true,
+      "dedupe_against_gold_and_weak": true,
+      "max_fraction_of_training_batch": 0.2,
+      "loss_weight_relative_to_gold": 0.15
+    },
+    "reason": "Labels are generated from Stanza parses rather than human gold. Auto-pass only means the canonicalizer did not mark an ambiguity; it is not a correctness guarantee. Use only consensus-filtered examples at low weight."
+  },
+  "mediawiki": {
+    "decision": "HOLD",
+    "rules": {
+      "do_not_train_until_first_successful_collection": true,
+      "require_source_level_audit": true,
+      "require_deduplication": true,
+      "require_revision_and_license_provenance": true,
+      "after_approval_follow_tatoeba_weak_rules": true
+    },
+    "reason": "No committed corpus exists yet; the first collection run failed with HTTP 429 before validation/commit."
+  },
+  "validation_and_test": {
+    "ud_dev": "VALIDATION_ONLY",
+    "ud_test": "TEST_ONLY",
+    "test_only_treebanks": [
+      "ctetex",
+      "littleprince",
+      "pronouns",
+      "pud"
+    ],
+    "never_train_on_these": true
+  },
+  "promotion_gate": {
+    "weak_feed_can_be_promoted_only_if": [
+      "independent parser consensus audit passes",
+      "held-out UD dev/test metrics do not regress beyond 0.3 percentage points",
+      "complex-sentence exact accuracy does not regress",
+      "source-specific error audit shows no new systematic S/O/C failure mode"
+    ]
+  }
+}

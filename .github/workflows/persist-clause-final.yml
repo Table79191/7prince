@@ -41,4 +41,5 @@ jobs:
           git add english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final_metrics.json
           git add english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final_comparison.json
           git commit -m "model: persist ClauseAnchorGraph FINAL candidate"
+          git pull --rebase origin main
           git push origin HEAD:main

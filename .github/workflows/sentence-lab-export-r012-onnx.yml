@@ -1,0 +1,83 @@
+name: SentenceLab export R012 ONNX
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/export_r012_onnx.py'
+      - '.github/workflows/sentence-lab-export-r012-onnx.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Refresh main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install export dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install onnx onnxruntime
+      - name: Export R012
+        run: |
+          cd english-sentence-lab
+          python scripts/export_r012_onnx.py
+      - name: Validate ONNX against PyTorch
+        run: |
+          cd english-sentence-lab
+          python - <<'PY'
+          import sys, numpy as np, torch, onnx, onnxruntime as ort
+          from pathlib import Path
+          sys.path.insert(0,'train')
+          import train_ud_role as base
+          ck=torch.load('artifacts/v1.8.1_r012_safe_feed_role.pt',map_location='cpu',weights_only=False)
+          model=base.RoleNet().cpu(); model.load_state_dict(ck['model'],strict=True); model.eval()
+          L=9
+          wid=torch.randint(0,8192,(1,L),dtype=torch.long)
+          pre=torch.randint(0,1024,(1,L),dtype=torch.long)
+          suf=torch.randint(0,1024,(1,L),dtype=torch.long)
+          pos=torch.randint(0,len(base.POS_LIST),(1,L),dtype=torch.long)
+          role=torch.randint(0,6,(1,L),dtype=torch.long)
+          shape=torch.rand(1,L,8)
+          mask=torch.ones(1,L,dtype=torch.bool)
+          with torch.no_grad():
+              pt=model({'wid':wid,'pre':pre,'suf':suf,'pos':pos,'role':role,'shape':shape},mask).numpy()
+          p='web/r012/r012_role.onnx'
+          onnx.checker.check_model(onnx.load(p))
+          sess=ort.InferenceSession(p,providers=['CPUExecutionProvider'])
+          feeds={'wid':wid.numpy(),'pre':pre.numpy(),'suf':suf.numpy(),'pos':pos.numpy(),'role':role.numpy(),'shape':shape.numpy(),'mask':mask.numpy()}
+          ox=sess.run(['logits'],feeds)[0]
+          err=float(np.max(np.abs(pt-ox)))
+          print('max_abs_error',err)
+          assert err < 1e-3, err
+          PY
+      - name: Commit web model
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-bot
+          git config user.email sentence-lab-bot@users.noreply.github.com
+          git add english-sentence-lab/web/r012/r012_role.onnx english-sentence-lab/web/r012/model_meta.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'web: export R012 ONNX model'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep 3
+          done
+          exit 1

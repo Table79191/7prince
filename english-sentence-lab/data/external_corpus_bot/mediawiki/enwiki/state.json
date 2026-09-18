@@ -1,0 +1,10 @@
+{
+  "apcontinue": "10.15678",
+  "total_pages_processed": 4308,
+  "total_records": 1375,
+  "auto_pass": 1176,
+  "needs_review": 199,
+  "current_shard": 1,
+  "current_shard_records": 1375,
+  "source_exhausted": false
+}

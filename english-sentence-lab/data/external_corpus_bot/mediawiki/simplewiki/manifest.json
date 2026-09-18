@@ -1,0 +1,29 @@
+{
+  "version": "SENTENCELAB-EXTERNAL-MEDIAWIKI-1",
+  "source_key": "simplewiki",
+  "provider": "Simple English Wikipedia",
+  "api": "https://simple.wikipedia.org/w/api.php",
+  "project_url": "https://simple.wikipedia.org/",
+  "license": "CC-BY-SA-4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "label_quality": "weak_parser_generated",
+  "parser": "stanza tokenize,pos,lemma,depparse -> SentenceLab canonical roles",
+  "policy": {
+    "total_corpus_limit": 0,
+    "per_run_sentence_limit": 0,
+    "append_only": true,
+    "shard_size": 2000,
+    "separate_from_gold_ud_corpus": true,
+    "crawl_order": "MediaWiki allpages namespace 0",
+    "attribution": "page URL + revision id + history URL retained per record"
+  },
+  "total_pages_processed": 23164,
+  "total_records": 6,
+  "auto_pass": 6,
+  "needs_review": 0,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Arrondissement_of_Montbrison",
+  "source_exhausted": false,
+  "shard_count": 1
+}

@@ -1,0 +1,29 @@
+{
+  "version": "SENTENCELAB-EXTERNAL-MEDIAWIKI-1",
+  "source_key": "enwikibooks",
+  "provider": "English Wikibooks",
+  "api": "https://en.wikibooks.org/w/api.php",
+  "project_url": "https://en.wikibooks.org/",
+  "license": "CC-BY-SA-4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "label_quality": "weak_parser_generated",
+  "parser": "stanza tokenize,pos,lemma,depparse -> SentenceLab canonical roles",
+  "policy": {
+    "total_corpus_limit": 0,
+    "per_run_sentence_limit": 0,
+    "append_only": true,
+    "shard_size": 2000,
+    "separate_from_gold_ud_corpus": true,
+    "crawl_order": "MediaWiki allpages namespace 0",
+    "attribution": "page URL + revision id + history URL retained per record"
+  },
+  "total_pages_processed": 28726,
+  "total_records": 0,
+  "auto_pass": 0,
+  "needs_review": 0,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Exercise_as_it_relates_to_Disease/Post-Concussion_Syndrome;_prescribing_exercise_to_reduce_symptoms",
+  "source_exhausted": false,
+  "shard_count": 1
+}

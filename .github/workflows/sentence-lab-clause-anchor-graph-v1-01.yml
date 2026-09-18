@@ -1,0 +1,95 @@
+name: SentenceLab ClauseAnchorGraph v1.01
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/experiments/clause_anchor_graph_v1_01/**'
+      - '.github/workflows/sentence-lab-clause-anchor-graph-v1-01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sentence-lab-clause-anchor-graph-v1-01
+  cancel-in-progress: true
+
+jobs:
+  smoke-mini-train-challenge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/data/web_corpus_bot
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax
+        run: |
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/model.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/data.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/train.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/infer.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/smoke_test.py
+          python -m py_compile english-sentence-lab/experiments/clause_anchor_graph_v1_01/challenge_probe.py
+
+      - name: Structural smoke
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python smoke_test.py
+
+      - name: Mini learning test
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python train.py             --epochs 2             --batch 16             --max-per-source 240             --lr 4e-4             --out artifacts/mini_clause_anchor_graph_v1_01.pt             --metrics artifacts/mini_metrics_v1_01.json
+
+      - name: Verify learning artifact
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('artifacts/mini_metrics_v1_01.json').read_text())
+          assert m['version']=='CLAUSE-ANCHOR-GRAPH-V1.01'
+          assert m['params'] > 100000
+          assert m['train_sentences'] > 200
+          assert m['selected']['role_accuracy'] > m['baseline_random']['role_accuracy']
+          assert m['selected']['owner_accuracy'] > m['baseline_random']['owner_accuracy']
+          print(json.dumps({
+            'version':m['version'],
+            'params':m['params'],
+            'train_sentences':m['train_sentences'],
+            'baseline_role_accuracy':m['baseline_random']['role_accuracy'],
+            'selected_role_accuracy':m['selected']['role_accuracy'],
+            'clause_head_f1':m['selected']['clause_head_f1'],
+            'owner_accuracy':m['selected']['owner_accuracy']
+          },indent=2))
+          PY
+
+      - name: Hard sentence challenge
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python challenge_probe.py             --model artifacts/mini_clause_anchor_graph_v1_01.pt             --out artifacts/challenge_probe_v1_01.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-mini
+          path: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/mini_clause_anchor_graph_v1_01.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/mini_metrics_v1_01.json
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/artifacts/challenge_probe_v1_01.json
+          retention-days: 14

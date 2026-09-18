@@ -1,0 +1,1841 @@
+{
+  "model_version": "1.8.5-R015-ACCUMULATED-FINAL",
+  "hard14": {
+    "set": "NOVEL_HARD14_V1",
+    "sentences": 14,
+    "focus_correct": 80,
+    "focus_total": 87,
+    "focus_accuracy": 0.9195402298850575,
+    "exact_sentences": 8,
+    "exact_rate": 0.5714285714285714,
+    "cases": [
+      {
+        "id": "H01_INVERSION",
+        "sentence": "Only when the auditors compared the archived invoices did the accountant admit that several payments had been recorded twice.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 3,
+            "token": "auditors",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "invoices",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 10,
+            "token": "accountant",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "admit",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "payments",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "recorded",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H02_CLEFT",
+        "sentence": "It was the technician who the supervisor believed had misconfigured the sensor that triggered the shutdown.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 3,
+            "token": "technician",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "who",
+            "gold": "S",
+            "pred": "C",
+            "ok": false
+          },
+          {
+            "index": 6,
+            "token": "supervisor",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "sensor",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "that",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "shutdown",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H03_PSEUDOCLEFT",
+        "sentence": "What the committee considered unacceptable was that the contractor had concealed the structural defect.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 0,
+            "token": "What",
+            "gold": "O",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 2,
+            "token": "committee",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "unacceptable",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "contractor",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "concealed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "defect",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H04_REDUCED_PASSIVE",
+        "sentence": "The prototype expected to withstand extreme heat was found to have developed a microscopic fracture near the seal.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 1,
+            "token": "prototype",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "withstand",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "heat",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "found",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "developed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "fracture",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H05_NOMINAL_SUBJECT",
+        "sentence": "Whether the merger would reduce costs or merely shift them remained unclear to investors who had studied the proposal.",
+        "focus_correct": 4,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 2,
+            "token": "merger",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "costs",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "them",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 11,
+            "token": "unclear",
+            "gold": "C",
+            "pred": "O",
+            "ok": false
+          },
+          {
+            "index": 14,
+            "token": "who",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 18,
+            "token": "proposal",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H06_NEITHER_INVERSION",
+        "sentence": "Neither had the reviewers noticed the missing appendix, nor did the editor realize that the citations contradicted the conclusion.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 3,
+            "token": "reviewers",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "appendix",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "editor",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "realize",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 16,
+            "token": "citations",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 19,
+            "token": "conclusion",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H07_CONDITIONAL_INVERSION",
+        "sentence": "Had the pilot known that the alternate runway was closed, she would have diverted the aircraft before the storm reached the airport.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 2,
+            "token": "pilot",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "runway",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "closed",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "she",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 16,
+            "token": "aircraft",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 19,
+            "token": "storm",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 22,
+            "token": "airport",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H08_EXTRAPOSITION",
+        "sentence": "It became obvious after the second simulation that the algorithm which the team had trusted was amplifying measurement noise.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 0,
+            "token": "It",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 2,
+            "token": "obvious",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "algorithm",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "team",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "trusted",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 18,
+            "token": "noise",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H09_OBJECT_COMPLEMENT",
+        "sentence": "The judge found the witness unusually evasive after the prosecutor showed her the photographs that contradicted her testimony.",
+        "focus_correct": 7,
+        "focus_total": 8,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "judge",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "witness",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "evasive",
+            "gold": "C",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 9,
+            "token": "prosecutor",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "her",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "photographs",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "that",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "testimony",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H10_OBJECT_CONTROL",
+        "sentence": "The director persuaded the analyst whom the board had hired to revise the forecast before the clients arrived.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 1,
+            "token": "director",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "analyst",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "whom",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "board",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "revise",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "forecast",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 16,
+            "token": "clients",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H11_NOT_ONLY",
+        "sentence": "Not only did the experiment fail to confirm the hypothesis, but the follow-up analysis also revealed that the control samples had been contaminated.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 4,
+            "token": "experiment",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "hypothesis",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "analysis",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 16,
+            "token": "revealed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 20,
+            "token": "samples",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 23,
+            "token": "contaminated",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H12_FREE_RELATIVE",
+        "sentence": "The investigators reconstructed what the witness claimed the driver had done before the camera stopped recording.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 1,
+            "token": "investigators",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "what",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "witness",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "driver",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "done",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "camera",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "recording",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H13_COMPARATIVE_CORRELATIVE",
+        "sentence": "The more carefully the engineers examined the logs, the less plausible the vendor's explanation became.",
+        "focus_correct": 4,
+        "focus_total": 5,
+        "exact": false,
+        "checks": [
+          {
+            "index": 4,
+            "token": "engineers",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "logs",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "plausible",
+            "gold": "C",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 14,
+            "token": "explanation",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "became",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "H14_REDUCED_RELATIVES",
+        "sentence": "Documents recovered from the damaged server revealed inconsistencies overlooked during the initial audit.",
+        "focus_correct": 5,
+        "focus_total": 5,
+        "exact": true,
+        "checks": [
+          {
+            "index": 0,
+            "token": "Documents",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 1,
+            "token": "recovered",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "revealed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "inconsistencies",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "overlooked",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      }
+    ]
+  },
+  "final_blind16": {
+    "set": "FINAL_BLIND16_V1",
+    "sentences": 16,
+    "focus_correct": 89,
+    "focus_total": 103,
+    "focus_accuracy": 0.8640776699029126,
+    "exact_sentences": 7,
+    "exact_rate": 0.4375,
+    "cases": [
+      {
+        "id": "F01_NO_SOONER",
+        "sentence": "No sooner had the inspectors entered the warehouse than the alarm revealed that someone had disabled the ventilation system.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 4,
+            "token": "inspectors",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "warehouse",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "alarm",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "revealed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "someone",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 18,
+            "token": "system",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F02_RAISING",
+        "sentence": "The scientist seemed to have overlooked the warning that the calibration software had generated.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 1,
+            "token": "scientist",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 2,
+            "token": "seemed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "overlooked",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "warning",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "that",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "software",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "generated",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F03_EXISTENTIAL",
+        "sentence": "There appeared to be several discrepancies that neither reviewer could explain without examining the raw measurements.",
+        "focus_correct": 3,
+        "focus_total": 5,
+        "exact": false,
+        "checks": [
+          {
+            "index": 5,
+            "token": "discrepancies",
+            "gold": "S",
+            "pred": "C",
+            "ok": false
+          },
+          {
+            "index": 6,
+            "token": "that",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 8,
+            "token": "reviewer",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "explain",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "measurements",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F04_RAISING_PASSIVE",
+        "sentence": "The device was believed to have remained stable until an unexpected voltage spike damaged the controller.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "device",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "believed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "remained",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "stable",
+            "gold": "C",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 12,
+            "token": "spike",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "controller",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F05_RESULTATIVE",
+        "sentence": "The collision knocked the access panel open before the emergency crew could secure the compartment.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "collision",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "panel",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "open",
+            "gold": "C",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 10,
+            "token": "crew",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "secure",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "compartment",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F06_SMALL_CLAUSE",
+        "sentence": "The board considered the revised estimate too optimistic to justify the additional investment.",
+        "focus_correct": 4,
+        "focus_total": 5,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "board",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "estimate",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "optimistic",
+            "gold": "C",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 9,
+            "token": "justify",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "investment",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F07_AS_COMPARATIVE",
+        "sentence": "The replacement system proved as reliable as the engineers had predicted after they corrected the firmware.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 2,
+            "token": "system",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "reliable",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "engineers",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "predicted",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "they",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "firmware",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F08_WHOEVER",
+        "sentence": "Whoever the committee appoints will inherit a project that previous managers repeatedly failed to stabilize.",
+        "focus_correct": 4,
+        "focus_total": 7,
+        "exact": false,
+        "checks": [
+          {
+            "index": 0,
+            "token": "Whoever",
+            "gold": "O",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 2,
+            "token": "committee",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "inherit",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "project",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "that",
+            "gold": "O",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 10,
+            "token": "managers",
+            "gold": "S",
+            "pred": "O",
+            "ok": false
+          },
+          {
+            "index": 14,
+            "token": "stabilize",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F09_EMBEDDED_QUESTION",
+        "sentence": "The auditors could not determine why the subsidiary had reported revenue that its own records did not support.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 1,
+            "token": "auditors",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "determine",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "subsidiary",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "revenue",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "that",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "records",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "support",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F10_GERUND_SUBJECT",
+        "sentence": "Having the interns repeat the measurement seemed unnecessary once the control sample produced the expected value.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 2,
+            "token": "interns",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "repeat",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "measurement",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "seemed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "unnecessary",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "sample",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "value",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F11_APPOSITIVE_RELATIVE",
+        "sentence": "The claim that the sample was pure, which several analysts had already doubted, collapsed when contamination was detected.",
+        "focus_correct": 7,
+        "focus_total": 8,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "claim",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 4,
+            "token": "sample",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "pure",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 8,
+            "token": "which",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 10,
+            "token": "analysts",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "collapsed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "contamination",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 19,
+            "token": "detected",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F12_TOUGH_MOVEMENT",
+        "sentence": "The manuscript was difficult for the reviewers to interpret because several references had been omitted from the appendix.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "manuscript",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "difficult",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 6,
+            "token": "reviewers",
+            "gold": "S",
+            "pred": "M",
+            "ok": false
+          },
+          {
+            "index": 8,
+            "token": "interpret",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 11,
+            "token": "references",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "omitted",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F13_CAUSATIVE_PASSIVE",
+        "sentence": "The trainees were made to rewrite the protocol after the supervisor found the original instructions dangerously vague.",
+        "focus_correct": 5,
+        "focus_total": 6,
+        "exact": false,
+        "checks": [
+          {
+            "index": 1,
+            "token": "trainees",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "rewrite",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "protocol",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "supervisor",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "instructions",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 16,
+            "token": "vague",
+            "gold": "C",
+            "pred": "M",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "id": "F14_ABSOLUTE",
+        "sentence": "The weather having worsened unexpectedly, the pilot diverted the aircraft while the dispatcher notified the ground crew.",
+        "focus_correct": 6,
+        "focus_total": 6,
+        "exact": true,
+        "checks": [
+          {
+            "index": 1,
+            "token": "weather",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "worsened",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "pilot",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 10,
+            "token": "aircraft",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "dispatcher",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "crew",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F15_COORDINATED_ARGUMENTS",
+        "sentence": "The first team tested the sensor and the second team tested the controller that the supplier had replaced.",
+        "focus_correct": 7,
+        "focus_total": 7,
+        "exact": true,
+        "checks": [
+          {
+            "index": 2,
+            "token": "team",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 5,
+            "token": "sensor",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "team",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "controller",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 13,
+            "token": "that",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "supplier",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "replaced",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          }
+        ]
+      },
+      {
+        "id": "F16_DOUBLE_EMBEDDING",
+        "sentence": "What made the result surprising was how consistently the method that critics had dismissed outperformed the established baseline.",
+        "focus_correct": 5,
+        "focus_total": 8,
+        "exact": false,
+        "checks": [
+          {
+            "index": 0,
+            "token": "What",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "result",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 4,
+            "token": "surprising",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "method",
+            "gold": "S",
+            "pred": "C",
+            "ok": false
+          },
+          {
+            "index": 10,
+            "token": "that",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 11,
+            "token": "critics",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 14,
+            "token": "outperformed",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "baseline",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          }
+        ]
+      }
+    ]
+  },
+  "original64": {
+    "set": "ORIGINAL_64",
+    "sentences": 1,
+    "focus_correct": 24,
+    "focus_total": 28,
+    "focus_accuracy": 0.8571428571428571,
+    "exact_sentences": 0,
+    "exact_rate": 0.0,
+    "cases": [
+      {
+        "id": "ORIGINAL_64",
+        "sentence": "Although the researcher whom the committee had expected to resign after the data that she collected were questioned insisted that the model which the interns had trained was still reliable, the director, who had already warned everyone that the deadline was unrealistic, made the exhausted team rewrite the report before anyone could discover how many assumptions had been left unexplained.",
+        "focus_correct": 24,
+        "focus_total": 28,
+        "exact": false,
+        "checks": [
+          {
+            "index": 2,
+            "token": "researcher",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 3,
+            "token": "whom",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 5,
+            "token": "committee",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 7,
+            "token": "expected",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 9,
+            "token": "resign",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 12,
+            "token": "data",
+            "gold": "S",
+            "pred": "O",
+            "ok": false
+          },
+          {
+            "index": 14,
+            "token": "she",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 15,
+            "token": "collected",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 17,
+            "token": "questioned",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 18,
+            "token": "insisted",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 21,
+            "token": "model",
+            "gold": "S",
+            "pred": "O",
+            "ok": false
+          },
+          {
+            "index": 24,
+            "token": "interns",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 26,
+            "token": "trained",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 29,
+            "token": "reliable",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 32,
+            "token": "director",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 37,
+            "token": "warned",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 38,
+            "token": "everyone",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 41,
+            "token": "deadline",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 43,
+            "token": "unrealistic",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          },
+          {
+            "index": 45,
+            "token": "made",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 48,
+            "token": "team",
+            "gold": "O",
+            "pred": "S",
+            "ok": false
+          },
+          {
+            "index": 49,
+            "token": "rewrite",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 51,
+            "token": "report",
+            "gold": "O",
+            "pred": "O",
+            "ok": true
+          },
+          {
+            "index": 53,
+            "token": "anyone",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 55,
+            "token": "discover",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 58,
+            "token": "assumptions",
+            "gold": "S",
+            "pred": "S",
+            "ok": true
+          },
+          {
+            "index": 61,
+            "token": "left",
+            "gold": "V",
+            "pred": "V",
+            "ok": true
+          },
+          {
+            "index": 62,
+            "token": "unexplained",
+            "gold": "C",
+            "pred": "C",
+            "ok": true
+          }
+        ]
+      }
+    ]
+  }
+}

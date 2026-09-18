@@ -1,0 +1,180 @@
+{
+  "version": "1.8.5-R015-ACCUMULATED-FINAL",
+  "parent_checkpoint": "artifacts/v1.8.3_auto_promoted_silver_role.pt",
+  "parent_version": "1.8.3-AUTO-PROMOTED-SILVER",
+  "candidate_accepted": true,
+  "selected_phase": "upper_accumulated:1",
+  "params": 615558,
+  "feed": {
+    "approved_gold_train_sentences": 48140,
+    "accumulated_promoted_silver_sentences": 15620,
+    "promoted_rows_dropped_after_recheck": 0,
+    "promoted_silver_weight": 0.08,
+    "school_replay_sentences": 445,
+    "combined_sentences": 64205,
+    "ud_stats": {
+      "dev:atis": 560,
+      "gold_train:atis": 4214,
+      "drop_not_auto_pass": 2479,
+      "gold_train:childes": 32218,
+      "dev:childes": 3804,
+      "eval_only:ctetex": 218,
+      "dev:esl": 42,
+      "gold_train:esl": 7,
+      "gold_train:eslspok": 1625,
+      "dev:eslspok": 226,
+      "gold_train:ewt": 10076,
+      "dev:ewt": 1685,
+      "drop_train_duplicate": 8,
+      "eval_only:littleprince": 474,
+      "eval_only:pronouns": 275,
+      "eval_only:pud": 882
+    }
+  },
+  "baseline": {
+    "ud_dev": {
+      "sentences": 6317,
+      "tokens": 55353,
+      "base_role_acc": 0.7575921810922623,
+      "neural_role_acc": 0.9652954672736799,
+      "sentence_exact": 4854
+    },
+    "school_validation": {
+      "sentences": 176,
+      "tokens": 1096,
+      "base_role_acc": 0.9124087591240876,
+      "neural_role_acc": 0.9215328467153284,
+      "sentence_exact": 119
+    },
+    "score": 1.0802143287180146
+  },
+  "selected": {
+    "ud_dev": {
+      "sentences": 6317,
+      "tokens": 55353,
+      "base_role_acc": 0.7575921810922623,
+      "neural_role_acc": 0.9654580600870775,
+      "sentence_exact": 4865
+    },
+    "school_validation": {
+      "sentences": 176,
+      "tokens": 1096,
+      "base_role_acc": 0.9124087591240876,
+      "neural_role_acc": 0.9233576642335767,
+      "sentence_exact": 120
+    },
+    "score": 1.080704526920815
+  },
+  "history": [
+    {
+      "phase": "upper_accumulated",
+      "epoch": 1,
+      "lr": 2.5e-06,
+      "train": {
+        "sentences": 64205,
+        "tokens": 627299,
+        "weighted_tokens": 303893.27615356445,
+        "loss": 0.08974968659663649,
+        "train_acc": 0.9698469151074687
+      },
+      "ud_dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "base_role_acc": 0.7575921810922623,
+        "neural_role_acc": 0.9654580600870775,
+        "sentence_exact": 4865
+      },
+      "school_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.9233576642335767,
+        "sentence_exact": 120
+      },
+      "score": 1.080704526920815,
+      "gates": {
+        "ud_token_safe": true,
+        "ud_exact_safe": true,
+        "school_safe": true,
+        "composite_improved": true
+      },
+      "safe": true
+    },
+    {
+      "phase": "full_polish",
+      "epoch": 1,
+      "lr": 6e-07,
+      "train": {
+        "sentences": 64205,
+        "tokens": 627299,
+        "weighted_tokens": 303893.2755279541,
+        "loss": 0.08919808961635695,
+        "train_acc": 0.9699314043223407
+      },
+      "ud_dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "base_role_acc": 0.7575921810922623,
+        "neural_role_acc": 0.9653315990099904,
+        "sentence_exact": 4857
+      },
+      "school_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.9224452554744526,
+        "sentence_exact": 120
+      },
+      "score": 1.0804473358820559,
+      "gates": {
+        "ud_token_safe": true,
+        "ud_exact_safe": true,
+        "school_safe": true,
+        "composite_improved": true
+      },
+      "safe": true
+    },
+    {
+      "phase": "full_polish",
+      "epoch": 2,
+      "lr": 6e-07,
+      "train": {
+        "sentences": 64205,
+        "tokens": 627299,
+        "weighted_tokens": 303893.2757034302,
+        "loss": 0.08883893776826152,
+        "train_acc": 0.9700509645320653
+      },
+      "ud_dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "base_role_acc": 0.7575921810922623,
+        "neural_role_acc": 0.9653315990099904,
+        "sentence_exact": 4855
+      },
+      "school_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.9224452554744526,
+        "sentence_exact": 120
+      },
+      "score": 1.0804283395230245,
+      "gates": {
+        "ud_token_safe": true,
+        "ud_exact_safe": true,
+        "school_safe": true,
+        "composite_improved": true
+      },
+      "safe": true
+    }
+  ],
+  "policy": {
+    "all_current_promoted_silver_included": true,
+    "raw_tatoeba_mediawiki_never_directly_trained": true,
+    "official_test_never_fit_or_select": true,
+    "ud_dev_selection_only": true,
+    "school_validation_never_fit": true,
+    "chaos_and_shared_hardsets_not_used_for_selection": true
+  }
+}

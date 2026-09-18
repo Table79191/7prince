@@ -1,0 +1,18 @@
+{
+  "selected_phase": "upper_accumulated:1",
+  "gold_train": 48140,
+  "promoted_silver": 15620,
+  "combined_train": 64205,
+  "dev_before": 0.9652954672736799,
+  "dev_after": 0.9654580600870775,
+  "dev_exact_before": 0.7684027228114612,
+  "dev_exact_after": 0.7701440557226532,
+  "school_before": 0.9215328467153284,
+  "school_after": 0.9233576642335767,
+  "hard14_before": 0.9195402298850575,
+  "hard14_after": 0.9195402298850575,
+  "final16_before": 0.8640776699029126,
+  "final16_after": 0.8640776699029126,
+  "original64_before": 0.8571428571428571,
+  "original64_after": 0.8571428571428571
+}

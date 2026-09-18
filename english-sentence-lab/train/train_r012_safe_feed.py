@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import train_ud_role as base
 from train_gold_finetune import load_gold, clone_state
 from train_gold_replay import freeze_lower
+from canonical_roles import canonicalize_ud
 
 SOURCE_WEIGHTS = {
     "ewt": 1.00,
@@ -44,16 +45,24 @@ def iter_jsonl(path: Path):
                 yield json.loads(line)
 
 
+def current_school_roles(tokens):
+    decisions = canonicalize_ud(tokens)
+    return [d.role for d in decisions]
+
+
 def to_example(row: dict, family: str, sample_weight: float):
-    toks = row["analysis"]["tokens"]
-    roles = [t.get("role") for t in toks]
+    raw_toks = row["analysis"]["tokens"]
+    roles = current_school_roles(raw_toks)
     if any(r == "AMBIG" for r in roles):
         return None
+
+    # Surface normalization changes only text/lemma features; dependency structure
+    # and token count stay aligned with the canonical labels above.
+    toks = base.normalize_surface_tokens(raw_toks)
     weak = base.weak_base_roles(toks)
     feats = [base.feat_token(t, b) for t, b in zip(toks, weak)]
     labels = [base.ROLE2I[r] for r in roles]
     return (feats, labels, row.get("text", ""), family, float(sample_weight))
-
 
 def load_ud_web(root: Path):
     train, dev, eval_only = [], [], []
@@ -149,7 +158,9 @@ def strict_consensus(nlp, row: dict) -> bool:
             return False
 
     secondary = spacy_roles(doc)
-    primary = [t.get("role") for t in toks]
+    primary = current_school_roles(toks)
+    if "AMBIG" in primary:
+        return False
     comparable = [(a, b) for a, b in zip(primary, secondary) if a is not None]
     if not comparable:
         return False
@@ -328,10 +339,12 @@ def main():
             "synthetic_gold": evaluate(model, synthetic_val, device, args.batch),
             "ud_dev": evaluate(model, ud_dev, device, args.batch),
         }
+        # The label definition intentionally changed from phrase-span roles to
+        # school-style head-only roles. The legacy synthetic set retains the old
+        # span semantics, so it is reported for reference but is no longer a
+        # promotion gate. Held-out UD dev is relabeled with the current rule.
         safe = (
-            current["synthetic_gold"]["neural_role_acc"]
-            >= baseline["synthetic_gold"]["neural_role_acc"] - 0.003
-            and current["ud_dev"]["neural_role_acc"]
+            current["ud_dev"]["neural_role_acc"]
             >= baseline["ud_dev"]["neural_role_acc"] - 0.003
         )
         history.append({
@@ -353,7 +366,7 @@ def main():
     }
 
     metrics = {
-        "version": "1.8.1-R012-SAFE-FEED",
+        "version": "1.8.1-R012-SAFE-FEED-SCHOOL-HEADS",
         "base": Path(args.base).name,
         "selected_epoch": best_epoch,
         "candidate_accepted": best_epoch > 0,
@@ -365,6 +378,10 @@ def main():
             "weak_loss_weight": WEAK_WEIGHT,
             "weak_requires_spacy_stanza_consensus": True,
             "safety_max_regression": 0.003,
+            "school_style_head_only_roles": True,
+            "relabel_saved_corpora_with_current_canonicalizer": True,
+            "normalize_contraction_surfaces": True,
+            "legacy_synthetic_is_report_only": True,
         },
         "feed": {
             "gold_train_sentences": len(gold_train),
@@ -379,7 +396,9 @@ def main():
         "history": history,
         "note": (
             "R012 trains only on upstream UD train rows plus strictly consensus-filtered "
-            "Tatoeba weak labels. UD dev/test and Tatoeba Daily500 are excluded from training."
+            "Tatoeba weak labels. Saved dependency parses are relabeled at training time with "
+            "the current school-style head-only canonicalizer, and contraction surfaces are "
+            "normalized. UD dev/test and Tatoeba Daily500 are excluded from training."
         ),
     }
 

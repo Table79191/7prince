@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Ara_Malikian_discography",
-  "total_pages_processed": 824783,
-  "total_records": 14976,
-  "auto_pass": 13277,
-  "needs_review": 1699,
-  "current_shard": 8,
-  "current_shard_records": 976,
+  "apcontinue": "Arrowhead_Farms,_San_Bernardino,_California",
+  "total_pages_processed": 862554,
+  "total_records": 16192,
+  "auto_pass": 14331,
+  "needs_review": 1861,
+  "current_shard": 9,
+  "current_shard_records": 192,
   "source_exhausted": false
 }

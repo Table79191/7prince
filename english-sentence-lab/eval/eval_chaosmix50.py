@@ -13,9 +13,17 @@ sys.path.insert(0, str(ROOT / 'train'))
 import train_ud_role as base
 
 DATA = ROOT / 'data' / 'chaoslike200' / 'ChaosMix50_ORIGINAL.json'
+POINTER = ROOT / 'artifacts' / 'latest_auto_model.json'
 AUTO_MODEL = ROOT / 'artifacts' / 'v1.8.3_auto_promoted_silver_role.pt'
 CORE_MODEL = ROOT / 'artifacts' / 'v1.8.2_r012_school_regression_role.pt'
 MODEL = AUTO_MODEL if AUTO_MODEL.exists() else CORE_MODEL
+if POINTER.exists():
+    try:
+        rel=json.loads(POINTER.read_text(encoding='utf-8')).get('checkpoint')
+        p=ROOT/rel if rel else None
+        if p and p.exists(): MODEL=p
+    except Exception:
+        pass
 OUT = ROOT / 'artifacts' / 'v1.8.0_chaosmix50_eval.json'
 SUMMARY = ROOT / 'artifacts' / 'v1.8.0_chaosmix50_eval.txt'
 

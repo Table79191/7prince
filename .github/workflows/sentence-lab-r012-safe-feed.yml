@@ -135,25 +135,42 @@ jobs:
           python scripts/compare_web_corpus_to_model.py             --model artifacts/v1.8.1_r012_safe_feed_role.pt             --out artifacts/r012_web_corpus_comparison.txt
           head -n 20 artifacts/r012_web_corpus_comparison.txt
 
-      - name: Commit R012 outputs
+      - name: Commit outputs safely
         shell: bash
         run: |
           set -euo pipefail
           git config user.name sentence-lab-bot
           git config user.email sentence-lab-bot@users.noreply.github.com
-          git add             english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt             english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json             english-sentence-lab/artifacts/r012_web_corpus_comparison.txt
-          if git diff --cached --quiet; then
-            echo 'No R012 output changes.'
-            exit 0
-          fi
-          git commit -m 'train: feed safe collected corpora into R012'
+
+          tmp="$(mktemp -d)"
+          cp 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt' "$tmp/0"
+          cp 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json' "$tmp/1"
+          cp 'english-sentence-lab/artifacts/r012_web_corpus_comparison.txt' "$tmp/2"
+
           for attempt in 1 2 3; do
             git fetch origin main
-            git rebase origin/main
+            git reset --hard origin/main
+
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt')"
+            cp "$tmp/0" 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt'
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json')"
+            cp "$tmp/1" 'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json'
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/r012_web_corpus_comparison.txt')"
+            cp "$tmp/2" 'english-sentence-lab/artifacts/r012_web_corpus_comparison.txt'
+
+            git add \
+              'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt' \
+              'english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json' \
+              'english-sentence-lab/artifacts/r012_web_corpus_comparison.txt'
+            if git diff --cached --quiet; then
+              echo 'Outputs already present on latest main.'
+              exit 0
+            fi
+
+            git commit -m 'train: feed safe collected corpora into R012'
             if git push origin HEAD:main; then
               exit 0
             fi
-            git rebase --abort 2>/dev/null || true
             sleep $((attempt * 3))
           done
           exit 1

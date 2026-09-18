@@ -55,9 +55,13 @@ jobs:
           m=json.loads(Path('english-sentence-lab/artifacts/v1.8.2_r012_school_regression_metrics.json').read_text())
           rp=m['regression_patch']
           assert m['version']=='1.8.2-R012-SCHOOL-REGRESSION'
-          assert rp['train_holdout_overlap']==0
-          assert rp['selected']['target_holdout']['neural_role_acc']>rp['baseline']['target_holdout']['neural_role_acc']
-          assert rp['selected']['ud_dev']['neural_role_acc']>=rp['baseline']['ud_dev']['neural_role_acc']-0.003
+          assert rp['train_validation_overlap']==0
+          assert rp['target_validation_sentences'] >= 128
+          assert rp['selected']['target_validation']['neural_role_acc'] >= rp['baseline']['target_validation']['neural_role_acc'] + rp['minimum_target_validation_gain']
+          assert rp['selected']['ud_dev']['neural_role_acc'] >= rp['baseline']['ud_dev']['neural_role_acc'] - rp['safety_max_ud_dev_token_regression']
+          b_exact=rp['baseline']['ud_dev']['sentence_exact']/rp['baseline']['ud_dev']['sentences']
+          s_exact=rp['selected']['ud_dev']['sentence_exact']/rp['selected']['ud_dev']['sentences']
+          assert s_exact >= b_exact - rp['safety_max_ud_dev_exact_rate_regression']
           assert Path('english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt').stat().st_size>100000
           PY
       - name: Commit outputs safely

@@ -81,6 +81,34 @@ def load_pools(web_root,promoted_path):
             silver.append({"row":row,"kind":"silver","weight":0.18})
     return gold,silver,dev
 
+def rec_key(rec):
+    return hashlib.sha1(norm(rec["row"].get("text","")).encode("utf-8")).hexdigest()
+
+def load_feed_state(outdir,silver):
+    path=Path(outdir)/"feed_state.json"
+    current={rec_key(x):x for x in silver}
+    if path.exists():
+        try:
+            state=json.loads(path.read_text(encoding="utf-8"))
+            consumed=set(state.get("consumed_promoted_keys",[]))
+        except Exception:
+            consumed=set()
+    else:
+        # First hot-feed run establishes the current promoted set as the baseline.
+        consumed=set(current)
+    fresh=[rec for k,rec in current.items() if k not in consumed]
+    return path,consumed,fresh
+
+def save_feed_state(path,consumed,silver,total_fresh_used,last_round):
+    payload={
+      "version":"ARENA-HOT-FEED-1",
+      "consumed_promoted_keys":sorted(consumed),
+      "known_promoted_count":len(silver),
+      "fresh_used_total":int(total_fresh_used),
+      "last_round":int(last_round),
+    }
+    Path(path).write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
 def role_item(rec,weight_scale=1.0):
     row=rec["row"]; toks=row["analysis"]["tokens"]; roles=canonical_roles(row)
     nt=rbase.normalize_surface_tokens(toks)
@@ -343,9 +371,26 @@ def deterministic_cycle(rows,round_idx,n,seed):
     ids=[order[(start+i)%len(order)] for i in range(min(n,len(order)))]
     return [rows[i] for i in ids]
 
-def choose_probe(gold,silver,round_idx,n,seed):
+def choose_probe(gold,silver,fresh,round_idx,n,seed):
+    # Fresh promoted rows get priority, but never crowd out the trusted gold anchor.
+    if fresh:
+        nf=min(len(fresh),n//2)
+        ng=min(len(gold),max(1,min(int(n*.40),n-nf)))
+        fresh_pick=deterministic_cycle(fresh,round_idx,nf,seed+4242)
+        fresh_keys={rec_key(x) for x in fresh_pick}
+        old=[x for x in silver if rec_key(x) not in fresh_keys]
+        no=max(0,n-len(fresh_pick)-ng)
+        probe=(fresh_pick
+               +deterministic_cycle(gold,round_idx,ng,seed)
+               +deterministic_cycle(old,round_idx,no,seed+919))
+        if len(probe)<n:
+            used={id(x) for x in probe}
+            fill=[x for x in gold if id(x) not in used]
+            probe.extend(deterministic_cycle(fill,round_idx,n-len(probe),seed+1717))
+        return probe[:n],fresh_pick
     ng=min(len(gold),max(1,int(n*.78)));ns=min(len(silver),max(0,n-ng))
-    return deterministic_cycle(gold,round_idx,ng,seed)+deterministic_cycle(silver,round_idx,ns,seed+919)
+    return (deterministic_cycle(gold,round_idx,ng,seed)
+            +deterministic_cycle(silver,round_idx,ns,seed+919)),[]
 
 def choose_replay(gold,round_idx,n,seed):
     return deterministic_cycle(gold,round_idx+37,n,seed+31337)
@@ -381,20 +426,36 @@ def main():
     clause=cmodel.ClauseAnchorGraph().to(device);clause.load_state_dict(cck["model"],strict=True)
 
     role_dev=role_eval(role,dev,device);clause_dev=clause_eval(clause,dev,device)
-    initial_hard=hard_eval(role,clause,device)
-    current_hard=initial_hard
+    current_hard=hard_eval(role,clause,device)
+    summary_path=outdir/"summary.json"
+    if summary_path.exists():
+        try:
+            initial_hard=json.loads(summary_path.read_text(encoding="utf-8")).get("initial_hard",current_hard)
+        except Exception:
+            initial_hard=current_hard
+    else:
+        initial_hard=current_hard
     history_path=outdir/"history.jsonl"
     old_history=[]
     if history_path.exists():
         old_history=[json.loads(x) for x in history_path.read_text(encoding="utf-8").splitlines() if x.strip()]
     start_round=(old_history[-1]["round"]+1) if old_history else 1
+    feed_path,consumed_promoted,fresh=load_feed_state(outdir,silver)
+    previous_feed={}
+    if feed_path.exists():
+        try: previous_feed=json.loads(feed_path.read_text(encoding="utf-8"))
+        except Exception: previous_feed={}
+    fresh_used_total=int(previous_feed.get("fresh_used_total",0))
 
     started=time.monotonic();new_history=[];cum=Counter()
     for local in range(a.rounds):
         if time.monotonic()-started > max(60,(a.minutes-8)*60):
             break
         rnd=start_round+local
-        probe=choose_probe(gold,silver,rnd,a.probe_per_round,a.seed)
+        # This invocation sees the latest promoted snapshot supplied by the workflow.
+        # Fresh rows are those never consumed by a prior arena round.
+        feed_path,consumed_promoted,fresh=load_feed_state(outdir,silver)
+        probe,fresh_pick=choose_probe(gold,silver,fresh,rnd,a.probe_per_round,a.seed)
         replay=choose_replay(gold,rnd,1300,a.seed)
         rloss,closs,both,stats,detail=battle(role,clause,probe,device)
         rloss.sort(key=lambda x:x[0],reverse=True);closs.sort(key=lambda x:x[0],reverse=True);both.sort(key=lambda x:x[0],reverse=True)
@@ -433,6 +494,9 @@ def main():
           "round":rnd,"probe_sentences":len(probe),
           "probe_gold":sum(x["kind"]=="gold" for x in probe),
           "probe_silver":sum(x["kind"]=="silver" for x in probe),
+          "probe_fresh_silver":len(fresh_pick),
+          "fresh_available_before":len(fresh),
+          "promoted_pool_at_round":len(silver),
           "battle":{"role_wins":stats["role_wins"],"clause_wins":stats["clause_wins"],
                     "ties":stats["ties"],"both_wrong":stats["both_wrong"],
                     "role_exact":stats["role_exact"],"clause_exact":stats["clause_exact"],
@@ -446,6 +510,11 @@ def main():
           "hard_after_selected":current_hard,
         }
         new_history.append(rec);print(json.dumps(rec))
+        for x in fresh_pick:
+            consumed_promoted.add(rec_key(x))
+        fresh_used_total+=len(fresh_pick)
+        save_feed_state(feed_path,consumed_promoted,silver,fresh_used_total,rnd)
+        history_path.write_text("\n".join(json.dumps(x,ensure_ascii=False) for x in (old_history+new_history))+"\n",encoding="utf-8")
         # Safe local checkpoints after every round, so workflow can persist progress even if a later round fails.
         save_ckpt(role_latest,role,f"R015-ARENA-R{rnd}",
                   {"arena_round":rnd,"dev":role_dev,"hard":current_hard["role"]},
@@ -462,6 +531,9 @@ def main():
       "gpt_in_loop":False,
       "judge":"canonical gold/silver labels; never opponent prediction",
       "gold_train_pool":len(gold),"promoted_silver_pool":len(silver),"clean_dev_pool":len(dev),
+      "hot_feed":{"enabled":True,"fresh_available_at_start":len(fresh),
+                  "fresh_used_total":fresh_used_total,
+                  "feed_state":str(feed_path.relative_to(ROOT))},
       "rounds_this_run":len(new_history),"total_rounds":total_rounds,
       "elapsed_seconds":time.monotonic()-started,
       "current":{"role_dev":role_dev,"clause_dev":clause_dev,"hard":current_hard},

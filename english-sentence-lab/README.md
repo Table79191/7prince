@@ -14,7 +14,7 @@ English Sentence Lab is a compact English S/V/O/C/M role parser with corpus coll
 
 Pipeline:
 
-`R011 clean canonical -> R012 safe feed -> R012 regression -> ONNX export -> browser smoke/evaluation`
+`random init -> R011 clean canonical -> R012 gold-only safe feed -> R012 regression -> ONNX export -> browser smoke/evaluation`
 
 Each stage writes a distinct checkpoint so training jobs do not overwrite one another.
 

@@ -56,7 +56,7 @@ class WebWrapper(nn.Module):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--checkpoint", default="artifacts/v1.8.1_r012_safe_feed_role.pt")
+    ap.add_argument("--checkpoint", default="artifacts/v1.8.2_r012_school_regression_role.pt")
     ap.add_argument("--out", default="web/r012/r012_role.onnx")
     ap.add_argument("--meta", default="web/r012/model_meta.json")
     args = ap.parse_args()

@@ -141,11 +141,13 @@
     if(!directWhCopular)markClauseSubject(0,lo.length);
     // A leading determiner NP remains the main subject even when a comma-delimited relative clause follows.
     if(DETS.has(lo[0])||POSSESSIVE_DET.has(lo[0])){
+      let head=-1;
       for(let i=1;i<lo.length;i++){
         if(pos[i]==='VERB'||pos[i]==='AUX')break;
-        if(nominal(i)){setRole(i,'S');break;}
+        if(nominal(i)){head=i;break;}
         if(pos[i]==='PUNCT')break;
       }
+      if(head>=0&&pos.slice(head+1).some(p=>p==='VERB'||p==='AUX'))setRole(head,'S');
     }
     for(let i=0;i<lo.length;i++){
       if(pos[i]==='PUNCT'&&/[,:;]/.test(tokens[i]))markClauseSubject(i+1,lo.length);

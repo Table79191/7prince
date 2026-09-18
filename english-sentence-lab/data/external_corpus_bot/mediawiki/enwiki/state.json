@@ -1,10 +1,10 @@
 {
-  "apcontinue": "2021_W_Series_Silverstone_round",
-  "total_pages_processed": 351738,
-  "total_records": 5643,
-  "auto_pass": 4982,
-  "needs_review": 661,
+  "apcontinue": "2026_AVC_Men's_Volleyball_Cup_Pool_A",
+  "total_pages_processed": 401332,
+  "total_records": 5723,
+  "auto_pass": 5052,
+  "needs_review": 671,
   "current_shard": 3,
-  "current_shard_records": 1643,
+  "current_shard_records": 1723,
   "source_exhausted": false
 }

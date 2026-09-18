@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 351738,
-  "total_records": 5643,
-  "auto_pass": 4982,
-  "needs_review": 661,
+  "total_pages_processed": 401332,
+  "total_records": 5723,
+  "auto_pass": 5052,
+  "needs_review": 671,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "2021_W_Series_Silverstone_round",
+  "apcontinue": "2026_AVC_Men's_Volleyball_Cup_Pool_A",
   "source_exhausted": false,
   "shard_count": 3
 }

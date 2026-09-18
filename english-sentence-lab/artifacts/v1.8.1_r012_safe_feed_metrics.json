@@ -7,9 +7,9 @@
     "gold_only_upstream_train": true,
     "dev_test_never_trained": true,
     "tatoeba_daily500_excluded": true,
-    "weak_max_fraction": 0.2,
-    "weak_loss_weight": 0.15,
-    "weak_requires_spacy_stanza_consensus": true,
+    "weak_max_fraction": 0.0,
+    "weak_loss_weight": 0.0,
+    "weak_requires_spacy_stanza_consensus": false,
     "safety_max_regression": 0.003,
     "school_style_head_only_roles": true,
     "relabel_saved_corpora_with_current_canonicalizer": true,
@@ -18,9 +18,9 @@
   },
   "feed": {
     "gold_train_sentences": 48140,
-    "weak_tatoeba_sentences": 12035,
-    "combined_sentences": 60175,
-    "weak_fraction": 0.2,
+    "weak_tatoeba_sentences": 0,
+    "combined_sentences": 48140,
+    "weak_fraction": 0.0,
     "ud_stats": {
       "dev:atis": 560,
       "gold_train:atis": 4214,
@@ -40,13 +40,7 @@
       "eval_only:pud": 882
     },
     "weak_stats": {
-      "drop_length": 8404,
-      "consensus_candidates": 95724,
-      "drop_consensus": 22909,
-      "drop_duplicate": 52,
-      "drop_not_auto_pass": 2640,
-      "drop_no_core_structure": 1155,
-      "selected": 12035
+      "disabled_for_training": 1
     }
   },
   "baseline": {
@@ -77,48 +71,48 @@
       "sentences": 4000,
       "tokens": 59630,
       "base_role_acc": 0.5926882441723964,
-      "neural_role_acc": 0.7464698977024987,
+      "neural_role_acc": 0.7487506288780815,
       "sentence_exact": 0
     },
     "ud_dev": {
       "sentences": 6317,
       "tokens": 55353,
       "base_role_acc": 0.7575921810922623,
-      "neural_role_acc": 0.9674633714523151,
-      "sentence_exact": 5033
+      "neural_role_acc": 0.9671562516936751,
+      "sentence_exact": 5032
     },
     "eval_only": {
       "sentences": 1849,
       "tokens": 33083,
       "base_role_acc": 0.7668893389354049,
-      "neural_role_acc": 0.9628207840885047,
-      "sentence_exact": 1109
+      "neural_role_acc": 0.9617930659250975,
+      "sentence_exact": 1092
     }
   },
   "history": [
     {
       "epoch": 1,
       "train": {
-        "sentences": 60175,
-        "tokens": 551442,
-        "weighted_tokens": 301028.9466934204,
-        "loss": 0.10044172315498648,
-        "train_acc": 0.9652891872581342
+        "sentences": 48140,
+        "tokens": 438941,
+        "weighted_tokens": 284153.7932853699,
+        "loss": 0.10298011907140131,
+        "train_acc": 0.9629221239300954
       },
       "eval": {
         "synthetic_gold": {
           "sentences": 4000,
           "tokens": 59630,
           "base_role_acc": 0.5926882441723964,
-          "neural_role_acc": 0.7643803454636928,
-          "sentence_exact": 0
+          "neural_role_acc": 0.7814522891162167,
+          "sentence_exact": 1
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9658013115820281,
-          "sentence_exact": 4995
+          "neural_role_acc": 0.9652232038010586,
+          "sentence_exact": 4984
         }
       },
       "safe": true
@@ -126,30 +120,30 @@
     {
       "epoch": 2,
       "train": {
-        "sentences": 60175,
-        "tokens": 551442,
-        "weighted_tokens": 301028.94680404663,
-        "loss": 0.0905586897679566,
-        "train_acc": 0.968673042677199
+        "sentences": 48140,
+        "tokens": 438941,
+        "weighted_tokens": 284153.79373931885,
+        "loss": 0.09385400397417283,
+        "train_acc": 0.9660273248568714
       },
       "eval": {
         "synthetic_gold": {
           "sentences": 4000,
           "tokens": 59630,
           "base_role_acc": 0.5926882441723964,
-          "neural_role_acc": 0.7464698977024987,
+          "neural_role_acc": 0.7487506288780815,
           "sentence_exact": 0
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9674633714523151,
-          "sentence_exact": 5033
+          "neural_role_acc": 0.9671562516936751,
+          "sentence_exact": 5032
         }
       },
       "safe": true
     }
   ],
-  "note": "R012 trains only on upstream UD train rows plus strictly consensus-filtered Tatoeba weak labels. Saved dependency parses are relabeled at training time with the current school-style head-only canonicalizer, and contraction surfaces are normalized. UD dev/test and Tatoeba Daily500 are excluded from training."
+  "note": "R012 trains only on upstream UD train rows. Tatoeba and other parser-generated silver labels are audit-only and excluded from supervised fitting. Saved dependency parses are relabeled at training time with the current school-style head-only canonicalizer, and contraction surfaces are normalized. UD dev/test and Tatoeba Daily500 are excluded from training."
 }

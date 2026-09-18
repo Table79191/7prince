@@ -4,11 +4,11 @@ This is a weakly labeled external corpus and is kept separate from the UD gold c
 
 - Source: https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2
 - License: CC-BY-2.0-FR
-- Total analyzed records: 186029
-- Auto-pass: 181525
-- Needs review: 4504
-- Last processed Tatoeba sentence id: 1024433
-- Added this run: 16391
-- Shards: 94
+- Total analyzed records: 200017
+- Auto-pass: 194991
+- Needs review: 5026
+- Last processed Tatoeba sentence id: 1111462
+- Added this run: 13988
+- Shards: 101
 
 No sentence-count or total-corpus cap is configured. Runs checkpoint by wall-clock time so GitHub Actions can commit progress before its job timeout.

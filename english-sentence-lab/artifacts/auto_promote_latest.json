@@ -2,10 +2,10 @@
   "version": "1.8.3-AUTO-PROMOTED-SILVER",
   "candidate_accepted": true,
   "promoted_selected": 1200,
-  "promoted_available": 3558,
+  "promoted_available": 4080,
   "reason": "promotion_gates_passed",
   "parent": "v1.8.3_auto_promoted_silver_role.pt",
   "selected_epoch": 2,
-  "baseline_score": 1.0494353995248387,
-  "selected_score": 1.0495355144748333
+  "baseline_score": 1.0495355144748333,
+  "selected_score": 1.0496619755519203
 }

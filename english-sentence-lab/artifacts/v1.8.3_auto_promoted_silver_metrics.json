@@ -5,27 +5,10 @@
   "feed": {
     "gold_replay_sentences": 10000,
     "promoted_silver_sentences": 1200,
-    "promoted_available": 3558,
+    "promoted_available": 4080,
     "promoted_weight": 0.12
   },
   "baseline": {
-    "ud_dev": {
-      "sentences": 6317,
-      "tokens": 55353,
-      "base_role_acc": 0.7575921810922623,
-      "neural_role_acc": 0.9649702816468846,
-      "sentence_exact": 4850
-    },
-    "target_validation": {
-      "sentences": 176,
-      "tokens": 1096,
-      "base_role_acc": 0.9124087591240876,
-      "neural_role_acc": 0.9215328467153284,
-      "sentence_exact": 119
-    },
-    "score": 1.0494353995248387
-  },
-  "selected": {
     "ud_dev": {
       "sentences": 6317,
       "tokens": 55353,
@@ -42,22 +25,39 @@
     },
     "score": 1.0495355144748333
   },
+  "selected": {
+    "ud_dev": {
+      "sentences": 6317,
+      "tokens": 55353,
+      "base_role_acc": 0.7575921810922623,
+      "neural_role_acc": 0.9651870720647481,
+      "sentence_exact": 4857
+    },
+    "target_validation": {
+      "sentences": 176,
+      "tokens": 1096,
+      "base_role_acc": 0.9124087591240876,
+      "neural_role_acc": 0.9206204379562044,
+      "sentence_exact": 119
+    },
+    "score": 1.0496619755519203
+  },
   "history": [
     {
       "epoch": 1,
       "train": {
         "sentences": 11200,
-        "tokens": 107469,
-        "weighted_tokens": 60023.99801635742,
-        "loss": 0.08904577867752357,
-        "train_acc": 0.9673208087913724
+        "tokens": 103581,
+        "weighted_tokens": 59557.438133239746,
+        "loss": 0.08870602707520737,
+        "train_acc": 0.9678222840096157
       },
       "ud_dev": {
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.9648799523061081,
-        "sentence_exact": 4842
+        "neural_role_acc": 0.9649341499105739,
+        "sentence_exact": 4841
       },
       "target_validation": {
         "sentences": 176,
@@ -66,7 +66,7 @@
         "neural_role_acc": 0.9215328467153284,
         "sentence_exact": 119
       },
-      "score": 1.0492817489872917,
+      "score": 1.0493280314421611,
       "gates": {
         "ud_token_safe": true,
         "ud_exact_safe": false,
@@ -79,16 +79,16 @@
       "epoch": 2,
       "train": {
         "sentences": 11200,
-        "tokens": 107469,
-        "weighted_tokens": 60023.99826812744,
-        "loss": 0.08897145973768023,
-        "train_acc": 0.9669113884003759
+        "tokens": 103581,
+        "weighted_tokens": 59557.43845367432,
+        "loss": 0.08832896341807865,
+        "train_acc": 0.9673878413994844
       },
       "ud_dev": {
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.965060610987661,
+        "neural_role_acc": 0.9651870720647481,
         "sentence_exact": 4857
       },
       "target_validation": {
@@ -98,7 +98,7 @@
         "neural_role_acc": 0.9206204379562044,
         "sentence_exact": 119
       },
-      "score": 1.0495355144748333,
+      "score": 1.0496619755519203,
       "gates": {
         "ud_token_safe": true,
         "ud_exact_safe": true,

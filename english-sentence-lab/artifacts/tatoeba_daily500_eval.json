@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T11:44:37.829071+00:00",
+  "retrieved_at_utc": "2026-09-18T13:42:05.647753+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -19,17 +19,17 @@
     "correct": 3106,
     "accuracy": 0.9539312039312039,
     "core_tokens": 2032,
-    "core_correct": 1955,
-    "core_accuracy": 0.9621062992125984,
-    "macro_f1": 0.9092930380595892,
+    "core_correct": 1954,
+    "core_accuracy": 0.9616141732283464,
+    "macro_f1": 0.90852989959326,
     "exact_sentences": 373,
     "exact_sentence_accuracy": 0.746,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9625407166123778,
-        "recall": 0.9594155844155844,
-        "f1": 0.9609756097560974
+        "precision": 0.9640522875816994,
+        "recall": 0.9577922077922078,
+        "f1": 0.9609120521172638
       },
       "V": {
         "support": 1009,
@@ -39,40 +39,40 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.8862068965517241,
+        "precision": 0.889273356401384,
         "recall": 0.8831615120274914,
-        "f1": 0.8846815834767643
+        "f1": 0.886206896551724
       },
       "C": {
         "support": 116,
-        "precision": 0.6758620689655173,
+        "precision": 0.6666666666666666,
         "recall": 0.8448275862068966,
-        "f1": 0.7509578544061303
+        "f1": 0.7452471482889733
       },
       "M": {
         "support": 1224,
-        "precision": 0.9656040268456376,
-        "recall": 0.940359477124183,
-        "f1": 0.9528145695364238
+        "precision": 0.9656328583403185,
+        "recall": 0.9411764705882353,
+        "f1": 0.9532478278858089
       }
     }
   },
   "final_r018": {
     "tokens": 3256,
-    "correct": 3148,
-    "accuracy": 0.9668304668304668,
+    "correct": 3149,
+    "accuracy": 0.9671375921375921,
     "core_tokens": 2032,
     "core_correct": 1972,
     "core_accuracy": 0.9704724409448819,
-    "macro_f1": 0.9309658273652299,
-    "exact_sentences": 407,
-    "exact_sentence_accuracy": 0.814,
+    "macro_f1": 0.9308409487783589,
+    "exact_sentences": 408,
+    "exact_sentence_accuracy": 0.816,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9663461538461539,
+        "precision": 0.9678972712680578,
         "recall": 0.9788961038961039,
-        "f1": 0.9725806451612904
+        "f1": 0.9733656174334141
       },
       "V": {
         "support": 1009,
@@ -82,21 +82,21 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.9081632653061225,
+        "precision": 0.9112627986348123,
         "recall": 0.9175257731958762,
-        "f1": 0.9128205128205128
+        "f1": 0.9143835616438356
       },
       "C": {
         "support": 116,
-        "precision": 0.7916666666666666,
+        "precision": 0.7851239669421488,
         "recall": 0.8189655172413793,
-        "f1": 0.8050847457627119
+        "f1": 0.8016877637130801
       },
       "M": {
         "support": 1224,
-        "precision": 0.9759336099585062,
-        "recall": 0.9607843137254902,
-        "f1": 0.968299711815562
+        "precision": 0.9759535655058044,
+        "recall": 0.9616013071895425,
+        "f1": 0.968724279835391
       }
     }
   },
@@ -130,11 +130,11 @@
       "net": 4
     },
     "dep-subject": {
-      "changed": 21,
-      "helpful": 13,
+      "changed": 22,
+      "helpful": 14,
       "harmful": 7,
       "still_wrong": 1,
-      "net": 6
+      "net": 7
     },
     "dep-object": {
       "changed": 26,
@@ -753,6 +753,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "9805710",
+      "text": "What is the best job you ever had?",
+      "token": "job",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "job",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
+      "neural_direct": "C",
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "11979260",
@@ -1669,7 +1683,7 @@
     {
       "gold": "M",
       "pred": "O",
-      "count": 27
+      "count": 26
     },
     {
       "gold": "C",
@@ -1679,7 +1693,7 @@
     {
       "gold": "M",
       "pred": "C",
-      "count": 12
+      "count": 13
     },
     {
       "gold": "O",
@@ -1699,7 +1713,7 @@
     {
       "gold": "M",
       "pred": "S",
-      "count": 6
+      "count": 5
     },
     {
       "gold": "O",
@@ -2045,20 +2059,6 @@
       "neural_direct": "M",
       "final": "S",
       "guard_reason": "clausal-object-before-aux-subject"
-    },
-    {
-      "sentence_id": "10735694",
-      "text": "I come here all the time.",
-      "token": "time",
-      "upos": "NOUN",
-      "deprel": "obl:unmarked",
-      "gold": "M",
-      "spacy_token": "time",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "npadvmod",
-      "neural_direct": "O",
-      "final": "O",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "10157349",
@@ -3232,8 +3232,8 @@
       "spacy_token": "week",
       "spacy_pos": "NOUN",
       "spacy_dep": "npadvmod",
-      "neural_direct": "S",
-      "final": "S",
+      "neural_direct": "C",
+      "final": "C",
       "guard_reason": "neural"
     },
     {

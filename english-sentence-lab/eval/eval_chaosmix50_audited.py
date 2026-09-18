@@ -4,7 +4,7 @@ from __future__ import annotations
 import eval_chaosmix50 as e
 
 # Audit corrections after inspecting the first baseline run against
-# docs/role_label_spec_v1.md. These change evaluation labels only; the
+# docs/role_label_spec_v2.md. These change evaluation labels only; the
 # ChaosMix50 sentences remain strictly evaluation-only.
 e.GOLD['CM50-002'] = [('committee',0,'S'),('whom',0,'M'),('exception',0,'S'),('anyone',0,'S'),('increase',0,'O')]
 e.GOLD['CM50-016'] = [('student',0,'S'),('whom',0,'O'),('proof',0,'S'),('counterexample',0,'S'),('assumption',0,'O')]

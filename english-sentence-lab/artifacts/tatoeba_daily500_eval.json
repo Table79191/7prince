@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T07:30:45.023440+00:00",
+  "retrieved_at_utc": "2026-09-18T08:08:37.814329+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -16,20 +16,20 @@
   },
   "neural_direct": {
     "tokens": 3256,
-    "correct": 3085,
-    "accuracy": 0.9474815724815725,
+    "correct": 3114,
+    "accuracy": 0.9563882063882064,
     "core_tokens": 2032,
-    "core_correct": 1975,
-    "core_accuracy": 0.9719488188976378,
-    "macro_f1": 0.8973558631895389,
-    "exact_sentences": 367,
-    "exact_sentence_accuracy": 0.734,
+    "core_correct": 1966,
+    "core_accuracy": 0.96751968503937,
+    "macro_f1": 0.9091088786537626,
+    "exact_sentences": 385,
+    "exact_sentence_accuracy": 0.77,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9819967266775778,
-        "recall": 0.974025974025974,
-        "f1": 0.9779951100244499
+        "precision": 0.9801980198019802,
+        "recall": 0.9642857142857143,
+        "f1": 0.9721767594108018
       },
       "V": {
         "support": 1009,
@@ -39,40 +39,40 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.8813559322033898,
-        "recall": 0.8934707903780069,
-        "f1": 0.8873720136518772
+        "precision": 0.9006849315068494,
+        "recall": 0.9037800687285223,
+        "f1": 0.902229845626072
       },
       "C": {
         "support": 116,
-        "precision": 0.5492227979274611,
-        "recall": 0.9137931034482759,
-        "f1": 0.686084142394822
+        "precision": 0.6172839506172839,
+        "recall": 0.8620689655172413,
+        "f1": 0.7194244604316548
       },
       "M": {
         "support": 1224,
-        "precision": 0.9719789842381786,
-        "recall": 0.9068627450980392,
-        "f1": 0.9382924767540152
+        "precision": 0.9720575783234547,
+        "recall": 0.9379084967320261,
+        "f1": 0.9546777546777547
       }
     }
   },
   "final_r018": {
     "tokens": 3256,
-    "correct": 3128,
-    "accuracy": 0.9606879606879607,
+    "correct": 3146,
+    "accuracy": 0.9662162162162162,
     "core_tokens": 2032,
     "core_correct": 1975,
     "core_accuracy": 0.9719488188976378,
-    "macro_f1": 0.9171738205670639,
-    "exact_sentences": 394,
-    "exact_sentence_accuracy": 0.788,
+    "macro_f1": 0.9286266371823914,
+    "exact_sentences": 407,
+    "exact_sentence_accuracy": 0.814,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9710144927536232,
+        "precision": 0.9725806451612903,
         "recall": 0.9788961038961039,
-        "f1": 0.9749393694421989
+        "f1": 0.9757281553398057
       },
       "V": {
         "support": 1009,
@@ -82,80 +82,80 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.8996655518394648,
-        "recall": 0.9243986254295533,
-        "f1": 0.9118644067796611
+        "precision": 0.9060402684563759,
+        "recall": 0.9278350515463918,
+        "f1": 0.9168081494057725
       },
       "C": {
         "support": 116,
-        "precision": 0.676056338028169,
-        "recall": 0.8275862068965517,
-        "f1": 0.7441860465116279
+        "precision": 0.76,
+        "recall": 0.8189655172413793,
+        "f1": 0.7883817427385893
       },
       "M": {
         "support": 1224,
-        "precision": 0.9762912785774767,
-        "recall": 0.9419934640522876,
-        "f1": 0.9588357588357588
+        "precision": 0.9758333333333333,
+        "recall": 0.9566993464052288,
+        "f1": 0.9661716171617163
       }
     }
   },
   "postprocess_rule_audit": {
-    "dep-complement": {
-      "changed": 10,
-      "helpful": 4,
-      "harmful": 5,
-      "still_wrong": 1,
-      "net": -1
-    },
     "conj-inherit": {
-      "changed": 1,
+      "changed": 4,
       "helpful": 0,
-      "harmful": 1,
+      "harmful": 4,
       "still_wrong": 0,
-      "net": -1
+      "net": -4
     },
-    "dep-subject": {
-      "changed": 19,
-      "helpful": 9,
-      "harmful": 9,
-      "still_wrong": 1,
+    "dep-complement": {
+      "changed": 12,
+      "helpful": 6,
+      "harmful": 6,
+      "still_wrong": 0,
       "net": 0
     },
     "clausal-object-before-aux-subject": {
-      "changed": 2,
+      "changed": 1,
       "helpful": 0,
       "harmful": 0,
-      "still_wrong": 2,
+      "still_wrong": 1,
       "net": 0
     },
-    "dep-appos": {
-      "changed": 6,
-      "helpful": 5,
-      "harmful": 1,
+    "dep-pobj": {
+      "changed": 15,
+      "helpful": 8,
+      "harmful": 7,
       "still_wrong": 0,
-      "net": 4
+      "net": 1
     },
     "dep-object": {
       "changed": 23,
-      "helpful": 14,
-      "harmful": 7,
-      "still_wrong": 2,
-      "net": 7
-    },
-    "dep-pobj": {
-      "changed": 26,
-      "helpful": 17,
-      "harmful": 9,
+      "helpful": 13,
+      "harmful": 10,
       "still_wrong": 0,
-      "net": 8
+      "net": 3
+    },
+    "dep-appos": {
+      "changed": 4,
+      "helpful": 4,
+      "harmful": 0,
+      "still_wrong": 0,
+      "net": 4
+    },
+    "dep-subject": {
+      "changed": 24,
+      "helpful": 14,
+      "harmful": 9,
+      "still_wrong": 1,
+      "net": 5
     },
     "dep-function": {
-      "changed": 32,
-      "helpful": 29,
-      "harmful": 3,
+      "changed": 27,
+      "helpful": 25,
+      "harmful": 2,
       "still_wrong": 0,
-      "net": 26
+      "net": 23
     }
   },
   "postprocess_changed_rows": [
@@ -188,13 +188,13 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "11619486",
-      "text": "It's all what you make of it.",
-      "token": "it",
+      "sentence_id": "11339290",
+      "text": "Who do you take me for?",
+      "token": "Who",
       "upos": "PRON",
       "deprel": "obl",
       "gold": "M",
-      "spacy_token": "it",
+      "spacy_token": "Who",
       "spacy_pos": "PRON",
       "spacy_dep": "pobj",
       "neural_direct": "O",
@@ -211,7 +211,7 @@
       "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "nsubj",
-      "neural_direct": "C",
+      "neural_direct": "O",
       "final": "S",
       "guard_reason": "dep-subject"
     },
@@ -244,6 +244,34 @@
       "guard_reason": "dep-function"
     },
     {
+      "sentence_id": "12397218",
+      "text": "Is that a need or a want?",
+      "token": "want",
+      "upos": "NOUN",
+      "deprel": "conj",
+      "gold": "M",
+      "spacy_token": "want",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "conj",
+      "neural_direct": "M",
+      "final": "C",
+      "guard_reason": "conj-inherit"
+    },
+    {
+      "sentence_id": "12397219",
+      "text": "Is this a need or a want?",
+      "token": "want",
+      "upos": "NOUN",
+      "deprel": "conj",
+      "gold": "M",
+      "spacy_token": "want",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "conj",
+      "neural_direct": "M",
+      "final": "C",
+      "guard_reason": "conj-inherit"
+    },
+    {
       "sentence_id": "11271755",
       "text": "You do so much for me.",
       "token": "much",
@@ -253,37 +281,9 @@
       "spacy_token": "much",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "10428258",
-      "text": "You were right about that.",
-      "token": "that",
-      "upos": "PRON",
-      "deprel": "obl",
-      "gold": "M",
-      "spacy_token": "that",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "12777725",
-      "text": "Is there more to life than what we see?",
-      "token": "more",
-      "upos": "ADJ",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "more",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "attr",
-      "neural_direct": "S",
-      "final": "C",
-      "guard_reason": "dep-complement"
     },
     {
       "sentence_id": "12777725",
@@ -298,20 +298,6 @@
       "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "11803163",
-      "text": "I'm not here to see you.",
-      "token": "here",
-      "upos": "ADV",
-      "deprel": "root",
-      "gold": "M",
-      "spacy_token": "here",
-      "spacy_pos": "ADV",
-      "spacy_dep": "advmod",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "12345379",
@@ -349,34 +335,6 @@
       "deprel": "root",
       "gold": "C",
       "spacy_token": "Who",
-      "spacy_pos": "PRON",
-      "spacy_dep": "nsubj",
-      "neural_direct": "C",
-      "final": "S",
-      "guard_reason": "dep-subject"
-    },
-    {
-      "sentence_id": "10147186",
-      "text": "We know you did it.",
-      "token": "you",
-      "upos": "PRON",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "you",
-      "spacy_pos": "PRON",
-      "spacy_dep": "nsubj",
-      "neural_direct": "O",
-      "final": "S",
-      "guard_reason": "dep-subject"
-    },
-    {
-      "sentence_id": "8724278",
-      "text": "What will be will be!",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "nsubj",
       "neural_direct": "C",
@@ -468,60 +426,46 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "12773564",
-      "text": "Could this be the end of it all?",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "nmod",
+      "sentence_id": "10157349",
+      "text": "You were in on it the whole time.",
+      "token": "in",
+      "upos": "ADV",
+      "deprel": "root",
       "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
+      "spacy_token": "in",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
       "neural_direct": "C",
       "final": "M",
-      "guard_reason": "dep-pobj"
+      "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "12773564",
-      "text": "Could this be the end of it all?",
-      "token": "all",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "all",
-      "spacy_pos": "PRON",
-      "spacy_dep": "appos",
-      "neural_direct": "S",
-      "final": "M",
-      "guard_reason": "dep-appos"
-    },
-    {
-      "sentence_id": "11692004",
-      "text": "What time did you say?",
-      "token": "time",
+      "sentence_id": "10795839",
+      "text": "Is your number still the same?",
+      "token": "number",
       "upos": "NOUN",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "time",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "number",
       "spacy_pos": "NOUN",
-      "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "spacy_dep": "nsubj",
+      "neural_direct": "C",
       "final": "S",
-      "guard_reason": "clausal-object-before-aux-subject"
+      "guard_reason": "dep-subject"
     },
     {
-      "sentence_id": "10147454",
-      "text": "What do you use this thing for?",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "PRON",
-      "spacy_dep": "dobj",
+      "sentence_id": "10795839",
+      "text": "Is your number still the same?",
+      "token": "same",
+      "upos": "ADJ",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "same",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "attr",
       "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "dep-object"
+      "final": "C",
+      "guard_reason": "dep-complement"
     },
     {
       "sentence_id": "12029161",
@@ -580,6 +524,20 @@
       "guard_reason": "dep-function"
     },
     {
+      "sentence_id": "9855861",
+      "text": "What even is time?",
+      "token": "even",
+      "upos": "ADV",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "even",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
+    },
+    {
       "sentence_id": "10776201",
       "text": "Are they also going to be there?",
       "token": "there",
@@ -608,20 +566,6 @@
       "guard_reason": "dep-pobj"
     },
     {
-      "sentence_id": "9805779",
-      "text": "What did you want to be when you were small?",
-      "token": "when",
-      "upos": "ADV",
-      "deprel": "advmod",
-      "gold": "M",
-      "spacy_token": "when",
-      "spacy_pos": "SCONJ",
-      "spacy_dep": "advmod",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
-    },
-    {
       "sentence_id": "11978834",
       "text": "I know just as little as you do.",
       "token": "little",
@@ -631,7 +575,7 @@
       "spacy_token": "little",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "neural_direct": "C",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -678,18 +622,32 @@
       "guard_reason": "dep-object"
     },
     {
-      "sentence_id": "10799491",
-      "text": "I need some of those too.",
-      "token": "those",
+      "sentence_id": "12090816",
+      "text": "What did you season it with?",
+      "token": "What",
       "upos": "PRON",
-      "deprel": "nmod",
+      "deprel": "obl",
       "gold": "M",
-      "spacy_token": "those",
+      "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "pobj",
       "neural_direct": "O",
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "8743362",
+      "text": "It's up to me to thank you.",
+      "token": "up",
+      "upos": "ADV",
+      "deprel": "root",
+      "gold": "M",
+      "spacy_token": "up",
+      "spacy_pos": "ADP",
+      "spacy_dep": "prep",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "8743362",
@@ -704,34 +662,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "11026574",
-      "text": "I thought that was over.",
-      "token": "over",
-      "upos": "ADV",
-      "deprel": "ccomp",
-      "gold": "M",
-      "spacy_token": "over",
-      "spacy_pos": "ADV",
-      "spacy_dep": "advmod",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "11257805",
-      "text": "It is only now that I have seen it.",
-      "token": "that",
-      "upos": "SCONJ",
-      "deprel": "mark",
-      "gold": "M",
-      "spacy_token": "that",
-      "spacy_pos": "SCONJ",
-      "spacy_dep": "mark",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "10152294",
@@ -771,23 +701,9 @@
       "spacy_token": "much",
       "spacy_pos": "ADJ",
       "spacy_dep": "nsubj",
-      "neural_direct": "M",
+      "neural_direct": "C",
       "final": "S",
       "guard_reason": "dep-subject"
-    },
-    {
-      "sentence_id": "11619721",
-      "text": "So much of it is so good.",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "S",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "11781548",
@@ -818,6 +734,20 @@
       "guard_reason": "dep-appos"
     },
     {
+      "sentence_id": "11781548",
+      "text": "We, the people, have to help each other.",
+      "token": "other",
+      "upos": "ADJ",
+      "deprel": "fixed",
+      "gold": "M",
+      "spacy_token": "other",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "dobj",
+      "neural_direct": "M",
+      "final": "O",
+      "guard_reason": "dep-object"
+    },
+    {
       "sentence_id": "11236501",
       "text": "We both really want you to be there.",
       "token": "both",
@@ -846,18 +776,18 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "10314786",
-      "text": "I don't think that's why I do it.",
-      "token": "why",
-      "upos": "ADV",
-      "deprel": "ccomp",
-      "gold": "M",
-      "spacy_token": "why",
-      "spacy_pos": "SCONJ",
-      "spacy_dep": "advmod",
+      "sentence_id": "9805908",
+      "text": "What is one thing you will never do again?",
+      "token": "thing",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "thing",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
       "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "11979260",
@@ -890,30 +820,16 @@
     {
       "sentence_id": "12766676",
       "text": "The future is what we make of it.",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "obl",
-      "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "8737640",
-      "text": "I like you better than her.",
-      "token": "better",
-      "upos": "ADJ",
-      "deprel": "xcomp",
-      "gold": "C",
-      "spacy_token": "better",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "advmod",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
+      "token": "future",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "future",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
+      "neural_direct": "M",
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "8737642",
@@ -958,32 +874,32 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "8930872",
-      "text": "Here I am, where you are.",
-      "token": "where",
-      "upos": "ADV",
-      "deprel": "advmod",
-      "gold": "M",
-      "spacy_token": "where",
-      "spacy_pos": "SCONJ",
-      "spacy_dep": "advmod",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
+      "sentence_id": "11358473",
+      "text": "The work you do is important.",
+      "token": "work",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "work",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
+      "neural_direct": "M",
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
-      "sentence_id": "12391141",
-      "text": "I'm going to have the best night of my life.",
-      "token": "night",
-      "upos": "NOUN",
+      "sentence_id": "12777832",
+      "text": "Can we change who we are?",
+      "token": "who",
+      "upos": "PRON",
       "deprel": "obj",
       "gold": "O",
-      "spacy_token": "night",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "dobj",
-      "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "dep-object"
+      "spacy_token": "who",
+      "spacy_pos": "PRON",
+      "spacy_dep": "attr",
+      "neural_direct": "O",
+      "final": "C",
+      "guard_reason": "dep-complement"
     },
     {
       "sentence_id": "10313808",
@@ -1009,7 +925,7 @@
       "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "pobj",
-      "neural_direct": "C",
+      "neural_direct": "O",
       "final": "M",
       "guard_reason": "dep-pobj"
     },
@@ -1042,20 +958,6 @@
       "guard_reason": "dep-subject"
     },
     {
-      "sentence_id": "11257806",
-      "text": "It is only now that I have seen her.",
-      "token": "that",
-      "upos": "SCONJ",
-      "deprel": "mark",
-      "gold": "M",
-      "spacy_token": "that",
-      "spacy_pos": "SCONJ",
-      "spacy_dep": "mark",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
-    },
-    {
       "sentence_id": "12770985",
       "text": "The more I see, the less I understand.",
       "token": "the",
@@ -1084,6 +986,20 @@
       "guard_reason": "dep-pobj"
     },
     {
+      "sentence_id": "10211300",
+      "text": "I'm you from the future.",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "attr",
+      "neural_direct": "S",
+      "final": "C",
+      "guard_reason": "dep-complement"
+    },
+    {
       "sentence_id": "12772668",
       "text": "Is there a reason for all of this?",
       "token": "reason",
@@ -1096,34 +1012,6 @@
       "neural_direct": "S",
       "final": "C",
       "guard_reason": "dep-complement"
-    },
-    {
-      "sentence_id": "12085109",
-      "text": "What evidence of this do you have?",
-      "token": "evidence",
-      "upos": "NOUN",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "evidence",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "dobj",
-      "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "12085109",
-      "text": "What evidence of this do you have?",
-      "token": "this",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "this",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
     },
     {
       "sentence_id": "11080986",
@@ -1154,20 +1042,6 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "10926539",
-      "text": "You always know when something is up with me.",
-      "token": "me",
-      "upos": "PRON",
-      "deprel": "obl",
-      "gold": "M",
-      "spacy_token": "me",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "11550302",
       "text": "I want to read more about this.",
       "token": "more",
@@ -1180,6 +1054,20 @@
       "neural_direct": "C",
       "final": "O",
       "guard_reason": "dep-object"
+    },
+    {
+      "sentence_id": "12131607",
+      "text": "Who is your community?",
+      "token": "community",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "community",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
+      "neural_direct": "C",
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "12010655",
@@ -1219,7 +1107,7 @@
       "spacy_token": "time",
       "spacy_pos": "NOUN",
       "spacy_dep": "attr",
-      "neural_direct": "M",
+      "neural_direct": "S",
       "final": "C",
       "guard_reason": "dep-complement"
     },
@@ -1236,20 +1124,6 @@
       "neural_direct": "M",
       "final": "S",
       "guard_reason": "clausal-object-before-aux-subject"
-    },
-    {
-      "sentence_id": "10061279",
-      "text": "It's not like I like you or anything!",
-      "token": "not",
-      "upos": "PART",
-      "deprel": "advmod",
-      "gold": "M",
-      "spacy_token": "not",
-      "spacy_pos": "PART",
-      "spacy_dep": "neg",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "10061279",
@@ -1275,7 +1149,7 @@
       "spacy_token": "more",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -1292,6 +1166,20 @@
       "neural_direct": "O",
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "12772661",
+      "text": "What more is there to be done?",
+      "token": "more",
+      "upos": "ADJ",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "more",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "12772661",
@@ -1324,20 +1212,6 @@
     {
       "sentence_id": "10093225",
       "text": "How do you two know each other?",
-      "token": "two",
-      "upos": "NUM",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "two",
-      "spacy_pos": "NUM",
-      "spacy_dep": "appos",
-      "neural_direct": "S",
-      "final": "M",
-      "guard_reason": "dep-appos"
-    },
-    {
-      "sentence_id": "10093225",
-      "text": "How do you two know each other?",
       "token": "other",
       "upos": "ADJ",
       "deprel": "fixed",
@@ -1345,7 +1219,7 @@
       "spacy_token": "other",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -1378,20 +1252,6 @@
       "guard_reason": "dep-subject"
     },
     {
-      "sentence_id": "12774925",
-      "text": "Was this part of the plan?",
-      "token": "plan",
-      "upos": "NOUN",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "plan",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "11127468",
       "text": "That's not the way people are.",
       "token": "way",
@@ -1404,6 +1264,20 @@
       "neural_direct": "M",
       "final": "C",
       "guard_reason": "dep-complement"
+    },
+    {
+      "sentence_id": "11127468",
+      "text": "That's not the way people are.",
+      "token": "people",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "people",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
+      "neural_direct": "C",
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "10152493",
@@ -1420,18 +1294,32 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "12772532",
-      "text": "Is there really no other way?",
-      "token": "really",
-      "upos": "ADV",
-      "deprel": "advmod",
-      "gold": "M",
-      "spacy_token": "really",
-      "spacy_pos": "ADV",
-      "spacy_dep": "advmod",
+      "sentence_id": "8737570",
+      "text": "Is the doctor in?",
+      "token": "doctor",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "doctor",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
       "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
+      "final": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
+      "sentence_id": "9510623",
+      "text": "You don't have a key to this door, do you?",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "nsubj",
+      "neural_direct": "O",
+      "final": "S",
+      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "10087289",
@@ -1457,7 +1345,7 @@
       "spacy_token": "best",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "C",
+      "neural_direct": "S",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -1474,6 +1362,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "11855896",
+      "text": "We were just on our way home.",
+      "token": "just",
+      "upos": "ADV",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "just",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "12772717",
@@ -1504,18 +1406,18 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "11297511",
-      "text": "I hope you can make good use of it.",
-      "token": "it",
-      "upos": "PRON",
-      "deprel": "nmod",
+      "sentence_id": "11112102",
+      "text": "It doesn't have to be one or the other.",
+      "token": "other",
+      "upos": "ADJ",
+      "deprel": "conj",
       "gold": "M",
-      "spacy_token": "it",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
+      "spacy_token": "other",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "conj",
+      "neural_direct": "M",
+      "final": "C",
+      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "12187607",
@@ -1544,6 +1446,20 @@
       "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
+    },
+    {
+      "sentence_id": "11419465",
+      "text": "This must be that one.",
+      "token": "one",
+      "upos": "NUM",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "one",
+      "spacy_pos": "NUM",
+      "spacy_dep": "attr",
+      "neural_direct": "M",
+      "final": "C",
+      "guard_reason": "dep-complement"
     },
     {
       "sentence_id": "12148992",
@@ -1583,7 +1499,7 @@
       "spacy_token": "right",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "neural_direct": "C",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -1630,46 +1546,18 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "12131111",
-      "text": "That wasn't about you.",
-      "token": "you",
-      "upos": "PRON",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "you",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
+      "sentence_id": "12391134",
+      "text": "I want to tell you that I've had enough.",
+      "token": "enough",
+      "upos": "ADJ",
+      "deprel": "obj",
+      "gold": "O",
+      "spacy_token": "enough",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "dobj",
       "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "10359348",
-      "text": "Let me know which of these you want.",
-      "token": "these",
-      "upos": "PRON",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "these",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
-      "neural_direct": "O",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "12766268",
-      "text": "The force will be with you, always.",
-      "token": "force",
-      "upos": "NOUN",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "force",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "nsubj",
-      "neural_direct": "M",
-      "final": "S",
-      "guard_reason": "dep-subject"
+      "final": "O",
+      "guard_reason": "dep-object"
     },
     {
       "sentence_id": "11297827",
@@ -1681,7 +1569,7 @@
       "spacy_token": "nothing",
       "spacy_pos": "PRON",
       "spacy_dep": "attr",
-      "neural_direct": "O",
+      "neural_direct": "S",
       "final": "C",
       "guard_reason": "dep-complement"
     },
@@ -1744,16 +1632,30 @@
     {
       "sentence_id": "11077397",
       "text": "It wasn't about you.",
-      "token": "you",
-      "upos": "PRON",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "you",
-      "spacy_pos": "PRON",
-      "spacy_dep": "pobj",
+      "token": "n't",
+      "upos": "PART",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "n't",
+      "spacy_pos": "PART",
+      "spacy_dep": "neg",
       "neural_direct": "C",
       "final": "M",
-      "guard_reason": "dep-pobj"
+      "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "12140049",
+      "text": "Who can you reach out to for help with this?",
+      "token": "Who",
+      "upos": "PRON",
+      "deprel": "obl",
+      "gold": "M",
+      "spacy_token": "Who",
+      "spacy_pos": "PRON",
+      "spacy_dep": "dobj",
+      "neural_direct": "M",
+      "final": "O",
+      "guard_reason": "dep-object"
     },
     {
       "sentence_id": "11076361",
@@ -1796,50 +1698,22 @@
       "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "9929712",
-      "text": "I'm not sure what to say to that.",
-      "token": "sure",
-      "upos": "ADJ",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "sure",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "acomp",
-      "neural_direct": "M",
-      "final": "C",
-      "guard_reason": "dep-complement"
-    },
-    {
-      "sentence_id": "10077489",
-      "text": "Is it really, though?",
-      "token": "really",
-      "upos": "ADV",
-      "deprel": "root",
-      "gold": "M",
-      "spacy_token": "really",
-      "spacy_pos": "ADV",
-      "spacy_dep": "advmod",
-      "neural_direct": "C",
-      "final": "M",
-      "guard_reason": "dep-function"
     }
   ],
   "remaining_confusions": [
     {
       "gold": "M",
-      "pred": "C",
-      "count": 32
-    },
-    {
-      "gold": "M",
       "pred": "O",
-      "count": 30
+      "count": 28
     },
     {
       "gold": "C",
       "pred": "M",
+      "count": 17
+    },
+    {
+      "gold": "M",
+      "pred": "C",
       "count": 16
     },
     {
@@ -1853,12 +1727,12 @@
       "count": 9
     },
     {
-      "gold": "O",
+      "gold": "M",
       "pred": "S",
-      "count": 7
+      "count": 6
     },
     {
-      "gold": "M",
+      "gold": "O",
       "pred": "S",
       "count": 6
     },
@@ -1928,20 +1802,6 @@
       "guard_reason": "copular-pobj-complement"
     },
     {
-      "sentence_id": "11692003",
-      "text": "What time was that?",
-      "token": "What",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
-    },
-    {
       "sentence_id": "11619486",
       "text": "It's all what you make of it.",
       "token": "all",
@@ -1956,20 +1816,6 @@
       "guard_reason": "neural"
     },
     {
-      "sentence_id": "12390977",
-      "text": "I want it that way.",
-      "token": "way",
-      "upos": "NOUN",
-      "deprel": "obl:unmarked",
-      "gold": "M",
-      "spacy_token": "way",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "npadvmod",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
-    },
-    {
       "sentence_id": "8988065",
       "text": "What do you think is best for you?",
       "token": "What",
@@ -1979,7 +1825,7 @@
       "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "nsubj",
-      "neural_direct": "C",
+      "neural_direct": "O",
       "final": "S",
       "guard_reason": "dep-subject"
     },
@@ -2007,9 +1853,9 @@
       "spacy_token": "want",
       "spacy_pos": "NOUN",
       "spacy_dep": "conj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "C",
-      "guard_reason": "neural"
+      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "11601027",
@@ -2035,23 +1881,9 @@
       "spacy_token": "want",
       "spacy_pos": "NOUN",
       "spacy_dep": "conj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "C",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "11443175",
-      "text": "I don't want to be this way.",
-      "token": "this",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "this",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
+      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "11451508",
@@ -2105,7 +1937,7 @@
       "spacy_token": "much",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -2119,7 +1951,7 @@
       "spacy_token": "more",
       "spacy_pos": "ADJ",
       "spacy_dep": "attr",
-      "neural_direct": "S",
+      "neural_direct": "C",
       "final": "C",
       "guard_reason": "dep-complement"
     },
@@ -2150,20 +1982,6 @@
       "neural_direct": "C",
       "final": "S",
       "guard_reason": "dep-subject"
-    },
-    {
-      "sentence_id": "11585970",
-      "text": "It's that time.",
-      "token": "that",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "that",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "8724278",
@@ -2206,20 +2024,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-pobj"
-    },
-    {
-      "sentence_id": "9806859",
-      "text": "What city are you from?",
-      "token": "What",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "11262905",
@@ -2306,34 +2110,6 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "11692004",
-      "text": "What time did you say?",
-      "token": "What",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "O",
-      "final": "O",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "11692004",
-      "text": "What time did you say?",
-      "token": "time",
-      "upos": "NOUN",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "time",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "dobj",
-      "neural_direct": "M",
-      "final": "S",
-      "guard_reason": "clausal-object-before-aux-subject"
-    },
-    {
       "sentence_id": "10735694",
       "text": "I come here all the time.",
       "token": "time",
@@ -2343,36 +2119,8 @@
       "spacy_token": "time",
       "spacy_pos": "NOUN",
       "spacy_dep": "npadvmod",
-      "neural_direct": "O",
-      "final": "O",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "10157349",
-      "text": "You were in on it the whole time.",
-      "token": "whole",
-      "upos": "ADJ",
-      "deprel": "amod",
-      "gold": "M",
-      "spacy_token": "whole",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "amod",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "10157349",
-      "text": "You were in on it the whole time.",
-      "token": "time",
-      "upos": "NOUN",
-      "deprel": "obl:unmarked",
-      "gold": "M",
-      "spacy_token": "time",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "npadvmod",
-      "neural_direct": "C",
-      "final": "C",
+      "neural_direct": "S",
+      "final": "S",
       "guard_reason": "neural"
     },
     {
@@ -2385,23 +2133,9 @@
       "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "neural_direct": "O",
       "final": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "10795839",
-      "text": "Is your number still the same?",
-      "token": "your",
-      "upos": "PRON",
-      "deprel": "nmod:poss",
-      "gold": "M",
-      "spacy_token": "your",
-      "spacy_pos": "PRON",
-      "spacy_dep": "poss",
-      "neural_direct": "S",
-      "final": "S",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "10218906",
@@ -2432,6 +2166,20 @@
       "guard_reason": "neural"
     },
     {
+      "sentence_id": "10169061",
+      "text": "You make the world better by being in it.",
+      "token": "it",
+      "upos": "PRON",
+      "deprel": "advcl",
+      "gold": "C",
+      "spacy_token": "it",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "M",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "8805539",
       "text": "This is some of your best work.",
       "token": "some",
@@ -2444,20 +2192,6 @@
       "neural_direct": "C",
       "final": "C",
       "guard_reason": "dep-complement"
-    },
-    {
-      "sentence_id": "8805539",
-      "text": "This is some of your best work.",
-      "token": "work",
-      "upos": "NOUN",
-      "deprel": "nmod",
-      "gold": "M",
-      "spacy_token": "work",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "pobj",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "of-np-neural-core-preserve"
     },
     {
       "sentence_id": "12029161",
@@ -2513,20 +2247,6 @@
       "spacy_dep": "npadvmod",
       "neural_direct": "O",
       "final": "O",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "9323395",
-      "text": "I was there last year.",
-      "token": "last",
-      "upos": "ADJ",
-      "deprel": "amod",
-      "gold": "M",
-      "spacy_token": "last",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "amod",
-      "neural_direct": "C",
-      "final": "C",
       "guard_reason": "neural"
     },
     {
@@ -2595,7 +2315,7 @@
       "spacy_token": "other",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "O",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -2637,7 +2357,7 @@
       "spacy_token": "better",
       "spacy_pos": "ADJ",
       "spacy_dep": "advmod",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-function"
     },
@@ -2651,8 +2371,8 @@
       "spacy_token": "way",
       "spacy_pos": "NOUN",
       "spacy_dep": "npadvmod",
-      "neural_direct": "C",
-      "final": "C",
+      "neural_direct": "O",
+      "final": "O",
       "guard_reason": "neural"
     },
     {
@@ -2679,7 +2399,7 @@
       "spacy_token": "who",
       "spacy_pos": "PRON",
       "spacy_dep": "attr",
-      "neural_direct": "C",
+      "neural_direct": "O",
       "final": "C",
       "guard_reason": "dep-complement"
     },
@@ -2740,18 +2460,18 @@
       "guard_reason": "neural"
     },
     {
-      "sentence_id": "12391141",
-      "text": "I'm going to have the best night of my life.",
-      "token": "life",
+      "sentence_id": "10028718",
+      "text": "Take it a day at a time.",
+      "token": "day",
       "upos": "NOUN",
-      "deprel": "nmod",
+      "deprel": "obl:unmarked",
       "gold": "M",
-      "spacy_token": "life",
+      "spacy_token": "day",
       "spacy_pos": "NOUN",
-      "spacy_dep": "pobj",
+      "spacy_dep": "npadvmod",
       "neural_direct": "O",
       "final": "O",
-      "guard_reason": "of-np-neural-core-preserve"
+      "guard_reason": "neural"
     },
     {
       "sentence_id": "9738395",
@@ -2938,20 +2658,6 @@
     {
       "sentence_id": "12772604",
       "text": "What more could they have said?",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "PRON",
-      "spacy_dep": "det",
-      "neural_direct": "O",
-      "final": "O",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "12772604",
-      "text": "What more could they have said?",
       "token": "more",
       "upos": "ADJ",
       "deprel": "obj",
@@ -2990,20 +2696,6 @@
       "neural_direct": "M",
       "final": "O",
       "guard_reason": "conj-inherit"
-    },
-    {
-      "sentence_id": "12773496",
-      "text": "What more could we have done?",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "PRON",
-      "spacy_dep": "det",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "12488733",
@@ -3090,6 +2782,20 @@
       "guard_reason": "dep-object"
     },
     {
+      "sentence_id": "12801687",
+      "text": "I say things the way I feel them.",
+      "token": "way",
+      "upos": "NOUN",
+      "deprel": "obl:unmarked",
+      "gold": "M",
+      "spacy_token": "way",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "npadvmod",
+      "neural_direct": "O",
+      "final": "O",
+      "guard_reason": "neural"
+    },
+    {
       "sentence_id": "9152216",
       "text": "We have to help each other.",
       "token": "each",
@@ -3141,7 +2847,7 @@
       "spacy_token": "two",
       "spacy_pos": "NUM",
       "spacy_dep": "appos",
-      "neural_direct": "S",
+      "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-appos"
     },
@@ -3169,7 +2875,7 @@
       "spacy_token": "other",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -3186,20 +2892,6 @@
       "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "12773622",
-      "text": "Could this be the start of something new?",
-      "token": "new",
-      "upos": "ADJ",
-      "deprel": "amod",
-      "gold": "M",
-      "spacy_token": "new",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "amod",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "12774925",
@@ -3286,20 +2978,6 @@
       "guard_reason": "dep-object"
     },
     {
-      "sentence_id": "11855896",
-      "text": "We were just on our way home.",
-      "token": "way",
-      "upos": "NOUN",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "way",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "pobj",
-      "neural_direct": "M",
-      "final": "M",
-      "guard_reason": "dep-pobj"
-    },
-    {
       "sentence_id": "12772717",
       "text": "Had it not been for her, I would be lost.",
       "token": "her",
@@ -3342,6 +3020,34 @@
       "guard_reason": "dep-complement"
     },
     {
+      "sentence_id": "10126473",
+      "text": "Where do you guys want to go?",
+      "token": "you",
+      "upos": "PRON",
+      "deprel": "dep",
+      "gold": "M",
+      "spacy_token": "you",
+      "spacy_pos": "PRON",
+      "spacy_dep": "nmod",
+      "neural_direct": "S",
+      "final": "S",
+      "guard_reason": "neural"
+    },
+    {
+      "sentence_id": "12141695",
+      "text": "Are you still at the bar?",
+      "token": "bar",
+      "upos": "NOUN",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "bar",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "pobj",
+      "neural_direct": "M",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "11112102",
       "text": "It doesn't have to be one or the other.",
       "token": "other",
@@ -3351,9 +3057,9 @@
       "spacy_token": "other",
       "spacy_pos": "ADJ",
       "spacy_dep": "conj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "C",
-      "guard_reason": "neural"
+      "guard_reason": "conj-inherit"
     },
     {
       "sentence_id": "12187607",
@@ -3384,34 +3090,6 @@
       "guard_reason": "dep-object"
     },
     {
-      "sentence_id": "9805679",
-      "text": "What questions do you have for me?",
-      "token": "What",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "What",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "O",
-      "final": "O",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "11419465",
-      "text": "This must be that one.",
-      "token": "that",
-      "upos": "DET",
-      "deprel": "det",
-      "gold": "M",
-      "spacy_token": "that",
-      "spacy_pos": "DET",
-      "spacy_dep": "det",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
-    },
-    {
       "sentence_id": "12148992",
       "text": "This is what works for me.",
       "token": "what",
@@ -3438,34 +3116,6 @@
       "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "9805909",
-      "text": "Who knows you the best?",
-      "token": "best",
-      "upos": "ADJ",
-      "deprel": "ccomp",
-      "gold": "M",
-      "spacy_token": "best",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "npadvmod",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "12247036",
-      "text": "I know it's different now, but how different?",
-      "token": "different",
-      "upos": "ADJ",
-      "deprel": "conj",
-      "gold": "M",
-      "spacy_token": "different",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "conj",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
     },
     {
       "sentence_id": "10169659",
@@ -3505,7 +3155,7 @@
       "spacy_token": "you",
       "spacy_pos": "PRON",
       "spacy_dep": "pobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-pobj"
     },
@@ -3538,34 +3188,6 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "11889114",
-      "text": "What is there to watch?",
-      "token": "to",
-      "upos": "PART",
-      "deprel": "mark",
-      "gold": "M",
-      "spacy_token": "to",
-      "spacy_pos": "PART",
-      "spacy_dep": "aux",
-      "neural_direct": "S",
-      "final": "S",
-      "guard_reason": "neural"
-    },
-    {
-      "sentence_id": "11105352",
-      "text": "The less I hear, the better.",
-      "token": "better",
-      "upos": "ADJ",
-      "deprel": "root",
-      "gold": "M",
-      "spacy_token": "better",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "ROOT",
-      "neural_direct": "C",
-      "final": "C",
-      "guard_reason": "neural"
-    },
-    {
       "sentence_id": "11297827",
       "text": "There's nothing I can do to help you.",
       "token": "nothing",
@@ -3575,7 +3197,7 @@
       "spacy_token": "nothing",
       "spacy_pos": "PRON",
       "spacy_dep": "attr",
-      "neural_direct": "O",
+      "neural_direct": "S",
       "final": "C",
       "guard_reason": "dep-complement"
     },
@@ -3617,7 +3239,7 @@
       "spacy_token": "you",
       "spacy_pos": "PRON",
       "spacy_dep": "pobj",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "M",
       "guard_reason": "dep-pobj"
     },
@@ -3631,7 +3253,7 @@
       "spacy_token": "Who",
       "spacy_pos": "PRON",
       "spacy_dep": "dobj",
-      "neural_direct": "O",
+      "neural_direct": "M",
       "final": "O",
       "guard_reason": "dep-object"
     },

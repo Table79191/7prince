@@ -1,10 +1,10 @@
 {
-  "apcontinue": "2012_Rutgers_Scarlet_Knights_football_season",
-  "total_pages_processed": 264115,
-  "total_records": 5057,
-  "auto_pass": 4480,
-  "needs_review": 577,
+  "apcontinue": "2017_Berlin_International_Film_Festival",
+  "total_pages_processed": 307096,
+  "total_records": 5280,
+  "auto_pass": 4670,
+  "needs_review": 610,
   "current_shard": 3,
-  "current_shard_records": 1057,
+  "current_shard_records": 1280,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 264115,
-  "total_records": 5057,
-  "auto_pass": 4480,
-  "needs_review": 577,
+  "total_pages_processed": 307096,
+  "total_records": 5280,
+  "auto_pass": 4670,
+  "needs_review": 610,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "2012_Rutgers_Scarlet_Knights_football_season",
+  "apcontinue": "2017_Berlin_International_Film_Festival",
   "source_exhausted": false,
   "shard_count": 3
 }

@@ -2,7 +2,7 @@
   "version": "1.8.3-AUTO-PROMOTED-SILVER",
   "candidate_accepted": false,
   "promoted_selected": 1200,
-  "promoted_available": 7051,
+  "promoted_available": 7551,
   "reason": "no_candidate_passed_promotion_gates",
   "parent": "v1.8.3_auto_promoted_silver_role.pt",
   "baseline": {
@@ -27,17 +27,17 @@
       "epoch": 1,
       "train": {
         "sentences": 11200,
-        "tokens": 104601,
-        "weighted_tokens": 59679.83827209473,
-        "loss": 0.0878779879412118,
-        "train_acc": 0.9690825135514957
+        "tokens": 103572,
+        "weighted_tokens": 59556.3581161499,
+        "loss": 0.0877544884463325,
+        "train_acc": 0.9689394817132043
       },
       "ud_dev": {
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.9651328744602822,
-        "sentence_exact": 4848
+        "neural_role_acc": 0.9652232038010586,
+        "sentence_exact": 4851
       },
       "target_validation": {
         "sentences": 176,
@@ -46,10 +46,10 @@
         "neural_role_acc": 0.9215328467153284,
         "sentence_exact": 119
       },
-      "score": 1.0495821620390435,
+      "score": 1.0496962368286091,
       "gates": {
         "ud_token_safe": true,
-        "ud_exact_safe": false,
+        "ud_exact_safe": true,
         "regression_validation_safe": true,
         "composite_improved": false
       },
@@ -59,16 +59,16 @@
       "epoch": 2,
       "train": {
         "sentences": 11200,
-        "tokens": 104601,
-        "weighted_tokens": 59679.83826446533,
-        "loss": 0.08764811369507708,
-        "train_acc": 0.9687957094100439
+        "tokens": 103572,
+        "weighted_tokens": 59556.35849761963,
+        "loss": 0.08767457206087863,
+        "train_acc": 0.968862240760051
       },
       "ud_dev": {
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.965114808592127,
+        "neural_role_acc": 0.9651870720647481,
         "sentence_exact": 4855
       },
       "target_validation": {
@@ -78,7 +78,7 @@
         "neural_role_acc": 0.9206204379562044,
         "sentence_exact": 119
       },
-      "score": 1.0495738817801066,
+      "score": 1.0496461452527277,
       "gates": {
         "ud_token_safe": true,
         "ud_exact_safe": true,

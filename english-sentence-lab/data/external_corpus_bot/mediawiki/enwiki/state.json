@@ -1,10 +1,10 @@
 {
-  "apcontinue": "American_constitutional_law",
-  "total_pages_processed": 706252,
-  "total_records": 13698,
-  "auto_pass": 12150,
-  "needs_review": 1548,
-  "current_shard": 7,
-  "current_shard_records": 1698,
+  "apcontinue": "Andrew_Dimitri",
+  "total_pages_processed": 742971,
+  "total_records": 14356,
+  "auto_pass": 12716,
+  "needs_review": 1640,
+  "current_shard": 8,
+  "current_shard_records": 356,
   "source_exhausted": false
 }

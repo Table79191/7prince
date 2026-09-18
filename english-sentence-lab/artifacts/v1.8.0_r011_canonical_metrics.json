@@ -1,28 +1,28 @@
 {
   "version": "1.8.0-R011-CANONICAL-CLEAN",
-  "base": "v1.7.0_ud_role.pt",
-  "selected_epoch": 3,
+  "base": "random-init",
+  "selected_epoch": 5,
   "baseline": {
     "ewt": {
       "sentences": 1766,
       "tokens": 22266,
       "base_role_acc": 0.7443636037007096,
-      "neural_role_acc": 0.7317883768975119,
-      "sentence_exact": 626
+      "neural_role_acc": 0.11910536243600107,
+      "sentence_exact": 0
     },
     "ud": {
       "sentences": 1993,
       "tokens": 16144,
       "base_role_acc": 0.7275148662041625,
-      "neural_role_acc": 0.7203295341922695,
-      "sentence_exact": 824
+      "neural_role_acc": 0.13676907829534193,
+      "sentence_exact": 0
     },
     "masc": {
       "sentences": 331,
       "tokens": 5163,
       "base_role_acc": 0.7547937245787333,
-      "neural_role_acc": 0.7606042998256828,
-      "sentence_exact": 84
+      "neural_role_acc": 0.12357156691845826,
+      "sentence_exact": 0
     }
   },
   "selected": {
@@ -30,22 +30,22 @@
       "sentences": 1766,
       "tokens": 22266,
       "base_role_acc": 0.7443636037007096,
-      "neural_role_acc": 0.9680679062247373,
-      "sentence_exact": 1288
+      "neural_role_acc": 0.9638462229408066,
+      "sentence_exact": 1241
     },
     "ud": {
       "sentences": 1993,
       "tokens": 16144,
       "base_role_acc": 0.7275148662041625,
-      "neural_role_acc": 0.9731169474727452,
-      "sentence_exact": 1640
+      "neural_role_acc": 0.9639494549058474,
+      "sentence_exact": 1529
     },
     "masc": {
       "sentences": 331,
       "tokens": 5163,
       "base_role_acc": 0.7547937245787333,
-      "neural_role_acc": 0.957389114855704,
-      "sentence_exact": 195
+      "neural_role_acc": 0.9523532829750145,
+      "sentence_exact": 192
     }
   },
   "history": [
@@ -53,99 +53,165 @@
       "epoch": 1,
       "train": {
         "tokens": 306345,
-        "loss": 0.1870842437820829,
-        "accuracy": 0.932912239468573
+        "loss": 0.48384853490771357,
+        "accuracy": 0.801717018394294
       },
       "eval": {
         "ewt": {
           "sentences": 1766,
           "tokens": 22266,
           "base_role_acc": 0.7443636037007096,
-          "neural_role_acc": 0.9623641426390012,
-          "sentence_exact": 1222
+          "neural_role_acc": 0.9235605856462769,
+          "sentence_exact": 841
         },
         "ud": {
           "sentences": 1993,
           "tokens": 16144,
           "base_role_acc": 0.7275148662041625,
-          "neural_role_acc": 0.9677279484638256,
-          "sentence_exact": 1574
+          "neural_role_acc": 0.9379335976214074,
+          "sentence_exact": 1223
         },
         "masc": {
           "sentences": 331,
           "tokens": 5163,
           "base_role_acc": 0.7547937245787333,
-          "neural_role_acc": 0.9488669378268448,
-          "sentence_exact": 175
+          "neural_role_acc": 0.9147782297114081,
+          "sentence_exact": 108
         }
       },
-      "score": 2.8348899832413688,
+      "score": 2.7327290904772394,
       "safe": true
     },
     {
       "epoch": 2,
       "train": {
         "tokens": 306345,
-        "loss": 0.10545532578460855,
-        "accuracy": 0.965352788522744
+        "loss": 0.16326474308878575,
+        "accuracy": 0.945192511710653
       },
       "eval": {
         "ewt": {
           "sentences": 1766,
           "tokens": 22266,
           "base_role_acc": 0.7443636037007096,
-          "neural_role_acc": 0.9667654720201203,
-          "sentence_exact": 1279
+          "neural_role_acc": 0.9554926794215396,
+          "sentence_exact": 1114
         },
         "ud": {
           "sentences": 1993,
           "tokens": 16144,
           "base_role_acc": 0.7275148662041625,
-          "neural_role_acc": 0.9710728444003964,
-          "sentence_exact": 1619
+          "neural_role_acc": 0.952490089197225,
+          "sentence_exact": 1391
         },
         "masc": {
           "sentences": 331,
           "tokens": 5163,
           "base_role_acc": 0.7547937245787333,
-          "neural_role_acc": 0.9548711989153593,
-          "sentence_exact": 189
+          "neural_role_acc": 0.9393763315901608,
+          "sentence_exact": 153
         }
       },
-      "score": 2.8479395236662985,
+      "score": 2.804419370587262,
       "safe": true
     },
     {
       "epoch": 3,
       "train": {
         "tokens": 306345,
-        "loss": 0.09261813355159017,
-        "accuracy": 0.9688390540077364
+        "loss": 0.13041936061056306,
+        "accuracy": 0.9572442834059639
       },
       "eval": {
         "ewt": {
           "sentences": 1766,
           "tokens": 22266,
           "base_role_acc": 0.7443636037007096,
-          "neural_role_acc": 0.9680679062247373,
-          "sentence_exact": 1288
+          "neural_role_acc": 0.9607024162400072,
+          "sentence_exact": 1184
         },
         "ud": {
           "sentences": 1993,
           "tokens": 16144,
           "base_role_acc": 0.7275148662041625,
-          "neural_role_acc": 0.9731169474727452,
-          "sentence_exact": 1640
+          "neural_role_acc": 0.9589321110009911,
+          "sentence_exact": 1463
         },
         "masc": {
           "sentences": 331,
           "tokens": 5163,
           "base_role_acc": 0.7547937245787333,
-          "neural_role_acc": 0.957389114855704,
-          "sentence_exact": 195
+          "neural_role_acc": 0.94673639356963,
+          "sentence_exact": 180
         }
       },
-      "score": 2.85337421065266,
+      "score": 2.822525606799741,
+      "safe": true
+    },
+    {
+      "epoch": 4,
+      "train": {
+        "tokens": 306345,
+        "loss": 0.11500707139876248,
+        "accuracy": 0.9617098369485384
+      },
+      "eval": {
+        "ewt": {
+          "sentences": 1766,
+          "tokens": 22266,
+          "base_role_acc": 0.7443636037007096,
+          "neural_role_acc": 0.9633521961735382,
+          "sentence_exact": 1220
+        },
+        "ud": {
+          "sentences": 1993,
+          "tokens": 16144,
+          "base_role_acc": 0.7275148662041625,
+          "neural_role_acc": 0.96097621407334,
+          "sentence_exact": 1493
+        },
+        "masc": {
+          "sentences": 331,
+          "tokens": 5163,
+          "base_role_acc": 0.7547937245787333,
+          "neural_role_acc": 0.9496416811931048,
+          "sentence_exact": 186
+        }
+      },
+      "score": 2.829915636125436,
+      "safe": true
+    },
+    {
+      "epoch": 5,
+      "train": {
+        "tokens": 306345,
+        "loss": 0.10493185967874563,
+        "accuracy": 0.9645758866637288
+      },
+      "eval": {
+        "ewt": {
+          "sentences": 1766,
+          "tokens": 22266,
+          "base_role_acc": 0.7443636037007096,
+          "neural_role_acc": 0.9638462229408066,
+          "sentence_exact": 1241
+        },
+        "ud": {
+          "sentences": 1993,
+          "tokens": 16144,
+          "base_role_acc": 0.7275148662041625,
+          "neural_role_acc": 0.9639494549058474,
+          "sentence_exact": 1529
+        },
+        "masc": {
+          "sentences": 331,
+          "tokens": 5163,
+          "base_role_acc": 0.7547937245787333,
+          "neural_role_acc": 0.9523532829750145,
+          "sentence_exact": 192
+        }
+      },
+      "score": 2.8354045316643655,
       "safe": true
     }
   ],
@@ -177,5 +243,5 @@
     "synthetic_gold_not_used_for_fit_or_selection": true,
     "canonical_role_spec": "v2-head-only"
   },
-  "note": "Clean R011 lineage starts from v1.7.0 and excludes every official UD/EWT test row from fitting and model selection."
+  "note": "Clean R011 lineage starts from random initialization and excludes every official UD/EWT test row from fitting and model selection."
 }

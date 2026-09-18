@@ -1,32 +1,31 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 1000,
-  "total_promoted": 15620,
+  "added_this_run": 672,
+  "total_promoted": 16292,
   "sources": {
     "tatoeba": {
-      "source_records": 444791,
-      "processed_before": 246413,
-      "scanned": 868,
+      "source_records": 469282,
+      "processed_before": 247281,
+      "scanned": 816,
       "accepted": 500,
       "rejected": {
-        "length": 191,
-        "structure": 21,
-        "consensus": 127,
-        "status": 28,
-        "duplicate": 1
+        "consensus": 144,
+        "length": 107,
+        "status": 18,
+        "structure": 44,
+        "duplicate": 3
       }
     },
     "mediawiki/enwiki": {
       "source_records": 8223,
-      "processed_before": 6661,
-      "scanned": 1172,
-      "accepted": 500,
+      "processed_before": 7833,
+      "scanned": 390,
+      "accepted": 172,
       "rejected": {
-        "status": 166,
-        "consensus": 332,
-        "length": 87,
-        "structure": 86,
-        "duplicate": 1
+        "status": 44,
+        "consensus": 124,
+        "structure": 23,
+        "length": 27
       }
     },
     "mediawiki/enwikibooks": {

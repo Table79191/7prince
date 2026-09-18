@@ -62,6 +62,10 @@ def main():
     args = ap.parse_args()
 
     ck = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
+    expected_version = "1.8.1-R012-SAFE-FEED-SCHOOL-HEADS"
+    actual_version = ck.get("metrics", {}).get("version")
+    if actual_version != expected_version:
+        raise SystemExit(f"refusing to export stale R012 checkpoint: {actual_version!r}")
     model = base.RoleNet().cpu()
     model.load_state_dict(ck["model"], strict=True)
     model.eval()
@@ -122,7 +126,7 @@ def main():
         "feature_shape_size": 8,
         "checkpoint": Path(args.checkpoint).name,
         "wrapper_max_abs_error": wrapper_err,
-        "browser_note": "Neural weights are exact R012; browser POS tagging is approximate unless a compatible POS tagger is supplied."
+        "browser_note": "Neural weights use school-style head-only S/V/O/C labels. Browser normalization expands contractions such as can't -> can + not and applies shared grammar regressions."
     }
     Path(args.meta).write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
     print(f"exported {out} bytes={out.stat().st_size}")

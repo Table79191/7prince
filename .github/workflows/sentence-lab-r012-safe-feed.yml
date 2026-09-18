@@ -1,6 +1,10 @@
 name: SentenceLab R012 safe corpus feed
 
 on:
+  workflow_run:
+    workflows: ["SentenceLab R011 canonical replay"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
   push:
     branches: [main]
@@ -21,6 +25,7 @@ concurrency:
 
 jobs:
   train:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 100
 

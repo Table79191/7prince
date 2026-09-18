@@ -33,6 +33,6 @@
   "suffix_vocab": 1024,
   "feature_shape_size": 8,
   "checkpoint": "v1.8.2_r012_school_regression_role.pt",
-  "wrapper_max_abs_error": 0.0000011920928955078125,
-  "browser_note": "Neural weights use school-style head-only S/V/O/C labels. Browser normalization and regression rules are verified through the exact JS preprocessing -> ONNX -> JS postprocess path."
+  "wrapper_max_abs_error": 1.1920928955078125e-06,
+  "browser_note": "Neural weights use school-style head-only S/V/O/C labels. Browser normalization expands contractions such as can't -> can + not and applies shared grammar regressions."
 }

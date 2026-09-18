@@ -1,10 +1,10 @@
 {
-  "apcontinue": "40th_New_Brunswick_general_election",
-  "total_pages_processed": 428260,
-  "total_records": 6661,
-  "auto_pass": 5865,
-  "needs_review": 796,
-  "current_shard": 4,
-  "current_shard_records": 661,
+  "apcontinue": "A.E._Housman",
+  "total_pages_processed": 450282,
+  "total_records": 8223,
+  "auto_pass": 7217,
+  "needs_review": 1006,
+  "current_shard": 5,
+  "current_shard_records": 223,
   "source_exhausted": false
 }

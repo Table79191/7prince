@@ -92,6 +92,26 @@
       for(let i=1;i<cop;i++)if(pos[i]!=='PUNCT')setRole(i,'M');
       setRole(cop,'V');
       for(let i=cop+1;i<lo.length;i++){if(pos[i]==='PUNCT')break;setRole(i,'S');}
+    }else if(cop>=0){
+      // Ordinary copular predicate: modifiers stay M; nominal/adjectival head is C.
+      let candidate=-1;
+      for(let i=cop+1;i<lo.length;i++){
+        if(pos[i]==='PUNCT')break;
+        if(pos[i]==='ADV'||pos[i]==='DET'||pos[i]==='NUM'||pos[i]==='SYM'){setRole(i,'M');continue;}
+        if(pos[i]==='ADJ'||pos[i]==='NOUN'||pos[i]==='PROPN'||pos[i]==='PRON'){candidate=i;break;}
+        if(pos[i]==='VERB'||pos[i]==='AUX')break;
+      }
+      if(candidate>=0)setRole(candidate,'C');
+    }
+
+    // Ordinary prepositional phrases are modifier material in the v2 school-head spec.
+    for(let i=0;i<pos.length;i++){
+      if(pos[i]!=='ADP')continue;
+      setRole(i,'M');
+      for(let j=i+1;j<pos.length;j++){
+        if(pos[j]==='PUNCT'||pos[j]==='VERB'||pos[j]==='AUX'||pos[j]==='CCONJ'||pos[j]==='SCONJ')break;
+        setRole(j,'M');
+      }
     }
     const isNum=w=>/^\d+(?:\.\d+)?$/.test(w.replace(/,/g,''));
     const isModifier=i=>{

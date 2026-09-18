@@ -49,6 +49,30 @@ def weak_roles(tokens):
             out.append("M")
     return out
 
+def normalized_surface_forms(doc):
+    """Return token-aligned surfaces matching training-time contraction normalization."""
+    forms=[t.text for t in doc]
+    for i,t in enumerate(doc):
+        lo=t.text.lower().replace("’","'")
+        nxt=doc[i+1].text.lower().replace("’","'") if i+1<len(doc) else ""
+        if lo=="ca" and nxt=="n't":
+            forms[i]="can"
+        elif lo=="wo" and nxt=="n't":
+            forms[i]="will"
+        elif lo=="sha" and nxt=="n't":
+            forms[i]="shall"
+        elif lo=="n't":
+            forms[i]="not"
+        elif lo=="'re":
+            forms[i]="are"
+        elif lo=="'ve":
+            forms[i]="have"
+        elif lo=="'ll":
+            forms[i]="will"
+        elif lo=="'m":
+            forms[i]="am"
+    return forms
+
 def shape_feat(w: str):
     lo=w.lower()
     return [
@@ -65,9 +89,10 @@ def shape_feat(w: str):
 def model_roles(doc):
     toks=list(doc)
     weak=weak_roles(toks)
+    surfaces=normalized_surface_forms(doc)
     wid=[]; pre=[]; suf=[]; pos=[]; role=[]; shape=[]
-    for t,b in zip(toks,weak):
-        w=t.text; lo=w.lower()
+    for t,b,w in zip(toks,weak,surfaces):
+        lo=w.lower()
         wid.append(fnv1a(lo)%8192)
         pre.append(fnv1a(lo[:3])%1024)
         suf.append(fnv1a(lo[-3:])%1024)
@@ -374,7 +399,7 @@ def analyze(text):
 
     return {
         "ok":True,
-        "engine":"spaCy en_core_web_sm + R012 ONNX",
+        "engine":"SentenceLab shared spaCy + R012 ONNX",
         "text":text,
         "tokens":tokens,
         "that_clauses":that_clauses,

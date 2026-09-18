@@ -8,6 +8,7 @@ on:
       - 'english-sentence-lab/eval/eval_chaosmix50_audited.py'
       - 'english-sentence-lab/eval/eval_chaosmix50_r013.py'
       - 'english-sentence-lab/scripts/spacy_role_postprocess.py'
+      - 'english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt'
       - 'english-sentence-lab/data/chaoslike200/ChaosMix50_ORIGINAL.json'
       - '.github/workflows/sentence-lab-chaosmix50-eval.yml'
   workflow_dispatch:

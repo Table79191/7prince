@@ -1,5 +1,7 @@
 # SentenceLab Canonical Role Label Specification v1
 
+Legacy status: **frozen phrase-propagation specification**. Current training/inference uses `role_label_spec_v2.md` (school-head). Do not mix v1 and v2 metrics.
+
 Status: **normative for new Rooping data and converters**.
 
 This document defines the token-level grammatical roles used by SentenceLab. Source corpora such as UD, MASC, parser-assisted data, and generated DSL data must map into this specification before they may be used as supervised S/V/O/C/M training data.

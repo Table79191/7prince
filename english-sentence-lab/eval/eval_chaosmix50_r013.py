@@ -20,6 +20,7 @@ from spacy_role_postprocess import postprocess_roles
 
 OUT = ROOT / 'artifacts' / 'r013_chaosmix50_eval.json'
 SUMMARY = ROOT / 'artifacts' / 'r013_chaosmix50_eval.txt'
+MODEL = ROOT / 'artifacts' / 'v1.8.2_r012_school_regression_role.pt'
 
 
 def main():
@@ -30,7 +31,7 @@ def main():
         raise RuntimeError('ChaosMix50 audited gold mismatch')
 
     nlp = spacy.load('en_core_web_sm')
-    ck = torch.load(e.MODEL,map_location='cpu',weights_only=False)
+    ck = torch.load(MODEL,map_location='cpu',weights_only=False)
     model = e.base.RoleNet().cpu(); model.load_state_dict(ck['model'],strict=True); model.eval()
 
     rows=[]
@@ -71,9 +72,11 @@ def main():
     reasons=Counter(r['guard_reason'] for r in fixed)
     result={
         'version':'current dependency-aware postprocess',
-        'base_model':'v1.8.0-R011-CANONICAL-REPLAY',
+        'base_model':ck.get('metrics',{}).get('version','unknown'),
+        'benchmark_status':'development_stress_set_tuned_against_postprocess',
         'dataset':'ChaosMix50_ORIGINAL audited sparse gold',
         'training_contamination':False,
+        'independent_final_holdout':False,
         'focus_checks':250,
         'before_neural_direct':direct,
         'after_dep_guard':guarded_score,

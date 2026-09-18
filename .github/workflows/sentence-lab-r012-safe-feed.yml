@@ -114,7 +114,8 @@ jobs:
           assert m['policy']['dev_test_never_trained'] is True
           assert m['policy']['tatoeba_daily500_excluded'] is True
           assert m['feed']['gold_train_sentences'] > 0
-          assert m['feed']['weak_fraction'] <= 0.2000001
+          assert m['feed']['weak_tatoeba_sentences'] == 0
+          assert m['feed']['weak_fraction'] == 0.0
           assert Path('english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt').stat().st_size > 100000
           print('candidate_accepted=',m['candidate_accepted'])
           print('selected_epoch=',m['selected_epoch'])

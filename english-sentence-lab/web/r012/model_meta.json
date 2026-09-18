@@ -1,5 +1,5 @@
 {
-  "version": "1.8.2-R012-SCHOOL-REGRESSION",
+  "version": "1.8.3-AUTO-PROMOTED-SILVER",
   "roles": [
     null,
     "S",
@@ -32,7 +32,7 @@
   "prefix_vocab": 1024,
   "suffix_vocab": 1024,
   "feature_shape_size": 8,
-  "checkpoint": "v1.8.2_r012_school_regression_role.pt",
-  "wrapper_max_abs_error": 4.76837158203125e-07,
+  "checkpoint": "v1.8.3_auto_promoted_silver_role.pt",
+  "wrapper_max_abs_error": 9.5367431640625e-07,
   "browser_note": "Neural weights use school-style head-only S/V/O/C labels. Browser normalization expands contractions such as can't -> can + not and applies shared grammar regressions."
 }

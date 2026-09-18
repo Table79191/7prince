@@ -32,7 +32,7 @@ jobs:
           import json
           from pathlib import Path
           meta=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
-          assert meta['version']=='1.8.1-R012-SAFE-FEED-SCHOOL-HEADS', meta['version']
+          assert meta['version']=='1.8.2-R012-SCHOOL-REGRESSION', meta['version']
           assert 'school-style head-only' in meta.get('browser_note','')
           print('web model version:',meta['version'])
           print('wrapper_max_abs_error:',meta['wrapper_max_abs_error'])

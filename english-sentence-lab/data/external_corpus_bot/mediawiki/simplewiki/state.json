@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Karabulak,_Republic_of_Ingushetia",
-  "total_pages_processed": 135568,
-  "total_records": 55,
-  "auto_pass": 53,
-  "needs_review": 2,
+  "apcontinue": "Michał_Turkiewicz",
+  "total_pages_processed": 171217,
+  "total_records": 113,
+  "auto_pass": 105,
+  "needs_review": 8,
   "current_shard": 1,
-  "current_shard_records": 55,
+  "current_shard_records": 113,
   "source_exhausted": false
 }

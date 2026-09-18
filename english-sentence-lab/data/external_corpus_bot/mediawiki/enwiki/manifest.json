@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 55792,
-  "total_records": 2863,
-  "auto_pass": 2537,
-  "needs_review": 326,
+  "total_pages_processed": 75035,
+  "total_records": 3488,
+  "auto_pass": 3106,
+  "needs_review": 382,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "1924_Washington_Senators",
+  "apcontinue": "1945_Washington_Redskins_football_team",
   "source_exhausted": false,
   "shard_count": 2
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 135568,
-  "total_records": 55,
-  "auto_pass": 53,
-  "needs_review": 2,
+  "total_pages_processed": 171217,
+  "total_records": 113,
+  "auto_pass": 105,
+  "needs_review": 8,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Karabulak,_Republic_of_Ingushetia",
+  "apcontinue": "Michał_Turkiewicz",
   "source_exhausted": false,
   "shard_count": 1
 }

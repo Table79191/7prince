@@ -1,10 +1,10 @@
 {
-  "apcontinue": "1924_Washington_Senators",
-  "total_pages_processed": 55792,
-  "total_records": 2863,
-  "auto_pass": 2537,
-  "needs_review": 326,
+  "apcontinue": "1945_Washington_Redskins_football_team",
+  "total_pages_processed": 75035,
+  "total_records": 3488,
+  "auto_pass": 3106,
+  "needs_review": 382,
   "current_shard": 2,
-  "current_shard_records": 863,
+  "current_shard_records": 1488,
   "source_exhausted": false
 }

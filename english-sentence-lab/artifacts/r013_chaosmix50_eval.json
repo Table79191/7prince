@@ -37,10 +37,10 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 242,
-    "accuracy": 0.968,
-    "exact_sentences": 42,
-    "exact_sentence_accuracy": 0.84,
+    "correct": 241,
+    "accuracy": 0.964,
+    "exact_sentences": 41,
+    "exact_sentence_accuracy": 0.82,
     "by_gold_role": {
       "S": {
         "checks": 173,
@@ -59,14 +59,14 @@
       },
       "M": {
         "checks": 14,
-        "correct": 14,
-        "accuracy": 1.0
+        "correct": 13,
+        "accuracy": 0.9285714285714286
       }
     }
   },
   "fixed_checks": 53,
-  "regressed_checks": 0,
-  "net_corrections": 53,
+  "regressed_checks": 1,
+  "net_corrections": 52,
   "fix_reasons": {
     "dep-object": 7,
     "dep-subject": 30,
@@ -74,7 +74,7 @@
     "initial-aux-inversion": 2,
     "not-until-clause-subject": 1,
     "object-of-adjective-subject-repair": 1,
-    "conj-inherit": 3,
+    "conj-inherit-explicit-core": 3,
     "clausal-prep-subject-repair": 2,
     "dep-complement": 1,
     "initial-partitive-subject": 1,
@@ -102,6 +102,11 @@
     {
       "gold": "O",
       "pred": "M",
+      "count": 1
+    },
+    {
+      "gold": "M",
+      "pred": "S",
       "count": 1
     }
   ],
@@ -314,7 +319,7 @@
       "neural_direct": "M",
       "confidence": 0.840854,
       "dep_guard": "S",
-      "guard_reason": "conj-inherit"
+      "guard_reason": "conj-inherit-explicit-core"
     },
     {
       "id": "CM50-008",
@@ -587,7 +592,7 @@
       "neural_direct": "M",
       "confidence": 0.963944,
       "dep_guard": "O",
-      "guard_reason": "conj-inherit"
+      "guard_reason": "conj-inherit-explicit-core"
     },
     {
       "id": "CM50-021",
@@ -734,7 +739,7 @@
       "neural_direct": "M",
       "confidence": 0.862293,
       "dep_guard": "O",
-      "guard_reason": "conj-inherit"
+      "guard_reason": "conj-inherit-explicit-core"
     },
     {
       "id": "CM50-026",
@@ -1220,7 +1225,29 @@
       "guard_reason": "dep-subject"
     }
   ],
-  "regressed_examples": [],
+  "regressed_examples": [
+    {
+      "id": "CM50-045",
+      "token": "curve",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "conj",
+      "head": "controls",
+      "head_pos": "NOUN",
+      "head_tag": "NNS",
+      "head_dep": "nsubj",
+      "head_lemma": "control",
+      "head_neural": "O",
+      "prev": "calibration",
+      "next": "that",
+      "neural_direct": "M",
+      "confidence": 0.764082,
+      "dep_guard": "S",
+      "guard_reason": "conj-inherit-explicit-core"
+    }
+  ],
   "remaining_errors": [
     {
       "id": "CM50-011",
@@ -1389,6 +1416,27 @@
       "confidence": 0.991414,
       "dep_guard": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "id": "CM50-045",
+      "token": "curve",
+      "occurrence": 0,
+      "gold": "M",
+      "pos": "NOUN",
+      "tag": "NN",
+      "dep": "conj",
+      "head": "controls",
+      "head_pos": "NOUN",
+      "head_tag": "NNS",
+      "head_dep": "nsubj",
+      "head_lemma": "control",
+      "head_neural": "O",
+      "prev": "calibration",
+      "next": "that",
+      "neural_direct": "M",
+      "confidence": 0.764082,
+      "dep_guard": "S",
+      "guard_reason": "conj-inherit-explicit-core"
     }
   ]
 }

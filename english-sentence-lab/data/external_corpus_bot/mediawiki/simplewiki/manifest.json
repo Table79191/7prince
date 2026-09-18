@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 207554,
+  "total_pages_processed": 245342,
   "total_records": 113,
   "auto_pass": 105,
   "needs_review": 8,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Pseudocoremia_lactiflua",
+  "apcontinue": "Swimming_at_the_1900_Summer_Olympics_–_Men's_underwater_swimming",
   "source_exhausted": false,
   "shard_count": 1
 }

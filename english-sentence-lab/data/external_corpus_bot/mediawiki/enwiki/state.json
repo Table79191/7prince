@@ -1,10 +1,10 @@
 {
-  "apcontinue": "1962_Illinois_Fighting_Illini_football_team",
-  "total_pages_processed": 95723,
-  "total_records": 3749,
-  "auto_pass": 3350,
-  "needs_review": 399,
+  "apcontinue": "1975_French_Open",
+  "total_pages_processed": 117338,
+  "total_records": 3768,
+  "auto_pass": 3367,
+  "needs_review": 401,
   "current_shard": 2,
-  "current_shard_records": 1749,
+  "current_shard_records": 1768,
   "source_exhausted": false
 }

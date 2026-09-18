@@ -262,6 +262,12 @@ def postprocess_roles(doc, neural_roles):
                 hr='O'
             else:
                 continue
+            # Respect earlier, higher-priority repairs. Coordination may inherit
+            # a core role only when the postprocessed head still carries it.
+            # This prevents a repaired M head inside fronted/PP material from
+            # being re-expanded back into S/O by the final coordination pass.
+            if out[head.i] != hr:
+                continue
             if out[i] != hr:
                 out[i]=hr; reason[i]='conj-inherit-explicit-core'; changed=True
         if not changed:

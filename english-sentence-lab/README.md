@@ -41,3 +41,18 @@ Third-party licenses and upstream URLs remain with the corresponding corpora and
 ## Legacy checkpoint warning
 
 The committed `v1.7.x` checkpoints are historical artifacts only. Their old loaders could repurpose test-only treebanks into train/validation data, so they must not be used as bases for current production training or as evidence of uncontaminated generalization. The current lineage starts from random initialization at R011.
+
+
+## Automatic external feed
+
+External Tatoeba and MediaWiki rows remain parser-generated silver data and are never trained directly.
+
+The autonomous feed is:
+
+`external collection -> strict promotion filter -> promoted_silver -> low-weight fine-tune -> gold-dev/regression gates -> accepted production candidate -> ONNX/browser/evaluation`
+
+Promotion requires an auto-pass source row, current canonical roles without `AMBIG`, strict spaCy/Stanza agreement on every core role and at least 92% overall role agreement, no overlap with the gold/dev/evaluation corpus, and no overlap with Tatoeba Daily500.
+
+At least 128 newly promoted rows must accumulate before a training attempt. Training replays 10,000 gold sentences and uses at most 1,200 recent promoted-silver rows at weight 0.12. A candidate replaces production only if all safety gates pass and the composite development score improves. Rejected candidates do not replace production.
+
+Current accepted automatic stage: `v1.8.3-AUTO-PROMOTED-SILVER`.

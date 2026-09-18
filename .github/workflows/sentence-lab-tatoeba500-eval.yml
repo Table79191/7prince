@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: sentence-lab-tatoeba500-main
+  group: sentence-lab-tatoeba500-${{ github.event_name }}-${{ github.event.workflow_run.id || github.ref }}
   cancel-in-progress: true
 
 permissions:

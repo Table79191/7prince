@@ -18,6 +18,8 @@ Pipeline:
 
 Each stage writes a distinct checkpoint so training jobs do not overwrite one another.
 
+Regression promotion uses both UD token accuracy and sentence-exact safety gates; official test/evaluation-only corpora remain blind during training and epoch selection.
+
 ## Split and leakage policy
 
 - upstream `*-train.conllu`: fitting only
@@ -25,7 +27,7 @@ Each stage writes a distinct checkpoint so training jobs do not overwrite one an
 - upstream `*-test.conllu`: never used for fitting or model selection
 - test-only treebanks (CTeTex, LittlePrince, Pronouns, PUD): evaluation-only
 - Tatoeba parser labels: weak/silver only, consensus-filtered and low-weight
-- regression synthetic holdout: disjoint from regression fine-tuning examples
+- regression synthetic validation: at least 128 sentences, disjoint from regression fine-tuning examples
 
 See `docs/training_feed_policy_v2.json` and `docs/role_label_spec_v2.md`.
 

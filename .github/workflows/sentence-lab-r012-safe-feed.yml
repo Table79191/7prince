@@ -118,6 +118,7 @@ jobs:
           assert m['policy']['gold_only_upstream_train'] is True
           assert m['policy']['dev_test_never_trained'] is True
           assert m['policy']['tatoeba_daily500_excluded'] is True
+          assert m['policy']['eval_only_corpora_not_scored_during_training'] is True
           assert m['feed']['gold_train_sentences'] > 0
           assert m['feed']['weak_tatoeba_sentences'] == 0
           assert m['feed']['weak_fraction'] == 0.0
@@ -129,8 +130,6 @@ jobs:
           print('weak_fraction=',m['feed']['weak_fraction'])
           print('baseline_ud_dev=',m['baseline']['ud_dev']['neural_role_acc'])
           print('selected_ud_dev=',m['selected']['ud_dev']['neural_role_acc'])
-          print('baseline_eval_only=',m['baseline']['eval_only']['neural_role_acc'])
-          print('selected_eval_only=',m['selected']['eval_only']['neural_role_acc'])
           PY
 
       - name: Compare R012 with collected UD corpus

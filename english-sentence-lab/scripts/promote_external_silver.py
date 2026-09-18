@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, sys
+import argparse, json, sys, re, unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -25,7 +25,7 @@ def iter_jsonl(path):
             if line.strip(): yield json.loads(line)
 
 def source_specs():
-    specs=[("tatoeba",ROOT/"data/external_corpus_bot/tatoeba/shards","tatoeba-*.jsonl")]
+    specs=[("tatoeba",ROOT/"data/external_corpus_bot/tatoeba/shards","tatoeba-*.jsonl"),\n           ("enwiki_bulk",ROOT/"data/external_corpus_bot/enwiki_bulk/shards","enwiki-bulk-*.jsonl")]
     mw=ROOT/"data/external_corpus_bot/mediawiki"
     if mw.exists():
         for d in sorted(x for x in mw.iterdir() if x.is_dir()):
@@ -44,7 +44,33 @@ def blocked_texts():
             if k: out.add(k)
     return out
 
-def basic_ok(row,benchmark_ids,blocked,seen):
+def fuzzy_key(text):
+    s=unicodedata.normalize("NFKC",str(text)).lower().replace("’","'")
+    return " ".join(re.findall(r"[a-z0-9]+(?:'[a-z]+)?",s))
+
+def quality_ok(row):
+    text=str(row.get("text",""))
+    ana=row.get("analysis",{}); toks=ana.get("tokens",[])
+    if len(text)<25 or len(text)>1200:return False,"quality_length"
+    lo=text.lower()
+    if any(x in lo for x in ("http://","https://","www.","{{","}}","[[","]]","<ref","</ref","{|","|}")):
+        return False,"markup"
+    if re.search(r"(.)\\1{5,}",text):return False,"repetition"
+    if any(ord(ch)<32 and ch not in "\\t\\n\\r" for ch in text):return False,"control"
+    ns=[ch for ch in text if not ch.isspace()]
+    if not ns:return False,"empty"
+    letters=sum(ch.isalpha() for ch in ns);digits=sum(ch.isdigit() for ch in ns)
+    punct=len(ns)-letters-digits
+    if letters/max(len(ns),1)<0.55:return False,"nonprose"
+    if punct/max(len(ns),1)>0.26:return False,"punctuation"
+    n=len(toks)
+    ids=[int(t.get("id",0) or 0) for t in toks]
+    heads=[int(t.get("head",0) or 0) for t in toks]
+    if ids!=list(range(1,n+1)) or any(h<0 or h>n for h in heads) or sum(h==0 for h in heads)!=1:
+        return False,"parser_integrity"
+    return True,""
+
+def basic_ok(row,benchmark_ids,blocked,seen,seen_fuzzy):
     ana=row.get("analysis",{}); toks=ana.get("tokens",[])
     src=row.get("source",{})
     if ana.get("status")!="auto_pass": return False,"status"
@@ -97,7 +123,7 @@ def main():
                 if scanned>=a.max_scan_per_source or accepted>=a.max_accept_per_source:
                     stop=True; break
                 index+=1; scanned+=1
-                ok,reason=basic_ok(row,bench,blocked,seen)
+                ok,reason=basic_ok(row,bench,blocked,seen,seen_fuzzy)
                 if not ok:
                     counts[reason]=counts.get(reason,0)+1; continue
                 if not safe.strict_consensus(nlp,row):
@@ -115,7 +141,7 @@ def main():
                         "no_tatoeba500_overlap":True,
                     },
                 }
-                added.append(out); seen.add(safe.norm_text(out.get("text",""))); accepted+=1
+                added.append(out); seen.add(safe.norm_text(out.get("text",""))); seen_fuzzy.add(fuzzy_key(out.get("text",""))); accepted+=1
             if stop: break
         state["sources"][key]={"processed_records":processed+scanned,"source_records_seen":total}
         stats[key]={"source_records":total,"processed_before":processed,"scanned":scanned,"accepted":accepted,"rejected":counts}

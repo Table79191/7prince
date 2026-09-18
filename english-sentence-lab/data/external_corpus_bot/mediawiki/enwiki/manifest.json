@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 509293,
-  "total_records": 10542,
-  "auto_pass": 9373,
-  "needs_review": 1169,
+  "total_pages_processed": 549629,
+  "total_records": 10766,
+  "auto_pass": 9564,
+  "needs_review": 1202,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Acazicolcept",
+  "apcontinue": "Afan_of_Bulith",
   "source_exhausted": false,
   "shard_count": 6
 }

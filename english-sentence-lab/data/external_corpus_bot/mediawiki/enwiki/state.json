@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Acazicolcept",
-  "total_pages_processed": 509293,
-  "total_records": 10542,
-  "auto_pass": 9373,
-  "needs_review": 1169,
+  "apcontinue": "Afan_of_Bulith",
+  "total_pages_processed": 549629,
+  "total_records": 10766,
+  "auto_pass": 9564,
+  "needs_review": 1202,
   "current_shard": 6,
-  "current_shard_records": 542,
+  "current_shard_records": 766,
   "source_exhausted": false
 }

@@ -1,34 +1,30 @@
 # English Sentence Lab — neural parser workspace
 
-This directory contains the browser/PyTorch assets for the English Sentence Lab parser and public annotated English corpora used for future training.
+English Sentence Lab is a compact English S/V/O/C/M role parser with corpus collection, training, evaluation, ONNX browser export, and clause-analysis APIs.
 
-## Current neural model
+## Current production model
 
 - family: SentenceLab RoleNet
-- version line: v1.6.1 / GRU3 + Self-Attention
-- architecture: hashed word/prefix/suffix embeddings + POS/base-role embeddings + 3-layer bidirectional GRU (64 x 2) + 4-head self-attention + FFN + S/V/O/C/M/NONE role head
-- trained sentences in the current checkpoint: 6,000
-- trained tokens in the current checkpoint: 397,971
-- current parameter count: 615,574
+- production version: **1.8.2-R012-SCHOOL-REGRESSION**
+- role semantics: **Canonical Role Spec v2 (school-head)**
+- architecture: hashed word/prefix/suffix embeddings + POS/base-role embeddings + 3-layer bidirectional GRU + 4-head self-attention + S/V/O/C/M/NONE head
+- production checkpoint: `artifacts/v1.8.2_r012_school_regression_role.pt`
+- browser model: `web/r012/r012_role.onnx`
+- parameter scale: ~615k
 
-The model weights are stored in `model/v1.6.1/weights/` as a loss-minimized float16 NPZ encoded into text chunks so they can be committed through the repository API. `model/v1.6.1/restore_weights.py` reconstructs the NPZ.
+Pipeline: `R011 clean canonical -> R012 safe feed -> R012 regression -> ONNX export -> smoke/evaluation`. Each stage writes a distinct checkpoint.
 
-## Data
+## Split and leakage policy
 
-`data/ud/` is populated from public Universal Dependencies English treebanks by `scripts/download_ud.py` and the GitHub Actions bootstrap workflow.
+- upstream `*-train.conllu`: fitting only
+- upstream `*-dev.conllu`: validation/model selection only
+- upstream `*-test.conllu`: never fitting or model selection
+- test-only treebanks (CTeTex, LittlePrince, Pronouns, PUD): evaluation-only
+- Tatoeba parser labels: weak/silver only, consensus-filtered and low-weight
+- regression synthetic holdout: disjoint from regression fine-tuning examples
 
-Selected corpora intentionally cover different domains:
+See `docs/training_feed_policy_v2.json` and `docs/role_label_spec_v2.md`.
 
-- English ATIS — spoken airline-information questions
-- English PUD — news/wiki
-- English Pronouns — targeted grammar examples
-- English CTeTex — technical/software-requirement text
-- English CHILDES — child/adult spoken interaction
-- English LittlePrince — manually corrected fiction
-- English ESLSpok — spoken L2 English
+## Evaluation notes
 
-Third-party licenses and upstream URLs are listed in `data/SOURCES.md`. Do not silently remove upstream attribution/license files.
-
-## Important evaluation rule
-
-Existing sealed holdouts (Complex200, Novel Stress120, Chaos Long50) are evaluation-only and must not be copied into training data.
+ChaosMix50 is a development stress set, not a pristine final holdout, because post-processing rules were iterated against it. Tatoeba Daily500 is an independent silver-reference evaluation (Stanza-derived, not human gold).

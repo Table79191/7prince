@@ -27,6 +27,8 @@ def classify(tokens, i):
     if w == "that":
         return "동격 that절" if prev in {"fact","idea","news","belief","claim","hope","possibility","evidence","thought","suggestion","proposal","assumption","conclusion"} else "that절"
     if w in {"what","which","who","whom","whose","why","how"}:
+        if i == 0 and tokens and tokens[-1] == "?":
+            return "직접 의문문"
         return f"의문사절 {w}"
     if w in {"while","whilst","because","although","though","unless","until","before","after","since","once","whereas","as","when","where"}:
         return f"{w} 부사절"
@@ -51,7 +53,9 @@ def detect_clauses(tokens):
         end=clause_end(tokens,i)
         typ=classify(tokens,i)
         fn="절"
-        if "명사절" in typ or "의문사절" in typ or typ=="that절":
+        if typ=="직접 의문문":
+            fn="주절"
+        elif "명사절" in typ or "의문사절" in typ or typ=="that절":
             fn="명사절"
         elif "부사절" in typ or typ.startswith("조건 "):
             fn="부사절"
@@ -60,7 +64,7 @@ def detect_clauses(tokens):
         out.append({
             "type":typ,"function":fn,"start":i,"end":end,"trigger":t,
             "text":" ".join(tokens[i:end+1]),
-            "explanation":f"{t}로 시작하는 {fn}입니다."
+            "explanation":("문장 전체가 직접 의문문인 주절입니다." if typ=="직접 의문문" else f"{t}로 시작하는 {fn}입니다.")
         })
     return out
 

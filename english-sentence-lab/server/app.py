@@ -96,6 +96,8 @@ def analyze():
     text = (request.get_json(silent=True) or {}).get("text","") if request.method=="POST" else request.args.get("text","")
     text = str(text).strip()
     if not text:
+        if request.method=="GET":
+            return jsonify(ok=True, service="SentenceLab clause API", version="render-v1")
         return jsonify(ok=False,error="text is required"),400
     tokens=tokenize(text)
     clauses=detect_clauses(tokens)

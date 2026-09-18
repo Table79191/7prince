@@ -1,0 +1,34 @@
+{
+  "version": "SENTENCELAB-ENWIKI-BULK-1",
+  "provider": "English Wikipedia bulk random sampler",
+  "api": "https://en.wikipedia.org/w/api.php",
+  "license": "CC-BY-SA-4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "total_records": 5195,
+  "pages_sampled": 1033,
+  "added_this_run": 5195,
+  "pages_this_run": 1033,
+  "rejected_this_run": {
+    "word_length": 863,
+    "char_length": 1685,
+    "canonical": 1171,
+    "parser_integrity": 979,
+    "markup": 180,
+    "nonprose": 57,
+    "duplicate": 25,
+    "punctuation": 54,
+    "long_token": 2
+  },
+  "shard_count": 3,
+  "policy": {
+    "total_sentence_limit": 0,
+    "per_run_sentence_limit": 0,
+    "runtime_checkpoint_seconds": 1200,
+    "writes_promoted_silver": false,
+    "isolated_output_directory": true,
+    "local_exact_and_punctuation_insensitive_dedupe": true,
+    "parser_integrity_required": true,
+    "canonical_auto_pass_required": true,
+    "central_promotion_gate_required": true
+  }
+}

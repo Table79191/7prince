@@ -1,0 +1,20 @@
+{
+  "total_records": 5195,
+  "pages_sampled": 1033,
+  "current_shard": 3,
+  "current_shard_records": 195,
+  "rejected": {
+    "word_length": 863,
+    "char_length": 1685,
+    "canonical": 1171,
+    "parser_integrity": 979,
+    "markup": 180,
+    "nonprose": 57,
+    "duplicate": 25,
+    "punctuation": 54,
+    "long_token": 2
+  },
+  "last_run_added": 5195,
+  "last_run_pages": 1033,
+  "updated_at_utc": "2026-09-18T18:13:44+00:00"
+}

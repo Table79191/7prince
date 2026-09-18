@@ -1,0 +1,65 @@
+name: SentenceLab v1.01 FT1 Regression
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-v1-01-ft1-regression.yml'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Download validated FT1 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-ft1
+          path: /tmp/ft1
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Table79191/7prince
+          run-id: 35368004819
+
+      - name: Re-run original 64-token hard regression
+        run: |
+          cd english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          python challenge_probe.py             --model /tmp/ft1/clause_anchor_graph_v1_01_ft1.pt             --out /tmp/ft1/original_hard_after_ft1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('/tmp/ft1/original_hard_after_ft1.json').read_text())
+          print(json.dumps({
+            'focus_correct':r['focus_correct'],
+            'focus_total':r['focus_total'],
+            'focus_accuracy':r['focus_accuracy'],
+            'v1_01_required_floor':0.75,
+          },indent=2))
+          assert r['focus_accuracy'] >= 0.75, r
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v1-01-ft1-original-hard-regression
+          path: /tmp/ft1/original_hard_after_ft1.json
+          retention-days: 14

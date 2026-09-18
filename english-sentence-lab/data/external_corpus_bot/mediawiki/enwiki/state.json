@@ -1,10 +1,10 @@
 {
-  "apcontinue": "2017_Berlin_International_Film_Festival",
-  "total_pages_processed": 307096,
-  "total_records": 5280,
-  "auto_pass": 4670,
-  "needs_review": 610,
+  "apcontinue": "2021_W_Series_Silverstone_round",
+  "total_pages_processed": 351738,
+  "total_records": 5643,
+  "auto_pass": 4982,
+  "needs_review": 661,
   "current_shard": 3,
-  "current_shard_records": 1280,
+  "current_shard_records": 1643,
   "source_exhausted": false
 }

@@ -18,6 +18,40 @@ def fnv1a(s):
         h ^= b; h=(h*16777619)&0xffffffff
     return h
 
+
+def normalize_surface_tokens(tokens):
+    """Normalize parser-specific contraction pieces to student-facing forms.
+
+    Keeps token count/dependency structure unchanged:
+      ca + n't -> can + not
+      wo + n't -> will + not
+      sha + n't -> shall + not
+      do + n't -> do + not
+    Also expands unambiguous auxiliary clitics such as 're/'ve/'ll/'m.
+    """
+    out=[dict(t) for t in tokens]
+    for i,t in enumerate(out):
+        w=str(t.get('text',''))
+        lo=w.lower().replace('’',"'")
+        nxt=str(out[i+1].get('text','')).lower().replace('’',"'") if i+1<len(out) else ''
+        if lo=='ca' and nxt=="n't":
+            t['text']='can'; t['lemma']='can'
+        elif lo=='wo' and nxt=="n't":
+            t['text']='will'; t['lemma']='will'
+        elif lo=='sha' and nxt=="n't":
+            t['text']='shall'; t['lemma']='shall'
+        elif lo=="n't":
+            t['text']='not'; t['lemma']='not'
+        elif lo=="'re":
+            t['text']='are'; t['lemma']='be'
+        elif lo=="'ve":
+            t['text']='have'; t['lemma']='have'
+        elif lo=="'ll":
+            t['text']='will'; t['lemma']='will'
+        elif lo=="'m":
+            t['text']='am'; t['lemma']='be'
+    return out
+
 class AttentionBlock(nn.Module):
     def __init__(self,d_model=128,heads=4,dropout=.08):
         super().__init__(); self.attn=nn.MultiheadAttention(d_model,heads,batch_first=True,dropout=dropout)
@@ -66,40 +100,24 @@ def parse_conllu(path):
     if x: yield x
 
 def phrase_roles(tokens):
-    id2i={t['id']:i for i,t in enumerate(tokens)}; ch=defaultdict(list)
-    for i,t in enumerate(tokens):
-        if t['head'] in id2i: ch[id2i[t['head']]].append(i)
+    """School-style head-only S/V/O/C/M labels for raw UD training."""
+    id2i={t['id']:i for i,t in enumerate(tokens)}
     direct={}; cop_parents=set()
     for i,t in enumerate(tokens):
         base=t['deprel'].split(':',1)[0]
-        if base in {'nsubj','csubj'}: direct[i]='S'
+        if base in {'nsubj','csubj','expl'}: direct[i]='S'
         elif base in {'obj','iobj'}: direct[i]='O'
         if base=='cop' and t['head'] in id2i: cop_parents.add(id2i[t['head']])
-    for i in cop_parents: direct[i]='C'
-    for i,t in enumerate(tokens):
-        if t['deprel'].split(':',1)[0]=='xcomp' and t['pos'] in {'ADJ','NOUN','PROPN','PRON','NUM'}: direct[i]='C'
-    roles=[None]*len(tokens)
-    for root,role in sorted(direct.items(),key=lambda kv:{'S':0,'O':1,'C':2}[kv[1]]):
-        stack=[root]; seen=set()
-        while stack:
-            i=stack.pop()
-            if i in seen: continue
-            seen.add(i)
-            if i!=root and i in direct: continue
-            if roles[i] is None: roles[i]=role
-            for j in ch.get(i,[]):
-                rel=tokens[j]['deprel']; base=rel.split(':',1)[0]
-                if rel in CLAUSE_BOUNDARY or base in {'ccomp','xcomp','advcl','parataxis'}: continue
-                stack.append(j)
-    for i,t in enumerate(tokens):
-        if t['pos'] in {'VERB','AUX'}: roles[i]='V'
+        if base=='xcomp' and t['pos'] in {'ADJ','NOUN','PROPN','PRON','NUM'}: direct[i]='C'
     for i in cop_parents:
-        if tokens[i]['pos'] not in {'VERB','AUX'}: roles[i]='C'
-    for i,r in direct.items():
-        if not (r=='C' and tokens[i]['pos'] in {'VERB','AUX'}): roles[i]=r
+        if tokens[i]['pos'] not in {'VERB','AUX'}: direct[i]='C'
+
+    roles=['M']*len(tokens)
     for i,t in enumerate(tokens):
         if t['pos']=='PUNCT': roles[i]=None
-        elif roles[i] is None: roles[i]='M'
+        elif t['pos'] in {'VERB','AUX'}: roles[i]='V'
+    for i,r in direct.items():
+        if tokens[i]['pos'] not in {'VERB','AUX'}: roles[i]=r
     return roles
 
 def weak_base_roles(tokens):
@@ -125,6 +143,7 @@ def load_examples(data_root,max_per_corpus=12000,max_len=160):
         candidates=[]
         for meta,toks in parse_conllu(path):
             if not (2<=len(toks)<=max_len): continue
+            toks=normalize_surface_tokens(toks)
             gold=phrase_roles(toks); base=weak_base_roles(toks)
             feats=[feat_token(t,b) for t,b in zip(toks,base)]; labels=[ROLE2I[r] for r in gold]
             candidates.append((feats,labels,meta.get('text',''),corpus))

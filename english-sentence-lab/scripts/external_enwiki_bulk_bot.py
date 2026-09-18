@@ -147,6 +147,19 @@ def rough_quality(text):
     if s.count("|") or s.count("=")>=2:return False,"markup"
     return True,""
 
+def paragraph_ok(text):
+    s=norm_text(text)
+    if not (40<=len(s)<=5000):return False,"paragraph_length"
+    lo=s.lower()
+    if any(x in lo for x in ("{{","}}","[[","]]","<ref","</ref","<table","</table","{|","|}")):
+        return False,"markup"
+    if any(ord(ch)<32 and ch not in "\t\n\r" for ch in s):return False,"control"
+    ns=[ch for ch in s if not ch.isspace()]
+    if not ns:return False,"empty"
+    letters=sum(ch.isalpha() for ch in ns)
+    if letters/max(len(ns),1)<0.45:return False,"nonprose"
+    return True,""
+
 def stanza_sentence_tokens(sent):
     toks=[]
     for w in sent.words:
@@ -269,6 +282,7 @@ def self_test():
     bad="== References == http://example.com"
     assert rough_quality(good)[0]
     assert not rough_quality(bad)[0]
+    assert paragraph_ok((good+" ")*20)[0]
     assert dedupe_key("Hello,  WORLD!")=="hello world"
     toks=[
       {"id":1,"text":"Students","lemma":"student","pos":"NOUN","head":2,"deprel":"nsubj"},
@@ -318,7 +332,7 @@ def main():
             page_seen.add(pid);pages+=1
             for para in iter_paragraphs(page["extract"]):
                 if a.runtime_seconds and time.monotonic()-started>=a.runtime_seconds:break
-                ok,reason=rough_quality(para)
+                ok,reason=paragraph_ok(para)
                 if not ok:
                     rej[reason]+=1;continue
                 try:doc=nlp(para)

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Author_&_Punisher",
-  "total_pages_processed": 938985,
-  "total_records": 17364,
-  "auto_pass": 15345,
-  "needs_review": 2019,
-  "current_shard": 9,
-  "current_shard_records": 1364,
+  "apcontinue": "BabyWipe",
+  "total_pages_processed": 970494,
+  "total_records": 18427,
+  "auto_pass": 16328,
+  "needs_review": 2099,
+  "current_shard": 10,
+  "current_shard_records": 427,
   "source_exhausted": false
 }

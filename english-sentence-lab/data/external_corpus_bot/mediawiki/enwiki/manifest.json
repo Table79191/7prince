@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 938985,
-  "total_records": 17364,
-  "auto_pass": 15345,
-  "needs_review": 2019,
+  "total_pages_processed": 970494,
+  "total_records": 18427,
+  "auto_pass": 16328,
+  "needs_review": 2099,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Author_&_Punisher",
+  "apcontinue": "BabyWipe",
   "source_exhausted": false,
-  "shard_count": 9
+  "shard_count": 10
 }

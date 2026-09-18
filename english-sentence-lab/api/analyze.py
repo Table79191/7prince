@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 import json, math, re
 from pathlib import Path
+from urllib.request import urlopen
 
 import numpy as np
 import onnxruntime as ort
@@ -8,6 +9,16 @@ import spacy
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "web" / "r012" / "r012_role.onnx"
+MODEL_URL = "https://raw.githubusercontent.com/Table79191/7prince/main/english-sentence-lab/web/r012/r012_role.onnx"
+
+def ensure_model():
+    if MODEL_PATH.exists():
+        return MODEL_PATH
+    cache = Path("/tmp/r012_role.onnx")
+    if not cache.exists():
+        with urlopen(MODEL_URL, timeout=30) as r:
+            cache.write_bytes(r.read())
+    return cache
 
 POS_LIST = ['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X']
 POS2I = {x:i for i,x in enumerate(POS_LIST)}
@@ -15,7 +26,7 @@ I2ROLE = [None,'S','V','O','C','M']
 ROLE2I = {'S':1,'V':2,'O':3,'C':4,'M':5}
 
 NLP = spacy.load("en_core_web_sm")
-SESSION = ort.InferenceSession(str(MODEL_PATH), providers=["CPUExecutionProvider"])
+SESSION = ort.InferenceSession(str(ensure_model()), providers=["CPUExecutionProvider"])
 
 def fnv1a(s: str) -> int:
     h = 2166136261

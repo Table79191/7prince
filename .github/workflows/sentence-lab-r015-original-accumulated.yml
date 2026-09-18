@@ -1,0 +1,111 @@
+name: SentenceLab R015 Original Accumulated FineTune
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/train/train_r015_original_accumulated_final.py'
+      - 'english-sentence-lab/eval/eval_original_shared_hardsets.py'
+      - '.github/workflows/sentence-lab-r015-original-accumulated.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sentence-lab-r015-original-accumulated
+  cancel-in-progress: true
+
+jobs:
+  finetune-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/train
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/data/web_corpus_bot
+            english-sentence-lab/data/promoted_silver
+            english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/novel_hard14.py
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/final_blind16.py
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/challenge_probe.py
+            english-sentence-lab/eval/eval_original_shared_hardsets.py
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install torch
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax
+        run: |
+          python -m py_compile english-sentence-lab/train/train_r015_original_accumulated_final.py
+          python -m py_compile english-sentence-lab/eval/eval_original_shared_hardsets.py
+
+      - name: Shared hard sets before fine-tune
+        run: |
+          python english-sentence-lab/eval/eval_original_shared_hardsets.py             --model english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt             --out english-sentence-lab/artifacts/r015_shared_hard_before.json
+
+      - name: Fine-tune original RoleNet with accumulated feed
+        run: |
+          cd english-sentence-lab
+          python train/train_r015_original_accumulated_final.py             --parent artifacts/v1.8.3_auto_promoted_silver_role.pt             --silver-weight 0.08             --batch 48             --out artifacts/r015_accumulated_final_role.pt             --metrics artifacts/r015_accumulated_final_metrics.json
+
+      - name: Shared hard sets after fine-tune
+        run: |
+          python english-sentence-lab/eval/eval_original_shared_hardsets.py             --model english-sentence-lab/artifacts/r015_accumulated_final_role.pt             --out english-sentence-lab/artifacts/r015_shared_hard_after.json
+
+      - name: Final R015 gate
+        run: |
+          cd english-sentence-lab
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('artifacts/r015_accumulated_final_metrics.json').read_text())
+          b=json.loads(Path('artifacts/r015_shared_hard_before.json').read_text())
+          a=json.loads(Path('artifacts/r015_shared_hard_after.json').read_text())
+          def acc(x,k): return x[k]['focus_accuracy']
+          summary={
+            'selected_phase':m['selected_phase'],
+            'gold_train':m['feed']['approved_gold_train_sentences'],
+            'promoted_silver':m['feed']['accumulated_promoted_silver_sentences'],
+            'combined_train':m['feed']['combined_sentences'],
+            'dev_before':m['baseline']['ud_dev']['neural_role_acc'],
+            'dev_after':m['selected']['ud_dev']['neural_role_acc'],
+            'dev_exact_before':m['baseline']['ud_dev']['sentence_exact']/m['baseline']['ud_dev']['sentences'],
+            'dev_exact_after':m['selected']['ud_dev']['sentence_exact']/m['selected']['ud_dev']['sentences'],
+            'school_before':m['baseline']['school_validation']['neural_role_acc'],
+            'school_after':m['selected']['school_validation']['neural_role_acc'],
+            'hard14_before':acc(b,'hard14'),'hard14_after':acc(a,'hard14'),
+            'final16_before':acc(b,'final_blind16'),'final16_after':acc(a,'final_blind16'),
+            'original64_before':acc(b,'original64'),'original64_after':acc(a,'original64'),
+          }
+          print(json.dumps(summary,indent=2))
+          assert m['candidate_accepted'], summary
+          assert summary['dev_after'] >= summary['dev_before']-0.0005, summary
+          assert summary['school_after'] >= summary['school_before']-0.0020, summary
+          # Shared hard sets are blind diagnostics. Require no broad collapse.
+          mean_before=(summary['hard14_before']+summary['final16_before']+summary['original64_before'])/3
+          mean_after=(summary['hard14_after']+summary['final16_after']+summary['original64_after'])/3
+          assert mean_after >= mean_before-0.005, summary
+          Path('artifacts/r015_comparison.json').write_text(json.dumps(summary,indent=2)+'\n')
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sentencelab-r015-original-accumulated
+          path: |
+            english-sentence-lab/artifacts/r015_accumulated_final_role.pt
+            english-sentence-lab/artifacts/r015_accumulated_final_metrics.json
+            english-sentence-lab/artifacts/r015_shared_hard_before.json
+            english-sentence-lab/artifacts/r015_shared_hard_after.json
+            english-sentence-lab/artifacts/r015_comparison.json
+          retention-days: 14

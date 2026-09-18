@@ -149,13 +149,14 @@ def load_examples(data_root,max_per_corpus=12000,max_len=160):
             candidates.append((feats,labels,meta.get('text',''),corpus))
         random.Random(79191+len(corpus)).shuffle(candidates)
         if split=='train':
-            selected=candidates[:max_per_corpus]; train.extend(selected); per[(corpus,'train')]+=len(selected)
-        elif any((path.parent/f).exists() for f in [path.name.replace('-test.','-train.'),path.name.replace('-dev.','-train.')]):
-            selected=candidates[:max(500,min(len(candidates),2000))]; val.extend(selected); per[(corpus,'val')]+=len(selected)
+            selected=candidates[:max_per_corpus]
+            train.extend(selected); per[(corpus,'train')]+=len(selected)
+        elif split=='dev':
+            selected=candidates[:max(500,min(len(candidates),2000))]
+            val.extend(selected); per[(corpus,'val')]+=len(selected)
         else:
-            for ex in candidates[:max_per_corpus]:
-                key=ex[2].encode('utf-8'); bucket=int(hashlib.sha1(key).hexdigest()[:8],16)%100
-                (train if bucket<85 else val).append(ex); per[(corpus,'train' if bucket<85 else 'val')]+=1
+            # Official/test-only data is never fitting or model-selection data.
+            per[(corpus,'test_excluded')]+=len(candidates)
     return train,val,per
 
 def collate(items,device):

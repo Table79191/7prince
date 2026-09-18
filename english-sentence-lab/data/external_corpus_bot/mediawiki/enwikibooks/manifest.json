@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 28726,
+  "total_pages_processed": 58616,
   "total_records": 0,
   "auto_pass": 0,
   "needs_review": 0,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Exercise_as_it_relates_to_Disease/Post-Concussion_Syndrome;_prescribing_exercise_to_reduce_symptoms",
+  "apcontinue": "Observing_the_Sky_from_40°N/Sky_maps/May_15,_10:00_pm",
   "source_exhausted": false,
   "shard_count": 1
 }

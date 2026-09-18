@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4308,
-  "total_records": 1375,
-  "auto_pass": 1176,
-  "needs_review": 199,
+  "total_pages_processed": 10926,
+  "total_records": 1494,
+  "auto_pass": 1280,
+  "needs_review": 214,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "10.15678",
+  "apcontinue": "12th_Instructor_Grade_of_Wing_Tsun",
   "source_exhausted": false,
   "shard_count": 1
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "10.15678",
-  "total_pages_processed": 4308,
-  "total_records": 1375,
-  "auto_pass": 1176,
-  "needs_review": 199,
+  "apcontinue": "12th_Instructor_Grade_of_Wing_Tsun",
+  "total_pages_processed": 10926,
+  "total_records": 1494,
+  "auto_pass": 1280,
+  "needs_review": 214,
   "current_shard": 1,
-  "current_shard_records": 1375,
+  "current_shard_records": 1494,
   "source_exhausted": false
 }

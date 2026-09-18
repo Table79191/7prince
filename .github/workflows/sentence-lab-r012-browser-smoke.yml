@@ -1,5 +1,4 @@
 name: SentenceLab R012 browser smoke test
-
 on:
   push:
     branches: [main]
@@ -7,11 +6,10 @@ on:
       - '.github/workflows/sentence-lab-r012-browser-smoke.yml'
       - 'english-sentence-lab/web/r012/browser_rules.js'
       - 'english-sentence-lab/web/r012/r012_role.onnx'
+      - 'english-sentence-lab/web/r012/model_meta.json'
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -25,184 +23,44 @@ jobs:
           python-version: '3.12'
       - name: Install runtime
         run: python -m pip install numpy onnxruntime
-      - name: Verify school-head web model
-        shell: bash
+      - name: Verify model metadata
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          meta=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
-          assert meta['version']=='1.8.2-R012-SCHOOL-REGRESSION', meta['version']
-          assert 'school-style head-only' in meta.get('browser_note','')
-          print('web model version:',meta['version'])
-          print('wrapper_max_abs_error:',meta['wrapper_max_abs_error'])
+          m=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
+          assert m['version']=='1.8.2-R012-SCHOOL-REGRESSION'
+          assert m['checkpoint']=='v1.8.2_r012_school_regression_role.pt'
           PY
-      - name: Test shared browser grammar rules
-        shell: bash
+      - name: Exact browser preprocessing regressions
         run: |
           node - <<'JS'
-          const r=require('./english-sentence-lab/web/r012/browser_rules.js');
-
-          const t1=r.splitTokens("I can't believe it.");
-          if(JSON.stringify(t1)!==JSON.stringify(['I','can','not','believe','it','.'])){
-            throw new Error('contraction normalization failed: '+JSON.stringify(t1));
-          }
-
-          const wh=['what','the','hell','was','that','?'];
-          const whPos=['PRON','DET','NOUN','AUX','DET','PUNCT'];
-          const whRaw=['C','C','C','V','C',null];
-          const whFinal=r.postprocessRoles(wh,whPos,whRaw);
-          if(JSON.stringify(whFinal)!==JSON.stringify(['C','M','M','V','S',null])){
-            throw new Error('WH regression failed: '+JSON.stringify(whFinal));
-          }
-
-          const np=['my','0.001','%','powers'];
-          const npPos=['DET','NUM','SYM','NOUN'];
-          const npFinal=r.postprocessRoles(np,npPos,['O','O','O','O']);
-          if(JSON.stringify(npFinal)!==JSON.stringify(['M','M','M','O'])){
-            throw new Error('NP-head regression failed: '+JSON.stringify(npFinal));
-          }
-
-          console.log('browser_rules regressions: ok');
+          const fs=require('fs'),r=require('./english-sentence-lab/web/r012/browser_rules.js');
+          const checks=[["They lead the team.",1,"VERB"],["We practice every day.",1,"VERB"],["They improve quickly.",1,"VERB"],["We rely on data.",1,"VERB"],["They perform well.",1,"VERB"],["I focus on grammar.",1,"VERB"],["He is talented.",2,"ADJ"],["She is gifted.",2,"ADJ"],["He's ready.",1,"AUX"],["I'd go.",1,"AUX"]];
+          for(const x of checks){const s=x[0],i=x[1],want=x[2],t=r.splitTokens(s),p=r.inferPos(t);if(p[i]!==want)throw new Error(s+' expected '+want+' got '+p[i]);}
+          for(const s of ["What on earth was that?","Who in the world was that?","what the hell was that?"]){const t=r.splitTokens(s),p=r.inferPos(t),fin=r.postprocessRoles(t,p,r.weakRoles(p)),cop=p.findIndex(x=>x==='AUX');if(fin[0]!=='C'||fin[cop]!=='V'||fin[cop+1]!=='S')throw new Error(s+' '+JSON.stringify(fin));for(let i=1;i<cop;i++)if(fin[i]!=='M')throw new Error(s+' filler '+JSON.stringify(fin));}
+          const np=['my','0.001','%','powers'],pp=['DET','NUM','SYM','NOUN'],nf=r.postprocessRoles(np,pp,['O','O','O','O']);if(JSON.stringify(nf)!==JSON.stringify(['M','M','M','O']))throw new Error('NP '+JSON.stringify(nf));
+          const tokens=r.splitTokens("what the hell was that"),pos=r.inferPos(tokens),weak=r.weakRoles(pos);fs.writeFileSync('/tmp/pre.json',JSON.stringify({tokens,pos,weak}));
           JS
-      - name: Test HTML-equivalent preprocessing and R012 ONNX
-        shell: bash
+      - name: Run ONNX on exact JS preprocessing
         run: |
           python - <<'PY'
-          import json, math, re
-          from pathlib import Path
-          import numpy as np
-          import onnxruntime as ort
-
-          SENTENCE = "what the hell was that"
-          POS_LIST=['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X']
-          POS2I={x:i for i,x in enumerate(POS_LIST)}
-          I2ROLE=[None,'S','V','O','C','M']
-          ROLE2I={'S':1,'V':2,'O':3,'C':4,'M':5}
-          pronouns=set("i me my mine myself you your yours yourself yourselves he him his himself she her hers herself it its itself we us our ours ourselves they them their theirs themselves who whom whose what which whoever whatever".split())
-          dets=set("a an the this that these those each every either neither some any no another such all both few many much several enough".split())
-          aux=set("am is are was were be been being have has had having do does did can could may might must shall should will would 'm 's 're 've 'll 'd".split())
-          cconj=set("and or but nor yet so".split())
-          sconj=set("although though because since while whilst when whenever where wherever if unless until before after once whether as than that".split())
-          adp=set("in on at by for from with without about against between into through during before after above below to of over under around near behind beside beyond across toward towards upon within outside inside like despite except".split())
-          adv=set("very really still already just also too quite rather here there now then soon always never often sometimes usually perhaps maybe almost even only again together apart away early late first next".split())
-          adj=set("good bad new old young high low large small big little long short right wrong sure ready able likely unlikely possible impossible realistic unrealistic exhausted missing".split())
-          verbs=set("say says said tell tells told think thinks thought know knows knew known make makes made take takes took taken get gets got gotten go goes went gone come comes came see sees saw seen want wants wanted need needs needed like likes liked love loves loved work works worked help helps helped let lets leave leaves left argue argues argued test tests tested rewrite rewrites rewrote rewritten notice notices noticed assume assumes assumed warn warns warned miss misses missed use uses used give gives gave given find finds found call calls called ask asks asked feel feels felt become becomes became seem seems seemed keep keeps kept".split())
-          intj=set("oh wow hey hi hello yes no okay ok thanks thank please sorry".split())
-
-          def split_tokens(text):
-              s=text.replace('’',"'").replace('‘',"'")
-              replacements=[
-                  (r"\bcan't\b",'can not'),(r"\bwon't\b",'will not'),(r"\bshan't\b",'shall not'),
-                  (r"\bdon't\b",'do not'),(r"\bdoesn't\b",'does not'),(r"\bdidn't\b",'did not'),
-                  (r"\bisn't\b",'is not'),(r"\baren't\b",'are not'),(r"\bwasn't\b",'was not'),
-                  (r"\bweren't\b",'were not'),(r"\bhaven't\b",'have not'),(r"\bhasn't\b",'has not'),
-                  (r"\bhadn't\b",'had not'),(r"\bcouldn't\b",'could not'),(r"\bshouldn't\b",'should not'),
-                  (r"\bwouldn't\b",'would not'),(r"\bmustn't\b",'must not')
-              ]
-              for pat,full in replacements:
-                  s=re.sub(pat,full,s,flags=re.I)
-              s=re.sub(r"\b([A-Za-z]+)n't\b",r"\1 not",s,flags=re.I)
-              s=re.sub(r"\b([A-Za-z]+)'re\b",r"\1 are",s,flags=re.I)
-              s=re.sub(r"\b([A-Za-z]+)'ve\b",r"\1 have",s,flags=re.I)
-              s=re.sub(r"\b([A-Za-z]+)'ll\b",r"\1 will",s,flags=re.I)
-              s=re.sub(r"\b([A-Za-z]+)'m\b",r"\1 am",s,flags=re.I)
-              return re.findall(r"[A-Za-z]+|'(?:s|d)|\d+(?:[.,]\d+)?|[^\sA-Za-z0-9]",s)
-
-          def infer_pos(tokens):
-              out=[]
-              for i,raw in enumerate(tokens):
-                  w=raw.lower().replace('’',"'")
-                  if raw=='%': p='SYM'
-                  elif re.fullmatch(r"[^\w']+",raw): p='PUNCT'
-                  elif re.fullmatch(r"\d+(?:[.,]\d+)?",raw): p='NUM'
-                  elif w=="n't" or w=='not': p='PART'
-                  elif w in aux: p='AUX'
-                  elif w in {'my','your','his','her','its','our','their'}: p='DET'
-                  elif w in pronouns: p='PRON'
-                  elif w in dets: p='DET'
-                  elif w in cconj: p='CCONJ'
-                  elif w in sconj: p='SCONJ'
-                  elif w=='to': p='PART'
-                  elif w in adp: p='ADP'
-                  elif w in intj: p='INTJ'
-                  elif w in adv or w.endswith('ly'): p='ADV'
-                  elif w in verbs or re.search(r"(ing|ed|ize|ise|ify)$",w): p='VERB'
-                  elif w in adj or re.search(r"(ous|ful|less|ive|able|ible|al|ic|ary|ory)$",w): p='ADJ'
-                  elif i>0 and raw[:1].isupper(): p='PROPN'
-                  else: p='NOUN'
-                  out.append(p)
-              return out
-
-          def weak_roles(pos):
-              out=[]; seen=False
-              for p in pos:
-                  if p in {'VERB','AUX'}: out.append('V'); seen=True
-                  elif p=='PUNCT': out.append(None)
-                  elif p in {'NOUN','PROPN','PRON'}: out.append('O' if seen else 'S')
-                  else: out.append('M')
-              return out
-
-          def fnv1a(s):
-              h=2166136261
-              for b in s.encode('utf-8'):
-                  h ^= b
-                  h=(h*16777619)&0xffffffff
-              return h
-
-          def shape_feat(w):
-              lo=w.lower()
-              return [
-                  float(bool(re.match(r'^[A-Z]',w))),
-                  float(bool(re.search(r'[A-Za-z]',w)) and w==w.upper()),
-                  float(bool(re.search(r'\d',w))),
-                  float('-' in w),
-                  float(lo.endswith('ing')),
-                  float(lo.endswith('ed')),
-                  float(lo.endswith('ly')),
-                  min(len(w),20)/20.0,
-              ]
-
-          tokens=split_tokens(SENTENCE)
-          pos=infer_pos(tokens)
-          weak=weak_roles(pos)
-          wid=[]; pre=[]; suf=[]; pi=[]; ri=[]; sh=[]
-          for w,p,r in zip(tokens,pos,weak):
-              lo=w.lower()
-              wid.append(fnv1a(lo)%8192)
-              pre.append(fnv1a(lo[:3])%1024)
-              suf.append(fnv1a(lo[-3:])%1024)
-              pi.append(POS2I.get(p,0))
-              ri.append(0 if r is None else ROLE2I.get(r,0))
-              sh.append(shape_feat(w))
-          L=len(tokens)
-          feeds={
-              'wid':np.asarray([wid],dtype=np.int64),
-              'pre':np.asarray([pre],dtype=np.int64),
-              'suf':np.asarray([suf],dtype=np.int64),
-              'pos':np.asarray([pi],dtype=np.int64),
-              'role':np.asarray([ri],dtype=np.int64),
-              'shape':np.asarray([sh],dtype=np.float32),
-              'mask':np.ones((1,L),dtype=np.bool_),
-          }
-          sess=ort.InferenceSession(
-              'english-sentence-lab/web/r012/r012_role.onnx',
-              providers=['CPUExecutionProvider'],
-          )
-          logits=sess.run(['logits'],feeds)[0][0]
-          rows=[]
-          for i,(tok,p,wk,z) in enumerate(zip(tokens,pos,weak,logits)):
-              z=z.astype(np.float64)
-              probs=np.exp(z-z.max()); probs/=probs.sum()
-              idx=int(np.argmax(probs))
-              rows.append({
-                  'token':tok,
-                  'pos':p,
-                  'weak':wk,
-                  'r012':I2ROLE[idx],
-                  'confidence':round(float(probs[idx]),6),
-                  'probs':{str(I2ROLE[j] or 'NONE'):round(float(probs[j]),6) for j in range(6)},
-              })
-          result={'sentence':SENTENCE,'tokens':rows}
-          print('R012_BROWSER_SMOKE_RESULT='+json.dumps(result,ensure_ascii=False))
+          import json,numpy as np,onnxruntime as ort
+          x=json.load(open('/tmp/pre.json'));POS=['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X'];P={v:i for i,v in enumerate(POS)};R={'S':1,'V':2,'O':3,'C':4,'M':5};I=[None,'S','V','O','C','M']
+          def h(s):
+              v=2166136261
+              for b in s.encode():v=((v^b)*16777619)&0xffffffff
+              return v
+          def sh(w):
+              lo=w.lower();return [float(w[:1].isupper()),float(w.isupper() and any(c.isalpha() for c in w)),float(any(c.isdigit() for c in w)),float('-' in w),float(lo.endswith('ing')),float(lo.endswith('ed')),float(lo.endswith('ly')),min(len(w),20)/20]
+          t=x['tokens'];feeds={'wid':np.array([[h(w.lower())%8192 for w in t]],np.int64),'pre':np.array([[h(w.lower()[:3])%1024 for w in t]],np.int64),'suf':np.array([[h(w.lower()[-3:])%1024 for w in t]],np.int64),'pos':np.array([[P.get(p,0) for p in x['pos']]],np.int64),'role':np.array([[0 if r is None else R.get(r,0) for r in x['weak']]],np.int64),'shape':np.array([[sh(w) for w in t]],np.float32),'mask':np.ones((1,len(t)),np.bool_)}
+          z=ort.InferenceSession('english-sentence-lab/web/r012/r012_role.onnx',providers=['CPUExecutionProvider']).run(['logits'],feeds)[0][0]
+          json.dump([I[int(i)] for i in z.argmax(-1)],open('/tmp/raw.json','w'))
           PY
+      - name: Apply exact JS postprocess
+        run: |
+          node - <<'JS'
+          const fs=require('fs'),r=require('./english-sentence-lab/web/r012/browser_rules.js'),x=JSON.parse(fs.readFileSync('/tmp/pre.json')),raw=JSON.parse(fs.readFileSync('/tmp/raw.json')),fin=r.postprocessRoles(x.tokens,x.pos,raw),want=['C','M','M','V','S'];
+          if(JSON.stringify(fin)!==JSON.stringify(want))throw new Error(JSON.stringify({x,raw,fin,want}));
+          console.log(JSON.stringify({tokens:x.tokens,raw,final:fin}));
+          JS

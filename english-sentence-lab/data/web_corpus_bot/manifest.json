@@ -311,23 +311,23 @@
       ],
       "sentences_after_dedupe_upstream": 67,
       "sentences_written": 67,
-      "new_items_added": 67,
+      "new_items_added": 0,
       "allocated_run_quota": 0,
       "remaining_unseen": 0,
       "auto_pass": 52,
       "needs_review": 15,
       "upstream_head_sha": "c4c0f90680371425a82c54391fd7eb070636a563",
-      "download_skipped": false,
-      "skip_reason": ""
+      "download_skipped": true,
+      "skip_reason": "upstream_unchanged_and_exhausted"
     }
   },
   "totals": {
     "sentences_written": 70251,
     "auto_pass": 67772,
     "needs_review": 2479,
-    "new_items_added_this_run": 67,
-    "sources_downloaded_this_run": 1,
-    "sources_skipped_this_run": 8
+    "new_items_added_this_run": 0,
+    "sources_downloaded_this_run": 0,
+    "sources_skipped_this_run": 9
   },
   "upstream_snapshot_sha256": "cca4832cb5eb1850ef97e6d7bd3793d78ff4a2417cff383b7a53c4091b54a604",
   "collection_time": {
@@ -412,14 +412,14 @@
         "reason": "noncommercial_license_excluded"
       },
       {
-        "repo": "UD_English-GENTLE",
-        "license": "CC-BY-NC-SA-4.0",
-        "reason": "noncommercial_license_excluded"
-      },
-      {
         "repo": "UD_English-PCEDT",
         "license": "RESTRICTED-LDC",
         "reason": "requires_external_LDC_text_license"
+      },
+      {
+        "repo": "UD_English-GENTLE",
+        "license": "CC-BY-NC-SA-4.0",
+        "reason": "noncommercial_license_excluded"
       },
       {
         "repo": "UD_English-UniDive",

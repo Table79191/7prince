@@ -12,7 +12,7 @@ Exhausted unchanged sources are checked by upstream HEAD and skip large raw down
 | atis | CC-BY-SA-4.0 | 5430 | 0 | 0 | 0 | skipped | 5354 | 76 |
 | childes | CC-BY-SA-4.0 | 45499 | 0 | 0 | 0 | skipped | 45000 | 499 |
 | ctetex | CC-BY-SA-4.0 | 274 | 0 | 0 | 0 | skipped | 218 | 56 |
-| esl | CC-BY-SA-4.0 | 67 | 67 | 0 | 0 | fetched | 52 | 15 |
+| esl | CC-BY-SA-4.0 | 67 | 0 | 0 | 0 | skipped | 52 | 15 |
 | eslspok | CC-BY-SA-4.0 | 2154 | 0 | 0 | 0 | skipped | 2054 | 100 |
 | ewt | CC-BY-SA-4.0 | 15050 | 0 | 0 | 0 | skipped | 13463 | 1587 |
 | littleprince | CC-BY-SA-4.0 | 492 | 0 | 0 | 0 | skipped | 474 | 18 |
@@ -20,7 +20,7 @@ Exhausted unchanged sources are checked by upstream HEAD and skip large raw down
 | pud | CC-BY-SA-3.0 | 1000 | 0 | 0 | 0 | skipped | 882 | 118 |
 
 **Total analyzed sentences:** 70251
-**New items added this run:** 67
-**Raw sources fetched/skipped this run:** 1/8
+**New items added this run:** 0
+**Raw sources fetched/skipped this run:** 0/9
 
 Every record retains its original UD provenance/license and canonical role analysis.

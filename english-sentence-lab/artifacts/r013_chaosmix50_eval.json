@@ -422,7 +422,7 @@
       "prev": "the",
       "next": "something",
       "neural_direct": "M",
-      "confidence": 0.532329,
+      "confidence": 0.53233,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -611,7 +611,7 @@
       "prev": "verification",
       "next": "compares",
       "neural_direct": "M",
-      "confidence": 0.379371,
+      "confidence": 0.37937,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -758,7 +758,7 @@
       "prev": "traffic",
       "next": "they",
       "neural_direct": "O",
-      "confidence": 0.720182,
+      "confidence": 0.720183,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -842,7 +842,7 @@
       "prev": "elegant",
       "next": "with",
       "neural_direct": "O",
-      "confidence": 0.491965,
+      "confidence": 0.491964,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1136,7 +1136,7 @@
       "prev": "so",
       "next": "of",
       "neural_direct": "M",
-      "confidence": 0.466478,
+      "confidence": 0.466477,
       "dep_guard": "S",
       "guard_reason": "lexical-existential-postverbal-subject"
     },
@@ -1244,7 +1244,7 @@
       "prev": "seamless",
       "next": "look",
       "neural_direct": "S",
-      "confidence": 0.628174,
+      "confidence": 0.628175,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },

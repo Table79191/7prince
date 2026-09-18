@@ -1,10 +1,10 @@
 {
-  "apcontinue": "18th_Medical_Command",
-  "total_pages_processed": 39027,
-  "total_records": 2138,
-  "auto_pass": 1850,
-  "needs_review": 288,
+  "apcontinue": "1924_Washington_Senators",
+  "total_pages_processed": 55792,
+  "total_records": 2863,
+  "auto_pass": 2537,
+  "needs_review": 326,
   "current_shard": 2,
-  "current_shard_records": 138,
+  "current_shard_records": 863,
   "source_exhausted": false
 }

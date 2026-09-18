@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Gravières",
-  "total_pages_processed": 103010,
-  "total_records": 6,
-  "auto_pass": 6,
-  "needs_review": 0,
+  "apcontinue": "Karabulak,_Republic_of_Ingushetia",
+  "total_pages_processed": 135568,
+  "total_records": 55,
+  "auto_pass": 53,
+  "needs_review": 2,
   "current_shard": 1,
-  "current_shard_records": 6,
+  "current_shard_records": 55,
   "source_exhausted": false
 }

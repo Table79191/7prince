@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 103010,
-  "total_records": 6,
-  "auto_pass": 6,
-  "needs_review": 0,
+  "total_pages_processed": 135568,
+  "total_records": 55,
+  "auto_pass": 53,
+  "needs_review": 2,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Gravières",
+  "apcontinue": "Karabulak,_Republic_of_Ingushetia",
   "source_exhausted": false,
   "shard_count": 1
 }

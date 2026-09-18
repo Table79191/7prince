@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 39027,
-  "total_records": 2138,
-  "auto_pass": 1850,
-  "needs_review": 288,
+  "total_pages_processed": 55792,
+  "total_records": 2863,
+  "auto_pass": 2537,
+  "needs_review": 326,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "18th_Medical_Command",
+  "apcontinue": "1924_Washington_Senators",
   "source_exhausted": false,
   "shard_count": 2
 }

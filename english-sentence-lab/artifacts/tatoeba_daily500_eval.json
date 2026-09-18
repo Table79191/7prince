@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T11:41:06.665061+00:00",
+  "retrieved_at_utc": "2026-09-18T11:44:37.829071+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -16,20 +16,20 @@
   },
   "neural_direct": {
     "tokens": 3256,
-    "correct": 3104,
-    "accuracy": 0.9533169533169533,
+    "correct": 3106,
+    "accuracy": 0.9539312039312039,
     "core_tokens": 2032,
-    "core_correct": 1953,
-    "core_accuracy": 0.9611220472440944,
-    "macro_f1": 0.9074352677577482,
-    "exact_sentences": 371,
-    "exact_sentence_accuracy": 0.742,
+    "core_correct": 1955,
+    "core_accuracy": 0.9621062992125984,
+    "macro_f1": 0.9092930380595892,
+    "exact_sentences": 373,
+    "exact_sentence_accuracy": 0.746,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9609120521172638,
-        "recall": 0.9577922077922078,
-        "f1": 0.959349593495935
+        "precision": 0.9625407166123778,
+        "recall": 0.9594155844155844,
+        "f1": 0.9609756097560974
       },
       "V": {
         "support": 1009,
@@ -45,9 +45,9 @@
       },
       "C": {
         "support": 116,
-        "precision": 0.6689655172413793,
-        "recall": 0.8362068965517241,
-        "f1": 0.7432950191570881
+        "precision": 0.6758620689655173,
+        "recall": 0.8448275862068966,
+        "f1": 0.7509578544061303
       },
       "M": {
         "support": 1224,
@@ -59,14 +59,14 @@
   },
   "final_r018": {
     "tokens": 3256,
-    "correct": 3147,
-    "accuracy": 0.9665233415233415,
+    "correct": 3148,
+    "accuracy": 0.9668304668304668,
     "core_tokens": 2032,
-    "core_correct": 1971,
-    "core_accuracy": 0.96998031496063,
-    "macro_f1": 0.9296373353755476,
-    "exact_sentences": 406,
-    "exact_sentence_accuracy": 0.812,
+    "core_correct": 1972,
+    "core_accuracy": 0.9704724409448819,
+    "macro_f1": 0.9309658273652299,
+    "exact_sentences": 407,
+    "exact_sentence_accuracy": 0.814,
     "by_role": {
       "S": {
         "support": 616,
@@ -82,15 +82,15 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.9050847457627119,
+        "precision": 0.9081632653061225,
         "recall": 0.9175257731958762,
-        "f1": 0.9112627986348123
+        "f1": 0.9128205128205128
       },
       "C": {
         "support": 116,
-        "precision": 0.7899159663865546,
-        "recall": 0.8103448275862069,
-        "f1": 0.8
+        "precision": 0.7916666666666666,
+        "recall": 0.8189655172413793,
+        "f1": 0.8050847457627119
       },
       "M": {
         "support": 1224,
@@ -130,17 +130,17 @@
       "net": 4
     },
     "dep-subject": {
-      "changed": 22,
-      "helpful": 14,
+      "changed": 21,
+      "helpful": 13,
       "harmful": 7,
       "still_wrong": 1,
-      "net": 7
+      "net": 6
     },
     "dep-object": {
-      "changed": 27,
+      "changed": 26,
       "helpful": 17,
       "harmful": 8,
-      "still_wrong": 2,
+      "still_wrong": 1,
       "net": 9
     },
     "dep-function": {
@@ -291,20 +291,6 @@
       "neural_direct": "S",
       "final": "M",
       "guard_reason": "dep-appos"
-    },
-    {
-      "sentence_id": "8724278",
-      "text": "What will be will be!",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "What",
-      "spacy_pos": "PRON",
-      "spacy_dep": "nsubj",
-      "neural_direct": "C",
-      "final": "S",
-      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "8724278",
@@ -1637,20 +1623,6 @@
       "guard_reason": "dep-object"
     },
     {
-      "sentence_id": "11079883",
-      "text": "You can be whatever you want to be.",
-      "token": "whatever",
-      "upos": "PRON",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "whatever",
-      "spacy_pos": "PRON",
-      "spacy_dep": "dobj",
-      "neural_direct": "S",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
       "sentence_id": "11076361",
       "text": "A lot of people do do that.",
       "token": "lot",
@@ -1762,11 +1734,6 @@
     {
       "gold": "C",
       "pred": "V",
-      "count": 1
-    },
-    {
-      "gold": "C",
-      "pred": "O",
       "count": 1
     }
   ],
@@ -3249,20 +3216,6 @@
       "deprel": "obl",
       "gold": "M",
       "spacy_token": "Who",
-      "spacy_pos": "PRON",
-      "spacy_dep": "dobj",
-      "neural_direct": "S",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
-      "sentence_id": "11079883",
-      "text": "You can be whatever you want to be.",
-      "token": "whatever",
-      "upos": "PRON",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "whatever",
       "spacy_pos": "PRON",
       "spacy_dep": "dobj",
       "neural_direct": "S",

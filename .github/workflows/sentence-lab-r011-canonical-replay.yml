@@ -40,7 +40,7 @@ jobs:
       - name: Train clean R011
         run: |
           cd english-sentence-lab
-          python train/train_r011_canonical_replay.py --base artifacts/v1.7.0_ud_role.pt --ud data/ud --ewt data/gold_external/ewt --masc data/gold_external/masc_conll/extracted/masc-conll/data --out artifacts/v1.8.0_r011_canonical_role.pt --metrics artifacts/v1.8.0_r011_canonical_metrics.json --epochs 3 --batch 32
+          python train/train_r011_canonical_replay.py --base none --ud data/ud --ewt data/gold_external/ewt --masc data/gold_external/masc_conll/extracted/masc-conll/data --out artifacts/v1.8.0_r011_canonical_role.pt --metrics artifacts/v1.8.0_r011_canonical_metrics.json --epochs 5 --batch 32
       - name: Validate clean split
         run: |
           python - <<'PY'
@@ -48,6 +48,7 @@ jobs:
           from pathlib import Path
           m=json.loads(Path('english-sentence-lab/artifacts/v1.8.0_r011_canonical_metrics.json').read_text())
           assert m['version']=='1.8.0-R011-CANONICAL-CLEAN'
+          assert m['base']=='random-init'
           assert m['policy']['official_test_never_fit_or_select'] is True
           assert m['data_stats']['ud']['official_test_excluded']>0
           assert m['data_stats']['ewt']['official_test_excluded']>0

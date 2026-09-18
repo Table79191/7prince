@@ -57,7 +57,7 @@ def main():
         members=[TOKENS[i] for i,o in enumerate(result.owners) if o==h]
         clauses.append({"head_index":h,"head_token":TOKENS[h],"members":members})
     payload={
-        "version":VERSION,"sentence":SENTENCE,"tokens":TOKENS,"pos":POS,
+        "version":ck.get("config",{}).get("version",VERSION),"sentence":SENTENCE,"tokens":TOKENS,"pos":POS,
         "roles":result.roles,"owners":result.owners,"clause_heads":result.clause_heads,
         "clauses":clauses,"focus_correct":correct,"focus_total":len(FOCUS),
         "focus_accuracy":correct/len(FOCUS),"v1_baseline_accuracy":V1_BASELINE,

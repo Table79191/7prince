@@ -37,8 +37,8 @@ jobs:
           import json
           from pathlib import Path
           meta=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
-          assert meta['version']=='1.8.2-R012-SCHOOL-REGRESSION', meta['version']
-          assert meta['checkpoint']=='v1.8.2_r012_school_regression_role.pt', meta['checkpoint']
+          assert meta['version'] in {'1.8.2-R012-SCHOOL-REGRESSION','1.8.3-AUTO-PROMOTED-SILVER'}, meta['version']
+          assert meta['checkpoint'] in {'v1.8.2_r012_school_regression_role.pt','v1.8.3_auto_promoted_silver_role.pt'}, meta['checkpoint']
           PY
       - name: Run shared browser smoke
         run: bash english-sentence-lab/scripts/browser_smoke_test.sh

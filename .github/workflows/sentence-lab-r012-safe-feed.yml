@@ -1,0 +1,123 @@
+name: SentenceLab R012 safe corpus feed
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/train/train_r012_safe_feed.py'
+      - 'english-sentence-lab/docs/training_feed_policy_v2.json'
+      - '.github/workflows/sentence-lab-r012-safe-feed.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentence-lab-r012-safe-feed
+  cancel-in-progress: false
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Refresh main
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install CPU training dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install spacy
+          python -m spacy download en_core_web_sm
+
+      - name: Syntax check
+        run: |
+          python -m py_compile english-sentence-lab/train/train_r012_safe_feed.py
+          python -m py_compile english-sentence-lab/train/train_ud_role.py
+
+      - name: Generate supervised Gold curriculum if missing
+        shell: bash
+        run: |
+          if [ ! -f english-sentence-lab/data/gold/gold_v2_val_4000.jsonl ]; then
+            python english-sentence-lab/data/gold/generate_gold_curriculum_v2.py
+          fi
+
+      - name: Train R012 safe feed
+        shell: bash
+        run: |
+          cd english-sentence-lab
+          python train/train_r012_safe_feed.py             --base artifacts/v1.8.0_r011_canonical_role.pt             --web-corpus data/web_corpus_bot             --tatoeba data/external_corpus_bot/tatoeba             --benchmark-tsv data/tatoeba500/TatoebaDaily500_CC0.tsv             --gold-val data/gold/gold_v2_val_4000.jsonl             --out artifacts/v1.8.1_r012_safe_feed_role.pt             --metrics artifacts/v1.8.1_r012_safe_feed_metrics.json             --epochs 2             --batch 32
+
+      - name: Validate feed safety metadata
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json')
+          m=json.loads(p.read_text(encoding='utf-8'))
+          assert m['version']=='1.8.1-R012-SAFE-FEED'
+          assert m['policy']['gold_only_upstream_train'] is True
+          assert m['policy']['dev_test_never_trained'] is True
+          assert m['policy']['tatoeba_daily500_excluded'] is True
+          assert m['feed']['gold_train_sentences'] > 0
+          assert m['feed']['weak_fraction'] <= 0.2000001
+          assert Path('english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt').stat().st_size > 100000
+          print('candidate_accepted=',m['candidate_accepted'])
+          print('selected_epoch=',m['selected_epoch'])
+          print('gold_train=',m['feed']['gold_train_sentences'])
+          print('weak_tatoeba=',m['feed']['weak_tatoeba_sentences'])
+          print('weak_fraction=',m['feed']['weak_fraction'])
+          print('baseline_ud_dev=',m['baseline']['ud_dev']['neural_role_acc'])
+          print('selected_ud_dev=',m['selected']['ud_dev']['neural_role_acc'])
+          print('baseline_eval_only=',m['baseline']['eval_only']['neural_role_acc'])
+          print('selected_eval_only=',m['selected']['eval_only']['neural_role_acc'])
+          PY
+
+      - name: Compare R012 with collected UD corpus
+        shell: bash
+        run: |
+          cd english-sentence-lab
+          python scripts/compare_web_corpus_to_model.py             --model artifacts/v1.8.1_r012_safe_feed_role.pt             --out artifacts/r012_web_corpus_comparison.txt
+          head -n 20 artifacts/r012_web_corpus_comparison.txt
+
+      - name: Commit R012 outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-bot
+          git config user.email sentence-lab-bot@users.noreply.github.com
+          git add             english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt             english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json             english-sentence-lab/artifacts/r012_web_corpus_comparison.txt
+          if git diff --cached --quiet; then
+            echo 'No R012 output changes.'
+            exit 0
+          fi
+          git commit -m 'train: feed safe collected corpora into R012'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 3))
+          done
+          exit 1

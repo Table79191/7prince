@@ -56,17 +56,26 @@ class WebWrapper(nn.Module):
 
 def main():
     ap = argparse.ArgumentParser()
-    auto = Path("artifacts/v1.8.3_auto_promoted_silver_role.pt")
+    pointer = Path("artifacts/latest_auto_model.json")
+    legacy = Path("artifacts/v1.8.3_auto_promoted_silver_role.pt")
     core = Path("artifacts/v1.8.2_r012_school_regression_role.pt")
-    ap.add_argument("--checkpoint", default=str(auto if auto.exists() else core))
+    default_checkpoint = legacy if legacy.exists() else core
+    if pointer.exists():
+        try:
+            rel = json.loads(pointer.read_text(encoding="utf-8")).get("checkpoint")
+            if rel and Path(rel).exists():
+                default_checkpoint = Path(rel)
+        except Exception:
+            pass
+    ap.add_argument("--checkpoint", default=str(default_checkpoint))
     ap.add_argument("--out", default="web/r012/r012_role.onnx")
     ap.add_argument("--meta", default="web/r012/model_meta.json")
     args = ap.parse_args()
 
     ck = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     actual_version = ck.get("metrics", {}).get("version")
-    allowed = {"1.8.2-R012-SCHOOL-REGRESSION","1.8.3-AUTO-PROMOTED-SILVER"}
-    if actual_version not in allowed:
+    allowed_static = {"1.8.2-R012-SCHOOL-REGRESSION","1.8.3-AUTO-PROMOTED-SILVER"}
+    if actual_version not in allowed_static and not str(actual_version).startswith("1.8.4-FULL-AUTO-"):
         raise SystemExit(f"refusing to export stale production checkpoint: {actual_version!r}")
     model = base.RoleNet().cpu()
     model.load_state_dict(ck["model"], strict=True)

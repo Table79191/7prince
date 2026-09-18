@@ -47,7 +47,7 @@ jobs:
         run: |
           cd english-sentence-lab
           python train/train_r012_regression_patch.py --epochs 5
-      - name: Validate disjoint holdout
+      - name: Validate disjoint target validation
         run: |
           python - <<'PY'
           import json

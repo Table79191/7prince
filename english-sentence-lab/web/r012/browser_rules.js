@@ -47,9 +47,10 @@
       else if(w==='to')p='PART';
       else if(ADP.has(w))p='ADP';
       else if(INTJ.has(w))p='INTJ';
+      else if(VERBS.has(w))p='VERB';
       else if(ADV.has(w)||/ly$/.test(w))p='ADV';
       else if(ADJ.has(w))p='ADJ';
-      else if(VERBS.has(w)||/(ing|ed|ize|ise|ify)$/.test(w))p='VERB';
+      else if(/(ing|ed|ize|ise|ify)$/.test(w))p='VERB';
       else if(/(ous|ful|less|ive|able|ible|al|ic|ary|ory)$/.test(w))p='ADJ';
       else if(i>0&&/^[A-Z]/.test(raw))p='PROPN';
       else p='NOUN';

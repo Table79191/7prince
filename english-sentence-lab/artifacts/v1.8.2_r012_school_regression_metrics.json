@@ -2,11 +2,11 @@
   "version": "1.8.2-R012-SCHOOL-REGRESSION",
   "base": "v1.8.1_r012_safe_feed_role.pt",
   "regression_patch": {
-    "selected_epoch": 4,
-    "replay_sentences": 5000,
+    "selected_epoch": 5,
+    "replay_sentences": 10000,
     "target_train_sentences": 445,
-    "target_holdout_sentences": 16,
-    "train_holdout_overlap": 0,
+    "target_validation_sentences": 176,
+    "train_validation_overlap": 0,
     "baseline": {
       "ud_dev": {
         "sentences": 6317,
@@ -15,12 +15,12 @@
         "neural_role_acc": 0.9648980181742633,
         "sentence_exact": 4836
       },
-      "target_holdout": {
-        "sentences": 16,
-        "tokens": 100,
-        "base_role_acc": 0.88,
-        "neural_role_acc": 0.86,
-        "sentence_exact": 6
+      "target_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.8813868613138686,
+        "sentence_exact": 76
       }
     },
     "selected": {
@@ -28,145 +28,172 @@
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.9640850541072751,
-        "sentence_exact": 4806
+        "neural_role_acc": 0.9643379762614492,
+        "sentence_exact": 4825
       },
-      "target_holdout": {
-        "sentences": 16,
-        "tokens": 100,
-        "base_role_acc": 0.88,
-        "neural_role_acc": 0.92,
-        "sentence_exact": 11
+      "target_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.9242700729927007,
+        "sentence_exact": 121
       }
     },
     "history": [
       {
         "epoch": 1,
         "train": {
-          "tokens": 47504,
-          "loss": 0.09355634151156864,
-          "train_acc": 0.9648661165375547
+          "tokens": 92773,
+          "loss": 0.09417157078211844,
+          "train_acc": 0.9649035818611018
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9629649702816468,
-          "sentence_exact": 4771
+          "neural_role_acc": 0.9640489223709645,
+          "sentence_exact": 4813
         },
-        "target_holdout": {
-          "sentences": 16,
-          "tokens": 100,
-          "base_role_acc": 0.88,
-          "neural_role_acc": 0.9,
-          "sentence_exact": 10
+        "target_validation": {
+          "sentences": 176,
+          "tokens": 1096,
+          "base_role_acc": 0.9124087591240876,
+          "neural_role_acc": 0.916058394160584,
+          "sentence_exact": 115
         },
-        "score": 0.919259299405633,
-        "safe": true
+        "score": 1.050558901404804,
+        "safe": false,
+        "gates": {
+          "token_safe": true,
+          "exact_safe": false,
+          "target_better": true
+        }
       },
       {
         "epoch": 2,
         "train": {
-          "tokens": 47504,
-          "loss": 0.0884401577210269,
-          "train_acc": 0.965518693162681
+          "tokens": 92773,
+          "loss": 0.09175247307204094,
+          "train_acc": 0.9650652668341004
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9636153415352374,
-          "sentence_exact": 4784
+          "neural_role_acc": 0.9641211858435857,
+          "sentence_exact": 4814
         },
-        "target_holdout": {
-          "sentences": 16,
-          "tokens": 100,
-          "base_role_acc": 0.88,
-          "neural_role_acc": 0.91,
-          "sentence_exact": 10
+        "target_validation": {
+          "sentences": 176,
+          "tokens": 1096,
+          "base_role_acc": 0.9124087591240876,
+          "neural_role_acc": 0.9206204379562044,
+          "sentence_exact": 120
         },
-        "score": 0.9292723068307048,
-        "safe": true
+        "score": 1.0551360866972828,
+        "safe": false,
+        "gates": {
+          "token_safe": true,
+          "exact_safe": false,
+          "target_better": true
+        }
       },
       {
         "epoch": 3,
         "train": {
-          "tokens": 47504,
-          "loss": 0.08594539673168054,
-          "train_acc": 0.9663396766588077
+          "tokens": 92773,
+          "loss": 0.09053237892773394,
+          "train_acc": 0.9654533107692971
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9636695391397033,
-          "sentence_exact": 4795
+          "neural_role_acc": 0.9647354253608658,
+          "sentence_exact": 4825
         },
-        "target_holdout": {
-          "sentences": 16,
-          "tokens": 100,
-          "base_role_acc": 0.88,
-          "neural_role_acc": 0.91,
-          "sentence_exact": 10
+        "target_validation": {
+          "sentences": 176,
+          "tokens": 1096,
+          "base_role_acc": 0.9124087591240876,
+          "neural_role_acc": 0.9215328467153284,
+          "sentence_exact": 119
         },
-        "score": 0.9292733907827941,
-        "safe": true
+        "score": 1.0561969860536946,
+        "safe": true,
+        "gates": {
+          "token_safe": true,
+          "exact_safe": true,
+          "target_better": true
+        }
       },
       {
         "epoch": 4,
         "train": {
-          "tokens": 47504,
-          "loss": 0.0838641651457364,
-          "train_acc": 0.9666133378241832
+          "tokens": 92773,
+          "loss": 0.08939593011038972,
+          "train_acc": 0.9654856477638968
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.9640850541072751,
-          "sentence_exact": 4806
+          "neural_role_acc": 0.9644825032066916,
+          "sentence_exact": 4824
         },
-        "target_holdout": {
-          "sentences": 16,
-          "tokens": 100,
-          "base_role_acc": 0.88,
-          "neural_role_acc": 0.92,
-          "sentence_exact": 11
+        "target_validation": {
+          "sentences": 176,
+          "tokens": 1096,
+          "base_role_acc": 0.9124087591240876,
+          "neural_role_acc": 0.9224452554744526,
+          "sentence_exact": 120
         },
-        "score": 0.9392817010821456,
-        "safe": true
+        "score": 1.0570761874478047,
+        "safe": true,
+        "gates": {
+          "token_safe": true,
+          "exact_safe": true,
+          "target_better": true
+        }
       },
       {
         "epoch": 5,
         "train": {
-          "tokens": 47504,
-          "loss": 0.08325150370371415,
-          "train_acc": 0.9666764904008084
+          "tokens": 92773,
+          "loss": 0.0886129472606443,
+          "train_acc": 0.9660892716630917
         },
         "ud_dev": {
           "sentences": 6317,
           "tokens": 55353,
           "base_role_acc": 0.7575921810922623,
-          "neural_role_acc": 0.964012790634654,
-          "sentence_exact": 4800
+          "neural_role_acc": 0.9643379762614492,
+          "sentence_exact": 4825
         },
-        "target_holdout": {
-          "sentences": 16,
-          "tokens": 100,
-          "base_role_acc": 0.88,
-          "neural_role_acc": 0.91,
-          "sentence_exact": 10
+        "target_validation": {
+          "sentences": 176,
+          "tokens": 1096,
+          "base_role_acc": 0.9124087591240876,
+          "neural_role_acc": 0.9242700729927007,
+          "sentence_exact": 121
         },
-        "score": 0.9292802558126931,
-        "safe": true
+        "score": 1.0588944674211251,
+        "safe": true,
+        "gates": {
+          "token_safe": true,
+          "exact_safe": true,
+          "target_better": true
+        }
       }
     ],
-    "safety_max_ud_dev_regression": 0.003,
-    "selection_metric": "disjoint_target_holdout + 0.02*ud_dev"
+    "safety_max_ud_dev_token_regression": 0.001,
+    "safety_max_ud_dev_exact_rate_regression": 0.002,
+    "minimum_target_validation_gain": 0.005,
+    "selection_metric": "target_validation + 0.10*ud_dev_token + 0.05*ud_dev_exact_rate"
   },
   "policy": {
     "official_test_never_used_for_fit_or_selection": true,
-    "target_holdout_never_used_for_fit": true,
+    "target_validation_never_used_for_fit": true,
     "canonical_role_spec": "v2-head-only"
   }
 }

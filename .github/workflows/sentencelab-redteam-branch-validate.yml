@@ -1,0 +1,81 @@
+name: SentenceLab redteam branch validate
+
+on:
+  push:
+    branches:
+      - fix/sentencelab-redteam-20260918-v2
+    paths:
+      - '.github/workflows/sentencelab-redteam-branch-validate.yml'
+      - 'english-sentence-lab/**'
+      - '.github/workflows/sentence-lab-*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python and YAML syntax
+        run: |
+          python -m pip install pyyaml
+          python -m py_compile             english-sentence-lab/train/train_r011_canonical_replay.py             english-sentence-lab/train/train_r012_safe_feed.py             english-sentence-lab/train/train_r012_regression_patch.py             english-sentence-lab/api/analyze.py             english-sentence-lab/server/app.py             english-sentence-lab/eval/eval_tatoeba500.py             english-sentence-lab/eval/eval_chaosmix50.py             english-sentence-lab/eval/eval_chaosmix50_r013.py             english-sentence-lab/scripts/external_mediawiki_corpus_bot.py             english-sentence-lab/scripts/export_r012_onnx.py
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+          for p in Path('.github/workflows').glob('sentence-lab-*.yml'):
+              yaml.safe_load(p.read_text())
+          print('workflow yaml: ok')
+          PY
+      - name: Browser regression tests
+        run: |
+          node - <<'JS'
+          const r=require('./english-sentence-lab/web/r012/browser_rules.js');
+          const checks=[
+            ["They lead the team.",1,"VERB"],
+            ["We practice every day.",1,"VERB"],
+            ["They improve quickly.",1,"VERB"],
+            ["We rely on data.",1,"VERB"],
+            ["They perform well.",1,"VERB"],
+            ["I focus on grammar.",1,"VERB"],
+            ["He is talented.",2,"ADJ"],
+            ["She is gifted.",2,"ADJ"],
+            ["He's ready.",1,"AUX"],
+            ["I'd go.",1,"AUX"]
+          ];
+          for(const [s,i,want] of checks){
+            const t=r.splitTokens(s),p=r.inferPos(t);
+            if(p[i]!==want) throw new Error(s+' expected '+want+' got '+p[i]);
+          }
+          for(const s of ["What on earth was that?","Who in the world was that?","what the hell was that?"]){
+            const t=r.splitTokens(s),p=r.inferPos(t),fin=r.postprocessRoles(t,p,r.weakRoles(p));
+            const cop=p.findIndex(x=>x==='AUX');
+            if(fin[0]!=='C'||fin[cop]!=='V'||fin[cop+1]!=='S') throw new Error(s+' '+JSON.stringify({t,p,fin}));
+            for(let i=1;i<cop;i++) if(fin[i]!=='M') throw new Error(s+' filler '+JSON.stringify(fin));
+          }
+          console.log('browser regressions: ok');
+          JS
+      - name: Artifact and policy invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          safe=json.loads(Path('english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_metrics.json').read_text())
+          reg=json.loads(Path('english-sentence-lab/artifacts/v1.8.2_r012_school_regression_metrics.json').read_text())
+          assert safe['version']=='1.8.1-R012-SAFE-FEED-SCHOOL-HEADS'
+          assert reg['version']=='1.8.2-R012-SCHOOL-REGRESSION'
+          assert Path('english-sentence-lab/artifacts/v1.8.1_r012_safe_feed_role.pt').stat().st_size > 100000
+          assert Path('english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt').stat().st_size > 100000
+          policy=json.loads(Path('english-sentence-lab/docs/training_feed_policy_v2.json').read_text())
+          assert policy['canonical_role_spec']=='v2-head-only'
+          assert policy['validation_and_test']['never_use_test_for_model_selection'] is True
+          s=Path('english-sentence-lab/train/train_r012_safe_feed.py').read_text()
+          assert 'mix = list(gold_train)' in s
+          assert 'mix = list(gold_train) + list(weak_train)' not in s
+          print('artifact/policy invariants: ok')
+          PY

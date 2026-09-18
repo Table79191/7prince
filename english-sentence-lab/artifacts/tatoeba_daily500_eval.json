@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T10:07:53.384176+00:00",
+  "retrieved_at_utc": "2026-09-18T11:41:06.665061+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -16,20 +16,20 @@
   },
   "neural_direct": {
     "tokens": 3256,
-    "correct": 3102,
-    "accuracy": 0.9527027027027027,
+    "correct": 3104,
+    "accuracy": 0.9533169533169533,
     "core_tokens": 2032,
-    "core_correct": 1951,
-    "core_accuracy": 0.9601377952755905,
-    "macro_f1": 0.905750839348743,
-    "exact_sentences": 369,
-    "exact_sentence_accuracy": 0.738,
+    "core_correct": 1953,
+    "core_accuracy": 0.9611220472440944,
+    "macro_f1": 0.9074352677577482,
+    "exact_sentences": 371,
+    "exact_sentence_accuracy": 0.742,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9608482871125612,
-        "recall": 0.9561688311688312,
-        "f1": 0.9585028478437755
+        "precision": 0.9609120521172638,
+        "recall": 0.9577922077922078,
+        "f1": 0.959349593495935
       },
       "V": {
         "support": 1009,
@@ -39,15 +39,15 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.8858131487889274,
-        "recall": 0.8797250859106529,
-        "f1": 0.8827586206896552
+        "precision": 0.8862068965517241,
+        "recall": 0.8831615120274914,
+        "f1": 0.8846815834767643
       },
       "C": {
         "support": 116,
-        "precision": 0.6598639455782312,
+        "precision": 0.6689655172413793,
         "recall": 0.8362068965517241,
-        "f1": 0.7376425855513308
+        "f1": 0.7432950191570881
       },
       "M": {
         "support": 1224,
@@ -116,10 +116,10 @@
       "net": 0
     },
     "dep-complement": {
-      "changed": 14,
+      "changed": 15,
       "helpful": 7,
       "harmful": 3,
-      "still_wrong": 4,
+      "still_wrong": 5,
       "net": 4
     },
     "dep-appos": {
@@ -130,18 +130,18 @@
       "net": 4
     },
     "dep-subject": {
-      "changed": 23,
-      "helpful": 15,
+      "changed": 22,
+      "helpful": 14,
       "harmful": 7,
       "still_wrong": 1,
-      "net": 8
+      "net": 7
     },
     "dep-object": {
-      "changed": 28,
-      "helpful": 18,
+      "changed": 27,
+      "helpful": 17,
       "harmful": 8,
       "still_wrong": 2,
-      "net": 10
+      "net": 9
     },
     "dep-function": {
       "changed": 21,
@@ -769,20 +769,6 @@
       "guard_reason": "dep-function"
     },
     {
-      "sentence_id": "9805710",
-      "text": "What is the best job you ever had?",
-      "token": "job",
-      "upos": "NOUN",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "job",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "nsubj",
-      "neural_direct": "C",
-      "final": "S",
-      "guard_reason": "dep-subject"
-    },
-    {
       "sentence_id": "11979260",
       "text": "I buy it for you, not for me.",
       "token": "for",
@@ -979,20 +965,6 @@
       "guard_reason": "dep-complement"
     },
     {
-      "sentence_id": "12085109",
-      "text": "What evidence of this do you have?",
-      "token": "evidence",
-      "upos": "NOUN",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "evidence",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "dobj",
-      "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
       "sentence_id": "10926539",
       "text": "You always know when something is up with me.",
       "token": "me",
@@ -1131,6 +1103,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "12772661",
+      "text": "What more is there to be done?",
+      "token": "What",
+      "upos": "PRON",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "What",
+      "spacy_pos": "PRON",
+      "spacy_dep": "attr",
+      "neural_direct": "M",
+      "final": "C",
+      "guard_reason": "dep-complement"
     },
     {
       "sentence_id": "12772661",
@@ -2747,7 +2733,7 @@
       "spacy_token": "What",
       "spacy_pos": "PRON",
       "spacy_dep": "attr",
-      "neural_direct": "C",
+      "neural_direct": "M",
       "final": "C",
       "guard_reason": "dep-complement"
     },

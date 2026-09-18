@@ -10,8 +10,8 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: sentence-lab-model-pipeline
-  cancel-in-progress: false
+  group: sentence-lab-r012-regression-main
+  cancel-in-progress: true
 jobs:
   patch:
     runs-on: ubuntu-latest

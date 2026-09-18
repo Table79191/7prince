@@ -48,8 +48,15 @@ def detect_clauses(tokens):
         w=t.lower()
         if w not in CLAUSE_STARTERS:
             continue
-        if w=="that" and i+1<len(tokens) and tokens[i+1].lower() in {"book","car","man","woman","thing","idea","day","time","way","place"}:
-            continue
+        if w=="that":
+            # demonstrative determiner: "that book"
+            if i+1<len(tokens) and tokens[i+1].lower() in {"book","car","man","woman","thing","idea","day","time","way","place"}:
+                continue
+            # demonstrative pronoun after a copula: "What was that?"
+            prev=tokens[i-1].lower() if i>0 else ""
+            nxt=tokens[i+1] if i+1<len(tokens) else ""
+            if prev in {"am","is","are","was","were","be","been","being"} and (not nxt or nxt in {"?","!","."}):
+                continue
         end=clause_end(tokens,i)
         typ=classify(tokens,i)
         fn="절"

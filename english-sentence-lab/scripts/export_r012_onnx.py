@@ -62,7 +62,7 @@ def main():
     args = ap.parse_args()
 
     ck = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
-    expected_version = "1.8.1-R012-SAFE-FEED-SCHOOL-HEADS"
+    expected_version = "1.8.2-R012-SCHOOL-REGRESSION"
     actual_version = ck.get("metrics", {}).get("version")
     if actual_version != expected_version:
         raise SystemExit(f"refusing to export stale R012 checkpoint: {actual_version!r}")

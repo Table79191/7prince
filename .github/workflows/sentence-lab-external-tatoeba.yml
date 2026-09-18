@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sentence-lab-external-tatoeba
@@ -129,3 +130,13 @@ jobs:
 
           echo 'Failed to push Tatoeba external corpus checkpoint.' >&2
           exit 1
+
+
+      - name: Dispatch promoted-silver pipeline
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh workflow run sentence-lab-auto-promoted-silver.yml --repo "$REPO" --ref main
+          echo "Dispatched promoted-silver pipeline after external corpus checkpoint."

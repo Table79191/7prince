@@ -1,0 +1,147 @@
+name: SentenceLab Overnight Model Arena
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/arena/**'
+      - '.github/workflows/sentence-lab-overnight-arena.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: sentencelab-overnight-model-arena
+  cancel-in-progress: false
+
+jobs:
+  arena:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/arena
+            english-sentence-lab/train/train_ud_role.py
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/data/web_corpus_bot
+            english-sentence-lab/data/promoted_silver/promoted.jsonl
+            english-sentence-lab/artifacts/v1.8.5_r015_accumulated_final_role.pt
+            english-sentence-lab/artifacts/clause_anchor_graph_v1_01_final.pt
+            english-sentence-lab/artifacts/arena
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      # Fallback bootstrap: this keeps the first arena run independent of the
+      # separate persistence workflow if that workflow is still racing main.
+      - name: Download validated ClauseAnchorGraph FINAL bootstrap
+        uses: actions/download-artifact@v4
+        with:
+          name: clause-anchor-graph-v1-01-final
+          path: /tmp/clause-final
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Table79191/7prince
+          run-id: 35369679602
+
+      - name: Syntax
+        run: |
+          python -m py_compile english-sentence-lab/arena/run_model_arena.py
+
+      - name: One-round arena smoke
+        run: |
+          cd english-sentence-lab
+          CLAUSE_START="artifacts/clause_anchor_graph_v1_01_final.pt"
+          if [ ! -f "$CLAUSE_START" ]; then
+            CLAUSE_START="/tmp/clause-final/clause_anchor_graph_v1_01_final.pt"
+          fi
+          python arena/run_model_arena.py             --role-start artifacts/v1.8.5_r015_accumulated_final_role.pt             --clause-start "$CLAUSE_START"             --out-dir artifacts/arena_smoke             --rounds 1             --minutes 8             --probe-per-round 200
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('artifacts/arena_smoke/summary.json').read_text())
+          assert s['gpt_in_loop'] is False
+          assert s['rounds_this_run'] == 1
+          assert s['gold_train_pool'] > 1000
+          assert s['clean_dev_pool'] > 1000
+          print(json.dumps({
+            'rounds':s['rounds_this_run'],
+            'gold_pool':s['gold_train_pool'],
+            'silver_pool':s['promoted_silver_pool'],
+            'role_updates':s['accepted_role_updates'],
+            'clause_updates':s['accepted_clause_updates']
+          },indent=2))
+          PY
+          rm -rf artifacts/arena_smoke
+
+      - name: Fight autonomously
+        run: |
+          cd english-sentence-lab
+          CLAUSE_START="artifacts/clause_anchor_graph_v1_01_final.pt"
+          if [ ! -f "$CLAUSE_START" ]; then
+            CLAUSE_START="/tmp/clause-final/clause_anchor_graph_v1_01_final.pt"
+          fi
+          python arena/run_model_arena.py             --role-start artifacts/v1.8.5_r015_accumulated_final_role.pt             --clause-start "$CLAUSE_START"             --out-dir artifacts/arena             --rounds 24             --minutes 300             --probe-per-round 6000
+
+      - name: Verify autonomous arena state
+        run: |
+          cd english-sentence-lab
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('artifacts/arena/summary.json').read_text())
+          assert s['version']=='SENTENCELAB-MODEL-ARENA-1'
+          assert s['gpt_in_loop'] is False
+          assert s['rounds_this_run'] >= 1
+          assert s['safety']['official_test_used_for_training'] is False
+          assert s['safety']['hardsets_used_as_training'] is False
+          assert Path(s['latest_role_checkpoint']).exists()
+          assert Path(s['latest_clause_checkpoint']).exists()
+          print(json.dumps({
+            'rounds_this_run':s['rounds_this_run'],
+            'total_rounds':s['total_rounds'],
+            'accepted_role_updates':s['accepted_role_updates'],
+            'accepted_clause_updates':s['accepted_clause_updates'],
+            'battle_totals':s['this_run_battle_totals'],
+            'current':s['current']
+          },ensure_ascii=False,indent=2))
+          PY
+
+      - name: Persist arena winners and battle log
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add english-sentence-lab/artifacts/arena
+          if git diff --cached --quiet; then
+            echo "No arena changes to persist."
+          else
+            git commit -m "arena: persist autonomous overnight battle state"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Upload arena snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sentencelab-overnight-arena
+          path: |
+            english-sentence-lab/artifacts/arena/role_arena_latest.pt
+            english-sentence-lab/artifacts/arena/clause_arena_latest.pt
+            english-sentence-lab/artifacts/arena/history.jsonl
+            english-sentence-lab/artifacts/arena/summary.json
+          retention-days: 30
+          if-no-files-found: warn

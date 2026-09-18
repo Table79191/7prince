@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sentence-lab-r012-school-heads-v1
+  group: sentence-lab-model-pipeline
   cancel-in-progress: false
 
 jobs:

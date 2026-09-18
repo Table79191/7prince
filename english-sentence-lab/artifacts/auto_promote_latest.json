@@ -1,11 +1,91 @@
 {
   "version": "1.8.3-AUTO-PROMOTED-SILVER",
-  "candidate_accepted": true,
+  "candidate_accepted": false,
   "promoted_selected": 1200,
-  "promoted_available": 8609,
-  "reason": "promotion_gates_passed",
+  "promoted_available": 9109,
+  "reason": "no_candidate_passed_promotion_gates",
   "parent": "v1.8.3_auto_promoted_silver_role.pt",
-  "selected_epoch": 1,
-  "baseline_score": 1.0496619755519203,
-  "selected_score": 1.0497922457500193
+  "baseline": {
+    "ud_dev": {
+      "sentences": 6317,
+      "tokens": 55353,
+      "base_role_acc": 0.7575921810922623,
+      "neural_role_acc": 0.9652954672736799,
+      "sentence_exact": 4854
+    },
+    "target_validation": {
+      "sentences": 176,
+      "tokens": 1096,
+      "base_role_acc": 0.9124087591240876,
+      "neural_role_acc": 0.9215328467153284,
+      "sentence_exact": 119
+    },
+    "score": 1.0497922457500193
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train": {
+        "sentences": 11200,
+        "tokens": 102161,
+        "weighted_tokens": 59387.03847503662,
+        "loss": 0.08787033966450994,
+        "train_acc": 0.9685006998756864
+      },
+      "ud_dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "base_role_acc": 0.7575921810922623,
+        "neural_role_acc": 0.9652593355373692,
+        "sentence_exact": 4851
+      },
+      "target_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.9187956204379562,
+        "sentence_exact": 116
+      },
+      "score": 1.049595507251051,
+      "gates": {
+        "ud_token_safe": true,
+        "ud_exact_safe": true,
+        "regression_validation_safe": true,
+        "composite_improved": false
+      },
+      "safe": false
+    },
+    {
+      "epoch": 2,
+      "train": {
+        "sentences": 11200,
+        "tokens": 102161,
+        "weighted_tokens": 59387.03830718994,
+        "loss": 0.08745769813173111,
+        "train_acc": 0.9685887961159346
+      },
+      "ud_dev": {
+        "sentences": 6317,
+        "tokens": 55353,
+        "base_role_acc": 0.7575921810922623,
+        "neural_role_acc": 0.9651690061965927,
+        "sentence_exact": 4856
+      },
+      "target_validation": {
+        "sentences": 176,
+        "tokens": 1096,
+        "base_role_acc": 0.9124087591240876,
+        "neural_role_acc": 0.9178832116788321,
+        "sentence_exact": 116
+      },
+      "score": 1.0494991332203,
+      "gates": {
+        "ud_token_safe": true,
+        "ud_exact_safe": true,
+        "regression_validation_safe": false,
+        "composite_improved": false
+      },
+      "safe": false
+    }
+  ]
 }

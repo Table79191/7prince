@@ -1,19 +1,18 @@
 {
   "version": "PROMOTED-SILVER-1",
   "added_this_run": 500,
-  "total_promoted": 8609,
+  "total_promoted": 9109,
   "sources": {
     "tatoeba": {
-      "source_records": 356410,
-      "processed_before": 236977,
-      "scanned": 699,
+      "source_records": 370178,
+      "processed_before": 237676,
+      "scanned": 809,
       "accepted": 500,
       "rejected": {
-        "consensus": 84,
-        "length": 98,
-        "structure": 6,
-        "status": 10,
-        "duplicate": 1
+        "status": 7,
+        "consensus": 183,
+        "length": 115,
+        "structure": 4
       }
     },
     "mediawiki/enwiki": {

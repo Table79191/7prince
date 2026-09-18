@@ -3,7 +3,7 @@
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
   "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T08:38:45.390560+00:00",
+  "retrieved_at_utc": "2026-09-18T08:56:40.130284+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,
@@ -16,20 +16,20 @@
   },
   "neural_direct": {
     "tokens": 3256,
-    "correct": 3106,
-    "accuracy": 0.9539312039312039,
+    "correct": 3100,
+    "accuracy": 0.952088452088452,
     "core_tokens": 2032,
-    "core_correct": 1950,
-    "core_accuracy": 0.9596456692913385,
-    "macro_f1": 0.907390645420783,
-    "exact_sentences": 372,
-    "exact_sentence_accuracy": 0.744,
+    "core_correct": 1952,
+    "core_accuracy": 0.9606299212598425,
+    "macro_f1": 0.9040403268251869,
+    "exact_sentences": 367,
+    "exact_sentence_accuracy": 0.734,
     "by_role": {
       "S": {
         "support": 616,
-        "precision": 0.9608482871125612,
+        "precision": 0.9592833876221498,
         "recall": 0.9561688311688312,
-        "f1": 0.9585028478437755
+        "f1": 0.9577235772357724
       },
       "V": {
         "support": 1009,
@@ -39,34 +39,34 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.8885017421602788,
-        "recall": 0.8762886597938144,
-        "f1": 0.8823529411764707
+        "precision": 0.8835616438356164,
+        "recall": 0.8865979381443299,
+        "f1": 0.8850771869639794
       },
       "C": {
         "support": 116,
-        "precision": 0.6689655172413793,
-        "recall": 0.8362068965517241,
-        "f1": 0.7432950191570881
+        "precision": 0.6486486486486487,
+        "recall": 0.8275862068965517,
+        "f1": 0.7272727272727273
       },
       "M": {
         "support": 1224,
-        "precision": 0.9673640167364017,
-        "recall": 0.9444444444444444,
-        "f1": 0.9557668458040512
+        "precision": 0.9687763713080169,
+        "recall": 0.9379084967320261,
+        "f1": 0.9530925695309257
       }
     }
   },
   "final_r018": {
     "tokens": 3256,
-    "correct": 3148,
-    "accuracy": 0.9668304668304668,
+    "correct": 3146,
+    "accuracy": 0.9662162162162162,
     "core_tokens": 2032,
-    "core_correct": 1972,
-    "core_accuracy": 0.9704724409448819,
-    "macro_f1": 0.9309239944664313,
-    "exact_sentences": 407,
-    "exact_sentence_accuracy": 0.814,
+    "core_correct": 1971,
+    "core_accuracy": 0.96998031496063,
+    "macro_f1": 0.929500260557039,
+    "exact_sentences": 405,
+    "exact_sentence_accuracy": 0.81,
     "by_role": {
       "S": {
         "support": 616,
@@ -82,38 +82,45 @@
       },
       "O": {
         "support": 291,
-        "precision": 0.9084745762711864,
+        "precision": 0.9054054054054054,
         "recall": 0.9209621993127147,
-        "f1": 0.9146757679180887
+        "f1": 0.9131175468483815
       },
       "C": {
         "support": 116,
-        "precision": 0.7966101694915254,
-        "recall": 0.8103448275862069,
-        "f1": 0.8034188034188032
+        "precision": 0.7948717948717948,
+        "recall": 0.8017241379310345,
+        "f1": 0.7982832618025749
       },
       "M": {
         "support": 1224,
-        "precision": 0.9751243781094527,
-        "recall": 0.9607843137254902,
-        "f1": 0.9679012345679012
+        "precision": 0.975103734439834,
+        "recall": 0.9599673202614379,
+        "f1": 0.9674763277068753
       }
     }
   },
   "postprocess_rule_audit": {
-    "dep-pobj": {
-      "changed": 20,
-      "helpful": 9,
-      "harmful": 9,
-      "still_wrong": 2,
-      "net": 0
-    },
     "clausal-object-before-aux-subject": {
       "changed": 2,
       "helpful": 0,
       "harmful": 0,
       "still_wrong": 2,
       "net": 0
+    },
+    "dep-pobj": {
+      "changed": 21,
+      "helpful": 10,
+      "harmful": 9,
+      "still_wrong": 2,
+      "net": 1
+    },
+    "dep-complement": {
+      "changed": 14,
+      "helpful": 7,
+      "harmful": 3,
+      "still_wrong": 4,
+      "net": 4
     },
     "dep-appos": {
       "changed": 4,
@@ -122,33 +129,26 @@
       "still_wrong": 0,
       "net": 4
     },
-    "dep-complement": {
-      "changed": 15,
-      "helpful": 8,
-      "harmful": 3,
-      "still_wrong": 4,
-      "net": 5
-    },
     "dep-subject": {
-      "changed": 24,
+      "changed": 23,
       "helpful": 15,
-      "harmful": 8,
+      "harmful": 7,
       "still_wrong": 1,
-      "net": 7
+      "net": 8
     },
     "dep-object": {
-      "changed": 30,
-      "helpful": 20,
-      "harmful": 9,
-      "still_wrong": 1,
-      "net": 11
+      "changed": 27,
+      "helpful": 17,
+      "harmful": 8,
+      "still_wrong": 2,
+      "net": 9
     },
     "dep-function": {
-      "changed": 17,
-      "helpful": 16,
+      "changed": 23,
+      "helpful": 21,
       "harmful": 1,
-      "still_wrong": 0,
-      "net": 15
+      "still_wrong": 1,
+      "net": 20
     }
   },
   "postprocess_changed_rows": [
@@ -165,20 +165,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "11688153",
-      "text": "Are we a thing?",
-      "token": "thing",
-      "upos": "NOUN",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "thing",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "attr",
-      "neural_direct": "S",
-      "final": "C",
-      "guard_reason": "dep-complement"
     },
     {
       "sentence_id": "11339290",
@@ -307,20 +293,6 @@
       "guard_reason": "dep-appos"
     },
     {
-      "sentence_id": "12346153",
-      "text": "Who was this really for?",
-      "token": "Who",
-      "upos": "PRON",
-      "deprel": "root",
-      "gold": "C",
-      "spacy_token": "Who",
-      "spacy_pos": "PRON",
-      "spacy_dep": "nsubj",
-      "neural_direct": "C",
-      "final": "S",
-      "guard_reason": "dep-subject"
-    },
-    {
       "sentence_id": "8724278",
       "text": "What will be will be!",
       "token": "What",
@@ -361,6 +333,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "12486964",
+      "text": "You think it's for you, but it's really for them.",
+      "token": "really",
+      "upos": "ADV",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "really",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "12486964",
@@ -643,20 +629,6 @@
       "guard_reason": "dep-object"
     },
     {
-      "sentence_id": "10169692",
-      "text": "What are we having?",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "What",
-      "spacy_pos": "PRON",
-      "spacy_dep": "dobj",
-      "neural_direct": "C",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
       "sentence_id": "12090816",
       "text": "What did you season it with?",
       "token": "What",
@@ -692,6 +664,20 @@
       "deprel": "advmod",
       "gold": "M",
       "spacy_token": "only",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
+    },
+    {
+      "sentence_id": "10152294",
+      "text": "I wanted you to be there.",
+      "token": "there",
+      "upos": "ADV",
+      "deprel": "xcomp",
+      "gold": "M",
+      "spacy_token": "there",
       "spacy_pos": "ADV",
       "spacy_dep": "advmod",
       "neural_direct": "C",
@@ -741,6 +727,20 @@
       "guard_reason": "dep-pobj"
     },
     {
+      "sentence_id": "12395937",
+      "text": "I may not look like it, but I am.",
+      "token": "it",
+      "upos": "PRON",
+      "deprel": "obl",
+      "gold": "M",
+      "spacy_token": "it",
+      "spacy_pos": "PRON",
+      "spacy_dep": "pobj",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-pobj"
+    },
+    {
       "sentence_id": "11781548",
       "text": "We, the people, have to help each other.",
       "token": "people",
@@ -753,20 +753,6 @@
       "neural_direct": "S",
       "final": "M",
       "guard_reason": "dep-appos"
-    },
-    {
-      "sentence_id": "11781548",
-      "text": "We, the people, have to help each other.",
-      "token": "other",
-      "upos": "ADJ",
-      "deprel": "fixed",
-      "gold": "M",
-      "spacy_token": "other",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "dobj",
-      "neural_direct": "M",
-      "final": "O",
-      "guard_reason": "dep-object"
     },
     {
       "sentence_id": "11236501",
@@ -795,20 +781,6 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-function"
-    },
-    {
-      "sentence_id": "9805710",
-      "text": "What is the best job you ever had?",
-      "token": "job",
-      "upos": "NOUN",
-      "deprel": "nsubj",
-      "gold": "S",
-      "spacy_token": "job",
-      "spacy_pos": "NOUN",
-      "spacy_dep": "nsubj",
-      "neural_direct": "C",
-      "final": "S",
-      "guard_reason": "dep-subject"
     },
     {
       "sentence_id": "11979260",
@@ -851,6 +823,20 @@
       "neural_direct": "C",
       "final": "S",
       "guard_reason": "dep-subject"
+    },
+    {
+      "sentence_id": "8737642",
+      "text": "I like you better than she.",
+      "token": "better",
+      "upos": "ADJ",
+      "deprel": "xcomp",
+      "gold": "C",
+      "spacy_token": "better",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "advmod",
+      "neural_direct": "O",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "10776200",
@@ -909,6 +895,20 @@
       "guard_reason": "dep-subject"
     },
     {
+      "sentence_id": "12772655",
+      "text": "Could it really be over?",
+      "token": "over",
+      "upos": "ADV",
+      "deprel": "root",
+      "gold": "M",
+      "spacy_token": "over",
+      "spacy_pos": "ADP",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
+    },
+    {
       "sentence_id": "12131441",
       "text": "What does the future look like to you?",
       "token": "What",
@@ -951,20 +951,6 @@
       "guard_reason": "dep-subject"
     },
     {
-      "sentence_id": "12111034",
-      "text": "Get the most out of life.",
-      "token": "most",
-      "upos": "ADJ",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "most",
-      "spacy_pos": "ADJ",
-      "spacy_dep": "dobj",
-      "neural_direct": "C",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
       "sentence_id": "9433368",
       "text": "Do you really think someone would do that?",
       "token": "someone",
@@ -977,6 +963,20 @@
       "neural_direct": "O",
       "final": "S",
       "guard_reason": "dep-subject"
+    },
+    {
+      "sentence_id": "11257806",
+      "text": "It is only now that I have seen her.",
+      "token": "only",
+      "upos": "ADV",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "only",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "12286786",
@@ -1142,7 +1142,7 @@
       "spacy_token": "This",
       "spacy_pos": "PRON",
       "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "neural_direct": "S",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -1357,20 +1357,6 @@
       "guard_reason": "dep-object"
     },
     {
-      "sentence_id": "11663537",
-      "text": "What are you asking for it?",
-      "token": "What",
-      "upos": "PRON",
-      "deprel": "obj",
-      "gold": "O",
-      "spacy_token": "What",
-      "spacy_pos": "PRON",
-      "spacy_dep": "dobj",
-      "neural_direct": "C",
-      "final": "O",
-      "guard_reason": "dep-object"
-    },
-    {
       "sentence_id": "11744266",
       "text": "This may just be what we were looking for.",
       "token": "what",
@@ -1383,6 +1369,20 @@
       "neural_direct": "C",
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "11855896",
+      "text": "We were just on our way home.",
+      "token": "just",
+      "upos": "ADV",
+      "deprel": "advmod",
+      "gold": "M",
+      "spacy_token": "just",
+      "spacy_pos": "ADV",
+      "spacy_dep": "advmod",
+      "neural_direct": "C",
+      "final": "M",
+      "guard_reason": "dep-function"
     },
     {
       "sentence_id": "12772717",
@@ -1511,6 +1511,20 @@
       "guard_reason": "dep-appos"
     },
     {
+      "sentence_id": "8738165",
+      "text": "What is a word?",
+      "token": "word",
+      "upos": "NOUN",
+      "deprel": "nsubj",
+      "gold": "S",
+      "spacy_token": "word",
+      "spacy_pos": "NOUN",
+      "spacy_dep": "nsubj",
+      "neural_direct": "C",
+      "final": "S",
+      "guard_reason": "dep-subject"
+    },
+    {
       "sentence_id": "11404519",
       "text": "There's no need for me to tell you.",
       "token": "need",
@@ -1576,7 +1590,7 @@
       "spacy_token": "one",
       "spacy_pos": "NUM",
       "spacy_dep": "attr",
-      "neural_direct": "S",
+      "neural_direct": "M",
       "final": "C",
       "guard_reason": "dep-complement"
     },
@@ -1618,7 +1632,7 @@
       "spacy_token": "best",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "neural_direct": "C",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -1677,6 +1691,20 @@
       "neural_direct": null,
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "11079883",
+      "text": "You can be whatever you want to be.",
+      "token": "whatever",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "whatever",
+      "spacy_pos": "PRON",
+      "spacy_dep": "dobj",
+      "neural_direct": "S",
+      "final": "O",
+      "guard_reason": "dep-object"
     },
     {
       "sentence_id": "11076361",
@@ -1788,8 +1816,18 @@
       "count": 2
     },
     {
+      "gold": "M",
+      "pred": null,
+      "count": 1
+    },
+    {
       "gold": "C",
       "pred": "V",
+      "count": 1
+    },
+    {
+      "gold": "C",
+      "pred": "O",
       "count": 1
     }
   ],
@@ -1907,6 +1945,20 @@
       "guard_reason": "dep-pobj"
     },
     {
+      "sentence_id": "11265752",
+      "text": "You see it too, right?",
+      "token": "right",
+      "upos": "ADJ",
+      "deprel": "discourse",
+      "gold": "M",
+      "spacy_token": "right",
+      "spacy_pos": "ADJ",
+      "spacy_dep": "ROOT",
+      "neural_direct": null,
+      "final": null,
+      "guard_reason": "neural"
+    },
+    {
       "sentence_id": "12149056",
       "text": "Who do you want to help you?",
       "token": "Who",
@@ -1972,7 +2024,7 @@
       "spacy_token": "Who",
       "spacy_pos": "PRON",
       "spacy_dep": "nsubj",
-      "neural_direct": "C",
+      "neural_direct": "S",
       "final": "S",
       "guard_reason": "dep-subject"
     },
@@ -2322,7 +2374,7 @@
       "spacy_token": "other",
       "spacy_pos": "ADJ",
       "spacy_dep": "dobj",
-      "neural_direct": "M",
+      "neural_direct": "O",
       "final": "O",
       "guard_reason": "dep-object"
     },
@@ -2392,7 +2444,7 @@
       "spacy_token": "better",
       "spacy_pos": "ADJ",
       "spacy_dep": "advmod",
-      "neural_direct": "M",
+      "neural_direct": "O",
       "final": "M",
       "guard_reason": "dep-function"
     },
@@ -3277,6 +3329,20 @@
       "neural_direct": null,
       "final": "M",
       "guard_reason": "dep-pobj"
+    },
+    {
+      "sentence_id": "11079883",
+      "text": "You can be whatever you want to be.",
+      "token": "whatever",
+      "upos": "PRON",
+      "deprel": "root",
+      "gold": "C",
+      "spacy_token": "whatever",
+      "spacy_pos": "PRON",
+      "spacy_dep": "dobj",
+      "neural_direct": "S",
+      "final": "O",
+      "guard_reason": "dep-object"
     },
     {
       "sentence_id": "11036487",

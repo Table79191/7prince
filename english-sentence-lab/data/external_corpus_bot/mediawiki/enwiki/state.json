@@ -1,10 +1,10 @@
 {
-  "apcontinue": "12th_Instructor_Grade_of_Wing_Tsun",
-  "total_pages_processed": 10926,
-  "total_records": 1494,
-  "auto_pass": 1280,
-  "needs_review": 214,
+  "apcontinue": "1773_in_Denmark",
+  "total_pages_processed": 21415,
+  "total_records": 1665,
+  "auto_pass": 1411,
+  "needs_review": 254,
   "current_shard": 1,
-  "current_shard_records": 1494,
+  "current_shard_records": 1665,
   "source_exhausted": false
 }

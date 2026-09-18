@@ -11,25 +11,25 @@
       "sentence_exact": 4000
     },
     "ewt": {
-      "sentences": 2036,
-      "tokens": 25618,
-      "base_role_acc": 0.6903349207588414,
-      "neural_role_acc": 0.8512764462487313,
-      "sentence_exact": 1135
+      "sentences": 2051,
+      "tokens": 25984,
+      "base_role_acc": 0.7429572044334976,
+      "neural_role_acc": 0.7654325738916257,
+      "sentence_exact": 852
     },
     "ud": {
-      "sentences": 3287,
-      "tokens": 27313,
-      "base_role_acc": 0.6906235126130414,
-      "neural_role_acc": 0.8241130597151539,
-      "sentence_exact": 1999
+      "sentences": 3275,
+      "tokens": 27439,
+      "base_role_acc": 0.7430299938044389,
+      "neural_role_acc": 0.7491891103903203,
+      "sentence_exact": 1448
     },
     "masc": {
-      "sentences": 312,
-      "tokens": 4636,
-      "base_role_acc": 0.677739430543572,
-      "neural_role_acc": 0.8764020707506471,
-      "sentence_exact": 152
+      "sentences": 331,
+      "tokens": 5163,
+      "base_role_acc": 0.7547937245787333,
+      "neural_role_acc": 0.7948866937826845,
+      "sentence_exact": 92
     }
   },
   "selected": {
@@ -37,29 +37,29 @@
       "sentences": 4000,
       "tokens": 59630,
       "base_role_acc": 0.5926882441723964,
-      "neural_role_acc": 1.0,
-      "sentence_exact": 4000
+      "neural_role_acc": 0.9994801274526245,
+      "sentence_exact": 3969
     },
     "ewt": {
-      "sentences": 2036,
-      "tokens": 25618,
-      "base_role_acc": 0.6903349207588414,
-      "neural_role_acc": 0.9434772425638223,
-      "sentence_exact": 1394
+      "sentences": 2051,
+      "tokens": 25984,
+      "base_role_acc": 0.7429572044334976,
+      "neural_role_acc": 0.9546259236453202,
+      "sentence_exact": 1364
     },
     "ud": {
-      "sentences": 3287,
-      "tokens": 27313,
-      "base_role_acc": 0.6906235126130414,
-      "neural_role_acc": 0.9560648775308461,
-      "sentence_exact": 2542
+      "sentences": 3275,
+      "tokens": 27439,
+      "base_role_acc": 0.7430299938044389,
+      "neural_role_acc": 0.9631910783920696,
+      "sentence_exact": 2531
     },
     "masc": {
-      "sentences": 312,
-      "tokens": 4636,
-      "base_role_acc": 0.677739430543572,
-      "neural_role_acc": 0.8830888697152718,
-      "sentence_exact": 154
+      "sentences": 331,
+      "tokens": 5163,
+      "base_role_acc": 0.7547937245787333,
+      "neural_role_acc": 0.9407321324811156,
+      "sentence_exact": 165
     }
   },
   "history": [
@@ -70,37 +70,37 @@
           "sentences": 4000,
           "tokens": 59630,
           "base_role_acc": 0.5926882441723964,
-          "neural_role_acc": 1.0,
-          "sentence_exact": 4000
+          "neural_role_acc": 0.9988428643300352,
+          "sentence_exact": 3931
         },
         "ewt": {
-          "sentences": 2036,
-          "tokens": 25618,
-          "base_role_acc": 0.6903349207588414,
-          "neural_role_acc": 0.9337965493012725,
-          "sentence_exact": 1305
+          "sentences": 2051,
+          "tokens": 25984,
+          "base_role_acc": 0.7429572044334976,
+          "neural_role_acc": 0.9438115763546798,
+          "sentence_exact": 1262
         },
         "ud": {
-          "sentences": 3287,
-          "tokens": 27313,
-          "base_role_acc": 0.6906235126130414,
-          "neural_role_acc": 0.9483396184966866,
-          "sentence_exact": 2457
+          "sentences": 3275,
+          "tokens": 27439,
+          "base_role_acc": 0.7430299938044389,
+          "neural_role_acc": 0.9514195123728999,
+          "sentence_exact": 2295
         },
         "masc": {
-          "sentences": 312,
-          "tokens": 4636,
-          "base_role_acc": 0.677739430543572,
-          "neural_role_acc": 0.8826574633304572,
-          "sentence_exact": 152
+          "sentences": 331,
+          "tokens": 5163,
+          "base_role_acc": 0.7547937245787333,
+          "neural_role_acc": 0.9300794111950417,
+          "sentence_exact": 146
         }
       },
-      "score": 3.733445529454597,
+      "score": 3.781082434982814,
       "safe": true,
       "last_train": {
-        "sentences_seen": 39355,
-        "loss": 0.13448234883697988,
-        "train_acc": 0.9510086455331412
+        "sentences_seen": 39638,
+        "loss": 0.12657903896376654,
+        "train_acc": 0.9541381128096995
       }
     },
     {
@@ -110,55 +110,55 @@
           "sentences": 4000,
           "tokens": 59630,
           "base_role_acc": 0.5926882441723964,
-          "neural_role_acc": 1.0,
-          "sentence_exact": 4000
+          "neural_role_acc": 0.9994801274526245,
+          "sentence_exact": 3969
         },
         "ewt": {
-          "sentences": 2036,
-          "tokens": 25618,
-          "base_role_acc": 0.6903349207588414,
-          "neural_role_acc": 0.9434772425638223,
-          "sentence_exact": 1394
+          "sentences": 2051,
+          "tokens": 25984,
+          "base_role_acc": 0.7429572044334976,
+          "neural_role_acc": 0.9546259236453202,
+          "sentence_exact": 1364
         },
         "ud": {
-          "sentences": 3287,
-          "tokens": 27313,
-          "base_role_acc": 0.6906235126130414,
-          "neural_role_acc": 0.9560648775308461,
-          "sentence_exact": 2542
+          "sentences": 3275,
+          "tokens": 27439,
+          "base_role_acc": 0.7430299938044389,
+          "neural_role_acc": 0.9631910783920696,
+          "sentence_exact": 2531
         },
         "masc": {
-          "sentences": 312,
-          "tokens": 4636,
-          "base_role_acc": 0.677739430543572,
-          "neural_role_acc": 0.8830888697152718,
-          "sentence_exact": 154
+          "sentences": 331,
+          "tokens": 5163,
+          "base_role_acc": 0.7547937245787333,
+          "neural_role_acc": 0.9407321324811156,
+          "sentence_exact": 165
         }
       },
-      "score": 3.753573639536314,
+      "score": 3.814466103138125,
       "safe": true,
       "last_train": {
-        "sentences_seen": 39355,
-        "loss": 0.12247536481319837,
-        "train_acc": 0.952054794520548
+        "sentences_seen": 39638,
+        "loss": 0.08971876755291637,
+        "train_acc": 0.9650218613366646
       }
     }
   ],
   "data_stats": {
     "ud": {
-      "ambig_sentences_dropped": 877,
-      "val": 3287,
-      "train": 19347
+      "ambig_sentences_dropped": 801,
+      "val": 3275,
+      "train": 19401
     },
     "ewt": {
-      "ambig_sentences_dropped": 1619,
-      "val": 2036,
-      "train": 12195
+      "ambig_sentences_dropped": 1466,
+      "val": 2051,
+      "train": 12333
     },
     "masc": {
-      "train": 1813,
-      "val": 312,
-      "ambig_sentences_dropped": 355,
+      "train": 1904,
+      "val": 331,
+      "ambig_sentences_dropped": 245,
       "reject_split-or-no-gold-pos": 128,
       "reject_length": 89
     },

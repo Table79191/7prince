@@ -1,11 +1,11 @@
 {
   "version": "1.8.3-AUTO-PROMOTED-SILVER",
   "candidate_accepted": true,
-  "promoted_selected": 1023,
-  "promoted_available": 1023,
+  "promoted_selected": 1200,
+  "promoted_available": 2023,
   "reason": "promotion_gates_passed",
   "parent": "v1.8.2_r012_school_regression_role.pt",
   "selected_epoch": 2,
   "baseline_score": 1.0487579070125563,
-  "selected_score": 1.0492772778493662
+  "selected_score": 1.0494353995248387
 }

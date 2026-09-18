@@ -141,7 +141,7 @@
     if(!directWhCopular)markClauseSubject(0,lo.length);
     for(let i=0;i<lo.length;i++){
       if(pos[i]==='PUNCT'&&/[,:;]/.test(tokens[i]))markClauseSubject(i+1,lo.length);
-      if(CLAUSE_MARKERS.has(lo[i]))markClauseSubject(i+1,lo.length);
+      if(CLAUSE_MARKERS.has(lo[i])&&!(directWhCopular&&i===0))markClauseSubject(i+1,lo.length);
     }
 
     // Do-support inversion: "did the accountant admit ..." / ordinary questions.

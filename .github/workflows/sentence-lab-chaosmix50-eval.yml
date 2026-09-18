@@ -1,6 +1,10 @@
 name: SentenceLab ChaosMix50 evaluation
 
 on:
+  workflow_run:
+    workflows: ["SentenceLab R012 school regression patch"]
+    types: [completed]
+    branches: [main]
   push:
     branches: [main]
     paths:
@@ -22,6 +26,7 @@ concurrency:
 
 jobs:
   chaosmix50-eval:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -46,22 +51,36 @@ jobs:
       - name: Evaluate R013 dependency guard
         run: python english-sentence-lab/eval/eval_chaosmix50_r013.py
 
-      - name: Commit evaluation report
+      - name: Commit evaluation report safely
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'sentence-lab-bot'
-          git config user.email 'sentence-lab-bot@users.noreply.github.com'
-          git add english-sentence-lab/artifacts/r013_chaosmix50_eval.json english-sentence-lab/artifacts/r013_chaosmix50_eval.txt
-          if git diff --cached --quiet; then
-            echo 'No R013 report changes.'
-            exit 0
-          fi
-          git commit -m 'eval: save R013 ChaosMix50 report'
+          git config user.name sentence-lab-bot
+          git config user.email sentence-lab-bot@users.noreply.github.com
+          tmp="$(mktemp -d)"
+          cp 'english-sentence-lab/artifacts/r013_chaosmix50_eval.json' "$tmp/0"
+          cp 'english-sentence-lab/artifacts/r013_chaosmix50_eval.txt' "$tmp/1"
+
           for attempt in 1 2 3; do
             git fetch origin main
-            if git rebase origin/main && git push origin HEAD:main; then exit 0; fi
-            git rebase --abort 2>/dev/null || true
-            sleep $((attempt*2))
+            git reset --hard origin/main
+
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/r013_chaosmix50_eval.json')"
+            cp "$tmp/0" 'english-sentence-lab/artifacts/r013_chaosmix50_eval.json'
+            mkdir -p "$(dirname 'english-sentence-lab/artifacts/r013_chaosmix50_eval.txt')"
+            cp "$tmp/1" 'english-sentence-lab/artifacts/r013_chaosmix50_eval.txt'
+
+            git add \
+              'english-sentence-lab/artifacts/r013_chaosmix50_eval.json' \
+              'english-sentence-lab/artifacts/r013_chaosmix50_eval.txt'
+            if git diff --cached --quiet; then
+              echo 'Outputs already present on latest main.'
+              exit 0
+            fi
+            git commit -m 'eval: save R013 ChaosMix50 report'
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
           done
           exit 1

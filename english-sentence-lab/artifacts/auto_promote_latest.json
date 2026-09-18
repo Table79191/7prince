@@ -2,7 +2,7 @@
   "version": "1.8.3-AUTO-PROMOTED-SILVER",
   "candidate_accepted": false,
   "promoted_selected": 1200,
-  "promoted_available": 7551,
+  "promoted_available": 8109,
   "reason": "no_candidate_passed_promotion_gates",
   "parent": "v1.8.3_auto_promoted_silver_role.pt",
   "baseline": {
@@ -27,17 +27,17 @@
       "epoch": 1,
       "train": {
         "sentences": 11200,
-        "tokens": 103572,
-        "weighted_tokens": 59556.3581161499,
-        "loss": 0.0877544884463325,
-        "train_acc": 0.9689394817132043
+        "tokens": 103361,
+        "weighted_tokens": 59531.03801727295,
+        "loss": 0.08780057452608385,
+        "train_acc": 0.9684600574684843
       },
       "ud_dev": {
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.9652232038010586,
-        "sentence_exact": 4851
+        "neural_role_acc": 0.965241269669214,
+        "sentence_exact": 4852
       },
       "target_validation": {
         "sentences": 176,
@@ -46,7 +46,7 @@
         "neural_role_acc": 0.9215328467153284,
         "sentence_exact": 119
       },
-      "score": 1.0496962368286091,
+      "score": 1.0497222178463608,
       "gates": {
         "ud_token_safe": true,
         "ud_exact_safe": true,
@@ -59,16 +59,16 @@
       "epoch": 2,
       "train": {
         "sentences": 11200,
-        "tokens": 103572,
-        "weighted_tokens": 59556.35849761963,
-        "loss": 0.08767457206087863,
-        "train_acc": 0.968862240760051
+        "tokens": 103361,
+        "weighted_tokens": 59531.038177490234,
+        "loss": 0.08780278001228171,
+        "train_acc": 0.9685471309294609
       },
       "ud_dev": {
         "sentences": 6317,
         "tokens": 55353,
         "base_role_acc": 0.7575921810922623,
-        "neural_role_acc": 0.9651870720647481,
+        "neural_role_acc": 0.9651690061965927,
         "sentence_exact": 4855
       },
       "target_validation": {
@@ -78,7 +78,7 @@
         "neural_role_acc": 0.9206204379562044,
         "sentence_exact": 119
       },
-      "score": 1.0496461452527277,
+      "score": 1.0496280793845723,
       "gates": {
         "ud_token_safe": true,
         "ud_exact_safe": true,

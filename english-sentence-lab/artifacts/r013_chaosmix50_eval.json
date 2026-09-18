@@ -37,10 +37,10 @@
   },
   "after_dep_guard": {
     "checks": 250,
-    "correct": 240,
-    "accuracy": 0.96,
-    "exact_sentences": 40,
-    "exact_sentence_accuracy": 0.8,
+    "correct": 241,
+    "accuracy": 0.964,
+    "exact_sentences": 41,
+    "exact_sentence_accuracy": 0.82,
     "by_gold_role": {
       "S": {
         "checks": 173,
@@ -59,14 +59,14 @@
       },
       "M": {
         "checks": 14,
-        "correct": 13,
-        "accuracy": 0.9285714285714286
+        "correct": 14,
+        "accuracy": 1.0
       }
     }
   },
   "fixed_checks": 51,
-  "regressed_checks": 1,
-  "net_corrections": 50,
+  "regressed_checks": 0,
+  "net_corrections": 51,
   "fix_reasons": {
     "dep-subject": 25,
     "dep-object": 10,
@@ -107,11 +107,6 @@
     {
       "gold": "O",
       "pred": "M",
-      "count": 1
-    },
-    {
-      "gold": "M",
-      "pred": "S",
       "count": 1
     }
   ],
@@ -427,7 +422,7 @@
       "prev": "the",
       "next": "something",
       "neural_direct": "M",
-      "confidence": 0.53233,
+      "confidence": 0.532329,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -616,7 +611,7 @@
       "prev": "verification",
       "next": "compares",
       "neural_direct": "M",
-      "confidence": 0.37937,
+      "confidence": 0.379371,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -763,7 +758,7 @@
       "prev": "traffic",
       "next": "they",
       "neural_direct": "O",
-      "confidence": 0.720183,
+      "confidence": 0.720182,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -847,7 +842,7 @@
       "prev": "elegant",
       "next": "with",
       "neural_direct": "O",
-      "confidence": 0.491964,
+      "confidence": 0.491965,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1141,7 +1136,7 @@
       "prev": "so",
       "next": "of",
       "neural_direct": "M",
-      "confidence": 0.466477,
+      "confidence": 0.466478,
       "dep_guard": "S",
       "guard_reason": "lexical-existential-postverbal-subject"
     },
@@ -1188,29 +1183,7 @@
       "guard_reason": "dep-subject"
     }
   ],
-  "regressed_examples": [
-    {
-      "id": "CM50-045",
-      "token": "curve",
-      "occurrence": 0,
-      "gold": "M",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "conj",
-      "head": "controls",
-      "head_pos": "NOUN",
-      "head_tag": "NNS",
-      "head_dep": "nsubj",
-      "head_lemma": "control",
-      "head_neural": "S",
-      "prev": "calibration",
-      "next": "that",
-      "neural_direct": "M",
-      "confidence": 0.796355,
-      "dep_guard": "S",
-      "guard_reason": "conj-inherit-explicit-core"
-    }
-  ],
+  "regressed_examples": [],
   "remaining_errors": [
     {
       "id": "CM50-001",
@@ -1271,7 +1244,7 @@
       "prev": "seamless",
       "next": "look",
       "neural_direct": "S",
-      "confidence": 0.628175,
+      "confidence": 0.628174,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -1379,27 +1352,6 @@
       "confidence": 0.98376,
       "dep_guard": "M",
       "guard_reason": "dep-pobj"
-    },
-    {
-      "id": "CM50-045",
-      "token": "curve",
-      "occurrence": 0,
-      "gold": "M",
-      "pos": "NOUN",
-      "tag": "NN",
-      "dep": "conj",
-      "head": "controls",
-      "head_pos": "NOUN",
-      "head_tag": "NNS",
-      "head_dep": "nsubj",
-      "head_lemma": "control",
-      "head_neural": "S",
-      "prev": "calibration",
-      "next": "that",
-      "neural_direct": "M",
-      "confidence": 0.796355,
-      "dep_guard": "S",
-      "guard_reason": "conj-inherit-explicit-core"
     },
     {
       "id": "CM50-047",

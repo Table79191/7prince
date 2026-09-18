@@ -9,6 +9,8 @@ on:
     branches: [main]
     paths:
       - 'english-sentence-lab/scripts/export_r012_onnx.py'
+      - 'english-sentence-lab/scripts/browser_smoke_test.sh'
+      - 'english-sentence-lab/web/r012/browser_rules.js'
       - 'english-sentence-lab/artifacts/v1.8.2_r012_school_regression_role.pt'
       - '.github/workflows/sentence-lab-export-r012-onnx.yml'
 permissions:
@@ -64,6 +66,8 @@ jobs:
           ox=s.run(['logits'],{'wid':wid.numpy(),'pre':pre.numpy(),'suf':suf.numpy(),'pos':pos.numpy(),'role':role.numpy(),'shape':shape.numpy(),'mask':mask.numpy()})[0]
           assert float(np.max(np.abs(pt-ox)))<1e-3
           PY
+      - name: Integrated browser smoke
+        run: bash english-sentence-lab/scripts/browser_smoke_test.sh
       - name: Commit outputs safely
         shell: bash
         run: |

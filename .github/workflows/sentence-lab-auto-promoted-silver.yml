@@ -1,0 +1,153 @@
+name: SentenceLab auto promoted silver
+
+on:
+  workflow_run:
+    workflows:
+      - "SentenceLab external Tatoeba corpus"
+      - "SentenceLab external MediaWiki corpus"
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sentence-lab-auto-promoted-silver
+  cancel-in-progress: false
+
+jobs:
+  promote-train:
+    if: \${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Refresh main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install promotion runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install spacy
+          python -m spacy download en_core_web_sm
+
+      - name: Syntax and self tests
+        run: |
+          python -m py_compile english-sentence-lab/scripts/promote_external_silver.py
+          python -m py_compile english-sentence-lab/train/train_r013_auto_promote.py
+          python english-sentence-lab/scripts/promote_external_silver.py --self-test
+
+      - name: Promote strictly validated external rows
+        run: |
+          python english-sentence-lab/scripts/promote_external_silver.py \
+            --max-scan-per-source 4000 \
+            --max-accept-per-source 500 \
+            --bootstrap-tail 4000
+
+      - name: Decide whether enough new promoted rows accumulated
+        id: decide
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          root=Path('english-sentence-lab')
+          m=json.loads((root/'data/promoted_silver/manifest.json').read_text())
+          total=int(m.get('total_promoted',0))
+          last=0
+          p=root/'artifacts/v1.8.3_auto_promoted_silver_metrics.json'
+          if p.exists():
+              try:last=int(json.loads(p.read_text()).get('feed',{}).get('promoted_available',0))
+              except Exception:last=0
+          delta=max(0,total-last)
+          print(f'total={total}')
+          print(f'delta={delta}')
+          print('train=' + ('true' if total>=64 and delta>=128 else 'false'))
+          PY
+
+      - name: Train performance-gated promoted-silver candidate
+        if: steps.decide.outputs.train == 'true'
+        run: |
+          cd english-sentence-lab
+          python train/train_r013_auto_promote.py --epochs 2 --batch 32
+
+      - name: Read candidate decision
+        id: candidate
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          p=Path('english-sentence-lab/artifacts/auto_promote_latest.json')
+          if not p.exists():
+              print('accepted=false')
+              print('reason=not_trained_this_run')
+          else:
+              j=json.loads(p.read_text())
+              print('accepted=' + ('true' if j.get('candidate_accepted') else 'false'))
+              print('reason=' + str(j.get('reason','unknown')).replace('\n',' '))
+          PY
+
+      - name: Publish promotion state and accepted candidate safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-auto-promote
+          git config user.email sentence-lab-auto-promote@users.noreply.github.com
+
+          tmp="$(mktemp -d)"
+          cp -a english-sentence-lab/data/promoted_silver "$tmp/promoted_silver"
+          if [ -f english-sentence-lab/artifacts/auto_promote_latest.json ]; then
+            cp english-sentence-lab/artifacts/auto_promote_latest.json "$tmp/auto_promote_latest.json"
+          fi
+          if [ '\${{ steps.candidate.outputs.accepted }}' = 'true' ]; then
+            cp english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt "$tmp/model.pt"
+            cp english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_metrics.json "$tmp/metrics.json"
+          fi
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            rm -rf english-sentence-lab/data/promoted_silver
+            cp -a "$tmp/promoted_silver" english-sentence-lab/data/promoted_silver
+            mkdir -p english-sentence-lab/artifacts
+            if [ -f "$tmp/auto_promote_latest.json" ]; then
+              cp "$tmp/auto_promote_latest.json" english-sentence-lab/artifacts/auto_promote_latest.json
+            fi
+            if [ -f "$tmp/model.pt" ]; then
+              cp "$tmp/model.pt" english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt
+              cp "$tmp/metrics.json" english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_metrics.json
+            fi
+
+            git add english-sentence-lab/data/promoted_silver english-sentence-lab/artifacts/auto_promote_latest.json 2>/dev/null || true
+            if [ -f "$tmp/model.pt" ]; then
+              git add english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt \
+                      english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_metrics.json
+            fi
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "train: auto-promote validated external silver"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1
+
+      - name: Re-export and re-evaluate accepted candidate
+        if: steps.candidate.outputs.accepted == 'true'
+        env:
+          GH_TOKEN: \${{ github.token }}
+        run: |
+          gh workflow run sentence-lab-export-r012-onnx.yml --ref main
+          gh workflow run sentence-lab-tatoeba500-eval.yml --ref main
+          gh workflow run sentence-lab-chaosmix50-eval.yml --ref main

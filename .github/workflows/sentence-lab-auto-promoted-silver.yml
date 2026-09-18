@@ -16,6 +16,7 @@ on:
     paths:
       - 'english-sentence-lab/scripts/promote_external_silver.py'
       - 'english-sentence-lab/train/train_r013_auto_promote.py'
+      - 'english-sentence-lab/train/train_r014_full_model_auto.py'
       - 'english-sentence-lab/docs/training_feed_policy_v2.json'
       - '.github/workflows/sentence-lab-auto-promoted-silver.yml'
 
@@ -59,6 +60,7 @@ jobs:
         run: |
           python -m py_compile english-sentence-lab/scripts/promote_external_silver.py
           python -m py_compile english-sentence-lab/train/train_r013_auto_promote.py
+          python -m py_compile english-sentence-lab/train/train_r014_full_model_auto.py
           python english-sentence-lab/scripts/promote_external_silver.py --self-test
 
       - name: Promote strictly validated external rows
@@ -78,9 +80,9 @@ jobs:
           m=json.loads((root/'data/promoted_silver/manifest.json').read_text())
           total=int(m.get('total_promoted',0))
           last=0
-          p=root/'artifacts/v1.8.3_auto_promoted_silver_metrics.json'
+          p=root/'artifacts/full_auto_state.json'
           if p.exists():
-              try:last=int(json.loads(p.read_text()).get('feed',{}).get('promoted_available',0))
+              try:last=int(json.loads(p.read_text()).get('last_attempted_promoted_available',0))
               except Exception:last=0
           delta=max(0,total-last)
           print(f'total={total}')
@@ -88,11 +90,11 @@ jobs:
           print('train=' + ('true' if total>=64 and delta>=128 else 'false'))
           PY
 
-      - name: Train performance-gated promoted-silver candidate
+      - name: Train full-model versioned promoted-silver candidate
         if: steps.decide.outputs.train == 'true'
         run: |
           cd english-sentence-lab
-          python train/train_r013_auto_promote.py --epochs 2 --batch 32
+          python train/train_r014_full_model_auto.py --epochs 2 --batch 32 --max-promoted 2000 --gold-replay 16000 --lr 1e-6
 
       - name: Read candidate decision
         id: candidate
@@ -100,15 +102,35 @@ jobs:
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import json
           from pathlib import Path
-          p=Path('english-sentence-lab/artifacts/auto_promote_latest.json')
+          p=Path('english-sentence-lab/artifacts/auto_full_latest.json')
           if not p.exists():
               print('accepted=false')
               print('reason=not_trained_this_run')
+              print('candidate_id=none')
+              print('model_path=')
+              print('metrics_path=')
+              print('version=')
           else:
               j=json.loads(p.read_text())
               print('accepted=' + ('true' if j.get('candidate_accepted') else 'false'))
               print('reason=' + str(j.get('reason','unknown')).replace('\n',' '))
+              print('candidate_id=' + str(j.get('candidate_id','none')))
+              print('model_path=' + str(j.get('candidate_path','')))
+              print('metrics_path=' + str(j.get('metrics_path','')))
+              print('version=' + str(j.get('version','')))
           PY
+
+      - name: Upload every full-model candidate
+        if: steps.decide.outputs.train == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.candidate.outputs.candidate_id }}
+          path: |
+            english-sentence-lab/${{ steps.candidate.outputs.model_path }}
+            english-sentence-lab/${{ steps.candidate.outputs.metrics_path }}
+            english-sentence-lab/artifacts/auto_full_latest.json
+          retention-days: 30
+          if-no-files-found: error
 
       - name: Publish promotion state and accepted candidate safely
         shell: bash
@@ -119,12 +141,12 @@ jobs:
 
           tmp="$(mktemp -d)"
           cp -a english-sentence-lab/data/promoted_silver "$tmp/promoted_silver"
-          if [ -f english-sentence-lab/artifacts/auto_promote_latest.json ]; then
-            cp english-sentence-lab/artifacts/auto_promote_latest.json "$tmp/auto_promote_latest.json"
-          fi
+          [ -f english-sentence-lab/artifacts/auto_full_latest.json ] && cp english-sentence-lab/artifacts/auto_full_latest.json "$tmp/auto_full_latest.json" || true
+          [ -f english-sentence-lab/artifacts/full_auto_state.json ] && cp english-sentence-lab/artifacts/full_auto_state.json "$tmp/full_auto_state.json" || true
+
           if [ '${{ steps.candidate.outputs.accepted }}' = 'true' ]; then
-            cp english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt "$tmp/model.pt"
-            cp english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_metrics.json "$tmp/metrics.json"
+            cp "english-sentence-lab/${{ steps.candidate.outputs.model_path }}" "$tmp/model.pt"
+            cp "english-sentence-lab/${{ steps.candidate.outputs.metrics_path }}" "$tmp/metrics.json"
           fi
 
           for attempt in 1 2 3; do
@@ -133,21 +155,37 @@ jobs:
             rm -rf english-sentence-lab/data/promoted_silver
             cp -a "$tmp/promoted_silver" english-sentence-lab/data/promoted_silver
             mkdir -p english-sentence-lab/artifacts
-            if [ -f "$tmp/auto_promote_latest.json" ]; then
-              cp "$tmp/auto_promote_latest.json" english-sentence-lab/artifacts/auto_promote_latest.json
-            fi
+            [ -f "$tmp/auto_full_latest.json" ] && cp "$tmp/auto_full_latest.json" english-sentence-lab/artifacts/auto_full_latest.json || true
+            [ -f "$tmp/full_auto_state.json" ] && cp "$tmp/full_auto_state.json" english-sentence-lab/artifacts/full_auto_state.json || true
+
+            git add english-sentence-lab/data/promoted_silver 2>/dev/null || true
+            [ -f english-sentence-lab/artifacts/auto_full_latest.json ] && git add english-sentence-lab/artifacts/auto_full_latest.json || true
+            [ -f english-sentence-lab/artifacts/full_auto_state.json ] && git add english-sentence-lab/artifacts/full_auto_state.json || true
+
             if [ -f "$tmp/model.pt" ]; then
-              cp "$tmp/model.pt" english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt
-              cp "$tmp/metrics.json" english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_metrics.json
+              id='${{ steps.candidate.outputs.candidate_id }}'
+              mkdir -p english-sentence-lab/artifacts/accepted_auto_models
+              model_rel="artifacts/accepted_auto_models/${id}_role.pt"
+              metrics_rel="artifacts/accepted_auto_models/${id}_metrics.json"
+              cp "$tmp/model.pt" "english-sentence-lab/${model_rel}"
+              cp "$tmp/metrics.json" "english-sentence-lab/${metrics_rel}"
+              python - <<PY
+          import json
+          from pathlib import Path
+          p=Path("english-sentence-lab/artifacts/latest_auto_model.json")
+          p.write_text(json.dumps({
+            "version": "${{ steps.candidate.outputs.version }}",
+            "candidate_id": "${{ steps.candidate.outputs.candidate_id }}",
+            "checkpoint": "${model_rel}",
+            "metrics": "${metrics_rel}",
+            "full_model_finetune": True
+          },indent=2)+"\n",encoding="utf-8")
+          PY
+              git add "english-sentence-lab/${model_rel}" "english-sentence-lab/${metrics_rel}" english-sentence-lab/artifacts/latest_auto_model.json
             fi
 
-            git add english-sentence-lab/data/promoted_silver english-sentence-lab/artifacts/auto_promote_latest.json 2>/dev/null || true
-            if [ -f "$tmp/model.pt" ]; then
-              git add english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_role.pt \
-                      english-sentence-lab/artifacts/v1.8.3_auto_promoted_silver_metrics.json
-            fi
             if git diff --cached --quiet; then exit 0; fi
-            git commit -m "train: auto-promote validated external silver"
+            git commit -m "train: versioned full-model auto fine-tune ${{ steps.candidate.outputs.candidate_id }}"
             if git push origin HEAD:main; then exit 0; fi
             sleep $((attempt*3))
           done

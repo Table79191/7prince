@@ -1,5 +1,9 @@
 name: SentenceLab R012 school regression patch
 on:
+  workflow_run:
+    workflows: ["SentenceLab R012 safe corpus feed"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
   push:
     branches: [main]
@@ -14,6 +18,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   patch:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:

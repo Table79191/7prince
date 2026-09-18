@@ -185,14 +185,151 @@ def detect_that_clauses(doc):
                 c["explanation"]="앞의 가주어 it이 대신하고 있는 실제 주어 역할의 that절입니다."
     return clauses
 
+def detect_all_clauses(doc, that_clauses):
+    """Detect clause spans beyond that: if/whether/WH/relative/adverbial/etc."""
+    clauses=list(that_clauses)
+    seen={(x["start"],x["end"],x["type"]) for x in clauses}
+
+    def add(ctype, function, start, end, trigger, head, explanation):
+        start=max(0,start); end=min(len(doc)-1,end)
+        if start>end:
+            return
+        key=(start,end,ctype)
+        if key in seen:
+            return
+        seen.add(key)
+        clauses.append({
+            "type":ctype,
+            "function":function,
+            "start":start,
+            "end":end,
+            "text":" ".join(x.text for x in doc[start:end+1]),
+            "trigger":trigger,
+            "head_index":head.i if head is not None else -1,
+            "head":head.text if head is not None else "",
+            "head_dep":head.dep_ if head is not None else "",
+            "explanation":explanation,
+        })
+
+    # Explicit subordinating conjunctions / markers.
+    adverb_markers={
+        "while":"시간·대조 부사절",
+        "whilst":"시간·대조 부사절",
+        "because":"이유 부사절",
+        "although":"양보 부사절",
+        "though":"양보 부사절",
+        "unless":"조건 부사절",
+        "until":"시간 부사절",
+        "before":"시간 부사절",
+        "after":"시간 부사절",
+        "since":"시간·이유 부사절",
+        "once":"시간·조건 부사절",
+        "whereas":"대조 부사절",
+        "as":"시간·이유·방식 부사절",
+        "when":"시간 부사절",
+        "whenever":"시간 부사절",
+    }
+
+    for t in doc:
+        w=t.lower_
+        if t.dep_=="mark":
+            head=t.head
+            s,e=subtree_span(head)
+            s=min(s,t.i); e=max(e,t.i)
+
+            if w=="if":
+                if head.dep_=="advcl":
+                    add("조건 부사절 if","부사절",s,e,w,head,
+                        "if가 조건을 나타내며 주절 전체를 수식하는 부사절입니다.")
+                else:
+                    add("명사절 if","명사절",s,e,w,head,
+                        "if가 ‘~인지’라는 의미로 명사 역할을 하는 절을 이끕니다.")
+            elif w=="whether":
+                add("명사절 whether","명사절",s,e,w,head,
+                    "whether가 ‘~인지 아닌지’의 의미를 갖는 명사절을 이끕니다.")
+            elif w in adverb_markers:
+                add(adverb_markers[w],"부사절",s,e,w,head,
+                    f"{w}가 이끄는 종속 부사절입니다.")
+
+    # Relative clauses. This also catches which/who/whom/whose/where/when and that.
+    relative_words={"that","which","who","whom","whose","where","when"}
+    for head in doc:
+        if head.dep_!="relcl":
+            continue
+        s,e=subtree_span(head)
+        rel=None
+        for x in head.subtree:
+            if x.lower_ in relative_words:
+                rel=x
+                break
+        trigger=rel.lower_ if rel is not None else "관계사 생략"
+        ctype=f"관계사절 {trigger}" if rel is not None else "관계사 생략절"
+        add(ctype,"형용사절",s,e,trigger,head,
+            "앞의 선행사를 꾸미는 관계사절입니다.")
+
+    # Embedded WH clauses / indirect questions: what, which, who, when, where, why, how...
+    wh_words={"what","which","who","whom","whose","when","where","why","how"}
+    clause_deps={"ccomp","xcomp","csubj","advcl"}
+    for t in doc:
+        if t.lower_ not in wh_words:
+            continue
+        cur=t
+        clause_head=None
+        for _ in range(8):
+            if cur.dep_ in clause_deps:
+                clause_head=cur
+                break
+            if cur.head is cur:
+                break
+            cur=cur.head
+        if clause_head is None:
+            # WH token can be an argument inside a ccomp predicate.
+            cur=t.head
+            for _ in range(8):
+                if cur.dep_ in clause_deps:
+                    clause_head=cur
+                    break
+                if cur.head is cur:
+                    break
+                cur=cur.head
+        if clause_head is None:
+            continue
+        s,e=subtree_span(clause_head)
+        s=min(s,t.i)
+        if clause_head.dep_=="advcl" and t.lower_ in {"when","where","how"}:
+            ctype=f"{t.lower_} 부사절"
+            function="부사절"
+            expl=f"{t.text}가 이끄는 부사절입니다."
+        else:
+            ctype=f"의문사절 {t.lower_}"
+            function="명사절"
+            expl=f"{t.text}로 시작해 문장 안에서 명사 역할을 하는 간접의문/의문사절입니다."
+        add(ctype,function,s,e,t.lower_,clause_head,expl)
+
+    # Clausal complements without an overt marker, e.g. "I think he left."
+    for head in doc:
+        if head.dep_=="ccomp":
+            s,e=subtree_span(head)
+            # Don't duplicate an already detected explicit clause with same/near span.
+            covered=any(c["start"]<=s and c["end"]>=e and c["function"] in {"명사절","진주어"} for c in clauses)
+            if not covered:
+                add("접속사 생략 명사절","명사절",s,e,"생략",head,
+                    "접속사 that 등이 생략된 것으로 볼 수 있는 명사절입니다.")
+
+    # Subject clauses.
+    for head in doc:
+        if head.dep_=="csubj":
+            s,e=subtree_span(head)
+            add("주어절","명사절",s,e,"주어절",head,
+                "문장 전체에서 주어 역할을 하는 절입니다.")
+
+    # Sort outer clauses first when they begin at the same token.
+    clauses.sort(key=lambda x:(x["start"],-(x["end"]-x["start"]),x["type"]))
+    return clauses
+
 def detect_other_grammar(doc):
     items=[]
-    lo=[t.lower_ for t in doc]
     for t in doc:
-        if t.lower_ in {"if","whether"} and t.dep_=="mark":
-            h=t.head; s,e=subtree_span(h); s=min(s,t.i)
-            typ="조건 부사절 if" if t.lower_=="if" and h.dep_=="advcl" else ("명사절 if" if t.lower_=="if" else "명사절 whether")
-            items.append({"type":typ,"start":s,"end":e,"text":" ".join(x.text for x in doc[s:e+1])})
         if t.lower_=="to" and t.dep_=="aux" and t.head.pos_=="VERB":
             s,e=subtree_span(t.head); s=min(s,t.i)
             items.append({"type":"to부정사","start":s,"end":e,"text":" ".join(x.text for x in doc[s:e+1])})
@@ -223,7 +360,8 @@ def bracket_text(doc, clauses):
 def analyze(text):
     doc=NLP(text)
     model,weak=model_roles(doc)
-    clauses=detect_that_clauses(doc)
+    that_clauses=detect_that_clauses(doc)
+    clauses=detect_all_clauses(doc, that_clauses)
     grammar=detect_other_grammar(doc)
 
     tokens=[]
@@ -239,7 +377,8 @@ def analyze(text):
         "engine":"spaCy en_core_web_sm + R012 ONNX",
         "text":text,
         "tokens":tokens,
-        "that_clauses":clauses,
+        "that_clauses":that_clauses,
+        "clauses":clauses,
         "grammar":grammar,
         "bracketed":bracket_text(doc,clauses),
     }
@@ -257,8 +396,14 @@ class handler(BaseHTTPRequestHandler):
         self._headers(204)
 
     def do_GET(self):
+        from urllib.parse import urlparse, parse_qs
+        qs=parse_qs(urlparse(self.path).query)
+        text=(qs.get("text") or [""])[0].strip()
         self._headers(200)
-        self.wfile.write(json.dumps({"ok":True,"service":"SentenceLab analyzer","model":"R012"}).encode())
+        if text:
+            self.wfile.write(json.dumps(analyze(text),ensure_ascii=False).encode("utf-8"))
+        else:
+            self.wfile.write(json.dumps({"ok":True,"service":"SentenceLab analyzer","model":"R012"}).encode())
 
     def do_POST(self):
         try:

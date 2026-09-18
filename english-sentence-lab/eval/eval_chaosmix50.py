@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / 'train'))
 import train_ud_role as base
 
 DATA = ROOT / 'data' / 'chaoslike200' / 'ChaosMix50_ORIGINAL.json'
-MODEL = ROOT / 'artifacts' / 'v1.8.0_r011_canonical_role.pt'
+MODEL = ROOT / 'artifacts' / 'v1.8.2_r012_school_regression_role.pt'
 OUT = ROOT / 'artifacts' / 'v1.8.0_chaosmix50_eval.json'
 SUMMARY = ROOT / 'artifacts' / 'v1.8.0_chaosmix50_eval.txt'
 
@@ -138,12 +138,13 @@ def main():
     errors = [r for r in rows if r['neural_direct'] != r['gold']]
     confusions = Counter((r['gold'],r['neural_direct']) for r in errors)
     result = {
-        'model':'v1.8.0-R011-CANONICAL-REPLAY',
+        'model':ck.get('metrics',{}).get('version','unknown'),
         'checkpoint':MODEL.name,
         'dataset':'ChaosMix50_ORIGINAL',
         'sentences':50,
         'focus_checks':250,
         'training_contamination':False,
+        'benchmark_status':'development_stress_set_tuned_against_postprocess',
         'frontend':'spaCy en_core_web_sm POS/tokenization + existing RoleNet feature path',
         'modes':modes,
         'neural_error_count':len(errors),
@@ -152,7 +153,8 @@ def main():
     }
     OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     lines = [
-        'SentenceLab v1.8.0 — ChaosMix50 original stress evaluation',
+        f"SentenceLab {ck.get('metrics',{}).get('version','unknown')} — ChaosMix50 development stress evaluation",
+        'WARNING: this set was used while iterating post-processing rules; it is not a pristine final holdout.',
         'Evaluation-only: 50 sentences / 250 sparse canonical-role focus checks',
     ]
     for name in ['weak_base','neural_direct','hybrid75']:

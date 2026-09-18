@@ -164,6 +164,30 @@ jobs:
             echo "External MediaWiki collector already active (${busy}); skipped duplicate dispatch."
           fi
 
+      - name: Dispatch enwiki bulk collector if idle
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="/repos/${REPO}/actions/workflows/sentence-lab-external-enwiki-bulk.yml/runs?per_page=20"
+          busy="$(gh api -H 'Accept: application/vnd.github+json' "$api" \
+            --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
+
+          if [ "$busy" -eq 0 ]; then
+            for attempt in 1 2 3 4 5; do
+              if gh workflow run sentence-lab-external-enwiki-bulk.yml --repo "$REPO" --ref main; then
+                echo "Dispatched enwiki bulk collector at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo 'Could not dispatch enwiki bulk collector after retries.' >&2
+                exit 1
+              fi
+              sleep $((attempt * 3))
+            done
+          else
+            echo "Enwiki bulk collector already active (${busy}); skipped duplicate dispatch."
+          fi
+
       - name: Keep daemon interval
         shell: bash
         run: |

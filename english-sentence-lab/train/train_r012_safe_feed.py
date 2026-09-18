@@ -309,7 +309,6 @@ def main():
     baseline = {
         "synthetic_gold": evaluate(model, synthetic_val, device, args.batch),
         "ud_dev": evaluate(model, ud_dev, device, args.batch),
-        "eval_only": evaluate(model, eval_only, device, args.batch),
     }
 
     mix = list(gold_train)
@@ -357,7 +356,6 @@ def main():
     selected = {
         "synthetic_gold": evaluate(model, synthetic_val, device, args.batch),
         "ud_dev": evaluate(model, ud_dev, device, args.batch),
-        "eval_only": evaluate(model, eval_only, device, args.batch),
     }
 
     metrics = {
@@ -377,6 +375,7 @@ def main():
             "relabel_saved_corpora_with_current_canonicalizer": True,
             "normalize_contraction_surfaces": True,
             "legacy_synthetic_is_report_only": True,
+            "eval_only_corpora_not_scored_during_training": True,
         },
         "feed": {
             "gold_train_sentences": len(gold_train),
@@ -394,7 +393,8 @@ def main():
             "silver labels are audit-only and excluded from supervised fitting. Saved dependency "
             "parses are relabeled at training time with the current school-style head-only "
             "canonicalizer, and contraction surfaces are normalized. UD dev/test and Tatoeba "
-            "Daily500 are excluded from training."
+            "Daily500 are excluded from training. Test/evaluation-only corpora are not scored "
+            "inside this training workflow, preventing manual holdout-driven model selection."
         ),
     }
 

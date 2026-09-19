@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Borago",
-  "total_pages_processed": 1219362,
-  "total_records": 23573,
-  "auto_pass": 20863,
-  "needs_review": 2710,
+  "apcontinue": "Brenda_Del_Vecchio",
+  "total_pages_processed": 1257522,
+  "total_records": 23737,
+  "auto_pass": 21006,
+  "needs_review": 2731,
   "current_shard": 12,
-  "current_shard_records": 1573,
+  "current_shard_records": 1737,
   "source_exhausted": false
 }

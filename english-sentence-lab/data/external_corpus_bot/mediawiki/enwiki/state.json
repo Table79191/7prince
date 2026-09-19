@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Corvette_Standard",
-  "total_pages_processed": 1735923,
-  "total_records": 32620,
-  "auto_pass": 28773,
-  "needs_review": 3847,
-  "current_shard": 17,
-  "current_shard_records": 620,
+  "apcontinue": "Cristobal_Mosquera_de_Figueroa",
+  "total_pages_processed": 1764817,
+  "total_records": 34429,
+  "auto_pass": 30395,
+  "needs_review": 4034,
+  "current_shard": 18,
+  "current_shard_records": 429,
   "source_exhausted": false
 }

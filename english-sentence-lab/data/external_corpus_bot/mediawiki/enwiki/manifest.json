@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1735923,
-  "total_records": 32620,
-  "auto_pass": 28773,
-  "needs_review": 3847,
+  "total_pages_processed": 1764817,
+  "total_records": 34429,
+  "auto_pass": 30395,
+  "needs_review": 4034,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Corvette_Standard",
+  "apcontinue": "Cristobal_Mosquera_de_Figueroa",
   "source_exhausted": false,
-  "shard_count": 17
+  "shard_count": 18
 }

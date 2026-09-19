@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Chatturat_(Martian_crater)",
-  "total_pages_processed": 1531275,
-  "total_records": 29732,
-  "auto_pass": 26233,
-  "needs_review": 3499,
-  "current_shard": 15,
-  "current_shard_records": 1732,
+  "apcontinue": "Chitrita_Banerji",
+  "total_pages_processed": 1566421,
+  "total_records": 30269,
+  "auto_pass": 26703,
+  "needs_review": 3566,
+  "current_shard": 16,
+  "current_shard_records": 269,
   "source_exhausted": false
 }

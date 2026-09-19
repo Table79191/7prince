@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Falkland_Islands_Radio_Station",
-  "total_pages_processed": 2350737,
-  "total_records": 48561,
-  "auto_pass": 42940,
-  "needs_review": 5621,
+  "apcontinue": "Fenfluramine_hydrochloride",
+  "total_pages_processed": 2380409,
+  "total_records": 49128,
+  "auto_pass": 43457,
+  "needs_review": 5671,
   "current_shard": 25,
-  "current_shard_records": 561,
+  "current_shard_records": 1128,
   "source_exhausted": false
 }

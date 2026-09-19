@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2350737,
-  "total_records": 48561,
-  "auto_pass": 42940,
-  "needs_review": 5621,
+  "total_pages_processed": 2380409,
+  "total_records": 49128,
+  "auto_pass": 43457,
+  "needs_review": 5671,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Falkland_Islands_Radio_Station",
+  "apcontinue": "Fenfluramine_hydrochloride",
   "source_exhausted": false,
   "shard_count": 25
 }

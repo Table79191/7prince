@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Etna_(wine)",
-  "total_pages_processed": 2287489,
-  "total_records": 45522,
-  "auto_pass": 40197,
-  "needs_review": 5325,
-  "current_shard": 23,
-  "current_shard_records": 1522,
+  "apcontinue": "Expansion_of_Macedonia_under_Philip_II",
+  "total_pages_processed": 2324462,
+  "total_records": 47566,
+  "auto_pass": 42059,
+  "needs_review": 5507,
+  "current_shard": 24,
+  "current_shard_records": 1566,
   "source_exhausted": false
 }

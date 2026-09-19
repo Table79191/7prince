@@ -1,46 +1,38 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2210,
-  "total_promoted": 98833,
+  "added_this_run": 2000,
+  "total_promoted": 100833,
   "sources": {
     "tatoeba": {
-      "source_records": 1296887,
-      "processed_before": 322477,
-      "scanned": 1674,
+      "source_records": 1313266,
+      "processed_before": 324151,
+      "scanned": 1790,
       "accepted": 1000,
       "rejected": {
-        "consensus": 211,
-        "structure": 6,
-        "length": 214,
-        "quality_length": 202,
-        "status": 41
+        "length": 240,
+        "quality_length": 159,
+        "consensus": 313,
+        "status": 65,
+        "duplicate": 3,
+        "structure": 10
       }
     },
     "enwiki_bulk": {
-      "source_records": 305256,
-      "processed_before": 52120,
-      "scanned": 1598,
+      "source_records": 309468,
+      "processed_before": 53718,
+      "scanned": 1641,
       "accepted": 1000,
       "rejected": {
-        "consensus": 596,
-        "length": 2
+        "consensus": 636,
+        "length": 5
       }
     },
     "mediawiki/enwiki": {
       "source_records": 51080,
-      "processed_before": 50568,
-      "scanned": 512,
-      "accepted": 210,
-      "rejected": {
-        "status": 52,
-        "consensus": 158,
-        "length": 64,
-        "structure": 19,
-        "quality_length": 5,
-        "punctuation": 1,
-        "markup": 1,
-        "duplicate": 2
-      }
+      "processed_before": 51080,
+      "scanned": 0,
+      "accepted": 0,
+      "rejected": {}
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -71,15 +63,15 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94420962
+        "bytes": 94423345
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94391749
+        "bytes": 94397228
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 71509199
+        "bytes": 80512978
       },
       {
         "name": "promoted-000006.jsonl",

@@ -1,46 +1,45 @@
 {
   "version": "PROMOTED-SILVER-1",
   "added_this_run": 3000,
-  "total_promoted": 54912,
+  "total_promoted": 57912,
   "sources": {
     "tatoeba": {
       "source_records": 1175389,
-      "processed_before": 272685,
-      "scanned": 1861,
+      "processed_before": 274546,
+      "scanned": 3029,
       "accepted": 1000,
       "rejected": {
-        "consensus": 323,
-        "status": 31,
-        "length": 308,
-        "structure": 17,
-        "quality_length": 179,
-        "duplicate": 3
+        "quality_length": 151,
+        "length": 1514,
+        "consensus": 298,
+        "structure": 9,
+        "status": 53,
+        "duplicate": 3,
+        "punctuation": 1
       }
     },
     "enwiki_bulk": {
       "source_records": 267693,
-      "processed_before": 18723,
-      "scanned": 1736,
+      "processed_before": 20459,
+      "scanned": 1636,
       "accepted": 1000,
       "rejected": {
-        "consensus": 735,
-        "duplicate": 1
+        "consensus": 631,
+        "length": 5
       }
     },
     "mediawiki/enwiki": {
       "source_records": 44816,
-      "processed_before": 39109,
-      "scanned": 2345,
+      "processed_before": 41454,
+      "scanned": 2157,
       "accepted": 1000,
       "rejected": {
-        "status": 319,
-        "consensus": 557,
-        "length": 156,
-        "structure": 254,
-        "nonprose": 37,
-        "punctuation": 1,
-        "quality_length": 16,
-        "duplicate": 5
+        "status": 341,
+        "consensus": 607,
+        "length": 103,
+        "structure": 98,
+        "markup": 4,
+        "quality_length": 4
       }
     },
     "mediawiki/enwikibooks": {
@@ -72,7 +71,7 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 58267153
+        "bytes": 73763773
       },
       {
         "name": "promoted-000004.jsonl",

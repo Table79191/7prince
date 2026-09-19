@@ -29,6 +29,7 @@ jobs:
             english-sentence-lab/arena
             english-sentence-lab/train/train_ud_role.py
             english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/scripts/promoted_shards.py
             english-sentence-lab/data/web_corpus_bot
             english-sentence-lab/data/promoted_silver/promoted.jsonl
             english-sentence-lab/artifacts/v1.8.5_r015_accumulated_final_role.pt
@@ -113,7 +114,7 @@ jobs:
             CLAUSE_START="/tmp/clause-final/clause_anchor_graph_v1_01_final.pt"
           fi
 
-          PROMOTED="data/promoted_silver/promoted.jsonl"
+          PROMOTED_DIR="data/promoted_silver"
           START_EPOCH="$(date +%s)"
           MAX_SECONDS=$((300 * 60))
 
@@ -127,15 +128,8 @@ jobs:
             echo "=== hot-feed arena loop ${LOOP}/24 ==="
             git fetch origin main
 
-            REMOTE_BLOB="$(git rev-parse "origin/main:english-sentence-lab/${PROMOTED}" 2>/dev/null || true)"
-            LOCAL_BLOB="$(git hash-object "${PROMOTED}" 2>/dev/null || true)"
-            if [ -n "$REMOTE_BLOB" ] && [ "$REMOTE_BLOB" != "$LOCAL_BLOB" ]; then
-              git show "origin/main:english-sentence-lab/${PROMOTED}" > "${PROMOTED}.new"
-              mv "${PROMOTED}.new" "$PROMOTED"
-              echo "Hot-loaded newer promoted_silver blob: $REMOTE_BLOB"
-            else
-              echo "No promoted_silver update since previous round."
-            fi
+            git checkout origin/main -- "$PROMOTED_DIR"
+            echo "Hot-loaded latest promoted_silver directory (legacy + shards)."
 
             python arena/run_model_arena.py \
               --role-start artifacts/v1.8.5_r015_accumulated_final_role.pt \
@@ -194,7 +188,7 @@ jobs:
         run: |
           # promoted.jsonl is only a hot-loaded working copy; the collector/promotion
           # workflows own that tracked file on main.
-          git restore english-sentence-lab/data/promoted_silver/promoted.jsonl || true
+          git restore english-sentence-lab/data/promoted_silver || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add english-sentence-lab/artifacts/arena_hotfeed

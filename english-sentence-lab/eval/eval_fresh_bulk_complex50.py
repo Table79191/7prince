@@ -14,8 +14,8 @@ import run_model_arena as arena
 import train_ud_role as rbase
 import model as cmodel
 
-TEST_VERSION="FRESH-BULK-COMPLEX50-20260919-V1"
-CLAUSE_DEPS={"acl","acl:relcl","advcl","ccomp","xcomp","parataxis","conj"}
+TEST_VERSION="FRESH-BULK-COMPLEX50-20260919-V2"
+CLAUSE_DEPS={"acl","acl:relcl","advcl","ccomp","xcomp","parataxis"}
 REL_WORDS={"who","whom","whose","which","that","where","when"}
 SUB_WORDS={"although","though","because","while","whilst","when","if","unless","before","after","until","since","whereas","once","whether"}
 WH_WORDS={"what","which","who","whom","whose","where","when","why","how"}
@@ -74,23 +74,28 @@ def complexity(row):
     deps=[str(t.get("deprel","")) for t in toks]
     words=[str(t.get("text","")).lower() for t in toks]
     pos=[str(t.get("pos","")) for t in toks]
-    clauses=sum(d in CLAUSE_DEPS or d.startswith("acl:") for d in deps)
+    base_clauses=sum(d in CLAUSE_DEPS or d.startswith("acl:") for d in deps)
+    verbal_conj=sum(d=="conj" and p in {"VERB","AUX"} for d,p in zip(deps,pos))
+    nominal_conj=sum(d=="conj" and p in {"NOUN","PROPN","ADJ","NUM"} for d,p in zip(deps,pos))
+    clauses=base_clauses+verbal_conj
     rel=sum(d=="acl:relcl" for d in deps)+sum(w in REL_WORDS for w in words)
     comps=sum(d in {"ccomp","xcomp"} for d in deps)
     advcl=sum(d=="advcl" for d in deps)
     verbs=sum(p in {"VERB","AUX"} for p in pos)
-    conjs=sum(d=="conj" for d in deps)
+    conjs=verbal_conj
     subs=sum(w in SUB_WORDS for w in words)
     wh=sum(w in WH_WORDS for w in words)
     punct=sum(w in {",",";",":","—","-"} for w in words)
     depth=max_dep_depth(toks)
     # Structural-only ranking. No model prediction is consulted.
-    score=(0.075*min(n,100)+2.7*clauses+1.4*rel+1.35*comps+1.1*advcl+
-           0.55*max(0,verbs-2)+0.75*conjs+0.55*subs+0.35*wh+
-           0.25*punct+0.50*max(0,depth-5))
+    score=(0.060*min(n,100)+3.0*clauses+1.5*rel+1.45*comps+1.25*advcl+
+           0.65*max(0,verbs-2)+0.85*conjs+0.65*subs+0.40*wh+
+           0.15*min(punct,6)+0.60*max(0,depth-5)-0.90*nominal_conj-
+           0.35*max(0,punct-8))
     return {
       "score":score,"tokens":n,"clauses":clauses,"relative":rel,"complements":comps,
-      "advcl":advcl,"verbs":verbs,"conj":conjs,"subordinators":subs,
+      "advcl":advcl,"verbs":verbs,"verbal_conj":verbal_conj,
+      "nominal_conj":nominal_conj,"subordinators":subs,
       "wh":wh,"punct":punct,"dep_depth":depth,
     }
 
@@ -125,7 +130,9 @@ def candidate_rows(max_scan):
                 continue
             comp=complexity(row)
             # Require genuinely multi-clausal structure.
-            if comp["clauses"]<2 or comp["verbs"]<3 or comp["dep_depth"]<5:
+            if comp["clauses"]<3 or comp["verbs"]<4 or comp["dep_depth"]<6:
+                continue
+            if comp["nominal_conj"]>=5 and comp["clauses"]<5:
                 continue
             roles=arena.canonical_roles(row)
             if roles is None or not all(r in {None,"S","V","O","C","M"} for r in roles):

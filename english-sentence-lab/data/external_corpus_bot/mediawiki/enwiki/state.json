@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Chak_Tok_Ichʼaak_II",
-  "total_pages_processed": 1489633,
-  "total_records": 28623,
-  "auto_pass": 25291,
-  "needs_review": 3332,
+  "apcontinue": "Chatturat_(Martian_crater)",
+  "total_pages_processed": 1531275,
+  "total_records": 29732,
+  "auto_pass": 26233,
+  "needs_review": 3499,
   "current_shard": 15,
-  "current_shard_records": 623,
+  "current_shard_records": 1732,
   "source_exhausted": false
 }

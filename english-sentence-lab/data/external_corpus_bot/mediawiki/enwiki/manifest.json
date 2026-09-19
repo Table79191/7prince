@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1489633,
-  "total_records": 28623,
-  "auto_pass": 25291,
-  "needs_review": 3332,
+  "total_pages_processed": 1531275,
+  "total_records": 29732,
+  "auto_pass": 26233,
+  "needs_review": 3499,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Chak_Tok_Ichʼaak_II",
+  "apcontinue": "Chatturat_(Martian_crater)",
   "source_exhausted": false,
   "shard_count": 15
 }

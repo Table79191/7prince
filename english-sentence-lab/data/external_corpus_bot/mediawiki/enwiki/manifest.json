@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1764817,
-  "total_records": 34429,
-  "auto_pass": 30395,
-  "needs_review": 4034,
+  "total_pages_processed": 1800162,
+  "total_records": 35007,
+  "auto_pass": 30894,
+  "needs_review": 4113,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Cristobal_Mosquera_de_Figueroa",
+  "apcontinue": "Cyprus-Greece_relations",
   "source_exhausted": false,
   "shard_count": 18
 }

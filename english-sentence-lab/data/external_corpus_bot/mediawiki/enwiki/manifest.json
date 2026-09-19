@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1384535,
-  "total_records": 26060,
-  "auto_pass": 23101,
-  "needs_review": 2959,
+  "total_pages_processed": 1414691,
+  "total_records": 27190,
+  "auto_pass": 24069,
+  "needs_review": 3121,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Campbell’s_Kingdom_(novel)",
+  "apcontinue": "Carey_Law_School_at_the_University_of_Pennsylvania",
   "source_exhausted": false,
   "shard_count": 14
 }

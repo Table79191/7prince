@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Campbell’s_Kingdom_(novel)",
-  "total_pages_processed": 1384535,
-  "total_records": 26060,
-  "auto_pass": 23101,
-  "needs_review": 2959,
+  "apcontinue": "Carey_Law_School_at_the_University_of_Pennsylvania",
+  "total_pages_processed": 1414691,
+  "total_records": 27190,
+  "auto_pass": 24069,
+  "needs_review": 3121,
   "current_shard": 14,
-  "current_shard_records": 60,
+  "current_shard_records": 1190,
   "source_exhausted": false
 }

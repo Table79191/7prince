@@ -77,8 +77,11 @@ def basic_ok(row,benchmark_ids,blocked,seen,seen_fuzzy):
     if ana.get("status")!="auto_pass": return False,"status"
     if src.get("license") not in ALLOWED: return False,"license"
     if not (6<=len(toks)<=80): return False,"length"
+    qok,qreason=quality_ok(row)
+    if not qok:return False,qreason
     k=safe.norm_text(row.get("text",""))
-    if not k or k in blocked or k in seen: return False,"duplicate"
+    fk=fuzzy_key(row.get("text",""))
+    if not k or k in blocked or k in seen or (fk and fk in seen_fuzzy): return False,"duplicate"
     sid=int(src.get("sentence_id",0) or 0)
     if src.get("key")=="tatoeba" and sid in benchmark_ids: return False,"benchmark"
     roles=safe.current_school_roles(toks)
@@ -95,6 +98,8 @@ def main():
     a=ap.parse_args()
     if a.self_test:
         assert safe.norm_text(" A   B ")=="a b"
+        assert fuzzy_key("Hello, WORLD!")=="hello world"
+        assert quality_ok({"text":"Students carefully examined the new experiment before class ended.", "analysis":{"tokens":[{"id":1,"head":2},{"id":2,"head":0},{"id":3,"head":2},{"id":4,"head":3},{"id":5,"head":2},{"id":6,"head":5}]}})[0]
         print("promotion self-test: ok"); return
 
     import spacy
@@ -103,7 +108,9 @@ def main():
     state=load_json(STATE,{"version":GATE_VERSION,"sources":{},"total_promoted":0})
     existing=list(iter_jsonl(DATA)) if DATA.exists() else []
     seen={safe.norm_text(x.get("text","")) for x in existing}
+    seen_fuzzy={fuzzy_key(x.get("text","")) for x in existing if fuzzy_key(x.get("text",""))}
     blocked=blocked_texts()
+    seen_fuzzy.update(fuzzy_key(x) for x in blocked if fuzzy_key(x))
     bench=safe.benchmark_ids(ROOT/"data/tatoeba500/TatoebaDaily500_CC0.tsv")
     added=[]; stats={}
 

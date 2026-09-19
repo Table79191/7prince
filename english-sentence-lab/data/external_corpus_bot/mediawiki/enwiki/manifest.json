@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1006214,
-  "total_records": 18866,
-  "auto_pass": 16695,
-  "needs_review": 2171,
-  "added_this_run": 53,
-  "skipped_this_run": 1,
-  "apcontinue": "Bank_of_london",
+  "total_pages_processed": 1038580,
+  "total_records": 19590,
+  "auto_pass": 17321,
+  "needs_review": 2269,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Batman_samini",
   "source_exhausted": false,
   "shard_count": 10
 }

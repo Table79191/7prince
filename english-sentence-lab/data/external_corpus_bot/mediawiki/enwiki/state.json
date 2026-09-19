@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Clemente_Ragragio",
-  "total_pages_processed": 1640333,
-  "total_records": 31159,
-  "auto_pass": 27500,
-  "needs_review": 3659,
+  "apcontinue": "Colleen_Taylor",
+  "total_pages_processed": 1673487,
+  "total_records": 31654,
+  "auto_pass": 27944,
+  "needs_review": 3710,
   "current_shard": 16,
-  "current_shard_records": 1159,
+  "current_shard_records": 1654,
   "source_exhausted": false
 }

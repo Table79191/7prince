@@ -1,10 +1,10 @@
 {
-  "apcontinue": "CUSPR",
-  "total_pages_processed": 1353724,
-  "total_records": 25527,
-  "auto_pass": 22647,
-  "needs_review": 2880,
-  "current_shard": 13,
-  "current_shard_records": 1527,
+  "apcontinue": "Campbell’s_Kingdom_(novel)",
+  "total_pages_processed": 1384535,
+  "total_records": 26060,
+  "auto_pass": 23101,
+  "needs_review": 2959,
+  "current_shard": 14,
+  "current_shard_records": 60,
   "source_exhausted": false
 }

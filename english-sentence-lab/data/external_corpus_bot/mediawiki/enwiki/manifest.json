@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1353724,
-  "total_records": 25527,
-  "auto_pass": 22647,
-  "needs_review": 2880,
+  "total_pages_processed": 1384535,
+  "total_records": 26060,
+  "auto_pass": 23101,
+  "needs_review": 2959,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "CUSPR",
+  "apcontinue": "Campbell’s_Kingdom_(novel)",
   "source_exhausted": false,
-  "shard_count": 13
+  "shard_count": 14
 }

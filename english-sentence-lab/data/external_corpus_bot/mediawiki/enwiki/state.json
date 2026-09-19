@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Destination_board",
-  "total_pages_processed": 1952211,
-  "total_records": 39583,
-  "auto_pass": 35113,
-  "needs_review": 4470,
+  "apcontinue": "Diocese_of_Santa_Marta",
+  "total_pages_processed": 1992290,
+  "total_records": 39675,
+  "auto_pass": 35198,
+  "needs_review": 4477,
   "current_shard": 20,
-  "current_shard_records": 1583,
+  "current_shard_records": 1675,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1952211,
-  "total_records": 39583,
-  "auto_pass": 35113,
-  "needs_review": 4470,
+  "total_pages_processed": 1992290,
+  "total_records": 39675,
+  "auto_pass": 35198,
+  "needs_review": 4477,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Destination_board",
+  "apcontinue": "Diocese_of_Santa_Marta",
   "source_exhausted": false,
   "shard_count": 20
 }

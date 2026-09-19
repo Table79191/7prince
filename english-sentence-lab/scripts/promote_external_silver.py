@@ -25,7 +25,8 @@ def iter_jsonl(path):
             if line.strip(): yield json.loads(line)
 
 def source_specs():
-    specs=[("tatoeba",ROOT/"data/external_corpus_bot/tatoeba/shards","tatoeba-*.jsonl"),\n           ("enwiki_bulk",ROOT/"data/external_corpus_bot/enwiki_bulk/shards","enwiki-bulk-*.jsonl")]
+    specs=[("tatoeba",ROOT/"data/external_corpus_bot/tatoeba/shards","tatoeba-*.jsonl"),
+           ("enwiki_bulk",ROOT/"data/external_corpus_bot/enwiki_bulk/shards","enwiki-bulk-*.jsonl")]
     mw=ROOT/"data/external_corpus_bot/mediawiki"
     if mw.exists():
         for d in sorted(x for x in mw.iterdir() if x.is_dir()):

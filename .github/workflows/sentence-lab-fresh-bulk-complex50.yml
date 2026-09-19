@@ -54,7 +54,7 @@ jobs:
       - name: Select unseen complex sentences and evaluate both models
         run: |
           cd english-sentence-lab
-          python eval/eval_fresh_bulk_complex50.py             --role-model artifacts/arena_hotfeed/role_arena_latest.pt             --clause-model artifacts/arena_hotfeed/clause_arena_latest.pt             --count 50             --max-scan 30000             --dataset-out data/eval/fresh_bulk_complex50_20260919.json             --result-out artifacts/fresh_bulk_complex50_20260919_results.json
+          python eval/eval_fresh_bulk_complex50.py             --role-model artifacts/arena_hotfeed/role_arena_latest.pt             --clause-model artifacts/arena_hotfeed/clause_arena_latest.pt             --count 50             --max-scan 30000             --dataset-out data/eval/fresh_bulk_complex50_20260919_v2.json             --result-out artifacts/fresh_bulk_complex50_20260919_v2_results.json
 
       - name: Sanity gate
         run: |
@@ -62,8 +62,8 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          d=json.loads(Path('data/eval/fresh_bulk_complex50_20260919.json').read_text())
-          r=json.loads(Path('artifacts/fresh_bulk_complex50_20260919_results.json').read_text())
+          d=json.loads(Path('data/eval/fresh_bulk_complex50_20260919_v2.json').read_text())
+          r=json.loads(Path('artifacts/fresh_bulk_complex50_20260919_v2_results.json').read_text())
           assert d['training_allowed'] is False
           assert d['selection_uses_model_predictions'] is False
           assert len(d['cases']) == 50
@@ -85,16 +85,16 @@ jobs:
           set -euo pipefail
           git config user.name sentence-lab-eval-bot
           git config user.email sentence-lab-eval-bot@users.noreply.github.com
-          git add english-sentence-lab/data/eval/fresh_bulk_complex50_20260919.json
-          git add english-sentence-lab/artifacts/fresh_bulk_complex50_20260919_results.json
+          git add --sparse english-sentence-lab/data/eval/fresh_bulk_complex50_20260919_v2.json
+          git add --sparse english-sentence-lab/artifacts/fresh_bulk_complex50_20260919_v2_results.json
           git commit -m "eval: freeze fresh unseen bulk complex50 results"
           git pull --rebase origin main
           git push origin HEAD:main
 
       - uses: actions/upload-artifact@v4
         with:
-          name: fresh-bulk-complex50-20260919
+          name: fresh-bulk-complex50-20260919-v2
           path: |
-            english-sentence-lab/data/eval/fresh_bulk_complex50_20260919.json
-            english-sentence-lab/artifacts/fresh_bulk_complex50_20260919_results.json
+            english-sentence-lab/data/eval/fresh_bulk_complex50_20260919_v2.json
+            english-sentence-lab/artifacts/fresh_bulk_complex50_20260919_v2_results.json
           retention-days: 30

@@ -52,14 +52,20 @@ def append_promoted_rows(rows):
     if not rows:return []
     ensure_reserve_shards()
     written=[]
-    # Sequence is legacy promoted.jsonl first, then promoted-000002.jsonl onward.
-    candidates=[DATA]+[shard_path(i) for i in range(2,2+RESERVE_SHARDS)]
-    next_index=2+RESERVE_SHARDS
+    # Sequence is legacy promoted.jsonl first, then every numbered shard that
+    # already exists. This keeps working after the ten reserve files are used.
+    numbered=sorted(OUT.glob(f"{SHARD_PREFIX}*.jsonl"))
+    candidates=[DATA]+numbered
+    indices=[]
+    for p in numbered:
+        try: indices.append(int(p.stem.rsplit("-",1)[1]))
+        except Exception: pass
+    next_index=max(indices+[1])+1
     ci=0
     while ci<len(candidates) and candidates[ci].exists() and candidates[ci].stat().st_size>=SHARD_LIMIT_BYTES:
         ci+=1
     if ci>=len(candidates):
-        p=shard_path(next_index); p.touch(); candidates.append(p)
+        p=shard_path(next_index); next_index+=1; p.touch(); candidates.append(p)
     current=candidates[ci]
     for row in rows:
         line=json.dumps(row,ensure_ascii=False,separators=(",",":"))+"\n"

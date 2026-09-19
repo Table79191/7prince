@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Fuccboi_(novel)",
-  "total_pages_processed": 2521193,
-  "total_records": 51534,
-  "auto_pass": 45532,
-  "needs_review": 6002,
+  "apcontinue": "Game_4_Grenfell",
+  "total_pages_processed": 2554967,
+  "total_records": 51939,
+  "auto_pass": 45886,
+  "needs_review": 6053,
   "current_shard": 26,
-  "current_shard_records": 1534,
+  "current_shard_records": 1939,
   "source_exhausted": false
 }

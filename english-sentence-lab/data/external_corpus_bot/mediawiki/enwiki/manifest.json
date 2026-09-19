@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2521193,
-  "total_records": 51534,
-  "auto_pass": 45532,
-  "needs_review": 6002,
+  "total_pages_processed": 2554967,
+  "total_records": 51939,
+  "auto_pass": 45886,
+  "needs_review": 6053,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Fuccboi_(novel)",
+  "apcontinue": "Game_4_Grenfell",
   "source_exhausted": false,
   "shard_count": 26
 }

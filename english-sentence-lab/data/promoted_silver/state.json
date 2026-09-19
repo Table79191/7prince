@@ -2,12 +2,12 @@
   "version": "PROMOTED-SILVER-1",
   "sources": {
     "tatoeba": {
-      "processed_records": 257560,
-      "source_records_seen": 1119512
+      "processed_records": 259248,
+      "source_records_seen": 1133355
     },
     "mediawiki/enwiki": {
-      "processed_records": 18548,
-      "source_records_seen": 41069
+      "processed_records": 20760,
+      "source_records_seen": 41947
     },
     "mediawiki/enwikibooks": {
       "processed_records": 3,
@@ -18,10 +18,10 @@
       "source_records_seen": 148
     },
     "enwiki_bulk": {
-      "processed_records": 5103,
-      "source_records_seen": 242603
+      "processed_records": 6780,
+      "source_records_seen": 245937
     }
   },
-  "total_promoted": 27912,
-  "updated_at_utc": "2026-09-19T15:36:50+00:00"
+  "total_promoted": 30912,
+  "updated_at_utc": "2026-09-19T16:02:18+00:00"
 }

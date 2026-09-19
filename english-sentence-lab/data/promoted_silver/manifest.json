@@ -1,47 +1,46 @@
 {
   "version": "PROMOTED-SILVER-1",
   "added_this_run": 3000,
-  "total_promoted": 27912,
+  "total_promoted": 30912,
   "sources": {
     "tatoeba": {
-      "source_records": 1119512,
-      "processed_before": 255881,
-      "scanned": 1679,
+      "source_records": 1133355,
+      "processed_before": 257560,
+      "scanned": 1688,
       "accepted": 1000,
       "rejected": {
-        "consensus": 233,
-        "quality_length": 177,
-        "length": 222,
-        "punctuation": 1,
-        "structure": 4,
-        "status": 41,
-        "duplicate": 1
+        "consensus": 271,
+        "length": 66,
+        "quality_length": 337,
+        "structure": 3,
+        "status": 11
       }
     },
     "enwiki_bulk": {
-      "source_records": 242603,
-      "processed_before": 3344,
-      "scanned": 1759,
+      "source_records": 245937,
+      "processed_before": 5103,
+      "scanned": 1677,
       "accepted": 1000,
       "rejected": {
-        "consensus": 758,
-        "duplicate": 1
+        "consensus": 674,
+        "duplicate": 1,
+        "length": 2
       }
     },
     "mediawiki/enwiki": {
-      "source_records": 41069,
-      "processed_before": 15592,
-      "scanned": 2956,
+      "source_records": 41947,
+      "processed_before": 18548,
+      "scanned": 2212,
       "accepted": 1000,
       "rejected": {
-        "status": 341,
-        "length": 313,
-        "consensus": 734,
-        "structure": 476,
-        "quality_length": 23,
-        "nonprose": 53,
-        "markup": 8,
-        "duplicate": 5,
+        "consensus": 579,
+        "status": 288,
+        "structure": 123,
+        "quality_length": 8,
+        "length": 197,
+        "nonprose": 11,
+        "duplicate": 1,
+        "markup": 2,
         "punctuation": 3
       }
     },
@@ -70,7 +69,7 @@
       },
       {
         "name": "promoted-000002.jsonl",
-        "bytes": 14810833
+        "bytes": 30064762
       },
       {
         "name": "promoted-000003.jsonl",

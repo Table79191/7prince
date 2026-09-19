@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Best_Arrangement,_Instruments_and_Vocals_Grammy",
-  "total_pages_processed": 1114910,
-  "total_records": 20191,
-  "auto_pass": 17833,
-  "needs_review": 2358,
+  "apcontinue": "Biochemical_Cascade",
+  "total_pages_processed": 1155527,
+  "total_records": 20499,
+  "auto_pass": 18120,
+  "needs_review": 2379,
   "current_shard": 11,
-  "current_shard_records": 191,
+  "current_shard_records": 499,
   "source_exhausted": false
 }

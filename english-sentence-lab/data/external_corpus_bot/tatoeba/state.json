@@ -1,9 +1,9 @@
 {
-  "last_processed_sentence_id": 6221205,
-  "total_records": 708809,
-  "auto_pass": 691102,
-  "needs_review": 17707,
-  "current_shard": 355,
-  "current_shard_records": 809,
+  "last_processed_sentence_id": 6235192,
+  "total_records": 722212,
+  "auto_pass": 703869,
+  "needs_review": 18343,
+  "current_shard": 362,
+  "current_shard_records": 212,
   "source_exhausted_at_last_run": false
 }

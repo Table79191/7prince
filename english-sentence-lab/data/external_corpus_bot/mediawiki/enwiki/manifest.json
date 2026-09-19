@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1454928,
-  "total_records": 27226,
-  "auto_pass": 24101,
-  "needs_review": 3125,
+  "total_pages_processed": 1489633,
+  "total_records": 28623,
+  "auto_pass": 25291,
+  "needs_review": 3332,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Catherine_West",
+  "apcontinue": "Chak_Tok_Ichʼaak_II",
   "source_exhausted": false,
-  "shard_count": 14
+  "shard_count": 15
 }

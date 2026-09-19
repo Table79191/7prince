@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Catherine_West",
-  "total_pages_processed": 1454928,
-  "total_records": 27226,
-  "auto_pass": 24101,
-  "needs_review": 3125,
-  "current_shard": 14,
-  "current_shard_records": 1226,
+  "apcontinue": "Chak_Tok_Ichʼaak_II",
+  "total_pages_processed": 1489633,
+  "total_records": 28623,
+  "auto_pass": 25291,
+  "needs_review": 3332,
+  "current_shard": 15,
+  "current_shard_records": 623,
   "source_exhausted": false
 }

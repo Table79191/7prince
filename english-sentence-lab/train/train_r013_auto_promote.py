@@ -12,6 +12,7 @@ import train_r012_safe_feed as safe
 import train_r012_regression_patch as reg
 from train_gold_finetune import clone_state
 from train_gold_replay import freeze_lower
+from promoted_shards import iter_promoted
 
 VERSION="1.8.3-AUTO-PROMOTED-SILVER"
 AUTO=ROOT/"artifacts/v1.8.3_auto_promoted_silver_role.pt"
@@ -27,7 +28,7 @@ def exact_rate(m): return m["sentence_exact"]/max(m["sentences"],1)
 
 def load_promoted(path,blocked,max_rows):
     rows=[]
-    for r in iter_jsonl(path) or []:
+    for r in iter_promoted(path):
         p=r.get("promotion",{})
         if p.get("status")!="auto_promoted_silver" or p.get("gate_version")!="PROMOTED-SILVER-1": continue
         k=safe.norm_text(r.get("text",""))

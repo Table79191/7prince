@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Diocese_of_Santa_Marta",
-  "total_pages_processed": 1992290,
-  "total_records": 39675,
-  "auto_pass": 35198,
-  "needs_review": 4477,
-  "current_shard": 20,
-  "current_shard_records": 1675,
+  "apcontinue": "Don't_Tap_the_Glass_(album)",
+  "total_pages_processed": 2029284,
+  "total_records": 40201,
+  "auto_pass": 35665,
+  "needs_review": 4536,
+  "current_shard": 21,
+  "current_shard_records": 201,
   "source_exhausted": false
 }

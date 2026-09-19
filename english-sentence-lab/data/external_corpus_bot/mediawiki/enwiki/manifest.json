@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1915844,
-  "total_records": 38751,
-  "auto_pass": 34418,
-  "needs_review": 4333,
+  "total_pages_processed": 1952211,
+  "total_records": 39583,
+  "auto_pass": 35113,
+  "needs_review": 4470,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Deep_entrism",
+  "apcontinue": "Destination_board",
   "source_exhausted": false,
   "shard_count": 20
 }

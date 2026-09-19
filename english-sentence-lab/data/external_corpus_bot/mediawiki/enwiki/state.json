@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Deep_entrism",
-  "total_pages_processed": 1915844,
-  "total_records": 38751,
-  "auto_pass": 34418,
-  "needs_review": 4333,
+  "apcontinue": "Destination_board",
+  "total_pages_processed": 1952211,
+  "total_records": 39583,
+  "auto_pass": 35113,
+  "needs_review": 4470,
   "current_shard": 20,
-  "current_shard_records": 751,
+  "current_shard_records": 1583,
   "source_exhausted": false
 }

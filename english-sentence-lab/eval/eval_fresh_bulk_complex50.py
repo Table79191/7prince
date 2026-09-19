@@ -99,6 +99,45 @@ def complexity(row):
       "wh":wh,"punct":punct,"dep_depth":depth,
     }
 
+def natural_complex_prose(row,comp):
+    text=str(row.get("text","")).strip()
+    toks=row.get("analysis",{}).get("tokens",[])
+    words=[str(t.get("text","")) for t in toks]
+    pos=[str(t.get("pos","")) for t in toks]
+    deps=[str(t.get("deprel","")) for t in toks]
+    if not text:
+        return False
+    # reject catalogues, credits, headings, metadata-like prose
+    comma_count=text.count(",")
+    colon_count=text.count(":")
+    dash_count=text.count(" – ")+text.count(" — ")
+    semis=text.count(";")
+    if comma_count>10 or colon_count>3 or dash_count>5:
+        return False
+    if comma_count/max(len(toks),1) > 0.16:
+        return False
+    if text.count(" – ")>=3:
+        return False
+    if re.search(r"\b(songwriting|production|engineering|mastering|programming|vocals)\b",text,re.I) and comma_count>=5:
+        return False
+    if re.search(r"offers the following|the following .*:",text,re.I) and comma_count>=5:
+        return False
+    # Require real clausal complexity, not coordination of list items.
+    if comp["clauses"]<3:
+        return False
+    if comp["verbs"]<4:
+        return False
+    if comp["complements"]+comp["advcl"]+comp["relative"] < 2:
+        return False
+    if sum(d in {"nsubj","csubj","nsubj:pass"} for d in deps) < 2:
+        return False
+    if sum(p in {"NOUN","PROPN","PRON"} for p in pos) < 4:
+        return False
+    # A complex sentence should have a finite-looking sentence ending.
+    if text[-1] not in ".!?\"'”’":
+        return False
+    return True
+
 def candidate_rows(max_scan):
     state=json.loads((ROOT/"data/promoted_silver/state.json").read_text(encoding="utf-8"))
     processed=int(state.get("sources",{}).get("enwiki_bulk",{}).get("processed_records",0))

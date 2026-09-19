@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Conferva",
-  "total_pages_processed": 1701731,
-  "total_records": 32084,
-  "auto_pass": 28325,
-  "needs_review": 3759,
+  "apcontinue": "Corvette_Standard",
+  "total_pages_processed": 1735923,
+  "total_records": 32620,
+  "auto_pass": 28773,
+  "needs_review": 3847,
   "current_shard": 17,
-  "current_shard_records": 84,
+  "current_shard_records": 620,
   "source_exhausted": false
 }

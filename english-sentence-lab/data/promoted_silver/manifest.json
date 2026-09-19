@@ -1,43 +1,38 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2191,
-  "total_promoted": 111209,
+  "added_this_run": 2000,
+  "total_promoted": 113209,
   "sources": {
     "tatoeba": {
-      "source_records": 1326645,
-      "processed_before": 331611,
-      "scanned": 1218,
+      "source_records": 1350146,
+      "processed_before": 332829,
+      "scanned": 1227,
       "accepted": 1000,
       "rejected": {
-        "consensus": 202,
-        "status": 12,
-        "structure": 2,
-        "length": 2
+        "consensus": 208,
+        "status": 9,
+        "length": 8,
+        "duplicate": 1,
+        "quality_length": 1
       }
     },
     "enwiki_bulk": {
       "source_records": 321069,
-      "processed_before": 62190,
-      "scanned": 1676,
+      "processed_before": 63866,
+      "scanned": 1679,
       "accepted": 1000,
       "rejected": {
-        "consensus": 675,
-        "length": 1
+        "consensus": 677,
+        "length": 1,
+        "duplicate": 1
       }
     },
     "mediawiki/enwiki": {
       "source_records": 51939,
-      "processed_before": 51534,
-      "scanned": 405,
-      "accepted": 191,
-      "rejected": {
-        "consensus": 103,
-        "length": 21,
-        "structure": 37,
-        "status": 51,
-        "nonprose": 1,
-        "duplicate": 1
-      }
+      "processed_before": 51939,
+      "scanned": 0,
+      "accepted": 0,
+      "rejected": {}
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -68,19 +63,19 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94438415
+        "bytes": 94441310
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94413075
+        "bytes": 94415940
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 94378000
+        "bytes": 94381070
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 33301859
+        "bytes": 41866941
       },
       {
         "name": "promoted-000007.jsonl",

@@ -215,6 +215,7 @@ def main():
     ap.add_argument("--max-scan",type=int,default=30000)
     ap.add_argument("--dataset-out",default="data/eval/fresh_bulk_complex50_20260919.json")
     ap.add_argument("--result-out",default="artifacts/fresh_bulk_complex50_20260919_results.json")
+    ap.add_argument("--test-version",default=TEST_VERSION)
     a=ap.parse_args()
     torch.set_num_threads(4)
     device=torch.device("cpu")
@@ -227,7 +228,7 @@ def main():
 
     recs=[{"row":row,"kind":"eval","weight":1.0} for _,_,row in chosen]
     dataset={
-      "version":TEST_VERSION,
+      "version":a.test_version,
       "training_allowed":False,
       "selection_uses_model_predictions":False,
       "source":"enwiki_bulk rows strictly after current promoted processed_records",
@@ -270,7 +271,7 @@ def main():
         })
 
     result={
-      "version":TEST_VERSION,
+      "version":a.test_version,
       "training_allowed":False,
       "models":{
         "role_checkpoint":a.role_model,
@@ -292,7 +293,7 @@ def main():
     d.write_text(json.dumps(dataset,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     r.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({
-      "version":TEST_VERSION,
+      "version":a.test_version,
       "selection":result["selection"],
       "role":rm,
       "clause":cm,

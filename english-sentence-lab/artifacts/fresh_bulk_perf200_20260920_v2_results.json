@@ -8,7 +8,7 @@
     "clause_version": "CLAUSE-ARENA-R480"
   },
   "selection": {
-    "promoted_processed_records_at_selection": 5103,
+    "promoted_processed_records_at_selection": 8500,
     "candidate_rows_scanned": 15000,
     "qualifying_candidates": 1332,
     "selected": 200,

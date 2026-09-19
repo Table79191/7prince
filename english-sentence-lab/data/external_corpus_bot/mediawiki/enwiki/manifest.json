@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2324462,
-  "total_records": 47566,
-  "auto_pass": 42059,
-  "needs_review": 5507,
+  "total_pages_processed": 2350737,
+  "total_records": 48561,
+  "auto_pass": 42940,
+  "needs_review": 5621,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Expansion_of_Macedonia_under_Philip_II",
+  "apcontinue": "Falkland_Islands_Radio_Station",
   "source_exhausted": false,
-  "shard_count": 24
+  "shard_count": 25
 }

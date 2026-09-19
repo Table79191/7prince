@@ -13,8 +13,8 @@
     "feed_state": "artifacts/arena_hotfeed/feed_state.json"
   },
   "rounds_this_run": 1,
-  "total_rounds": 384,
-  "elapsed_seconds": 34.30223673799992,
+  "total_rounds": 408,
+  "elapsed_seconds": 47.51648152400003,
   "current": {
     "role_dev": {
       "sentences": 6317,
@@ -26,11 +26,11 @@
     "clause_dev": {
       "sentences": 6317,
       "tokens": 55353,
-      "role_accuracy": 0.9593879283868987,
-      "sentence_exact": 4694,
-      "sentence_exact_rate": 0.7430742441032135,
-      "owner_accuracy": 0.8576048271999711,
-      "clause_head_f1": 0.8727544112159498
+      "role_accuracy": 0.9602731559265081,
+      "sentence_exact": 4711,
+      "sentence_exact_rate": 0.7457653949659648,
+      "owner_accuracy": 0.8573157733094864,
+      "clause_head_f1": 0.8732379325074755
     },
     "hard": {
       "role": {
@@ -55,16 +55,16 @@
       },
       "clause": {
         "hard14": {
-          "correct": 79,
+          "correct": 78,
           "total": 87,
-          "accuracy": 0.9080459770114943,
+          "accuracy": 0.896551724137931,
           "exact_sentences": 6
         },
         "final16": {
-          "correct": 89,
+          "correct": 90,
           "total": 103,
-          "accuracy": 0.8640776699029126,
-          "exact_sentences": 5
+          "accuracy": 0.8737864077669902,
+          "exact_sentences": 6
         },
         "original64": {
           "correct": 25,
@@ -118,14 +118,14 @@
     }
   },
   "this_run_battle_totals": {
-    "ties": 4413,
-    "role_exact": 4558,
-    "clause_exact": 4123,
-    "role_weighted_error_x10": 40150,
-    "clause_weighted_error_x10": 50040,
-    "clause_wins": 506,
-    "role_wins": 1081,
-    "both_wrong": 1099
+    "role_wins": 1069,
+    "role_exact": 4626,
+    "role_weighted_error_x10": 40230,
+    "clause_weighted_error_x10": 52720,
+    "ties": 4424,
+    "clause_exact": 4180,
+    "clause_wins": 507,
+    "both_wrong": 1045
   },
   "accepted_role_updates": 0,
   "accepted_clause_updates": 0,

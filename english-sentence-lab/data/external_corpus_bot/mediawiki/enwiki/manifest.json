@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1566421,
-  "total_records": 30269,
-  "auto_pass": 26703,
-  "needs_review": 3566,
+  "total_pages_processed": 1605288,
+  "total_records": 30654,
+  "auto_pass": 27047,
+  "needs_review": 3607,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Chitrita_Banerji",
+  "apcontinue": "Church_of_St_Michael,_Averham",
   "source_exhausted": false,
   "shard_count": 16
 }

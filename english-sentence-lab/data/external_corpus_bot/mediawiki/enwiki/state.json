@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Chitrita_Banerji",
-  "total_pages_processed": 1566421,
-  "total_records": 30269,
-  "auto_pass": 26703,
-  "needs_review": 3566,
+  "apcontinue": "Church_of_St_Michael,_Averham",
+  "total_pages_processed": 1605288,
+  "total_records": 30654,
+  "auto_pass": 27047,
+  "needs_review": 3607,
   "current_shard": 16,
-  "current_shard_records": 269,
+  "current_shard_records": 654,
   "source_exhausted": false
 }

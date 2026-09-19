@@ -29,6 +29,7 @@ jobs:
             english-sentence-lab/arena/run_model_arena.py
             english-sentence-lab/train
             english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/scripts/promoted_shards.py
             english-sentence-lab/experiments/clause_anchor_graph_v1_01
             english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000036.jsonl
             english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000037.jsonl

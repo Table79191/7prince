@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Brenda_Del_Vecchio",
-  "total_pages_processed": 1257522,
-  "total_records": 23737,
-  "auto_pass": 21006,
-  "needs_review": 2731,
-  "current_shard": 12,
-  "current_shard_records": 1737,
+  "apcontinue": "Bryanskii_District",
+  "total_pages_processed": 1295357,
+  "total_records": 24661,
+  "auto_pass": 21880,
+  "needs_review": 2781,
+  "current_shard": 13,
+  "current_shard_records": 661,
   "source_exhausted": false
 }

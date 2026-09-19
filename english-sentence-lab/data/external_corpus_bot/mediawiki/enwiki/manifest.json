@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1155527,
-  "total_records": 20499,
-  "auto_pass": 18120,
-  "needs_review": 2379,
-  "added_this_run": 7,
-  "skipped_this_run": 1,
-  "apcontinue": "Biochemical_Cascade",
+  "total_pages_processed": 1184237,
+  "total_records": 21786,
+  "auto_pass": 19277,
+  "needs_review": 2509,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Bloodstrike",
   "source_exhausted": false,
   "shard_count": 11
 }

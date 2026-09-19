@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Biochemical_Cascade",
-  "total_pages_processed": 1155527,
-  "total_records": 20499,
-  "auto_pass": 18120,
-  "needs_review": 2379,
+  "apcontinue": "Bloodstrike",
+  "total_pages_processed": 1184237,
+  "total_records": 21786,
+  "auto_pass": 19277,
+  "needs_review": 2509,
   "current_shard": 11,
-  "current_shard_records": 499,
+  "current_shard_records": 1786,
   "source_exhausted": false
 }

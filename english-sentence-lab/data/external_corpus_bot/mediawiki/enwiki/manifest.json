@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2207678,
-  "total_records": 44816,
-  "auto_pass": 39582,
-  "needs_review": 5234,
+  "total_pages_processed": 2245917,
+  "total_records": 45034,
+  "auto_pass": 39779,
+  "needs_review": 5255,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Elżbieta_Jabłońska",
+  "apcontinue": "Episcopal/Anglican_Archbishop_of_Alexandria",
   "source_exhausted": false,
   "shard_count": 23
 }

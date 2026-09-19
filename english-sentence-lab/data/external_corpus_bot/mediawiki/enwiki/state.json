@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Elżbieta_Jabłońska",
-  "total_pages_processed": 2207678,
-  "total_records": 44816,
-  "auto_pass": 39582,
-  "needs_review": 5234,
+  "apcontinue": "Episcopal/Anglican_Archbishop_of_Alexandria",
+  "total_pages_processed": 2245917,
+  "total_records": 45034,
+  "auto_pass": 39779,
+  "needs_review": 5255,
   "current_shard": 23,
-  "current_shard_records": 816,
+  "current_shard_records": 1034,
   "source_exhausted": false
 }

@@ -170,10 +170,13 @@ def candidate_rows(max_scan):
             if not (24<=len(toks)<=100):
                 continue
             comp=complexity(row)
-            # Require genuinely multi-clausal structure.
+            # Require genuinely multi-clausal natural prose, not schedules,
+            # credits, standings, catalogues, or repeated metadata.
             if comp["clauses"]<3 or comp["verbs"]<4 or comp["dep_depth"]<6:
                 continue
             if comp["nominal_conj"]>=5 and comp["clauses"]<5:
+                continue
+            if not natural_complex_prose(row,comp):
                 continue
             roles=arena.canonical_roles(row)
             if roles is None or not all(r in {None,"S","V","O","C","M"} for r in roles):

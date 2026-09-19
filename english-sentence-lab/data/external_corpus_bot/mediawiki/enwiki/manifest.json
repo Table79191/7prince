@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1184237,
-  "total_records": 21786,
-  "auto_pass": 19277,
-  "needs_review": 2509,
+  "total_pages_processed": 1219362,
+  "total_records": 23573,
+  "auto_pass": 20863,
+  "needs_review": 2710,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Bloodstrike",
+  "apcontinue": "Borago",
   "source_exhausted": false,
-  "shard_count": 11
+  "shard_count": 12
 }

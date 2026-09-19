@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Bloodstrike",
-  "total_pages_processed": 1184237,
-  "total_records": 21786,
-  "auto_pass": 19277,
-  "needs_review": 2509,
-  "current_shard": 11,
-  "current_shard_records": 1786,
+  "apcontinue": "Borago",
+  "total_pages_processed": 1219362,
+  "total_records": 23573,
+  "auto_pass": 20863,
+  "needs_review": 2710,
+  "current_shard": 12,
+  "current_shard_records": 1573,
   "source_exhausted": false
 }

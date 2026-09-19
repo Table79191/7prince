@@ -13,8 +13,8 @@
     "feed_state": "artifacts/arena_hotfeed/feed_state.json"
   },
   "rounds_this_run": 1,
-  "total_rounds": 168,
-  "elapsed_seconds": 50.18031608599995,
+  "total_rounds": 192,
+  "elapsed_seconds": 49.01929312099992,
   "current": {
     "role_dev": {
       "sentences": 6317,
@@ -26,11 +26,11 @@
     "clause_dev": {
       "sentences": 6317,
       "tokens": 55353,
-      "role_accuracy": 0.9484580781529457,
-      "sentence_exact": 4318,
-      "sentence_exact_rate": 0.6835523191388317,
-      "owner_accuracy": 0.8427004859718534,
-      "clause_head_f1": 0.8618993567915247
+      "role_accuracy": 0.954564341589435,
+      "sentence_exact": 4530,
+      "sentence_exact_rate": 0.7171125534272598,
+      "owner_accuracy": 0.8463317254710675,
+      "clause_head_f1": 0.8653681506849314
     },
     "hard": {
       "role": {
@@ -55,10 +55,10 @@
       },
       "clause": {
         "hard14": {
-          "correct": 80,
+          "correct": 78,
           "total": 87,
-          "accuracy": 0.9195402298850575,
-          "exact_sentences": 7
+          "accuracy": 0.896551724137931,
+          "exact_sentences": 6
         },
         "final16": {
           "correct": 87,
@@ -67,9 +67,9 @@
           "exact_sentences": 4
         },
         "original64": {
-          "correct": 24,
+          "correct": 25,
           "total": 28,
-          "accuracy": 0.8571428571428571,
+          "accuracy": 0.8928571428571429,
           "exact_sentences": 0
         }
       }
@@ -118,14 +118,14 @@
     }
   },
   "this_run_battle_totals": {
-    "role_wins": 1410,
-    "role_exact": 4573,
-    "role_weighted_error_x10": 40100,
-    "clause_weighted_error_x10": 59350,
-    "ties": 4129,
-    "clause_exact": 3815,
-    "both_wrong": 1143,
-    "clause_wins": 461
+    "ties": 4331,
+    "role_exact": 4631,
+    "clause_exact": 4007,
+    "role_weighted_error_x10": 39740,
+    "clause_weighted_error_x10": 57520,
+    "both_wrong": 1103,
+    "role_wins": 1230,
+    "clause_wins": 439
   },
   "accepted_role_updates": 0,
   "accepted_clause_updates": 0,

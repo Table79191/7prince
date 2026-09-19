@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2165276,
-  "total_records": 44261,
-  "auto_pass": 39106,
-  "needs_review": 5155,
+  "total_pages_processed": 2207678,
+  "total_records": 44816,
+  "auto_pass": 39582,
+  "needs_review": 5234,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Eitarō",
+  "apcontinue": "Elżbieta_Jabłońska",
   "source_exhausted": false,
   "shard_count": 23
 }

@@ -1,0 +1,110 @@
+name: SentenceLab Fresh Performance 200
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sentence-lab-fresh-performance-200.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentence-lab-fresh-performance-200
+  cancel-in-progress: true
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          sparse-checkout: |
+            english-sentence-lab/eval/eval_fresh_bulk_complex50.py
+            english-sentence-lab/arena/run_model_arena.py
+            english-sentence-lab/train
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/scripts/promoted_shards.py
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000094.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000095.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000096.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000097.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000098.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000099.jsonl
+            english-sentence-lab/data/promoted_silver/state.json
+            english-sentence-lab/artifacts/arena_hotfeed/feed_state.json
+            english-sentence-lab/artifacts/arena_hotfeed/role_arena_latest.pt
+            english-sentence-lab/artifacts/arena_hotfeed/clause_arena_latest.pt
+            english-sentence-lab/data/eval
+            english-sentence-lab/artifacts
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install torch
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax
+        run: python -m py_compile english-sentence-lab/eval/eval_fresh_bulk_complex50.py
+
+      - name: Run fresh complex 200
+        run: |
+          cd english-sentence-lab
+          python eval/eval_fresh_bulk_complex50.py \
+            --role-model artifacts/arena_hotfeed/role_arena_latest.pt \
+            --clause-model artifacts/arena_hotfeed/clause_arena_latest.pt \
+            --count 200 \
+            --max-scan 20000 \
+            --test-version FRESH-BULK-PERF200-20260920-V1 \
+            --dataset-out data/eval/fresh_bulk_perf200_20260920.json \
+            --result-out artifacts/fresh_bulk_perf200_20260920_results.json
+
+      - name: Sanity
+        run: |
+          cd english-sentence-lab
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/eval/fresh_bulk_perf200_20260920.json').read_text())
+          r=json.loads(Path('artifacts/fresh_bulk_perf200_20260920_results.json').read_text())
+          assert d['training_allowed'] is False
+          assert d['selection_uses_model_predictions'] is False
+          assert len(d['cases'])==200
+          assert r['selection']['model_blind'] is True
+          assert r['role']['sentences']==200 and r['clause']['sentences']==200
+          assert sum(r['sentence_wins'].values())==200
+          print(json.dumps({
+            'selection':r['selection'],
+            'role':r['role'],
+            'clause':r['clause'],
+            'wins':r['sentence_wins'],
+          },indent=2))
+          PY
+
+      - name: Persist frozen benchmark
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-eval-bot
+          git config user.email sentence-lab-eval-bot@users.noreply.github.com
+          git add --sparse english-sentence-lab/data/eval/fresh_bulk_perf200_20260920.json
+          git add --sparse english-sentence-lab/artifacts/fresh_bulk_perf200_20260920_results.json
+          git commit -m "eval: freeze fresh performance 200 benchmark"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fresh-bulk-perf200-20260920
+          path: |
+            english-sentence-lab/data/eval/fresh_bulk_perf200_20260920.json
+            english-sentence-lab/artifacts/fresh_bulk_perf200_20260920_results.json
+          retention-days: 30

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2442946,
-  "total_records": 50568,
-  "auto_pass": 44672,
-  "needs_review": 5896,
-  "added_this_run": 261,
-  "skipped_this_run": 5,
-  "apcontinue": "Foreign_relations_of_norway",
+  "total_pages_processed": 2481495,
+  "total_records": 51080,
+  "auto_pass": 45132,
+  "needs_review": 5948,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Frank_Zoeller,_Jr.",
   "source_exhausted": false,
   "shard_count": 26
 }

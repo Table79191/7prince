@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Foreign_relations_of_norway",
-  "total_pages_processed": 2442946,
-  "total_records": 50568,
-  "auto_pass": 44672,
-  "needs_review": 5896,
+  "apcontinue": "Frank_Zoeller,_Jr.",
+  "total_pages_processed": 2481495,
+  "total_records": 51080,
+  "auto_pass": 45132,
+  "needs_review": 5948,
   "current_shard": 26,
-  "current_shard_records": 568,
+  "current_shard_records": 1080,
   "source_exhausted": false
 }

@@ -13,6 +13,7 @@ import train_ud_role as base
 import train_r012_safe_feed as safe
 import train_r012_regression_patch as reg
 from train_gold_finetune import clone_state
+from promoted_shards import iter_promoted
 
 VERSION="1.8.5-R015-ACCUMULATED-FINAL"
 PARENT=ROOT/"artifacts/v1.8.3_auto_promoted_silver_role.pt"
@@ -28,7 +29,7 @@ def iter_jsonl(path):
 
 def load_all_promoted(path,blocked,weight=0.08):
     rows=[]; dropped=0
-    for r in iter_jsonl(path):
+    for r in iter_promoted(path):
         p=r.get("promotion",{})
         if p.get("status")!="auto_promoted_silver" or p.get("gate_version")!="PROMOTED-SILVER-1":
             continue

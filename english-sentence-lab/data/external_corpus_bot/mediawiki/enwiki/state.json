@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Carey_Law_School_at_the_University_of_Pennsylvania",
-  "total_pages_processed": 1414691,
-  "total_records": 27190,
-  "auto_pass": 24069,
-  "needs_review": 3121,
+  "apcontinue": "Catherine_West",
+  "total_pages_processed": 1454928,
+  "total_records": 27226,
+  "auto_pass": 24101,
+  "needs_review": 3125,
   "current_shard": 14,
-  "current_shard_records": 1190,
+  "current_shard_records": 1226,
   "source_exhausted": false
 }

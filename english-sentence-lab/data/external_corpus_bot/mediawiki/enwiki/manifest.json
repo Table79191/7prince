@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1074796,
-  "total_records": 20088,
-  "auto_pass": 17751,
-  "needs_review": 2337,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "Bekatiq_language",
+  "total_pages_processed": 1114910,
+  "total_records": 20191,
+  "auto_pass": 17833,
+  "needs_review": 2358,
+  "added_this_run": 9,
+  "skipped_this_run": 1,
+  "apcontinue": "Best_Arrangement,_Instruments_and_Vocals_Grammy",
   "source_exhausted": false,
   "shard_count": 11
 }

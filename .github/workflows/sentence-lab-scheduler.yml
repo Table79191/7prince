@@ -188,6 +188,30 @@ jobs:
             echo "Enwiki bulk collector already active (${busy}); skipped duplicate dispatch."
           fi
 
+      - name: Keep model arena fighting if idle
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="/repos/${REPO}/actions/workflows/sentence-lab-overnight-arena.yml/runs?per_page=30"
+          busy="$(gh api -H 'Accept: application/vnd.github+json' "$api" \
+            --jq '[.workflow_runs[] | select(.status == "queued" or .status == "in_progress" or .status == "pending" or .status == "waiting" or .status == "requested")] | length')"
+
+          if [ "$busy" -eq 0 ]; then
+            for attempt in 1 2 3 4 5; do
+              if gh workflow run sentence-lab-overnight-arena.yml --repo "$REPO" --ref main; then
+                echo "Dispatched next autonomous model-arena run at $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo 'Could not dispatch model arena after retries.' >&2
+                exit 1
+              fi
+              sleep $((attempt * 3))
+            done
+          else
+            echo "Model arena already active ($busy); leaving current fight alone."
+          fi
+
       - name: Keep daemon interval
         shell: bash
         run: |

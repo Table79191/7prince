@@ -13,6 +13,8 @@ sys.path.insert(0,str(ROOT/"experiments/clause_anchor_graph_v1_01"))
 import run_model_arena as arena
 import train_ud_role as rbase
 import model as cmodel
+sys.path.insert(0,str(ROOT/"scripts"))
+from promoted_shards import iter_promoted
 
 TEST_VERSION="FRESH-BULK-COMPLEX50-20260919-V2"
 CLAUSE_DEPS={"acl","acl:relcl","advcl","ccomp","xcomp","parataxis"}
@@ -38,7 +40,7 @@ def promoted_block():
     p=ROOT/"data/promoted_silver/promoted.jsonl"
     exact=set(); fuzz=set(); norm_sha1=set()
     if p.exists():
-        for row in iter_jsonl(p):
+        for row in iter_promoted(p):
             e=norm(row.get("text","")); f=fuzzy(row.get("text",""))
             if e:
                 exact.add(e)

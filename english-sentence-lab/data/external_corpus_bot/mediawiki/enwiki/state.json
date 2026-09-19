@@ -1,10 +1,10 @@
 {
-  "apcontinue": "BabyWipe",
-  "total_pages_processed": 970494,
-  "total_records": 18427,
-  "auto_pass": 16328,
-  "needs_review": 2099,
+  "apcontinue": "Bank_of_london",
+  "total_pages_processed": 1006214,
+  "total_records": 18866,
+  "auto_pass": 16695,
+  "needs_review": 2171,
   "current_shard": 10,
-  "current_shard_records": 427,
+  "current_shard_records": 866,
   "source_exhausted": false
 }

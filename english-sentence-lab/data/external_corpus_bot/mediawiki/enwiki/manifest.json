@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1038580,
-  "total_records": 19590,
-  "auto_pass": 17321,
-  "needs_review": 2269,
+  "total_pages_processed": 1074796,
+  "total_records": 20088,
+  "auto_pass": 17751,
+  "needs_review": 2337,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Batman_samini",
+  "apcontinue": "Bekatiq_language",
   "source_exhausted": false,
-  "shard_count": 10
+  "shard_count": 11
 }

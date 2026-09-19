@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Batman_samini",
-  "total_pages_processed": 1038580,
-  "total_records": 19590,
-  "auto_pass": 17321,
-  "needs_review": 2269,
-  "current_shard": 10,
-  "current_shard_records": 1590,
+  "apcontinue": "Bekatiq_language",
+  "total_pages_processed": 1074796,
+  "total_records": 20088,
+  "auto_pass": 17751,
+  "needs_review": 2337,
+  "current_shard": 11,
+  "current_shard_records": 88,
   "source_exhausted": false
 }

@@ -1,8 +1,8 @@
 # SentenceLab enwiki bulk collector
 
-- total accepted local records: 208974
-- total pages sampled: 12959
-- added this run: 6539
-- rejected this run: {'word_length': 153, 'char_length': 465, 'canonical': 1291, 'punctuation': 8, 'parser_integrity': 444, 'duplicate': 17, 'markup': 77, 'nonprose': 29}
+- total accepted local records: 212959
+- total pages sampled: 13193
+- added this run: 3985
+- rejected this run: {'canonical': 775, 'char_length': 317, 'parser_integrity': 295, 'markup': 34, 'word_length': 107, 'duplicate': 19, 'nonprose': 20, 'punctuation': 2}
 
 This collector never writes promoted_silver directly. The central promotion gate performs global dedupe and strict cross-parser consensus.

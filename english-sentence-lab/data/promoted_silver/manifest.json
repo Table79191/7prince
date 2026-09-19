@@ -1,46 +1,36 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2185,
-  "total_promoted": 103018,
+  "added_this_run": 2000,
+  "total_promoted": 105018,
   "sources": {
     "tatoeba": {
       "source_records": 1313266,
-      "processed_before": 325941,
-      "scanned": 1738,
+      "processed_before": 327679,
+      "scanned": 1368,
       "accepted": 1000,
       "rejected": {
-        "consensus": 275,
-        "quality_length": 167,
-        "status": 48,
-        "length": 232,
-        "duplicate": 2,
-        "structure": 14
+        "consensus": 314,
+        "status": 53,
+        "structure": 1
       }
     },
     "enwiki_bulk": {
-      "source_records": 309468,
-      "processed_before": 55359,
-      "scanned": 1700,
+      "source_records": 313606,
+      "processed_before": 57059,
+      "scanned": 1725,
       "accepted": 1000,
       "rejected": {
-        "consensus": 688,
-        "length": 10,
-        "duplicate": 2
+        "consensus": 716,
+        "duplicate": 7,
+        "length": 2
       }
     },
     "mediawiki/enwiki": {
       "source_records": 51534,
-      "processed_before": 51080,
-      "scanned": 454,
-      "accepted": 185,
-      "rejected": {
-        "length": 51,
-        "consensus": 115,
-        "status": 54,
-        "quality_length": 3,
-        "structure": 39,
-        "nonprose": 7
-      }
+      "processed_before": 51534,
+      "scanned": 0,
+      "accepted": 0,
+      "rejected": {}
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -71,19 +61,19 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94425929
+        "bytes": 94430064
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94399996
+        "bytes": 94404095
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 90982427
+        "bytes": 94369311
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 1
+        "bytes": 5971682
       },
       {
         "name": "promoted-000007.jsonl",
@@ -109,7 +99,8 @@
     "written_this_run": [
       "promoted-000003.jsonl",
       "promoted-000004.jsonl",
-      "promoted-000005.jsonl"
+      "promoted-000005.jsonl",
+      "promoted-000006.jsonl"
     ]
   },
   "policy": {

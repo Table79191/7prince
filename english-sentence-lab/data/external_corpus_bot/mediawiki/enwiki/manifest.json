@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2245917,
-  "total_records": 45034,
-  "auto_pass": 39779,
-  "needs_review": 5255,
+  "total_pages_processed": 2287489,
+  "total_records": 45522,
+  "auto_pass": 40197,
+  "needs_review": 5325,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Episcopal/Anglican_Archbishop_of_Alexandria",
+  "apcontinue": "Etna_(wine)",
   "source_exhausted": false,
   "shard_count": 23
 }

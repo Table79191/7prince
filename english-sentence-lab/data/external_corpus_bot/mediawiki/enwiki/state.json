@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Episcopal/Anglican_Archbishop_of_Alexandria",
-  "total_pages_processed": 2245917,
-  "total_records": 45034,
-  "auto_pass": 39779,
-  "needs_review": 5255,
+  "apcontinue": "Etna_(wine)",
+  "total_pages_processed": 2287489,
+  "total_records": 45522,
+  "auto_pass": 40197,
+  "needs_review": 5325,
   "current_shard": 23,
-  "current_shard_records": 1034,
+  "current_shard_records": 1522,
   "source_exhausted": false
 }

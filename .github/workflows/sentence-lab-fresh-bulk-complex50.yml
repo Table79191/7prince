@@ -37,6 +37,8 @@ jobs:
             english-sentence-lab/artifacts/arena_hotfeed/feed_state.json
             english-sentence-lab/artifacts/arena_hotfeed/role_arena_latest.pt
             english-sentence-lab/artifacts/arena_hotfeed/clause_arena_latest.pt
+            english-sentence-lab/data/eval
+            english-sentence-lab/artifacts
           sparse-checkout-cone-mode: false
 
       - uses: actions/setup-python@v5
@@ -93,7 +95,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: fresh-bulk-complex50-20260919-v2
+          name: fresh-bulk-complex50-20260919-v2-v2
           path: |
             english-sentence-lab/data/eval/fresh_bulk_complex50_20260919_v2.json
             english-sentence-lab/artifacts/fresh_bulk_complex50_20260919_v2_results.json

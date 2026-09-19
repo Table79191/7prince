@@ -30,8 +30,11 @@ jobs:
             english-sentence-lab/train
             english-sentence-lab/scripts/canonical_roles.py
             english-sentence-lab/experiments/clause_anchor_graph_v1_01
-            english-sentence-lab/data/external_corpus_bot/enwiki_bulk
-            english-sentence-lab/data/promoted_silver
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000036.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000037.jsonl
+            english-sentence-lab/data/external_corpus_bot/enwiki_bulk/shards/enwiki-bulk-000038.jsonl
+            english-sentence-lab/data/promoted_silver/state.json
+            english-sentence-lab/artifacts/arena_hotfeed/feed_state.json
             english-sentence-lab/artifacts/arena_hotfeed/role_arena_latest.pt
             english-sentence-lab/artifacts/arena_hotfeed/clause_arena_latest.pt
           sparse-checkout-cone-mode: false

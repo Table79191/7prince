@@ -13,8 +13,8 @@
     "feed_state": "artifacts/arena_hotfeed/feed_state.json"
   },
   "rounds_this_run": 1,
-  "total_rounds": 312,
-  "elapsed_seconds": 46.21548879299985,
+  "total_rounds": 336,
+  "elapsed_seconds": 35.56149131699999,
   "current": {
     "role_dev": {
       "sentences": 6317,
@@ -26,11 +26,11 @@
     "clause_dev": {
       "sentences": 6317,
       "tokens": 55353,
-      "role_accuracy": 0.957328419417195,
-      "sentence_exact": 4623,
-      "sentence_exact_rate": 0.7318347316764287,
-      "owner_accuracy": 0.8530341625566816,
-      "clause_head_f1": 0.8698761742100769
+      "role_accuracy": 0.9577078026484562,
+      "sentence_exact": 4642,
+      "sentence_exact_rate": 0.7348424885230331,
+      "owner_accuracy": 0.8538109948873593,
+      "clause_head_f1": 0.8707930778214248
     },
     "hard": {
       "role": {
@@ -55,16 +55,16 @@
       },
       "clause": {
         "hard14": {
-          "correct": 78,
+          "correct": 79,
           "total": 87,
-          "accuracy": 0.896551724137931,
-          "exact_sentences": 6
+          "accuracy": 0.9080459770114943,
+          "exact_sentences": 7
         },
         "final16": {
-          "correct": 88,
+          "correct": 89,
           "total": 103,
-          "accuracy": 0.8543689320388349,
-          "exact_sentences": 4
+          "accuracy": 0.8640776699029126,
+          "exact_sentences": 5
         },
         "original64": {
           "correct": 25,
@@ -118,14 +118,14 @@
     }
   },
   "this_run_battle_totals": {
-    "clause_wins": 498,
-    "clause_exact": 4065,
-    "role_weighted_error_x10": 40780,
-    "clause_weighted_error_x10": 52560,
-    "ties": 4389,
-    "role_exact": 4566,
-    "both_wrong": 1115,
-    "role_wins": 1113
+    "ties": 4383,
+    "role_exact": 4635,
+    "clause_exact": 4084,
+    "role_weighted_error_x10": 39690,
+    "clause_weighted_error_x10": 54190,
+    "role_wins": 1139,
+    "clause_wins": 478,
+    "both_wrong": 1079
   },
   "accepted_role_updates": 0,
   "accepted_clause_updates": 0,

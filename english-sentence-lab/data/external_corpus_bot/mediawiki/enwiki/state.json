@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Fishes_of_Sespe_Creek,_CA",
-  "total_pages_processed": 2412300,
-  "total_records": 49749,
-  "auto_pass": 43939,
-  "needs_review": 5810,
-  "current_shard": 25,
-  "current_shard_records": 1749,
+  "apcontinue": "Foreign_relations_of_norway",
+  "total_pages_processed": 2442946,
+  "total_records": 50568,
+  "auto_pass": 44672,
+  "needs_review": 5896,
+  "current_shard": 26,
+  "current_shard_records": 568,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2412300,
-  "total_records": 49749,
-  "auto_pass": 43939,
-  "needs_review": 5810,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "Fishes_of_Sespe_Creek,_CA",
+  "total_pages_processed": 2442946,
+  "total_records": 50568,
+  "auto_pass": 44672,
+  "needs_review": 5896,
+  "added_this_run": 261,
+  "skipped_this_run": 5,
+  "apcontinue": "Foreign_relations_of_norway",
   "source_exhausted": false,
-  "shard_count": 25
+  "shard_count": 26
 }

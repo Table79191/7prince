@@ -18,6 +18,7 @@ sys.path.insert(0,str(CLAUSE))
 
 import train_ud_role as rbase
 from canonical_roles import canonicalize_ud
+from promoted_shards import iter_promoted
 import model as cmodel
 import data as cdata
 
@@ -71,7 +72,7 @@ def load_pools(web_root,promoted_path):
     blocked=seen_train|seen_dev
     silver=[]
     if Path(promoted_path).exists():
-        for row in iter_jsonl(promoted_path):
+        for row in iter_promoted(promoted_path):
             p=row.get("promotion",{})
             if p.get("status")!="auto_promoted_silver" or p.get("gate_version")!="PROMOTED-SILVER-1":
                 continue

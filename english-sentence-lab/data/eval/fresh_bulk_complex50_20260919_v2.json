@@ -3,7 +3,7 @@
   "training_allowed": false,
   "selection_uses_model_predictions": false,
   "source": "enwiki_bulk rows strictly after current promoted processed_records",
-  "promoted_processed_records_at_selection": 3344,
+  "promoted_processed_records_at_selection": 5103,
   "candidate_rows_scanned": 7500,
   "selected_count": 50,
   "cases": [

@@ -3,12 +3,12 @@
   "training_allowed": false,
   "models": {
     "role_checkpoint": "artifacts/arena_hotfeed/role_arena_latest.pt",
-    "role_version": "R015-ARENA-R432",
+    "role_version": "R015-ARENA-R480",
     "clause_checkpoint": "artifacts/arena_hotfeed/clause_arena_latest.pt",
-    "clause_version": "CLAUSE-ARENA-R432"
+    "clause_version": "CLAUSE-ARENA-R480"
   },
   "selection": {
-    "promoted_processed_records_at_selection": 3344,
+    "promoted_processed_records_at_selection": 5103,
     "candidate_rows_scanned": 7500,
     "qualifying_candidates": 887,
     "selected": 50,

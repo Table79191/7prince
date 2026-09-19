@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1605288,
-  "total_records": 30654,
-  "auto_pass": 27047,
-  "needs_review": 3607,
+  "total_pages_processed": 1640333,
+  "total_records": 31159,
+  "auto_pass": 27500,
+  "needs_review": 3659,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Church_of_St_Michael,_Averham",
+  "apcontinue": "Clemente_Ragragio",
   "source_exhausted": false,
   "shard_count": 16
 }

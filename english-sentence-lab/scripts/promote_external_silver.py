@@ -10,6 +10,9 @@ import train_r012_safe_feed as safe
 
 OUT=ROOT/"data"/"promoted_silver"
 DATA=OUT/"promoted.jsonl"
+SHARD_PREFIX="promoted-"
+SHARD_LIMIT_BYTES=90*1024*1024
+RESERVE_SHARDS=10
 STATE=OUT/"state.json"
 MANIFEST=OUT/"manifest.json"
 GATE_VERSION="PROMOTED-SILVER-1"
@@ -23,6 +26,53 @@ def iter_jsonl(path):
     with path.open(encoding="utf-8") as f:
         for line in f:
             if line.strip(): yield json.loads(line)
+
+def promoted_files():
+    files=[]
+    if DATA.exists(): files.append(DATA)
+    files.extend(sorted(OUT.glob(f"{SHARD_PREFIX}*.jsonl")))
+    return files
+
+def iter_promoted():
+    for p in promoted_files():
+        yield from iter_jsonl(p)
+
+def shard_path(index):
+    return OUT/f"{SHARD_PREFIX}{index:06d}.jsonl"
+
+def ensure_reserve_shards():
+    # Keep ten tracked-ready fallback names available. Normal operation also
+    # creates new shards dynamically beyond this range when necessary.
+    for i in range(2,2+RESERVE_SHARDS):
+        p=shard_path(i)
+        if not p.exists():
+            p.touch()
+
+def append_promoted_rows(rows):
+    if not rows:return []
+    ensure_reserve_shards()
+    written=[]
+    # Sequence is legacy promoted.jsonl first, then promoted-000002.jsonl onward.
+    candidates=[DATA]+[shard_path(i) for i in range(2,2+RESERVE_SHARDS)]
+    next_index=2+RESERVE_SHARDS
+    ci=0
+    while ci<len(candidates) and candidates[ci].exists() and candidates[ci].stat().st_size>=SHARD_LIMIT_BYTES:
+        ci+=1
+    if ci>=len(candidates):
+        p=shard_path(next_index); p.touch(); candidates.append(p)
+    current=candidates[ci]
+    for row in rows:
+        line=json.dumps(row,ensure_ascii=False,separators=(",",":"))+"\n"
+        n=len(line.encode("utf-8"))
+        if current.exists() and current.stat().st_size+n>SHARD_LIMIT_BYTES:
+            ci+=1
+            if ci>=len(candidates):
+                p=shard_path(next_index); next_index+=1; p.touch(); candidates.append(p)
+            current=candidates[ci]
+        with current.open("a",encoding="utf-8",newline="\n") as f:
+            f.write(line)
+        written.append(current.name)
+    return written
 
 def source_specs():
     specs=[("tatoeba",ROOT/"data/external_corpus_bot/tatoeba/shards","tatoeba-*.jsonl"),
@@ -99,6 +149,7 @@ def main():
     if a.self_test:
         assert safe.norm_text(" A   B ")=="a b"
         assert fuzzy_key("Hello, WORLD!")=="hello world"
+        assert SHARD_LIMIT_BYTES==94371840
         assert quality_ok({"text":"Students carefully examined the new experiment before class ended.", "analysis":{"tokens":[{"id":1,"head":2},{"id":2,"head":0},{"id":3,"head":2},{"id":4,"head":3},{"id":5,"head":2},{"id":6,"head":5}]}})[0]
         print("promotion self-test: ok"); return
 
@@ -106,7 +157,7 @@ def main():
     nlp=spacy.load("en_core_web_sm")
     OUT.mkdir(parents=True,exist_ok=True)
     state=load_json(STATE,{"version":GATE_VERSION,"sources":{},"total_promoted":0})
-    existing=list(iter_jsonl(DATA)) if DATA.exists() else []
+    existing=list(iter_promoted())
     seen={safe.norm_text(x.get("text","")) for x in existing}
     seen_fuzzy={fuzzy_key(x.get("text","")) for x in existing if fuzzy_key(x.get("text",""))}
     blocked=blocked_texts()
@@ -156,14 +207,15 @@ def main():
         state["sources"][key]={"processed_records":processed+scanned,"source_records_seen":total}
         stats[key]={"source_records":total,"processed_before":processed,"scanned":scanned,"accepted":accepted,"rejected":counts}
 
-    if added:
-        with DATA.open("a",encoding="utf-8",newline="\n") as f:
-            for row in added:f.write(json.dumps(row,ensure_ascii=False,separators=(",",":"))+"\n")
+    written_shards=append_promoted_rows(added)
     state["version"]=GATE_VERSION
     state["total_promoted"]=len(existing)+len(added)
     state["updated_at_utc"]=datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     STATE.write_text(json.dumps(state,indent=2)+"\n",encoding="utf-8")
     manifest={"version":GATE_VERSION,"added_this_run":len(added),"total_promoted":state["total_promoted"],"sources":stats,
+              "storage":{"mode":"sharded_jsonl","shard_limit_bytes":SHARD_LIMIT_BYTES,
+                         "files":[{"name":p.name,"bytes":p.stat().st_size} for p in promoted_files()],
+                         "written_this_run":sorted(set(written_shards))},
               "policy":{"label_quality":"promoted_silver_not_gold","raw_external_never_directly_trained":True,
                         "requires_strict_spacy_stanza_consensus":True,"independent_test_excluded":True}}
     MANIFEST.write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")

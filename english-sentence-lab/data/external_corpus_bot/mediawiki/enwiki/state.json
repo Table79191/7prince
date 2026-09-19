@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Genoese_Walls",
-  "total_pages_processed": 2591034,
-  "total_records": 52736,
-  "auto_pass": 46576,
-  "needs_review": 6160,
+  "apcontinue": "Gerson_(footballer,_born_1997)",
+  "total_pages_processed": 2635950,
+  "total_records": 53440,
+  "auto_pass": 47190,
+  "needs_review": 6250,
   "current_shard": 27,
-  "current_shard_records": 736,
+  "current_shard_records": 1440,
   "source_exhausted": false
 }

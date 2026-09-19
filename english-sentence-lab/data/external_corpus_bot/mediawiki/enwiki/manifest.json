@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2591034,
-  "total_records": 52736,
-  "auto_pass": 46576,
-  "needs_review": 6160,
+  "total_pages_processed": 2635950,
+  "total_records": 53440,
+  "auto_pass": 47190,
+  "needs_review": 6250,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Genoese_Walls",
+  "apcontinue": "Gerson_(footballer,_born_1997)",
   "source_exhausted": false,
   "shard_count": 27
 }

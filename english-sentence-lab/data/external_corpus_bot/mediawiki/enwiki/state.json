@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Bryanskii_District",
-  "total_pages_processed": 1295357,
-  "total_records": 24661,
-  "auto_pass": 21880,
-  "needs_review": 2781,
+  "apcontinue": "Byssinosis",
+  "total_pages_processed": 1330907,
+  "total_records": 24913,
+  "auto_pass": 22108,
+  "needs_review": 2805,
   "current_shard": 13,
-  "current_shard_records": 661,
+  "current_shard_records": 913,
   "source_exhausted": false
 }

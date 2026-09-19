@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1295357,
-  "total_records": 24661,
-  "auto_pass": 21880,
-  "needs_review": 2781,
+  "total_pages_processed": 1330907,
+  "total_records": 24913,
+  "auto_pass": 22108,
+  "needs_review": 2805,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Bryanskii_District",
+  "apcontinue": "Byssinosis",
   "source_exhausted": false,
   "shard_count": 13
 }

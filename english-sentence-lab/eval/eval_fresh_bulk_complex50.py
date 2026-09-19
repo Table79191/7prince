@@ -36,13 +36,27 @@ def fuzzy(text):
 
 def promoted_block():
     p=ROOT/"data/promoted_silver/promoted.jsonl"
-    exact=set(); fuzz=set()
+    exact=set(); fuzz=set(); norm_sha1=set()
     if p.exists():
         for row in iter_jsonl(p):
             e=norm(row.get("text","")); f=fuzzy(row.get("text",""))
-            if e: exact.add(e)
+            if e:
+                exact.add(e)
+                import hashlib
+                norm_sha1.add(hashlib.sha1(e.encode("utf-8")).hexdigest())
             if f: fuzz.add(f)
-    return exact,fuzz
+    else:
+        # Sparse eval checkout deliberately avoids the >200 MB promoted.jsonl.
+        # Arena feed_state contains SHA1(norm(text)) for promoted rows already seen
+        # by the battle loop and provides an additional cross-source overlap block.
+        fp=ROOT/"artifacts/arena_hotfeed/feed_state.json"
+        if fp.exists():
+            try:
+                state=json.loads(fp.read_text(encoding="utf-8"))
+                norm_sha1.update(state.get("consumed_promoted_keys",[]))
+            except Exception:
+                pass
+    return exact,fuzz,norm_sha1
 
 def max_dep_depth(tokens):
     heads={int(t.get("id",0) or 0):int(t.get("head",0) or 0) for t in tokens}
@@ -83,12 +97,16 @@ def complexity(row):
 def candidate_rows(max_scan):
     state=json.loads((ROOT/"data/promoted_silver/state.json").read_text(encoding="utf-8"))
     processed=int(state.get("sources",{}).get("enwiki_bulk",{}).get("processed_records",0))
-    exact,fuzz=promoted_block()
+    exact,fuzz,norm_sha1=promoted_block()
     rows=[]; index=0; scanned=0
     shards=sorted((ROOT/"data/external_corpus_bot/enwiki_bulk/shards").glob("enwiki-bulk-*.jsonl"))
+    # In a tail-only sparse checkout, every included shard is far beyond the
+    # source's promoted processed frontier, so source-local skip must be zero.
+    sparse_tail=bool(shards and not shards[0].name.endswith("000001.jsonl"))
+    source_skip=0 if sparse_tail else processed
     for p in shards:
         for row in iter_jsonl(p):
-            if index<processed:
+            if index<source_skip:
                 index+=1;continue
             index+=1
             if scanned>=max_scan:
@@ -98,7 +116,9 @@ def candidate_rows(max_scan):
                 continue
             text=row.get("text","")
             e=norm(text); f=fuzzy(text)
-            if not e or e in exact or (f and f in fuzz):
+            import hashlib
+            h=hashlib.sha1(e.encode("utf-8")).hexdigest() if e else ""
+            if not e or e in exact or (f and f in fuzz) or (h and h in norm_sha1):
                 continue
             toks=row.get("analysis",{}).get("tokens",[])
             if not (24<=len(toks)<=100):

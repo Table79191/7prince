@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1673487,
-  "total_records": 31654,
-  "auto_pass": 27944,
-  "needs_review": 3710,
+  "total_pages_processed": 1701731,
+  "total_records": 32084,
+  "auto_pass": 28325,
+  "needs_review": 3759,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Colleen_Taylor",
+  "apcontinue": "Conferva",
   "source_exhausted": false,
-  "shard_count": 16
+  "shard_count": 17
 }

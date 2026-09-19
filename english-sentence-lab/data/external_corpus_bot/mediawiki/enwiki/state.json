@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Colleen_Taylor",
-  "total_pages_processed": 1673487,
-  "total_records": 31654,
-  "auto_pass": 27944,
-  "needs_review": 3710,
-  "current_shard": 16,
-  "current_shard_records": 1654,
+  "apcontinue": "Conferva",
+  "total_pages_processed": 1701731,
+  "total_records": 32084,
+  "auto_pass": 28325,
+  "needs_review": 3759,
+  "current_shard": 17,
+  "current_shard_records": 84,
   "source_exhausted": false
 }

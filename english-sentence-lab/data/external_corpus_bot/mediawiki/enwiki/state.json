@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Damon_Young_(writer)",
-  "total_pages_processed": 1831993,
-  "total_records": 37204,
-  "auto_pass": 33003,
-  "needs_review": 4201,
+  "apcontinue": "David_Edwards_(Who_Wants_to_Be_a_Millionaire?_contestant)",
+  "total_pages_processed": 1878144,
+  "total_records": 37259,
+  "auto_pass": 33050,
+  "needs_review": 4209,
   "current_shard": 19,
-  "current_shard_records": 1204,
+  "current_shard_records": 1259,
   "source_exhausted": false
 }

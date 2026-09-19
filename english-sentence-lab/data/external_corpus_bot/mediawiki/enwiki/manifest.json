@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 1831993,
-  "total_records": 37204,
-  "auto_pass": 33003,
-  "needs_review": 4201,
+  "total_pages_processed": 1878144,
+  "total_records": 37259,
+  "auto_pass": 33050,
+  "needs_review": 4209,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Damon_Young_(writer)",
+  "apcontinue": "David_Edwards_(Who_Wants_to_Be_a_Millionaire?_contestant)",
   "source_exhausted": false,
   "shard_count": 19
 }

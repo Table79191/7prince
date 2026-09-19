@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2125026,
-  "total_records": 42808,
-  "auto_pass": 37877,
-  "needs_review": 4931,
+  "total_pages_processed": 2165276,
+  "total_records": 44261,
+  "auto_pass": 39106,
+  "needs_review": 5155,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Ecole_nationale_superieure_des_beaux-arts",
+  "apcontinue": "Eitarō",
   "source_exhausted": false,
-  "shard_count": 22
+  "shard_count": 23
 }

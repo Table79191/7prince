@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2380409,
-  "total_records": 49128,
-  "auto_pass": 43457,
-  "needs_review": 5671,
+  "total_pages_processed": 2412300,
+  "total_records": 49749,
+  "auto_pass": 43939,
+  "needs_review": 5810,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Fenfluramine_hydrochloride",
+  "apcontinue": "Fishes_of_Sespe_Creek,_CA",
   "source_exhausted": false,
   "shard_count": 25
 }

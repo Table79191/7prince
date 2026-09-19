@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2061258,
-  "total_records": 41069,
-  "auto_pass": 36388,
-  "needs_review": 4681,
-  "added_this_run": 281,
-  "skipped_this_run": 4,
-  "apcontinue": "Dragon_Ball_Z_Gaiden:_Saiyan_Zetsumetsu_Keikaku_Original_Soundtrack",
+  "total_pages_processed": 2097234,
+  "total_records": 41947,
+  "auto_pass": 37137,
+  "needs_review": 4810,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Dávid_Bérczes",
   "source_exhausted": false,
   "shard_count": 21
 }

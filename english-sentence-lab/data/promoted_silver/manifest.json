@@ -1,26 +1,28 @@
 {
   "version": "PROMOTED-SILVER-1",
   "added_this_run": 2000,
-  "total_promoted": 107018,
+  "total_promoted": 109018,
   "sources": {
     "tatoeba": {
       "source_records": 1326645,
-      "processed_before": 329047,
-      "scanned": 1300,
+      "processed_before": 330347,
+      "scanned": 1264,
       "accepted": 1000,
       "rejected": {
-        "consensus": 273,
-        "status": 27
+        "consensus": 238,
+        "status": 25,
+        "quality_length": 1
       }
     },
     "enwiki_bulk": {
       "source_records": 313606,
-      "processed_before": 58784,
-      "scanned": 1685,
+      "processed_before": 60469,
+      "scanned": 1721,
       "accepted": 1000,
       "rejected": {
-        "consensus": 684,
-        "length": 1
+        "consensus": 716,
+        "length": 2,
+        "duplicate": 3
       }
     },
     "mediawiki/enwiki": {
@@ -59,19 +61,19 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94432852
+        "bytes": 94435642
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94407297
+        "bytes": 94410287
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 94372444
+        "bytes": 94375034
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 14866036
+        "bytes": 23744809
       },
       {
         "name": "promoted-000007.jsonl",

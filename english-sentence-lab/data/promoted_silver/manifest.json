@@ -1,46 +1,38 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2667,
-  "total_promoted": 60579,
+  "added_this_run": 2000,
+  "total_promoted": 62579,
   "sources": {
     "tatoeba": {
-      "source_records": 1188576,
-      "processed_before": 277575,
-      "scanned": 1864,
+      "source_records": 1203309,
+      "processed_before": 279439,
+      "scanned": 3448,
       "accepted": 1000,
       "rejected": {
-        "consensus": 277,
-        "length": 325,
-        "status": 37,
-        "quality_length": 210,
-        "structure": 15
+        "quality_length": 321,
+        "consensus": 297,
+        "length": 1764,
+        "structure": 12,
+        "status": 53,
+        "duplicate": 1
       }
     },
     "enwiki_bulk": {
-      "source_records": 267693,
-      "processed_before": 22095,
-      "scanned": 1686,
+      "source_records": 274059,
+      "processed_before": 23781,
+      "scanned": 1676,
       "accepted": 1000,
       "rejected": {
-        "consensus": 681,
-        "length": 5
+        "consensus": 672,
+        "length": 4
       }
     },
     "mediawiki/enwiki": {
       "source_records": 45034,
-      "processed_before": 43611,
-      "scanned": 1423,
-      "accepted": 667,
-      "rejected": {
-        "consensus": 340,
-        "status": 187,
-        "length": 89,
-        "structure": 113,
-        "nonprose": 21,
-        "quality_length": 4,
-        "punctuation": 1,
-        "markup": 1
-      }
+      "processed_before": 45034,
+      "scanned": 0,
+      "accepted": 0,
+      "rejected": {}
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -71,11 +63,11 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 86908390
+        "bytes": 94370716
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 1
+        "bytes": 1580687
       },
       {
         "name": "promoted-000005.jsonl",
@@ -107,7 +99,8 @@
       }
     ],
     "written_this_run": [
-      "promoted-000003.jsonl"
+      "promoted-000003.jsonl",
+      "promoted-000004.jsonl"
     ]
   },
   "policy": {

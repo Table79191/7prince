@@ -1,0 +1,55 @@
+name: SentenceLab targeted 100 regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/targeted_100_regression.py'
+      - 'english-sentence-lab/api/analyze.py'
+      - 'english-sentence-lab/scripts/spacy_role_postprocess.py'
+      - 'english-sentence-lab/web/r012/r012_role.onnx'
+      - '.github/workflows/sentence-lab-targeted-100.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sentence-lab-targeted-100-main
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/api
+            english-sentence-lab/scripts/spacy_role_postprocess.py
+            english-sentence-lab/scripts/targeted_100_regression.py
+            english-sentence-lab/web/r012
+            english-sentence-lab/server/requirements.txt
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install analyzer runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r english-sentence-lab/server/requirements.txt
+
+      - name: Run targeted 100
+        run: python english-sentence-lab/scripts/targeted_100_regression.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentencelab-targeted100-report
+          path: english-sentence-lab/artifacts/targeted100_latest.json
+          if-no-files-found: warn
+          retention-days: 14

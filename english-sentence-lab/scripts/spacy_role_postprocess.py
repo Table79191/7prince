@@ -45,6 +45,14 @@ CLAUSE_MARKERS = {'that','whether','if'}
 WH_NOMINALS = {'what','who','whom','which','whatever','whoever','whomever','whichever'}
 WH_ADVERBIALS = {'when','where','why','how','whenever','wherever','however'}
 
+EMPHATIC_WH_FILLERS = {
+    ('the','hell'),
+    ('on','earth'),
+    ('in','the','world'),
+}
+APPROX_PERCENT_MARKERS = {'like','about','around','approximately','roughly','nearly','almost'}
+DEMONSTRATIVE_PRONOUNS = {'this','that','these','those'}
+
 
 def _nearest_lexical_controller(doc, i, window=6):
     for j in range(i - 1, max(-1, i - window - 1), -1):
@@ -245,7 +253,51 @@ def postprocess_roles(doc, neural_roles):
                 if t.dep_.lower() == 'conj' and t.head.i < there_i and out[t.head.i] == 'M':
                     out[i]='M'; reason[i]='fronted-between-conj'
 
-    # 14) Conservative coordination inheritance.
+    # 14) Emphatic direct WH copular questions, e.g. "What the hell was that?".
+    # Treat only established filler idioms as M so ordinary phrases such as
+    # "What color was the car?" are not collapsed incorrectly.
+    if len(doc) >= 4 and doc[0].lower_ in WH_NOMINALS:
+        cop_i = next((
+            i for i,t in enumerate(doc[1:],1)
+            if t.lemma_.lower() == 'be' and t.pos_ in {'AUX','VERB'}
+        ), None)
+        if cop_i is not None and cop_i > 1:
+            filler = tuple(t.lower_ for t in doc[1:cop_i] if not t.is_punct)
+            if filler in EMPHATIC_WH_FILLERS:
+                out[0] = 'C'; reason[0] = 'emphatic-wh-copular-complement'
+                for j in range(1, cop_i):
+                    if not doc[j].is_punct:
+                        out[j] = 'M'; reason[j] = 'emphatic-wh-filler'
+                out[cop_i] = 'V'; reason[cop_i] = 'emphatic-wh-copula'
+                for j in range(cop_i + 1, len(doc)):
+                    if doc[j].is_punct:
+                        break
+                    if doc[j].pos_ in NOMINAL_POS or doc[j].lower_ in DEMONSTRATIVE_PRONOUNS:
+                        out[j] = 'S'; reason[j] = 'emphatic-wh-postcopular-subject'
+                        break
+
+    # 15) Colloquial approximate percentage objects:
+    # "I used like/about 5% of my power."  spaCy commonly parses the percentage
+    # under the approximator as a pobj, which would otherwise erase the direct
+    # object. Under the school-head spec the percentage head (%) is O and the
+    # numeral / of-PP material remains M.
+    for vi,t in enumerate(doc):
+        if t.pos_ != 'VERB' or t.lemma_.lower() == 'be':
+            continue
+        j = vi + 1
+        while j < len(doc) and not doc[j].is_punct and (
+            doc[j].pos_ in {'ADV','PART'} or doc[j].lower_ in {'only','just'}
+        ):
+            j += 1
+        if j < len(doc) and doc[j].lower_ in APPROX_PERCENT_MARKERS:
+            j += 1
+        if j + 1 >= len(doc) or doc[j].is_punct:
+            continue
+        if doc[j].pos_ == 'NUM' and doc[j + 1].text == '%':
+            out[j] = 'M'; reason[j] = 'percentage-number-modifier'
+            out[j + 1] = 'O'; reason[j + 1] = 'approx-percentage-object'
+
+    # 16) Conservative coordination inheritance.
     # Only copy an explicit subject/object role from a nominal head to a nominal
     # conjunct. Broad C/M inheritance caused false positives such as
     # "a need or a want", "you or anything", and "one or the other".

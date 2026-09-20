@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4073566,
-  "total_records": 95035,
-  "auto_pass": 83519,
-  "needs_review": 11516,
-  "added_this_run": 161,
-  "skipped_this_run": 5,
-  "apcontinue": "List_of_violent_tornadoes_in_2022",
+  "total_pages_processed": 4110569,
+  "total_records": 95755,
+  "auto_pass": 84161,
+  "needs_review": 11594,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "London_Anarchist_Book_Fair",
   "source_exhausted": false,
   "shard_count": 48
 }

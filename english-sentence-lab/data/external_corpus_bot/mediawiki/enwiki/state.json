@@ -1,10 +1,10 @@
 {
-  "apcontinue": "List_of_violent_tornadoes_in_2022",
-  "total_pages_processed": 4073566,
-  "total_records": 95035,
-  "auto_pass": 83519,
-  "needs_review": 11516,
+  "apcontinue": "London_Anarchist_Book_Fair",
+  "total_pages_processed": 4110569,
+  "total_records": 95755,
+  "auto_pass": 84161,
+  "needs_review": 11594,
   "current_shard": 48,
-  "current_shard_records": 1035,
+  "current_shard_records": 1755,
   "source_exhausted": false
 }

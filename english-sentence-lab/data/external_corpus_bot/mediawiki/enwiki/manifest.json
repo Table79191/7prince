@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3642750,
-  "total_records": 85470,
-  "auto_pass": 75356,
-  "needs_review": 10114,
+  "total_pages_processed": 3683897,
+  "total_records": 85623,
+  "auto_pass": 75489,
+  "needs_review": 10134,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Kenton_County_Airport",
+  "apcontinue": "King_Henry_II",
   "source_exhausted": false,
   "shard_count": 43
 }

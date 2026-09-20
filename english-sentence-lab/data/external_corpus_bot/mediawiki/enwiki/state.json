@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Kenton_County_Airport",
-  "total_pages_processed": 3642750,
-  "total_records": 85470,
-  "auto_pass": 75356,
-  "needs_review": 10114,
+  "apcontinue": "King_Henry_II",
+  "total_pages_processed": 3683897,
+  "total_records": 85623,
+  "auto_pass": 75489,
+  "needs_review": 10134,
   "current_shard": 43,
-  "current_shard_records": 1470,
+  "current_shard_records": 1623,
   "source_exhausted": false
 }

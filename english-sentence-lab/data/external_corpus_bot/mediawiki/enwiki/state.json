@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Hubert_de_Burgh,_1st_Earl_of_Kent",
-  "total_pages_processed": 3042846,
-  "total_records": 75677,
-  "auto_pass": 66708,
-  "needs_review": 8969,
-  "current_shard": 38,
-  "current_shard_records": 1677,
+  "apcontinue": "Hôtel_de_Ville,_Béthune",
+  "total_pages_processed": 3076406,
+  "total_records": 76171,
+  "auto_pass": 67146,
+  "needs_review": 9025,
+  "current_shard": 39,
+  "current_shard_records": 171,
   "source_exhausted": false
 }

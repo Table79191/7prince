@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2635950,
-  "total_records": 53440,
-  "auto_pass": 47190,
-  "needs_review": 6250,
+  "total_pages_processed": 2676107,
+  "total_records": 53896,
+  "auto_pass": 47595,
+  "needs_review": 6301,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Gerson_(footballer,_born_1997)",
+  "apcontinue": "Glenquarry",
   "source_exhausted": false,
   "shard_count": 27
 }

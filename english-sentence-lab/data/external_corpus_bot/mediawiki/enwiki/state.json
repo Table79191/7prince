@@ -1,10 +1,10 @@
 {
-  "apcontinue": "List_of_biblical_names_starting_with_D",
-  "total_pages_processed": 4011062,
-  "total_records": 89899,
-  "auto_pass": 79166,
-  "needs_review": 10733,
-  "current_shard": 45,
-  "current_shard_records": 1899,
+  "apcontinue": "List_of_medicinal_herbs",
+  "total_pages_processed": 4039914,
+  "total_records": 93459,
+  "auto_pass": 82074,
+  "needs_review": 11385,
+  "current_shard": 47,
+  "current_shard_records": 1459,
   "source_exhausted": false
 }

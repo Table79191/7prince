@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4011062,
-  "total_records": 89899,
-  "auto_pass": 79166,
-  "needs_review": 10733,
+  "total_pages_processed": 4039914,
+  "total_records": 93459,
+  "auto_pass": 82074,
+  "needs_review": 11385,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "List_of_biblical_names_starting_with_D",
+  "apcontinue": "List_of_medicinal_herbs",
   "source_exhausted": false,
-  "shard_count": 45
+  "shard_count": 47
 }

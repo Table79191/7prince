@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3101053,
-  "total_records": 77836,
-  "auto_pass": 68650,
-  "needs_review": 9186,
+  "total_pages_processed": 3136850,
+  "total_records": 78477,
+  "auto_pass": 69218,
+  "needs_review": 9259,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Iberostomata_fombuenensis",
+  "apcontinue": "Incomplete",
   "source_exhausted": false,
-  "shard_count": 39
+  "shard_count": 40
 }

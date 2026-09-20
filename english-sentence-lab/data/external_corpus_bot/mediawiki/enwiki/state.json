@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Iberostomata_fombuenensis",
-  "total_pages_processed": 3101053,
-  "total_records": 77836,
-  "auto_pass": 68650,
-  "needs_review": 9186,
-  "current_shard": 39,
-  "current_shard_records": 1836,
+  "apcontinue": "Incomplete",
+  "total_pages_processed": 3136850,
+  "total_records": 78477,
+  "auto_pass": 69218,
+  "needs_review": 9259,
+  "current_shard": 40,
+  "current_shard_records": 477,
   "source_exhausted": false
 }

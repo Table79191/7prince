@@ -1,17 +1,17 @@
 {
-  "version": "1.8.4-FULL-AUTO-20260920T003420Z-P129990",
-  "candidate_id": "fm-20260920T003420Z-p129990",
+  "version": "1.8.4-FULL-AUTO-20260920T004131Z-P132342",
+  "candidate_id": "fm-20260920T004131Z-p132342",
   "candidate_accepted": false,
-  "candidate_path": "artifacts/auto_candidates/fm-20260920T003420Z-p129990_role.pt",
-  "metrics_path": "artifacts/auto_candidates/fm-20260920T003420Z-p129990_metrics.json",
+  "candidate_path": "artifacts/auto_candidates/fm-20260920T004131Z-p132342_role.pt",
+  "metrics_path": "artifacts/auto_candidates/fm-20260920T004131Z-p132342_metrics.json",
   "promoted_selected": 2000,
-  "promoted_available": 129990,
+  "promoted_available": 132342,
   "full_model_finetune": true,
   "reason": "no_full_model_candidate_passed_gates",
   "parent": "artifacts/v1.8.3_auto_promoted_silver_role.pt",
   "selected_epoch": 1,
   "baseline_score": 1.0497922457500193,
-  "selected_score": 1.0496093514995037,
+  "selected_score": 1.0496793794031622,
   "total_params": 615558,
   "trainable_params": 615558
 }

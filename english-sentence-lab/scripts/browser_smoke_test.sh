@@ -73,10 +73,16 @@ for(const [s,word,want] of [
   if(i<0||p[i]!==want) throw new Error('POS regression '+s+' '+word+' expected '+want+' got '+p[i]);
 }
 
-const tokens=r.splitTokens("what the hell was that");
-const pos=r.inferPos(tokens);
-const weak=r.weakRoles(pos);
-fs.writeFileSync('/tmp/sentencelab_pre.json',JSON.stringify({tokens,pos,weak}));
+const inferenceCases=[
+  "what the hell was that",
+  "I've only used like 0.001% of my powers so far."
+].map(sentence=>{
+  const tokens=r.splitTokens(sentence);
+  const pos=r.inferPos(tokens);
+  const weak=r.weakRoles(pos);
+  return {sentence,tokens,pos,weak};
+});
+fs.writeFileSync('/tmp/sentencelab_pre.json',JSON.stringify(inferenceCases));
 console.log('browser rules: ok');
 JS
 
@@ -85,7 +91,7 @@ import json
 import numpy as np
 import onnxruntime as ort
 
-x=json.load(open('/tmp/sentencelab_pre.json'))
+rows=json.load(open('/tmp/sentencelab_pre.json'))
 POS=['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X']
 P={v:i for i,v in enumerate(POS)}
 R={'S':1,'V':2,'O':3,'C':4,'M':5}
@@ -110,29 +116,40 @@ def sh(w):
         min(len(w),20)/20,
     ]
 
-t=x['tokens']
-feeds={
-    'wid':np.array([[h(w.lower())%8192 for w in t]],np.int64),
-    'pre':np.array([[h(w.lower()[:3])%1024 for w in t]],np.int64),
-    'suf':np.array([[h(w.lower()[-3:])%1024 for w in t]],np.int64),
-    'pos':np.array([[P.get(p,0) for p in x['pos']]],np.int64),
-    'role':np.array([[0 if r is None else R.get(r,0) for r in x['weak']]],np.int64),
-    'shape':np.array([[sh(w) for w in t]],np.float32),
-    'mask':np.ones((1,len(t)),np.bool_),
-}
-z=ort.InferenceSession('web/r012/r012_role.onnx',providers=['CPUExecutionProvider']).run(['logits'],feeds)[0][0]
-json.dump([I[int(i)] for i in z.argmax(-1)],open('/tmp/sentencelab_raw.json','w'))
+session=ort.InferenceSession('web/r012/r012_role.onnx',providers=['CPUExecutionProvider'])
+raw_rows=[]
+for x in rows:
+    t=x['tokens']
+    feeds={
+        'wid':np.array([[h(w.lower())%8192 for w in t]],np.int64),
+        'pre':np.array([[h(w.lower()[:3])%1024 for w in t]],np.int64),
+        'suf':np.array([[h(w.lower()[-3:])%1024 for w in t]],np.int64),
+        'pos':np.array([[P.get(p,0) for p in x['pos']]],np.int64),
+        'role':np.array([[0 if r is None else R.get(r,0) for r in x['weak']]],np.int64),
+        'shape':np.array([[sh(w) for w in t]],np.float32),
+        'mask':np.ones((1,len(t)),np.bool_),
+    }
+    z=session.run(['logits'],feeds)[0][0]
+    raw_rows.append([I[int(i)] for i in z.argmax(-1)])
+json.dump(raw_rows,open('/tmp/sentencelab_raw.json','w'))
 PY
 
 node - <<'JS'
 const fs=require('fs');
 const r=require('./web/r012/browser_rules.js');
-const x=JSON.parse(fs.readFileSync('/tmp/sentencelab_pre.json'));
-const raw=JSON.parse(fs.readFileSync('/tmp/sentencelab_raw.json'));
-const final=r.postprocessRoles(x.tokens,[...x.pos],raw);
-const want=['C','M','M','V','S'];
-if(JSON.stringify(final)!==JSON.stringify(want)){
-  throw new Error(JSON.stringify({x,raw,final,want}));
+const rows=JSON.parse(fs.readFileSync('/tmp/sentencelab_pre.json'));
+const raws=JSON.parse(fs.readFileSync('/tmp/sentencelab_raw.json'));
+const wants=[
+  ['C','M','M','V','S'],
+  ['S','V','M','V','M','M','O','M','M','M','M','M',null]
+];
+for(let k=0;k<rows.length;k++){
+  const x=rows[k],raw=raws[k];
+  const final=r.postprocessRoles(x.tokens,[...x.pos],raw);
+  const want=wants[k];
+  if(JSON.stringify(final)!==JSON.stringify(want)){
+    throw new Error(JSON.stringify({sentence:x.sentence,x,raw,final,want}));
+  }
+  console.log(JSON.stringify({sentence:x.sentence,tokens:x.tokens,raw,final}));
 }
-console.log(JSON.stringify({tokens:x.tokens,raw,final}));
 JS

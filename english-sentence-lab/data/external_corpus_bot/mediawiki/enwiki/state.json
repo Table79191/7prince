@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Hôtel_de_Ville,_Béthune",
-  "total_pages_processed": 3076406,
-  "total_records": 76171,
-  "auto_pass": 67146,
-  "needs_review": 9025,
+  "apcontinue": "Iberostomata_fombuenensis",
+  "total_pages_processed": 3101053,
+  "total_records": 77836,
+  "auto_pass": 68650,
+  "needs_review": 9186,
   "current_shard": 39,
-  "current_shard_records": 171,
+  "current_shard_records": 1836,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2808329,
-  "total_records": 56202,
-  "auto_pass": 49691,
-  "needs_review": 6511,
-  "added_this_run": 12,
-  "skipped_this_run": 2,
-  "apcontinue": "HIP_94645",
+  "total_pages_processed": 2842613,
+  "total_records": 56477,
+  "auto_pass": 49938,
+  "needs_review": 6539,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Hammond,_South_Australia",
   "source_exhausted": false,
   "shard_count": 29
 }

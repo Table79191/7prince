@@ -1,10 +1,10 @@
 {
-  "apcontinue": "HIP_94645",
-  "total_pages_processed": 2808329,
-  "total_records": 56202,
-  "auto_pass": 49691,
-  "needs_review": 6511,
+  "apcontinue": "Hammond,_South_Australia",
+  "total_pages_processed": 2842613,
+  "total_records": 56477,
+  "auto_pass": 49938,
+  "needs_review": 6539,
   "current_shard": 29,
-  "current_shard_records": 202,
+  "current_shard_records": 477,
   "source_exhausted": false
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Malvar",
-  "total_pages_processed": 4254509,
-  "total_records": 97072,
-  "auto_pass": 85325,
-  "needs_review": 11747,
+  "apcontinue": "Margita_Kristijan",
+  "total_pages_processed": 4298293,
+  "total_records": 97369,
+  "auto_pass": 85581,
+  "needs_review": 11788,
   "current_shard": 49,
-  "current_shard_records": 1072,
+  "current_shard_records": 1369,
   "source_exhausted": false
 }

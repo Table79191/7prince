@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3792063,
-  "total_records": 86298,
-  "auto_pass": 76090,
-  "needs_review": 10208,
+  "total_pages_processed": 3830203,
+  "total_records": 86740,
+  "auto_pass": 76479,
+  "needs_review": 10261,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Lac_de_Morgnieu",
+  "apcontinue": "Laser_chicken",
   "source_exhausted": false,
   "shard_count": 44
 }

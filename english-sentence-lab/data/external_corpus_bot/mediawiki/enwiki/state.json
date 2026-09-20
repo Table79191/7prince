@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Lac_de_Morgnieu",
-  "total_pages_processed": 3792063,
-  "total_records": 86298,
-  "auto_pass": 76090,
-  "needs_review": 10208,
+  "apcontinue": "Laser_chicken",
+  "total_pages_processed": 3830203,
+  "total_records": 86740,
+  "auto_pass": 76479,
+  "needs_review": 10261,
   "current_shard": 44,
-  "current_shard_records": 298,
+  "current_shard_records": 740,
   "source_exhausted": false
 }

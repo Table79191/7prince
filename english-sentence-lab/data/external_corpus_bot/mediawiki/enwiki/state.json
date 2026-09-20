@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Jon_Alexander_Krosnick",
-  "total_pages_processed": 3454989,
-  "total_records": 82939,
-  "auto_pass": 73147,
-  "needs_review": 9792,
-  "current_shard": 42,
-  "current_shard_records": 939,
+  "apcontinue": "José_René_Higuita",
+  "total_pages_processed": 3492253,
+  "total_records": 84274,
+  "auto_pass": 74324,
+  "needs_review": 9950,
+  "current_shard": 43,
+  "current_shard_records": 274,
   "source_exhausted": false
 }

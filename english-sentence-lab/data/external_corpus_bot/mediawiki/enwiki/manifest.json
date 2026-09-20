@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3454989,
-  "total_records": 82939,
-  "auto_pass": 73147,
-  "needs_review": 9792,
+  "total_pages_processed": 3492253,
+  "total_records": 84274,
+  "auto_pass": 74324,
+  "needs_review": 9950,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Jon_Alexander_Krosnick",
+  "apcontinue": "José_René_Higuita",
   "source_exhausted": false,
-  "shard_count": 42
+  "shard_count": 43
 }

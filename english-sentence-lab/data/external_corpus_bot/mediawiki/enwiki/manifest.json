@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3683897,
-  "total_records": 85623,
-  "auto_pass": 75489,
-  "needs_review": 10134,
+  "total_pages_processed": 3720364,
+  "total_records": 85658,
+  "auto_pass": 75522,
+  "needs_review": 10136,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "King_Henry_II",
+  "apcontinue": "Konstantin_Volkov_(ice_hockey,_born_1997)",
   "source_exhausted": false,
   "shard_count": 43
 }

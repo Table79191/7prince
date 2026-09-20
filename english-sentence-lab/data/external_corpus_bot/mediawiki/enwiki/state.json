@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Kadambini_Ganguly",
-  "total_pages_processed": 3558258,
-  "total_records": 85298,
-  "auto_pass": 75201,
-  "needs_review": 10097,
+  "apcontinue": "Karl_of_Hessen",
+  "total_pages_processed": 3598003,
+  "total_records": 85342,
+  "auto_pass": 75242,
+  "needs_review": 10100,
   "current_shard": 43,
-  "current_shard_records": 1298,
+  "current_shard_records": 1342,
   "source_exhausted": false
 }

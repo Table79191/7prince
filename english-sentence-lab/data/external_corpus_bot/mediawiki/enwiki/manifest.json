@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3558258,
-  "total_records": 85298,
-  "auto_pass": 75201,
-  "needs_review": 10097,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "Kadambini_Ganguly",
+  "total_pages_processed": 3598003,
+  "total_records": 85342,
+  "auto_pass": 75242,
+  "needs_review": 10100,
+  "added_this_run": 11,
+  "skipped_this_run": 1,
+  "apcontinue": "Karl_of_Hessen",
   "source_exhausted": false,
   "shard_count": 43
 }

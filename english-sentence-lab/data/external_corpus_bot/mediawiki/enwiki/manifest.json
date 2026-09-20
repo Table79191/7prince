@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4185272,
-  "total_records": 96293,
-  "auto_pass": 84651,
-  "needs_review": 11642,
+  "total_pages_processed": 4213245,
+  "total_records": 96939,
+  "auto_pass": 85207,
+  "needs_review": 11732,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Lyver_Pool",
+  "apcontinue": "Madagascan_reed_frogs",
   "source_exhausted": false,
   "shard_count": 49
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2741528,
-  "total_records": 55060,
-  "auto_pass": 48619,
-  "needs_review": 6441,
-  "added_this_run": 21,
-  "skipped_this_run": 1,
-  "apcontinue": "Great_Northern_Railway_Steam_Locomotive_No._1355",
+  "total_pages_processed": 2770773,
+  "total_records": 55694,
+  "auto_pass": 49238,
+  "needs_review": 6456,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Guayas_earthquake",
   "source_exhausted": false,
   "shard_count": 28
 }

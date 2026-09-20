@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Great_Northern_Railway_Steam_Locomotive_No._1355",
-  "total_pages_processed": 2741528,
-  "total_records": 55060,
-  "auto_pass": 48619,
-  "needs_review": 6441,
+  "apcontinue": "Guayas_earthquake",
+  "total_pages_processed": 2770773,
+  "total_records": 55694,
+  "auto_pass": 49238,
+  "needs_review": 6456,
   "current_shard": 28,
-  "current_shard_records": 1060,
+  "current_shard_records": 1694,
   "source_exhausted": false
 }

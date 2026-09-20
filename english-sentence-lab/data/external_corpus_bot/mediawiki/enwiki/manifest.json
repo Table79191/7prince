@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2962606,
-  "total_records": 57008,
-  "auto_pass": 50406,
-  "needs_review": 6602,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "Hi-de-hi",
+  "total_pages_processed": 2985834,
+  "total_records": 61471,
+  "auto_pass": 54263,
+  "needs_review": 7208,
+  "added_this_run": 491,
+  "skipped_this_run": 5,
+  "apcontinue": "History_of_Canada-Ireland_relations",
   "source_exhausted": false,
-  "shard_count": 29
+  "shard_count": 31
 }

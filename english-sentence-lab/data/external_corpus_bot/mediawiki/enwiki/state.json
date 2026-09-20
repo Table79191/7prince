@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Hi-de-hi",
-  "total_pages_processed": 2962606,
-  "total_records": 57008,
-  "auto_pass": 50406,
-  "needs_review": 6602,
-  "current_shard": 29,
-  "current_shard_records": 1008,
+  "apcontinue": "History_of_Canada-Ireland_relations",
+  "total_pages_processed": 2985834,
+  "total_records": 61471,
+  "auto_pass": 54263,
+  "needs_review": 7208,
+  "current_shard": 31,
+  "current_shard_records": 1471,
   "source_exhausted": false
 }

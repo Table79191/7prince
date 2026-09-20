@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Guayas_earthquake",
-  "total_pages_processed": 2770773,
-  "total_records": 55694,
-  "auto_pass": 49238,
-  "needs_review": 6456,
-  "current_shard": 28,
-  "current_shard_records": 1694,
+  "apcontinue": "HIP_94645",
+  "total_pages_processed": 2808329,
+  "total_records": 56202,
+  "auto_pass": 49691,
+  "needs_review": 6511,
+  "current_shard": 29,
+  "current_shard_records": 202,
   "source_exhausted": false
 }

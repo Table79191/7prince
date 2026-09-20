@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Legionella_sainthelensi",
-  "total_pages_processed": 3868427,
-  "total_records": 87229,
-  "auto_pass": 76921,
-  "needs_review": 10308,
+  "apcontinue": "Let_sleeping_dogs_lie",
+  "total_pages_processed": 3898222,
+  "total_records": 87392,
+  "auto_pass": 77055,
+  "needs_review": 10337,
   "current_shard": 44,
-  "current_shard_records": 1229,
+  "current_shard_records": 1392,
   "source_exhausted": false
 }

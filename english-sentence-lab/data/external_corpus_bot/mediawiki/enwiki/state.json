@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Glenquarry",
-  "total_pages_processed": 2676107,
-  "total_records": 53896,
-  "auto_pass": 47595,
-  "needs_review": 6301,
-  "current_shard": 27,
-  "current_shard_records": 1896,
+  "apcontinue": "Gordon_Kennedy_(minister)",
+  "total_pages_processed": 2710172,
+  "total_records": 54673,
+  "auto_pass": 48282,
+  "needs_review": 6391,
+  "current_shard": 28,
+  "current_shard_records": 673,
   "source_exhausted": false
 }

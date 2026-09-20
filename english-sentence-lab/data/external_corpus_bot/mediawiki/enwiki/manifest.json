@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2676107,
-  "total_records": 53896,
-  "auto_pass": 47595,
-  "needs_review": 6301,
+  "total_pages_processed": 2710172,
+  "total_records": 54673,
+  "auto_pass": 48282,
+  "needs_review": 6391,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Glenquarry",
+  "apcontinue": "Gordon_Kennedy_(minister)",
   "source_exhausted": false,
-  "shard_count": 27
+  "shard_count": 28
 }

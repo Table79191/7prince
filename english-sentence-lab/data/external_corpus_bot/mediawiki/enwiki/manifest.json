@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3009528,
-  "total_records": 75413,
-  "auto_pass": 66468,
-  "needs_review": 8945,
-  "added_this_run": 226,
-  "skipped_this_run": 3,
-  "apcontinue": "Homophobic_person",
+  "total_pages_processed": 3042846,
+  "total_records": 75677,
+  "auto_pass": 66708,
+  "needs_review": 8969,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Hubert_de_Burgh,_1st_Earl_of_Kent",
   "source_exhausted": false,
   "shard_count": 38
 }

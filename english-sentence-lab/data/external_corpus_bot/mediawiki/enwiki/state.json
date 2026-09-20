@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Homophobic_person",
-  "total_pages_processed": 3009528,
-  "total_records": 75413,
-  "auto_pass": 66468,
-  "needs_review": 8945,
+  "apcontinue": "Hubert_de_Burgh,_1st_Earl_of_Kent",
+  "total_pages_processed": 3042846,
+  "total_records": 75677,
+  "auto_pass": 66708,
+  "needs_review": 8969,
   "current_shard": 38,
-  "current_shard_records": 1413,
+  "current_shard_records": 1677,
   "source_exhausted": false
 }

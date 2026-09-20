@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Hammond,_South_Australia",
-  "total_pages_processed": 2842613,
-  "total_records": 56477,
-  "auto_pass": 49938,
-  "needs_review": 6539,
+  "apcontinue": "Hasan_Adnan",
+  "total_pages_processed": 2883203,
+  "total_records": 56545,
+  "auto_pass": 50004,
+  "needs_review": 6541,
   "current_shard": 29,
-  "current_shard_records": 477,
+  "current_shard_records": 545,
   "source_exhausted": false
 }

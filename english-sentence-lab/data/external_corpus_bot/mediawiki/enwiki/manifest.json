@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3405482,
-  "total_records": 82763,
-  "auto_pass": 73003,
-  "needs_review": 9760,
+  "total_pages_processed": 3454989,
+  "total_records": 82939,
+  "auto_pass": 73147,
+  "needs_review": 9792,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "John_Collins_(theatre_director)",
+  "apcontinue": "Jon_Alexander_Krosnick",
   "source_exhausted": false,
   "shard_count": 42
 }

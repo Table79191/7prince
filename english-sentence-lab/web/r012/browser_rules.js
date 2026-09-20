@@ -51,6 +51,8 @@
       else if(POSSESSIVE_DET.has(w))p='DET';
       else if(PRONOUNS.has(w))p='PRON';
       else if(DETS.has(w))p='DET';
+      else if(w==='so'&&next==='far')p='ADV';
+      else if(w==='far'&&(tokens[i-1]||'').toLowerCase()==='so')p='ADV';
       else if(CCONJ.has(w))p='CCONJ';
       else if(SCONJ.has(w))p='SCONJ';
       else if(w==='to')p='PART';
@@ -194,6 +196,19 @@
       for(let j=i+1;j<pos.length;j++){
         if(pos[j]==='PUNCT'||pos[j]==='VERB'||pos[j]==='AUX'||pos[j]==='CCONJ'||pos[j]==='SCONJ')break;
         setRole(j,'M');
+      }
+    }
+    // Colloquial approximate percentage object: "used like/about 5% of ...".
+    // Keep phrase modifiers as M but preserve the percentage head as O.
+    const approxPercentMarkers=new Set(['like','about','around','approximately','roughly','nearly','almost']);
+    for(let vi=0;vi<lo.length;vi++){
+      if(pos[vi]!=='VERB'||LINKING_VERBS.has(lo[vi]))continue;
+      let j=vi+1;
+      while(j<lo.length&&pos[j]!=='PUNCT'&&(pos[j]==='ADV'||pos[j]==='PART'||lo[j]==='only'||lo[j]==='just'))j++;
+      if(j<lo.length&&approxPercentMarkers.has(lo[j]))j++;
+      if(j+1<lo.length&&pos[j]==='NUM'&&lo[j+1]==='%'){
+        setRole(j,'M');
+        setRole(j+1,'O'); // approx-percentage-object
       }
     }
     const isNum=w=>/^\d+(?:\.\d+)?$/.test(w.replace(/,/g,''));

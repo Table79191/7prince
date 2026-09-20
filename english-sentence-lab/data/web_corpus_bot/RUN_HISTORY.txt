@@ -14970,3 +14970,20 @@ source_changes: none
 new_items_sample:
 - none
 
+=== 2026-09-20T20:35:58+09:00 / 2026-09-20T11:35:58+00:00 ===
+status: success
+event: workflow_dispatch
+run_id: 35508010818
+run_attempt: 1
+event_head_sha: fb4dfabfa34e7e6cebda63a742ccc0a36dd899a2
+worker_base_sha: 8f306e0cf270b7db5eb559d39ce6e5f2549ca46d
+details: collect=success,stamp=success,validate=success,runtime=skipped,comparetest=skipped,compare=skipped
+before_total: 70251
+after_total: 70251
+net_total_change: +0
+new_items_added: 0
+items_removed: 0
+source_changes: none
+new_items_sample:
+- none
+

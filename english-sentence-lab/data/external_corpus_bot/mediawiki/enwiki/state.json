@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Gordon_Kennedy_(minister)",
-  "total_pages_processed": 2710172,
-  "total_records": 54673,
-  "auto_pass": 48282,
-  "needs_review": 6391,
+  "apcontinue": "Great_Northern_Railway_Steam_Locomotive_No._1355",
+  "total_pages_processed": 2741528,
+  "total_records": 55060,
+  "auto_pass": 48619,
+  "needs_review": 6441,
   "current_shard": 28,
-  "current_shard_records": 673,
+  "current_shard_records": 1060,
   "source_exhausted": false
 }

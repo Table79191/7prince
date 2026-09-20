@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4110569,
-  "total_records": 95755,
-  "auto_pass": 84161,
-  "needs_review": 11594,
+  "total_pages_processed": 4144123,
+  "total_records": 96124,
+  "auto_pass": 84498,
+  "needs_review": 11626,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "London_Anarchist_Book_Fair",
+  "apcontinue": "Loveless_music_and_drama_CDs",
   "source_exhausted": false,
-  "shard_count": 48
+  "shard_count": 49
 }

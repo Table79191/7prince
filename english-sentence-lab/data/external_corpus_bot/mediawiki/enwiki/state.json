@@ -1,10 +1,10 @@
 {
-  "apcontinue": "London_Anarchist_Book_Fair",
-  "total_pages_processed": 4110569,
-  "total_records": 95755,
-  "auto_pass": 84161,
-  "needs_review": 11594,
-  "current_shard": 48,
-  "current_shard_records": 1755,
+  "apcontinue": "Loveless_music_and_drama_CDs",
+  "total_pages_processed": 4144123,
+  "total_records": 96124,
+  "auto_pass": 84498,
+  "needs_review": 11626,
+  "current_shard": 49,
+  "current_shard_records": 124,
   "source_exhausted": false
 }

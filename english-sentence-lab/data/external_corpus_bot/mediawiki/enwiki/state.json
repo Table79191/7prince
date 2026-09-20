@@ -1,10 +1,10 @@
 {
-  "apcontinue": "James_Howard_Yellin",
-  "total_pages_processed": 3271697,
-  "total_records": 81784,
-  "auto_pass": 72131,
-  "needs_review": 9653,
+  "apcontinue": "Jawahar_Navodaya_Vidyalaya,_Minicoy",
+  "total_pages_processed": 3313712,
+  "total_records": 81823,
+  "auto_pass": 72168,
+  "needs_review": 9655,
   "current_shard": 41,
-  "current_shard_records": 1784,
+  "current_shard_records": 1823,
   "source_exhausted": false
 }

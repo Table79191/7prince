@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3271697,
-  "total_records": 81784,
-  "auto_pass": 72131,
-  "needs_review": 9653,
+  "total_pages_processed": 3313712,
+  "total_records": 81823,
+  "auto_pass": 72168,
+  "needs_review": 9655,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "James_Howard_Yellin",
+  "apcontinue": "Jawahar_Navodaya_Vidyalaya,_Minicoy",
   "source_exhausted": false,
   "shard_count": 41
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Lindsay_Monroe",
-  "total_pages_processed": 3935055,
-  "total_records": 87766,
-  "auto_pass": 77379,
-  "needs_review": 10387,
-  "current_shard": 44,
-  "current_shard_records": 1766,
+  "apcontinue": "List_of_Kingdom_chapters",
+  "total_pages_processed": 3972732,
+  "total_records": 89459,
+  "auto_pass": 78792,
+  "needs_review": 10667,
+  "current_shard": 45,
+  "current_shard_records": 1459,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4213245,
-  "total_records": 96939,
-  "auto_pass": 85207,
-  "needs_review": 11732,
+  "total_pages_processed": 4254509,
+  "total_records": 97072,
+  "auto_pass": 85325,
+  "needs_review": 11747,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Madagascan_reed_frogs",
+  "apcontinue": "Malvar",
   "source_exhausted": false,
   "shard_count": 49
 }

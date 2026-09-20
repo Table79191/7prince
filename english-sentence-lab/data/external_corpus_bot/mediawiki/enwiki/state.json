@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Madagascan_reed_frogs",
-  "total_pages_processed": 4213245,
-  "total_records": 96939,
-  "auto_pass": 85207,
-  "needs_review": 11732,
+  "apcontinue": "Malvar",
+  "total_pages_processed": 4254509,
+  "total_records": 97072,
+  "auto_pass": 85325,
+  "needs_review": 11747,
   "current_shard": 49,
-  "current_shard_records": 939,
+  "current_shard_records": 1072,
   "source_exhausted": false
 }

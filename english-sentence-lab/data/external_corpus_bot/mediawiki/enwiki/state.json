@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Incomplete",
-  "total_pages_processed": 3136850,
-  "total_records": 78477,
-  "auto_pass": 69218,
-  "needs_review": 9259,
+  "apcontinue": "International_Council_of_Ballroom_Dancing",
+  "total_pages_processed": 3165278,
+  "total_records": 79156,
+  "auto_pass": 69809,
+  "needs_review": 9347,
   "current_shard": 40,
-  "current_shard_records": 477,
+  "current_shard_records": 1156,
   "source_exhausted": false
 }

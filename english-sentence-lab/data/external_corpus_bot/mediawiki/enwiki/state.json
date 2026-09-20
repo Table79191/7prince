@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Kuthi",
-  "total_pages_processed": 3759968,
-  "total_records": 85891,
-  "auto_pass": 75739,
-  "needs_review": 10152,
-  "current_shard": 43,
-  "current_shard_records": 1891,
+  "apcontinue": "Lac_de_Morgnieu",
+  "total_pages_processed": 3792063,
+  "total_records": 86298,
+  "auto_pass": 76090,
+  "needs_review": 10208,
+  "current_shard": 44,
+  "current_shard_records": 298,
   "source_exhausted": false
 }

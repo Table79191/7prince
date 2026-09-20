@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3759968,
-  "total_records": 85891,
-  "auto_pass": 75739,
-  "needs_review": 10152,
+  "total_pages_processed": 3792063,
+  "total_records": 86298,
+  "auto_pass": 76090,
+  "needs_review": 10208,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Kuthi",
+  "apcontinue": "Lac_de_Morgnieu",
   "source_exhausted": false,
-  "shard_count": 43
+  "shard_count": 44
 }

@@ -1,30 +1,30 @@
 {
   "version": "PROMOTED-SILVER-1",
   "added_this_run": 2000,
-  "total_promoted": 127990,
+  "total_promoted": 129990,
   "sources": {
     "tatoeba": {
-      "source_records": 1379224,
-      "processed_before": 347649,
-      "scanned": 1432,
+      "source_records": 1393728,
+      "processed_before": 349081,
+      "scanned": 1557,
       "accepted": 1000,
       "rejected": {
-        "consensus": 201,
-        "status": 178,
-        "length": 48,
-        "structure": 4,
-        "duplicate": 1
+        "length": 207,
+        "consensus": 195,
+        "status": 143,
+        "structure": 7,
+        "duplicate": 3,
+        "quality_length": 2
       }
     },
     "enwiki_bulk": {
       "source_records": 341681,
-      "processed_before": 75556,
-      "scanned": 1621,
+      "processed_before": 77177,
+      "scanned": 1659,
       "accepted": 1000,
       "rejected": {
-        "consensus": 614,
-        "length": 5,
-        "duplicate": 2
+        "consensus": 656,
+        "length": 3
       }
     },
     "mediawiki/enwiki": {
@@ -63,23 +63,23 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94461419
+        "bytes": 94464085
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94435956
+        "bytes": 94438611
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 94401895
+        "bytes": 94404758
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 94373586
+        "bytes": 94376140
       },
       {
         "name": "promoted-000007.jsonl",
-        "bytes": 14436228
+        "bytes": 22924761
       },
       {
         "name": "promoted-000008.jsonl",

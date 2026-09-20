@@ -1,10 +1,10 @@
 {
-  "apcontinue": "José_René_Higuita",
-  "total_pages_processed": 3492253,
-  "total_records": 84274,
-  "auto_pass": 74324,
-  "needs_review": 9950,
+  "apcontinue": "Juoksáhkká",
+  "total_pages_processed": 3526784,
+  "total_records": 84641,
+  "auto_pass": 74639,
+  "needs_review": 10002,
   "current_shard": 43,
-  "current_shard_records": 274,
+  "current_shard_records": 641,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3492253,
-  "total_records": 84274,
-  "auto_pass": 74324,
-  "needs_review": 9950,
+  "total_pages_processed": 3526784,
+  "total_records": 84641,
+  "auto_pass": 74639,
+  "needs_review": 10002,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "José_René_Higuita",
+  "apcontinue": "Juoksáhkká",
   "source_exhausted": false,
   "shard_count": 43
 }

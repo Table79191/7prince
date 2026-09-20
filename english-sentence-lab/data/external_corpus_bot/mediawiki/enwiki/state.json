@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Jawahar_Navodaya_Vidyalaya,_Minicoy",
-  "total_pages_processed": 3313712,
-  "total_records": 81823,
-  "auto_pass": 72168,
-  "needs_review": 9655,
-  "current_shard": 41,
-  "current_shard_records": 1823,
+  "apcontinue": "Jianbing_1",
+  "total_pages_processed": 3357583,
+  "total_records": 82279,
+  "auto_pass": 72567,
+  "needs_review": 9712,
+  "current_shard": 42,
+  "current_shard_records": 279,
   "source_exhausted": false
 }

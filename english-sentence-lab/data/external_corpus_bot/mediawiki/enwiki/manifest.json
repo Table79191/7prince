@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3313712,
-  "total_records": 81823,
-  "auto_pass": 72168,
-  "needs_review": 9655,
+  "total_pages_processed": 3357583,
+  "total_records": 82279,
+  "auto_pass": 72567,
+  "needs_review": 9712,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Jawahar_Navodaya_Vidyalaya,_Minicoy",
+  "apcontinue": "Jianbing_1",
   "source_exhausted": false,
-  "shard_count": 41
+  "shard_count": 42
 }

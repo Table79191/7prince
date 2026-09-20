@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Islands_of_the_Persian_Gulf",
-  "total_pages_processed": 3200110,
-  "total_records": 79646,
-  "auto_pass": 70220,
-  "needs_review": 9426,
-  "current_shard": 40,
-  "current_shard_records": 1646,
+  "apcontinue": "JVC_Kenwood_Victor_Entertainment",
+  "total_pages_processed": 3230355,
+  "total_records": 80799,
+  "auto_pass": 71251,
+  "needs_review": 9548,
+  "current_shard": 41,
+  "current_shard_records": 799,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3200110,
-  "total_records": 79646,
-  "auto_pass": 70220,
-  "needs_review": 9426,
+  "total_pages_processed": 3230355,
+  "total_records": 80799,
+  "auto_pass": 71251,
+  "needs_review": 9548,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Islands_of_the_Persian_Gulf",
+  "apcontinue": "JVC_Kenwood_Victor_Entertainment",
   "source_exhausted": false,
-  "shard_count": 40
+  "shard_count": 41
 }

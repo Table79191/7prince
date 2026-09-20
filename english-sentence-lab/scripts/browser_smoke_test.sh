@@ -38,6 +38,13 @@ for(const s of ["What on earth was that?","Who in the world was that?","what the
   if(fin[0]!=='C'||fin[cop]!=='V'||fin[cop+1]!=='S') throw new Error(s+' '+JSON.stringify(fin));
   for(let i=1;i<cop;i++) if(fin[i]!=='M') throw new Error(s+' filler '+JSON.stringify(fin));
 }
+const approxSentence="I've only used like 0.001% of my powers so far.";
+const approxTokens=r.splitTokens(approxSentence),approxPos=r.inferPos(approxTokens);
+const approxFinal=r.postprocessRoles(approxTokens,[...approxPos],r.weakRoles(approxPos));
+const approxWant=['S','V','M','V','M','M','O','M','M','M','M','M',null];
+if(JSON.stringify(approxFinal)!==JSON.stringify(approxWant)){
+  throw new Error('approx percentage regression '+JSON.stringify({approxTokens,approxPos,approxFinal,approxWant}));
+}
 const np=['my','0.001','%','powers'],pp=['DET','NUM','SYM','NOUN'];
 const nf=r.postprocessRoles(np,pp,['O','O','O','O']);
 if(JSON.stringify(nf)!==JSON.stringify(['M','M','M','O'])) throw new Error('NP '+JSON.stringify(nf));

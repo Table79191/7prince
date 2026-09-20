@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2987423,
-  "total_records": 72431,
-  "auto_pass": 63929,
-  "needs_review": 8502,
-  "added_this_run": 456,
-  "skipped_this_run": 2,
-  "apcontinue": "History_of_Roman_cuisine",
+  "total_pages_processed": 3009528,
+  "total_records": 75413,
+  "auto_pass": 66468,
+  "needs_review": 8945,
+  "added_this_run": 226,
+  "skipped_this_run": 3,
+  "apcontinue": "Homophobic_person",
   "source_exhausted": false,
-  "shard_count": 37
+  "shard_count": 38
 }

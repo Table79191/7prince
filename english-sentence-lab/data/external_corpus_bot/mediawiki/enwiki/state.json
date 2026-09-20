@@ -1,10 +1,10 @@
 {
-  "apcontinue": "List_of_Kingdom_chapters",
-  "total_pages_processed": 3972732,
-  "total_records": 89459,
-  "auto_pass": 78792,
-  "needs_review": 10667,
+  "apcontinue": "List_of_biblical_names_starting_with_D",
+  "total_pages_processed": 4011062,
+  "total_records": 89899,
+  "auto_pass": 79166,
+  "needs_review": 10733,
   "current_shard": 45,
-  "current_shard_records": 1459,
+  "current_shard_records": 1899,
   "source_exhausted": false
 }

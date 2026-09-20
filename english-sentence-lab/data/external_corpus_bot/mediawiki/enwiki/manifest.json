@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3972732,
-  "total_records": 89459,
-  "auto_pass": 78792,
-  "needs_review": 10667,
+  "total_pages_processed": 4011062,
+  "total_records": 89899,
+  "auto_pass": 79166,
+  "needs_review": 10733,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "List_of_Kingdom_chapters",
+  "apcontinue": "List_of_biblical_names_starting_with_D",
   "source_exhausted": false,
   "shard_count": 45
 }

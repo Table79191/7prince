@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 2883203,
-  "total_records": 56545,
-  "auto_pass": 50004,
-  "needs_review": 6541,
+  "total_pages_processed": 2921333,
+  "total_records": 56893,
+  "auto_pass": 50307,
+  "needs_review": 6586,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Hasan_Adnan",
+  "apcontinue": "Helvetia_Tinde",
   "source_exhausted": false,
   "shard_count": 29
 }

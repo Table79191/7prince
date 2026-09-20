@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Hasan_Adnan",
-  "total_pages_processed": 2883203,
-  "total_records": 56545,
-  "auto_pass": 50004,
-  "needs_review": 6541,
+  "apcontinue": "Helvetia_Tinde",
+  "total_pages_processed": 2921333,
+  "total_records": 56893,
+  "auto_pass": 50307,
+  "needs_review": 6586,
   "current_shard": 29,
-  "current_shard_records": 545,
+  "current_shard_records": 893,
   "source_exhausted": false
 }

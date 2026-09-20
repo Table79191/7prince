@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3526784,
-  "total_records": 84641,
-  "auto_pass": 74639,
-  "needs_review": 10002,
+  "total_pages_processed": 3558258,
+  "total_records": 85298,
+  "auto_pass": 75201,
+  "needs_review": 10097,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Juoksáhkká",
+  "apcontinue": "Kadambini_Ganguly",
   "source_exhausted": false,
   "shard_count": 43
 }

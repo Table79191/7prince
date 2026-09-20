@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3598003,
-  "total_records": 85342,
-  "auto_pass": 75242,
-  "needs_review": 10100,
-  "added_this_run": 11,
-  "skipped_this_run": 1,
-  "apcontinue": "Karl_of_Hessen",
+  "total_pages_processed": 3642750,
+  "total_records": 85470,
+  "auto_pass": 75356,
+  "needs_review": 10114,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Kenton_County_Airport",
   "source_exhausted": false,
   "shard_count": 43
 }

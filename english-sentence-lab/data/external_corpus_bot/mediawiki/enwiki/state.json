@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Karl_of_Hessen",
-  "total_pages_processed": 3598003,
-  "total_records": 85342,
-  "auto_pass": 75242,
-  "needs_review": 10100,
+  "apcontinue": "Kenton_County_Airport",
+  "total_pages_processed": 3642750,
+  "total_records": 85470,
+  "auto_pass": 75356,
+  "needs_review": 10114,
   "current_shard": 43,
-  "current_shard_records": 1342,
+  "current_shard_records": 1470,
   "source_exhausted": false
 }

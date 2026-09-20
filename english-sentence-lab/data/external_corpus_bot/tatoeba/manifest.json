@@ -17,12 +17,12 @@
   },
   "archive_sha256": "69a8ff3de808313a75c5305f4f7b3f4c9d3460c1bd9fdf0f375da247c2d02489",
   "archive_bytes": 24878903,
-  "last_processed_sentence_id": 12173793,
-  "total_records": 1850786,
-  "auto_pass": 1750795,
-  "needs_review": 99991,
-  "added_this_run": 13909,
-  "skipped_this_run": 0,
+  "last_processed_sentence_id": 12246827,
+  "total_records": 1863688,
+  "auto_pass": 1763182,
+  "needs_review": 100506,
+  "added_this_run": 12902,
+  "skipped_this_run": 3,
   "source_exhausted_at_last_run": false,
-  "shard_count": 926
+  "shard_count": 932
 }

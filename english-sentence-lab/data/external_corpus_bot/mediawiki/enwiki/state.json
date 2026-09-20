@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Helvetia_Tinde",
-  "total_pages_processed": 2921333,
-  "total_records": 56893,
-  "auto_pass": 50307,
-  "needs_review": 6586,
+  "apcontinue": "Hi-de-hi",
+  "total_pages_processed": 2962606,
+  "total_records": 57008,
+  "auto_pass": 50406,
+  "needs_review": 6602,
   "current_shard": 29,
-  "current_shard_records": 893,
+  "current_shard_records": 1008,
   "source_exhausted": false
 }

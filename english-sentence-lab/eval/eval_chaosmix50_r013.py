@@ -22,6 +22,32 @@ OUT = ROOT / 'artifacts' / 'r013_chaosmix50_eval.json'
 SUMMARY = ROOT / 'artifacts' / 'r013_chaosmix50_eval.txt'
 
 
+
+def assert_targeted_regressions(nlp):
+    cases = [
+        (
+            'What the hell was that?',
+            {'What':'C','the':'M','hell':'M','was':'V','that':'S'},
+        ),
+        (
+            "I've only used like 0.001% of my powers so far.",
+            {'I':'S',"'ve":'V','only':'M','used':'V','like':'M','0.001':'M','%':'O',
+             'of':'M','my':'M','powers':'M','so':'M','far':'M'},
+        ),
+    ]
+    for sentence, expected in cases:
+        doc = nlp(sentence)
+        guarded, reasons = postprocess_roles(doc, ['M'] * len(doc))
+        got = {t.text: guarded[t.i] for t in doc if t.text in expected}
+        missing = [w for w in expected if w not in got]
+        wrong = {w:(expected[w],got.get(w)) for w in expected if got.get(w) != expected[w]}
+        if missing or wrong:
+            raise RuntimeError(
+                f'targeted regression failed: {sentence} missing={missing} wrong={wrong} '
+                f'tokens={[(t.text,t.pos_,t.dep_,guarded[t.i],reasons[t.i]) for t in doc]}'
+            )
+
+
 def main():
     torch.set_num_threads(4)
     data = json.loads(e.DATA.read_text(encoding='utf-8'))
@@ -30,6 +56,7 @@ def main():
         raise RuntimeError('ChaosMix50 audited gold mismatch')
 
     nlp = spacy.load('en_core_web_sm')
+    assert_targeted_regressions(nlp)
     ck = torch.load(e.MODEL,map_location='cpu',weights_only=False)
     model = e.base.RoleNet().cpu(); model.load_state_dict(ck['model'],strict=True); model.eval()
 

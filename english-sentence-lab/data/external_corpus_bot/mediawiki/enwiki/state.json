@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Jianbing_1",
-  "total_pages_processed": 3357583,
-  "total_records": 82279,
-  "auto_pass": 72567,
-  "needs_review": 9712,
+  "apcontinue": "John_Collins_(theatre_director)",
+  "total_pages_processed": 3405482,
+  "total_records": 82763,
+  "auto_pass": 73003,
+  "needs_review": 9760,
   "current_shard": 42,
-  "current_shard_records": 279,
+  "current_shard_records": 763,
   "source_exhausted": false
 }

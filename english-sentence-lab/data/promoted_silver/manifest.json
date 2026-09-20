@@ -1,39 +1,46 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2000,
-  "total_promoted": 156969,
+  "added_this_run": 2141,
+  "total_promoted": 159110,
   "sources": {
     "tatoeba": {
       "source_records": 1485967,
-      "processed_before": 375025,
-      "scanned": 2860,
+      "processed_before": 377885,
+      "scanned": 2600,
       "accepted": 1000,
       "rejected": {
-        "length": 1346,
-        "quality_length": 207,
-        "status": 31,
-        "consensus": 268,
-        "structure": 7,
-        "duplicate": 1
+        "consensus": 329,
+        "length": 913,
+        "quality_length": 301,
+        "status": 38,
+        "structure": 15,
+        "duplicate": 3,
+        "punctuation": 1
       }
     },
     "enwiki_bulk": {
-      "source_records": 371384,
-      "processed_before": 98927,
-      "scanned": 1612,
+      "source_records": 374687,
+      "processed_before": 100539,
+      "scanned": 1614,
       "accepted": 1000,
       "rejected": {
-        "consensus": 609,
-        "duplicate": 1,
-        "length": 2
+        "consensus": 611,
+        "length": 2,
+        "duplicate": 1
       }
     },
     "mediawiki/enwiki": {
-      "source_records": 56545,
+      "source_records": 56893,
       "processed_before": 56545,
-      "scanned": 0,
-      "accepted": 0,
-      "rejected": {}
+      "scanned": 348,
+      "accepted": 141,
+      "rejected": {
+        "consensus": 90,
+        "status": 45,
+        "structure": 31,
+        "length": 40,
+        "nonprose": 1
+      }
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -64,27 +71,27 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94510995
+        "bytes": 94514108
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94485234
+        "bytes": 94488049
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 94446104
+        "bytes": 94450507
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 94420295
+        "bytes": 94422925
       },
       {
         "name": "promoted-000007.jsonl",
-        "bytes": 94384121
+        "bytes": 94386753
       },
       {
         "name": "promoted-000008.jsonl",
-        "bytes": 52440327
+        "bytes": 62616422
       },
       {
         "name": "promoted-000009.jsonl",

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3165278,
-  "total_records": 79156,
-  "auto_pass": 69809,
-  "needs_review": 9347,
+  "total_pages_processed": 3200110,
+  "total_records": 79646,
+  "auto_pass": 70220,
+  "needs_review": 9426,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "International_Council_of_Ballroom_Dancing",
+  "apcontinue": "Islands_of_the_Persian_Gulf",
   "source_exhausted": false,
   "shard_count": 40
 }

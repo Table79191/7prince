@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3830203,
-  "total_records": 86740,
-  "auto_pass": 76479,
-  "needs_review": 10261,
+  "total_pages_processed": 3868427,
+  "total_records": 87229,
+  "auto_pass": 76921,
+  "needs_review": 10308,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Laser_chicken",
+  "apcontinue": "Legionella_sainthelensi",
   "source_exhausted": false,
   "shard_count": 44
 }

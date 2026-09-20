@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 3720364,
-  "total_records": 85658,
-  "auto_pass": 75522,
-  "needs_review": 10136,
+  "total_pages_processed": 3759968,
+  "total_records": 85891,
+  "auto_pass": 75739,
+  "needs_review": 10152,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Konstantin_Volkov_(ice_hockey,_born_1997)",
+  "apcontinue": "Kuthi",
   "source_exhausted": false,
   "shard_count": 43
 }

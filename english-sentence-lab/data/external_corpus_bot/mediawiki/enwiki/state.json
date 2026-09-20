@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Konstantin_Volkov_(ice_hockey,_born_1997)",
-  "total_pages_processed": 3720364,
-  "total_records": 85658,
-  "auto_pass": 75522,
-  "needs_review": 10136,
+  "apcontinue": "Kuthi",
+  "total_pages_processed": 3759968,
+  "total_records": 85891,
+  "auto_pass": 75739,
+  "needs_review": 10152,
   "current_shard": 43,
-  "current_shard_records": 1658,
+  "current_shard_records": 1891,
   "source_exhausted": false
 }

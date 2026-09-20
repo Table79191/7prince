@@ -211,7 +211,7 @@
       "prev": null,
       "next": "the",
       "neural_direct": "M",
-      "confidence": 0.566963,
+      "confidence": 0.566964,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -253,7 +253,7 @@
       "prev": "the",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.658013,
+      "confidence": 0.658014,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -526,7 +526,7 @@
       "prev": "software",
       "next": "installed",
       "neural_direct": "M",
-      "confidence": 0.843581,
+      "confidence": 0.843582,
       "dep_guard": "S",
       "guard_reason": "clausal-prep-subject-repair"
     },
@@ -610,7 +610,7 @@
       "prev": "student",
       "next": "the",
       "neural_direct": "S",
-      "confidence": 0.792162,
+      "confidence": 0.792161,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -715,7 +715,7 @@
       "prev": "the",
       "next": "everyone",
       "neural_direct": "M",
-      "confidence": 0.43884,
+      "confidence": 0.438841,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -799,7 +799,7 @@
       "prev": "traffic",
       "next": "they",
       "neural_direct": "O",
-      "confidence": 0.643961,
+      "confidence": 0.643962,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -904,7 +904,7 @@
       "prev": "an",
       "next": ",",
       "neural_direct": "O",
-      "confidence": 0.514562,
+      "confidence": 0.514563,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -946,7 +946,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "O",
-      "confidence": 0.64159,
+      "confidence": 0.641589,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -967,7 +967,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.689498,
+      "confidence": 0.689497,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },
@@ -988,7 +988,7 @@
       "prev": "every",
       "next": "beginning",
       "neural_direct": "S",
-      "confidence": 0.955753,
+      "confidence": 0.955754,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -1030,7 +1030,7 @@
       "prev": "the",
       "next": "that",
       "neural_direct": "M",
-      "confidence": 0.574743,
+      "confidence": 0.574742,
       "dep_guard": "S",
       "guard_reason": "correlative-subject-repair"
     },
@@ -1201,7 +1201,7 @@
       "prev": "the",
       "next": "had",
       "neural_direct": "O",
-      "confidence": 0.606542,
+      "confidence": 0.606543,
       "dep_guard": "O",
       "guard_reason": "dep-object"
     },
@@ -1243,7 +1243,7 @@
       "prev": "seamless",
       "next": "look",
       "neural_direct": "S",
-      "confidence": 0.603696,
+      "confidence": 0.603695,
       "dep_guard": "S",
       "guard_reason": "dep-subject"
     },

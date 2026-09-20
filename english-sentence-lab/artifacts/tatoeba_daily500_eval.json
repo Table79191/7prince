@@ -1,9 +1,9 @@
 {
   "benchmark": "TatoebaDaily500-CC0 high-frequency independent-silver",
   "source_url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences_CC0.tsv.bz2",
-  "source_last_modified": "Sat, 12 Sep 2026 12:39:13 GMT",
+  "source_last_modified": "Sat, 19 Sep 2026 06:31:34 GMT",
   "license": "CC0 1.0",
-  "retrieved_at_utc": "2026-09-18T14:18:44.909539+00:00",
+  "retrieved_at_utc": "2026-09-20T04:55:17.064153+00:00",
   "selection": "top 500 by wordfreq Zipf daily-likeness score after 2-10 word, <=80 char, single-sentence, min Zipf>=4.0, avg>=5.15, conversational-anchor, no URL/digits/profanity, spaCy no-PROPN/X/SYM filter",
   "sentences": 500,
   "training_allowed": false,

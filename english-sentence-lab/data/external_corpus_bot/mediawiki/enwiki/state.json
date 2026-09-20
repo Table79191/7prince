@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Loveless_music_and_drama_CDs",
-  "total_pages_processed": 4144123,
-  "total_records": 96124,
-  "auto_pass": 84498,
-  "needs_review": 11626,
+  "apcontinue": "Lyver_Pool",
+  "total_pages_processed": 4185272,
+  "total_records": 96293,
+  "auto_pass": 84651,
+  "needs_review": 11642,
   "current_shard": 49,
-  "current_shard_records": 124,
+  "current_shard_records": 293,
   "source_exhausted": false
 }

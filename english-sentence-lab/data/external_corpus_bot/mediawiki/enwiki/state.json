@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Martin_Graber",
-  "total_pages_processed": 4342026,
-  "total_records": 97654,
-  "auto_pass": 85827,
-  "needs_review": 11827,
-  "current_shard": 49,
-  "current_shard_records": 1654,
+  "apcontinue": "Matt_Ritter",
+  "total_pages_processed": 4380647,
+  "total_records": 98189,
+  "auto_pass": 86297,
+  "needs_review": 11892,
+  "current_shard": 50,
+  "current_shard_records": 189,
   "source_exhausted": false
 }

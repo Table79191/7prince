@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Québec_Armory",
-  "total_pages_processed": 5416451,
-  "total_records": 116471,
-  "auto_pass": 102388,
-  "needs_review": 14083,
+  "apcontinue": "Raising_and_Giving",
+  "total_pages_processed": 5447479,
+  "total_records": 117846,
+  "auto_pass": 103602,
+  "needs_review": 14244,
   "current_shard": 59,
-  "current_shard_records": 471,
+  "current_shard_records": 1846,
   "source_exhausted": false
 }

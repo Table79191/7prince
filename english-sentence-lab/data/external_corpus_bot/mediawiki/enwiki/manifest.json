@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5416451,
-  "total_records": 116471,
-  "auto_pass": 102388,
-  "needs_review": 14083,
+  "total_pages_processed": 5447479,
+  "total_records": 117846,
+  "auto_pass": 103602,
+  "needs_review": 14244,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Québec_Armory",
+  "apcontinue": "Raising_and_Giving",
   "source_exhausted": false,
   "shard_count": 59
 }

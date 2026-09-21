@@ -9,7 +9,18 @@ ROOT = Path(__file__).resolve().parents[1]
 BACKEND_PATH = ROOT / "api" / "analyze.py"
 REPORT_PATH = ROOT / "artifacts" / "targeted100_latest.json"
 
-PROBE_TEXT = "while studing english i sometimes couldn't understant the sentence structure"
+PROBE_TEXTS = [
+    "While studying math, I sometimes couldn't understand the problem structure.",
+    "While reading English articles, I often couldn't identify the main clause.",
+    "When studying grammar, I sometimes couldn't understand the sentence pattern.",
+    "While learning English, I occasionally couldn't recognize the subject and verb.",
+    "While reading long sentences, I sometimes couldn't figure out the sentence structure.",
+    "When analyzing English sentences, I often couldn't identify the object complement.",
+    "While practicing grammar, I sometimes couldn't understand complex sentence structures.",
+    "When reading textbooks, I sometimes couldn't follow the paragraph structure.",
+    "While studying English at night, I occasionally couldn't understand relative clauses.",
+    "When practicing sentence analysis, I sometimes couldn't distinguish subjects from objects.",
+]
 
 spec = importlib.util.spec_from_file_location("sentencelab_backend_targeted100", BACKEND_PATH)
 if spec is None or spec.loader is None:
@@ -180,21 +191,23 @@ report = {
 REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
 REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-probe = backend.analyze(PROBE_TEXT)
-print(json.dumps({
-    "probe": PROBE_TEXT,
-    "tokens": [
-        {
-            "text": r["text"],
-            "pos": r["pos"],
-            "dep": r["dep"],
-            "raw": r["r012_raw_role"],
-            "final": r["r012_role"],
-            "reason": r["role_reason"],
-        }
-        for r in probe["tokens"]
-    ],
-}, ensure_ascii=False, indent=2))
+for probe_index, probe_text in enumerate(PROBE_TEXTS, 1):
+    probe = backend.analyze(probe_text)
+    print(json.dumps({
+        "probe_index": probe_index,
+        "probe": probe_text,
+        "tokens": [
+            {
+                "text": r["text"],
+                "pos": r["pos"],
+                "dep": r["dep"],
+                "raw": r["r012_raw_role"],
+                "final": r["r012_role"],
+                "reason": r["role_reason"],
+            }
+            for r in probe["tokens"]
+        ],
+    }, ensure_ascii=False))
 
 print(json.dumps({
     "total": report["total"],

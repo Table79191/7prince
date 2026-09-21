@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5488919,
-  "total_records": 117928,
-  "auto_pass": 103666,
-  "needs_review": 14262,
+  "total_pages_processed": 5522134,
+  "total_records": 118516,
+  "auto_pass": 104188,
+  "needs_review": 14328,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Realtime_rendering",
+  "apcontinue": "Representative_Ron_Paul",
   "source_exhausted": false,
-  "shard_count": 59
+  "shard_count": 60
 }

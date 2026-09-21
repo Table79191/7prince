@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Realtime_rendering",
-  "total_pages_processed": 5488919,
-  "total_records": 117928,
-  "auto_pass": 103666,
-  "needs_review": 14262,
-  "current_shard": 59,
-  "current_shard_records": 1928,
+  "apcontinue": "Representative_Ron_Paul",
+  "total_pages_processed": 5522134,
+  "total_records": 118516,
+  "auto_pass": 104188,
+  "needs_review": 14328,
+  "current_shard": 60,
+  "current_shard_records": 516,
   "source_exhausted": false
 }

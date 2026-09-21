@@ -21,7 +21,7 @@
   "total_records": 2036824,
   "auto_pass": 1931263,
   "needs_review": 105561,
-  "added_this_run": 880,
+  "added_this_run": 0,
   "skipped_this_run": 0,
   "source_exhausted_at_last_run": true,
   "shard_count": 1019

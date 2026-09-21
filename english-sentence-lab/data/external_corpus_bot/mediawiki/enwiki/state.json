@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Meara_(disambiguation)",
-  "total_pages_processed": 4414876,
-  "total_records": 98962,
-  "auto_pass": 86993,
-  "needs_review": 11969,
+  "apcontinue": "Mercury_(aircraft_engine)",
+  "total_pages_processed": 4447608,
+  "total_records": 99673,
+  "auto_pass": 87598,
+  "needs_review": 12075,
   "current_shard": 50,
-  "current_shard_records": 962,
+  "current_shard_records": 1673,
   "source_exhausted": false
 }

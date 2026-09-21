@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4414876,
-  "total_records": 98962,
-  "auto_pass": 86993,
-  "needs_review": 11969,
+  "total_pages_processed": 4447608,
+  "total_records": 99673,
+  "auto_pass": 87598,
+  "needs_review": 12075,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Meara_(disambiguation)",
+  "apcontinue": "Mercury_(aircraft_engine)",
   "source_exhausted": false,
   "shard_count": 50
 }

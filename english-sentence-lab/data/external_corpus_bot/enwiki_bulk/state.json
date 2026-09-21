@@ -1,22 +1,22 @@
 {
-  "total_records": 740808,
-  "pages_sampled": 43811,
-  "current_shard": 297,
-  "current_shard_records": 808,
+  "total_records": 745086,
+  "pages_sampled": 44019,
+  "current_shard": 299,
+  "current_shard_records": 86,
   "rejected": {
-    "word_length": 27971,
-    "char_length": 62785,
-    "canonical": 142704,
-    "parser_integrity": 69243,
-    "markup": 10052,
-    "nonprose": 4175,
-    "duplicate": 3472,
-    "punctuation": 1206,
+    "word_length": 28110,
+    "char_length": 63090,
+    "canonical": 143533,
+    "parser_integrity": 69581,
+    "markup": 10118,
+    "nonprose": 4192,
+    "duplicate": 3482,
+    "punctuation": 1208,
     "long_token": 7,
     "repetition": 57,
     "page_duplicate": 2
   },
-  "last_run_added": 3750,
-  "last_run_pages": 221,
-  "updated_at_utc": "2026-09-21T22:51:00+00:00"
+  "last_run_added": 4278,
+  "last_run_pages": 208,
+  "updated_at_utc": "2026-09-21T23:24:19+00:00"
 }

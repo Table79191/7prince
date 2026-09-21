@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Robert_L._Owen",
-  "total_pages_processed": 5598548,
-  "total_records": 120252,
-  "auto_pass": 105719,
-  "needs_review": 14533,
+  "apcontinue": "Ron_Reagan_Jr.",
+  "total_pages_processed": 5641318,
+  "total_records": 121101,
+  "auto_pass": 106453,
+  "needs_review": 14648,
   "current_shard": 61,
-  "current_shard_records": 252,
+  "current_shard_records": 1101,
   "source_exhausted": false
 }

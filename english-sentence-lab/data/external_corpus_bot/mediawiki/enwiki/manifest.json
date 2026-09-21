@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5598548,
-  "total_records": 120252,
-  "auto_pass": 105719,
-  "needs_review": 14533,
+  "total_pages_processed": 5641318,
+  "total_records": 121101,
+  "auto_pass": 106453,
+  "needs_review": 14648,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Robert_L._Owen",
+  "apcontinue": "Ron_Reagan_Jr.",
   "source_exhausted": false,
   "shard_count": 61
 }

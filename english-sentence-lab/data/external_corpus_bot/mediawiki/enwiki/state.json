@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Millennium_Cities_Initiative",
-  "total_pages_processed": 4523569,
-  "total_records": 100703,
-  "auto_pass": 88517,
-  "needs_review": 12186,
+  "apcontinue": "Mitsuo_Sanami",
+  "total_pages_processed": 4561998,
+  "total_records": 101304,
+  "auto_pass": 89037,
+  "needs_review": 12267,
   "current_shard": 51,
-  "current_shard_records": 703,
+  "current_shard_records": 1304,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4523569,
-  "total_records": 100703,
-  "auto_pass": 88517,
-  "needs_review": 12186,
+  "total_pages_processed": 4561998,
+  "total_records": 101304,
+  "auto_pass": 89037,
+  "needs_review": 12267,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Millennium_Cities_Initiative",
+  "apcontinue": "Mitsuo_Sanami",
   "source_exhausted": false,
   "shard_count": 51
 }

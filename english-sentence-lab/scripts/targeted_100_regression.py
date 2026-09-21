@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BACKEND_PATH = ROOT / "api" / "analyze.py"
 REPORT_PATH = ROOT / "artifacts" / "targeted100_latest.json"
 
-PROBE_TEXT = "i don't like it"
+PROBE_TEXT = "while studing english i sometimes couldn't understant the sentence structure"
 
 spec = importlib.util.spec_from_file_location("sentencelab_backend_targeted100", BACKEND_PATH)
 if spec is None or spec.loader is None:

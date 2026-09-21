@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Margita_Kristijan",
-  "total_pages_processed": 4298293,
-  "total_records": 97369,
-  "auto_pass": 85581,
-  "needs_review": 11788,
+  "apcontinue": "Martin_Graber",
+  "total_pages_processed": 4342026,
+  "total_records": 97654,
+  "auto_pass": 85827,
+  "needs_review": 11827,
   "current_shard": 49,
-  "current_shard_records": 1369,
+  "current_shard_records": 1654,
   "source_exhausted": false
 }

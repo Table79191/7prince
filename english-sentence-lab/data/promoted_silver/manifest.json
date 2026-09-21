@@ -1,39 +1,47 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2000,
-  "total_promoted": 455229,
+  "added_this_run": 2560,
+  "total_promoted": 457789,
   "sources": {
     "tatoeba": {
       "source_records": 2036824,
-      "processed_before": 618942,
-      "scanned": 2053,
+      "processed_before": 620995,
+      "scanned": 1465,
       "accepted": 1000,
       "rejected": {
-        "consensus": 286,
-        "length": 304,
-        "quality_length": 410,
-        "status": 46,
-        "structure": 6,
-        "punctuation": 1
+        "status": 31,
+        "consensus": 261,
+        "length": 114,
+        "quality_length": 49,
+        "punctuation": 1,
+        "structure": 9
       }
     },
     "enwiki_bulk": {
-      "source_records": 725841,
-      "processed_before": 326872,
-      "scanned": 1617,
+      "source_records": 732403,
+      "processed_before": 328489,
+      "scanned": 1573,
       "accepted": 1000,
       "rejected": {
-        "consensus": 607,
-        "duplicate": 7,
-        "length": 3
+        "consensus": 560,
+        "length": 8,
+        "duplicate": 5
       }
     },
     "mediawiki/enwiki": {
-      "source_records": 118516,
+      "source_records": 119749,
       "processed_before": 118516,
-      "scanned": 0,
-      "accepted": 0,
-      "rejected": {}
+      "scanned": 1233,
+      "accepted": 560,
+      "rejected": {
+        "structure": 155,
+        "length": 101,
+        "nonprose": 14,
+        "consensus": 274,
+        "status": 126,
+        "quality_length": 2,
+        "markup": 1
+      }
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -64,87 +72,87 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94920559
+        "bytes": 94922889
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94903505
+        "bytes": 94906093
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 94873010
+        "bytes": 94875635
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 94838725
+        "bytes": 94841265
       },
       {
         "name": "promoted-000007.jsonl",
-        "bytes": 94805917
+        "bytes": 94809919
       },
       {
         "name": "promoted-000008.jsonl",
-        "bytes": 94768490
+        "bytes": 94771285
       },
       {
         "name": "promoted-000009.jsonl",
-        "bytes": 94765307
+        "bytes": 94767678
       },
       {
         "name": "promoted-000010.jsonl",
-        "bytes": 94736437
+        "bytes": 94739442
       },
       {
         "name": "promoted-000011.jsonl",
-        "bytes": 94691654
+        "bytes": 94694291
       },
       {
         "name": "promoted-000012.jsonl",
-        "bytes": 94651504
+        "bytes": 94655863
       },
       {
         "name": "promoted-000013.jsonl",
-        "bytes": 94635574
+        "bytes": 94638106
       },
       {
         "name": "promoted-000014.jsonl",
-        "bytes": 94599042
+        "bytes": 94602048
       },
       {
         "name": "promoted-000015.jsonl",
-        "bytes": 94579915
+        "bytes": 94582686
       },
       {
         "name": "promoted-000016.jsonl",
-        "bytes": 94539238
+        "bytes": 94541656
       },
       {
         "name": "promoted-000017.jsonl",
-        "bytes": 94514741
+        "bytes": 94517117
       },
       {
         "name": "promoted-000018.jsonl",
-        "bytes": 94487977
+        "bytes": 94490537
       },
       {
         "name": "promoted-000019.jsonl",
-        "bytes": 94459585
+        "bytes": 94462145
       },
       {
         "name": "promoted-000020.jsonl",
-        "bytes": 94425545
+        "bytes": 94428104
       },
       {
         "name": "promoted-000021.jsonl",
-        "bytes": 94400445
+        "bytes": 94403212
       },
       {
         "name": "promoted-000022.jsonl",
-        "bytes": 94372780
+        "bytes": 94375546
       },
       {
         "name": "promoted-000023.jsonl",
-        "bytes": 17955561
+        "bytes": 30337631
       }
     ],
     "written_this_run": [

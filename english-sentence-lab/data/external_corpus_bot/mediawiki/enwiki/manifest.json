@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4843010,
-  "total_records": 106286,
-  "auto_pass": 93463,
-  "needs_review": 12823,
+  "total_pages_processed": 4878655,
+  "total_records": 107261,
+  "auto_pass": 94344,
+  "needs_review": 12917,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Nino_of_Georgia",
+  "apcontinue": "Northeast_Community,_Tampa,_FL",
   "source_exhausted": false,
   "shard_count": 54
 }

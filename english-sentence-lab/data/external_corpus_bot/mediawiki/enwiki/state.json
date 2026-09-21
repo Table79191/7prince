@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Nelly_Naumann",
-  "total_pages_processed": 4772754,
-  "total_records": 105177,
-  "auto_pass": 92508,
-  "needs_review": 12669,
+  "apcontinue": "Newport_beach_chamber_of_commerce",
+  "total_pages_processed": 4806820,
+  "total_records": 105946,
+  "auto_pass": 93156,
+  "needs_review": 12790,
   "current_shard": 53,
-  "current_shard_records": 1177,
+  "current_shard_records": 1946,
   "source_exhausted": false
 }

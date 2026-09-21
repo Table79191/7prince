@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4772754,
-  "total_records": 105177,
-  "auto_pass": 92508,
-  "needs_review": 12669,
+  "total_pages_processed": 4806820,
+  "total_records": 105946,
+  "auto_pass": 93156,
+  "needs_review": 12790,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Nelly_Naumann",
+  "apcontinue": "Newport_beach_chamber_of_commerce",
   "source_exhausted": false,
   "shard_count": 53
 }

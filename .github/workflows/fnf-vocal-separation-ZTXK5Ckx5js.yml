@@ -1,0 +1,85 @@
+name: FNF Vocal Separation ZTXK5Ckx5js
+
+on:
+  push:
+    paths:
+      - ".github/workflows/fnf-vocal-separation-ZTXK5Ckx5js.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  separate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Check out OGG tool only
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            ogg-extractor
+          sparse-checkout-cone-mode: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install audio tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade "yt-dlp[default]" demucs
+
+      - name: Prepare YouTube cookies
+        env:
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          set -euo pipefail
+          test -n "${YOUTUBE_COOKIES:-}"
+          COOKIE_FILE="$RUNNER_TEMP/youtube-cookies.txt"
+          printf '%s' "$YOUTUBE_COOKIES" > "$COOKIE_FILE"
+          chmod 600 "$COOKIE_FILE"
+          head -n 1 "$COOKIE_FILE" | grep -Eq '^# (Netscape HTTP Cookie File|HTTP Cookie File)$'
+
+      - name: Download source audio
+        run: |
+          mkdir -p input output
+          yt-dlp             --no-playlist             --js-runtimes node             --remote-components ejs:github             --cookies "$RUNNER_TEMP/youtube-cookies.txt"             -x --audio-format wav             -o "input/source.%(ext)s"             "https://www.youtube.com/watch?v=ZTXK5Ckx5js&list=RDZTXK5Ckx5js&index=1"
+          test -s input/source.wav
+
+      - name: Separate vocals with Demucs
+        run: |
+          demucs             --two-stems=vocals             -n htdemucs             --overlap 0.25             -o separated             input/source.wav
+          test -s separated/htdemucs/source/vocals.wav
+
+      - name: Export raw vocal stem
+        run: |
+          ffmpeg -hide_banner -loglevel error -y             -i separated/htdemucs/source/vocals.wav             -c:a libvorbis -q:a 8             output/ZTXK5Ckx5js-vocals-raw.ogg
+
+      - name: Make gently cleaned vocal stem
+        run: |
+          ffmpeg -hide_banner -loglevel error -y             -i separated/htdemucs/source/vocals.wav             -af "highpass=f=55,lowpass=f=17000,afftdn=nr=6:nf=-50:tn=1"             -c:a libvorbis -q:a 8             output/ZTXK5Ckx5js-vocals-clean.ogg
+
+      - name: Verify outputs
+        run: |
+          for f in output/*.ogg; do
+            test -s "$f"
+            ffprobe -v error               -select_streams a:0               -show_entries stream=codec_name,channels:format=duration               -of default=nw=1 "$f"
+          done
+
+      - name: Upload vocal stems
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZTXK5Ckx5js-vocals
+          path: output/*.ogg
+          if-no-files-found: error
+          retention-days: 1

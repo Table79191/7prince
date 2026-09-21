@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5447479,
-  "total_records": 117846,
-  "auto_pass": 103602,
-  "needs_review": 14244,
+  "total_pages_processed": 5488919,
+  "total_records": 117928,
+  "auto_pass": 103666,
+  "needs_review": 14262,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Raising_and_Giving",
+  "apcontinue": "Realtime_rendering",
   "source_exhausted": false,
   "shard_count": 59
 }

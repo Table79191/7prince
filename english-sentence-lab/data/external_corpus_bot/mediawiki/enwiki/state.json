@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Raising_and_Giving",
-  "total_pages_processed": 5447479,
-  "total_records": 117846,
-  "auto_pass": 103602,
-  "needs_review": 14244,
+  "apcontinue": "Realtime_rendering",
+  "total_pages_processed": 5488919,
+  "total_records": 117928,
+  "auto_pass": 103666,
+  "needs_review": 14262,
   "current_shard": 59,
-  "current_shard_records": 1846,
+  "current_shard_records": 1928,
   "source_exhausted": false
 }

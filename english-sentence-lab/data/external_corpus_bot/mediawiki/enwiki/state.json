@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Mercury_(aircraft_engine)",
-  "total_pages_processed": 4447608,
-  "total_records": 99673,
-  "auto_pass": 87598,
-  "needs_review": 12075,
+  "apcontinue": "Michelle_Timms",
+  "total_pages_processed": 4488630,
+  "total_records": 99918,
+  "auto_pass": 87820,
+  "needs_review": 12098,
   "current_shard": 50,
-  "current_shard_records": 1673,
+  "current_shard_records": 1918,
   "source_exhausted": false
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Punt_Muragl_Staz_(Rhaetian_Railway_station)",
-  "total_pages_processed": 5381440,
-  "total_records": 116071,
-  "auto_pass": 102037,
-  "needs_review": 14034,
+  "apcontinue": "Québec_Armory",
+  "total_pages_processed": 5416451,
+  "total_records": 116471,
+  "auto_pass": 102388,
+  "needs_review": 14083,
   "current_shard": 59,
-  "current_shard_records": 71,
+  "current_shard_records": 471,
   "source_exhausted": false
 }

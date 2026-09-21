@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5381440,
-  "total_records": 116071,
-  "auto_pass": 102037,
-  "needs_review": 14034,
+  "total_pages_processed": 5416451,
+  "total_records": 116471,
+  "auto_pass": 102388,
+  "needs_review": 14083,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Punt_Muragl_Staz_(Rhaetian_Railway_station)",
+  "apcontinue": "Québec_Armory",
   "source_exhausted": false,
   "shard_count": 59
 }

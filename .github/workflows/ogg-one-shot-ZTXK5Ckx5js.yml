@@ -27,18 +27,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install ffmpeg and yt-dlp
+      - name: Install ffmpeg and yt-dlp EJS support
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          python -m pip install --upgrade yt-dlp
+          node --version
+          python -m pip install --upgrade "yt-dlp[default]"
 
       - name: Extract target to OGG
         run: |
           mkdir -p output
-          python ogg-extractor/extract_ogg.py \
-            "https://www.youtube.com/watch?v=ZTXK5Ckx5js&list=RDZTXK5Ckx5js&index=1" \
-            -o output/ZTXK5Ckx5js.ogg
+          yt-dlp \
+            --no-playlist \
+            --js-runtimes node \
+            --remote-components ejs:github \
+            -x --audio-format vorbis --audio-quality 0 \
+            -o "output/ZTXK5Ckx5js.%(ext)s" \
+            "https://www.youtube.com/watch?v=ZTXK5Ckx5js&list=RDZTXK5Ckx5js&index=1"
 
       - name: Verify OGG
         run: |

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4561998,
-  "total_records": 101304,
-  "auto_pass": 89037,
-  "needs_review": 12267,
+  "total_pages_processed": 4597913,
+  "total_records": 101412,
+  "auto_pass": 89125,
+  "needs_review": 12287,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Mitsuo_Sanami",
+  "apcontinue": "Monte_di_Pietà_di_Foggia",
   "source_exhausted": false,
   "shard_count": 51
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Otto_of_Schweinfurt",
-  "total_pages_processed": 5016494,
-  "total_records": 110082,
-  "auto_pass": 96885,
-  "needs_review": 13197,
+  "apcontinue": "Pachypodium_rosulatum",
+  "total_pages_processed": 5045547,
+  "total_records": 110672,
+  "auto_pass": 97421,
+  "needs_review": 13251,
   "current_shard": 56,
-  "current_shard_records": 82,
+  "current_shard_records": 672,
   "source_exhausted": false
 }

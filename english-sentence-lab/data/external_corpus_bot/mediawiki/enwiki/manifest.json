@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5016494,
-  "total_records": 110082,
-  "auto_pass": 96885,
-  "needs_review": 13197,
+  "total_pages_processed": 5045547,
+  "total_records": 110672,
+  "auto_pass": 97421,
+  "needs_review": 13251,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Otto_of_Schweinfurt",
+  "apcontinue": "Pachypodium_rosulatum",
   "source_exhausted": false,
   "shard_count": 56
 }

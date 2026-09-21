@@ -36,6 +36,6 @@
   "checkpoint_path": "artifacts/arena_hotfeed/role_arena_latest.pt",
   "source": "arena_hotfeed_one_shot",
   "arena_round": 1440,
-  "wrapper_max_abs_error": 9.5367431640625e-07,
+  "wrapper_max_abs_error": 1.430511474609375e-06,
   "browser_note": "One-shot export of the persisted Arena RoleNet winner. Neural weights use school-style head-only S/V/O/C labels; browser/dependency postprocessing remains unchanged."
 }

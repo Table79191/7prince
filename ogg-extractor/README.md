@@ -18,10 +18,26 @@ python ogg-extractor/extract_ogg.py input.mp4 -o output.ogg
 python ogg-extractor/extract_ogg.py "https://example.com/media" -o output.ogg
 ```
 
-URL mode uses `yt-dlp` with playlists disabled. The script validates the final file with `ffprobe` and requires the audio codec to be Vorbis.
+For an authenticated URL, export a Netscape-format `cookies.txt` file and pass it explicitly:
+
+```bash
+python ogg-extractor/extract_ogg.py "https://example.com/media" \
+  --cookies /path/to/cookies.txt \
+  -o output.ogg
+```
+
+YouTube URLs automatically enable yt-dlp's Node/EJS support. URL mode disables playlists and validates the final output with `ffprobe`.
 
 ## GitHub Actions
 
-The `OGG Extractor` workflow runs a synthetic 1-second audio smoke test on changes to this tool.
+The `OGG Extractor` workflow runs a synthetic 1-second smoke test whenever this tool changes.
 
-It can also be started manually from **Actions → OGG Extractor → Run workflow**. Leave the source field blank for the smoke test, or provide an authorized media URL. The resulting OGG is uploaded as a workflow artifact.
+For authenticated YouTube extraction:
+
+1. Export your logged-in YouTube cookies in Netscape `cookies.txt` format.
+2. In the repository, open **Settings → Secrets and variables → Actions → New repository secret**.
+3. Name the secret exactly `YOUTUBE_COOKIES`.
+4. Paste the entire contents of `cookies.txt` as the secret value.
+5. Open **Actions → OGG Extractor → Run workflow** and enter the authorized YouTube URL.
+
+The workflow writes the secret only to a temporary runner file with mode `600`, never commits it, and uploads only the resulting `.ogg` artifact.

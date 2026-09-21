@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5641318,
-  "total_records": 121101,
-  "auto_pass": 106453,
-  "needs_review": 14648,
+  "total_pages_processed": 5679729,
+  "total_records": 122147,
+  "auto_pass": 107384,
+  "needs_review": 14763,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Ron_Reagan_Jr.",
+  "apcontinue": "Rugathodes_sexpunctatus",
   "source_exhausted": false,
-  "shard_count": 61
+  "shard_count": 62
 }

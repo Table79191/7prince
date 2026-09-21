@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4701988,
-  "total_records": 103448,
-  "auto_pass": 90895,
-  "needs_review": 12553,
+  "total_pages_processed": 4738334,
+  "total_records": 104480,
+  "auto_pass": 91887,
+  "needs_review": 12593,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "NY-121",
+  "apcontinue": "National_Assembly_of_South_Africa",
   "source_exhausted": false,
-  "shard_count": 52
+  "shard_count": 53
 }

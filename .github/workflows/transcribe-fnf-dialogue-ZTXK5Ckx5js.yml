@@ -1,0 +1,93 @@
+name: Transcribe FNF Dialogue ZTXK5Ckx5js
+
+on:
+  push:
+    paths:
+      - ".github/workflows/transcribe-fnf-dialogue-ZTXK5Ckx5js.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade "yt-dlp[default]" faster-whisper
+
+      - name: Prepare cookies
+        env:
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          set -euo pipefail
+          test -n "${YOUTUBE_COOKIES:-}"
+          printf '%s' "$YOUTUBE_COOKIES" > "$RUNNER_TEMP/youtube-cookies.txt"
+          chmod 600 "$RUNNER_TEMP/youtube-cookies.txt"
+
+      - name: Download source
+        run: |
+          mkdir -p input output
+          yt-dlp             --no-playlist             --js-runtimes node             --remote-components ejs:github             --cookies "$RUNNER_TEMP/youtube-cookies.txt"             -x --audio-format wav             -o "input/source.%(ext)s"             "https://www.youtube.com/watch?v=ZTXK5Ckx5js&list=RDZTXK5Ckx5js&index=1"
+          test -s input/source.wav
+
+      - name: Cut dialogue windows
+        run: |
+          ffmpeg -hide_banner -loglevel error -y             -ss 74 -t 8 -i input/source.wav             -ac 1 -ar 16000             output/dialogue-original.wav
+
+          ffmpeg -hide_banner -loglevel error -y             -ss 74 -t 8 -i input/source.wav             -af "highpass=f=100,lowpass=f=8000,afftdn=nr=8:nf=-50:tn=1,dynaudnorm=f=75:g=9"             -ac 1 -ar 16000             output/dialogue-focus.wav
+
+      - name: Transcribe with Whisper
+        run: |
+          cat > /tmp/transcribe.py <<'PY'
+          from faster_whisper import WhisperModel
+          from pathlib import Path
+
+          model = WhisperModel("small.en", device="cpu", compute_type="int8")
+          out = []
+          for p in [Path("output/dialogue-original.wav"), Path("output/dialogue-focus.wav")]:
+              segments, info = model.transcribe(
+                  str(p),
+                  language="en",
+                  beam_size=8,
+                  best_of=8,
+                  vad_filter=False,
+                  temperature=0.0,
+                  condition_on_previous_text=False,
+                  word_timestamps=True,
+              )
+              out.append(f"FILE: {p.name}")
+              for s in segments:
+                  out.append(f"[{s.start:.2f}-{s.end:.2f}] {s.text.strip()}")
+                  if s.words:
+                      out.append("WORDS: " + " | ".join(f"{w.word.strip()}({w.probability:.2f})" for w in s.words))
+              out.append("")
+          Path("output/transcript.txt").write_text("\n".join(out), encoding="utf-8")
+          print("\n".join(out))
+          PY
+          python /tmp/transcribe.py
+
+      - name: Upload transcript and clips
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZTXK5Ckx5js-dialogue-transcript
+          path: |
+            output/dialogue-original.wav
+            output/dialogue-focus.wav
+            output/transcript.txt
+          if-no-files-found: error
+          retention-days: 1

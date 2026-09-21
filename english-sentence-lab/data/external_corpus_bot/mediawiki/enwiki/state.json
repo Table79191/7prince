@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Northeast_Community,_Tampa,_FL",
-  "total_pages_processed": 4878655,
-  "total_records": 107261,
-  "auto_pass": 94344,
-  "needs_review": 12917,
+  "apcontinue": "ONE_Atomweight_Submission_Grappling_Champion",
+  "total_pages_processed": 4910810,
+  "total_records": 108000,
+  "auto_pass": 95009,
+  "needs_review": 12991,
   "current_shard": 54,
-  "current_shard_records": 1261,
+  "current_shard_records": 2000,
   "source_exhausted": false
 }

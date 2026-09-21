@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4982389,
-  "total_records": 109347,
-  "auto_pass": 96232,
-  "needs_review": 13115,
-  "added_this_run": 101,
-  "skipped_this_run": 17,
-  "apcontinue": "Opinion_polling_for_the_United_States_House_of_Representatives_elections_in_the_Southern_United_States,_2010",
+  "total_pages_processed": 5016494,
+  "total_records": 110082,
+  "auto_pass": 96885,
+  "needs_review": 13197,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Otto_of_Schweinfurt",
   "source_exhausted": false,
-  "shard_count": 55
+  "shard_count": 56
 }

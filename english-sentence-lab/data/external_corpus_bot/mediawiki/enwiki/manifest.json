@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5522134,
-  "total_records": 118516,
-  "auto_pass": 104188,
-  "needs_review": 14328,
+  "total_pages_processed": 5559828,
+  "total_records": 119749,
+  "auto_pass": 105295,
+  "needs_review": 14454,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Representative_Ron_Paul",
+  "apcontinue": "Richard_Van_West-Charles",
   "source_exhausted": false,
   "shard_count": 60
 }

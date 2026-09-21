@@ -1,5 +1,5 @@
 {
-  "version": "1.8.3-AUTO-PROMOTED-SILVER",
+  "version": "R015-ARENA-R1440",
   "roles": [
     null,
     "S",
@@ -32,7 +32,10 @@
   "prefix_vocab": 1024,
   "suffix_vocab": 1024,
   "feature_shape_size": 8,
-  "checkpoint": "v1.8.3_auto_promoted_silver_role.pt",
+  "checkpoint": "role_arena_latest.pt",
+  "checkpoint_path": "artifacts/arena_hotfeed/role_arena_latest.pt",
+  "source": "arena_hotfeed_one_shot",
+  "arena_round": 1440,
   "wrapper_max_abs_error": 9.5367431640625e-07,
-  "browser_note": "Neural weights use school-style head-only S/V/O/C labels. Browser normalization expands contractions such as can't -> can + not and applies shared grammar regressions."
+  "browser_note": "One-shot export of the persisted Arena RoleNet winner. Neural weights use school-style head-only S/V/O/C labels; browser/dependency postprocessing remains unchanged."
 }

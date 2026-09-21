@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Richard_Van_West-Charles",
-  "total_pages_processed": 5559828,
-  "total_records": 119749,
-  "auto_pass": 105295,
-  "needs_review": 14454,
-  "current_shard": 60,
-  "current_shard_records": 1749,
+  "apcontinue": "Robert_L._Owen",
+  "total_pages_processed": 5598548,
+  "total_records": 120252,
+  "auto_pass": 105719,
+  "needs_review": 14533,
+  "current_shard": 61,
+  "current_shard_records": 252,
   "source_exhausted": false
 }

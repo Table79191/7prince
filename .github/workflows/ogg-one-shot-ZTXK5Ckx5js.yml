@@ -1,0 +1,58 @@
+name: OGG One Shot ZTXK5Ckx5js
+
+on:
+  push:
+    paths:
+      - ".github/workflows/ogg-one-shot-ZTXK5Ckx5js.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out OGG tool only
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            ogg-extractor
+          sparse-checkout-cone-mode: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ffmpeg and yt-dlp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade yt-dlp
+
+      - name: Extract target to OGG
+        run: |
+          mkdir -p output
+          python ogg-extractor/extract_ogg.py \
+            "https://www.youtube.com/watch?v=ZTXK5Ckx5js&list=RDZTXK5Ckx5js&index=1" \
+            -o output/ZTXK5Ckx5js.ogg
+
+      - name: Verify OGG
+        run: |
+          test -s output/ZTXK5Ckx5js.ogg
+          ffprobe -v error \
+            -select_streams a:0 \
+            -show_entries stream=codec_name,duration \
+            -of default=nw=1 \
+            output/ZTXK5Ckx5js.ogg
+
+      - name: Upload OGG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZTXK5Ckx5js-ogg
+          path: output/ZTXK5Ckx5js.ogg
+          if-no-files-found: error
+          retention-days: 1

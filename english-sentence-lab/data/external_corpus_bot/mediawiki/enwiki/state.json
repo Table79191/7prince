@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Pachypodium_rosulatum",
-  "total_pages_processed": 5045547,
-  "total_records": 110672,
-  "auto_pass": 97421,
-  "needs_review": 13251,
+  "apcontinue": "Paraphaeobacter",
+  "total_pages_processed": 5084201,
+  "total_records": 111061,
+  "auto_pass": 97775,
+  "needs_review": 13286,
   "current_shard": 56,
-  "current_shard_records": 672,
+  "current_shard_records": 1061,
   "source_exhausted": false
 }

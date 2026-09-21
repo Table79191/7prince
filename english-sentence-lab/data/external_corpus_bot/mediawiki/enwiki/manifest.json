@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5045547,
-  "total_records": 110672,
-  "auto_pass": 97421,
-  "needs_review": 13251,
+  "total_pages_processed": 5084201,
+  "total_records": 111061,
+  "auto_pass": 97775,
+  "needs_review": 13286,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Pachypodium_rosulatum",
+  "apcontinue": "Paraphaeobacter",
   "source_exhausted": false,
   "shard_count": 56
 }

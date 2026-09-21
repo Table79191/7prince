@@ -1,0 +1,181 @@
+name: SentenceLab build Role-Clause hybrid production
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/export_clause_arena_onnx.py'
+      - 'english-sentence-lab/scripts/clause_onnx_runtime.py'
+      - 'english-sentence-lab/api/analyze.py'
+      - '.github/workflows/sentence-lab-build-role-clause-hybrid.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentencelab-role-clause-hybrid-production
+  cancel-in-progress: true
+
+jobs:
+  build-test-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          sparse-checkout: |
+            english-sentence-lab/scripts/export_clause_arena_onnx.py
+            english-sentence-lab/scripts/clause_onnx_runtime.py
+            english-sentence-lab/scripts/export_arena_once.py
+            english-sentence-lab/scripts/export_r012_onnx.py
+            english-sentence-lab/scripts/browser_smoke_test.sh
+            english-sentence-lab/scripts/targeted_100_regression.py
+            english-sentence-lab/scripts/spacy_role_postprocess.py
+            english-sentence-lab/train/train_ud_role.py
+            english-sentence-lab/api/analyze.py
+            english-sentence-lab/server/requirements.txt
+            english-sentence-lab/artifacts/arena_hotfeed/role_arena_latest.pt
+            english-sentence-lab/artifacts/arena_hotfeed/clause_arena_latest.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/model.py
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01/infer.py
+            english-sentence-lab/web/r012
+            english-sentence-lab/web/clause
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install onnx onnxruntime onnxscript
+          python -m pip install -r english-sentence-lab/server/requirements.txt
+
+      - name: Export latest Arena RoleNet
+        run: |
+          cd english-sentence-lab
+          python scripts/export_arena_once.py \
+            --checkpoint artifacts/arena_hotfeed/role_arena_latest.pt \
+            --out web/r012/r012_role.onnx \
+            --meta web/r012/model_meta.json
+
+      - name: Export latest Arena Clause model
+        run: |
+          cd english-sentence-lab
+          python scripts/export_clause_arena_onnx.py \
+            --checkpoint artifacts/arena_hotfeed/clause_arena_latest.pt \
+            --out web/clause/clause_arena.onnx \
+            --meta web/clause/model_meta.json
+
+      - name: Validate Clause ONNX decode parity
+        run: |
+          cd english-sentence-lab
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          import onnx
+          import onnxruntime as ort
+          import torch
+
+          ROOT=Path('.').resolve()
+          CLAUSE=ROOT/'experiments/clause_anchor_graph_v1_01'
+          sys.path.insert(0,str(CLAUSE))
+          sys.path.insert(0,str(ROOT/'scripts'))
+          import model as cm
+          import infer as ci
+          from clause_onnx_runtime import ClauseOnnxDecoder
+
+          p=ROOT/'web/clause/clause_arena.onnx'
+          onnx.checker.check_model(onnx.load(p))
+          sess=ort.InferenceSession(str(p),providers=['CPUExecutionProvider'])
+          dec=ClauseOnnxDecoder(sess)
+
+          ck=torch.load(ROOT/'artifacts/arena_hotfeed/clause_arena_latest.pt',map_location='cpu',weights_only=False)
+          m=cm.ClauseAnchorGraph();m.load_state_dict(ck['model'],strict=True);m.eval()
+
+          cases=[
+            (["I","do","n't","like","it","."],["PRON","AUX","PART","VERB","PRON","PUNCT"]),
+            (["Although","the","engineer","repaired","it",",","the","manager","left","."],["SCONJ","DET","NOUN","VERB","PRON","PUNCT","DET","NOUN","VERB","PUNCT"]),
+            (["What","the","hell","was","that","?"],["PRON","DET","NOUN","AUX","PRON","PUNCT"]),
+            (["The","book","that","I","bought","was","expensive","."],["DET","NOUN","PRON","PRON","VERB","AUX","ADJ","PUNCT"]),
+            (["When","she","arrived",",","I","had","already","left","."],["SCONJ","PRON","VERB","PUNCT","PRON","AUX","ADV","VERB","PUNCT"]),
+            (["I","think","he","knows","what","she","meant","."],["PRON","VERB","PRON","VERB","PRON","PRON","VERB","PUNCT"]),
+          ]
+
+          for tokens,pos in cases:
+              b,mask,pids=ci.make_batch(tokens,pos)
+              with torch.no_grad():
+                  want=cm.decode(m,b,mask,pids)[0]
+              got=dec.decode(tokens,pos)
+              assert got['roles']==want.roles,(tokens,got['roles'],want.roles)
+              assert got['owners']==want.owners,(tokens,got['owners'],want.owners)
+              assert got['clause_heads']==want.clause_heads,(tokens,got['clause_heads'],want.clause_heads)
+              print({'tokens':tokens,'roles':got['roles'],'heads':got['clause_heads']})
+          print('clause onnx parity: ok')
+          PY
+
+      - name: Browser RoleNet integration smoke
+        run: bash english-sentence-lab/scripts/browser_smoke_test.sh
+
+      - name: Backend hybrid targeted 100
+        run: python english-sentence-lab/scripts/targeted_100_regression.py
+
+      - name: Hybrid sanity probes
+        run: |
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+          p=Path('english-sentence-lab/api/analyze.py')
+          spec=importlib.util.spec_from_file_location('backend',p)
+          b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
+          for s in [
+              "I don't like it.",
+              "Although the engineer repaired the device, the manager rejected the report.",
+              "I think he knows what she meant.",
+          ]:
+              r=b.analyze(s)
+              assert r['hybrid']['enabled'] is True
+              print(s)
+              print([(x['text'],x['r012_role'],x['clause_role'],x['hybrid_override']) for x in r['tokens']])
+              print(r['hybrid'])
+          PY
+
+      - name: Commit production models safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-hybrid
+          git config user.email sentence-lab-hybrid@users.noreply.github.com
+
+          tmp="$(mktemp -d)"
+          cp english-sentence-lab/web/r012/r012_role.onnx "$tmp/role.onnx"
+          cp english-sentence-lab/web/r012/model_meta.json "$tmp/role_meta.json"
+          cp english-sentence-lab/web/clause/clause_arena.onnx "$tmp/clause.onnx"
+          cp english-sentence-lab/web/clause/model_meta.json "$tmp/clause_meta.json"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            mkdir -p english-sentence-lab/web/r012 english-sentence-lab/web/clause
+            cp "$tmp/role.onnx" english-sentence-lab/web/r012/r012_role.onnx
+            cp "$tmp/role_meta.json" english-sentence-lab/web/r012/model_meta.json
+            cp "$tmp/clause.onnx" english-sentence-lab/web/clause/clause_arena.onnx
+            cp "$tmp/clause_meta.json" english-sentence-lab/web/clause/model_meta.json
+            git add english-sentence-lab/web/r012/r012_role.onnx \
+                    english-sentence-lab/web/r012/model_meta.json \
+                    english-sentence-lab/web/clause/clause_arena.onnx \
+                    english-sentence-lab/web/clause/model_meta.json
+            if git diff --cached --quiet; then
+              echo "Hybrid production models already current."
+              exit 0
+            fi
+            git commit -m "web: publish Arena Role-Clause hybrid models"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

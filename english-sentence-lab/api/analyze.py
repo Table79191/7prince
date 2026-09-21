@@ -10,8 +10,12 @@ import spacy
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from spacy_role_postprocess import postprocess_roles
+from clause_onnx_runtime import ClauseOnnxDecoder
 MODEL_PATH = ROOT / "web" / "r012" / "r012_role.onnx"
 MODEL_URL = "https://raw.githubusercontent.com/Table79191/7prince/main/english-sentence-lab/web/r012/r012_role.onnx"
+CLAUSE_MODEL_PATH = ROOT / "web" / "clause" / "clause_arena.onnx"
+CLAUSE_MODEL_URL = "https://raw.githubusercontent.com/Table79191/7prince/main/english-sentence-lab/web/clause/clause_arena.onnx"
+HYBRID_CONFIDENCE_THRESHOLD = 0.65
 
 def ensure_model():
     if MODEL_PATH.exists():
@@ -22,6 +26,15 @@ def ensure_model():
             cache.write_bytes(r.read())
     return cache
 
+def ensure_clause_model():
+    if CLAUSE_MODEL_PATH.exists():
+        return CLAUSE_MODEL_PATH
+    cache = Path("/tmp/clause_arena.onnx")
+    if not cache.exists():
+        with urlopen(CLAUSE_MODEL_URL, timeout=30) as r:
+            cache.write_bytes(r.read())
+    return cache
+
 POS_LIST = ['UNK','ADJ','ADP','ADV','AUX','CCONJ','DET','INTJ','NOUN','NUM','PART','PRON','PROPN','PUNCT','SCONJ','SYM','VERB','X']
 POS2I = {x:i for i,x in enumerate(POS_LIST)}
 I2ROLE = [None,'S','V','O','C','M']
@@ -29,6 +42,15 @@ ROLE2I = {'S':1,'V':2,'O':3,'C':4,'M':5}
 
 NLP = spacy.load("en_core_web_sm")
 SESSION = ort.InferenceSession(str(ensure_model()), providers=["CPUExecutionProvider"])
+try:
+    CLAUSE_SESSION = ort.InferenceSession(str(ensure_clause_model()), providers=["CPUExecutionProvider"])
+    CLAUSE_DECODER = ClauseOnnxDecoder(CLAUSE_SESSION)
+    CLAUSE_LOAD_ERROR = None
+except Exception as exc:
+    # Production remains usable as RoleNet-only if the auxiliary model is absent.
+    CLAUSE_SESSION = None
+    CLAUSE_DECODER = None
+    CLAUSE_LOAD_ERROR = str(exc)
 
 def fnv1a(s: str) -> int:
     h = 2166136261
@@ -111,6 +133,63 @@ def model_roles(doc):
         idx=int(np.argmax(p))
         result.append({"role":I2ROLE[idx],"confidence":float(p[idx]),"probs":[float(x) for x in p]})
     return result, weak
+
+def hybridize_roles(doc, model):
+    """Fuse ClauseAnchorGraph only where the validated selector says it helps.
+
+    Selector benchmark on the 6,317-sentence clean dev pool:
+      - RoleNet baseline: 96.5476% token / 77.0144% exact sentence
+      - complex_lowconf_0.65: 96.5910% token / 77.3152% exact sentence
+    Clause is therefore only allowed to replace a disagreeing RoleNet label
+    when it detects a multi-head/complex sentence and RoleNet confidence < .65.
+    """
+    role_raw=[m["role"] for m in model]
+    fused=list(role_raw)
+    info={
+        "enabled":False,
+        "selector":"complex_lowconf_0.65",
+        "confidence_threshold":HYBRID_CONFIDENCE_THRESHOLD,
+        "complex_sentence":False,
+        "clause_heads":[],
+        "clause_roles":[None]*len(doc),
+        "clause_owners":[None]*len(doc),
+        "overrides":[],
+    }
+    if CLAUSE_DECODER is None or not len(doc):
+        return fused,info
+
+    try:
+        clause=CLAUSE_DECODER.decode(
+            [t.text for t in doc],
+            [t.pos_ for t in doc],
+        )
+    except Exception:
+        return fused,info
+
+    info["enabled"]=True
+    info["clause_heads"]=list(clause["clause_heads"])
+    info["clause_roles"]=list(clause["roles"])
+    info["clause_owners"]=list(clause["owners"])
+    info["complex_sentence"]=len(clause["clause_heads"])>=2
+
+    if info["complex_sentence"]:
+        for i,(m,cr) in enumerate(zip(model,clause["roles"])):
+            rr=m["role"]
+            if (
+                rr != cr
+                and float(m["confidence"]) < HYBRID_CONFIDENCE_THRESHOLD
+                and cr is not None
+                and doc[i].pos_ != "PUNCT"
+            ):
+                fused[i]=cr
+                info["overrides"].append({
+                    "i":i,
+                    "role_role":rr,
+                    "clause_role":cr,
+                    "role_confidence":float(m["confidence"]),
+                })
+    return fused,info
+
 
 def subtree_span(tok):
     ids=[t.i for t in tok.subtree]
@@ -379,19 +458,30 @@ def bracket_text(doc, clauses):
 def analyze(text):
     doc=NLP(text)
     model,weak=model_roles(doc)
-    raw_roles=[m["role"] for m in model]
-    guarded_roles,role_reasons=postprocess_roles(doc,raw_roles)
+    hybrid_raw,hybrid=hybridize_roles(doc,model)
+    guarded_roles,role_reasons=postprocess_roles(doc,hybrid_raw)
+
+    overridden={x["i"] for x in hybrid["overrides"]}
+    for i in overridden:
+        if role_reasons[i]=="neural":
+            role_reasons[i]="hybrid-clause-lowconf"
+
     that_clauses=detect_that_clauses(doc)
     clauses=detect_all_clauses(doc, that_clauses)
     grammar=detect_other_grammar(doc)
 
     tokens=[]
-    for t,m,w,g,reason in zip(doc,model,weak,guarded_roles,role_reasons):
+    for i,(t,m,w,g,reason) in enumerate(zip(doc,model,weak,guarded_roles,role_reasons)):
         tokens.append({
             "i":t.i,"text":t.text,"lemma":t.lemma_,"pos":t.pos_,"tag":t.tag_,
             "dep":t.dep_,"head":t.head.i,"head_text":t.head.text,
             "weak_role":w,
             "r012_raw_role":m["role"],
+            "hybrid_raw_role":hybrid_raw[i],
+            "clause_role":hybrid["clause_roles"][i],
+            "clause_owner":hybrid["clause_owners"][i],
+            "clause_head":i in set(hybrid["clause_heads"]),
+            "hybrid_override":i in overridden,
             "r012_role":g,
             "role_reason":reason,
             "confidence":m["confidence"],
@@ -399,9 +489,18 @@ def analyze(text):
 
     return {
         "ok":True,
-        "engine":"spaCy en_core_web_sm + R012 ONNX + dependency postprocess",
+        "engine":"spaCy + Arena RoleNet ONNX + ClauseAnchorGraph ONNX hybrid + dependency postprocess",
         "text":text,
         "tokens":tokens,
+        "hybrid":{
+            "enabled":hybrid["enabled"],
+            "selector":hybrid["selector"],
+            "confidence_threshold":hybrid["confidence_threshold"],
+            "complex_sentence":hybrid["complex_sentence"],
+            "clause_heads":hybrid["clause_heads"],
+            "overrides":hybrid["overrides"],
+            "clause_load_error":CLAUSE_LOAD_ERROR if not hybrid["enabled"] else None,
+        },
         "that_clauses":that_clauses,
         "clauses":clauses,
         "grammar":grammar,
@@ -428,7 +527,7 @@ class handler(BaseHTTPRequestHandler):
         if text:
             self.wfile.write(json.dumps(analyze(text),ensure_ascii=False).encode("utf-8"))
         else:
-            self.wfile.write(json.dumps({"ok":True,"service":"SentenceLab analyzer","model":"R012"}).encode())
+            self.wfile.write(json.dumps({"ok":True,"service":"SentenceLab analyzer","model":"Arena RoleNet + ClauseAnchorGraph hybrid"}).encode())
 
     def do_POST(self):
         try:

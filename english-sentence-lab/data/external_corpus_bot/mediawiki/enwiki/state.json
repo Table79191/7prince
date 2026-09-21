@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Michelle_Timms",
-  "total_pages_processed": 4488630,
-  "total_records": 99918,
-  "auto_pass": 87820,
-  "needs_review": 12098,
-  "current_shard": 50,
-  "current_shard_records": 1918,
+  "apcontinue": "Millennium_Cities_Initiative",
+  "total_pages_processed": 4523569,
+  "total_records": 100703,
+  "auto_pass": 88517,
+  "needs_review": 12186,
+  "current_shard": 51,
+  "current_shard_records": 703,
   "source_exhausted": false
 }

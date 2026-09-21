@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5204711,
-  "total_records": 112796,
-  "auto_pass": 99277,
-  "needs_review": 13519,
+  "total_pages_processed": 5247545,
+  "total_records": 112834,
+  "auto_pass": 99312,
+  "needs_review": 13522,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Phil_Fish_(fictional_character)",
+  "apcontinue": "Piorkowski,_Daniel",
   "source_exhausted": false,
   "shard_count": 57
 }

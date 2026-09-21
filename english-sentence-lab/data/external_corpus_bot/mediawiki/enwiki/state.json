@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Phil_Fish_(fictional_character)",
-  "total_pages_processed": 5204711,
-  "total_records": 112796,
-  "auto_pass": 99277,
-  "needs_review": 13519,
+  "apcontinue": "Piorkowski,_Daniel",
+  "total_pages_processed": 5247545,
+  "total_records": 112834,
+  "auto_pass": 99312,
+  "needs_review": 13522,
   "current_shard": 57,
-  "current_shard_records": 796,
+  "current_shard_records": 834,
   "source_exhausted": false
 }

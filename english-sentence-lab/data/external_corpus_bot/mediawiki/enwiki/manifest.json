@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4597913,
-  "total_records": 101412,
-  "auto_pass": 89125,
-  "needs_review": 12287,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "Monte_di_Pietà_di_Foggia",
+  "total_pages_processed": 4636391,
+  "total_records": 102143,
+  "auto_pass": 89740,
+  "needs_review": 12403,
+  "added_this_run": 406,
+  "skipped_this_run": 22,
+  "apcontinue": "Mozambique_(Portugal)",
   "source_exhausted": false,
-  "shard_count": 51
+  "shard_count": 52
 }

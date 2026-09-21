@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Monte_di_Pietà_di_Foggia",
-  "total_pages_processed": 4597913,
-  "total_records": 101412,
-  "auto_pass": 89125,
-  "needs_review": 12287,
-  "current_shard": 51,
-  "current_shard_records": 1412,
+  "apcontinue": "Mozambique_(Portugal)",
+  "total_pages_processed": 4636391,
+  "total_records": 102143,
+  "auto_pass": 89740,
+  "needs_review": 12403,
+  "current_shard": 52,
+  "current_shard_records": 143,
   "source_exhausted": false
 }

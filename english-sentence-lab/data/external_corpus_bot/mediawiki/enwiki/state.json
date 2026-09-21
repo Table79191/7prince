@@ -1,10 +1,10 @@
 {
-  "apcontinue": "PowerShot_S95",
-  "total_pages_processed": 5313824,
-  "total_records": 114661,
-  "auto_pass": 100830,
-  "needs_review": 13831,
+  "apcontinue": "Prodr._(DC.)",
+  "total_pages_processed": 5345008,
+  "total_records": 115207,
+  "auto_pass": 101322,
+  "needs_review": 13885,
   "current_shard": 58,
-  "current_shard_records": 661,
+  "current_shard_records": 1207,
   "source_exhausted": false
 }

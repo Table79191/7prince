@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Piorkowski,_Daniel",
-  "total_pages_processed": 5247545,
-  "total_records": 112834,
-  "auto_pass": 99312,
-  "needs_review": 13522,
+  "apcontinue": "Political_parties_of_Denmark",
+  "total_pages_processed": 5282830,
+  "total_records": 113465,
+  "auto_pass": 99833,
+  "needs_review": 13632,
   "current_shard": 57,
-  "current_shard_records": 834,
+  "current_shard_records": 1465,
   "source_exhausted": false
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Mozambique_(Portugal)",
-  "total_pages_processed": 4636391,
-  "total_records": 102143,
-  "auto_pass": 89740,
-  "needs_review": 12403,
+  "apcontinue": "Mustafa_ibn_Umar_el-Kanemi",
+  "total_pages_processed": 4668510,
+  "total_records": 102835,
+  "auto_pass": 90352,
+  "needs_review": 12483,
   "current_shard": 52,
-  "current_shard_records": 143,
+  "current_shard_records": 835,
   "source_exhausted": false
 }

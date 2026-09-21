@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4636391,
-  "total_records": 102143,
-  "auto_pass": 89740,
-  "needs_review": 12403,
-  "added_this_run": 406,
-  "skipped_this_run": 22,
-  "apcontinue": "Mozambique_(Portugal)",
+  "total_pages_processed": 4668510,
+  "total_records": 102835,
+  "auto_pass": 90352,
+  "needs_review": 12483,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Mustafa_ibn_Umar_el-Kanemi",
   "source_exhausted": false,
   "shard_count": 52
 }

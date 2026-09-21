@@ -3,18 +3,18 @@
   "gpt_in_loop": false,
   "judge": "canonical gold/silver labels; never opponent prediction",
   "gold_train_pool": 48140,
-  "promoted_silver_pool": 431862,
+  "promoted_silver_pool": 24912,
   "clean_dev_pool": 6317,
   "hot_feed": {
     "enabled": true,
     "baseline_promoted_count": 15620,
-    "fresh_available_at_start": 2000,
+    "fresh_available_at_start": 0,
     "fresh_used_total": 435327,
     "feed_state": "artifacts/arena_hotfeed/feed_state.json"
   },
   "rounds_this_run": 1,
-  "total_rounds": 1848,
-  "elapsed_seconds": 55.020762344000104,
+  "total_rounds": 1872,
+  "elapsed_seconds": 31.076107929999807,
   "current": {
     "role_dev": {
       "sentences": 6317,
@@ -118,14 +118,14 @@
     }
   },
   "this_run_battle_totals": {
-    "ties": 4279,
-    "role_exact": 4366,
-    "clause_exact": 4077,
-    "role_weighted_error_x10": 47350,
-    "clause_weighted_error_x10": 54380,
-    "role_wins": 1057,
-    "both_wrong": 1235,
-    "clause_wins": 664
+    "ties": 4464,
+    "role_exact": 4587,
+    "clause_exact": 4147,
+    "role_weighted_error_x10": 40400,
+    "clause_weighted_error_x10": 50490,
+    "role_wins": 1053,
+    "both_wrong": 1101,
+    "clause_wins": 483
   },
   "accepted_role_updates": 0,
   "accepted_clause_updates": 0,

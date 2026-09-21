@@ -17,13 +17,19 @@ def require_binary(name: str) -> None:
 
 
 def run(cmd: list[str]) -> None:
-    print("+", " ".join(cmd))
+    redacted = ["<cookies>" if i and cmd[i - 1] == "--cookies" else part for i, part in enumerate(cmd)]
+    print("+", " ".join(redacted))
     subprocess.run(cmd, check=True)
 
 
 def is_url(value: str) -> bool:
     parsed = urlparse(value)
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def is_youtube_url(value: str) -> bool:
+    host = (urlparse(value).hostname or "").lower()
+    return host == "youtu.be" or host.endswith(".youtube.com") or host == "youtube.com"
 
 
 def convert_local(source: Path, output: Path, quality: int) -> Path:
@@ -39,15 +45,37 @@ def convert_local(source: Path, output: Path, quality: int) -> Path:
     return output
 
 
-def extract_url(source_url: str, output: Path) -> Path:
+def extract_url(source_url: str, output: Path, cookies: Path | None = None) -> Path:
     require_binary("yt-dlp")
     require_binary("ffmpeg")
     output.parent.mkdir(parents=True, exist_ok=True)
     template = str(output.with_suffix("")) + ".%(ext)s"
-    run([
-        "yt-dlp", "--no-playlist", "-x", "--audio-format", "vorbis",
-        "--audio-quality", "0", "-o", template, source_url,
-    ])
+
+    cmd = [
+        "yt-dlp",
+        "--no-playlist",
+        "-x",
+        "--audio-format",
+        "vorbis",
+        "--audio-quality",
+        "0",
+        "-o",
+        template,
+    ]
+
+    if is_youtube_url(source_url):
+        require_binary("node")
+        cmd.extend(["--js-runtimes", "node", "--remote-components", "ejs:github"])
+
+    if cookies is not None:
+        cookies = cookies.expanduser().resolve()
+        if not cookies.is_file():
+            raise FileNotFoundError(f"Cookies file does not exist: {cookies}")
+        cmd.extend(["--cookies", str(cookies)])
+
+    cmd.append(source_url)
+    run(cmd)
+
     expected = output.with_suffix(".ogg")
     if expected.is_file():
         return expected
@@ -87,6 +115,11 @@ def parse_args() -> argparse.Namespace:
         "--quality", type=int, default=7, choices=range(0, 11), metavar="0-10",
         help="Vorbis quality for local-file conversion (default: 7)",
     )
+    parser.add_argument(
+        "--cookies",
+        type=Path,
+        help="Netscape-format cookies.txt file for authenticated URL extraction",
+    )
     return parser.parse_args()
 
 
@@ -98,7 +131,7 @@ def main() -> int:
 
     try:
         if is_url(args.source):
-            result = extract_url(args.source, output)
+            result = extract_url(args.source, output, args.cookies)
         else:
             result = convert_local(Path(args.source).expanduser().resolve(), output, args.quality)
         validate_ogg(result)

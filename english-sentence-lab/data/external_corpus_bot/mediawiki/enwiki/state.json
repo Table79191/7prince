@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Political_parties_of_Denmark",
-  "total_pages_processed": 5282830,
-  "total_records": 113465,
-  "auto_pass": 99833,
-  "needs_review": 13632,
-  "current_shard": 57,
-  "current_shard_records": 1465,
+  "apcontinue": "PowerShot_S95",
+  "total_pages_processed": 5313824,
+  "total_records": 114661,
+  "auto_pass": 100830,
+  "needs_review": 13831,
+  "current_shard": 58,
+  "current_shard_records": 661,
   "source_exhausted": false
 }

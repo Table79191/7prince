@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5282830,
-  "total_records": 113465,
-  "auto_pass": 99833,
-  "needs_review": 13632,
-  "added_this_run": 272,
-  "skipped_this_run": 4,
-  "apcontinue": "Political_parties_of_Denmark",
+  "total_pages_processed": 5313824,
+  "total_records": 114661,
+  "auto_pass": 100830,
+  "needs_review": 13831,
+  "added_this_run": 338,
+  "skipped_this_run": 11,
+  "apcontinue": "PowerShot_S95",
   "source_exhausted": false,
-  "shard_count": 57
+  "shard_count": 58
 }

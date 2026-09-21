@@ -35,6 +35,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install ffmpeg
         run: |
           sudo apt-get update
@@ -47,9 +52,28 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.source != ''
         env:
           SOURCE: ${{ inputs.source }}
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
         run: |
+          set -euo pipefail
           mkdir -p output
-          python ogg-extractor/extract_ogg.py "$SOURCE" -o output/extracted.ogg
+
+          COOKIE_ARGS=()
+          if [[ "$SOURCE" == *"youtube.com"* || "$SOURCE" == *"youtu.be"* ]]; then
+            if [[ -z "${YOUTUBE_COOKIES:-}" ]]; then
+              echo "::error::YouTube extraction requires the YOUTUBE_COOKIES repository secret."
+              exit 1
+            fi
+
+            COOKIE_FILE="$RUNNER_TEMP/youtube-cookies.txt"
+            printf '%s' "$YOUTUBE_COOKIES" > "$COOKIE_FILE"
+            chmod 600 "$COOKIE_FILE"
+            COOKIE_ARGS=(--cookies "$COOKIE_FILE")
+          fi
+
+          python ogg-extractor/extract_ogg.py \
+            "$SOURCE" \
+            -o output/extracted.ogg \
+            "${COOKIE_ARGS[@]}"
 
       - name: Run synthetic smoke test
         if: github.event_name != 'workflow_dispatch' || inputs.source == ''

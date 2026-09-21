@@ -1,0 +1,142 @@
+name: SentenceLab apply Arena weights once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/export_arena_once.py'
+      - '.github/workflows/sentence-lab-apply-arena-once.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sentencelab-apply-arena-once
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Refresh main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install onnx onnxruntime onnxscript
+          python -m pip install -r english-sentence-lab/server/requirements.txt
+
+      - name: Export persisted Arena RoleNet
+        run: |
+          cd english-sentence-lab
+          python scripts/export_arena_once.py \
+            --checkpoint artifacts/arena_hotfeed/role_arena_latest.pt \
+            --out web/r012/r012_role.onnx \
+            --meta web/r012/model_meta.json
+
+      - name: Validate ONNX against Arena checkpoint
+        run: |
+          cd english-sentence-lab
+          python - <<'PY'
+          import json, sys
+          from pathlib import Path
+          import numpy as np
+          import onnx
+          import onnxruntime as ort
+          import torch
+
+          sys.path.insert(0, 'train')
+          import train_ud_role as base
+
+          ck = torch.load('artifacts/arena_hotfeed/role_arena_latest.pt', map_location='cpu', weights_only=False)
+          ver = ck.get('config', {}).get('version', '')
+          assert str(ver).startswith('R015-ARENA-R'), ver
+
+          model = base.RoleNet().cpu()
+          model.load_state_dict(ck['model'], strict=True)
+          model.eval()
+
+          torch.manual_seed(79191)
+          B, L = 2, 17
+          wid = torch.randint(0, 8192, (B, L))
+          pre = torch.randint(0, 1024, (B, L))
+          suf = torch.randint(0, 1024, (B, L))
+          pos = torch.randint(0, len(base.POS_LIST), (B, L))
+          role = torch.randint(0, 6, (B, L))
+          shape = torch.rand(B, L, 8)
+          mask = torch.ones(B, L, dtype=torch.bool)
+
+          with torch.no_grad():
+              pt = model({
+                  'wid': wid, 'pre': pre, 'suf': suf, 'pos': pos,
+                  'role': role, 'shape': shape,
+              }, mask).numpy()
+
+          p = 'web/r012/r012_role.onnx'
+          onnx.checker.check_model(onnx.load(p))
+          session = ort.InferenceSession(p, providers=['CPUExecutionProvider'])
+          ox = session.run(['logits'], {
+              'wid': wid.numpy(), 'pre': pre.numpy(), 'suf': suf.numpy(),
+              'pos': pos.numpy(), 'role': role.numpy(), 'shape': shape.numpy(),
+              'mask': mask.numpy(),
+          })[0]
+          err = float(np.max(np.abs(pt - ox)))
+          assert err < 1e-3, err
+
+          meta = json.loads(Path('web/r012/model_meta.json').read_text())
+          assert meta['source'] == 'arena_hotfeed_one_shot'
+          assert meta['checkpoint'] == 'role_arena_latest.pt'
+          print(json.dumps({'version': ver, 'max_abs_error': err, 'meta': meta}, indent=2))
+          PY
+
+      - name: Integrated browser smoke
+        run: bash english-sentence-lab/scripts/browser_smoke_test.sh
+
+      - name: Backend targeted regression
+        run: python english-sentence-lab/scripts/targeted_100_regression.py
+
+      - name: Commit Arena ONNX safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name sentence-lab-arena-apply
+          git config user.email sentence-lab-arena-apply@users.noreply.github.com
+
+          tmp="$(mktemp -d)"
+          cp english-sentence-lab/web/r012/r012_role.onnx "$tmp/model.onnx"
+          cp english-sentence-lab/web/r012/model_meta.json "$tmp/model_meta.json"
+
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp "$tmp/model.onnx" english-sentence-lab/web/r012/r012_role.onnx
+            cp "$tmp/model_meta.json" english-sentence-lab/web/r012/model_meta.json
+
+            git add english-sentence-lab/web/r012/r012_role.onnx english-sentence-lab/web/r012/model_meta.json
+            if git diff --cached --quiet; then
+              echo "Arena production outputs already present."
+              exit 0
+            fi
+
+            git commit -m "web: apply persisted Arena RoleNet weights"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1

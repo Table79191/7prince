@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Old_if_Not_Wild",
-  "total_pages_processed": 4945483,
-  "total_records": 108702,
-  "auto_pass": 95655,
-  "needs_review": 13047,
+  "apcontinue": "Opinion_polling_for_the_United_States_House_of_Representatives_elections_in_the_Southern_United_States,_2010",
+  "total_pages_processed": 4982389,
+  "total_records": 109347,
+  "auto_pass": 96232,
+  "needs_review": 13115,
   "current_shard": 55,
-  "current_shard_records": 702,
+  "current_shard_records": 1347,
   "source_exhausted": false
 }

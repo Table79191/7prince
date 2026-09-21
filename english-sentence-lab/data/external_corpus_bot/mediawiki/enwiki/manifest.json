@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4738334,
-  "total_records": 104480,
-  "auto_pass": 91887,
-  "needs_review": 12593,
+  "total_pages_processed": 4772754,
+  "total_records": 105177,
+  "auto_pass": 92508,
+  "needs_review": 12669,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "National_Assembly_of_South_Africa",
+  "apcontinue": "Nelly_Naumann",
   "source_exhausted": false,
   "shard_count": 53
 }

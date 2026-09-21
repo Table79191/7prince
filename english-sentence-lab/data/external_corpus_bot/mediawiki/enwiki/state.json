@@ -1,10 +1,10 @@
 {
-  "apcontinue": "National_Assembly_of_South_Africa",
-  "total_pages_processed": 4738334,
-  "total_records": 104480,
-  "auto_pass": 91887,
-  "needs_review": 12593,
+  "apcontinue": "Nelly_Naumann",
+  "total_pages_processed": 4772754,
+  "total_records": 105177,
+  "auto_pass": 92508,
+  "needs_review": 12669,
   "current_shard": 53,
-  "current_shard_records": 480,
+  "current_shard_records": 1177,
   "source_exhausted": false
 }

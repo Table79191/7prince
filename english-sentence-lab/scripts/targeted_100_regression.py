@@ -20,6 +20,7 @@ PROBE_TEXTS = [
     "When reading textbooks, I sometimes couldn't follow the paragraph structure.",
     "While studying English at night, I occasionally couldn't understand relative clauses.",
     "When practicing sentence analysis, I sometimes couldn't distinguish subjects from objects.",
+    "What the fuck was that?",
 ]
 
 spec = importlib.util.spec_from_file_location("sentencelab_backend_targeted100", BACKEND_PATH)

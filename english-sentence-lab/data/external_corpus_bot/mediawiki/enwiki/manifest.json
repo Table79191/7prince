@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 4806820,
-  "total_records": 105946,
-  "auto_pass": 93156,
-  "needs_review": 12790,
+  "total_pages_processed": 4843010,
+  "total_records": 106286,
+  "auto_pass": 93463,
+  "needs_review": 12823,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Newport_beach_chamber_of_commerce",
+  "apcontinue": "Nino_of_Georgia",
   "source_exhausted": false,
-  "shard_count": 53
+  "shard_count": 54
 }

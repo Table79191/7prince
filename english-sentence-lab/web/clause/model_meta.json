@@ -1,0 +1,36 @@
+{
+  "version": "CLAUSE-ARENA-R1464",
+  "checkpoint": "clause_arena_latest.pt",
+  "checkpoint_path": "artifacts/arena_hotfeed/clause_arena_latest.pt",
+  "roles": [
+    null,
+    "S",
+    "V",
+    "O",
+    "C",
+    "M"
+  ],
+  "pos_list": [
+    "UNK",
+    "ADJ",
+    "ADP",
+    "ADV",
+    "AUX",
+    "CCONJ",
+    "DET",
+    "INTJ",
+    "NOUN",
+    "NUM",
+    "PART",
+    "PRON",
+    "PROPN",
+    "PUNCT",
+    "SCONJ",
+    "SYM",
+    "VERB",
+    "X"
+  ],
+  "head_threshold": 0.45,
+  "hybrid_selector": "complex_lowconf_0.65",
+  "source": "arena_hotfeed_clause"
+}

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Matt_Ritter",
-  "total_pages_processed": 4380647,
-  "total_records": 98189,
-  "auto_pass": 86297,
-  "needs_review": 11892,
+  "apcontinue": "Meara_(disambiguation)",
+  "total_pages_processed": 4414876,
+  "total_records": 98962,
+  "auto_pass": 86993,
+  "needs_review": 11969,
   "current_shard": 50,
-  "current_shard_records": 189,
+  "current_shard_records": 962,
   "source_exhausted": false
 }

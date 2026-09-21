@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5125558,
-  "total_records": 111333,
-  "auto_pass": 98013,
-  "needs_review": 13320,
+  "total_pages_processed": 5163152,
+  "total_records": 112628,
+  "auto_pass": 99125,
+  "needs_review": 13503,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Paul_Levy_(mathematician)",
+  "apcontinue": "Per_Frimann-Hansen",
   "source_exhausted": false,
-  "shard_count": 56
+  "shard_count": 57
 }

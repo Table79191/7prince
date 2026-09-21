@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Paul_Levy_(mathematician)",
-  "total_pages_processed": 5125558,
-  "total_records": 111333,
-  "auto_pass": 98013,
-  "needs_review": 13320,
-  "current_shard": 56,
-  "current_shard_records": 1333,
+  "apcontinue": "Per_Frimann-Hansen",
+  "total_pages_processed": 5163152,
+  "total_records": 112628,
+  "auto_pass": 99125,
+  "needs_review": 13503,
+  "current_shard": 57,
+  "current_shard_records": 628,
   "source_exhausted": false
 }

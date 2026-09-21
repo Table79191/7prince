@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Mustafa_ibn_Umar_el-Kanemi",
-  "total_pages_processed": 4668510,
-  "total_records": 102835,
-  "auto_pass": 90352,
-  "needs_review": 12483,
+  "apcontinue": "NY-121",
+  "total_pages_processed": 4701988,
+  "total_records": 103448,
+  "auto_pass": 90895,
+  "needs_review": 12553,
   "current_shard": 52,
-  "current_shard_records": 835,
+  "current_shard_records": 1448,
   "source_exhausted": false
 }

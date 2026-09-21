@@ -1,0 +1,40 @@
+name: SentenceLab Role-Clause hybrid selector eval
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'english-sentence-lab/scripts/eval_role_clause_hybrid.py'
+      - '.github/workflows/sentence-lab-role-clause-hybrid-eval.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            english-sentence-lab/scripts/eval_role_clause_hybrid.py
+            english-sentence-lab/arena/run_model_arena.py
+            english-sentence-lab/train/train_ud_role.py
+            english-sentence-lab/scripts/canonical_roles.py
+            english-sentence-lab/scripts/promoted_shards.py
+            english-sentence-lab/data/web_corpus_bot
+            english-sentence-lab/data/promoted_silver/promoted.jsonl
+            english-sentence-lab/artifacts/arena_hotfeed/role_arena_latest.pt
+            english-sentence-lab/artifacts/arena_hotfeed/clause_arena_latest.pt
+            english-sentence-lab/experiments/clause_anchor_graph_v1_01
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install torch
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Evaluate conservative hybrid selectors
+        run: python english-sentence-lab/scripts/eval_role_clause_hybrid.py

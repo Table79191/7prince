@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Tony_Montan_(musician)",
-  "total_pages_processed": 6617726,
-  "total_records": 142248,
-  "auto_pass": 124981,
-  "needs_review": 17267,
+  "apcontinue": "Treaty_of_Turkmanchai",
+  "total_pages_processed": 6651232,
+  "total_records": 143010,
+  "auto_pass": 125653,
+  "needs_review": 17357,
   "current_shard": 72,
-  "current_shard_records": 248,
+  "current_shard_records": 1010,
   "source_exhausted": false
 }

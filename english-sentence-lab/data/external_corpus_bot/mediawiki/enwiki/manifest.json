@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6617726,
-  "total_records": 142248,
-  "auto_pass": 124981,
-  "needs_review": 17267,
+  "total_pages_processed": 6651232,
+  "total_records": 143010,
+  "auto_pass": 125653,
+  "needs_review": 17357,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Tony_Montan_(musician)",
+  "apcontinue": "Treaty_of_Turkmanchai",
   "source_exhausted": false,
   "shard_count": 72
 }

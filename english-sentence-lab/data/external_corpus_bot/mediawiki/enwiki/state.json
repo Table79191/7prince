@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Tadur_Bala_Goud",
-  "total_pages_processed": 6300368,
-  "total_records": 134007,
-  "auto_pass": 117788,
-  "needs_review": 16219,
+  "apcontinue": "Tavares,_Orlando,_and_Atlantic_Railroad",
+  "total_pages_processed": 6339455,
+  "total_records": 135000,
+  "auto_pass": 118650,
+  "needs_review": 16350,
   "current_shard": 68,
-  "current_shard_records": 7,
+  "current_shard_records": 1000,
   "source_exhausted": false
 }

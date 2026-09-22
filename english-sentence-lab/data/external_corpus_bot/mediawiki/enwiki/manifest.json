@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6300368,
-  "total_records": 134007,
-  "auto_pass": 117788,
-  "needs_review": 16219,
+  "total_pages_processed": 6339455,
+  "total_records": 135000,
+  "auto_pass": 118650,
+  "needs_review": 16350,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Tadur_Bala_Goud",
+  "apcontinue": "Tavares,_Orlando,_and_Atlantic_Railroad",
   "source_exhausted": false,
   "shard_count": 68
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Std::wctob",
-  "total_pages_processed": 6153155,
-  "total_records": 132151,
-  "auto_pass": 116156,
-  "needs_review": 15995,
+  "apcontinue": "Stratiomys_rubra",
+  "total_pages_processed": 6194450,
+  "total_records": 132256,
+  "auto_pass": 116250,
+  "needs_review": 16006,
   "current_shard": 67,
-  "current_shard_records": 151,
+  "current_shard_records": 256,
   "source_exhausted": false
 }

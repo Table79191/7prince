@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6153155,
-  "total_records": 132151,
-  "auto_pass": 116156,
-  "needs_review": 15995,
+  "total_pages_processed": 6194450,
+  "total_records": 132256,
+  "auto_pass": 116250,
+  "needs_review": 16006,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Std::wctob",
+  "apcontinue": "Stratiomys_rubra",
   "source_exhausted": false,
   "shard_count": 67
 }

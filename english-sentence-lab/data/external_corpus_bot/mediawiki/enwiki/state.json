@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Treaty_of_Turkmanchai",
-  "total_pages_processed": 6651232,
-  "total_records": 143010,
-  "auto_pass": 125653,
-  "needs_review": 17357,
+  "apcontinue": "Tufts_Jumbos_field_hockey",
+  "total_pages_processed": 6685777,
+  "total_records": 143691,
+  "auto_pass": 126252,
+  "needs_review": 17439,
   "current_shard": 72,
-  "current_shard_records": 1010,
+  "current_shard_records": 1691,
   "source_exhausted": false
 }

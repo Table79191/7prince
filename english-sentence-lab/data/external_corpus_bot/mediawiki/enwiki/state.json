@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Tufts_Jumbos_field_hockey",
-  "total_pages_processed": 6685777,
-  "total_records": 143691,
-  "auto_pass": 126252,
-  "needs_review": 17439,
-  "current_shard": 72,
-  "current_shard_records": 1691,
+  "apcontinue": "U.S._Route_101_Business_(Santa_Maria,_California)",
+  "total_pages_processed": 6713570,
+  "total_records": 144589,
+  "auto_pass": 127046,
+  "needs_review": 17543,
+  "current_shard": 73,
+  "current_shard_records": 589,
   "source_exhausted": false
 }

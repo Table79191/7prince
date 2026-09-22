@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6685777,
-  "total_records": 143691,
-  "auto_pass": 126252,
-  "needs_review": 17439,
+  "total_pages_processed": 6713570,
+  "total_records": 144589,
+  "auto_pass": 127046,
+  "needs_review": 17543,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Tufts_Jumbos_field_hockey",
+  "apcontinue": "U.S._Route_101_Business_(Santa_Maria,_California)",
   "source_exhausted": false,
-  "shard_count": 72
+  "shard_count": 73
 }

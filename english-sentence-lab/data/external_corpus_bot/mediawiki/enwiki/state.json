@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Timo_Anderson",
-  "total_pages_processed": 6577036,
-  "total_records": 142028,
-  "auto_pass": 124793,
-  "needs_review": 17235,
+  "apcontinue": "Tony_Montan_(musician)",
+  "total_pages_processed": 6617726,
+  "total_records": 142248,
+  "auto_pass": 124981,
+  "needs_review": 17267,
   "current_shard": 72,
-  "current_shard_records": 28,
+  "current_shard_records": 248,
   "source_exhausted": false
 }

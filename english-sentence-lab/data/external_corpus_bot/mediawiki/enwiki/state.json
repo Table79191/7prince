@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Saint-Maixent,_Deux-Sèvres",
-  "total_pages_processed": 5742121,
-  "total_records": 124524,
-  "auto_pass": 109464,
-  "needs_review": 15060,
+  "apcontinue": "San_Diego_Buds",
+  "total_pages_processed": 5780186,
+  "total_records": 124624,
+  "auto_pass": 109557,
+  "needs_review": 15067,
   "current_shard": 63,
-  "current_shard_records": 524,
+  "current_shard_records": 624,
   "source_exhausted": false
 }

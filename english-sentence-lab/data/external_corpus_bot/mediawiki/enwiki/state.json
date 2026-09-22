@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Sydney_Metro_North_West_&_Bankstown",
-  "total_pages_processed": 6267537,
-  "total_records": 133106,
-  "auto_pass": 116995,
-  "needs_review": 16111,
-  "current_shard": 67,
-  "current_shard_records": 1106,
+  "apcontinue": "Tadur_Bala_Goud",
+  "total_pages_processed": 6300368,
+  "total_records": 134007,
+  "auto_pass": 117788,
+  "needs_review": 16219,
+  "current_shard": 68,
+  "current_shard_records": 7,
   "source_exhausted": false
 }

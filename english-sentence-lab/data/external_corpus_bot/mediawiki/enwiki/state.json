@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Special_majority_law",
-  "total_pages_processed": 6090110,
-  "total_records": 130558,
-  "auto_pass": 114721,
-  "needs_review": 15837,
+  "apcontinue": "St_Guthlac's_Priory",
+  "total_pages_processed": 6123469,
+  "total_records": 131060,
+  "auto_pass": 115171,
+  "needs_review": 15889,
   "current_shard": 66,
-  "current_shard_records": 558,
+  "current_shard_records": 1060,
   "source_exhausted": false
 }

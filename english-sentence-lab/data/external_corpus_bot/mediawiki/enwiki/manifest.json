@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5855212,
-  "total_records": 126278,
-  "auto_pass": 110979,
-  "needs_review": 15299,
+  "total_pages_processed": 5886871,
+  "total_records": 126857,
+  "auto_pass": 111517,
+  "needs_review": 15340,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Scrozzle",
+  "apcontinue": "Sense_and_Sensibilia_(Austin)",
   "source_exhausted": false,
   "shard_count": 64
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Scrozzle",
-  "total_pages_processed": 5855212,
-  "total_records": 126278,
-  "auto_pass": 110979,
-  "needs_review": 15299,
+  "apcontinue": "Sense_and_Sensibilia_(Austin)",
+  "total_pages_processed": 5886871,
+  "total_records": 126857,
+  "auto_pass": 111517,
+  "needs_review": 15340,
   "current_shard": 64,
-  "current_shard_records": 278,
+  "current_shard_records": 857,
   "source_exhausted": false
 }

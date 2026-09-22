@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Single_Operator,_Two_Radios",
-  "total_pages_processed": 5995477,
-  "total_records": 127567,
-  "auto_pass": 112143,
-  "needs_review": 15424,
-  "current_shard": 64,
-  "current_shard_records": 1567,
+  "apcontinue": "Small_nucleolar_RNA_SNORD53",
+  "total_pages_processed": 6025219,
+  "total_records": 128303,
+  "auto_pass": 112799,
+  "needs_review": 15504,
+  "current_shard": 65,
+  "current_shard_records": 303,
   "source_exhausted": false
 }

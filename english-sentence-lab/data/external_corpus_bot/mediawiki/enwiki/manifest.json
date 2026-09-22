@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6339455,
-  "total_records": 135000,
-  "auto_pass": 118650,
-  "needs_review": 16350,
+  "total_pages_processed": 6372111,
+  "total_records": 135302,
+  "auto_pass": 118914,
+  "needs_review": 16388,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Tavares,_Orlando,_and_Atlantic_Railroad",
+  "apcontinue": "Terrion",
   "source_exhausted": false,
   "shard_count": 68
 }

@@ -24,8 +24,11 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Install yt-dlp
-        run: python -m pip install --upgrade "yt-dlp[default]"
+      - name: Install yt-dlp and ffmpeg
+        run: |
+          python -m pip install --upgrade "yt-dlp[default]"
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
 
       - name: Download video
         env:

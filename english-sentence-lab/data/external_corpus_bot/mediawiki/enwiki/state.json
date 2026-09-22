@@ -1,10 +1,10 @@
 {
-  "apcontinue": "U.S._Route_101_Business_(Santa_Maria,_California)",
-  "total_pages_processed": 6713570,
-  "total_records": 144589,
-  "auto_pass": 127046,
-  "needs_review": 17543,
-  "current_shard": 73,
-  "current_shard_records": 589,
+  "apcontinue": "USS_LST-466",
+  "total_pages_processed": 6726477,
+  "total_records": 148490,
+  "auto_pass": 130410,
+  "needs_review": 18080,
+  "current_shard": 75,
+  "current_shard_records": 490,
   "source_exhausted": false
 }

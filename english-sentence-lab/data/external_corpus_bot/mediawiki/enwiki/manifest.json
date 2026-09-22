@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6713570,
-  "total_records": 144589,
-  "auto_pass": 127046,
-  "needs_review": 17543,
+  "total_pages_processed": 6726477,
+  "total_records": 148490,
+  "auto_pass": 130410,
+  "needs_review": 18080,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "U.S._Route_101_Business_(Santa_Maria,_California)",
+  "apcontinue": "USS_LST-466",
   "source_exhausted": false,
-  "shard_count": 73
+  "shard_count": 75
 }

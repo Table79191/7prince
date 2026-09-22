@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6536340,
-  "total_records": 141397,
-  "auto_pass": 124227,
-  "needs_review": 17170,
+  "total_pages_processed": 6577036,
+  "total_records": 142028,
+  "auto_pass": 124793,
+  "needs_review": 17235,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Thomas_Francis_Blenkinsop",
+  "apcontinue": "Timo_Anderson",
   "source_exhausted": false,
-  "shard_count": 71
+  "shard_count": 72
 }

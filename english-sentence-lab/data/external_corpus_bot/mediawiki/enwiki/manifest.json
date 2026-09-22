@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6123469,
-  "total_records": 131060,
-  "auto_pass": 115171,
-  "needs_review": 15889,
+  "total_pages_processed": 6153155,
+  "total_records": 132151,
+  "auto_pass": 116156,
+  "needs_review": 15995,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "St_Guthlac's_Priory",
+  "apcontinue": "Std::wctob",
   "source_exhausted": false,
-  "shard_count": 66
+  "shard_count": 67
 }

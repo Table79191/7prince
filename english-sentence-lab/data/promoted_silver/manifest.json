@@ -1,40 +1,46 @@
 {
   "version": "PROMOTED-SILVER-1",
-  "added_this_run": 2000,
-  "total_promoted": 466850,
+  "added_this_run": 2645,
+  "total_promoted": 469495,
   "sources": {
     "tatoeba": {
       "source_records": 2036824,
-      "processed_before": 626955,
-      "scanned": 1625,
+      "processed_before": 628580,
+      "scanned": 1307,
       "accepted": 1000,
       "rejected": {
-        "consensus": 269,
-        "quality_length": 128,
-        "status": 60,
-        "length": 154,
-        "punctuation": 3,
-        "structure": 9,
-        "duplicate": 2
+        "consensus": 248,
+        "status": 21,
+        "length": 32,
+        "structure": 5,
+        "duplicate": 1
       }
     },
     "enwiki_bulk": {
       "source_records": 745086,
-      "processed_before": 335017,
-      "scanned": 1763,
+      "processed_before": 336780,
+      "scanned": 1676,
       "accepted": 1000,
       "rejected": {
-        "consensus": 751,
-        "length": 10,
-        "duplicate": 2
+        "consensus": 670,
+        "length": 2,
+        "duplicate": 4
       }
     },
     "mediawiki/enwiki": {
-      "source_records": 122147,
+      "source_records": 123505,
       "processed_before": 122147,
-      "scanned": 0,
-      "accepted": 0,
-      "rejected": {}
+      "scanned": 1358,
+      "accepted": 645,
+      "rejected": {
+        "consensus": 392,
+        "length": 82,
+        "structure": 59,
+        "status": 171,
+        "duplicate": 5,
+        "quality_length": 3,
+        "nonprose": 1
+      }
     },
     "mediawiki/enwikibooks": {
       "source_records": 3,
@@ -65,87 +71,87 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 94934614
+        "bytes": 94938258
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 94918286
+        "bytes": 94920680
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 94888118
+        "bytes": 94890769
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 94853031
+        "bytes": 94856040
       },
       {
         "name": "promoted-000007.jsonl",
-        "bytes": 94822949
+        "bytes": 94825716
       },
       {
         "name": "promoted-000008.jsonl",
-        "bytes": 94781583
+        "bytes": 94784571
       },
       {
         "name": "promoted-000009.jsonl",
-        "bytes": 94778307
+        "bytes": 94780738
       },
       {
         "name": "promoted-000010.jsonl",
-        "bytes": 94749876
+        "bytes": 94752309
       },
       {
         "name": "promoted-000011.jsonl",
-        "bytes": 94708314
+        "bytes": 94711992
       },
       {
         "name": "promoted-000012.jsonl",
-        "bytes": 94669284
+        "bytes": 94672727
       },
       {
         "name": "promoted-000013.jsonl",
-        "bytes": 94650039
+        "bytes": 94652807
       },
       {
         "name": "promoted-000014.jsonl",
-        "bytes": 94612691
+        "bytes": 94615079
       },
       {
         "name": "promoted-000015.jsonl",
-        "bytes": 94593742
+        "bytes": 94597199
       },
       {
         "name": "promoted-000016.jsonl",
-        "bytes": 94553117
+        "bytes": 94555500
       },
       {
         "name": "promoted-000017.jsonl",
-        "bytes": 94528269
+        "bytes": 94530913
       },
       {
         "name": "promoted-000018.jsonl",
-        "bytes": 94502381
+        "bytes": 94504801
       },
       {
         "name": "promoted-000019.jsonl",
-        "bytes": 94473654
+        "bytes": 94476071
       },
       {
         "name": "promoted-000020.jsonl",
-        "bytes": 94438781
+        "bytes": 94441682
       },
       {
         "name": "promoted-000021.jsonl",
-        "bytes": 94414884
+        "bytes": 94418302
       },
       {
         "name": "promoted-000022.jsonl",
-        "bytes": 94386620
+        "bytes": 94389335
       },
       {
         "name": "promoted-000023.jsonl",
-        "bytes": 72600115
+        "bytes": 85288762
       }
     ],
     "written_this_run": [

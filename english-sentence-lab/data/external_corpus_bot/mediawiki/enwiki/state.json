@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Stratiomys_rubra",
-  "total_pages_processed": 6194450,
-  "total_records": 132256,
-  "auto_pass": 116250,
-  "needs_review": 16006,
+  "apcontinue": "Sunny_Sweeney",
+  "total_pages_processed": 6230358,
+  "total_records": 132492,
+  "auto_pass": 116441,
+  "needs_review": 16051,
   "current_shard": 67,
-  "current_shard_records": 256,
+  "current_shard_records": 492,
   "source_exhausted": false
 }

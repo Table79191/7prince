@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6194450,
-  "total_records": 132256,
-  "auto_pass": 116250,
-  "needs_review": 16006,
+  "total_pages_processed": 6230358,
+  "total_records": 132492,
+  "auto_pass": 116441,
+  "needs_review": 16051,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Stratiomys_rubra",
+  "apcontinue": "Sunny_Sweeney",
   "source_exhausted": false,
   "shard_count": 67
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Sense_and_Sensibilia_(Austin)",
-  "total_pages_processed": 5886871,
-  "total_records": 126857,
-  "auto_pass": 111517,
-  "needs_review": 15340,
+  "apcontinue": "Shanghai_Bairun_Investment_Holding_Group_Co.,_Ltd.",
+  "total_pages_processed": 5921201,
+  "total_records": 127183,
+  "auto_pass": 111805,
+  "needs_review": 15378,
   "current_shard": 64,
-  "current_shard_records": 857,
+  "current_shard_records": 1183,
   "source_exhausted": false
 }

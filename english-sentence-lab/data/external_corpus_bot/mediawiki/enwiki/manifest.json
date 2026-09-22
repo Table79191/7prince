@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5886871,
-  "total_records": 126857,
-  "auto_pass": 111517,
-  "needs_review": 15340,
+  "total_pages_processed": 5921201,
+  "total_records": 127183,
+  "auto_pass": 111805,
+  "needs_review": 15378,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Sense_and_Sensibilia_(Austin)",
+  "apcontinue": "Shanghai_Bairun_Investment_Holding_Group_Co.,_Ltd.",
   "source_exhausted": false,
   "shard_count": 64
 }

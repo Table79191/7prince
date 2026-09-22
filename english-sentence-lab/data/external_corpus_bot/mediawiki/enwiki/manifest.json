@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5780186,
-  "total_records": 124624,
-  "auto_pass": 109557,
-  "needs_review": 15067,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "San_Diego_Buds",
+  "total_pages_processed": 5821238,
+  "total_records": 125355,
+  "auto_pass": 110179,
+  "needs_review": 15176,
+  "added_this_run": 103,
+  "skipped_this_run": 7,
+  "apcontinue": "Saturday_Night's_Main_Event_XXVI",
   "source_exhausted": false,
   "shard_count": 63
 }

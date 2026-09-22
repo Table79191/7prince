@@ -3,18 +3,18 @@
   "gpt_in_loop": false,
   "judge": "canonical gold/silver labels; never opponent prediction",
   "gold_train_pool": 48140,
-  "promoted_silver_pool": 507472,
+  "promoted_silver_pool": 511596,
   "clean_dev_pool": 6317,
   "hot_feed": {
     "enabled": true,
     "baseline_promoted_count": 15620,
     "fresh_available_at_start": 0,
-    "fresh_used_total": 510937,
+    "fresh_used_total": 515061,
     "feed_state": "artifacts/arena_hotfeed/feed_state.json"
   },
   "rounds_this_run": 1,
-  "total_rounds": 2160,
-  "elapsed_seconds": 40.25926173700009,
+  "total_rounds": 2184,
+  "elapsed_seconds": 47.203638877999765,
   "current": {
     "role_dev": {
       "sentences": 6317,
@@ -26,11 +26,11 @@
     "clause_dev": {
       "sentences": 6317,
       "tokens": 55353,
-      "role_accuracy": 0.9618268205878634,
-      "sentence_exact": 4779,
-      "sentence_exact_rate": 0.7565299984169701,
-      "owner_accuracy": 0.8622116235795712,
-      "clause_head_f1": 0.8805914579011754
+      "role_accuracy": 0.9620436110057269,
+      "sentence_exact": 4793,
+      "sentence_exact_rate": 0.7587462403039418,
+      "owner_accuracy": 0.8624645457337452,
+      "clause_head_f1": 0.8827469803259665
     },
     "hard": {
       "role": {
@@ -55,10 +55,10 @@
       },
       "clause": {
         "hard14": {
-          "correct": 78,
+          "correct": 79,
           "total": 87,
-          "accuracy": 0.896551724137931,
-          "exact_sentences": 6
+          "accuracy": 0.9080459770114943,
+          "exact_sentences": 7
         },
         "final16": {
           "correct": 89,
@@ -118,14 +118,14 @@
     }
   },
   "this_run_battle_totals": {
-    "ties": 4411,
-    "role_exact": 4485,
-    "clause_exact": 4089,
-    "role_weighted_error_x10": 43660,
-    "clause_weighted_error_x10": 53730,
-    "role_wins": 1070,
-    "both_wrong": 1175,
-    "clause_wins": 519
+    "ties": 4450,
+    "role_exact": 4470,
+    "clause_exact": 4156,
+    "role_weighted_error_x10": 42990,
+    "clause_weighted_error_x10": 47830,
+    "role_wins": 954,
+    "both_wrong": 1147,
+    "clause_wins": 596
   },
   "accepted_role_updates": 0,
   "accepted_clause_updates": 0,

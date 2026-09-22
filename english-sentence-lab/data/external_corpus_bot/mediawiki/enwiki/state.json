@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Shriners_Children's_200_at_The_Glen",
-  "total_pages_processed": 5958959,
-  "total_records": 127463,
-  "auto_pass": 112054,
-  "needs_review": 15409,
+  "apcontinue": "Single_Operator,_Two_Radios",
+  "total_pages_processed": 5995477,
+  "total_records": 127567,
+  "auto_pass": 112143,
+  "needs_review": 15424,
   "current_shard": 64,
-  "current_shard_records": 1463,
+  "current_shard_records": 1567,
   "source_exhausted": false
 }

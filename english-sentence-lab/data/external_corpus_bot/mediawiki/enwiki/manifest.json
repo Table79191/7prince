@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6484682,
-  "total_records": 135798,
-  "auto_pass": 119350,
-  "needs_review": 16448,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "The_Santa-Cruz_Sentinel",
+  "total_pages_processed": 6512720,
+  "total_records": 138045,
+  "auto_pass": 121300,
+  "needs_review": 16745,
+  "added_this_run": 25,
+  "skipped_this_run": 3,
+  "apcontinue": "The_history_of_India_as_told_by_its_own_historians._The_Muhammadan_period",
   "source_exhausted": false,
-  "shard_count": 68
+  "shard_count": 70
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Terrion",
-  "total_pages_processed": 6372111,
-  "total_records": 135302,
-  "auto_pass": 118914,
-  "needs_review": 16388,
+  "apcontinue": "The_Cap'n_Toby_Show",
+  "total_pages_processed": 6406585,
+  "total_records": 135506,
+  "auto_pass": 119096,
+  "needs_review": 16410,
   "current_shard": 68,
-  "current_shard_records": 1302,
+  "current_shard_records": 1506,
   "source_exhausted": false
 }

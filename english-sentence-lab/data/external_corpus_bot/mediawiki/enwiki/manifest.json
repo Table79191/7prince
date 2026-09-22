@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6372111,
-  "total_records": 135302,
-  "auto_pass": 118914,
-  "needs_review": 16388,
+  "total_pages_processed": 6406585,
+  "total_records": 135506,
+  "auto_pass": 119096,
+  "needs_review": 16410,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Terrion",
+  "apcontinue": "The_Cap'n_Toby_Show",
   "source_exhausted": false,
   "shard_count": 68
 }

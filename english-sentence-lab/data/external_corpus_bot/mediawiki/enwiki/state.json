@@ -1,10 +1,10 @@
 {
-  "apcontinue": "The_Joint_Communiqué_of_the_United_States_of_America_and_the_People's_Republic_of_China",
-  "total_pages_processed": 6446439,
-  "total_records": 135647,
-  "auto_pass": 119213,
-  "needs_review": 16434,
+  "apcontinue": "The_Santa-Cruz_Sentinel",
+  "total_pages_processed": 6484682,
+  "total_records": 135798,
+  "auto_pass": 119350,
+  "needs_review": 16448,
   "current_shard": 68,
-  "current_shard_records": 1647,
+  "current_shard_records": 1798,
   "source_exhausted": false
 }

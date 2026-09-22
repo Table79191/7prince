@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Shanghai_Bairun_Investment_Holding_Group_Co.,_Ltd.",
-  "total_pages_processed": 5921201,
-  "total_records": 127183,
-  "auto_pass": 111805,
-  "needs_review": 15378,
+  "apcontinue": "Shriners_Children's_200_at_The_Glen",
+  "total_pages_processed": 5958959,
+  "total_records": 127463,
+  "auto_pass": 112054,
+  "needs_review": 15409,
   "current_shard": 64,
-  "current_shard_records": 1183,
+  "current_shard_records": 1463,
   "source_exhausted": false
 }

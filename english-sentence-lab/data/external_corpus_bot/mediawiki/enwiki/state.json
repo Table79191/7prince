@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Small_nucleolar_RNA_SNORD53",
-  "total_pages_processed": 6025219,
-  "total_records": 128303,
-  "auto_pass": 112799,
-  "needs_review": 15504,
+  "apcontinue": "Soon_I'll_Be_Loving_You_Again",
+  "total_pages_processed": 6060854,
+  "total_records": 128814,
+  "auto_pass": 113229,
+  "needs_review": 15585,
   "current_shard": 65,
-  "current_shard_records": 303,
+  "current_shard_records": 814,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6025219,
-  "total_records": 128303,
-  "auto_pass": 112799,
-  "needs_review": 15504,
+  "total_pages_processed": 6060854,
+  "total_records": 128814,
+  "auto_pass": 113229,
+  "needs_review": 15585,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Small_nucleolar_RNA_SNORD53",
+  "apcontinue": "Soon_I'll_Be_Loving_You_Again",
   "source_exhausted": false,
   "shard_count": 65
 }

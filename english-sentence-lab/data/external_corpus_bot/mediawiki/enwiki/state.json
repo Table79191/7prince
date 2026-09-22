@@ -1,10 +1,10 @@
 {
-  "apcontinue": "The_history_of_India_as_told_by_its_own_historians._The_Muhammadan_period",
-  "total_pages_processed": 6512720,
-  "total_records": 138045,
-  "auto_pass": 121300,
-  "needs_review": 16745,
-  "current_shard": 70,
-  "current_shard_records": 45,
+  "apcontinue": "Thomas_Francis_Blenkinsop",
+  "total_pages_processed": 6536340,
+  "total_records": 141397,
+  "auto_pass": 124227,
+  "needs_review": 17170,
+  "current_shard": 71,
+  "current_shard_records": 1397,
   "source_exhausted": false
 }

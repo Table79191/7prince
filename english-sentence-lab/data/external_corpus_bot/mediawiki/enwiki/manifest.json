@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6230358,
-  "total_records": 132492,
-  "auto_pass": 116441,
-  "needs_review": 16051,
+  "total_pages_processed": 6267537,
+  "total_records": 133106,
+  "auto_pass": 116995,
+  "needs_review": 16111,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Sunny_Sweeney",
+  "apcontinue": "Sydney_Metro_North_West_&_Bankstown",
   "source_exhausted": false,
   "shard_count": 67
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Sunny_Sweeney",
-  "total_pages_processed": 6230358,
-  "total_records": 132492,
-  "auto_pass": 116441,
-  "needs_review": 16051,
+  "apcontinue": "Sydney_Metro_North_West_&_Bankstown",
+  "total_pages_processed": 6267537,
+  "total_records": 133106,
+  "auto_pass": 116995,
+  "needs_review": 16111,
   "current_shard": 67,
-  "current_shard_records": 492,
+  "current_shard_records": 1106,
   "source_exhausted": false
 }

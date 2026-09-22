@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6754507,
-  "total_records": 150245,
-  "auto_pass": 131930,
-  "needs_review": 18315,
+  "total_pages_processed": 6777189,
+  "total_records": 152120,
+  "auto_pass": 133575,
+  "needs_review": 18545,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Union_J_(group)",
+  "apcontinue": "Uraci",
   "source_exhausted": false,
-  "shard_count": 76
+  "shard_count": 77
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "USS_LST-466",
-  "total_pages_processed": 6726477,
-  "total_records": 148490,
-  "auto_pass": 130410,
-  "needs_review": 18080,
-  "current_shard": 75,
-  "current_shard_records": 490,
+  "apcontinue": "Union_J_(group)",
+  "total_pages_processed": 6754507,
+  "total_records": 150245,
+  "auto_pass": 131930,
+  "needs_review": 18315,
+  "current_shard": 76,
+  "current_shard_records": 245,
   "source_exhausted": false
 }

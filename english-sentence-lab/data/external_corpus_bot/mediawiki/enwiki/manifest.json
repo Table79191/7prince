@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6726477,
-  "total_records": 148490,
-  "auto_pass": 130410,
-  "needs_review": 18080,
+  "total_pages_processed": 6754507,
+  "total_records": 150245,
+  "auto_pass": 131930,
+  "needs_review": 18315,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "USS_LST-466",
+  "apcontinue": "Union_J_(group)",
   "source_exhausted": false,
-  "shard_count": 75
+  "shard_count": 76
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 5711477,
-  "total_records": 123505,
-  "auto_pass": 108571,
-  "needs_review": 14934,
-  "added_this_run": 63,
-  "skipped_this_run": 2,
-  "apcontinue": "SEPTA_suburban_division_bus_routes",
+  "total_pages_processed": 5742121,
+  "total_records": 124524,
+  "auto_pass": 109464,
+  "needs_review": 15060,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Saint-Maixent,_Deux-Sèvres",
   "source_exhausted": false,
-  "shard_count": 62
+  "shard_count": 63
 }

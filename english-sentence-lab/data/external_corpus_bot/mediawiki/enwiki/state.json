@@ -1,10 +1,10 @@
 {
-  "apcontinue": "SEPTA_suburban_division_bus_routes",
-  "total_pages_processed": 5711477,
-  "total_records": 123505,
-  "auto_pass": 108571,
-  "needs_review": 14934,
-  "current_shard": 62,
-  "current_shard_records": 1505,
+  "apcontinue": "Saint-Maixent,_Deux-Sèvres",
+  "total_pages_processed": 5742121,
+  "total_records": 124524,
+  "auto_pass": 109464,
+  "needs_review": 15060,
+  "current_shard": 63,
+  "current_shard_records": 524,
   "source_exhausted": false
 }

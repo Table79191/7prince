@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6406585,
-  "total_records": 135506,
-  "auto_pass": 119096,
-  "needs_review": 16410,
+  "total_pages_processed": 6446439,
+  "total_records": 135647,
+  "auto_pass": 119213,
+  "needs_review": 16434,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "The_Cap'n_Toby_Show",
+  "apcontinue": "The_Joint_Communiqué_of_the_United_States_of_America_and_the_People's_Republic_of_China",
   "source_exhausted": false,
   "shard_count": 68
 }

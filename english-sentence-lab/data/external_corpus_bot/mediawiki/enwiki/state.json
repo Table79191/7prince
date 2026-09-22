@@ -1,10 +1,10 @@
 {
-  "apcontinue": "The_Cap'n_Toby_Show",
-  "total_pages_processed": 6406585,
-  "total_records": 135506,
-  "auto_pass": 119096,
-  "needs_review": 16410,
+  "apcontinue": "The_Joint_Communiqué_of_the_United_States_of_America_and_the_People's_Republic_of_China",
+  "total_pages_processed": 6446439,
+  "total_records": 135647,
+  "auto_pass": 119213,
+  "needs_review": 16434,
   "current_shard": 68,
-  "current_shard_records": 1506,
+  "current_shard_records": 1647,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6842189,
-  "total_records": 152621,
-  "auto_pass": 134028,
-  "needs_review": 18593,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
-  "apcontinue": "Vic_Morgenstein",
+  "total_pages_processed": 6871908,
+  "total_records": 153657,
+  "auto_pass": 134999,
+  "needs_review": 18658,
+  "added_this_run": 3,
+  "skipped_this_run": 2,
+  "apcontinue": "Virginia_State_Route_721_(James_City_County)",
   "source_exhausted": false,
   "shard_count": 77
 }

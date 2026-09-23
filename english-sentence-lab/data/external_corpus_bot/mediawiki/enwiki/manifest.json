@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 7107218,
-  "total_records": 157533,
-  "auto_pass": 138392,
-  "needs_review": 19141,
-  "added_this_run": 72,
-  "skipped_this_run": 1,
-  "apcontinue": "Xenon-arc_lamp",
+  "total_pages_processed": 7146409,
+  "total_records": 158190,
+  "auto_pass": 138957,
+  "needs_review": 19233,
+  "added_this_run": 0,
+  "skipped_this_run": 0,
+  "apcontinue": "Yoo_Y-s",
   "source_exhausted": false,
-  "shard_count": 79
+  "shard_count": 80
 }

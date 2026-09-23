@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Walter_Koebel",
-  "total_pages_processed": 6936087,
-  "total_records": 154483,
-  "auto_pass": 135735,
-  "needs_review": 18748,
+  "apcontinue": "Welcome_to_Sweden_(2014_series)",
+  "total_pages_processed": 6972111,
+  "total_records": 154641,
+  "auto_pass": 135872,
+  "needs_review": 18769,
   "current_shard": 78,
-  "current_shard_records": 483,
+  "current_shard_records": 641,
   "source_exhausted": false
 }

@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6936087,
-  "total_records": 154483,
-  "auto_pass": 135735,
-  "needs_review": 18748,
+  "total_pages_processed": 6972111,
+  "total_records": 154641,
+  "auto_pass": 135872,
+  "needs_review": 18769,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Walter_Koebel",
+  "apcontinue": "Welcome_to_Sweden_(2014_series)",
   "source_exhausted": false,
   "shard_count": 78
 }

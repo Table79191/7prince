@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 7242128,
+  "total_pages_processed": 7242152,
   "total_records": 160756,
   "auto_pass": 141253,
   "needs_review": 19503,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "",
-  "source_exhausted": false,
+  "apcontinue": null,
+  "source_exhausted": true,
   "shard_count": 81
 }

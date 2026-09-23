@@ -1,10 +1,10 @@
 {
-  "apcontinue": "",
-  "total_pages_processed": 7242128,
+  "apcontinue": null,
+  "total_pages_processed": 7242152,
   "total_records": 160756,
   "auto_pass": 141253,
   "needs_review": 19503,
   "current_shard": 81,
   "current_shard_records": 756,
-  "source_exhausted": false
+  "source_exhausted": true
 }

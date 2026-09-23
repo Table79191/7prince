@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6904618,
-  "total_records": 153807,
-  "auto_pass": 135143,
-  "needs_review": 18664,
+  "total_pages_processed": 6936087,
+  "total_records": 154483,
+  "auto_pass": 135735,
+  "needs_review": 18748,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "W._Preece",
+  "apcontinue": "Walter_Koebel",
   "source_exhausted": false,
-  "shard_count": 77
+  "shard_count": 78
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "W._Preece",
-  "total_pages_processed": 6904618,
-  "total_records": 153807,
-  "auto_pass": 135143,
-  "needs_review": 18664,
-  "current_shard": 77,
-  "current_shard_records": 1807,
+  "apcontinue": "Walter_Koebel",
+  "total_pages_processed": 6936087,
+  "total_records": 154483,
+  "auto_pass": 135735,
+  "needs_review": 18748,
+  "current_shard": 78,
+  "current_shard_records": 483,
   "source_exhausted": false
 }

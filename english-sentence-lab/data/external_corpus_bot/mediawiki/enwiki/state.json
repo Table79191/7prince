@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Zduhac",
-  "total_pages_processed": 7184182,
-  "total_records": 158583,
-  "auto_pass": 139303,
-  "needs_review": 19280,
+  "apcontinue": "Útěchovice_pod_Stražištěm",
+  "total_pages_processed": 7226539,
+  "total_records": 158792,
+  "auto_pass": 139494,
+  "needs_review": 19298,
   "current_shard": 80,
-  "current_shard_records": 583,
+  "current_shard_records": 792,
   "source_exhausted": false
 }

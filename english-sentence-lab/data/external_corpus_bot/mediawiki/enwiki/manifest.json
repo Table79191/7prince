@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 7184182,
-  "total_records": 158583,
-  "auto_pass": 139303,
-  "needs_review": 19280,
+  "total_pages_processed": 7226539,
+  "total_records": 158792,
+  "auto_pass": 139494,
+  "needs_review": 19298,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Zduhac",
+  "apcontinue": "Útěchovice_pod_Stražištěm",
   "source_exhausted": false,
   "shard_count": 80
 }

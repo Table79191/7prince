@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 7007287,
-  "total_records": 155368,
-  "auto_pass": 136524,
-  "needs_review": 18844,
+  "total_pages_processed": 7042853,
+  "total_records": 156102,
+  "auto_pass": 137148,
+  "needs_review": 18954,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Wibault_2",
+  "apcontinue": "William_Owen,_Sir_Lanyon",
   "source_exhausted": false,
-  "shard_count": 78
+  "shard_count": 79
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Wibault_2",
-  "total_pages_processed": 7007287,
-  "total_records": 155368,
-  "auto_pass": 136524,
-  "needs_review": 18844,
-  "current_shard": 78,
-  "current_shard_records": 1368,
+  "apcontinue": "William_Owen,_Sir_Lanyon",
+  "total_pages_processed": 7042853,
+  "total_records": 156102,
+  "auto_pass": 137148,
+  "needs_review": 18954,
+  "current_shard": 79,
+  "current_shard_records": 102,
   "source_exhausted": false
 }

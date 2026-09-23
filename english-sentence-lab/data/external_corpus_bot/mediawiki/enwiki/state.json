@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Valvettiturai_massacre",
-  "total_pages_processed": 6807622,
-  "total_records": 152472,
-  "auto_pass": 133897,
-  "needs_review": 18575,
+  "apcontinue": "Vic_Morgenstein",
+  "total_pages_processed": 6842189,
+  "total_records": 152621,
+  "auto_pass": 134028,
+  "needs_review": 18593,
   "current_shard": 77,
-  "current_shard_records": 472,
+  "current_shard_records": 621,
   "source_exhausted": false
 }

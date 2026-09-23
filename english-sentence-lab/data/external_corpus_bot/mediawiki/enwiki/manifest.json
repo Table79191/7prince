@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6807622,
-  "total_records": 152472,
-  "auto_pass": 133897,
-  "needs_review": 18575,
+  "total_pages_processed": 6842189,
+  "total_records": 152621,
+  "auto_pass": 134028,
+  "needs_review": 18593,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Valvettiturai_massacre",
+  "apcontinue": "Vic_Morgenstein",
   "source_exhausted": false,
   "shard_count": 77
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Virginia_State_Route_721_(James_City_County)",
-  "total_pages_processed": 6871908,
-  "total_records": 153657,
-  "auto_pass": 134999,
-  "needs_review": 18658,
+  "apcontinue": "W._Preece",
+  "total_pages_processed": 6904618,
+  "total_records": 153807,
+  "auto_pass": 135143,
+  "needs_review": 18664,
   "current_shard": 77,
-  "current_shard_records": 1657,
+  "current_shard_records": 1807,
   "source_exhausted": false
 }

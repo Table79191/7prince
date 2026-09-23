@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Útěchovice_pod_Stražištěm",
-  "total_pages_processed": 7226539,
-  "total_records": 158792,
-  "auto_pass": 139494,
-  "needs_review": 19298,
-  "current_shard": 80,
-  "current_shard_records": 792,
+  "apcontinue": "",
+  "total_pages_processed": 7242128,
+  "total_records": 160756,
+  "auto_pass": 141253,
+  "needs_review": 19503,
+  "current_shard": 81,
+  "current_shard_records": 756,
   "source_exhausted": false
 }

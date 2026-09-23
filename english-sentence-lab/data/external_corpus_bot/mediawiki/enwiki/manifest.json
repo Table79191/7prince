@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 7226539,
-  "total_records": 158792,
-  "auto_pass": 139494,
-  "needs_review": 19298,
+  "total_pages_processed": 7242128,
+  "total_records": 160756,
+  "auto_pass": 141253,
+  "needs_review": 19503,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Útěchovice_pod_Stražištěm",
+  "apcontinue": "",
   "source_exhausted": false,
-  "shard_count": 80
+  "shard_count": 81
 }

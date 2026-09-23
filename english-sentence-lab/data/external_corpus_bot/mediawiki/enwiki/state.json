@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Welcome_to_Sweden_(2014_series)",
-  "total_pages_processed": 6972111,
-  "total_records": 154641,
-  "auto_pass": 135872,
-  "needs_review": 18769,
+  "apcontinue": "Wibault_2",
+  "total_pages_processed": 7007287,
+  "total_records": 155368,
+  "auto_pass": 136524,
+  "needs_review": 18844,
   "current_shard": 78,
-  "current_shard_records": 641,
+  "current_shard_records": 1368,
   "source_exhausted": false
 }

@@ -1,10 +1,10 @@
 {
-  "apcontinue": "William_Owen,_Sir_Lanyon",
-  "total_pages_processed": 7042853,
-  "total_records": 156102,
-  "auto_pass": 137148,
-  "needs_review": 18954,
+  "apcontinue": "Women's_suffrage_in_Texas",
+  "total_pages_processed": 7077040,
+  "total_records": 156493,
+  "auto_pass": 137490,
+  "needs_review": 19003,
   "current_shard": 79,
-  "current_shard_records": 102,
+  "current_shard_records": 493,
   "source_exhausted": false
 }

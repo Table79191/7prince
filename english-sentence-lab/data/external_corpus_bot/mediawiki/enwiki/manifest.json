@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 6777189,
-  "total_records": 152120,
-  "auto_pass": 133575,
-  "needs_review": 18545,
+  "total_pages_processed": 6807622,
+  "total_records": 152472,
+  "auto_pass": 133897,
+  "needs_review": 18575,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Uraci",
+  "apcontinue": "Valvettiturai_massacre",
   "source_exhausted": false,
   "shard_count": 77
 }

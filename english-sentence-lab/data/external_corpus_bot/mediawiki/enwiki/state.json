@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Uraci",
-  "total_pages_processed": 6777189,
-  "total_records": 152120,
-  "auto_pass": 133575,
-  "needs_review": 18545,
+  "apcontinue": "Valvettiturai_massacre",
+  "total_pages_processed": 6807622,
+  "total_records": 152472,
+  "auto_pass": 133897,
+  "needs_review": 18575,
   "current_shard": 77,
-  "current_shard_records": 120,
+  "current_shard_records": 472,
   "source_exhausted": false
 }

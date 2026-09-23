@@ -1,10 +1,10 @@
 {
-  "apcontinue": "Yoo_Y-s",
-  "total_pages_processed": 7146409,
-  "total_records": 158190,
-  "auto_pass": 138957,
-  "needs_review": 19233,
+  "apcontinue": "Zduhac",
+  "total_pages_processed": 7184182,
+  "total_records": 158583,
+  "auto_pass": 139303,
+  "needs_review": 19280,
   "current_shard": 80,
-  "current_shard_records": 190,
+  "current_shard_records": 583,
   "source_exhausted": false
 }

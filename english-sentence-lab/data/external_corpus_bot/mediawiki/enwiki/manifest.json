@@ -17,13 +17,13 @@
     "crawl_order": "MediaWiki allpages namespace 0",
     "attribution": "page URL + revision id + history URL retained per record"
   },
-  "total_pages_processed": 7146409,
-  "total_records": 158190,
-  "auto_pass": 138957,
-  "needs_review": 19233,
+  "total_pages_processed": 7184182,
+  "total_records": 158583,
+  "auto_pass": 139303,
+  "needs_review": 19280,
   "added_this_run": 0,
   "skipped_this_run": 0,
-  "apcontinue": "Yoo_Y-s",
+  "apcontinue": "Zduhac",
   "source_exhausted": false,
   "shard_count": 80
 }

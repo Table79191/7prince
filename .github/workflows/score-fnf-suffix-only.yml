@@ -1,4 +1,4 @@
-name: Score FNF Suffix Only
+name: Score FNF Full Phrase Final
 
 on:
   push:
@@ -51,7 +51,7 @@ jobs:
           from pathlib import Path
           from transformers import AutoProcessor, AutoModelForCTC
 
-          candidates = ["WOULD LIKE IT", "LIKE IT", "LIKES ME", "LIKES IT", "WOULD LIKE ME"]
+          candidates = ["EVERYBODY WOULD LIKE IT", "EVERYBODY'D LIKE IT", "EVERYBODY LIKE IT", "EVERYBODY LIKES IT", "EVERYBODY LIKES ME"]
           models = [
               "facebook/wav2vec2-base-960h",
               "facebook/wav2vec2-large-960h-lv60-self",

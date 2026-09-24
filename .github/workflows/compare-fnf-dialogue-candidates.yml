@@ -1,0 +1,129 @@
+name: Compare FNF Dialogue Candidates
+
+on:
+  push:
+    paths:
+      - ".github/workflows/compare-fnf-dialogue-candidates.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade "yt-dlp[default]" transformers torch torchaudio soundfile
+
+      - name: Prepare cookies
+        env:
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          printf '%s' "$YOUTUBE_COOKIES" > "$RUNNER_TEMP/youtube-cookies.txt"
+          chmod 600 "$RUNNER_TEMP/youtube-cookies.txt"
+
+      - name: Download source
+        run: |
+          mkdir -p input clips
+          yt-dlp --no-playlist --js-runtimes node --remote-components ejs:github             --cookies "$RUNNER_TEMP/youtube-cookies.txt"             -x --audio-format wav             -o "input/source.%(ext)s"             "https://www.youtube.com/watch?v=ZTXK5Ckx5js"
+
+      - name: Create candidate-scoring clips
+        run: |
+          # absolute speech region centered around 1:17-1:20
+          ffmpeg -hide_banner -loglevel error -y -ss 76.55 -t 3.65 -i input/source.wav             -ac 1 -ar 16000 clips/raw.wav
+          ffmpeg -hide_banner -loglevel error -y -ss 76.55 -t 3.65 -i input/source.wav             -af "highpass=f=100,lowpass=f=7500,afftdn=nr=6:nf=-50:tn=1,dynaudnorm=f=60:g=8"             -ac 1 -ar 16000 clips/focus.wav
+          ffmpeg -hide_banner -loglevel error -y -ss 76.70 -t 3.35 -i input/source.wav             -ac 1 -ar 16000 clips/tight.wav
+          ffmpeg -hide_banner -loglevel error -y -ss 76.70 -t 3.35 -i input/source.wav             -af "highpass=f=120,lowpass=f=7000,afftdn=nr=8:nf=-50:tn=1,dynaudnorm=f=50:g=10"             -ac 1 -ar 16000 clips/tight-focus.wav
+
+      - name: Score exact candidates with Wav2Vec2 CTC
+        run: |
+          cat > /tmp/score.py <<'PY'
+          import math
+          from pathlib import Path
+          import torch
+          import torch.nn.functional as F
+          import soundfile as sf
+          from transformers import AutoProcessor, AutoModelForCTC
+
+          MODEL = "facebook/wav2vec2-base-960h"
+          candidates = [
+              "EVERYBODY LIKES ME",
+              "EVERYBODY LIKE IT",
+          ]
+
+          processor = AutoProcessor.from_pretrained(MODEL)
+          model = AutoModelForCTC.from_pretrained(MODEL)
+          model.eval()
+
+          blank = processor.tokenizer.pad_token_id
+          ctc = torch.nn.CTCLoss(blank=blank, reduction="sum", zero_infinity=False)
+
+          totals = {c: [] for c in candidates}
+
+          for wav in sorted(Path("clips").glob("*.wav")):
+              audio, sr = sf.read(wav)
+              inputs = processor(audio, sampling_rate=sr, return_tensors="pt")
+              with torch.no_grad():
+                  logits = model(inputs.input_values).logits
+              log_probs = F.log_softmax(logits, dim=-1).transpose(0, 1)
+              T = log_probs.shape[0]
+              print(f"FILE={wav.name} frames={T}")
+
+              for cand in candidates:
+                  ids = processor.tokenizer(cand, add_special_tokens=False).input_ids
+                  targets = torch.tensor(ids, dtype=torch.long)
+                  input_lengths = torch.tensor([T], dtype=torch.long)
+                  target_lengths = torch.tensor([len(ids)], dtype=torch.long)
+                  loss = ctc(log_probs, targets, input_lengths, target_lengths).item()
+                  norm = loss / len(ids)
+                  totals[cand].append(norm)
+                  print(f"CAND={cand} raw_loss={loss:.4f} norm_loss={norm:.6f} target_len={len(ids)}")
+
+              pred_ids = torch.argmax(logits, dim=-1)
+              pred = processor.batch_decode(pred_ids)[0]
+              print("GREEDY=" + pred)
+              print()
+
+          print("=== SUMMARY ===")
+          for cand, vals in totals.items():
+              avg = sum(vals)/len(vals)
+              print(f"{cand}: avg_norm_loss={avg:.6f}; per_clip=" + ",".join(f"{v:.6f}" for v in vals))
+          ordered = sorted((sum(v)/len(v), k) for k,v in totals.items())
+          print("BEST=" + ordered[0][1])
+          if len(ordered) > 1:
+              print(f"MARGIN={ordered[1][0]-ordered[0][0]:.6f}")
+          PY
+          python /tmp/score.py
+
+      - name: Run Whisper turbo as secondary check
+        run: |
+          python -m pip install --upgrade faster-whisper
+          cat > /tmp/whisper.py <<'PY'
+          from faster_whisper import WhisperModel
+          from pathlib import Path
+          model = WhisperModel("large-v3-turbo", device="cpu", compute_type="int8")
+          prompts = [None, "Everybody likes me. Everybody like it."]
+          for wav in sorted(Path("clips").glob("*.wav")):
+              for prompt in prompts:
+                  segs, _ = model.transcribe(
+                      str(wav), language="en", beam_size=8,
+                      temperature=0.0, vad_filter=False,
+                      condition_on_previous_text=False,
+                      initial_prompt=prompt,
+                      word_timestamps=True,
+                  )
+                  text = " ".join(s.text.strip() for s in segs)
+                  print(f"WHISPER file={wav.name} prompt={prompt!r} => {text}")
+          PY
+          python /tmp/whisper.py

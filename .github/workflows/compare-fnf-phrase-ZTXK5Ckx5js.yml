@@ -1,0 +1,87 @@
+name: Compare FNF Phrase ZTXK5Ckx5js
+
+on:
+  push:
+    paths:
+      - ".github/workflows/compare-fnf-phrase-ZTXK5Ckx5js.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade "yt-dlp[default]" faster-whisper
+      - name: Prepare cookies
+        env:
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          test -n "${YOUTUBE_COOKIES:-}"
+          printf '%s' "$YOUTUBE_COOKIES" > "$RUNNER_TEMP/youtube-cookies.txt"
+          chmod 600 "$RUNNER_TEMP/youtube-cookies.txt"
+      - name: Download source
+        run: |
+          mkdir -p input clips
+          yt-dlp --no-playlist --js-runtimes node --remote-components ejs:github \
+            --cookies "$RUNNER_TEMP/youtube-cookies.txt" \
+            -x --audio-format wav -o "input/source.%(ext)s" \
+            "https://www.youtube.com/watch?v=ZTXK5Ckx5js"
+      - name: Create comparison clips
+        run: |
+          # Main 4.5 s window
+          ffmpeg -hide_banner -loglevel error -y -ss 75.5 -t 4.5 -i input/source.wav -ac 1 -ar 16000 clips/raw.wav
+          ffmpeg -hide_banner -loglevel error -y -ss 75.5 -t 4.5 -i input/source.wav \
+            -af "highpass=f=90,lowpass=f=8500,dynaudnorm=f=40:g=8" -ac 1 -ar 16000 clips/light.wav
+          ffmpeg -hide_banner -loglevel error -y -ss 75.5 -t 4.5 -i input/source.wav \
+            -af "highpass=f=120,lowpass=f=7000,afftdn=nr=8:nf=-50:tn=1,dynaudnorm=f=40:g=10" -ac 1 -ar 16000 clips/denoise.wav
+          ffmpeg -hide_banner -loglevel error -y -ss 76.2 -t 3.5 -i input/source.wav -ac 1 -ar 16000 clips/narrow.wav
+      - name: Transcribe with two models
+        run: |
+          cat > /tmp/check.py <<'PY'
+          from faster_whisper import WhisperModel
+          from pathlib import Path
+          models = ["medium.en", "large-v3-turbo"]
+          clips = sorted(Path("clips").glob("*.wav"))
+          for model_name in models:
+              print(f"=== MODEL {model_name} ===")
+              model = WhisperModel(model_name, device="cpu", compute_type="int8")
+              for p in clips:
+                  print(f"FILE {p.name}")
+                  for prompt in [None, "Everybody likes me. Everybody like it."]:
+                      label = "NOPROMPT" if prompt is None else "CANDIDATE_PROMPT"
+                      segments, info = model.transcribe(
+                          str(p),
+                          language="en",
+                          beam_size=10,
+                          best_of=10,
+                          temperature=0.0,
+                          vad_filter=False,
+                          condition_on_previous_text=False,
+                          word_timestamps=True,
+                          initial_prompt=prompt,
+                          no_speech_threshold=0.45,
+                          log_prob_threshold=-1.5,
+                      )
+                      print(label)
+                      got = False
+                      for s in segments:
+                          got = True
+                          print(f"[{s.start:.2f}-{s.end:.2f}] {s.text.strip()} AVGLOG={s.avg_logprob:.3f} NOSPEECH={s.no_speech_prob:.3f}")
+                          if s.words:
+                              print("WORDS " + " | ".join(f"{w.word.strip()}({w.probability:.2f})" for w in s.words))
+                      if not got:
+                          print("(no speech)")
+          PY
+          python /tmp/check.py

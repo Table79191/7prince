@@ -61,7 +61,7 @@ jobs:
         run: |
           RESPONSE=$(curl -fsS -X POST http://127.0.0.1:8765/api/resolve \
             -H 'Content-Type: application/json' \
-            --data '{"url":"https://www.youtube.com/watch?v=BaW_jenozKcj"}')
+            --data '{"url":"https://www.youtube.com/watch?v=jNQXAC9IVRw"}')
           echo "$RESPONSE" | python -m json.tool
           STREAM=$(python -c 'import json,sys; print(json.load(sys.stdin)["stream"])' <<< "$RESPONSE")
           echo "$STREAM" > /tmp/stream-path.txt

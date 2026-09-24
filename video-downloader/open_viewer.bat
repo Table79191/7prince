@@ -3,7 +3,9 @@ setlocal
 cd /d "%~dp0"
 title Realtime Video Viewer
 
-set "PORT=8765"
+set "PORT="
+for /f %%P in ('powershell -NoProfile -Command "$l=[System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback,0);$l.Start();$p=$l.LocalEndpoint.Port;$l.Stop();Write-Output $p"') do set "PORT=%%P"
+if not defined PORT set "PORT=8765"
 
 where py >nul 2>nul
 if not errorlevel 1 goto USE_PY

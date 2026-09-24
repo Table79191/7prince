@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YouTube Realtime Viewer</title>
+<style>
+body{margin:0;background:#0b0d12;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px}
+h1{font-size:28px;margin:0 0 16px}
+form{display:flex;gap:8px;margin-bottom:14px}
+input{flex:1;padding:14px;border-radius:10px;border:1px solid #303746;background:#121722;color:#fff;font-size:16px}
+button{padding:0 20px;border:0;border-radius:10px;background:#5b6cff;color:#fff;font-weight:700;cursor:pointer}
+#msg{color:#aab3c5;margin:8px 0 14px}
+.player{aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden}
+iframe{width:100%;height:100%;border:0;display:block}
+</style>
+</head>
+<body>
+<main>
+<h1>YouTube Realtime Viewer</h1>
+<form id="f">
+<input id="u" type="url" placeholder="YouTube 링크 붙여넣기" required>
+<button>재생</button>
+</form>
+<div id="msg">영상 파일을 다운로드하지 않고 YouTube에서 바로 스트리밍합니다.</div>
+<div class="player" id="p"></div>
+</main>
+<script>
+const f=document.getElementById('f'),u=document.getElementById('u'),p=document.getElementById('p'),msg=document.getElementById('msg');
+
+function getId(raw){
+  try{
+    const x=new URL(raw);
+    const h=x.hostname.replace(/^www\./,'').toLowerCase();
+    if(h==='youtu.be') return x.pathname.split('/').filter(Boolean)[0]||null;
+    if(h==='youtube.com'||h.endsWith('.youtube.com')){
+      if(x.pathname==='/watch') return x.searchParams.get('v');
+      const a=x.pathname.split('/').filter(Boolean);
+      if(['shorts','live','embed'].includes(a[0])) return a[1]||null;
+    }
+  }catch{}
+  return null;
+}
+
+function play(raw,save=true){
+  const id=getId(raw);
+  if(!id){msg.textContent='올바른 YouTube 링크를 넣어 주세요.';return}
+  const frame=document.createElement('iframe');
+  const params=new URLSearchParams({autoplay:'1',playsinline:'1',rel:'0'});
+  frame.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?'+params.toString();
+  frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  frame.allowFullscreen=true;
+  frame.referrerPolicy='strict-origin-when-cross-origin';
+  p.replaceChildren(frame);
+  msg.textContent='스트리밍 플레이어를 불러왔습니다.';
+  if(save){
+    const here=new URL(location.href);
+    here.searchParams.set('url',raw);
+    history.replaceState(null,'',here);
+  }
+}
+f.addEventListener('submit',e=>{e.preventDefault();play(u.value)});
+const initial=new URL(location.href).searchParams.get('url');
+if(initial){u.value=initial;play(initial,false)}
+</script>
+</body>
+</html>

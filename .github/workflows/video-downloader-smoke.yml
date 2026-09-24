@@ -61,3 +61,14 @@ jobs:
             sleep 0.5
           done
           VIEWER_URL=http://127.0.0.1:8765/index.html node video-downloader/test_viewer.mjs
+
+
+      - name: Upload fixed viewer bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: realtime-video-viewer-fixed
+          path: |
+            video-downloader/index.html
+            video-downloader/open_viewer.bat
+            video-downloader/serve_viewer.py
+          retention-days: 1

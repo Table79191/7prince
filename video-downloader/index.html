@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Realtime Video Viewer</title>
+  <style>
+    :root {
+      font-family: Inter, Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f4f6fb;
+      background: #080b12;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(71, 98, 255, .18), transparent 32rem),
+        #080b12;
+    }
+    main {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.04em; }
+    .sub { margin: 10px 0 26px; color: #9da8bc; line-height: 1.65; }
+    .bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #242b3a;
+      border-radius: 16px;
+      background: rgba(15, 19, 30, .88);
+      box-shadow: 0 20px 70px rgba(0,0,0,.28);
+    }
+    input {
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 14px 16px;
+      border-radius: 11px;
+      font: inherit;
+      color: inherit;
+      background: #0b0f18;
+    }
+    button {
+      border: 0;
+      border-radius: 11px;
+      padding: 0 22px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      color: white;
+      background: #536dfe;
+    }
+    button:hover { filter: brightness(1.08); }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: center;
+      min-height: 42px;
+      color: #9da8bc;
+      font-size: 14px;
+    }
+    #status[data-state="ok"] { color: #86e5ae; }
+    #status[data-state="error"] { color: #ff9d9d; }
+    .stage {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+      aspect-ratio: 16 / 9;
+      border: 1px solid #242b3a;
+      border-radius: 20px;
+      background: #020307;
+      box-shadow: 0 28px 80px rgba(0,0,0,.36);
+    }
+    .stage iframe,
+    .stage video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #000;
+    }
+    .empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      text-align: center;
+      color: #727e93;
+      line-height: 1.6;
+    }
+    .note {
+      margin-top: 22px;
+      color: #778196;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    code { color: #bdc8ff; }
+    @media (max-width: 650px) {
+      main { width: min(100% - 20px, 1100px); padding-top: 24px; }
+      .bar { grid-template-columns: 1fr; }
+      button { min-height: 48px; }
+      .stage { border-radius: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Realtime Video Viewer</h1>
+    <p class="sub">
+      영상 파일을 먼저 저장하지 않습니다. YouTube는 공식 임베드 플레이어로,
+      직접 MP4/WebM/HLS 주소는 브라우저 스트리밍으로 바로 재생합니다.
+    </p>
+
+    <form id="form" class="bar">
+      <input id="url" type="url" inputmode="url" autocomplete="off"
+        placeholder="https://youtu.be/... 또는 https://.../video.mp4" required />
+      <button type="submit">바로 재생</button>
+    </form>
+
+    <div class="meta">
+      <span id="status">URL을 입력하세요.</span>
+      <span id="mode"></span>
+    </div>
+
+    <section id="stage" class="stage">
+      <div id="empty" class="empty">
+        URL을 붙여넣으면 전체 파일 다운로드를 기다리지 않고 플레이어를 즉시 불러옵니다.
+      </div>
+    </section>
+
+    <p class="note">
+      공유 가능한 형태: <code>?url=영상주소</code>. 예를 들어 이 페이지 주소 뒤에
+      <code>?url=https%3A%2F%2Fyoutu.be%2F...</code>를 붙이면 열자마자 로드됩니다.
+      직접 스트림은 원본 서버가 브라우저 재생과 CORS를 허용해야 합니다.
+    </p>
+  </main>
+
+  <script>
+    const form = document.querySelector('#form');
+    const input = document.querySelector('#url');
+    const stage = document.querySelector('#stage');
+    const statusEl = document.querySelector('#status');
+    const modeEl = document.querySelector('#mode');
+
+    let hlsInstance = null;
+
+    function setStatus(message, state = '') {
+      statusEl.textContent = message;
+      statusEl.dataset.state = state;
+    }
+
+    function cleanup() {
+      if (hlsInstance) {
+        hlsInstance.destroy();
+        hlsInstance = null;
+      }
+      stage.replaceChildren();
+      modeEl.textContent = '';
+    }
+
+    function parseUrl(raw) {
+      try {
+        return new URL(raw.trim());
+      } catch {
+        return null;
+      }
+    }
+
+    function youtubeId(url) {
+      const host = url.hostname.replace(/^www\./, '').toLowerCase();
+      if (host === 'youtu.be') return url.pathname.split('/').filter(Boolean)[0] || null;
+      if (host === 'youtube.com' || host.endsWith('.youtube.com')) {
+        if (url.pathname === '/watch') return url.searchParams.get('v');
+        const parts = url.pathname.split('/').filter(Boolean);
+        if (['shorts', 'live', 'embed'].includes(parts[0])) return parts[1] || null;
+      }
+      return null;
+    }
+
+    function youtubeStart(url) {
+      const raw = url.searchParams.get('t') || url.searchParams.get('start') || '';
+      if (/^\d+$/.test(raw)) return Number(raw);
+      let total = 0;
+      const m = raw.match(/(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?/);
+      if (m) total = Number(m[1] || 0) * 3600 + Number(m[2] || 0) * 60 + Number(m[3] || 0);
+      return total;
+    }
+
+    function isHls(url) {
+      return /\.m3u8(?:$|[?#])/i.test(url.href);
+    }
+
+    function looksDirectVideo(url) {
+      return /\.(mp4|webm|ogv|mov|m4v)(?:$|[?#])/i.test(url.href);
+    }
+
+    async function ensureHlsJs() {
+      if (window.Hls) return;
+      await new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js';
+        script.onload = resolve;
+        script.onerror = () => reject(new Error('HLS.js를 불러오지 못했습니다.'));
+        document.head.appendChild(script);
+      });
+    }
+
+    async function loadMedia(raw, updateAddress = true) {
+      const url = parseUrl(raw);
+      if (!url || !/^https?:$/.test(url.protocol)) {
+        setStatus('올바른 http(s) URL을 입력하세요.', 'error');
+        return;
+      }
+
+      cleanup();
+      input.value = url.href;
+
+      const ytId = youtubeId(url);
+      if (ytId) {
+        const iframe = document.createElement('iframe');
+        const start = youtubeStart(url);
+        const params = new URLSearchParams({
+          autoplay: '1',
+          playsinline: '1',
+          rel: '0'
+        });
+        if (start) params.set('start', String(start));
+        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(ytId)}?${params}`;
+        iframe.title = 'YouTube video player';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        stage.append(iframe);
+        modeEl.textContent = 'YouTube embed · 스트리밍';
+        setStatus('YouTube 플레이어를 불러왔습니다.', 'ok');
+      } else if (isHls(url)) {
+        const video = document.createElement('video');
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        stage.append(video);
+
+        if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = url.href;
+        } else {
+          try {
+            await ensureHlsJs();
+            if (!window.Hls.isSupported()) throw new Error('이 브라우저는 HLS를 지원하지 않습니다.');
+            hlsInstance = new window.Hls({ enableWorker: true, lowLatencyMode: true });
+            hlsInstance.loadSource(url.href);
+            hlsInstance.attachMedia(video);
+          } catch (error) {
+            cleanup();
+            setStatus(error.message || 'HLS 재생을 시작하지 못했습니다.', 'error');
+            return;
+          }
+        }
+        modeEl.textContent = 'HLS · 실시간 세그먼트 스트리밍';
+        setStatus('HLS 스트림을 연결했습니다.', 'ok');
+      } else if (looksDirectVideo(url)) {
+        const video = document.createElement('video');
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.src = url.href;
+        video.addEventListener('error', () => {
+          setStatus('직접 영상 주소를 재생하지 못했습니다. CORS/접근 권한/코덱을 확인하세요.', 'error');
+        });
+        stage.append(video);
+        modeEl.textContent = 'Direct media · 브라우저 스트리밍';
+        setStatus('직접 영상 스트림을 연결했습니다.', 'ok');
+      } else {
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.textContent = '현재는 YouTube URL, 직접 MP4/WebM/OGV/MOV/M4V URL, HLS(.m3u8)를 지원합니다.';
+        stage.append(empty);
+        setStatus('지원하는 영상 주소 형식을 찾지 못했습니다.', 'error');
+        return;
+      }
+
+      if (updateAddress) {
+        const next = new URL(location.href);
+        next.searchParams.set('url', url.href);
+        history.replaceState(null, '', next);
+      }
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      loadMedia(input.value);
+    });
+
+    const initial = new URL(location.href).searchParams.get('url');
+    if (initial) loadMedia(initial, false);
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: youtube-proxy-stream-viewer
+    runtime: python
+    plan: free
+    rootDir: video-downloader/proxy-stream
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -b 0.0.0.0:$PORT app:app
+    healthCheckPath: /health

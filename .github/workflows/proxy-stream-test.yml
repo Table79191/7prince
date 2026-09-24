@@ -16,7 +16,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: video-downloader/proxy-stream
@@ -34,64 +34,26 @@ jobs:
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
       - name: Syntax check
-        run: python -m py_compile app.py
+        run: python -m py_compile app.py test_app.py
 
-      - name: Start server
+      - name: Test resolver and HTTP Range proxy
+        run: pytest -q
+
+      - name: Smoke-test server
         run: |
           python app.py > /tmp/proxy-stream.log 2>&1 &
-          echo $! > /tmp/proxy-stream.pid
-          for i in {1..30}; do
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in {1..20}; do
             if curl -fsS http://127.0.0.1:8765/health >/dev/null; then
+              curl -fsS http://127.0.0.1:8765/ | grep -q "Proxy Stream Viewer"
               exit 0
             fi
-            sleep 1
+            sleep 0.5
           done
           cat /tmp/proxy-stream.log
           exit 1
-
-      - name: Resolve YouTube stream without downloading
-        run: |
-          RESPONSE=$(curl -fsS -X POST http://127.0.0.1:8765/api/resolve \
-            -H 'Content-Type: application/json' \
-            --data '{"url":"https://www.youtube.com/watch?v=jNQXAC9IVRw"}')
-          echo "$RESPONSE" | python -m json.tool
-          STREAM=$(python -c 'import json,sys; print(json.load(sys.stdin)["stream"])' <<< "$RESPONSE")
-          echo "$STREAM" > /tmp/stream-path.txt
-
-      - name: Test HTTP Range streaming
-        run: |
-          STREAM=$(cat /tmp/stream-path.txt)
-          curl -sS -D /tmp/headers.txt \
-            -H 'Range: bytes=0-1023' \
-            "http://127.0.0.1:8765$STREAM" \
-            -o /tmp/range.bin
-          cat /tmp/headers.txt
-          test -s /tmp/range.bin
-          python - <<'PY'
-          from pathlib import Path
-          headers = Path('/tmp/headers.txt').read_text().lower()
-          assert 'content-type: video/' in headers, headers
-          assert ('206 partial content' in headers) or ('200 ok' in headers), headers
-          print('RANGE STREAM TEST OK:', Path('/tmp/range.bin').stat().st_size, 'bytes')
-          PY
-
-      - name: Reject non-YouTube proxy targets
-        run: |
-          CODE=$(curl -s -o /tmp/reject.json -w '%{http_code}' \
-            -X POST http://127.0.0.1:8765/api/resolve \
-            -H 'Content-Type: application/json' \
-            --data '{"url":"http://127.0.0.1:1/private"}')
-          cat /tmp/reject.json
-          test "$CODE" = "400"
-
-      - name: Show server log on failure
-        if: failure()
-        run: cat /tmp/proxy-stream.log || true

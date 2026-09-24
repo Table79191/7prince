@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proxy Stream Viewer</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,Pretendard,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#080b12;color:#f5f7ff}
+main{width:min(1100px,calc(100% - 24px));margin:auto;padding:32px 0 60px}
+h1{margin:0 0 8px;font-size:clamp(28px,5vw,46px)}
+p{color:#98a3b7;line-height:1.65}
+form{display:grid;grid-template-columns:1fr auto;gap:10px;margin:22px 0 12px}
+input,button{font:inherit;border-radius:12px}
+input{padding:14px 16px;background:#111622;color:#fff;border:1px solid #2a3241;outline:none}
+button{padding:0 22px;border:0;background:#596cff;color:#fff;font-weight:800;cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
+#status{min-height:28px;color:#aab3c6}
+#status.error{color:#ff9c9c}
+#meta{margin:8px 0 14px;font-size:14px;color:#8d98ab}
+.player{aspect-ratio:16/9;background:#000;border:1px solid #242b39;border-radius:18px;overflow:hidden}
+video{width:100%;height:100%;display:block;background:#000}
+small{display:block;margin-top:16px;color:#6f7b90;line-height:1.6}
+@media(max-width:650px){form{grid-template-columns:1fr}button{min-height:48px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Proxy Stream Viewer</h1>
+<p>YouTube iframe 대신 서버가 재생 가능한 미디어 주소를 얻고, 브라우저에는 필요한 구간만 스트리밍합니다.</p>
+<form id="form">
+<input id="url" type="url" placeholder="YouTube 링크 붙여넣기" autocomplete="off" required>
+<button id="play" type="submit">바로 재생</button>
+</form>
+<div id="status">URL을 입력하세요.</div>
+<div id="meta"></div>
+<div class="player"><video id="video" controls playsinline preload="metadata"></video></div>
+<small>전체 파일을 먼저 저장하지 않습니다. 제한 영상은 YouTube 로그인/연령 확인이 필요한 경우 재생되지 않을 수 있습니다.</small>
+</main>
+<script>
+const form=document.querySelector('#form');
+const input=document.querySelector('#url');
+const button=document.querySelector('#play');
+const statusEl=document.querySelector('#status');
+const metaEl=document.querySelector('#meta');
+const video=document.querySelector('#video');
+
+function status(text,error=false){
+  statusEl.textContent=text;
+  statusEl.className=error?'error':'';
+}
+
+async function resolveAndPlay(raw){
+  button.disabled=true;
+  metaEl.textContent='';
+  status('스트림 주소를 확인하는 중…');
+  video.removeAttribute('src');
+  video.load();
+
+  try{
+    const res=await fetch('/api/resolve',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({url:raw})
+    });
+    const data=await res.json();
+    if(!res.ok) throw new Error(data.error||'스트림을 불러오지 못했습니다.');
+
+    video.src=data.stream;
+    const f=data.format||{};
+    const quality=f.height?f.height+'p':'';
+    metaEl.textContent=[data.title,quality,f.ext].filter(Boolean).join(' · ');
+    status('스트리밍 준비 완료. 재생을 시작합니다.');
+    try{await video.play()}catch{}
+    const here=new URL(location.href);
+    here.searchParams.set('url',raw);
+    history.replaceState(null,'',here);
+  }catch(err){
+    status(err.message||String(err),true);
+  }finally{
+    button.disabled=false;
+  }
+}
+
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  resolveAndPlay(input.value.trim());
+});
+
+video.addEventListener('error',()=>{
+  status('재생 중 스트림이 만료되었거나 원본 연결이 끊겼습니다. 다시 불러오세요.',true);
+});
+
+const initial=new URL(location.href).searchParams.get('url');
+if(initial){
+  input.value=initial;
+  resolveAndPlay(initial);
+}
+</script>
+</body>
+</html>

@@ -51,7 +51,7 @@ jobs:
           from pathlib import Path
           from transformers import AutoProcessor, AutoModelForCTC
 
-          candidates = ["LIKES ME", "LIKE IT", "LIKES IT"]
+          candidates = ["WOULD LIKE IT", "LIKE IT", "LIKES ME", "LIKES IT", "WOULD LIKE ME"]
           models = [
               "facebook/wav2vec2-base-960h",
               "facebook/wav2vec2-large-960h-lv60-self",

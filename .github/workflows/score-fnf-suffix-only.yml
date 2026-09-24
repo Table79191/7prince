@@ -1,0 +1,89 @@
+name: Score FNF Suffix Only
+
+on:
+  push:
+    paths:
+      - ".github/workflows/score-fnf-suffix-only.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade "yt-dlp[default]" torch transformers soundfile
+      - name: Prepare cookies
+        env:
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          printf '%s' "$YOUTUBE_COOKIES" > "$RUNNER_TEMP/youtube-cookies.txt"
+          chmod 600 "$RUNNER_TEMP/youtube-cookies.txt"
+      - name: Download source
+        run: |
+          mkdir -p input clips
+          yt-dlp --no-playlist --js-runtimes node --remote-components ejs:github             --cookies "$RUNNER_TEMP/youtube-cookies.txt"             -x --audio-format wav -o "input/source.%(ext)s"             "https://www.youtube.com/watch?v=ZTXK5Ckx5js"
+      - name: Make suffix windows
+        run: |
+          # Around the first and second repetitions, after the word "everybody"
+          for spec in             "77.00 1.15 firstA"             "77.15 0.95 firstB"             "78.85 1.05 secondA"             "79.00 0.85 secondB"; do
+            set -- $spec
+            ss=$1; dur=$2; name=$3
+            ffmpeg -hide_banner -loglevel error -y -ss "$ss" -t "$dur" -i input/source.wav               -ac 1 -ar 16000 "clips/${name}-raw.wav"
+            ffmpeg -hide_banner -loglevel error -y -ss "$ss" -t "$dur" -i input/source.wav               -af "highpass=f=120,lowpass=f=7500,dynaudnorm=f=25:g=10"               -ac 1 -ar 16000 "clips/${name}-light.wav"
+          done
+      - name: CTC score suffixes
+        run: |
+          cat > /tmp/score.py <<'PY'
+          import torch, soundfile as sf
+          import torch.nn.functional as F
+          from pathlib import Path
+          from transformers import AutoProcessor, AutoModelForCTC
+
+          candidates = ["LIKES ME", "LIKE IT", "LIKES IT"]
+          models = [
+              "facebook/wav2vec2-base-960h",
+              "facebook/wav2vec2-large-960h-lv60-self",
+          ]
+          for model_id in models:
+              print("\n=== MODEL", model_id, "===")
+              proc = AutoProcessor.from_pretrained(model_id)
+              model = AutoModelForCTC.from_pretrained(model_id)
+              model.eval()
+              blank = proc.tokenizer.pad_token_id
+              totals={c:[] for c in candidates}
+              for wav in sorted(Path("clips").glob("*.wav")):
+                  audio,sr=sf.read(wav)
+                  inp=proc(audio,sampling_rate=sr,return_tensors="pt")
+                  with torch.no_grad():
+                      logits=model(inp.input_values).logits
+                  lp=F.log_softmax(logits,dim=-1).transpose(0,1)
+                  T=lp.shape[0]
+                  print("FILE",wav.name,"frames",T)
+                  for c in candidates:
+                      ids=proc.tokenizer(c).input_ids
+                      loss=F.ctc_loss(
+                          lp, torch.tensor(ids).unsqueeze(0),
+                          torch.tensor([T]), torch.tensor([len(ids)]),
+                          blank=blank,reduction="sum",zero_infinity=False
+                      ).item()
+                      norm=loss/len(ids)
+                      totals[c].append(norm)
+                      print(f"{c}: {norm:.6f}")
+              ranked=sorted((sum(v)/len(v),c) for c,v in totals.items())
+              print("=== AVG ===")
+              for avg,c in ranked: print(f"{c}: {avg:.6f}")
+              print("BEST="+ranked[0][1])
+          PY
+          python /tmp/score.py

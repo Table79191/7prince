@@ -1,6 +1,6 @@
 {
   "name": "browser-access-probe",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "type": "module",
   "description": "Open and diagnose public web pages with standard Chromium/Chrome sessions while reusing an authorized local browser session.",
@@ -11,7 +11,7 @@
     "attach": "node src/cli.mjs --cdp http://127.0.0.1:9222 --interactive-wait 180000",
     "chrome": "node src/start-local-chrome.mjs",
     "test": "node --test",
-    "check": "node --check src/cli.mjs && node --check src/start-local-chrome.mjs && node --check src/live.mjs && node --check src/detect.mjs",
+    "check": "node --check src/cli.mjs && node --check src/start-local-chrome.mjs && node --check src/live.mjs && node --check src/detect.mjs && node --check src/fallbacks.mjs",
     "live": "node src/live.mjs",
     "namuwiki": "node src/live.mjs \"https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4\""
   },

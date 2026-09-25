@@ -1,70 +1,84 @@
 # browser-access-probe
 
-A Playwright-based browser access diagnostic tool that can retain an **authorized local Chromium profile** between runs.
+A Playwright-based browser access diagnostic tool that can reuse an **authorized local Chrome session**.
 
-## Automatic session reuse
+## Recommended mode: attach to local Chrome
 
-The project now has a persistent-profile mode. Cookies, local storage, and other ordinary Chromium session state are stored under `.browser-profile/` and automatically reused.
+This is the most useful mode for sites that reject fresh cloud/headless sessions.
 
-Install once:
+### 1. Start a dedicated real Chrome session
 
 ```bash
 cd browser-access-probe
 npm install
-npx playwright install chromium
+npm run chrome
 ```
 
-Automatic access with the saved profile:
+This launches the locally installed Google Chrome/Chromium with:
+
+- a persistent profile under `.live-chrome-profile/`
+- remote debugging bound to `127.0.0.1:9222`
+- no proxy rotation, stealth patching, CAPTCHA solving, or fingerprint spoofing
+
+Keep that Chrome window open.
+
+### 2. Attach the probe to the exact same session
+
+```bash
+npm run attach -- "https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4"
+```
+
+The probe navigates the already-running Chrome tab and waits up to 180 seconds if the site asks for normal interactive verification. It does not click or solve the challenge itself. If the browser session becomes authorized normally, the probe detects the resulting navigation and records the rendered page.
+
+Later runs reuse the same live Chrome profile automatically as long as you start it with `npm run chrome`.
+
+## Persistent Playwright profile mode
+
+A separate persistent Playwright-managed profile is still available:
 
 ```bash
 npm run auto -- https://example.com
 ```
 
-For the NamuWiki page:
+Visible browser using that profile:
 
 ```bash
-npm run auto -- "https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4"
+npm run browser -- https://example.com
 ```
-
-If that site requires a fresh interactive verification, open the **same persistent profile** visibly:
-
-```bash
-npm run browser -- "https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4"
-```
-
-After a normal authorized browser session exists, later `npm run auto -- URL` calls reuse it automatically.
 
 ## Other modes
 
-Temporary browser session:
+Temporary browser:
 
 ```bash
 npm run probe -- https://example.com
 ```
 
-Explicit Playwright storage state:
+Explicit storage state:
 
 ```bash
 npm run probe -- https://example.com/account --storage-state state.json
 ```
 
-Custom persistent profile:
+Attach to a custom local CDP endpoint:
 
 ```bash
-npm run probe -- https://example.com --profile-dir ./my-profile
+npm run probe -- https://example.com --cdp http://127.0.0.1:9222 --interactive-wait 180000
 ```
 
 ## Diagnostics
 
 Every run records:
 
-- main HTTP status and final URL
-- page title
-- console/page errors and failed requests
+- main-document HTTP status
+- final URL and title
+- browser console/page errors
+- failed requests
 - common 403/429/challenge signals
 - screenshot
 - rendered HTML
 - JSON report
+- which session mode was used
 
 ### Result classes
 
@@ -76,14 +90,15 @@ Every run records:
 - `server-error`
 - `navigation-failed`
 
-## Safety boundaries
+## Session safety
 
-The persistent profile is ordinary browser session reuse. The tool intentionally does **not** solve CAPTCHAs, spoof browser fingerprints, rotate proxies, or defeat a site's access-control challenge.
+`.browser-profile/` and `.live-chrome-profile/` can contain authenticated browser state and must not be committed or shared.
 
-The `.browser-profile/` directory is ignored by Git and should never be committed because it can contain authenticated browser data.
+The tool intentionally does **not** automate CAPTCHA solving, spoof browser fingerprints, rotate proxies, or otherwise defeat a site's access-control challenge.
 
-## Tests
+## Verification
 
 ```bash
+npm run check
 npm test
 ```

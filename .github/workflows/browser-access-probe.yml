@@ -28,6 +28,8 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: npm install
+      - name: Syntax check
+        run: npm run check
       - name: Unit tests
         run: npm test
       - name: Install Chromium

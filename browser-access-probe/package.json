@@ -1,0 +1,17 @@
+{
+  "name": "browser-access-probe",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Diagnose whether a public web page is reachable in a standard Chromium session without bypassing access controls.",
+  "scripts": {
+    "probe": "node src/cli.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

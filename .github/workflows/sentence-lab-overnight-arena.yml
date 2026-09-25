@@ -186,19 +186,35 @@ jobs:
 
       - name: Persist arena winners and battle log
         run: |
-          # promoted.jsonl is only a hot-loaded working copy; the collector/promotion
-          # workflows own that tracked file on main.
-          git restore english-sentence-lab/data/promoted_silver || true
+          set -euo pipefail
+          # Hot-loading with "git checkout origin/main -- <path>" updates both the
+          # worktree and index. Reset the collector-owned data in BOTH places so it
+          # can never leak into the arena commit and conflict with live collectors.
+          git restore --source=HEAD --staged --worktree english-sentence-lab/data/promoted_silver || true
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add english-sentence-lab/artifacts/arena_hotfeed
+
           if git diff --cached --quiet; then
             echo "No arena changes to persist."
-          else
-            git commit -m "arena: persist autonomous overnight battle state"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            exit 0
           fi
+
+          git commit -m "arena: persist autonomous overnight battle state"
+
+          # Only arena_hotfeed is owned by this workflow. Rebase is now safe because
+          # collector-owned promoted_silver files are no longer part of the commit.
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 3))
+          done
+
+          echo "Failed to persist arena state after retries." >&2
+          exit 1
 
       - name: Upload arena snapshot
         if: always()

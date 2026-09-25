@@ -49,7 +49,7 @@ jobs:
                   '1.8.5-R015-ACCUMULATED-FINAL',
               }
               or version.startswith('1.8.4-FULL-AUTO-')
-              or re.fullmatch(r'R015-ARENA-R\\d+', version)
+              or re.fullmatch(r'R015-ARENA-R\d+', version)
           ), version
           checkpoint=meta['checkpoint']
           assert checkpoint.endswith('.pt'), checkpoint

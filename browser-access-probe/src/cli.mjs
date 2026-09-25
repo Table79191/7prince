@@ -4,6 +4,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import { classifyResponse, validateTarget } from './detect.mjs';
+import { buildPublicFallbacks, isBlockedClassification } from './fallbacks.mjs';
 
 function parseArgs(argv) {
   const args = {
@@ -14,12 +15,14 @@ function parseArgs(argv) {
     cdpEndpoint: undefined,
     interactiveWaitMs: 0,
     timeoutMs: 30000,
-    waitMs: 1500
+    waitMs: 1500,
+    publicFallbacks: true
   };
 
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--headed') args.headed = true;
+    else if (a === '--no-public-fallbacks') args.publicFallbacks = false;
     else if (a === '--out' && argv[i + 1]) args.outDir = argv[++i];
     else if (a === '--profile-dir' && argv[i + 1]) args.profileDir = argv[++i];
     else if (a === '--storage-state' && argv[i + 1]) args.storageState = argv[++i];
@@ -32,7 +35,7 @@ function parseArgs(argv) {
   }
 
   if (!args.url) {
-    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--cdp endpoint] [--interactive-wait ms] [--out artifacts]');
+    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--cdp endpoint] [--interactive-wait ms] [--no-public-fallbacks] [--out artifacts]');
   }
 
   const sessionModes = [args.profileDir, args.storageState, args.cdpEndpoint].filter(Boolean);
@@ -73,7 +76,7 @@ async function waitForInteractiveAccess(page, getStatus, waitMs) {
   while (Date.now() - started < waitMs) {
     await page.waitForTimeout(1000);
     const snap = await pageSnapshot(page, getStatus());
-    const blocked = ['access-blocked', 'challenge-detected', 'rate-limited'].includes(snap.verdict.classification);
+    const blocked = isBlockedClassification(snap.verdict.classification);
     if (!blocked && snap.status > 0 && snap.status < 400) {
       return snap;
     }
@@ -131,30 +134,75 @@ async function main() {
   });
 
   const started = Date.now();
-  let response;
-  let navigationError = null;
+  const attempts = [];
 
-  try {
-    response = await page.goto(target.href, {
-      waitUntil: 'domcontentloaded',
-      timeout: args.timeoutMs
+  async function navigate(candidate, kind) {
+    latestMainStatus = 0;
+    let navigationError = null;
+    let response;
+
+    try {
+      response = await page.goto(candidate.href, {
+        waitUntil: 'domcontentloaded',
+        timeout: args.timeoutMs
+      });
+      latestMainStatus = response?.status() ?? latestMainStatus;
+      if (args.waitMs) await page.waitForTimeout(args.waitMs);
+    } catch (err) {
+      navigationError = err instanceof Error ? err.message : String(err);
+    }
+
+    const snap = await pageSnapshot(page, latestMainStatus);
+    if (navigationError && snap.status === 0) snap.verdict.classification = 'navigation-failed';
+
+    attempts.push({
+      kind,
+      url: candidate.href,
+      finalUrl: snap.finalUrl,
+      status: snap.status,
+      title: snap.title,
+      classification: snap.verdict.classification,
+      navigationError
     });
-    latestMainStatus = response?.status() ?? latestMainStatus;
-    if (args.waitMs) await page.waitForTimeout(args.waitMs);
-  } catch (err) {
-    navigationError = err instanceof Error ? err.message : String(err);
+
+    return { snap, navigationError, candidate, kind };
   }
 
-  let snap = await pageSnapshot(page, latestMainStatus);
-  if (navigationError && snap.status === 0) snap.verdict.classification = 'navigation-failed';
+  let result = await navigate(target, 'original');
+  const fallbacks = args.publicFallbacks ? buildPublicFallbacks(target) : [];
 
-  const initiallyBlocked = ['access-blocked', 'challenge-detected', 'rate-limited'].includes(snap.verdict.classification);
-  if (attachedOverCdp && initiallyBlocked && args.interactiveWaitMs > 0) {
+  if (isBlockedClassification(result.snap.verdict.classification)) {
+    for (const fallback of fallbacks) {
+      const candidateResult = await navigate(fallback, 'public-mirror');
+      result = candidateResult;
+      if (!isBlockedClassification(candidateResult.snap.verdict.classification) && candidateResult.snap.status > 0 && candidateResult.snap.status < 400) {
+        break;
+      }
+    }
+  }
+
+  if (attachedOverCdp && isBlockedClassification(result.snap.verdict.classification) && args.interactiveWaitMs > 0) {
+    result = await navigate(target, 'original-interactive');
     console.error('\nThe attached Chrome tab is waiting for normal site verification. No challenge interaction is automated.');
     const recovered = await waitForInteractiveAccess(page, () => latestMainStatus, args.interactiveWaitMs);
-    if (recovered) snap = recovered;
+    if (recovered) {
+      result = {
+        ...result,
+        snap: recovered
+      };
+      attempts.push({
+        kind: 'interactive-result',
+        url: target.href,
+        finalUrl: recovered.finalUrl,
+        status: recovered.status,
+        title: recovered.title,
+        classification: recovered.verdict.classification,
+        navigationError: null
+      });
+    }
   }
 
+  const snap = result.snap;
   const stamp = safeStamp();
   const shotPath = path.join(outDir, `probe-${stamp}.png`);
   const htmlPath = path.join(outDir, `probe-${stamp}.html`);
@@ -171,15 +219,23 @@ async function main() {
         ? 'storage-state'
         : 'temporary';
 
+  const usedPublicMirror = result.kind === 'public-mirror';
   const report = {
     requestedUrl: target.href,
+    resolvedUrl: result.candidate.href,
     finalUrl: snap.finalUrl,
     status: snap.status,
     title: snap.title,
     classification: snap.verdict.classification,
     signals: snap.verdict.signals,
-    navigationError,
+    navigationError: result.navigationError,
     elapsedMs: Date.now() - started,
+    source: {
+      kind: usedPublicMirror ? 'public-mirror' : 'original',
+      mirroredFrom: usedPublicMirror ? target.href : null,
+      sameDocumentPath: usedPublicMirror ? new URL(result.candidate.href).pathname === target.pathname : true
+    },
+    attempts,
     session: {
       mode: sessionMode,
       profileDir: args.profileDir ? path.resolve(args.profileDir) : null,
@@ -187,11 +243,10 @@ async function main() {
     },
     artifacts: { screenshot: shotPath, html: htmlPath },
     notes: [
-      attachedOverCdp
-        ? 'This run used the already-running local Chrome session attached through CDP.'
-        : args.profileDir
-          ? 'Cookies and local browser state are retained in the selected profile directory for later runs.'
-          : 'Use --profile-dir or --cdp to reuse an authorized local browser session.',
+      usedPublicMirror
+        ? 'The original host was unavailable, so the same public document path was loaded from a public mirror.'
+        : 'The original host supplied the final page.',
+      'Public mirrors are third-party copies and may lag behind the original; verify important facts against primary/reliable sources.',
       'This tool does not solve CAPTCHAs, spoof browser fingerprints, rotate proxies, or bypass access controls.'
     ],
     events: events.slice(-50)

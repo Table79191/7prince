@@ -18,11 +18,13 @@ jobs:
         working-directory: browser-access-probe
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            browser-access-probe
+          sparse-checkout-cone-mode: true
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
-          cache-dependency-path: browser-access-probe/package.json
       - name: Install dependencies
         run: npm install
       - name: Install Chromium

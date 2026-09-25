@@ -11,6 +11,8 @@ function parseArgs(argv) {
     outDir: 'artifacts',
     profileDir: undefined,
     storageState: undefined,
+    cdpEndpoint: undefined,
+    interactiveWaitMs: 0,
     timeoutMs: 30000,
     waitMs: 1500
   };
@@ -21,6 +23,8 @@ function parseArgs(argv) {
     else if (a === '--out' && argv[i + 1]) args.outDir = argv[++i];
     else if (a === '--profile-dir' && argv[i + 1]) args.profileDir = argv[++i];
     else if (a === '--storage-state' && argv[i + 1]) args.storageState = argv[++i];
+    else if (a === '--cdp' && argv[i + 1]) args.cdpEndpoint = argv[++i];
+    else if (a === '--interactive-wait' && argv[i + 1]) args.interactiveWaitMs = Number(argv[++i]);
     else if (a === '--timeout' && argv[i + 1]) args.timeoutMs = Number(argv[++i]);
     else if (a === '--wait' && argv[i + 1]) args.waitMs = Number(argv[++i]);
     else if (!args.url) args.url = a;
@@ -28,22 +32,53 @@ function parseArgs(argv) {
   }
 
   if (!args.url) {
-    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--out artifacts]');
+    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--cdp endpoint] [--interactive-wait ms] [--out artifacts]');
   }
-  if (args.profileDir && args.storageState) {
-    throw new Error('Use either --profile-dir or --storage-state, not both.');
+
+  const sessionModes = [args.profileDir, args.storageState, args.cdpEndpoint].filter(Boolean);
+  if (sessionModes.length > 1) {
+    throw new Error('Use only one of --profile-dir, --storage-state, or --cdp.');
   }
+
   if (!Number.isFinite(args.timeoutMs) || args.timeoutMs < 1000 || args.timeoutMs > 120000) {
     throw new Error('--timeout must be between 1000 and 120000 ms.');
   }
   if (!Number.isFinite(args.waitMs) || args.waitMs < 0 || args.waitMs > 10000) {
     throw new Error('--wait must be between 0 and 10000 ms.');
   }
+  if (!Number.isFinite(args.interactiveWaitMs) || args.interactiveWaitMs < 0 || args.interactiveWaitMs > 600000) {
+    throw new Error('--interactive-wait must be between 0 and 600000 ms.');
+  }
+
   return args;
 }
 
 function safeStamp() {
   return new Date().toISOString().replaceAll(':', '-').replaceAll('.', '-');
+}
+
+async function pageSnapshot(page, status) {
+  const finalUrl = page.url();
+  const title = await page.title().catch(() => '');
+  const bodyText = await page.locator('body').innerText({ timeout: 3000 }).catch(() => '');
+  const html = await page.content().catch(() => '');
+  const verdict = classifyResponse({ status, title, bodyText });
+  return { status, finalUrl, title, bodyText, html, verdict };
+}
+
+async function waitForInteractiveAccess(page, getStatus, waitMs) {
+  if (!waitMs) return null;
+
+  const started = Date.now();
+  while (Date.now() - started < waitMs) {
+    await page.waitForTimeout(1000);
+    const snap = await pageSnapshot(page, getStatus());
+    const blocked = ['access-blocked', 'challenge-detected', 'rate-limited'].includes(snap.verdict.classification);
+    if (!blocked && snap.status > 0 && snap.status < 400) {
+      return snap;
+    }
+  }
+  return null;
 }
 
 async function main() {
@@ -54,8 +89,15 @@ async function main() {
 
   let browser;
   let context;
+  let attachedOverCdp = false;
+  let launchedBrowser = false;
 
-  if (args.profileDir) {
+  if (args.cdpEndpoint) {
+    browser = await chromium.connectOverCDP(args.cdpEndpoint);
+    attachedOverCdp = true;
+    context = browser.contexts()[0];
+    if (!context) throw new Error('The attached Chrome instance has no browser context.');
+  } else if (args.profileDir) {
     const profileDir = path.resolve(args.profileDir);
     await mkdir(profileDir, { recursive: true });
     context = await chromium.launchPersistentContext(profileDir, {
@@ -64,6 +106,7 @@ async function main() {
     });
   } else {
     browser = await chromium.launch({ headless: !args.headed });
+    launchedBrowser = true;
     context = await browser.newContext({
       storageState: args.storageState,
       locale: 'ko-KR'
@@ -74,9 +117,18 @@ async function main() {
   const page = pages[0] ?? await context.newPage();
 
   const events = [];
+  let latestMainStatus = 0;
+
   page.on('console', (msg) => events.push({ type: 'console', level: msg.type(), text: msg.text() }));
   page.on('pageerror', (err) => events.push({ type: 'pageerror', text: err.message }));
   page.on('requestfailed', (req) => events.push({ type: 'requestfailed', url: req.url(), error: req.failure()?.errorText }));
+  page.on('response', (res) => {
+    try {
+      if (res.request().isNavigationRequest() && res.frame() === page.mainFrame()) {
+        latestMainStatus = res.status();
+      }
+    } catch {}
+  });
 
   const started = Date.now();
   let response;
@@ -87,18 +139,21 @@ async function main() {
       waitUntil: 'domcontentloaded',
       timeout: args.timeoutMs
     });
+    latestMainStatus = response?.status() ?? latestMainStatus;
     if (args.waitMs) await page.waitForTimeout(args.waitMs);
   } catch (err) {
     navigationError = err instanceof Error ? err.message : String(err);
   }
 
-  const status = response?.status() ?? 0;
-  const finalUrl = page.url();
-  const title = await page.title().catch(() => '');
-  const bodyText = await page.locator('body').innerText({ timeout: 3000 }).catch(() => '');
-  const html = await page.content().catch(() => '');
-  const verdict = classifyResponse({ status, title, bodyText });
-  if (navigationError && status === 0) verdict.classification = 'navigation-failed';
+  let snap = await pageSnapshot(page, latestMainStatus);
+  if (navigationError && snap.status === 0) snap.verdict.classification = 'navigation-failed';
+
+  const initiallyBlocked = ['access-blocked', 'challenge-detected', 'rate-limited'].includes(snap.verdict.classification);
+  if (attachedOverCdp && initiallyBlocked && args.interactiveWaitMs > 0) {
+    console.error('\nThe attached Chrome tab is waiting for normal site verification. No challenge interaction is automated.');
+    const recovered = await waitForInteractiveAccess(page, () => latestMainStatus, args.interactiveWaitMs);
+    if (recovered) snap = recovered;
+  }
 
   const stamp = safeStamp();
   const shotPath = path.join(outDir, `probe-${stamp}.png`);
@@ -106,27 +161,37 @@ async function main() {
   const reportPath = path.join(outDir, `probe-${stamp}.json`);
 
   await page.screenshot({ path: shotPath, fullPage: true }).catch(() => {});
-  await writeFile(htmlPath, html, 'utf8');
+  await writeFile(htmlPath, snap.html, 'utf8');
 
-  const usingPersistentProfile = Boolean(args.profileDir);
+  const sessionMode = attachedOverCdp
+    ? 'cdp-attached-chrome'
+    : args.profileDir
+      ? 'persistent-profile'
+      : args.storageState
+        ? 'storage-state'
+        : 'temporary';
+
   const report = {
     requestedUrl: target.href,
-    finalUrl,
-    status,
-    title,
-    classification: verdict.classification,
-    signals: verdict.signals,
+    finalUrl: snap.finalUrl,
+    status: snap.status,
+    title: snap.title,
+    classification: snap.verdict.classification,
+    signals: snap.verdict.signals,
     navigationError,
     elapsedMs: Date.now() - started,
     session: {
-      mode: usingPersistentProfile ? 'persistent-profile' : args.storageState ? 'storage-state' : 'temporary',
-      profileDir: usingPersistentProfile ? path.resolve(args.profileDir) : null
+      mode: sessionMode,
+      profileDir: args.profileDir ? path.resolve(args.profileDir) : null,
+      cdpEndpoint: attachedOverCdp ? args.cdpEndpoint : null
     },
     artifacts: { screenshot: shotPath, html: htmlPath },
     notes: [
-      usingPersistentProfile
-        ? 'Cookies and local browser state are retained in the selected profile directory for later runs.'
-        : 'Use --profile-dir to retain cookies and local browser state between runs.',
+      attachedOverCdp
+        ? 'This run used the already-running local Chrome session attached through CDP.'
+        : args.profileDir
+          ? 'Cookies and local browser state are retained in the selected profile directory for later runs.'
+          : 'Use --profile-dir or --cdp to reuse an authorized local browser session.',
       'This tool does not solve CAPTCHAs, spoof browser fingerprints, rotate proxies, or bypass access controls.'
     ],
     events: events.slice(-50)
@@ -135,15 +200,15 @@ async function main() {
   await writeFile(reportPath, JSON.stringify(report, null, 2), 'utf8');
   console.log(JSON.stringify({ ...report, artifacts: { ...report.artifacts, report: reportPath } }, null, 2));
 
-  if (args.headed && ['access-blocked', 'challenge-detected'].includes(report.classification)) {
-    console.error('\nAccess verification is still required in the visible browser. Complete it normally, then close the browser; this profile will be reused next time.');
-    await page.waitForEvent('close', { timeout: 0 }).catch(() => {});
+  const exitCode = ['reachable', 'client-error', 'server-error'].includes(report.classification) ? 0 : 2;
+
+  if (attachedOverCdp) {
+    process.exit(exitCode);
   }
 
   await context.close().catch(() => {});
-  if (browser) await browser.close().catch(() => {});
-
-  process.exitCode = ['reachable', 'client-error', 'server-error'].includes(report.classification) ? 0 : 2;
+  if (launchedBrowser && browser) await browser.close().catch(() => {});
+  process.exitCode = exitCode;
 }
 
 main().catch((err) => {

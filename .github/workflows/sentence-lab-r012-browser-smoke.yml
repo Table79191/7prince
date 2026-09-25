@@ -38,11 +38,26 @@ jobs:
       - name: Verify production metadata
         run: |
           python - <<'PY'
-          import json
+          import json, re
           from pathlib import Path
           meta=json.loads(Path('english-sentence-lab/web/r012/model_meta.json').read_text())
-          assert meta['version'] in {'1.8.2-R012-SCHOOL-REGRESSION','1.8.3-AUTO-PROMOTED-SILVER'} or meta['version'].startswith('1.8.4-FULL-AUTO-'), meta['version']
-          assert meta['checkpoint'].endswith('_role.pt'), meta['checkpoint']
+          version=meta['version']
+          assert (
+              version in {
+                  '1.8.2-R012-SCHOOL-REGRESSION',
+                  '1.8.3-AUTO-PROMOTED-SILVER',
+                  '1.8.5-R015-ACCUMULATED-FINAL',
+              }
+              or version.startswith('1.8.4-FULL-AUTO-')
+              or re.fullmatch(r'R015-ARENA-R\\d+', version)
+          ), version
+          checkpoint=meta['checkpoint']
+          assert checkpoint.endswith('.pt'), checkpoint
+          if version.startswith('R015-ARENA-'):
+              assert checkpoint == 'role_arena_latest.pt', checkpoint
+              assert meta.get('checkpoint_path','').endswith('/role_arena_latest.pt'), meta.get('checkpoint_path')
+          else:
+              assert checkpoint.endswith('_role.pt'), checkpoint
           PY
       - name: Run shared browser smoke
         run: bash english-sentence-lab/scripts/browser_smoke_test.sh

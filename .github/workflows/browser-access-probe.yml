@@ -35,7 +35,7 @@ jobs:
       - name: Probe NamuWiki page
         continue-on-error: true
         run: |
-          npm run probe -- 'https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4' --out ./artifacts
+          npm run auto -- 'https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4' --out ./artifacts
       - name: Print probe report
         if: always()
         run: |

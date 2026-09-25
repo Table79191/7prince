@@ -9,6 +9,7 @@ function parseArgs(argv) {
   const args = {
     headed: false,
     outDir: 'artifacts',
+    profileDir: undefined,
     storageState: undefined,
     timeoutMs: 30000,
     waitMs: 1500
@@ -18,6 +19,7 @@ function parseArgs(argv) {
     const a = argv[i];
     if (a === '--headed') args.headed = true;
     else if (a === '--out' && argv[i + 1]) args.outDir = argv[++i];
+    else if (a === '--profile-dir' && argv[i + 1]) args.profileDir = argv[++i];
     else if (a === '--storage-state' && argv[i + 1]) args.storageState = argv[++i];
     else if (a === '--timeout' && argv[i + 1]) args.timeoutMs = Number(argv[++i]);
     else if (a === '--wait' && argv[i + 1]) args.waitMs = Number(argv[++i]);
@@ -26,7 +28,10 @@ function parseArgs(argv) {
   }
 
   if (!args.url) {
-    throw new Error('Usage: npm run probe -- <url> [--headed] [--storage-state state.json] [--out artifacts]');
+    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--out artifacts]');
+  }
+  if (args.profileDir && args.storageState) {
+    throw new Error('Use either --profile-dir or --storage-state, not both.');
   }
   if (!Number.isFinite(args.timeoutMs) || args.timeoutMs < 1000 || args.timeoutMs > 120000) {
     throw new Error('--timeout must be between 1000 and 120000 ms.');
@@ -47,12 +52,26 @@ async function main() {
   const outDir = path.resolve(args.outDir);
   await mkdir(outDir, { recursive: true });
 
-  const browser = await chromium.launch({ headless: !args.headed });
-  const context = await browser.newContext({
-    storageState: args.storageState,
-    locale: 'ko-KR'
-  });
-  const page = await context.newPage();
+  let browser;
+  let context;
+
+  if (args.profileDir) {
+    const profileDir = path.resolve(args.profileDir);
+    await mkdir(profileDir, { recursive: true });
+    context = await chromium.launchPersistentContext(profileDir, {
+      headless: !args.headed,
+      locale: 'ko-KR'
+    });
+  } else {
+    browser = await chromium.launch({ headless: !args.headed });
+    context = await browser.newContext({
+      storageState: args.storageState,
+      locale: 'ko-KR'
+    });
+  }
+
+  const pages = context.pages();
+  const page = pages[0] ?? await context.newPage();
 
   const events = [];
   page.on('console', (msg) => events.push({ type: 'console', level: msg.type(), text: msg.text() }));
@@ -89,6 +108,7 @@ async function main() {
   await page.screenshot({ path: shotPath, fullPage: true }).catch(() => {});
   await writeFile(htmlPath, html, 'utf8');
 
+  const usingPersistentProfile = Boolean(args.profileDir);
   const report = {
     requestedUrl: target.href,
     finalUrl,
@@ -98,10 +118,16 @@ async function main() {
     signals: verdict.signals,
     navigationError,
     elapsedMs: Date.now() - started,
+    session: {
+      mode: usingPersistentProfile ? 'persistent-profile' : args.storageState ? 'storage-state' : 'temporary',
+      profileDir: usingPersistentProfile ? path.resolve(args.profileDir) : null
+    },
     artifacts: { screenshot: shotPath, html: htmlPath },
     notes: [
-      'This tool does not solve CAPTCHAs, rotate proxies, spoof browser fingerprints, or bypass access controls.',
-      'If a site requires login, provide a storage-state file created from your own authorized browser session.'
+      usingPersistentProfile
+        ? 'Cookies and local browser state are retained in the selected profile directory for later runs.'
+        : 'Use --profile-dir to retain cookies and local browser state between runs.',
+      'This tool does not solve CAPTCHAs, spoof browser fingerprints, rotate proxies, or bypass access controls.'
     ],
     events: events.slice(-50)
   };
@@ -109,8 +135,13 @@ async function main() {
   await writeFile(reportPath, JSON.stringify(report, null, 2), 'utf8');
   console.log(JSON.stringify({ ...report, artifacts: { ...report.artifacts, report: reportPath } }, null, 2));
 
-  await context.close();
-  await browser.close();
+  if (args.headed && ['access-blocked', 'challenge-detected'].includes(report.classification)) {
+    console.error('\nAccess verification is still required in the visible browser. Complete it normally, then close the browser; this profile will be reused next time.');
+    await page.waitForEvent('close', { timeout: 0 }).catch(() => {});
+  }
+
+  await context.close().catch(() => {});
+  if (browser) await browser.close().catch(() => {});
 
   process.exitCode = ['reachable', 'client-error', 'server-error'].includes(report.classification) ? 0 : 2;
 }

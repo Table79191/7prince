@@ -2,3 +2,4 @@ node_modules/
 artifacts/
 .browser-profile/
 *.log
+.live-chrome-profile/

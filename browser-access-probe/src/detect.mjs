@@ -1,3 +1,5 @@
+import { isIP } from 'node:net';
+
 const BLOCK_TITLE_PATTERNS = [
   /access denied/i,
   /forbidden/i,
@@ -21,6 +23,33 @@ const BLOCK_BODY_PATTERNS = [
   /too many requests/i
 ];
 
+function isPrivateIpLiteral(hostname) {
+  const host = hostname.replace(/^\[|\]$/g, '');
+  const kind = isIP(host);
+
+  if (kind === 4) {
+    const [a, b] = host.split('.').map(Number);
+    return (
+      a === 0 ||
+      a === 10 ||
+      a === 127 ||
+      (a === 100 && b >= 64 && b <= 127) ||
+      (a === 169 && b === 254) ||
+      (a === 172 && b >= 16 && b <= 31) ||
+      (a === 192 && b === 168) ||
+      (a === 198 && (b === 18 || b === 19)) ||
+      a >= 224
+    );
+  }
+
+  if (kind === 6) {
+    const first = Number.parseInt(host.split(':')[0] || '0', 16);
+    return host === '::' || host === '::1' || (first >= 0xfc00 && first <= 0xfdff) || (first >= 0xfe80 && first <= 0xfebf);
+  }
+
+  return false;
+}
+
 export function validateTarget(raw) {
   let url;
   try {
@@ -34,8 +63,8 @@ export function validateTarget(raw) {
   }
 
   const host = url.hostname.toLowerCase();
-  const blockedHosts = new Set(['localhost', '127.0.0.1', '::1']);
-  if (blockedHosts.has(host) || host.endsWith('.local')) {
+  const blockedHosts = new Set(['localhost']);
+  if (blockedHosts.has(host) || host.endsWith('.local') || isPrivateIpLiteral(host)) {
     throw new Error('Local/private targets are intentionally unsupported.');
   }
 

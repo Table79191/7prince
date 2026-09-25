@@ -1,11 +1,13 @@
 {
   "name": "browser-access-probe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
-  "description": "Diagnose whether a public web page is reachable in a standard Chromium session without bypassing access controls.",
+  "description": "Open and diagnose public web pages with a standard Chromium session while reusing an authorized local browser profile.",
   "scripts": {
     "probe": "node src/cli.mjs",
+    "auto": "node src/cli.mjs --profile-dir .browser-profile",
+    "browser": "node src/cli.mjs --headed --profile-dir .browser-profile",
     "test": "node --test"
   },
   "dependencies": {

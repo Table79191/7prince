@@ -1,26 +1,12 @@
 # browser-access-probe
 
-A small Playwright-based diagnostic tool for checking whether a **public web page** is reachable through a normal Chromium session.
+A Playwright-based browser access diagnostic tool that can retain an **authorized local Chromium profile** between runs.
 
-It is useful when a simple HTTP fetch gets blocked but a regular browser may still load the page because the site requires JavaScript, cookies, or an authenticated user session.
+## Automatic session reuse
 
-## What it does
+The project now has a persistent-profile mode. Cookies, local storage, and other ordinary Chromium session state are stored under `.browser-profile/` and automatically reused.
 
-- Opens the target with standard Playwright Chromium.
-- Records the main HTTP status, final URL, page title, console/page errors, and failed requests.
-- Detects common access-block/challenge signals such as HTTP 403/429 and generic CAPTCHA/challenge pages.
-- Saves a screenshot, rendered HTML, and JSON report.
-- Can reuse a Playwright `storageState` file from **your own authorized session**.
-
-## What it intentionally does not do
-
-- No CAPTCHA solving or challenge bypass.
-- No stealth/fingerprint spoofing.
-- No proxy rotation or IP evasion.
-- No bypassing paywalls, authentication, robots-based restrictions, or other access controls.
-- No local/private-network targets.
-
-## Install
+Install once:
 
 ```bash
 cd browser-access-probe
@@ -28,40 +14,73 @@ npm install
 npx playwright install chromium
 ```
 
-## Usage
+Automatic access with the saved profile:
+
+```bash
+npm run auto -- https://example.com
+```
+
+For the NamuWiki page:
+
+```bash
+npm run auto -- "https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4"
+```
+
+If that site requires a fresh interactive verification, open the **same persistent profile** visibly:
+
+```bash
+npm run browser -- "https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4"
+```
+
+After a normal authorized browser session exists, later `npm run auto -- URL` calls reuse it automatically.
+
+## Other modes
+
+Temporary browser session:
 
 ```bash
 npm run probe -- https://example.com
 ```
 
-Visible browser:
-
-```bash
-npm run probe -- https://example.com --headed
-```
-
-Reuse your own authenticated Playwright session:
+Explicit Playwright storage state:
 
 ```bash
 npm run probe -- https://example.com/account --storage-state state.json
 ```
 
-Change output directory:
+Custom persistent profile:
 
 ```bash
-npm run probe -- https://example.com --out ./artifacts
+npm run probe -- https://example.com --profile-dir ./my-profile
 ```
 
-The command prints a JSON summary and writes `PNG`, `HTML`, and `JSON` artifacts.
+## Diagnostics
+
+Every run records:
+
+- main HTTP status and final URL
+- page title
+- console/page errors and failed requests
+- common 403/429/challenge signals
+- screenshot
+- rendered HTML
+- JSON report
 
 ### Result classes
 
-- `reachable` — page loaded without a detected challenge.
-- `access-blocked` — HTTP access-control status such as 401/403/451.
-- `rate-limited` — HTTP 429.
-- `challenge-detected` — challenge/CAPTCHA-like content detected.
-- `client-error` / `server-error` — ordinary 4xx/5xx response.
-- `navigation-failed` — DNS, TLS, timeout, or other browser navigation failure.
+- `reachable`
+- `access-blocked`
+- `rate-limited`
+- `challenge-detected`
+- `client-error`
+- `server-error`
+- `navigation-failed`
+
+## Safety boundaries
+
+The persistent profile is ordinary browser session reuse. The tool intentionally does **not** solve CAPTCHAs, spoof browser fingerprints, rotate proxies, or defeat a site's access-control challenge.
+
+The `.browser-profile/` directory is ignored by Git and should never be committed because it can contain authenticated browser data.
 
 ## Tests
 

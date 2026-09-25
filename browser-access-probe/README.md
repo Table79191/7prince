@@ -2,7 +2,7 @@
 
 A Playwright-based browser access diagnostic tool that can reuse an **authorized local Chrome session**.
 
-## Recommended mode: attach to local Chrome
+## Fastest path\n\nFor the current NamuWiki target, run:\n\n```bash\ncd browser-access-probe\nnpm install\nnpm run namuwiki\n```\n\nThis one command starts the dedicated local Chrome session if needed, attaches to it, opens the target page, waits for normal browser verification if the site asks for it, and writes the final diagnostics.\n\n## Recommended mode: attach to local Chrome
 
 This is the most useful mode for sites that reject fresh cloud/headless sessions.
 

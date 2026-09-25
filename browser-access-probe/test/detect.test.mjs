@@ -12,6 +12,14 @@ test('rejects non-http schemes', () => {
 
 test('rejects localhost targets', () => {
   assert.throws(() => validateTarget('http://127.0.0.1:8080'), /Local\/private/);
+  assert.throws(() => validateTarget('http://localhost:3000'), /Local\/private/);
+});
+
+test('rejects private IP literals', () => {
+  assert.throws(() => validateTarget('http://10.0.0.4'), /Local\/private/);
+  assert.throws(() => validateTarget('http://192.168.1.10'), /Local\/private/);
+  assert.throws(() => validateTarget('http://172.20.0.1'), /Local\/private/);
+  assert.throws(() => validateTarget('http://[::1]/'), /Local\/private/);
 });
 
 test('classifies 403 as access-blocked', () => {

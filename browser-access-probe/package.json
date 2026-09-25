@@ -1,14 +1,17 @@
 {
   "name": "browser-access-probe",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
-  "description": "Open and diagnose public web pages with a standard Chromium session while reusing an authorized local browser profile.",
+  "description": "Open and diagnose public web pages with standard Chromium/Chrome sessions while reusing an authorized local browser session.",
   "scripts": {
     "probe": "node src/cli.mjs",
     "auto": "node src/cli.mjs --profile-dir .browser-profile",
     "browser": "node src/cli.mjs --headed --profile-dir .browser-profile",
-    "test": "node --test"
+    "attach": "node src/cli.mjs --cdp http://127.0.0.1:9222 --interactive-wait 180000",
+    "chrome": "node src/start-local-chrome.mjs",
+    "test": "node --test",
+    "check": "node --check src/cli.mjs && node --check src/start-local-chrome.mjs && node --check src/detect.mjs"
   },
   "dependencies": {
     "playwright": "^1.55.0"

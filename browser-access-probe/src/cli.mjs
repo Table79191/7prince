@@ -4,7 +4,10 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import { classifyResponse, validateTarget } from './detect.mjs';
-import { buildPublicFallbacks, isBlockedClassification } from './fallbacks.mjs';
+
+function isBlockedClassification(classification) {
+  return ['access-blocked', 'challenge-detected', 'rate-limited', 'navigation-failed'].includes(classification);
+}
 
 function parseArgs(argv) {
   const args = {
@@ -15,14 +18,12 @@ function parseArgs(argv) {
     cdpEndpoint: undefined,
     interactiveWaitMs: 0,
     timeoutMs: 30000,
-    waitMs: 1500,
-    publicFallbacks: true
+    waitMs: 1500
   };
 
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === '--headed') args.headed = true;
-    else if (a === '--no-public-fallbacks') args.publicFallbacks = false;
     else if (a === '--out' && argv[i + 1]) args.outDir = argv[++i];
     else if (a === '--profile-dir' && argv[i + 1]) args.profileDir = argv[++i];
     else if (a === '--storage-state' && argv[i + 1]) args.storageState = argv[++i];
@@ -35,7 +36,7 @@ function parseArgs(argv) {
   }
 
   if (!args.url) {
-    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--cdp endpoint] [--interactive-wait ms] [--no-public-fallbacks] [--out artifacts]');
+    throw new Error('Usage: npm run probe -- <url> [--headed] [--profile-dir dir] [--storage-state state.json] [--cdp endpoint] [--interactive-wait ms] [--out artifacts]');
   }
 
   const sessionModes = [args.profileDir, args.storageState, args.cdpEndpoint].filter(Boolean);
@@ -136,13 +137,13 @@ async function main() {
   const started = Date.now();
   const attempts = [];
 
-  async function navigate(candidate, kind) {
+  async function navigate(kind) {
     latestMainStatus = 0;
     let navigationError = null;
     let response;
 
     try {
-      response = await page.goto(candidate.href, {
+      response = await page.goto(target.href, {
         waitUntil: 'domcontentloaded',
         timeout: args.timeoutMs
       });
@@ -157,7 +158,7 @@ async function main() {
 
     attempts.push({
       kind,
-      url: candidate.href,
+      url: target.href,
       finalUrl: snap.finalUrl,
       status: snap.status,
       title: snap.title,
@@ -165,31 +166,17 @@ async function main() {
       navigationError
     });
 
-    return { snap, navigationError, candidate, kind };
+    return { snap, navigationError, kind };
   }
 
-  let result = await navigate(target, 'original');
-  const fallbacks = args.publicFallbacks ? buildPublicFallbacks(target) : [];
-
-  if (isBlockedClassification(result.snap.verdict.classification)) {
-    for (const fallback of fallbacks) {
-      const candidateResult = await navigate(fallback, 'public-mirror');
-      result = candidateResult;
-      if (!isBlockedClassification(candidateResult.snap.verdict.classification) && candidateResult.snap.status > 0 && candidateResult.snap.status < 400) {
-        break;
-      }
-    }
-  }
+  let result = await navigate('original');
 
   if (attachedOverCdp && isBlockedClassification(result.snap.verdict.classification) && args.interactiveWaitMs > 0) {
-    result = await navigate(target, 'original-interactive');
+    result = await navigate('original-interactive');
     console.error('\nThe attached Chrome tab is waiting for normal site verification. No challenge interaction is automated.');
     const recovered = await waitForInteractiveAccess(page, () => latestMainStatus, args.interactiveWaitMs);
     if (recovered) {
-      result = {
-        ...result,
-        snap: recovered
-      };
+      result = { ...result, snap: recovered };
       attempts.push({
         kind: 'interactive-result',
         url: target.href,
@@ -203,6 +190,15 @@ async function main() {
   }
 
   const snap = result.snap;
+  const finalHost = (() => {
+    try { return new URL(snap.finalUrl).hostname.toLowerCase(); } catch { return ''; }
+  })();
+  const originalHost = target.hostname.toLowerCase();
+  if (finalHost && finalHost !== originalHost) {
+    snap.verdict.classification = 'navigation-failed';
+    snap.verdict.signals = [...snap.verdict.signals, 'host-mismatch'];
+  }
+
   const stamp = safeStamp();
   const shotPath = path.join(outDir, `probe-${stamp}.png`);
   const htmlPath = path.join(outDir, `probe-${stamp}.html`);
@@ -219,10 +215,8 @@ async function main() {
         ? 'storage-state'
         : 'temporary';
 
-  const usedPublicMirror = result.kind === 'public-mirror';
   const report = {
     requestedUrl: target.href,
-    resolvedUrl: result.candidate.href,
     finalUrl: snap.finalUrl,
     status: snap.status,
     title: snap.title,
@@ -231,9 +225,10 @@ async function main() {
     navigationError: result.navigationError,
     elapsedMs: Date.now() - started,
     source: {
-      kind: usedPublicMirror ? 'public-mirror' : 'original',
-      mirroredFrom: usedPublicMirror ? target.href : null,
-      sameDocumentPath: usedPublicMirror ? new URL(result.candidate.href).pathname === target.pathname : true
+      kind: 'original-only',
+      originalHost,
+      finalHost,
+      exactHostRequired: true
     },
     attempts,
     session: {
@@ -243,10 +238,7 @@ async function main() {
     },
     artifacts: { screenshot: shotPath, html: htmlPath },
     notes: [
-      usedPublicMirror
-        ? 'The original host was unavailable, so the same public document path was loaded from a public mirror.'
-        : 'The original host supplied the final page.',
-      'Public mirrors are third-party copies and may lag behind the original; verify important facts against primary/reliable sources.',
+      'Only the original requested host is accepted. Mirrors, replicas, caches, and alternate hosts are not used.',
       'This tool does not solve CAPTCHAs, spoof browser fingerprints, rotate proxies, or bypass access controls.'
     ],
     events: events.slice(-50)
@@ -255,7 +247,7 @@ async function main() {
   await writeFile(reportPath, JSON.stringify(report, null, 2), 'utf8');
   console.log(JSON.stringify({ ...report, artifacts: { ...report.artifacts, report: reportPath } }, null, 2));
 
-  const exitCode = ['reachable', 'client-error', 'server-error'].includes(report.classification) ? 0 : 2;
+  const exitCode = report.classification === 'reachable' && finalHost === originalHost ? 0 : 2;
 
   if (attachedOverCdp) {
     process.exit(exitCode);

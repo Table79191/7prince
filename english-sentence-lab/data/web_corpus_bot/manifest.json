@@ -412,14 +412,14 @@
         "reason": "noncommercial_license_excluded"
       },
       {
-        "repo": "UD_English-GENTLE",
-        "license": "CC-BY-NC-SA-4.0",
-        "reason": "noncommercial_license_excluded"
-      },
-      {
         "repo": "UD_English-PCEDT",
         "license": "RESTRICTED-LDC",
         "reason": "requires_external_LDC_text_license"
+      },
+      {
+        "repo": "UD_English-GENTLE",
+        "license": "CC-BY-NC-SA-4.0",
+        "reason": "noncommercial_license_excluded"
       },
       {
         "repo": "UD_English-UniDive",

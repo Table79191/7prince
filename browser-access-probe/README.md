@@ -1,102 +1,73 @@
 # browser-access-probe
 
-A Playwright-based browser access diagnostic tool that can reuse an **authorized local Chrome session**.
+원본 사이트만 대상으로 하는 Playwright/Chrome 접근 진단 도구입니다.
 
-## Fastest path\n\nFor the current NamuWiki target, run:\n\n```bash\ncd browser-access-probe\nnpm install\nnpm run namuwiki\n```\n\nThis one command starts the dedicated local Chrome session if needed, attaches to it, opens the target page, waits for normal browser verification if the site asks for it, and writes the final diagnostics.\n\n## Recommended mode: attach to local Chrome
+## 원본 전용 정책
 
-This is the most useful mode for sites that reject fresh cloud/headless sessions.
+이 프로젝트는 이제 다음을 **사용하지 않습니다**.
 
-### 1. Start a dedicated real Chrome session
+- 미러 사이트
+- 복제본
+- 캐시 사본
+- 대체 도메인
+
+요청한 URL의 **원래 호스트와 최종 호스트가 정확히 같아야 성공**으로 판정합니다.
+
+## NamuWiki 대상 실행
 
 ```bash
 cd browser-access-probe
 npm install
+npm run namuwiki
+```
+
+이 명령은 로컬의 전용 Chrome 세션을 시작하거나 기존 세션에 붙은 뒤, 원본 `namu.wiki` 문서만 엽니다.
+
+Cloudflare 등에서 정상적인 브라우저 검증을 요구하면 그 탭을 그대로 유지하며 기다립니다. 검증을 프로그램이 대신 풀지는 않습니다.
+
+## 로컬 Chrome 세션
+
+전용 Chrome 시작:
+
+```bash
 npm run chrome
 ```
 
-This launches the locally installed Google Chrome/Chromium with:
-
-- a persistent profile under `.live-chrome-profile/`
-- remote debugging bound to `127.0.0.1:9222`
-- no proxy rotation, stealth patching, CAPTCHA solving, or fingerprint spoofing
-
-Keep that Chrome window open.
-
-### 2. Attach the probe to the exact same session
+이미 실행 중인 Chrome 세션에 붙기:
 
 ```bash
-npm run attach -- "https://namu.wiki/w/%EC%9D%B4%EC%9E%AC%EB%AA%85%20%ED%94%BC%EC%8A%B5%20%EC%82%AC%EA%B1%B4"
+npm run attach -- "https://namu.wiki/w/..."
 ```
 
-The probe navigates the already-running Chrome tab and waits up to 180 seconds if the site asks for normal interactive verification. It does not click or solve the challenge itself. If the browser session becomes authorized normally, the probe detects the resulting navigation and records the rendered page.
+## 기타 모드
 
-Later runs reuse the same live Chrome profile automatically as long as you start it with `npm run chrome`.
-
-## Persistent Playwright profile mode
-
-A separate persistent Playwright-managed profile is still available:
+영구 Playwright 프로필:
 
 ```bash
 npm run auto -- https://example.com
 ```
 
-Visible browser using that profile:
+화면이 보이는 영구 프로필:
 
 ```bash
 npm run browser -- https://example.com
 ```
 
-## Other modes
-
-Temporary browser:
+임시 브라우저:
 
 ```bash
 npm run probe -- https://example.com
 ```
 
-Explicit storage state:
+## 성공 조건
 
-```bash
-npm run probe -- https://example.com/account --storage-state state.json
-```
+- HTTP 응답이 정상적으로 로드됨
+- 차단/챌린지 페이지가 아님
+- 최종 URL의 호스트가 요청한 원본 호스트와 동일함
 
-Attach to a custom local CDP endpoint:
+다른 도메인으로 이동하면 성공으로 처리하지 않습니다.
 
-```bash
-npm run probe -- https://example.com --cdp http://127.0.0.1:9222 --interactive-wait 180000
-```
-
-## Diagnostics
-
-Every run records:
-
-- main-document HTTP status
-- final URL and title
-- browser console/page errors
-- failed requests
-- common 403/429/challenge signals
-- screenshot
-- rendered HTML
-- JSON report
-- which session mode was used
-
-### Result classes
-
-- `reachable`
-- `access-blocked`
-- `rate-limited`
-- `challenge-detected`
-- `client-error`
-- `server-error`
-- `navigation-failed`
-
-## Session safety
-
-`.browser-profile/` and `.live-chrome-profile/` can contain authenticated browser state and must not be committed or shared.
-
-The tool intentionally does **not** automate CAPTCHA solving, spoof browser fingerprints, rotate proxies, or otherwise defeat a site's access-control challenge.
-
-## Verification
+## 검증
 
 ```bash
 npm run check

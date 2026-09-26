@@ -15,14 +15,14 @@
     "separate_from_gold_ud_corpus": true,
     "runtime_checkpoint_seconds": 1200
   },
-  "archive_sha256": "69a8ff3de808313a75c5305f4f7b3f4c9d3460c1bd9fdf0f375da247c2d02489",
-  "archive_bytes": 24878903,
-  "last_processed_sentence_id": 14053788,
-  "total_records": 2036824,
-  "auto_pass": 1931263,
-  "needs_review": 105561,
-  "added_this_run": 0,
-  "skipped_this_run": 0,
+  "archive_sha256": "f0568ae34496f8a03758ce6821b68da04b1fe67a9300de8d26d50494ae5aceab",
+  "archive_bytes": 24887945,
+  "last_processed_sentence_id": 14061020,
+  "total_records": 2037360,
+  "auto_pass": 1931783,
+  "needs_review": 105577,
+  "added_this_run": 536,
+  "skipped_this_run": 1,
   "source_exhausted_at_last_run": true,
   "shard_count": 1019
 }

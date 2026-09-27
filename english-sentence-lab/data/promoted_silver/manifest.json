@@ -1,28 +1,28 @@
 {
   "version": "PROMOTED-SILVER-1",
   "added_this_run": 2000,
-  "total_promoted": 803974,
+  "total_promoted": 805974,
   "sources": {
     "tatoeba": {
       "source_records": 2037360,
-      "processed_before": 900245,
-      "scanned": 1329,
+      "processed_before": 901574,
+      "scanned": 1478,
       "accepted": 1000,
       "rejected": {
-        "consensus": 234,
-        "status": 79,
-        "length": 15,
-        "duplicate": 1
+        "status": 96,
+        "consensus": 266,
+        "quality_length": 89,
+        "length": 27
       }
     },
     "enwiki_bulk": {
       "source_records": 1024228,
-      "processed_before": 609591,
-      "scanned": 1765,
+      "processed_before": 611356,
+      "scanned": 1619,
       "accepted": 1000,
       "rejected": {
-        "consensus": 758,
-        "length": 6,
+        "consensus": 614,
+        "length": 4,
         "duplicate": 1
       }
     },
@@ -62,155 +62,155 @@
       },
       {
         "name": "promoted-000003.jsonl",
-        "bytes": 95456887
+        "bytes": 95460638
       },
       {
         "name": "promoted-000004.jsonl",
-        "bytes": 95422829
+        "bytes": 95426379
       },
       {
         "name": "promoted-000005.jsonl",
-        "bytes": 95403948
+        "bytes": 95407218
       },
       {
         "name": "promoted-000006.jsonl",
-        "bytes": 95369019
+        "bytes": 95372031
       },
       {
         "name": "promoted-000007.jsonl",
-        "bytes": 95329182
+        "bytes": 95332968
       },
       {
         "name": "promoted-000008.jsonl",
-        "bytes": 95287906
+        "bytes": 95290744
       },
       {
         "name": "promoted-000009.jsonl",
-        "bytes": 95281002
+        "bytes": 95283562
       },
       {
         "name": "promoted-000010.jsonl",
-        "bytes": 95260414
+        "bytes": 95263998
       },
       {
         "name": "promoted-000011.jsonl",
-        "bytes": 95222099
+        "bytes": 95226081
       },
       {
         "name": "promoted-000012.jsonl",
-        "bytes": 95179764
+        "bytes": 95183331
       },
       {
         "name": "promoted-000013.jsonl",
-        "bytes": 95152390
+        "bytes": 95155764
       },
       {
         "name": "promoted-000014.jsonl",
-        "bytes": 95128140
+        "bytes": 95132001
       },
       {
         "name": "promoted-000015.jsonl",
-        "bytes": 95110068
+        "bytes": 95113081
       },
       {
         "name": "promoted-000016.jsonl",
-        "bytes": 95070319
+        "bytes": 95074416
       },
       {
         "name": "promoted-000017.jsonl",
-        "bytes": 95038399
+        "bytes": 95041268
       },
       {
         "name": "promoted-000018.jsonl",
-        "bytes": 95018625
+        "bytes": 95021185
       },
       {
         "name": "promoted-000019.jsonl",
-        "bytes": 95000501
+        "bytes": 95004182
       },
       {
         "name": "promoted-000020.jsonl",
-        "bytes": 94960125
+        "bytes": 94964107
       },
       {
         "name": "promoted-000021.jsonl",
-        "bytes": 94934850
+        "bytes": 94938109
       },
       {
         "name": "promoted-000022.jsonl",
-        "bytes": 94906443
+        "bytes": 94909606
       },
       {
         "name": "promoted-000023.jsonl",
-        "bytes": 94884952
+        "bytes": 94888860
       },
       {
         "name": "promoted-000024.jsonl",
-        "bytes": 94860133
+        "bytes": 94863196
       },
       {
         "name": "promoted-000025.jsonl",
-        "bytes": 94829806
+        "bytes": 94832787
       },
       {
         "name": "promoted-000026.jsonl",
-        "bytes": 94806236
+        "bytes": 94810127
       },
       {
         "name": "promoted-000027.jsonl",
-        "bytes": 94768429
+        "bytes": 94771299
       },
       {
         "name": "promoted-000028.jsonl",
-        "bytes": 94755341
+        "bytes": 94759151
       },
       {
         "name": "promoted-000029.jsonl",
-        "bytes": 94719823
+        "bytes": 94722355
       },
       {
         "name": "promoted-000030.jsonl",
-        "bytes": 94690062
+        "bytes": 94694044
       },
       {
         "name": "promoted-000031.jsonl",
-        "bytes": 94666015
+        "bytes": 94670077
       },
       {
         "name": "promoted-000032.jsonl",
-        "bytes": 94625893
+        "bytes": 94629129
       },
       {
         "name": "promoted-000033.jsonl",
-        "bytes": 94586194
+        "bytes": 94589206
       },
       {
         "name": "promoted-000034.jsonl",
-        "bytes": 94560571
+        "bytes": 94564252
       },
       {
         "name": "promoted-000035.jsonl",
-        "bytes": 94526899
+        "bytes": 94529737
       },
       {
         "name": "promoted-000036.jsonl",
-        "bytes": 94491757
+        "bytes": 94495329
       },
       {
         "name": "promoted-000037.jsonl",
-        "bytes": 94463836
+        "bytes": 94466543
       },
       {
         "name": "promoted-000038.jsonl",
-        "bytes": 94407882
+        "bytes": 94411864
       },
       {
         "name": "promoted-000039.jsonl",
-        "bytes": 94371947
+        "bytes": 94374912
       },
       {
         "name": "promoted-000040.jsonl",
-        "bytes": 22765044
+        "bytes": 31703484
       }
     ],
     "written_this_run": [

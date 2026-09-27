@@ -22395,3 +22395,20 @@ source_changes: none
 new_items_sample:
 - none
 
+=== 2026-09-27T15:14:53+09:00 / 2026-09-27T06:14:53+00:00 ===
+status: failure
+event: workflow_dispatch
+run_id: 36297350501
+run_attempt: 1
+event_head_sha: 1df2899d915300ecbf0867012ce6a133faae975e
+worker_base_sha: 4b16d7f0727b8f3e80874bebbb6c95a6ab7ea75d
+details: collect=success,stamp=success,validate=success,runtime=success,comparetest=success,compare=cancelled
+before_total: 70251
+after_total: 70251
+net_total_change: +0
+new_items_added: 0
+items_removed: 0
+source_changes: none
+new_items_sample:
+- none
+

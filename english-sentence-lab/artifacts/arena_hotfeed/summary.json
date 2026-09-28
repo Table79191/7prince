@@ -13,8 +13,8 @@
     "feed_state": "artifacts/arena_hotfeed/feed_state.json"
   },
   "rounds_this_run": 1,
-  "total_rounds": 5784,
-  "elapsed_seconds": 47.5435387120001,
+  "total_rounds": 5808,
+  "elapsed_seconds": 48.34356294200006,
   "current": {
     "role_dev": {
       "sentences": 6317,
@@ -118,14 +118,14 @@
     }
   },
   "this_run_battle_totals": {
-    "ties": 4559,
-    "role_exact": 4557,
-    "clause_exact": 4333,
-    "role_weighted_error_x10": 41130,
-    "clause_weighted_error_x10": 43440,
-    "clause_wins": 601,
-    "both_wrong": 1050,
-    "role_wins": 840
+    "ties": 4516,
+    "role_exact": 4615,
+    "clause_exact": 4209,
+    "role_weighted_error_x10": 40190,
+    "clause_weighted_error_x10": 50950,
+    "role_wins": 990,
+    "both_wrong": 1073,
+    "clause_wins": 494
   },
   "accepted_role_updates": 0,
   "accepted_clause_updates": 0,

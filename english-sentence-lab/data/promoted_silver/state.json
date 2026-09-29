@@ -2,7 +2,7 @@
   "version": "PROMOTED-SILVER-1",
   "sources": {
     "tatoeba": {
-      "processed_records": 966967,
+      "processed_records": 968680,
       "source_records_seen": 2037360
     },
     "mediawiki/enwiki": {
@@ -18,10 +18,10 @@
       "source_records_seen": 148
     },
     "enwiki_bulk": {
-      "processed_records": 681059,
+      "processed_records": 682809,
       "source_records_seen": 1024228
     }
   },
-  "total_promoted": 885974,
-  "updated_at_utc": "2026-09-28T23:13:08+00:00"
+  "total_promoted": 887974,
+  "updated_at_utc": "2026-09-29T03:33:09+00:00"
 }

@@ -64,9 +64,23 @@ python video_downloader.py "URL" -o "./downloads"
 python video_downloader.py "URL" --playlist
 ```
 
-## YouTube 로그인/연령 확인이 필요한 다운로드
+## YouTube 봇 확인 / 로그인 제한 대응
 
-브라우저에서 본인 계정의 쿠키를 **Netscape cookies.txt 형식**으로 내보내 이 폴더에 `cookies.txt`라는 이름으로 둘 수 있습니다. 이 파일은 인증 정보이므로 **GitHub에 커밋하면 안 됩니다.**
+기본 다운로드가 실패하면 로컬 Windows에서는 **Edge → Chrome → Brave → Firefox** 순서로 브라우저 쿠키를 자동 재시도합니다. 쿠키를 별도 파일로 내보내거나 GitHub에 저장하지 않습니다.
+
+자동 브라우저 쿠키 재시도를 끄려면:
+
+```bash
+python video_downloader.py "URL" --browser-cookies none
+```
+
+특정 브라우저만 쓰려면:
+
+```bash
+python video_downloader.py "URL" --browser-cookies edge
+```
+
+직접 만든 Netscape 형식의 `cookies.txt`를 쓰는 방식도 계속 지원합니다. 인증 정보이므로 **GitHub에 커밋하면 안 됩니다.**
 
 ```bash
 python video_downloader.py "URL" --cookies "C:\path\to\cookies.txt"

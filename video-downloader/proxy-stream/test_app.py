@@ -25,7 +25,9 @@ def test_health():
     client = target.app.test_client()
     res = client.get("/health")
     assert res.status_code == 200
-    assert res.get_json() == {"ok": True}
+    data = res.get_json()
+    assert data["ok"] is True
+    assert data["cookies"] in {"none", "configured", "invalid"}
 
 
 def test_rejects_non_youtube_url():
@@ -63,6 +65,7 @@ def test_resolve_returns_stream_token(monkeypatch):
     assert data["title"] == "Example video"
     assert data["format"]["height"] == 360
     assert data["stream"].startswith("/stream/")
+    assert data["download"].startswith("/download/")
 
 
 def test_range_is_forwarded_and_partial_content_returned(monkeypatch):
@@ -129,3 +132,27 @@ def test_choose_progressive_prefers_mp4_and_higher_resolution():
     }
     chosen = target.choose_progressive_format(info)
     assert chosen["url"].endswith("720.mp4")
+
+
+def test_download_sets_attachment_header(monkeypatch):
+    token = "download-test"
+    target.STREAMS[token] = target.StreamEntry(
+        url="https://media.example.invalid/video.mp4",
+        headers={"User-Agent": "test-agent"},
+        content_type="video/mp4",
+        title="Example video",
+        expires_at=target.time.time() + 60,
+    )
+
+    def fake_request(method, url, headers, stream, timeout, allow_redirects):
+        return FakeUpstream(status_code=200)
+
+    monkeypatch.setattr(target.SESSION, "request", fake_request)
+
+    client = target.app.test_client()
+    res = client.get(f"/download/{token}")
+
+    assert res.status_code == 200
+    assert res.data == b"TEST"
+    assert res.headers["Content-Disposition"].startswith("attachment; filename*=UTF-8''")
+    assert "Example%20video.mp4" in res.headers["Content-Disposition"]

@@ -152,8 +152,8 @@ jobs:
           elif python video-downloader/video_downloader.py "$URL" -o "$WORK"; then
             echo "Default downloader fallback succeeded."
           else
-            echo "All public unauthenticated client paths failed."
-            exit 1
+            echo "All direct YouTube client paths failed; trying Cobalt/Piped/Invidious fallback."
+            python video-downloader/alternate_video_source.py "$URL" -o "$WORK/source.mp4"
           fi
 
           VIDEO="$(python -c 'from pathlib import Path; root=Path(".work/video-background"); items=[p for p in root.iterdir() if p.is_file() and p.suffix.lower() in {".mp4",".mkv",".webm",".mov"}]; assert items, "No downloaded video file found"; print(max(items,key=lambda p:p.stat().st_size))')"

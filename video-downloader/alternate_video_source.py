@@ -91,8 +91,13 @@ def post_json(url: str, payload: dict, timeout: float = 30.0) -> dict:
         },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=timeout, context=ssl.create_default_context()) as r:
-        raw = r.read()
+    try:
+        with urllib.request.urlopen(req, timeout=timeout, context=ssl.create_default_context()) as r:
+            raw = r.read()
+    except urllib.error.HTTPError as exc:
+        raw = exc.read()
+        detail = raw.decode("utf-8", errors="replace")[:2000]
+        raise RuntimeError(f"HTTP {exc.code}: {detail}") from exc
     return json.loads(raw.decode("utf-8"))
 
 
@@ -172,31 +177,44 @@ def try_sources(source_url: str, dest: Path) -> tuple[str, str, int]:
     vid = video_id_from_url(source_url)
     errors: list[str] = []
 
-    cobalt_payload = {
-        "url": source_url,
-        "videoQuality": "1080",
-        "downloadMode": "mute",
-        "youtubeVideoCodec": "h264",
-        "disableMetadata": True,
-        "alwaysProxy": True,
-    }
+    cobalt_payloads = [
+        ("minimal", {
+            "url": source_url,
+        }),
+        ("mute-1080", {
+            "url": source_url,
+            "videoQuality": "1080",
+            "downloadMode": "mute",
+            "youtubeVideoCodec": "h264",
+            "disableMetadata": True,
+        }),
+        ("mute-1080-proxy", {
+            "url": source_url,
+            "videoQuality": "1080",
+            "downloadMode": "mute",
+            "youtubeVideoCodec": "h264",
+            "disableMetadata": True,
+            "alwaysProxy": True,
+        }),
+    ]
 
     for base in COBALT_INSTANCES:
-        try:
-            print(f"Trying Cobalt: {base}", flush=True)
-            data = post_json(base.rstrip("/") + "/", cobalt_payload)
-            stream = cobalt_stream_url(data)
-            if not stream:
-                err = data.get("error") or data
-                raise RuntimeError(f"no download URL: {err}")
-            dest.unlink(missing_ok=True)
-            size = download(stream, dest, timeout=90.0)
-            if size < 100_000:
-                raise RuntimeError(f"download suspiciously small: {size} bytes")
-            return "cobalt", base, size
-        except Exception as exc:
-            errors.append(f"Cobalt {base}: {type(exc).__name__}: {exc}")
-            dest.unlink(missing_ok=True)
+        for variant, cobalt_payload in cobalt_payloads:
+            try:
+                print(f"Trying Cobalt: {base} ({variant})", flush=True)
+                data = post_json(base.rstrip("/") + "/", cobalt_payload)
+                stream = cobalt_stream_url(data)
+                if not stream:
+                    err = data.get("error") or data
+                    raise RuntimeError(f"no download URL: {err}")
+                dest.unlink(missing_ok=True)
+                size = download(stream, dest, timeout=90.0)
+                if size < 100_000:
+                    raise RuntimeError(f"download suspiciously small: {size} bytes")
+                return "cobalt", base, size
+            except Exception as exc:
+                errors.append(f"Cobalt {base} ({variant}): {type(exc).__name__}: {exc}")
+                dest.unlink(missing_ok=True)
 
     for base in PIPED_INSTANCES:
         endpoint = f"{base.rstrip('/')}/streams/{vid}"

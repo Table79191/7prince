@@ -2,3 +2,4 @@ numpy>=2.0
 opencv-python-headless>=4.10
 yt-dlp[default]
 imageio-ffmpeg
+bgutil-ytdlp-pot-provider==2.0.0

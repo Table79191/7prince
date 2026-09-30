@@ -18,8 +18,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: video-background-extract-v2
-  cancel-in-progress: true
+  group: video-background-extract
+  cancel-in-progress: false
 
 jobs:
   extract:
@@ -29,14 +29,6 @@ jobs:
       DEFAULT_VIDEO_URL: "https://www.youtube.com/watch?v=wQyi5GouFlo&list=RDYISDLGYC3U0&index=4"
       VIDEO_ID: "wQyi5GouFlo"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-          sparse-checkout: |
-            video-downloader
-          sparse-checkout-cone-mode: true
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -47,11 +39,20 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Fetch only required project files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p video-downloader
+          BASE="https://raw.githubusercontent.com/Table79191/7prince/$GITHUB_SHA"
+          curl -fL --retry 4 --retry-delay 2 "$BASE/video-downloader/extract_background.py" -o video-downloader/extract_background.py
+          curl -fL --retry 4 --retry-delay 2 "$BASE/video-downloader/video_downloader.py" -o video-downloader/video_downloader.py
+          curl -fL --retry 4 --retry-delay 2 "$BASE/video-downloader/background-requirements.txt" -o video-downloader/background-requirements.txt
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r video-downloader/background-requirements.txt
-          python -m pip install "bgutil-ytdlp-pot-provider==2.0.0"
 
       - name: Synthetic recovery self-test
         run: python video-downloader/extract_background.py --self-test
@@ -67,41 +68,22 @@ jobs:
           fi
           echo "url=$URL" >> "$GITHUB_OUTPUT"
 
-      - name: Start YouTube PO token provider
-        shell: bash
-        run: |
-          docker run --name bgutil-provider -d --init -p 127.0.0.1:4416:4416 brainicism/bgutil-ytdlp-pot-provider:2.0.0
-          READY=0
-          for i in $(seq 1 90); do
-            if curl -fsS http://127.0.0.1:4416/ >/dev/null 2>&1; then
-              READY=1
-              break
-            fi
-            sleep 1
-          done
-          if [ "$READY" != "1" ]; then
-            docker logs bgutil-provider || true
-            exit 1
-          fi
-          python -m yt_dlp -v --simulate --extractor-args "youtube:player_client=mweb" "https://www.youtube.com/watch?v=wQyi5GouFlo" || true
-
       - name: Download target video
         shell: bash
         run: |
-          set -u
+          set -euo pipefail
           WORK=".work/video-background"
           mkdir -p "$WORK"
           URL="${{ steps.target.outputs.url }}"
-          FFMPEG="$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
-          COMMON="--newline --no-playlist --js-runtimes node --remote-components ejs:github --ffmpeg-location $FFMPEG --merge-output-format mp4 --remux-video mp4 -f bv*+ba/b"
-          if python -m yt_dlp --newline --no-playlist --js-runtimes node --remote-components ejs:github --extractor-args "youtube:player_client=mweb" --ffmpeg-location "$FFMPEG" --merge-output-format mp4 --remux-video mp4 -f "bv*+ba/b" -o "$WORK/%(title).180B [%(id)s].%(ext)s" "$URL"; then
-            echo "mweb + PO token download succeeded."
-          elif python video-downloader/video_downloader.py "$URL" -o "$WORK"; then
-            echo "Default downloader succeeded."
+
+          if python video-downloader/video_downloader.py "$URL" -o "$WORK"; then
+            echo "Primary downloader succeeded."
           else
-            echo "mweb/default failed; trying additional clients with PO provider."
-            python -m yt_dlp --newline --no-playlist --js-runtimes node --remote-components ejs:github --extractor-args "youtube:player_client=web_safari,web" --ffmpeg-location "$FFMPEG" --merge-output-format mp4 --remux-video mp4 -f "bv*+ba/b" -o "$WORK/%(title).180B [%(id)s].%(ext)s" "$URL"
+            echo "Primary downloader failed; trying alternate YouTube clients."
+            FFMPEG="$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+            python -m yt_dlp               --newline               --no-playlist               --js-runtimes node               --remote-components ejs:github               --extractor-args "youtube:player_client=android_vr,web_safari,web"               --ffmpeg-location "$FFMPEG"               --merge-output-format mp4               --remux-video mp4               -f "bv*+ba/b"               -o "$WORK/%(title).180B [%(id)s].%(ext)s"               "$URL"
           fi
+
           VIDEO="$(python -c 'from pathlib import Path; root=Path(".work/video-background"); items=[p for p in root.iterdir() if p.is_file() and p.suffix.lower() in {".mp4",".mkv",".webm",".mov"}]; assert items, "No downloaded video file found"; print(max(items,key=lambda p:p.stat().st_size))')"
           echo "VIDEO_PATH=$VIDEO" >> "$GITHUB_ENV"
           ls -lh "$VIDEO"
@@ -109,17 +91,18 @@ jobs:
       - name: Recover backgrounds from sampled frames
         shell: bash
         run: |
+          set -euo pipefail
           OUT="video-downloader/background-results/$VIDEO_ID"
           rm -rf "$OUT"
           mkdir -p "$OUT"
-          python video-downloader/extract_background.py "$VIDEO_PATH" --output-dir "$OUT" --sample-interval 0.20 --max-samples 260 --max-frames-per-shot 36 --max-shots 12
+          python video-downloader/extract_background.py "$VIDEO_PATH"             --output-dir "$OUT"             --sample-interval 0.20             --max-samples 260             --max-frames-per-shot 36             --max-shots 12
 
       - name: Show diagnostics
         run: |
           cat "video-downloader/background-results/$VIDEO_ID/diagnostics.json"
           find "video-downloader/background-results/$VIDEO_ID" -maxdepth 1 -type f -printf "%f %k KB\n" | sort
 
-      - name: Upload result artifact
+      - name: Upload full result artifact
         uses: actions/upload-artifact@v4
         with:
           name: background-${{ env.VIDEO_ID }}
@@ -127,15 +110,66 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
-      - name: Commit extracted backgrounds
+      - name: Persist main recovered backgrounds to repository
+        env:
+          GH_TOKEN: "${{ github.token }}"
+          REPO: "${{ github.repository }}"
+          BRANCH: "${{ github.ref_name }}"
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "video-downloader/background-results/$VIDEO_ID"
-          if git diff --cached --quiet; then
-            echo "No result changes to commit."
-          else
-            git commit -m "artifacts: extract background for $VIDEO_ID [skip ci]"
-            git push
-          fi
+          set -euo pipefail
+          python - <<'PY'
+import base64
+import json
+import os
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+token = os.environ["GH_TOKEN"]
+repo = os.environ["REPO"]
+branch = os.environ["BRANCH"]
+root = Path("video-downloader/background-results") / os.environ["VIDEO_ID"]
+
+files = [root / "best_background.png", root / "diagnostics.json"]
+files += sorted(root.glob("background_*.png"))
+
+for path in files:
+    if not path.is_file():
+        continue
+    repo_path = path.as_posix()
+    api = f"https://api.github.com/repos/{repo}/contents/{urllib.parse.quote(repo_path, safe='/')}"
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "video-background-extractor",
+    }
+    sha = None
+    try:
+        req = urllib.request.Request(api + "?ref=" + urllib.parse.quote(branch), headers=headers)
+        with urllib.request.urlopen(req) as resp:
+            sha = json.load(resp).get("sha")
+    except urllib.error.HTTPError as exc:
+        if exc.code != 404:
+            raise
+
+    payload = {
+        "message": f"artifacts: update extracted background {path.name} [skip ci]",
+        "content": base64.b64encode(path.read_bytes()).decode("ascii"),
+        "branch": branch,
+    }
+    if sha:
+        payload["sha"] = sha
+
+    req = urllib.request.Request(
+        api,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={**headers, "Content-Type": "application/json"},
+        method="PUT",
+    )
+    with urllib.request.urlopen(req) as resp:
+        out = json.load(resp)
+    print(repo_path, out["commit"]["sha"])
+PY

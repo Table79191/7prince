@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import base64
+import os
 import secrets
+import tempfile
 import threading
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 import requests
 import yt_dlp
@@ -16,6 +19,7 @@ ROOT = Path(__file__).resolve().parent
 SESSION = requests.Session()
 CACHE_TTL = 15 * 60
 CACHE_LOCK = threading.Lock()
+RUNTIME_COOKIE_FILE = Path(tempfile.gettempdir()) / "video-downloader-youtube-cookies.txt"
 
 
 @dataclass
@@ -41,6 +45,34 @@ def is_youtube_url(raw: str) -> bool:
     )
 
 
+def resolve_cookiefile() -> Path | None:
+    explicit = os.getenv("YOUTUBE_COOKIE_FILE", "").strip()
+    if explicit:
+        path = Path(explicit).expanduser()
+        if path.is_file():
+            return path
+        raise RuntimeError(f"YOUTUBE_COOKIE_FILE does not exist: {path}")
+
+    encoded = os.getenv("YOUTUBE_COOKIES_B64", "").strip()
+    if encoded:
+        try:
+            raw = base64.b64decode(encoded, validate=True)
+        except Exception as exc:
+            raise RuntimeError("YOUTUBE_COOKIES_B64 is not valid base64") from exc
+        if not raw:
+            raise RuntimeError("YOUTUBE_COOKIES_B64 decoded to an empty file")
+        if not RUNTIME_COOKIE_FILE.exists() or RUNTIME_COOKIE_FILE.read_bytes() != raw:
+            RUNTIME_COOKIE_FILE.write_bytes(raw)
+            try:
+                RUNTIME_COOKIE_FILE.chmod(0o600)
+            except OSError:
+                pass
+        return RUNTIME_COOKIE_FILE
+
+    local = ROOT / "cookies.txt"
+    return local if local.is_file() else None
+
+
 def purge_expired() -> None:
     now = time.time()
     with CACHE_LOCK:
@@ -64,23 +96,28 @@ def choose_progressive_format(info: dict) -> dict:
     def score(fmt: dict):
         ext_score = 1 if fmt.get("ext") == "mp4" else 0
         height = int(fmt.get("height") or 0)
-        # Progressive MP4 is typically the most browser-compatible option.
         return (ext_score, height, float(fmt.get("tbr") or 0))
 
     return max(progressive, key=score)
 
 
 def extract_stream(raw_url: str) -> tuple[dict, dict]:
-    opts = {
+    opts: dict = {
         "quiet": True,
         "no_warnings": True,
         "skip_download": True,
         "noplaylist": True,
         "cachedir": False,
+        "retries": 3,
+        "fragment_retries": 3,
     }
-    cookiefile = ROOT / "cookies.txt"
-    if cookiefile.is_file():
+    cookiefile = resolve_cookiefile()
+    if cookiefile is not None:
         opts["cookiefile"] = str(cookiefile)
+
+    player_client = os.getenv("YT_DLP_PLAYER_CLIENT", "").strip()
+    if player_client:
+        opts["extractor_args"] = {"youtube": {"player_client": [player_client]}}
 
     with yt_dlp.YoutubeDL(opts) as ydl:
         info = ydl.extract_info(raw_url, download=False)
@@ -102,7 +139,12 @@ def index():
 
 @app.get("/health")
 def health():
-    return jsonify({"ok": True})
+    cookie_mode = "none"
+    try:
+        cookie_mode = "configured" if resolve_cookiefile() else "none"
+    except Exception:
+        cookie_mode = "invalid"
+    return jsonify({"ok": True, "cookies": cookie_mode})
 
 
 @app.post("/api/resolve")
@@ -118,8 +160,14 @@ def resolve():
         info, fmt = extract_stream(raw_url)
     except Exception as exc:
         message = str(exc)
-        if "Sign in" in message or "age" in message.lower() or "confirm your age" in message.lower():
-            message = "이 영상은 YouTube 로그인/연령 확인이 필요한 제한 영상입니다."
+        lower = message.lower()
+        if "sign in" in lower or "not a bot" in lower:
+            message = (
+                "YouTube가 이 서버 IP를 봇 확인으로 차단했습니다. "
+                "서버에 YOUTUBE_COOKIES_B64 또는 YOUTUBE_COOKIE_FILE을 설정해야 합니다."
+            )
+        elif "age" in lower or "confirm your age" in lower:
+            message = "이 영상은 YouTube 로그인/연령 확인용 쿠키가 필요합니다."
         return jsonify({"error": message}), 422
 
     token = secrets.token_urlsafe(24)
@@ -152,11 +200,11 @@ def resolve():
             "format_id": fmt.get("format_id"),
         },
         "stream": f"/stream/{token}",
+        "download": f"/download/{token}",
     })
 
 
-@app.route("/stream/<token>", methods=["GET", "HEAD"])
-def stream(token: str):
+def relay(token: str, *, attachment: bool) -> Response:
     purge_expired()
     with CACHE_LOCK:
         entry = STREAMS.get(token)
@@ -197,6 +245,11 @@ def stream(token: str):
     passthrough_headers.setdefault("Accept-Ranges", "bytes")
     passthrough_headers["Cache-Control"] = "private, no-store"
 
+    if attachment:
+        ext = "webm" if "webm" in entry.content_type.lower() else "mp4"
+        filename = quote(f"{entry.title}.{ext}", safe="")
+        passthrough_headers["Content-Disposition"] = f"attachment; filename*=UTF-8''{filename}"
+
     if request.method == "HEAD":
         upstream.close()
         return Response(status=upstream.status_code, headers=passthrough_headers)
@@ -216,6 +269,16 @@ def stream(token: str):
         headers=passthrough_headers,
         direct_passthrough=True,
     )
+
+
+@app.route("/stream/<token>", methods=["GET", "HEAD"])
+def stream(token: str):
+    return relay(token, attachment=False)
+
+
+@app.route("/download/<token>", methods=["GET", "HEAD"])
+def download(token: str):
+    return relay(token, attachment=True)
 
 
 if __name__ == "__main__":

@@ -12,38 +12,44 @@ main{width:min(1100px,calc(100% - 24px));margin:auto;padding:32px 0 60px}
 h1{margin:0 0 8px;font-size:clamp(28px,5vw,46px)}
 p{color:#98a3b7;line-height:1.65}
 form{display:grid;grid-template-columns:1fr auto;gap:10px;margin:22px 0 12px}
-input,button{font:inherit;border-radius:12px}
+input,button,.download{font:inherit;border-radius:12px}
 input{padding:14px 16px;background:#111622;color:#fff;border:1px solid #2a3241;outline:none}
-button{padding:0 22px;border:0;background:#596cff;color:#fff;font-weight:800;cursor:pointer}
+button,.download{padding:0 22px;border:0;background:#596cff;color:#fff;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 button:disabled{opacity:.55;cursor:wait}
 #status{min-height:28px;color:#aab3c6}
 #status.error{color:#ff9c9c}
-#meta{margin:8px 0 14px;font-size:14px;color:#8d98ab}
+#meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:8px 0 14px;font-size:14px;color:#8d98ab}
+.download{min-height:38px;background:#1e9b63}
+.download[hidden]{display:none}
 .player{aspect-ratio:16/9;background:#000;border:1px solid #242b39;border-radius:18px;overflow:hidden}
 video{width:100%;height:100%;display:block;background:#000}
 small{display:block;margin-top:16px;color:#6f7b90;line-height:1.6}
-@media(max-width:650px){form{grid-template-columns:1fr}button{min-height:48px}}
+@media(max-width:650px){form{grid-template-columns:1fr}button{min-height:48px}.download{width:100%;min-height:46px}}
 </style>
 </head>
 <body>
 <main>
 <h1>Proxy Stream Viewer</h1>
-<p>YouTube iframe 대신 서버가 재생 가능한 미디어 주소를 얻고, 브라우저에는 필요한 구간만 스트리밍합니다.</p>
+<p>YouTube 링크를 해석해 서버가 재생 가능한 미디어 주소를 얻고, 재생하거나 파일로 저장합니다.</p>
 <form id="form">
 <input id="url" type="url" placeholder="YouTube 링크 붙여넣기" autocomplete="off" required>
-<button id="play" type="submit">바로 재생</button>
+<button id="play" type="submit">불러오기</button>
 </form>
 <div id="status">URL을 입력하세요.</div>
-<div id="meta"></div>
+<div id="meta">
+  <span id="metaText"></span>
+  <a id="download" class="download" href="#" download hidden>영상 다운로드</a>
+</div>
 <div class="player"><video id="video" controls playsinline preload="metadata"></video></div>
-<small>전체 파일을 먼저 저장하지 않습니다. 제한 영상은 YouTube 로그인/연령 확인이 필요한 경우 재생되지 않을 수 있습니다.</small>
+<small>서버 IP가 YouTube 봇 확인에 걸리는 환경에서는 서버에 YouTube 쿠키 설정이 필요할 수 있습니다.</small>
 </main>
 <script>
 const form=document.querySelector('#form');
 const input=document.querySelector('#url');
 const button=document.querySelector('#play');
 const statusEl=document.querySelector('#status');
-const metaEl=document.querySelector('#meta');
+const metaText=document.querySelector('#metaText');
+const download=document.querySelector('#download');
 const video=document.querySelector('#video');
 
 function status(text,error=false){
@@ -53,7 +59,9 @@ function status(text,error=false){
 
 async function resolveAndPlay(raw){
   button.disabled=true;
-  metaEl.textContent='';
+  metaText.textContent='';
+  download.hidden=true;
+  download.removeAttribute('href');
   status('스트림 주소를 확인하는 중…');
   video.removeAttribute('src');
   video.load();
@@ -70,8 +78,10 @@ async function resolveAndPlay(raw){
     video.src=data.stream;
     const f=data.format||{};
     const quality=f.height?f.height+'p':'';
-    metaEl.textContent=[data.title,quality,f.ext].filter(Boolean).join(' · ');
-    status('스트리밍 준비 완료. 재생을 시작합니다.');
+    metaText.textContent=[data.title,quality,f.ext].filter(Boolean).join(' · ');
+    download.href=data.download;
+    download.hidden=false;
+    status('준비 완료. 재생하거나 다운로드할 수 있습니다.');
     try{await video.play()}catch{}
     const here=new URL(location.href);
     here.searchParams.set('url',raw);

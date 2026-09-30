@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Download a public YouTube video's video-only stream through public Piped/Invidious APIs.
+"""Download a public YouTube video's video-only stream through fallback services.
 
-This is used as a fallback when YouTube blocks datacenter IPs used by CI runners.
-Only the video stream is needed for multi-frame background recovery.
+Order:
+1) community Cobalt APIs known to support YouTube
+2) Piped public APIs
+3) Invidious public APIs
+
+Only the video track is required for multi-frame background recovery.
 """
 from __future__ import annotations
 
@@ -16,6 +20,13 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+
+COBALT_INSTANCES = [
+    "https://api-cobalt.eversiege.network",
+    "https://nuko-c.meowing.de",
+    "https://bergung-api.hoffnungfuerdiezukunft.net",
+    "https://fox.kittycat.boo",
+]
 
 PIPED_INSTANCES = [
     "https://pipedapi.kavin.rocks",
@@ -68,6 +79,23 @@ def get_json(url: str, timeout: float = 18.0) -> dict:
     return json.loads(raw.decode("utf-8"))
 
 
+def post_json(url: str, payload: dict, timeout: float = 30.0) -> dict:
+    body = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=body,
+        headers={
+            "User-Agent": UA,
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=timeout, context=ssl.create_default_context()) as r:
+        raw = r.read()
+    return json.loads(raw.decode("utf-8"))
+
+
 def quality_score(item: dict) -> tuple[int, int, int]:
     text = " ".join(
         str(item.get(k, "")) for k in ("quality", "qualityLabel", "format", "mimeType", "type")
@@ -108,13 +136,23 @@ def pick_invidious_stream(data: dict) -> str | None:
     return str(candidates[0]["url"])
 
 
-def download(url: str, dest: Path, timeout: float = 30.0) -> int:
+def cobalt_stream_url(data: dict) -> str | None:
+    status = str(data.get("status") or "")
+    if status in {"redirect", "tunnel"} and data.get("url"):
+        return str(data["url"])
+    if status == "picker":
+        for item in data.get("picker") or []:
+            if isinstance(item, dict) and item.get("type") == "video" and item.get("url"):
+                return str(item["url"])
+    return None
+
+
+def download(url: str, dest: Path, timeout: float = 45.0) -> int:
     req = urllib.request.Request(
         url,
         headers={
             "User-Agent": UA,
             "Accept": "*/*",
-            "Referer": "https://www.youtube.com/",
         },
     )
     total = 0
@@ -133,6 +171,32 @@ def download(url: str, dest: Path, timeout: float = 30.0) -> int:
 def try_sources(source_url: str, dest: Path) -> tuple[str, str, int]:
     vid = video_id_from_url(source_url)
     errors: list[str] = []
+
+    cobalt_payload = {
+        "url": source_url,
+        "videoQuality": "1080",
+        "downloadMode": "mute",
+        "youtubeVideoCodec": "h264",
+        "disableMetadata": True,
+        "alwaysProxy": True,
+    }
+
+    for base in COBALT_INSTANCES:
+        try:
+            print(f"Trying Cobalt: {base}", flush=True)
+            data = post_json(base.rstrip("/") + "/", cobalt_payload)
+            stream = cobalt_stream_url(data)
+            if not stream:
+                err = data.get("error") or data
+                raise RuntimeError(f"no download URL: {err}")
+            dest.unlink(missing_ok=True)
+            size = download(stream, dest, timeout=90.0)
+            if size < 100_000:
+                raise RuntimeError(f"download suspiciously small: {size} bytes")
+            return "cobalt", base, size
+        except Exception as exc:
+            errors.append(f"Cobalt {base}: {type(exc).__name__}: {exc}")
+            dest.unlink(missing_ok=True)
 
     for base in PIPED_INSTANCES:
         endpoint = f"{base.rstrip('/')}/streams/{vid}"
@@ -169,7 +233,7 @@ def try_sources(source_url: str, dest: Path) -> tuple[str, str, int]:
             dest.unlink(missing_ok=True)
 
     print("\n".join(errors), file=sys.stderr)
-    raise RuntimeError("All Piped/Invidious fallback instances failed")
+    raise RuntimeError("All Cobalt/Piped/Invidious fallback instances failed")
 
 
 def parse_args() -> argparse.Namespace:

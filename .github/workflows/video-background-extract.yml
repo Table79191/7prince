@@ -71,6 +71,28 @@ jobs:
           fi
           echo "url=$URL" >> "$GITHUB_OUTPUT"
 
+      - name: Start YouTube PO token provider
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker rm -f bgutil-provider >/dev/null 2>&1 || true
+          docker run --name bgutil-provider -d --init -p 127.0.0.1:4416:4416 brainicism/bgutil-ytdlp-pot-provider:2.0.0
+          READY=0
+          for i in $(seq 1 90); do
+            if (echo > /dev/tcp/127.0.0.1/4416) >/dev/null 2>&1; then
+              READY=1
+              break
+            fi
+            sleep 1
+          done
+          if [ "$READY" != "1" ]; then
+            docker logs bgutil-provider || true
+            exit 1
+          fi
+          docker ps --filter name=bgutil-provider
+          python -m yt_dlp --version
+          python -m yt_dlp -v --simulate --no-playlist --extractor-args "youtube:player_client=mweb" "${{ steps.target.outputs.url }}" || true
+
       - name: Download target video
         shell: bash
         run: |
@@ -78,12 +100,16 @@ jobs:
           WORK=".work/video-background"
           mkdir -p "$WORK"
           URL="${{ steps.target.outputs.url }}"
-          if python video-downloader/video_downloader.py "$URL" -o "$WORK"; then
-            echo "Primary downloader succeeded."
+          FFMPEG="$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+          if python -m yt_dlp --newline --no-playlist --js-runtimes node --remote-components ejs:github --extractor-args "youtube:player_client=mweb" --ffmpeg-location "$FFMPEG" --merge-output-format mp4 --remux-video mp4 -f "bv*+ba/b" -o "$WORK/%(title).180B [%(id)s].%(ext)s" "$URL"; then
+            echo "mweb + PO token provider download succeeded."
+          elif python -m yt_dlp --newline --no-playlist --js-runtimes node --remote-components ejs:github --extractor-args "youtube:player_client=web_safari" --ffmpeg-location "$FFMPEG" --merge-output-format mp4 --remux-video mp4 -f "bv*+ba/b" -o "$WORK/%(title).180B [%(id)s].%(ext)s" "$URL"; then
+            echo "web_safari fallback succeeded."
+          elif python video-downloader/video_downloader.py "$URL" -o "$WORK"; then
+            echo "Default downloader fallback succeeded."
           else
-            echo "Primary downloader failed; trying alternate YouTube clients."
-            FFMPEG="$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
-            python -m yt_dlp --newline --no-playlist --js-runtimes node --remote-components ejs:github --extractor-args "youtube:player_client=android_vr,web_safari,web" --ffmpeg-location "$FFMPEG" --merge-output-format mp4 --remux-video mp4 -f "bv*+ba/b" -o "$WORK/%(title).180B [%(id)s].%(ext)s" "$URL"
+            echo "PO/default paths failed; trying remaining YouTube clients."
+            python -m yt_dlp --newline --no-playlist --js-runtimes node --remote-components ejs:github --extractor-args "youtube:player_client=android_vr,web" --ffmpeg-location "$FFMPEG" --merge-output-format mp4 --remux-video mp4 -f "bv*+ba/b" -o "$WORK/%(title).180B [%(id)s].%(ext)s" "$URL"
           fi
           VIDEO="$(python -c 'from pathlib import Path; root=Path(".work/video-background"); items=[p for p in root.iterdir() if p.is_file() and p.suffix.lower() in {".mp4",".mkv",".webm",".mov"}]; assert items, "No downloaded video file found"; print(max(items,key=lambda p:p.stat().st_size))')"
           echo "VIDEO_PATH=$VIDEO" >> "$GITHUB_ENV"

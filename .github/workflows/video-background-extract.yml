@@ -160,6 +160,14 @@ jobs:
           echo "VIDEO_PATH=$VIDEO" >> "$GITHUB_ENV"
           ls -lh "$VIDEO"
 
+      - name: Upload downloaded source video
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-video-${{ env.VIDEO_ID }}
+          path: ${{ env.VIDEO_PATH }}
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Recover backgrounds
         shell: bash
         run: |

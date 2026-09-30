@@ -73,6 +73,24 @@ jobs:
           fi
           echo "url=$URL" >> "$GITHUB_OUTPUT"
 
+      - name: Load optional YouTube cookies
+        shell: bash
+        env:
+          YOUTUBE_COOKIES_B64: "${{ secrets.YOUTUBE_COOKIES_B64 }}"
+        run: |
+          set -euo pipefail
+          mkdir -p .work
+          if [ -n "$YOUTUBE_COOKIES_B64" ]; then
+            printf '%s' "$YOUTUBE_COOKIES_B64" | base64 --decode > .work/youtube-cookies.txt
+            chmod 600 .work/youtube-cookies.txt
+            cp .work/youtube-cookies.txt video-downloader/cookies.txt
+            echo "YOUTUBE_COOKIE_FILE=$PWD/.work/youtube-cookies.txt" >> "$GITHUB_ENV"
+            echo "YouTube cookie secret is configured."
+          else
+            echo "YOUTUBE_COOKIE_FILE=" >> "$GITHUB_ENV"
+            echo "YouTube cookie secret is not configured."
+          fi
+
       - name: Start YouTube PO token provider
         shell: bash
         run: |
@@ -104,12 +122,19 @@ jobs:
           URL="${{ steps.target.outputs.url }}"
           URL="${URL%%&*}"
           FFMPEG="$(python -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+          COOKIE_ARGS=()
+          if [ -n "${YOUTUBE_COOKIE_FILE:-}" ]; then
+            COOKIE_ARGS=(--cookies "$YOUTUBE_COOKIE_FILE")
+            echo "Authenticated cookie mode enabled."
+          else
+            echo "Anonymous mode."
+          fi
 
           download_with_client() {
             local LABEL="$1"
             local ARGS="$2"
             echo "Trying $LABEL with $ARGS"
-            python -m yt_dlp               --newline               --no-playlist               --js-runtimes node               --remote-components ejs:github               --extractor-args "$ARGS"               --ffmpeg-location "$FFMPEG"               --merge-output-format mp4               --remux-video mp4               -f "bv*+ba/b"               -o "$WORK/%(title).180B [%(id)s].%(ext)s"               "$URL"
+            python -m yt_dlp "${COOKIE_ARGS[@]}"               --newline               --no-playlist               --js-runtimes node               --remote-components ejs:github               --extractor-args "$ARGS"               --ffmpeg-location "$FFMPEG"               --merge-output-format mp4               --remux-video mp4               -f "bv*+ba/b"               -o "$WORK/%(title).180B [%(id)s].%(ext)s"               "$URL"
           }
 
           if download_with_client "mweb PO/no-webpage" "youtube:player_client=mweb;player_skip=webpage"; then

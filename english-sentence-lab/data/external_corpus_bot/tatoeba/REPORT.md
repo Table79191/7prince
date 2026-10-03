@@ -8,7 +8,7 @@ This is a weakly labeled external corpus and is kept separate from the UD gold c
 - Auto-pass: 1932383
 - Needs review: 105595
 - Last processed Tatoeba sentence id: 14068434
-- Added this run: 618
+- Added this run: 0
 - Shards: 1019
 
 No sentence-count or total-corpus cap is configured. Runs checkpoint by wall-clock time so GitHub Actions can commit progress before its job timeout.
